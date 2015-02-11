@@ -1,0 +1,37 @@
+
+class Category_1004 { 
+class vil_AK_nato_m80 { type = "trade_weapons"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
+class vil_AKs_74_u { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
+class vil_AKs_74_u45 { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class Vil_AKS_74_UN_kobra { type = "trade_weapons"; buy[] = {900,"Coins"}; sell[] = {500,"Coins"}; }; 
+class Vil_AKS_74_UB { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74 { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
+class vil_AK_74_gp { type = "trade_weapons"; buy[] = {700,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74_N { type = "trade_weapons"; buy[] = {700,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AKS_74_gp { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
+class vil_AKS_74p { type = "trade_weapons"; buy[] = {700,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AKS_74p_45 { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74P { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AKS_74p_gp { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_AK_74m { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74M_N { type = "trade_weapons"; buy[] = {900,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74M_PSO { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_AK_74m_k { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74m_EOT { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74m_EOT_Alfa { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74m_EOT_FSB { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_AK_74m_EOT_FSB_45 { type = "trade_weapons"; buy[] = {1200,"Coins"}; sell[] = {600,"Coins"}; }; 
+class vil_AK_74m_EOT_FSB_60 { type = "trade_weapons"; buy[] = {1400,"Coins"}; sell[] = {700,"Coins"}; }; 
+class vil_AK_74m_c { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_74m_p29 { type = "trade_weapons"; buy[] = {900,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_AK_74m_gp_29 { type = "trade_weapons"; buy[] = {1200,"Coins"}; sell[] = {600,"Coins"}; }; 
+class vil_AK_74m_gp { type = "trade_weapons"; buy[] = {1100,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_type88_1 { type = "trade_weapons"; buy[] = {1400,"Coins"}; sell[] = {700,"Coins"}; }; 
+class vil_PMI74S { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
+class vil_Rak74sgl { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
+class vil_AK_101 { type = "trade_weapons"; buy[] = {1100,"Coins"}; sell[] = {500,"Coins"}; }; 
+class vil_AK_103 { type = "trade_weapons"; buy[] = {1200,"Coins"}; sell[] = {600,"Coins"}; }; 
+class vil_AK_105 { type = "trade_weapons"; buy[] = {1400,"Coins"}; sell[] = {700,"Coins"}; }; 
+class Vil_AK_105_c { type = "trade_weapons"; buy[] = {1600,"Coins"}; sell[] = {800,"Coins"}; }; 
+class vil_AK_107 { type = "trade_weapons"; buy[] = {1400,"Coins"}; sell[] = {700,"Coins"}; }; 
+class Vil_AK_107_c { type = "trade_weapons"; buy[] = {1600,"Coins"}; sell[] = {800,"Coins"}; }; }; 
