@@ -54,9 +54,9 @@ if(isServer) then {
 		[_mission,_crate],			
 		["assassinate",_president], 
 		[_baserunover], 			
-		"Rumour says Bin Laden is back. Guys, we have to finish him, for the good",	// mission announcement
-		"Thank god, Bin Laden is died",							// mission success
-		"Oh,no! Bin Laden escaped "										// mission fail
+		"Rumour says Bin Laden is back. We have to finish him, for good",	// mission announcement
+		"Thank God, Bin Laden has been executed",							// mission success
+		"Looks like Bin Laden escaped once again... sigh"										// mission fail
 	] call mission_winorfail;
 
 	if(_complete) then {
@@ -65,5 +65,5 @@ if(isServer) then {
 
 	diag_log format["WAI: [Hero] real_benlate ended at %1",_position];
 
-	b_missionrunning = false;
+	h_missionrunning = false;
 };

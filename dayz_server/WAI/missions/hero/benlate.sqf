@@ -42,9 +42,9 @@ if(isServer) then {
 		[_mission,_crate],		
 		["crate"], 
 		[_baserunover], 		
-		"Rumour says Bin Laden is back. Guys, we have to finish him, for the good",	// mission announcement
-		"Turn out Bin Laden wasn't here, it was just a group of middle-east bandits",						// mission success
-		"Oh,no! Bin Laden escaped "										// mission fail
+		"Rumour says Bin Laden is back. We have to finish him, for good",	// mission announcement
+		"Turns out it wasn't Bin Laden; just a group of Middle East bandits",						// mission success
+		"Looks like Bin Laden escaped once again... sigh."										// mission fail
 	] call mission_winorfail;
 
 	if(_complete) then {
