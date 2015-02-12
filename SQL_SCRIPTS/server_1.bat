@@ -10,6 +10,5 @@ echo.
 echo RUNNING SQL Cleanup Script...
 echo.
 echo.
-D:\MySQL\bin\mysql.exe -u %mysqluser% -p%mysqlpassword% %mysqlschema%  < "C:\Scripts\A2\SQL_SCRIPTS\server_1.sql"
-timeout 5
+D:\MySQL\bin\mysql.exe -u %mysqluser% -p%mysqlpassword% %mysqlschema%  < "C:\Dayz\SQL_SCRIPTS\server_1.sql"
 exit
