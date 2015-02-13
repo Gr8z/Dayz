@@ -134,7 +134,7 @@ if(isServer) then {
 										["mayors_mansion",9],
 										["weapon_cache",6],
 										["benlate",4],
-                                        ["real_benlate",4] 
+                                        ["real_benlate",4],
 										["bandit_patrol",6]
 									];
 		wai_bandit_missions			= [
