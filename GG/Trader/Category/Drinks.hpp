@@ -1,7 +1,7 @@
 
 class Category_601 { 
-class ItemSodaCoke { type = "trade_items"; buy[] = {2,"Coins"}; sell[] = {1,"Coins"}; }; 
-class ItemSodaPepsi { type = "trade_items"; buy[] = {2,"Coins"}; sell[] = {1,"Coins"}; }; 
+class ItemSodaCoke { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
+class ItemSodaPepsi { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
 class ItemSodaMdew { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
 class ItemSodaR4z0r { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
 class ItemSodaMtngreen { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
