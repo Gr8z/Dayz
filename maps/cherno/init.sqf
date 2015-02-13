@@ -20,8 +20,13 @@ dayz_maxpos = 16000;
 dayz_MapArea = 14000;
 
 EpochEvents = [
- ["any","any","any","any",0,"crash_spawner"],
- ["any","any","any","any",15,"supply_drop"]
+	["any","any","any","any",30,"crash_spawner"],
+	["any","any","any","any",0,"crash_spawner"],
+	["any","any","any","any",15,"supply_drop"],
+	["any","any","any","any",10,"Military"],
+	["any","any","any","any",25,"Treasure"],
+	["any","any","any","any",40,"Supplyitems"],
+	["any","any","any","any",55,"Construction"]
 ];
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
