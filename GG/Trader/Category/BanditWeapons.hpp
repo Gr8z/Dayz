@@ -1,13 +1,14 @@
 
 class Category_627 { 
-class FHQ_ACR_WDL_TWS_SD { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {800,"Coins"}; }; 
-class FHQ_ACR_WDL_TWS { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
-class FHQ_ACR_BLK_TWS_SD { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {800,"Coins"}; }; 
+class ItemGPS { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
+class FHQ_ACR_WDL_TWS_SD { type = "trade_weapons"; buy[] = {6000,"Coins"}; sell[] = {800,"Coins"}; }; 
+class FHQ_ACR_WDL_TWS { type = "trade_weapons"; buy[] = {3000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class FHQ_ACR_BLK_TWS_SD { type = "trade_weapons"; buy[] = {3000,"Coins"}; sell[] = {800,"Coins"}; }; 
 class FHQ_ACR_BLK_TWS { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
-class FHQ_ACR_TAN_TWS_SD { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {800,"Coins"}; }; 
-class FHQ_ACR_TAN_TWS { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
-class FHQ_ACR_SNW_TWS_SD { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {800,"Coins"}; }; 
-class FHQ_ACR_SNW_TWS { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class FHQ_ACR_TAN_TWS_SD { type = "trade_weapons"; buy[] = {3000,"Coins"}; sell[] = {800,"Coins"}; }; 
+class FHQ_ACR_TAN_TWS { type = "trade_weapons"; buy[] = {6000,"Coins"}; sell[] = {500,"Coins"}; }; 
+class FHQ_ACR_SNW_TWS_SD { type = "trade_weapons"; buy[] = {3000,"Coins"}; sell[] = {800,"Coins"}; }; 
+class FHQ_ACR_SNW_TWS { type = "trade_weapons"; buy[] = {6000,"Coins"}; sell[] = {500,"Coins"}; }; 
 class SCAR_H_STD_EGLM_Spect { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
 class BAF_L85A2_UGL_Holo { type = "trade_weapons"; buy[] = {2500,"Coins"}; sell[] = {1250,"Coins"}; };
 class BAF_L85A2_UGL_SUSAT { type = "trade_weapons"; buy[] = {3500,"Coins"}; sell[] = {2250,"Coins"}; };
