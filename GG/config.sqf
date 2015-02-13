@@ -1,14 +1,4 @@
-
-MaxDonatorBankMoney = 500000;
-adminBuild = [
-	"76561198078201908", // Name
-	"76561198074351009", //
-	"76561198066623952", // Jarir
-	"76561198043680542", // Swordsmen
-	"76561198126716235", // pr0dukt
-	"76561198153784743", // Ghost
-	"76561198084864687" // Kuzo
-];
+if ((getPlayerUID player) in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; }
 DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
 DZE_crashLootConfig = [true,2,5,8,0];
 CurrencyName = "Coins";
