@@ -5,6 +5,7 @@ CurrencyName = "Coins";
 DZE_ATM = ["Infostand_2_EP1"];
 LimitOnBank = true;
 MaxBankMoney = 100000;
+MaxDonatorBankMoney = 500000;
 AllowManualCode = true;
 HarderPenalty = true;
 MaxHeliCrashes= 10;
