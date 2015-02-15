@@ -13,7 +13,7 @@
 										 "76561198035656886", // Frenchy Fry
 										 "76561198151043566", // Monkey
 										 "76561198046655797", // GoneForLunch
-										 "76561197973172761", // Milton
+										 "76561197973172761" // Milton
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198030001934", // CraigusMcGooch
