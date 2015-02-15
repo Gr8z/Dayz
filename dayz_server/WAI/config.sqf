@@ -138,17 +138,19 @@ if(isServer) then {
 										["bandit_patrol",6]
 									];
 		wai_bandit_missions			= [
-										["patrol",10],
-										["armed_vehicle",10],
-										["black_hawk_crash",10],
-										["captured_mv22",6],
-										["broken_down_ural",12],
+										["patrol",8],
+										["armed_vehicle",8],
+										["black_hawk_crash",8],
+										["captured_mv22",5],
+										["broken_down_ural",11],
 										["hero_base",6],
 										["ikea_convoy",8],
-										["medi_camp",14],
+										["medi_camp",10],
 										["presidents_mansion",6],
-										["sniper_extraction",8],
-										["weapon_cache",10]
+										["sniper_extraction",6],
+										["weapon_cache",8],
+										["farmer_give",8],
+                                        ["troop_supply",8]
 									];
 		
 		// Vehicle arrays
