@@ -20,7 +20,7 @@ if((locked _cTarget) && _isOk && (((vehicle player) distance _cTarget) < 12)) th
 };
 
 if (isNil "inSafeZone") then {inSafeZone = false;};
-if ((!canbuild || inSafeZone) and _cTarget isKindOf "Man" and alive _cTarget and (((vehicle player) distance _cTarget) < 12)) then {
+if ((!canbuild || inSafeZone) and _cTarget isKindOf "Man" and alive _cTarget and (((vehicle player) distance _cTarget) < 12) && {group _cTarget != group player}) then {
 	cutText ["Cannot access other players gear in the safezone." , "PLAIN DOWN"];
 	_display closeDisplay 1;
 };
