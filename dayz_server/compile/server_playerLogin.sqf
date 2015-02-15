@@ -16,6 +16,9 @@ if (isNil "sm_done") exitWith {
 #endif
 };
 
+customRemoteMessage = ['systemChat', "%1 CONNECTED",_playerName];
+publicVariable "customRemoteMessage";
+
 if (count _this > 2) then {
 	dayz_players = dayz_players - [_this select 2];
 };

@@ -61,7 +61,7 @@ if (!isDedicated) then {
 	execVM "GG\spawn\start.sqf";
 	[] execVM "GG\group\init.sqf";
 	[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
-	_nil = [] execVM "GG\remote\remote.sqf";
+	_nil = [] execVM "GG\remote.sqf";
 	execVM "GG\service_point\service_point.sqf";
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf"
