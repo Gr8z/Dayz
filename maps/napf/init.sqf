@@ -70,7 +70,6 @@ if (!isDedicated) then {
 execVM "GG\gold\init.sqf";
 execVM "GG\MapMarkerTitling.sqf";
 execVM "GG\weed\farms.sqf";
-execVM "GG\kamakazi.sqf";
 
 
 #include "GG\BIS_Effects\init.sqf"

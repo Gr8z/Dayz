@@ -71,7 +71,6 @@ if (!isDedicated) then {
 [] execVM "GG\safezone.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\MapMarkerTitling.sqf";
-execVM "GG\kamakazi.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
