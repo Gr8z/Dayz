@@ -8,6 +8,7 @@ Private ["_EH_Fired"];
 ////////////////////////////////////
 /////////////////////////////////////
 if ((getPlayerUID player) in [
+
 "0"
 	
 ]+adminBuild) then {

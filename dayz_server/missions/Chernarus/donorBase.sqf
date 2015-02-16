@@ -36,15 +36,6 @@ if (true) then
   _this setPos [15065.721, 12022.302, -0.55245036];
 };
 
-_vehicle_421 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_Mil_Barracks_i", [15086.41, 11985.766, 0.47231576], [], 0, "CAN_COLLIDE"];
-  _vehicle_421 = _this;
-  _this setDir -123.33418;
-  _this setPos [15086.41, 11985.766, 0.47231576];
-};
-
 _vehicle_478 = objNull;
 if (true) then
 {
@@ -79,15 +70,6 @@ if (true) then
   _vehicle_534 = _this;
   _this setDir -84.734375;
   _this setPos [14140.454, 10396.597, -0.14919925];
-};
-
-_vehicle_536 = objNull;
-if (true) then
-{
-  _this = createVehicle ["UH60M_EP1_DZ", [14163.79, 10406.067, 8.0380459], [], 0, "CAN_COLLIDE"];
-  _vehicle_536 = _this;
-  _this setDir -40.126411;
-  _this setPos [14163.79, 10406.067, 8.0380459];
 };
 
 _vehicle_592 = objNull;
@@ -171,6 +153,7 @@ if (true) then
   _this setPos [14282.152, 7132.4482, 9.7050362];
 };
 
+
 _vehicle_811 = objNull;
 if (true) then
 {
@@ -216,6 +199,7 @@ if (true) then
   _this setPos [14121.726, 8655.3037, 9.9021091];
 };
 
+
 _vehicle_977 = objNull;
 if (true) then
 {
@@ -225,56 +209,12 @@ if (true) then
   _this setPos [14104.774, 8654.1484, -0.35074776];
 };
 
-_vehicle_1035 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_Mil_Barracks_i", [14186.572, 10389.555, 0.19904824], [], 0, "CAN_COLLIDE"];
-  _vehicle_1035 = _this;
-  _this setDir 186.87694;
-  _this setPos [14186.572, 10389.555, 0.19904824];
-};
-
 _vehicle_1038 = objNull;
 if (true) then
 {
   _this = createVehicle ["MAP_A_FuelStation_Feed", [14138.939, 10394.486, 1.1397412], [], 0, "CAN_COLLIDE"];
   _vehicle_1038 = _this;
   _this setPos [14138.939, 10394.486, 1.1397412];
-};
-
-_vehicle_1039 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_A_FuelStation_Shed", [14131.363, 10395.029, 0.22495912], [], 0, "CAN_COLLIDE"];
-  _vehicle_1039 = _this;
-  _this setDir 97.525948;
-  _this setPos [14131.363, 10395.029, 0.22495912];
-};
-
-_vehicle_1041 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_A_FuelStation_Feed", [14131.181, 10402.184, 0.46482068], [], 0, "CAN_COLLIDE"];
-  _vehicle_1041 = _this;
-  _this setDir 1.4322789;
-  _this setPos [14131.181, 10402.184, 0.46482068];
-};
-
-_vehicle_1043 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_A_FuelStation_Feed", [14130.792, 10395.029, 0.47796792], [], 0, "CAN_COLLIDE"];
-  _vehicle_1043 = _this;
-  _this setPos [14130.792, 10395.029, 0.47796792];
-};
-
-_vehicle_1045 = objNull;
-if (true) then
-{
-  _this = createVehicle ["MAP_A_FuelStation_Feed", [14129.744, 10388.234, 0.43615285], [], 0, "CAN_COLLIDE"];
-  _vehicle_1045 = _this;
-  _this setDir 5.6752772;
-  _this setPos [14129.744, 10388.234, 0.43615285];
 };
 
 _vehicle_1102 = objNull;
@@ -537,6 +477,7 @@ if (true) then
   _this setPos [1629.5878, 1388.5227, -1.0627526];
 };
 
+
 _vehicle_1831 = objNull;
 if (true) then
 {
@@ -573,40 +514,23 @@ if (true) then
   _this setPos [15060.527, 12023.371, -0.1946671];
 };
 
-_vehicle_1844 = objNull;
+_vehicle_1857 = objNull;
 if (true) then
 {
-  _this = createVehicle ["PBX", [15062.542, 12026.85, -0.17434692], [], 0, "CAN_COLLIDE"];
-  _vehicle_1844 = _this;
-  _this setDir -396.4505;
-  _this setPos [15062.542, 12026.85, -0.17434692];
+  _this = createVehicle ["MV22_DZ", [15086.039, 12015.769, 9.040247], [], 0, "CAN_COLLIDE"];
+  _vehicle_1857 = _this;
+  _this setDir 16.405603;
+  _this setPos [15086.039, 12015.769, 9.040247];
 };
 
-_vehicle_1846 = objNull;
+_vehicle_1862 = objNull;
 if (true) then
 {
-  _this = createVehicle ["GAZ_Vodnik", [15073.528, 12025.721, -0.027355492], [], 0, "CAN_COLLIDE"];
-  _vehicle_1846 = _this;
-  _this setDir -33.716938;
-  _this setPos [15073.528, 12025.721, -0.027355492];
+  _this = createVehicle ["BMP2_Ambul_CDF", [15073.559, 12027.582, -0.045182049], [], 0, "CAN_COLLIDE"];
+  _vehicle_1862 = _this;
+  _this setDir -39.269207;
+  _this setPos [15073.559, 12027.582, -0.045182049];
 };
 
-_vehicle_1848 = objNull;
-if (true) then
-{
-  _this = createVehicle ["UH60M_EP1_DZ", [15084.324, 12014.613, 8.390069], [], 0, "CAN_COLLIDE"];
-  _vehicle_1848 = _this;
-  _this setDir 8.8122845;
-  _this setPos [15084.324, 12014.613, 8.390069];
-};
-
-_vehicle_1851 = objNull;
-if (true) then
-{
-  _this = createVehicle ["AH6J_EP1_DZ", [15053.235, 11998.11, 8.2753267], [], 0, "CAN_COLLIDE"];
-  _vehicle_1851 = _this;
-  _this setDir 13.330718;
-  _this setPos [15053.235, 11998.11, 8.2753267];
-};
 
 };
