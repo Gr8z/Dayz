@@ -38,23 +38,23 @@ switch (_this select 1) do {
 };
 
 if (local _zed) then {
-if (_damage > 1 && _projectile != "") then {
-switch (_selection) do {
-case "head_hit": {
-if (!(_zed getVariable["hitRegistered",false])) then {
-_headShots = _hitter getVariable["headShots",0];
-_hitter setVariable["headShots",(_headShots + 1),true];
-_zed setVariable["hitRegistered",true];
-};
-};
-};
-if (_projectile isKindOf "Bolt") then {
-_damageOrg = _hitter getVariable["firedDamage",0];
-if (_damageOrg < _damage) then {
-_hitter setVariable["firedHit",[_zed,_selection],true];
-_hitter setVariable["firedDamage",_damage,true];
-};
-};
-};
+	if (_damage > 1 && _projectile != "") then {
+		switch (_selection) do {
+			case "head_hit": {
+				if (!(_zed getVariable["hitRegistered",false])) then {
+					_headShots = _hitter getVariable["headShots",0];
+					_hitter setVariable["headShots",(_headShots + 1),true];
+					_zed setVariable["hitRegistered",true];
+				};
+			};
+		};
+		if (_projectile isKindOf "Bolt") then {
+			_damageOrg = _hitter getVariable["firedDamage",0];
+			if (_damageOrg < _damage) then {
+				_hitter setVariable["firedHit",[_zed,_selection],true];
+				_hitter setVariable["firedDamage",_damage,true];
+			};
+		};
+	};
 };
 _damage

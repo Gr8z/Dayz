@@ -6,6 +6,7 @@ pathtobuilding = "GG\menu\building\";
 pathtoPack = "GG\deployables\";
 pathtoclothing = "GG\menu\wardrobe\";
 pathtoGroup = "GG\group\";
+pathtoAirDrop = "GG\";
 
 EXECscript1 = 'player execVM "'+pathtoscripts+'%1"';
 EXECscript2 = 'player execVM "'+pathtocolors+'%1"';
@@ -18,6 +19,7 @@ EXECscript9 = '["%1"] execVM "GG\menu\tools\movements.sqf"';
 EXECscript10 = '[] spawn %1;';
 EXECscript11 = 'player execVM "'+pathtoclothing+'%1"';
 EXECscript12 = 'player execVM "'+pathtoGroup+'%1"';
+EXECscript13 = 'player execVM "'+pathtoAirDrop+'%1"';
 
 ActionMenu =
 [
@@ -37,6 +39,7 @@ ActionMenua =
 [
 	["",true],
 		["Flip Vehicle", [2],  "", -5, [["expression", format[EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
+		["Call Air Drop", [2],  "", -5, [["expression", format[EXECscript13,"carepackage.sqf"]]], "1", "1"],
 		["Self Bloodbag", [3],  "", -5, [["expression", format[EXECscript1,"bloodbag.sqf"]]], "1", "1"],
 		["Commit Suicide", [3],  "", -5, [["expression", format[EXECscript1,"suicide.sqf"]]], "1", "1"],
 		["Scream", [4],  "", -5, [["expression", "_sound = ['z_scream_3','z_scream_4'] call BIS_fnc_selectRandom;[nil,player,rSAY,[_sound,250]] call RE;"]], "1", "1"],

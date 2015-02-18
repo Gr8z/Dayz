@@ -111,17 +111,7 @@ if ((dayz_spawnZombies < _maxControlledZombies) && (dayz_CurrentNearByZombies < 
 		_agent setVariable["agentObject",_agent];
 
 		if (!isNull _agent) then {
-			// sometime Z can be seen flying in very high speed while tp. Its altitude is set underground to hide that.
-			/*
-			_agtPos = getPosASL _agent;
-			_agtPos set [2, -3];
-			_agent setPosASL _agtPos;
-			sleep 0.001;
-			_agtPos = +(_position);
-			_agtPos set [2, -3];
-			_agent setPosASL _agtPos;
-			sleep 0.001;
-			*/
+
 			_agent setDir random 360;
 			//_agent setPosATL _position;
 			sleep 0.001;
@@ -144,8 +134,6 @@ if ((dayz_spawnZombies < _maxControlledZombies) && (dayz_CurrentNearByZombies < 
 			_agent setVariable ["newDest", _position];
 			[_agent, _position] call zombie_loiter;
 		};
-		//add to monitor
-		//dayz_zedMonitor set [count dayz_zedMonitor, _agent];
 
 		//Disable simulation
 		PVDZE_Server_Simulation = [_agent, false];
