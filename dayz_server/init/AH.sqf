@@ -5249,6 +5249,7 @@ PV_AdminMainCode = {
 		adminadd = adminadd + [_fnc,{if (isNil "adminshowmanagementmenu") then {adminshowmanagementmenu = true;}else{adminshowmanagementmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
 		if (!isNil "adminshowmanagementmenu") then
 		{
+			adminadd = adminadd + ["  Start/Stop Battle Royale",royale,"1","0","0","0",[]];
 			adminadd = adminadd + ["  Mass Message",adminmsg,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Mass Message Colored",adminmsg2,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Clear Ban List",adminClearBan,"0","0","0","0",[]];
@@ -9017,6 +9018,32 @@ PV_AdminMainCode = {
 		};
 		hint _log;
 		cutText [_log, 'PLAIN'];
+		_sl = format['%1 - %2',name player,_log];
+		PVAH_WriteLogReq = [player,toArray _sl];
+		publicVariableServer 'PVAH_WriteLogReq';
+	};
+	royale =
+	{
+		_log = '';
+		if(isNil 'ryl') then {ryl = true;} else {ryl = !ryl};
+		if(ryl) then
+		{
+			START_ROYALE = [player,true];
+			publicVariableServer "START_ROYALE";
+
+			systemChat format['Royale is starting'];
+			_log = 'Royale started';
+		}
+		else
+		{
+			STOP_ROYALE = true;
+			publicVariableServer "STOP_ROYALE";
+
+			systemChat 'Royale has ended';
+			_log = 'Royale ended';
+		};
+		hint _log;
+		cutText[_log, 'PLAIN'];
 		_sl = format['%1 - %2',name player,_log];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
