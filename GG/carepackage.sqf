@@ -9,6 +9,12 @@ _unit = player;
 _getPos = getPos _unit;
 _position = [_getPos select 0, _getPos select 1, 100];
 
+_Time = time - lastpack;
+
+if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
+	cutText [format["please wait %1 before calling in another carepackage!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
+};
+
 if(_wealth > _cost) exitWith { cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
 
 player setVariable["cashMoney",(_wealth - _cost),true];
@@ -25,6 +31,7 @@ _box attachTo [_chute, [0,0,3]];
 _smoke = "SmokeShellBlue" createVehicle (getPos _box);
 _smoke attachTo [_box, [0,0,0]];
 _var = floor((random 2) + 1);
+lastpack = time;
 
 //display text to alert user
 _textt = format ["\nCarepackage is above you!",10];
