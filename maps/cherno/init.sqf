@@ -15,8 +15,8 @@ call compile preprocessFileLineNumbers"GG\config.sqf";
 
 
 spawnArea= 500; 
-dayz_minpos = -20000;
-dayz_maxpos = 16000;
+dayz_minpos= -1; 
+dayz_maxpos	= 16000;
 dayz_MapArea = 14000;
 
 EpochEvents = [
