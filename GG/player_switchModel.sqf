@@ -45,6 +45,7 @@ _group = createGroup west;
 _newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
 _newUnit setPosATL _position;
 _newUnit setDir _dir;
+[_newUnit] joinSilent createGroup WEST;
 //Soul start: SC Edit >>> readding variables used by single currency mod.
 _newUnit setVariable ["cashMoney",_cashMoney,true];
 _newUnit setVariable ["bankMoney",_bankMoney];
