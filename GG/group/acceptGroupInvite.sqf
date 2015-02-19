@@ -19,9 +19,8 @@ _groupExists = false;
 
 if (_groupExists) then {
 	[player] join (group _inviter);
-	
-	systemChat "You have accepted the invite. You will now see them in your map and their name tag on their head.";
-	systemChat "Press left windows key to toggle player icons";
+	systemChat "You have accepted the invite.";
+	systemChat "Press left windows key to toggle group name tags";
 } else {
 	systemChat "The group no longer exists";    
 };

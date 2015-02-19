@@ -26,4 +26,4 @@ publicVariableServer "currentInvites";
 [nil,_pTarget,"loc", rTITLETEXT, format["You have received a group invite. Right Shift to view."], "PLAIN", 0] call RE;
 
 systemChat format["You have invited %1 to join the group",name _pTarget];
-systemChat "Press left windows key to toggle player icons";
+systemChat "Press left windows key to toggle group name tags";

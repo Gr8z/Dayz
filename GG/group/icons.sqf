@@ -1,18 +1,6 @@
 #define DZGM_CTRL ((uiNamespace getVariable "dzgmHudDisp") displayCtrl (46300 + _index))
 #define SHOW_HUD (!visibleMap) && {(alive player) && (count units group player > 1)} && {cameraView in ["INTERNAL","EXTERNAL","GUNNER"]}
 
-dzgmIconsClear = {
-    private ["_index","_plist","_uc","_pUnits"];
-    _pUnits = [];
-    _uc = 0;
-	_plist = units group player;
-	{
-		if ((!isNull _x) && {isPlayer _x} && {alive _x}) then {_pUnits set [_uc,_x];_uc = _uc + 1;};
-	} count _plist;
-	_index = 0;
-    {DZGM_CTRL ctrlShow false;_index = _index + 1;} count _pUnits;
-};
-
 dzgmIconsName = {
     private ["_distance","_index","_makeIcons","_pName","_pIcons","_pGicon","_plist","_pPos","_removeIcon","_scale","_screen","_sx","_sy","_tag","_uc","_pUnits"];
     _pIcons = player getVariable "dzgmHudpIcons";
@@ -48,7 +36,7 @@ dzgmIconsName = {
 			_pPos set [2,(_pPos select 2) + 1.5];
 			_screen = worldToScreen _pPos;
 			_pIcon = _pIcons select _index;
-			_tag = composeText [image _pIcon," ",_pName];
+			if (tagName) then {_tag = composeText [image _pIcon," ",_pName];} else {_tag = composeText [image _pIcon];};
 			if ((count _screen) > 1) then {
 				_scale = 0;
 				_sx = _screen select 0;
@@ -79,7 +67,7 @@ dzgmInit = {
             waitUntil {uiSleep 1;SHOW_HUD};
 			609 cutRsc ["DZGMHud_Rsc","PLAIN"];
             while {SHOW_HUD} do {
-				if (tagName) then {call dzgmIconsName;} else {call dzgmIconsClear;};
+				call dzgmIconsName;
 				if (commandingMenu in ["RscTeam","#User:BIS_Menu_GroupCommunication"]) then {showCommandingMenu "";};
                 uiSleep .001;
             };

@@ -1,7 +1,7 @@
 private ["_mrkr","_name","_pPos"];
 
 while {true} do {
-	if (visibleMap) then {
+	if (visibleMap || (!isNull (findDisplay 88890))) then {
 		{
 			if ((!isNull _x) && {isPlayer _x} && {(driver (vehicle _x)) == _x}) then {
 				_name = name _x;
@@ -17,6 +17,7 @@ while {true} do {
 				};
 			};
 		} count playableUnits;
+		#include "bodyMarkers.sqf"
 	};
 	uiSleep 1;
 };
