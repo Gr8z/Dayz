@@ -149,6 +149,7 @@ Scout1 = [
 	"76561198171905578", // aristant
 	"76561198068695714", // smallpocks
 	"76561198131195291", // TopherTheGopher
+	"76561198076771148", // cyplexgamer
 	"0" //
 ];
 Scout2 = [
