@@ -11,7 +11,7 @@ while {true} do {
 					deleteMarkerLocal _name;
 					_mrkr = createMarkerLocal [_name,_pPos];
 					_mrkr setMarkerTypeLocal "DestroyedVehicle";
-					_mrkr setMarkerTextLocal format ["%1",_name];
+					_mrkr setMarkerTextLocal format ["%1 %2m",_name,(player distance _x)];
 				} else {
 					deleteMarkerLocal _name;
 				};
