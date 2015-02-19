@@ -10,7 +10,6 @@ fnc_remote_message = {
 			if(player hasWeapon "ItemRadio") then { 
 				if(player getVariable["radiostate",true]) then {
 					systemChat _message;
-					[objNull,player,rSAY,"Radio_Message_Sound",30] call RE;
 				};
 			}; 
 		};
