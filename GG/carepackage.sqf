@@ -1,7 +1,6 @@
 private ["_wealth","_distance","_boxtype","_unit","_getPos","_position","_box","_chute","_smoke","_var","_textt","_tools","_items","_walls","_supplies","_weapon","_weapon2","_weapon3","_weapon4","_weapon5","_weapon6","_giveWep","_possibleMags","_mag","_whichBuild","_crateItems","_text"];
 
 _cost = 20000;
-_amount = parseNumber (_this select 0);
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
