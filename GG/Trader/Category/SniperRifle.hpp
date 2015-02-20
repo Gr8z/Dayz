@@ -9,6 +9,7 @@ class SVD { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins
 class SVD_des_EP1 { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins"}; }; 
 class M24 { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins"}; }; 
 class M24_des_EP1 { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins"}; }; 
+class vil_M24b { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins"}; }; 
 class gms_k98 { type = "trade_weapons"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 class gms_k98_rg { type = "trade_weapons"; buy[] = {500,"Coins"}; sell[] = {200,"Coins"}; }; 
 class gms_k98_knife { type = "trade_weapons"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
