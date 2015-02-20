@@ -49,7 +49,7 @@ publicVariableServer "PVDZE_plr_Save";
 
 
 for "_x" from 1 to 60 do {
-	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 31-_x], "PLAIN DOWN"];};
+	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 61-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
 
@@ -103,7 +103,5 @@ clearmagazinecargoglobal _boxx;
 _boxx addMagazineCargoGlobal [_mag, _var];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
 
-uisleep 1;
-
-waitUntil {(player distance _box) > _distance};
-deleteVehicle _box;
+uisleep 100;
+deleteMarker _Marker;
