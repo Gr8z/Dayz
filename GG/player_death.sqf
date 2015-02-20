@@ -84,7 +84,7 @@ r_player_dead = true;
 3 fadeSound 0;
 sleep 1;
 
-dayz_originalPlayer enableSimulation true;
+dayz_originalPlayer enableSimulation false;
 
 addSwitchableUnit dayz_originalPlayer;
 setPlayable dayz_originalPlayer;
@@ -102,7 +102,7 @@ _body setVariable["combattimeout", 0, true];
 //["dayzFlies",player] call broadcastRpcCallAll;
 sleep 2;
 
-100 cutRsc ["DeathScr","BLACK OUT",3];
+1 cutRsc ["DeathScr","BLACK OUT",3];
 
 "dynamicBlur" ppEffectAdjust [0]; "dynamicBlur" ppEffectCommit 5;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
