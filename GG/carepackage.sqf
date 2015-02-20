@@ -8,9 +8,10 @@ _unit = player;
 _getPos = getPos _unit;
 _position = [_getPos select 0, _getPos select 1, 100];
 _positionM = [_getPos select 0, _getPos select 1];
-_LastUsedTime = 15;
+_LastUsedTime = 500;
 _height = 100;
-_downspeed = -5;
+_downspeed = -3;
+_OnlineLimit = 20;
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
@@ -36,9 +37,9 @@ _crateItems = [_walls,_supplies,_items] call BIS_fnc_selectRandom;
 _Time = time - lastpack;
 
 if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
-	cutText [format["please wait %1 before calling in another carepackage!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
+	cutText [format["please wait %1 before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
 };
-
+if ((count playableUnits) < _OnlineLimit) exitWith  { cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
 if(_wealth < _cost) exitWith { cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
 
 player setVariable["cashMoney",(_wealth - _cost),true];
@@ -47,16 +48,9 @@ PVDZE_plr_Save = [player,(magazines player),true,true] ;
 publicVariableServer "PVDZE_plr_Save";
 
 
-for "_x" from 1 to 30 do {
-	if (_x >= 6) then {cutText [format ["AIR DROP ARRIVING IN %1", 31-_x], "PLAIN DOWN"];};
+for "_x" from 1 to 60 do {
+	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 31-_x], "PLAIN DOWN"];};
 	uiSleep 1;
-};
-
-_Time = time - lastpack;
-
-
-if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
-	cutText [format["please wait %1 before calling in another carepackage!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
 };
 
 _unit = player;
@@ -113,4 +107,3 @@ uisleep 1;
 
 waitUntil {(player distance _box) > _distance};
 deleteVehicle _box;
-deleteMarker _Marker;
