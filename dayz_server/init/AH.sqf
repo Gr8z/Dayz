@@ -1995,8 +1995,6 @@ publicVariable '"+_randvar28+"';
 			while {1 == 1} do
 			{
 				player_death = _death;
-				player allowDamage true;
-				vehicle player allowDamage true;
 				player removeAllEventHandlers 'Damaged';
 				player removeAllEventHandlers 'Dammaged';
 				player removeAllEventHandlers 'AnimDone';
