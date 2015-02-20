@@ -9,6 +9,7 @@ Private ["_EH_Fired"];
 /////////////////////////////////////
 if ((getPlayerUID player) in [
 	"76561198052352146", // Dion
+	"76561197997555898", // Dion1 
 "0"
 ]+adminBuild) then {
 titleText [format ["Welcome To the Base #122130, %1. God Mode Turn On. Weps Disabled", name player], "PLAIN DOWN"];
