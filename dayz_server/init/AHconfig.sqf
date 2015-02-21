@@ -13,13 +13,13 @@
 										 "76561198035656886", // Frenchy Fry
 										 "76561198151043566", // Monkey
 										 "76561198046655797", // GoneForLunch
+										 "76561198042900919", // Method
 										 "76561197973172761" // Milton
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198030001934", // CraigusMcGooch
 										 "76561198169014271", // TempSniper
 										 "76561198059535904", // Zane
-										 "76561198042900919", // Method
 										 "76561198044736724"  // Thirdhero
 										 ]; 
 /*  SUPER ADMIN HERE      */ _SAdmins = [
