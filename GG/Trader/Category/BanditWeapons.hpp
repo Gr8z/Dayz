@@ -18,8 +18,8 @@ class G36_C_SD_camo { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {
 class M4A1_AIM_SD_camo { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
 class FN_FAL_ANPVS4 { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
 class SCAR_H_LNG_Sniper_SD { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
-class BAF_LRR_scoped { type = "trade_weapons"; buy[] = {450000,"Coins"}; sell[] = {12000,"Coins"}; }; 
-class BAF_LRR_scoped_W { type = "trade_weapons"; buy[] = {450000,"Coins"}; sell[] = {12000,"Coins"}; }; 
+class BAF_LRR_scoped { type = "trade_weapons"; buy[] = {45000,"Coins"}; sell[] = {12000,"Coins"}; }; 
+class BAF_LRR_scoped_W { type = "trade_weapons"; buy[] = {45000,"Coins"}; sell[] = {12000,"Coins"}; }; 
 class FN_FAL { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
 class Mk_48_DZ { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
 class M240_DZ { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; };  
