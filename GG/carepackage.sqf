@@ -48,6 +48,12 @@ PVDZE_plr_Save = [player,(magazines player),true,true] ;
 publicVariableServer "PVDZE_plr_Save";
 
 
+_Marker  = createMarker ["_Marker ",_positionM];
+_Marker  setMarkerText "Air Drop";
+_Marker  setMarkerType "mil_objective";
+_Marker  setMarkerColor "ColorRed";
+_Marker  = _Marker ;
+
 for "_x" from 1 to 60 do {
 	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 61-_x], "PLAIN DOWN"];};
 	uiSleep 1;
@@ -72,12 +78,6 @@ lastpack = time;
 //display text to alert user
 _textt = format ["\nCarepackage is above you!",10];
 titleText [_textt,"PLAIN DOWN"];
-
-_Marker  = createMarker ["_Marker ",_positionM];
-_Marker  setMarkerText "Air Drop";
-_Marker  setMarkerType "mil_objective";
-_Marker  setMarkerColor "ColorRed";
-_Marker  = _Marker ;
 
 while {getPos _box select 2 > 4} do
 {
