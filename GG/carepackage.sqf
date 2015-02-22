@@ -6,7 +6,7 @@ _distance = 500;
 _boxtype = "USVehicleBox_EP1";
 _unit = player;
 _getPos = getPos _unit;
-_position = [_getPos select 0, _getPos select 1, 100];
+_position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _positionM = [_getPos select 0, _getPos select 1];
 _LastUsedTime = 900;
 _height = 100;
@@ -66,9 +66,6 @@ for "_x" from 1 to 100 do {
 	uiSleep 1;
 };
 
-_unit = player;
-_getPos = getPos _unit;
-_position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _chute = createVehicle ["ParachuteMediumEast", _position, [], 0, "FLY"];
 _chutePos = getPos _chute;
 _box = createVehicle [_boxtype, _chutePos, [], 0, "FLY"];
