@@ -39,6 +39,11 @@ _Time = time - lastpack;
 if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	cutText [format["please wait %1 before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
 };
+
+if !(canbuild) exitWith {
+	cutText ["You Cannot Call an Air Drop in a safezone ! "];
+};
+
 if ((count playableUnits) < _OnlineLimit) exitWith  { cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
 if(_wealth < _cost) exitWith { cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
 
