@@ -4,14 +4,14 @@ _cost = 20000;
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
-_unit = player;
-_getPos = getPos _unit;
-_position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _positionM = [_getPos select 0, _getPos select 1];
 _LastUsedTime = 900;
 _height = 100;
 _downspeed = -3;
 _OnlineLimit = 20;
+_unit = player;
+_getPos = getPos _unit;
+_position = [_getPos select 0, (_getPos select 1) - 5, _height];
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
