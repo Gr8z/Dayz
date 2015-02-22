@@ -4,7 +4,6 @@ _cost = 20000;
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
-_positionM = [_getPos select 0, _getPos select 1];
 _LastUsedTime = 900;
 _height = 100;
 _downspeed = -3;
@@ -12,6 +11,7 @@ _OnlineLimit = 20;
 _unit = player;
 _getPos = getPos _unit;
 _position = [_getPos select 0, (_getPos select 1) - 5, _height];
+_positionM = [_getPos select 0, _getPos select 1];
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
@@ -52,12 +52,11 @@ player setVariable["cashMoney",(_wealth - _cost),true];
 PVDZE_plr_Save = [player,(magazines player),true,true] ;
 publicVariableServer "PVDZE_plr_Save";
 
-
-_Marker  = createMarker ["_Marker ",_positionM];
-_Marker  setMarkerText "Air Drop";
-_Marker  setMarkerType "mil_objective";
-_Marker  setMarkerColor "ColorRed";
-_Marker  = _Marker ;
+deleteMarker "MarkerDrop";
+_null  = createMarker ["MarkerDrop",_positionM];
+"MarkerDrop"  setMarkerText "Air Drop";
+"MarkerDrop"  setMarkerType "mil_objective";
+"MarkerDrop"  setMarkerColor "ColorRed";
 
 lastpack = time;
 
@@ -107,4 +106,4 @@ _boxx addMagazineCargoGlobal [_mag, _var];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
 
 uisleep 100;
-deleteMarker _Marker;
+deleteMarker "MarkerDrop";

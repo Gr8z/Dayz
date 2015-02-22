@@ -1,7 +1,4 @@
-/*
-	Marker Resetter by Vampire
-	Marker Resetter checks if a Mission is running and resets the marker for JIPs
-*/
+
 private["_run","_nul","_nil"];
 
 diag_log text format ["[DZMS]: Mission Marker Loop for JIPs Starting!"];
