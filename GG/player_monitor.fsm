@@ -958,7 +958,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"//Location" \n
        "_myLoc = getPosATL player;" \n
        "" \n
-       "dayz_loadScreenMsg = ""Setup Completed, please wait..."";" \n
+       "dayz_loadScreenMsg = ""Setup Completed, Welcome to [GG] Ghostz Gamerz"";" \n
        "" \n
        "//GUI" \n
        "3 cutRsc [""playerStatusGUIcustom"", ""PLAIN"",0];" \n
@@ -1053,7 +1053,7 @@ class FSM
        "selectNoPlayer;" \n
        "_myTime = diag_tickTime;" \n
        "" \n
-       "dayz_loadScreenMsg = ""You are running an incorrect version, please download update from dayzepoch.com."";" \n
+       "dayz_loadScreenMsg = ""You need to have Dayz Epoch, Dayz Overwatch Downloaded. Use DayzLauncher.com"";" \n
        "" \n
        "1 cutText [format[localize ""str_player_18"",dayz_versionNo,_version], ""PLAIN""];" \n
        "" \n
@@ -1534,7 +1534,7 @@ class FSM
     {
       name = "get_ready_to_clo";
       init = /*%FSM<STATEINIT""">*/"diag_log (""PLOGIN: Authentication Failed ("" + _playerUID + "")"");" \n
-       "dayz_loadScreenMsg = (""The Server is in High Load Right Now. Please Try Again Later or After Restart"");" \n
+	   "dayz_loadScreenMsg =  ""The Server is in High Load Right Now. Please Try Again Later or After Restart"";" \n
        "" \n
        "progressLoadingScreen 1;" \n
        "" \n
@@ -1608,7 +1608,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"//diag_log (""PLOGIN:Wrong DayZ Version ("" + dayz_versionNo + "")"");" \n
        "diag_log format[localize ""str_player_18"",dayz_versionNo,_version];" \n
        "" \n
-       "dayz_loadScreenMsg = ""You are running an incorrect version of DAYZ_CODE, please download this file from dayzepoch.com."";" \n
+       "dayz_loadScreenMsg = ""You are running an incorrect version of DAYZ_CODE, please verify EpochMod From DayzLauncher"";" \n
        "" \n
        "progressLoadingScreen 1;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
@@ -1632,7 +1632,7 @@ class FSM
     {
       name = "Server_Loading";
       init = /*%FSM<STATEINIT""">*/"_myTime = diag_tickTime;" \n
-       "dayz_loadScreenMsg = (""Waiting for server to start authentication"");" \n
+       "dayz_loadScreenMsg = (""Waiting for server to start up !"");" \n
        "if (_debug) then {" \n
        "diag_log ""PLOGIN: Waiting for server to start authentication"";" \n
        "};" \n
