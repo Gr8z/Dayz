@@ -216,8 +216,8 @@ vipListBase = [
 	"76561198084325752", // Sgt. Frosty
 	"76561198119273242", // Prestige
 	"76561198062143235", // Prestige 1
-	"76561198091049542" // Mandingo Cannan
-	"76561198108526731" // Mandingo Cannan1
+	"76561198091049542", // Mandingo Cannan
+	"76561198108526731", // Mandingo Cannan1
 	"76561198159343288", // David Fontenot
 	"76561198134435770", // David Fontenot 1
 	"76561198052352146", // Dion
