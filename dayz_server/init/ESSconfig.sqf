@@ -164,6 +164,7 @@ Scout2 = [
 	"76561198089649048", // savage badger
 	"76561198042536984", // Derek
 	"614eb940d84dd0381", // Gobble Mike Hawk
+	"76561198091049542", // Mandingo Cannan
 	"0" //
 ];
 Scout3 = [
