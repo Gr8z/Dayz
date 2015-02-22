@@ -8,7 +8,7 @@ _unit = player;
 _getPos = getPos _unit;
 _position = [_getPos select 0, _getPos select 1, 100];
 _positionM = [_getPos select 0, _getPos select 1];
-_LastUsedTime = 500;
+_LastUsedTime = 900;
 _height = 100;
 _downspeed = -3;
 _OnlineLimit = 20;
@@ -59,8 +59,10 @@ _Marker  setMarkerType "mil_objective";
 _Marker  setMarkerColor "ColorRed";
 _Marker  = _Marker ;
 
-for "_x" from 1 to 60 do {
-	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 61-_x], "PLAIN DOWN"];};
+lastpack = time;
+
+for "_x" from 1 to 100 do {
+	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 101-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
 
@@ -78,7 +80,6 @@ _chute setVariable ["ObjectID", ""];
 _smoke = "SmokeShellBlue" createVehicle (getPos _box);
 _smoke attachTo [_box, [0,0,0]];
 _var = floor((random 20) + 1);
-lastpack = time;
 
 //display text to alert user
 _textt = format ["\nCarepackage is above you!",10];
