@@ -81,6 +81,7 @@ Engineer3 = [
 Marksman1 = [
 	"76561198090783137", // pickle
 	"76561198089828710", // IVIurphy
+	"76561198153784743", // Ghost
 	"0" //
 ];
 Marksman2 = [
