@@ -104,6 +104,3 @@ clearmagazinecargoglobal _boxx;
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
 _boxx addMagazineCargoGlobal [_mag, _var];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
-
-uisleep 100;
-deleteMarker "MarkerDrop";

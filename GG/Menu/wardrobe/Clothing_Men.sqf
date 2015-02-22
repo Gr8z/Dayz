@@ -19,7 +19,6 @@ Men_Clothing = [
 	"gsc_eco_stalker_head_fred",
 	"gsc_eco_stalker_mask_camo",
 	"gsc_eco_stalker_head_camo1",
-	"gsc_cloth_loner_head",
 	"gsc_eco_stalker_mask_duty",
 	"gsc_eco_stalker_head_duty",
 	"gsc_eco_stalker_mask_neutral",
