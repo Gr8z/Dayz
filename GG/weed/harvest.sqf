@@ -7,8 +7,6 @@ _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animati
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder);
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
-_playernear = count nearEntities [_playerPos, ["CaManBase"], 5] > 1;
-
 
 if !(_nearWeed) exitWith {
 	cutText [format["You need to be near the weed plants in order to harvest."], "PLAIN DOWN"];
@@ -18,10 +16,6 @@ if !(_canDo) exitWith {
 };
 if (_inVehicle) exitWith {
 	cutText [format["You cannot harvest Weed While in a vehicle"], "PLAIN DOWN"];
-};
-
-if (_playernear) exitWith {
-	cutText [format["You cannot harvest weed with a player nearby"], "PLAIN DOWN"];
 };
 
 if (dayz_combat == 1) then { 
