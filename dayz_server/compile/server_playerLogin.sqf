@@ -16,9 +16,6 @@ if (isNil "sm_done") exitWith {
 #endif
 };
 
-customRemoteMessage = ['systemChat', "%1 CONNECTED",_playerName];
-publicVariable "customRemoteMessage";
-
 if (count _this > 2) then {
 	dayz_players = dayz_players - [_this select 2];
 };
@@ -88,10 +85,6 @@ if (!_isNew) then {
 	_survival =		_primary select 6;
 	_model =		_primary select 7;
 	_hiveVer =		_primary select 8;
-	
-	if (!(_model in AllPlayers)) then {
-		_model = "Survivor2_DZ";
-	};
 	
 } else {
 	if (DZE_PlayerZed) then {
