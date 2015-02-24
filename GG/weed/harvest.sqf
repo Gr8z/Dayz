@@ -1,5 +1,5 @@
 
-private ["_gearmenu","_playerPos","_nearWeed","_weed","_objectID","_objectUID"];
+private ["_gearmenu","_playerPos","_nearWeed","_weed","_objectID","_objectUID","_onLadder","_vehicle","_inVehicle","_playernear"];
 _playerPos = getPosATL player;
 _hempqty = {_x == "ItemKiloHemp"} count magazines player;
 _nearWeed = count nearestObjects [_playerPos, ["fiberplant"], 4] > 0;
@@ -8,6 +8,8 @@ _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animati
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder);
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
+_playernear = count nearestentities [player, ["CaManBase"], 5];
+
 
 if !(_nearWeed) exitWith {
 	cutText [format["You need to be near the weed plants in order to gather."], "PLAIN DOWN"];
@@ -18,6 +20,11 @@ if !(_canDo) exitWith {
 if (_inVehicle) exitWith {
 	cutText [format["You cannot Gather Weed While in a vehicle"], "PLAIN DOWN"];
 };
+
+if ((_playernear) > 1) exitwith {
+	cutText [format["You cannot harvest weed with a player nearby"], "PLAIN DOWN"];
+};
+
 if (dayz_combat == 1) then { 
     cutText [format["You are in Combat and Cannot Gather the Weed."], "PLAIN DOWN"];
 } else {

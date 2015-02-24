@@ -13,18 +13,16 @@ enableSentences false;
 
 call compile preprocessFileLineNumbers"GG\config.sqf";
 
-	spawnArea= 1500; 
-	dayz_minpos = -1; 
-	dayz_maxpos = 26000;
-	dayz_MapArea = 18000;
+spawnArea= 1500; 
+dayz_minpos = -1; 
+dayz_maxpos = 26000;
+dayz_MapArea = 18000;
 
 EpochEvents = [
 	["any","any","any","any",0,"crash_spawner"],
-	["any","any","any","any",10,"crate_military"],
-	["any","any","any","any",20,"crate_supply_items"],
-	["any","any","any","any",30,"crate_construction"],
 	["any","any","any","any",40,"supply_drop"]
 ];
+
 call compile preprocessFileLineNumbers "GG\variables.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\A_Plot_for_Life\init\publicEH.sqf";

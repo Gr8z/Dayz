@@ -4,6 +4,7 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bankinit.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basebor.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basenovy.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basedichina.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bor.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bridge.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\hemp.sqf";

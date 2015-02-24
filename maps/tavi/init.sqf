@@ -20,9 +20,6 @@ dayz_MapArea = 20000;
 
 EpochEvents = [
 	["any","any","any","any",0,"crash_spawner"],
-	["any","any","any","any",10,"crate_military"],
-	["any","any","any","any",20,"crate_supply_items"],
-	["any","any","any","any",30,"crate_construction"],
 	["any","any","any","any",40,"supply_drop"]
 ];
 
