@@ -531,7 +531,7 @@ if (true) then
 _vehicle_1870 = objNull;
 if (true) then
 {
-  _this = createVehicle ["BMP2_HQ_INS", [14147.765, 10405.961, 0.12065267], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["BMP2_Ambul_CDF", [14147.765, 10405.961, 0.12065267], [], 0, "CAN_COLLIDE"];
   _vehicle_1870 = _this;
   _this setDir -89.919411;
   _this setPos [14147.765, 10405.961, 0.12065267];
