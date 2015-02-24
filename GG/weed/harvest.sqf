@@ -12,21 +12,21 @@ _playernear = count nearEntities [player, ["CaManBase"], 5];
 
 
 if !(_nearWeed) exitWith {
-	cutText [format["You need to be near the weed plants in order to gather."], "PLAIN DOWN"];
+	cutText [format["You need to be near the weed plants in order to harvest."], "PLAIN DOWN"];
 };
 if !(_canDo) exitWith {
-	cutText [format["Error: You cannot gather weed."], "PLAIN DOWN"];
+	cutText [format["Error: You cannot harvest weed."], "PLAIN DOWN"];
 };
 if (_inVehicle) exitWith {
-	cutText [format["You cannot Gather Weed While in a vehicle"], "PLAIN DOWN"];
+	cutText [format["You cannot harvest Weed While in a vehicle"], "PLAIN DOWN"];
 };
 
-if ((_playernear) > 1) exitwith {
+if ((_playernear) > 1) exitWith {
 	cutText [format["You cannot harvest weed with a player nearby"], "PLAIN DOWN"];
 };
 
 if (dayz_combat == 1) then { 
-    cutText [format["You are in Combat and Cannot Gather the Weed."], "PLAIN DOWN"];
+    cutText [format["You are in Combat and Cannot harvest the Weed."], "PLAIN DOWN"];
 } else {
 	disableSerialization;
 	_gearmenu = FindDisplay 106;
@@ -39,7 +39,7 @@ if (dayz_combat == 1) then {
 	player playActionNow "Medic";
 	sleep 1;
 	if !(_nearWeed) exitWith {
-	cutText [format["You need to be near the weed plants in order to gather."], "PLAIN DOWN"];
+	cutText [format["You need to be near the weed plants in order to harvest."], "PLAIN DOWN"];
 	};
 	_objectID = _weed getVariable["ObjectID","0"];
 	_objectUID = _weed getVariable["ObjectUID","0"];
