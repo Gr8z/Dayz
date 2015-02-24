@@ -8,7 +8,7 @@ _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animati
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder);
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
-_playernear = count nearestentities [player, ["CaManBase"], 5];
+_playernear = count nearEntities [player, ["CaManBase"], 5];
 
 
 if !(_nearWeed) exitWith {
