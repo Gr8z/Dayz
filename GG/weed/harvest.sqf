@@ -1,13 +1,14 @@
 
 private ["_gearmenu","_playerPos","_nearWeed","_weed","_objectID","_objectUID","_onLadder","_vehicle","_inVehicle","_playernear"];
 _playerPos = getPosATL player;
+_hempqty = {_x == "ItemKiloHemp"} count magazines player;
 _nearWeed = count nearestObjects [_playerPos, ["fiberplant"], 4] > 0;
 _weed = nearestObject [player, "fiberplant"];
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf && !r_player_unconscious && !_onLadder);
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
-_playernear = count nearEntities [_playerPos, ["CaManBase"], 5] > 1;
+_playernear = count nearEntities [player, ["CaManBase"], 5];
 
 
 if !(_nearWeed) exitWith {
@@ -20,7 +21,7 @@ if (_inVehicle) exitWith {
 	cutText [format["You cannot harvest Weed While in a vehicle"], "PLAIN DOWN"];
 };
 
-if (_playernear) exitWith {
+if ((_playernear) > 1) exitWith {
 	cutText [format["You cannot harvest weed with a player nearby"], "PLAIN DOWN"];
 };
 

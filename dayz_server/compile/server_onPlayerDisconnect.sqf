@@ -93,6 +93,9 @@ _playerObj setVariable["NORRN_unconscious",true,true];
 
         _message = format["PLAYER COMBAT LOGGED: %1",_playerName];
 
+        customRemoteMessage = ['systemChat', "%1 COMBAT LOGGED",_playerName];
+		publicVariable "customRemoteMessage";
+
         _removebackpack = true;
 
         {
@@ -106,6 +109,8 @@ _playerObj setVariable["NORRN_unconscious",true,true];
 
 diag_log format["DISCONNECT: %1 (%2) Object: %3, _characterID: %4 at loc %5", _playerName,_playerUID,_playerObj,_characterID, (getPosATL _playerObj)];
 
+customRemoteMessage = ['systemChat', "%1 DISCONNECTED",_playerName];
+publicVariable "customRemoteMessage";
 
 _id = [_playerUID,_characterID,2] spawn dayz_recordLogin;
 
