@@ -42,7 +42,7 @@ if (isServer) then {
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\dynamic_vehicle.sqf";
 	execVM "\z\addons\dayz_server\missions\Chernarus\mission.sqf";
 	diag_log text "APlotForLife";
-	_serverMonitor = [] execVM "custom\system\server_monitor1.sqf";
+	_serverMonitor = [] execVM "custom\system\server_monitor.sqf";
 	diag_log format["[_serverMonitor: %1]",_serverMonitor];
 	
 };
