@@ -20,14 +20,7 @@ _walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","It
 _supplies = ["CinderBlocks","MortarBucket","ItemTankTrap","PartWoodPlywood","PartWoodLumber","ItemPole","PartGlass"];
 
 
-//weapon lists
-_weapon = "DMR";
-_weapon2 = "FHQ_ACR_WDL_TWS_SD";
-_weapon3 = "BAF_LRR_scoped";
-_weapon4 = "USSR_cheytacM200_sd";
-_weapon5 = "m107_DZ";
-_weapon6 = "BAF_L85A2_RIS_CWS";
-_giveWep = [_weapon,_weapon2,_weapon3,_weapon4,_weapon5,_weapon6] call BIS_fnc_selectRandom;
+_giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS"] call BIS_fnc_selectRandom;
 _possibleMags = getArray (configfile >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags select 0;
 
