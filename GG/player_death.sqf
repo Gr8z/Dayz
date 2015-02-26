@@ -99,15 +99,12 @@ selectPlayer dayz_originalPlayer;
 
 _body setVariable["combattimeout", 0, true];
 
-//["dayzFlies",player] call broadcastRpcCallAll;
-sleep 2;
 
 1 cutRsc ["DeathScr","BLACK OUT",3];
 
 "dynamicBlur" ppEffectAdjust [0]; "dynamicBlur" ppEffectCommit 5;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
 
-sleep 2;
 
 for  "_x" from 5 to 1 step -1 do {
 	titleText [format[localize "str_return_lobby", _x], "PLAIN DOWN", 1];
