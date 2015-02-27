@@ -5100,8 +5100,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Flip Near Vehicle",admin_flipvehicle,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +10000 Coins",admingivecoins,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Take -10000 Coins",admintakecoins,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give Ammo",admin_give_ammo,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Clone",adminCloneTarget,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Un-Freeze",adminUnFreeze,"0","0","0","1",[0,0.8,1,1]];
@@ -5439,8 +5437,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Heal",adminheal,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +10000 Coins",admingivecoins,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Take -10000 Coins",admintakecoins,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Kill",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  RemoveGear",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
@@ -9101,50 +9097,6 @@ PV_AdminMainCode = {
 				_sl = format['%1 minus 2500 Humanity to %2',name player,_this select 0];
 				PVAH_WriteLogReq = [player,toArray _sl];
 				publicVariableServer 'PVAH_WriteLogReq';
-			};
-		} forEach playableUnits;
-	};
-		admingivecoins = 
-	{
-		private ["_wealth","_removecoins"];
-		{
-			if (name _x == _this select 0) then
-			{
-				_wealth = _x getVariable["cashMoney",0];
-				_x setVariable["cashMoney",_wealth + 10000, true];
-				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
-				publicVariableServer "PVDZE_plr_Save";
-				hint format ["Gave %1 1000 Coins!",_this select 0];
-				
-				_sl = format["%1 gave 1000 coins to %2",name player,_this select 0];
-				PVAH_WriteLogReq = [player,_sl];
-				publicVariableServer "PVAH_WriteLogReq";
-			};
-		} forEach playableUnits;
-	};
-	admintakecoins = 
-	{
-		private ["_wealth","_removecoins","_newwealth"];
-		{
-			if (name _x == _this select 0) then
-			{
-				_wealth = _x getVariable["cashMoney",0];
-				_removecoins = 10000;
-				if (_wealth <= 10000) then { 
-					_removecoins = _wealth; 
-				} else { 
-					_removecoins = 10000; 
-				};
-				_newwealth = _wealth-_removecoins;
-				if (_newwealth <= 0) then { _newwealth = 0; };
-				_x setVariable["cashMoney",_newwealth, true];
-				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
-				publicVariableServer "PVDZE_plr_Save";	
-				hint format ["Take %1 coins from %2!",_removecoins, _this select 0];
-				
-				_sl = format["%1 took %2 coins from %3",name player,_removecoins,_this select 0];
-				PVAH_WriteLogReq = [player,_sl];
-				publicVariableServer "PVAH_WriteLogReq";
 			};
 		} forEach playableUnits;
 	};
