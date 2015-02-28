@@ -23,7 +23,7 @@
 										 "76561198030001934", // CraigusMcGooch
 										 "76561198169014271", // TempSniper
 										 "76561198059535904", // Zane
-										 "76561198044736724"  // Thirdhero
+										 "76561198044736724",  // Thirdhero
 										 "76561198182078641"  // Phantomz
 										 ]; 
 /*  SUPER ADMIN HERE      */ _SAdmins = [
