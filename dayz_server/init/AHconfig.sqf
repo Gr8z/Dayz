@@ -17,13 +17,14 @@
 										 "76561197973172761", // Milton
 										 "76561198106963366", // Andrew/nor
 										 "76561198001066546", // MeowMix
-										 "76561198134812190" // Phantomz
+										 "0" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198030001934", // CraigusMcGooch
 										 "76561198169014271", // TempSniper
 										 "76561198059535904", // Zane
 										 "76561198044736724"  // Thirdhero
+										 "76561198182078641"  // Phantomz
 										 ]; 
 /*  SUPER ADMIN HERE      */ _SAdmins = [
 										 "76561198078201908", // Gr8
