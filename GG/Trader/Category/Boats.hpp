@@ -7,10 +7,7 @@ class Fishing_Boat { type = "trade_any_boat"; buy[] = {4000,"Coins"}; sell[] = {
 class PBX { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
 class JetSkiYanahui_Case_Red { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
 class JetSkiYanahui_Case_Yellow { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
-class JetSkiYanahui_Case_Green { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
+class JetSkiYanahui_Case_Green { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; };
+class RHIB {type = "trade_any_boat";buy[] = {4000,"Coins"};	sell[] = {2000,"Coins"};}; 
 class JetSkiYanahui_Case_Blue { type = "trade_any_boat"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
 }; 
-
-class Category_558 {
-class RHIB {type = "trade_any_boat";buy[] = {4000,"Coins"};	sell[] = {2000,"Coins"};};
-};
