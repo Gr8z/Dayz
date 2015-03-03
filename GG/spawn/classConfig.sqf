@@ -40,7 +40,7 @@ _presetClasses = [
 	["Police Officer","RU_Policeman_DZ","SurvivorWdesert_DZ",[],[],"",[],[],0,0],
 	["Rocker","Rocker1_DZ","SurvivorWurban_DZ",[],[],"",[],[],0,0],
 	["Terrorist","TK_INS_Soldier_EP1_DZ","BanditW2_DZ",[],[],"",[],[],0,0],
-	["US Soldier","Graves_Light_DZ","SurvivorWcombat_DZ",[],[],"",[],[],0,0],RH_20Rnd_762x51_SD_hk417
+	["US Soldier","Graves_Light_DZ","SurvivorWcombat_DZ",[],[],"",[],[],0,0],
 	["Engineer Level 1","SFSG_wdl_op","SurvivorWurban_DZ",["200Rnd_556x45_M249",4,"RH_6Rnd_44_Mag",4,"HandGrenade_West",VIP_ITEMS],["M249_EP1_DZ","RH_anacg",VIP_TOOLS],"DZ_ALICE_Pack_EP1",["PartEngine","PartGeneric","PartGeneric","PartWheel","HandGrenade_West"],[],1,0],
 	["Engineer Level 2","TK_Soldier_Engineer_EP1","SurvivorWurban_DZ",["100Rnd_762x51_M240",4,"RH_7Rnd_50_AE",4,"HandGrenade_West",VIP_ITEMS],["M240_DZ","RH_deagle",VIP_TOOLS],"DZ_CivilBackpack_EP1",["PartEngine","PartGeneric","PartGeneric","PartWheel","PartWheel","HandGrenade_West","HandGrenade_West"],[],2,0],
 	["Engineer Level 3","UKSF_wdl_mrk","SurvivorWurban_DZ",["100Rnd_762x51_M240",4,"RH_7Rnd_50_AE",4,"HandGrenade_West",VIP_ITEMS],["Mk_48_DZ","RH_deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",["PartVRotor","PartWheel","PartWheel","PartWheel","PartEngine","PartGeneric","PartGeneric","HandGrenade_West","HandGrenade_West","HandGrenade_West"],[],3,0],
