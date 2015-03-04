@@ -19,7 +19,6 @@
 										 "0" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
-										 "76561198030001934", // CraigusMcGooch
 										 "76561198169014271", // TempSniper
 										 "76561198059535904", // Zane
 										 "76561198044736724",  // Thirdhero
