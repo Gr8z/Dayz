@@ -30,7 +30,7 @@ class FHQ_MSR_DESERT { type = "trade_weapons"; buy[] = {30000,"Coins"}; sell[] =
 class FHQ_MSR_NV_DESERT { type = "trade_weapons"; buy[] = {50000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 class FHQ_MSR_NV_SD_DESERT { type = "trade_weapons"; buy[] = {70000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 class FHQ_RSASS_TAN { type = "trade_weapons"; buy[] = {10000,"Coins"}; sell[] = {10000,"Coins"}; }; 
-class FHQ_RSASS_SD_TAN { type = "trade_weapons"; buy[] = {20000,"Coins"}; sell[] = {6000,"Coins"}; }; 
+class FHQ_RSASS_SD_TAN { type = "trade_weapons"; buy[] = {20000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 class FHQ_XM2010_DESERT { type = "trade_weapons"; buy[] = {40000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 class FHQ_XM2010_SD_DESERT { type = "trade_weapons"; buy[] = {60000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 class FHQ_XM2010_NV_DESERT { type = "trade_weapons"; buy[] = {50000,"Coins"}; sell[] = {10000,"Coins"}; }; 
