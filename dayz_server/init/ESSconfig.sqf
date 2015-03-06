@@ -149,6 +149,7 @@ Medic3 = [
 Scout1 = [
 	"76561198047425000", // Jon Graham
 	"76561198130402012", // cenobite
+	"76561198141188022", // Dirty Mercenary
 	"76561198089649048", // jam tart
 	"76561197990214699", // {H.O.D}UnfortuneDuck
 	"76561198015890014", // Deadman
