@@ -9,10 +9,8 @@
 /*  LOW ADMIN HERE        */ _LAdmins = [
 										 "76561198122210030", // Pirate
 										 "76561198002511087", // Temp(Mod)
-										 "76561198021389971", // ThirdHero (mod ACC)
-										 "76561198035656886", // Frenchy Fry
+										 "76561198021389971", // ThirdHero (mod ACC)										 
 										 "76561198151043566", // Monkey
-										 "76561198046655797", // GoneForLunch
 										 "76561198080045762", // Deadskin									 
 										 "76561198106963366", // Andrew/nor
 										 "76561198001066546", // MeowMix
