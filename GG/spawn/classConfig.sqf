@@ -41,7 +41,7 @@ _presetClasses = [
 	["Rocker","Rocker1_DZ","SurvivorWurban_DZ",[],[],"",[],[],0,0],
 	["Terrorist","TK_INS_Soldier_EP1_DZ","BanditW2_DZ",[],[],"",[],[],0,0],
 	["US Soldier","Graves_Light_DZ","SurvivorWcombat_DZ",[],[],"",[],[],0,0],
-	["Engineer Level 1","SFSG_wdl_op","SurvivorWurban_DZ",["200Rnd_556x45_M249",4,"RH_6Rnd_44_Mag",4,"HandGrenade_West",VIP_ITEMS],["M249_EP1_DZ","RH_anacg",VIP_TOOLS],"DZ_ALICE_Pack_EP1",["PartEngine","PartGeneric","PartGeneric","PartWheel","HandGrenade_West"],[],1,0],
+	["Engineer Level 1","SFSG_wdl_op","SurvivorWurban_DZ",["200Rnd_556x45_M249",4,"RH_6Rnd_44_Mag",4,"HandGrenade_West",VIP_ITEMS],["M249_EP1_DZ","RH_anacg",VIP_TOOLS],"DZ_ALICE_Pack_EP1",["PartEngine","PartGeneric","PartGeneric","PartWheel","PartWheel","HandGrenade_West"],[],1,0],
 	["Engineer Level 2","TK_Soldier_Engineer_EP1","SurvivorWurban_DZ",["100Rnd_762x51_M240",4,"RH_7Rnd_50_AE",4,"HandGrenade_West",VIP_ITEMS],["M240_DZ","RH_deagle",VIP_TOOLS],"DZ_CivilBackpack_EP1",["PartEngine","PartGeneric","PartGeneric","PartWheel","PartWheel","HandGrenade_West","HandGrenade_West"],[],2,0],
 	["Engineer Level 3","UKSF_wdl_mrk","SurvivorWurban_DZ",["100Rnd_762x51_M240",4,"RH_7Rnd_50_AE",4,"HandGrenade_West",VIP_ITEMS],["Mk_48_DZ","RH_deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",["PartVRotor","PartWheel","PartWheel","PartWheel","PartEngine","PartGeneric","PartGeneric","HandGrenade_West","HandGrenade_West","HandGrenade_West"],[],3,0],
 	["VIP Marksmen 1","BAF_Soldier_Marksman_DDPM","SurvivorW3_DZ",["20Rnd_762x51_B_SCAR",4,"RH_8Rnd_9x19_Mk",4,VIP_ITEMS],["SCAR_H_LNG_Sniper","RH_mk22vsd",VIP_TOOLS],"DZ_ALICE_Pack_EP1",[],[],4,0],
