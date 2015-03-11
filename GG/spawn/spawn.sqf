@@ -1,6 +1,5 @@
 #define GET_TEXT disableSerialization;_text=lbText[8888,(lbCurSel 8888)];{if(_text==(_x select 0))then{_spawn=_x;};}forEach _spawnPoints+vipListBases;
-#define GROUP_POS _leader=leader((uiNamespace getVariable "myGroupPos")select 0);_grid=getPosATL _leader;if(surfaceIsWater _grid)then{_grid=getPosASL _leader;};
-#define PLOT_POS _plot=(uiNamespace getVariable "myPlotPos")select 0;_grid=getPosATL _plot;if(surfaceIsWater _grid)then{_grid=getPosASL _plot;};
+#define GROUP_POS _leader=leader(group player);_grid=getPosATL _leader;if(surfaceIsWater _grid)then{_grid=getPosASL _leader;};#define PLOT_POS _plot=(uiNamespace getVariable "myPlotPos")select 0;_grid=getPosATL _plot;if(surfaceIsWater _grid)then{_grid=getPosASL _plot;};
 #define UNLCK_PIC _lb lbSetPicture[_index,"\ca\ui\data\objective_complete_ca.paa"];
 
 moveMap = {
@@ -46,7 +45,7 @@ spawnFill = {
 			{
 				if ((count _x < 5) && {(_body distance (_x select 1)) < _bodyCheck}) then {_block set [count _block,(_x select 0)];};
 			} forEach _spawnPoints;
-			if (count (uiNamespace getVariable "myGroupPos") > 0) then {GROUP_POS if ((_body distance _grid) < _bodyCheck) then {_blockGroup = 1;};};
+			if ((count units group player > 1) && {_spawnNearGroup}) then {GROUP_POS if ((_body distance _grid) < _bodyCheck) then {_blockGroup = 1;};};
 			if (count (uiNamespace getVariable "myPlotPos") > 0) then {PLOT_POS if ((_body distance _grid) < _bodyCheck) then {_blockPlot = 1;};};
 		} count _bodies;
 		if ((count _block > 0) || {_blockGroup > 0} || {_blockPlot > 0}) then {systemChat format ["Note: some spawns are blocked due to a body of yours within %1m",_bodyCheck];};
@@ -71,7 +70,7 @@ spawnFill = {
 			if (_level > 0) then {_lb lbSetColor [_index,[0,1,0,.8]];};
 		};
 	} forEach _spawnPoints;
-	if ((_blockGroup < 1) && {_spawnNearGroup} && {count (uiNamespace getVariable "myGroupPos") > 0}) then {_index = _lb lbAdd "Near MyGroup";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
+	if ((count units group player > 1) && {_spawnNearGroup} && {_blockGroup < 1}) then {_index = _lb lbAdd "Near MyGroup";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
 	if ((_blockPlot < 1) && {count (uiNamespace getVariable "myPlotPos") > 0}) then {_index = _lb lbAdd "Near My PlotPole";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
 	if (_puid in vipListBase) then {
 		{if (_puid == _x) then {_index = _forEachIndex;};} forEach vipListBase;
@@ -107,7 +106,6 @@ private ["_count","_find","_leader","_ok","_plot","_grid","_spawn","_spot"];
 #include "spawnConfig.sqf"
 uiNamespace setVariable ["haloChoice",-1];
 uiNamespace setVariable ["spawnChoice",[]];
-uiNamespace setVariable ["myGroupPos",[]];
 uiNamespace setVariable ["myPlotPos",[]];
 
 while {count (uiNamespace getVariable "spawnChoice") < 1} do {

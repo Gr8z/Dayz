@@ -29,6 +29,7 @@ _haloDrop = {
 		waitUntil {_plane distance (_this select 0) < ((_this select 4)+200)};
 		player spawn BIS_fnc_halo;
 		player action ["eject",_plane];
+		player setVelocity [((velocity player) select 0),((velocity player) select 1),-15];
 		uiSleep 25;
 		deleteVehicle _plane;
 		deleteVehicle (_this select 2);
