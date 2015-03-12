@@ -46,7 +46,7 @@ class ClassDialog
 			font = "Zeppelin32";
 			maxHistoryDelay = 1;
 			onLBSelChanged = "call classPreview;";
-			rowHeight = .04;
+			rowHeight = 0;
 			class ScrollBar
 			{
 				arrowEmpty = "\ca\ui\data\arrow_up_ca.paa";

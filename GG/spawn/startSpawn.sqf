@@ -20,10 +20,10 @@ enableEnvironment true;
 cutText ["","BLACK IN"];
 execVM "GG\welcome.sqf";
 if (!isNil "_haloDrop") then {
-	while {(getPos player) select 2 > _autoOpenHeight} do {
+	while {(((getPos player) select 2) > _autoOpenHeight) && {isNil "bis_fnc_halo_para_dirAbs"}} do {
 		player allowDamage false;
 		if ((isNil "_haloType") || {!((vehicle player) isKindOf _haloType)}) then {
-			titleText [format[localize "str_halo_altitude_speed",str (round((getPos player) select 2))+" m",str (abs(round(speed(vehicle player))))+" km/h"],"PLAIN DOWN",.1];
+			titleText [("                                      ALTITUDE: " + str (round((getPos player) select 2)) + "\n\n                                      Scroll 'Mouse' select Open Chute"),"PLAIN DOWN",.1];
 		};
 		uiSleep .1;
 	};
