@@ -19,6 +19,7 @@ dayz_maxpos = 26000;
 dayz_MapArea = 18000;
 
 EpochEvents = [
+	["any","any","any","any",30,"abandonedvault"],
 	["any","any","any","any",0,"crash_spawner"],
 	["any","any","any","any",40,"supply_drop"]
 ];
