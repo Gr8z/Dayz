@@ -17,7 +17,6 @@ if ((_dikCode == 0x3E || _dikCode == 0x0F || _dikCode == 0xD3)) then {
 
 // esc
 if (_dikCode == 0x01) then {
-	_nill = execvm "GG\esc.sqf";
 	DZE_cancelBuilding = true;
 	call dayz_EjectPlayer;
 };
