@@ -1,5 +1,4 @@
 [] spawn {[] execVM "\z\addons\dayz_server\init\AH.sqf";};
-[] execVM "\z\addons\dayz_server\init\server_preventDupe.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
 

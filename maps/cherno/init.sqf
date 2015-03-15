@@ -49,9 +49,6 @@ if (isServer) then {
 };
 
 if (!isDedicated) then {
-	"PlayerCheckDupe" addPublicVariableEventHandler {
-        (_this select 1) call {[_this select 0,_this select 1,_this select 2] call Dupe_Check;}
-    };
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");

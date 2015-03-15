@@ -199,18 +199,6 @@ if ((_dikCode == 0x21 && (!_alt && !_ctrl)) || (_dikCode in actionKeys "User6"))
 	DZE_F = true;
 };
 
-// H Key
-if (_dikCode == 0x23) then {
-	if (isNil "OpenGear") then {
-		(findDisplay 106) closeDisplay 1;
-		player action ["gear", unitBackpack player];
-		OpenGear = true;
-		} else {
-		(findDisplay 106) closeDisplay 1;
-		OpenGear = nil;
-	};
-	_handled = true;
-};
 
 if (_dikCode == 0x36) then {
     if (dialog) then {closeDialog 0;groupManagementActive = false;} else {execVM "GG\group\loadGroupManagement.sqf";};
