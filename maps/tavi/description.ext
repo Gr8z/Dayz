@@ -16,7 +16,7 @@ enableItemsDropping = 0;
 briefing = 0;
 debriefing = 0;
 
-onPauseScript = "GG\DupingFix.sqf";
+onPauseScript = "";
 loadScreen = "GG\images\GG.jpg";
 
 class Header
