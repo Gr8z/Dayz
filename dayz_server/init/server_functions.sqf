@@ -1023,3 +1023,13 @@ KK_fnc_positionToString = {
 	diag_log _log;
 
 };
+
+'AD_AntiDupePlayer' addPublicVariableEventHandler
+{
+   [] spawn {
+      waitUntil {!isNull AD_AntiDupePlayer};
+      _plyr = AD_AntiDupePlayer;
+      _amnt = _plyr getVariable ['ClearToLeave',0];
+      _plyr setVariable ['ClearToLeave',_amnt+1,true];
+   };
+};
