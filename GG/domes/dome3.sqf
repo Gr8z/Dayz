@@ -8,7 +8,7 @@ Private ["_EH_Fired"];
 ////////////////////////////////////
 /////////////////////////////////////
 if ((getPlayerUID player) in [
-	"76561198053976682", // Ravenoffaith
+
 "0"
 	
 ]+adminBuild) then {
