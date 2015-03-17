@@ -18,7 +18,7 @@
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198169014271", // TempSniper
-										 "76561198059535904", // Zane
+										 "0", // Zane
 										 "76561198044736724",  // Thirdhero
 										 "76561198182408150",  // Pirate Admin
 										 "76561198182352055",  // Milton
