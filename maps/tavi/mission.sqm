@@ -1207,58 +1207,24 @@ class Mission
 	};
 	class Markers
 	{
-		items=28;
+		items=22;
 		class Item0
-		{
-			position[]={10732.087,193.02972,12687.841};
-			name="center";
-			type="Empty";
-		};
-		class Item1
-		{
-			position[]={125.80597,0.55931646,158.21259};
-			name="respawn_west";
-			type="Empty";
-		};
-		class Item2
-		{
-			position[]={17587.729,206.90927,4952.0513};
-			name="spawn0";
-			type="Empty";
-		};
-		class Item3
-		{
-			position[]={9093.4707,33.920578,2614.3794};
-			name="spawn1";
-			type="Empty";
-		};
-		class Item4
-		{
-			position[]={15954.211,19.612961,15847.49};
-			name="spawn2";
-			type="Empty";
-		};
-		class Item5
-		{
-			position[]={13560.766,32.488033,19300.455};
-			name="spawn3";
-			type="Empty";
-		};
-		class Item6
-		{
-			position[]={17743.729,255.98103,10299.182};
-			name="spawn4";
-			type="Empty";
-		};
-		class Item7
 		{
 			position[]={17512.80,304.99,1485.19};
 			name="website";
-			text="Website: http://ghostzgamerz.com";
+			text="Website: ghostzgamerz.com";
 			type="Town";
 			colorName="ColorYellow";
 		};
-		class Item8
+		class Item1
+		{
+			position[]={17512.80,304.99,1485.19};
+			name="website";
+			text="Website: ghostzgamerz.com";
+			type="Town";
+			colorName="ColorYellow";
+		};
+		class Item2
 		{
 			position[]={17512.80,304.99,862.56};
 			name="teamspeak";
@@ -1266,7 +1232,7 @@ class Mission
 			type="Town";
 			colorName="ColorYellow";
 		};
-		class Item9
+		class Item3
 		{
 			position[]={17512.80,304.99,2099.95};
 			name="servername";
@@ -1274,7 +1240,7 @@ class Mission
 			type="Town";
 			colorName="ColorYellow";
 		};
-		class Item10
+		class Item4
 		{
 			position[]={17512.80,304.99,273.95};
 			name="donation";
@@ -1282,7 +1248,7 @@ class Mission
 			type="Town";
 			colorName="ColorYellow";
 		};
-		class Item11
+		class Item5
 		{
 			position[]={16765.1,0,8256.27};
 			name="WeedFarm";
@@ -1290,7 +1256,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorOrange";
 		};
-		class Item12
+		class Item6
 		{
 			position[]={11698.81,-114,15210.121};
 			name="TraderCityLyepestok";
@@ -1298,7 +1264,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item13
+		class Item7
 		{
 			position[]={15309.663,-14.993002,9278.4912};
 			name="TraderCitySabina";
@@ -1306,7 +1272,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item14
+		class Item8
 		{
 			position[]={5538.7354,-35.799999,8762.2695};
 			name="TraderCityBilgrad";
@@ -1314,7 +1280,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item15
+		class Item9
 		{
 			position[]={7376.6084,-34.6604,4296.5879};
 			name="TraderCityBranibor";
@@ -1322,7 +1288,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item16
+		class Item10
 		{
 			position[]={10948.426,-10.727827,654.90265};
 			name="BanditVendor";
@@ -1330,7 +1296,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorRed";
 		};
-		class Item17
+		class Item11
 		{
 			position[]={15587.822,-35.599998,16394.049};
 			name="HeroVendor";
@@ -1338,7 +1304,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorGreen";
 		};
-		class Item18
+		class Item12
 		{
 			position[]={16555.732,-44.942032,10159.68};
 			name="AircraftDealer";
@@ -1346,7 +1312,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item19
+		class Item13
 		{
 			position[]={6815.0776,7.6293945e-006,8534.1504};
 			name="AircraftDealer2";
@@ -1354,7 +1320,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item20
+		class Item14
 		{
 			position[]={4066.3528,-36.305538,7265.0024};
 			name="Misc.Vendor";
@@ -1362,7 +1328,7 @@ class Mission
 			type="mil_triangle";
 			colorName="ColorBlack";
 		};
-		class Item21
+		class Item15
 		{
 			position[]={17497.631,-235.07928,7159.0879};
 			name="Misc.Vendor2";
@@ -1370,7 +1336,7 @@ class Mission
 			type="mil_triangle";
 			colorName="ColorBlack";
 		};
-		class Item22
+		class Item16
 		{
 			position[]={17332.115,5.3882599e-005,12930.239};
 			name="BoatDealer";
@@ -1378,7 +1344,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item23
+		class Item17
 		{
 			position[]={10570.494,-0.28882828,16772.477};
 			name="BoatDealer2";
@@ -1386,7 +1352,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item24
+		class Item18
 		{
 			position[]={10698.463,-0.00011062622,5983.665};
 			name="BoatDealer3";
@@ -1394,7 +1360,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item25
+		class Item19
 		{
 			position[]={5419.2437,-1.6689301e-006,9503.5479};
 			name="BoatDealer4";
@@ -1402,7 +1368,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item26
+		class Item20
 		{
 			position[]={13342.758,-172.991,8611.9932};
 			name="Wholesaler";
@@ -1410,7 +1376,7 @@ class Mission
 			type="mil_box";
 			colorName="ColorBlack";
 		};
-		class Item27
+		class Item21
 		{
 			position[]={9859.4209,-173.54755,7471.5684};
 			name="Wholesaler2";
