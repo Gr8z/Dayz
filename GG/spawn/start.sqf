@@ -1,6 +1,6 @@
 #define AT_SPAWN _nearNow=call _atSpawn;{if!(_x in _nearFinal)then{_nearFinal set [count _nearFinal,_x];};}count _nearNow;
 private ["_debug","_go","_holder","_isPZombie","_platform"];
-diag_log "spawn script starting..";
+
 _debug = getMarkerPos "respawn_west";
 if (getText(configFile >> "CfgMods" >> "DayZ" >> "dir") == "@DayZ_Epoch") then {
 	if (surfaceIsWater _debug) then {
@@ -12,11 +12,12 @@ if (getText(configFile >> "CfgMods" >> "DayZ" >> "dir") == "@DayZ_Epoch") then {
 		_platform enableSimulation false;
 	};
 	waitUntil {!isNil "PVDZE_plr_LoginRecord"};
-	diag_log "spawn script starting..";
+	diag_log "IF spawn script starting..";
 	_isPZombie = player isKindOf "PZombie_VB";
 	_go = dayzPlayerLogin2 select 2;
 } else {
 	waitUntil {!isNil "PVDZ_plr_LoginRecord"};
+	diag_log "ELSE spawn script starting..";
 	_isPZombie = false;
 	_go = if (count PVCDZ_plr_Login2 > 3) then {PVCDZ_plr_Login2 select 3} else {PVCDZ_plr_Login2 select 2};
 };
