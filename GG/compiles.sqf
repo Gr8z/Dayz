@@ -224,8 +224,7 @@ if (!isDedicated) then {
 	player_hasTools =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_hasTools.sqf";
 	player_checkItems =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_checkItems.sqf";
 	player_removeItems =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_removeItems.sqf";
-	//Trader ["Trader City Name",false,"enter"] - Trader City Name | Show Message | "enter" || "leave"
-	player_traderCity = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderCity.sqf";
+	player_traderCity = 		compile preprocessFileLineNumbers "GG\player_traderCity.sqf";
 
 	// combination of check && remove items
 	player_checkAndRemoveItems = {

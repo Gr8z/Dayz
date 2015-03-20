@@ -19,22 +19,27 @@ if((locked _cTarget) && _isOk && (((vehicle player) distance _cTarget) < 12)) th
 	_display closeDisplay 1;
 };
 
-if (isNil "inSafeZone") then {inSafeZone = false;};
-if ((!canbuild || inSafeZone) and _cTarget isKindOf "Man" and alive _cTarget and (((vehicle player) distance _cTarget) < 12) && {group _cTarget != group player}) then {
-	cutText ["Cannot access other players gear in the safezone." , "PLAIN DOWN"];
-	_display closeDisplay 1;
-};
+if(safezone != 1) then
+{
+	if( isPlayer cursorTarget and alive cursorTarget and vehicle cursorTarget == cursorTarget ) then
+	{
+		_friendlies = player getVariable ["friendlyTo",[]];
+		_ownerID = getplayerUID cursorTarget;
 
-if (!canbuild) then {
-	private ["_don_iscar","_don_ismycar","_don_crew"];
-	_don_iscar = false; _don_ismycar = false;
-	if (_cTarget isKindOf "LandVehicle" || _cTarget isKindOf "Air" || _cTarget isKindOf "Ship" ) then {
-		_don_crew = _cTarget getVariable ["don_crew", nil]; if (isNil "_don_crew") then {_don_crew = [getPlayerUID player];};
-		_don_iscar = true; if ((getPlayerUID player) in _don_crew) then {_don_ismycar = true;};
-	};
-	if (_don_iscar && !_don_ismycar) then {
-		[objNull, player, rSAY, "error1"] call RE;
-		cutText ["You can't access this vehicle gear!" , "PLAIN DOWN"];
-		_display closeDisplay 1;
+		_friend = _ownerID in _friendlies;
+
+		// check if friendly to owner
+		if( !_friend || {group cursorTarget != group player}) then {
+			_display closeDisplay 1;
+			if (isNil 'FixSilly') then { FixSilly = true; };
+			if (FixSilly) then {
+				systemChat ("This player is not tagged friendly, you do not have access to their bag."); FixSilly = false; [] spawn { uiSleep 5; FixSilly = true; };
+			};
+		} else {
+			if (isNil 'FixSilly2') then { FixSilly2 = true; };
+			if (FixSilly2) then {
+				systemChat ("This player is tagged friendly, you have access to this players bag."); FixSilly2 = false; [] spawn { uiSleep 5; FixSilly2 = true; };
+			};
+		};
 	};
 };
