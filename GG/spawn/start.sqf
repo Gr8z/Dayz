@@ -12,6 +12,7 @@ if (getText(configFile >> "CfgMods" >> "DayZ" >> "dir") == "@DayZ_Epoch") then {
 		_platform enableSimulation false;
 	};
 	waitUntil {!isNil "PVDZE_plr_LoginRecord"};
+	diag_log "spawn script starting..";
 	_isPZombie = player isKindOf "PZombie_VB";
 	_go = dayzPlayerLogin2 select 2;
 } else {
