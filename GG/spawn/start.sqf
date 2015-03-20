@@ -41,6 +41,7 @@ if (_go) then {
 	};
 	_hasMap = "ItemMap" in items player;
 	if !(_hasMap) then {
+	diag_log "Player has no MAP Starting class Select";
 	#include "class.sqf"
 	};
 	#include "spawn.sqf"

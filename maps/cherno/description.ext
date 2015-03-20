@@ -17,7 +17,7 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "";
-loadScreen = "GG\images\GG.jpg";
+loadScreen = "GG.jpg";
 
 class Header
 {
