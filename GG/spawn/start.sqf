@@ -39,8 +39,10 @@ if (_go) then {
 		{if (!local _x) then {_x hideObject true;};_x allowDamage false;_ret set [count _ret,_x];} count (player nearEntities ["Man",100]);
 		_ret
 	};
-
+	_hasMap = "ItemMap" in items player;
+	if !(_hasMap) then {
 	#include "class.sqf"
+	};
 	#include "spawn.sqf"
 	#include "halo.sqf"
 	#include "startSpawn.sqf"
