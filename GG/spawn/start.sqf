@@ -43,6 +43,8 @@ if (_go) then {
 	if !(_hasMap) then {
 	diag_log "Player has no MAP Starting class Select";
 	#include "class.sqf"
+	} else {
+	diag_log "Player has map skipping class Select";
 	};
 	#include "spawn.sqf"
 	#include "halo.sqf"
