@@ -2,7 +2,7 @@
 private ["_debug","_go","_holder","_isPZombie","_platform"];
 
 _debug = getMarkerPos "respawn_west";
-if (getText(configFile >> "CfgMods" >> "DayZ" >> "dir") == "@DayZ_Epoch") then {
+
 	if (surfaceIsWater _debug) then {
 		_debug set [2,2];
 		_platform = "MetalFloor_DZ" createVehicleLocal _debug;
@@ -12,14 +12,9 @@ if (getText(configFile >> "CfgMods" >> "DayZ" >> "dir") == "@DayZ_Epoch") then {
 		_platform enableSimulation false;
 	};
 	waitUntil {!isNil "PVDZE_plr_LoginRecord"};
-	diag_log "IF spawn script starting..";
+	diag_log "spawn script starting..";
 	_isPZombie = player isKindOf "PZombie_VB";
 	_go = dayzPlayerLogin2 select 2;
-} else {
-	waitUntil {!isNil "PVDZ_plr_LoginRecord"};
-	diag_log "ELSE spawn script starting..";
-	_isPZombie = false;
-	_go = if (count PVCDZ_plr_Login2 > 3) then {PVCDZ_plr_Login2 select 3} else {PVCDZ_plr_Login2 select 2};
 };
 
 if (_go) then {
