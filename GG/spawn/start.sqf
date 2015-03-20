@@ -15,7 +15,7 @@ _debug = getMarkerPos "respawn_west";
 	diag_log "spawn script starting..";
 	_isPZombie = player isKindOf "PZombie_VB";
 	_go = dayzPlayerLogin2 select 2;
-};
+
 
 if (_go) then {
 	enableEnvironment false;
