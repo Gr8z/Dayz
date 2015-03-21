@@ -5,7 +5,6 @@ _hisMoney = _body getVariable ["cashMoney",0];
 _myMoney = player getVariable ["cashMoney",0];
 _myMoney = _myMoney + _hisMoney;
 
-if (isNull _hisMoney) exitWith {systemChat "Error Collecting Coins";};
 if (_hisMoney = 0) exitWith {systemChat format ['%2 has no coins',_hisMoney,_name];};
 systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
 
@@ -17,6 +16,7 @@ player setVariable ["cashMoney", _myMoney , true];
 sleep 2;
 
 _myMoneyAfter = player getVariable ["cashMoney",0];
-if(_myMoneyAfter =< 0) then{
+if(_myMoneyAfter < 0) then{
+}else {
 	player setVariable ["cashMoney", 0 , true];	
 };
