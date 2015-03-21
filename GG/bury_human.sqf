@@ -6,7 +6,7 @@ _hasHarvested = _corpse getVariable["meatHarvested",false];
 _name = _corpse getVariable["bodyName","unknown"];
 _hasETool = "ItemEtool" in items player;
 
-if (!_hasETool) exitWith {cutText ["You dont have an Etool", "PLAIN DOWN"];};
+if (!_hasETool) exitWith {cutText ["You don't have an Etool", "PLAIN DOWN"];};
 
 player removeAction s_player_bury_human;
 s_player_bury_human = -1;
@@ -21,17 +21,17 @@ if (!_isBuried) then {
 
         _position = getPos _corpse;
         _dir = getDir _corpse;
-private ["_newBackpackType","_backpackWpn","_backpackMag"];
+		private ["_newBackpackType","_backpackWpn","_backpackMag"];
         dayz_myBackpack = unitBackpack _corpse;
-_newBackpackType = (typeOf dayz_myBackpack);
+		_newBackpackType = (typeOf dayz_myBackpack);
         _corpse; private ["_weapons","_magazines","_primweapon","_secweapon"];
         _weapons = weapons _corpse;
         _magazines = magazines _corpse;
         if(_newBackpackType != "") then {
-_backpackWpn = getWeaponCargo unitBackpack _corpse;
-_backpackMag = getMagazineCargo unitBackpack _corpse;
-};
-  _box = createVehicle ["USBasicAmmunitionBox", _position, [], 0, "CAN_COLLIDE"];
+			_backpackWpn = getWeaponCargo unitBackpack _corpse;
+			_backpackMag = getMagazineCargo unitBackpack _corpse;
+		};
+		_box = createVehicle ["USBasicAmmunitionBox", _position, [], 0, "CAN_COLLIDE"];
         _box setpos [(getposATL _box select 0),(getposATL _box select 1)+1.2, 0];
         clearWeaponCargoGlobal _box;
         clearMagazineCargoGlobal _box;
