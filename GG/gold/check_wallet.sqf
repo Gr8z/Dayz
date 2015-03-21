@@ -16,7 +16,8 @@ player setVariable ["cashMoney", _myMoney , true];
 sleep 2;
 
 _myMoneyAfter = player getVariable ["cashMoney",0];
-if(_myMoneyAfter < 0) then{
+if(_myMoneyAfter > 0) then{
 }else {
-	player setVariable ["cashMoney", 0 , true];	
+	player setVariable ["cashMoney", 0 , true];
+	systemChat "YOU ARE BUGGED! RELOG NOW !	";
 };
