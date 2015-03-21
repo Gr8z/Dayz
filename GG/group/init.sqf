@@ -1,8 +1,4 @@
-if (toLower(getText(configFile >> "CfgMods" >> "DayZ" >> "dir")) == "@DayZ_Epoch") then {
-	waitUntil {uiSleep .25;(!isNil "PVDZE_plr_LoginRecord")};
-} else {
-	waitUntil {uiSleep .25;(!isNil "PVDZ_plr_LoginRecord")};
-};
+waitUntil {uiSleep .25;(!isNil "PVDZE_plr_LoginRecord")};
 
 _loginGroup = group player;
 if (count units _loginGroup > 1) then {[player] join grpNull;deleteGroup _loginGroup;};
