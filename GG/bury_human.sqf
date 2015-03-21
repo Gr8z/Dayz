@@ -14,7 +14,8 @@ s_player_bury_human = -1;
 if (!_isBuried) then {
     if (!_hasHarvested) then {
 
-          _corpse setVariable["isBuried",true,true];
+        _corpse setVariable["isBuried",true,true];
+		_corpse setVariable["CashMoney",0 ,true];
         player playActionNow "Medic";
         sleep 10;
 
@@ -36,7 +37,8 @@ _backpackMag = getMagazineCargo unitBackpack _corpse;
         clearMagazineCargoGlobal _box;
         { _box addWeaponCargoGlobal [_x, 1] } forEach weapons _corpse;
         { _box addMagazineCargoGlobal [_x ,1] } forEach magazines _corpse;
-deleteVehicle _corpse;
+		_box setVariable["CashMoney",0 ,true];
+		deleteVehicle _corpse;
 
         _mound = createVehicle ["Grave", _position, [], 0, "CAN_COLLIDE"];
         _mound setpos [(getposATL _mound select 0),(getposATL _mound select 1), 0];
