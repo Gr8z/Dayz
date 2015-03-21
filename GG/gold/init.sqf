@@ -28,7 +28,7 @@ BankDialogWithdrawAmount = {
 	_wealth = player getVariable["cashMoney",0];
 	
 	if(_amount > 999999) exitWith { cutText ["You can not withdraw more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
-	if(_amount < 1 or _amount > _bank isNull _amount) exitWith { cutText ["You can not withdraw more than is in your bank.", "PLAIN DOWN"]; };
+	if(_amount < 1 or _amount > _bank or (isNull _amount)) exitWith { cutText ["You can not withdraw more than is in your bank.", "PLAIN DOWN"]; };
 
 	player setVariable["cashMoney",(_wealth + _amount),true];
 	player setVariable["bankMoney",(_bank - _amount),true];
@@ -48,7 +48,7 @@ BankDialogDepositAmount = {
 	_wealth = player getVariable["cashMoney",0];
 	
 	if(_amount > 999999) exitWith { cutText ["You can not deposit more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
-	if (_amount < 1 or _amount > _wealth or isNull _amount) exitWith { cutText ["You can not deposit more than you have.", "PLAIN DOWN"]; };
+	if (_amount < 1 or _amount > _wealth or (isNull _amount)) exitWith { cutText ["You can not deposit more than you have.", "PLAIN DOWN"]; };
 
 	PVDZE_account_Doublecheck = [player];
 	publicVariableServer "PVDZE_account_Doublecheck";
@@ -81,7 +81,7 @@ GivePlayerAmount = {
 	_wealth = player getVariable["cashMoney",0];
 	_twealth = _target getVariable["cashMoney",0];
 	_isMan = _target isKindOf "Man";
-	if (_amount < 1 or _amount > _wealth isNull _amount) exitWith {
+	if (_amount < 1 or _amount > _wealth or (isNull _amount)) exitWith {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
 	};
 	if (!_isMan) exitWith {
