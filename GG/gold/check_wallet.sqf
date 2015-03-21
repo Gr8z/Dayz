@@ -4,19 +4,19 @@ _name = _body getVariable ["bodyName","AI"];
 _hisMoney = _body getVariable ["cashMoney",0];
 _myMoney = player getVariable ["cashMoney",0];
 _myMoney = _myMoney + _hisMoney;
+
+if (isNull _hisMoney) exitWith {systemChat "Error Collecting Coins";};
+if (_hisMoney = 0) exitWith {systemChat format ['%2 has no coins',_hisMoney,_name];};
+systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
+
+sleep 1;
+
 _body setVariable ["cashMoney", 0 , true];
 player setVariable ["cashMoney", _myMoney , true];
 
-systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
 sleep 2;
 
-_cid =	player getVariable ["CharacterID","0"];
-
-_cashMoney = player getVariable ["cashMoney",0];
-
-
-			if(_cashMoney > 0) then{
-				
-				}else{
-				_cashMoney = 0;
-				};
+_myMoneyAfter = player getVariable ["cashMoney",0];
+if(_myMoneyAfter =< 0) then{
+	player setVariable ["cashMoney", 0 , true];	
+};
