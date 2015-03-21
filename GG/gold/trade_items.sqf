@@ -65,7 +65,7 @@ for "_x" from 1 to _total_trades do {
     if(isNil "_oldPosition") then { _oldPosition = position player;};
     _finished = false;
     sleep 2;
-    if (player distance _oldPosition <= 1) then {
+    if ((position player) distance _oldPosition <= 1) then {
         _finished = true;
     };
     if (!_finished) exitWith {
@@ -148,7 +148,7 @@ for "_x" from 1 to _total_trades do {
     if(isNil "_oldPosition") then { _oldPosition = position player;};
     _finished = false;
     sleep 2;
-    if (player distance _oldPosition <= 1) then {
+    if ((position player) distance _oldPosition <= 1) then {
         _finished = true;
     };
     if (!_finished) exitWith {
