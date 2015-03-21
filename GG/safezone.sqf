@@ -280,7 +280,7 @@ while {true} do {
 
 	//Re-Enable These
 	building_spawnZombies =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnZombies.sqf";
-	building_spawnLoot = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnLoot.sqf"
+	building_spawnLoot = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnLoot.sqf";
 	player_wearClothes =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_wearClothes.sqf";
 	player_zombieCheck = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";	
 
