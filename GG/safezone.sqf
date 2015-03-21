@@ -1,20 +1,9 @@
-/*
-   by: http://infiSTAR.de || http://DayzAntiHack.com
-   *updated on 24.12.2014
-       
-        Instructions:
-        1. Copy paste this pastebin code into a file called SafeZone.sqf - save the file.
-        2. Now extract your mpmission pbo and put the SafeZone.sqf into the extracted folder.
-        3. Open the init.sqf of the mpmission.
-        4. At the bottom of the file add
-        [] execVM 'SafeZone.sqf';
-        5. Save the init.sqf, repack your mpmission, upload it to your gameserver and restart your server
-*/
+
 USE_CANBUILD = true;           // if you don't want to define your own positions
 USE_TraderCity = false; //      if you don't want to define your own positions (Epoch 1.0.5)
 USE_POSITIONS = false;   // to use own positions and radius
 USE_AI_REMOVER = false; // use this to remove Missionbots (AI) within 100m of a player if the player is in a SafeZone
-USE_AntiSteal = true;   // use this to block opening gear if another player is within 3m!
+USE_AntiSteal = false;   // use this to block opening gear if another player is within 3m!
 USE_SPEEDLIMIT = true;  // very secret function, nobody is supposed to find out what it does.
         SPEEDLIMIT = 20;                // Only used if USE_SPEEDLIMIT is true.
 USE_SIGNS = true;               // use this to build signs around the SafeZone
@@ -156,8 +145,8 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                                 publicVariableServer 'PVDZE_send';
                         };
                 };
-                wild_spawnZombies = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\wild_spawnZombies.sqf';
-                zombie_generate = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\zombie_generate.sqf';
+                wild_spawnZombies = compile preprocessFileLineNumbers 'GG\zombies\wild_spawnZombies.sqf';
+                zombie_generate = compile preprocessFileLineNumbers 'GG\zombies\zombie_generate.sqf';
                
                
                 player_fired = {
@@ -185,7 +174,7 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                
                 fnc_usec_unconscious = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
                 object_monitorGear = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\object_monitorGear.sqf';
-                vehicle_handleDamage = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\vehicle_handleDamage.sqf';
+                vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
                
                 _veh = vehicle player;
                 _szs = _veh getVariable ['inSafeZone',0];
