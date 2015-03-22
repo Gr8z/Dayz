@@ -123,16 +123,16 @@ if(isServer) then {
 		wai_bandit_limit			= 1;								// define how many bandit missions can run at once
 
 		wai_hero_missions			= [ 								// ["mission filename",% chance of picking this mission],Make sure the chances add up to 100,or it will not be accurate percentages
-										["patrol",10],
+										["patrol",11],
 										["black_hawk_crash",11],
-										["armed_vehicle",11],
+										["armed_vehicle",8],
 										["bandit_base",7],
-										["captured_mv22",6],
+										["captured_mv22",7],
 										["ikea_convoy",7],
 										["destroyed_ural",10],
 										["disabled_milchopper",9],
 										["mayors_mansion",9],
-										["weapon_cache",6],
+										["weapon_cache",7],
 										["benlate",4],
                                         ["real_benlate",4],
 										["bandit_patrol",6]
