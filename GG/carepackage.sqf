@@ -12,6 +12,7 @@ _unit = player;
 _getPos = getPos _unit;
 _position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _positionM = [_getPos select 0, _getPos select 1];
+_playerName = name player;
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
@@ -50,6 +51,10 @@ _null  = createMarker ["MarkerDrop",_positionM];
 "MarkerDrop"  setMarkerText "Air Drop";
 "MarkerDrop"  setMarkerType "mil_objective";
 "MarkerDrop"  setMarkerColor "ColorRed";
+
+_message = format["%1 has called in an AirDrop, It is marked on your map, Go Capture it !",_playerName];
+[nil,nil,rTitleText,_message, "PLAIN",6] call RE;
+diag_log text format["[AirDrop]: Air Drop Called By a player Successfully"];
 
 lastpack = time;
 
