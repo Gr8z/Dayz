@@ -11,6 +11,9 @@ if (!_hasETool) exitWith {cutText ["You don't have an Etool", "PLAIN DOWN"];};
 player removeAction s_player_bury_human;
 s_player_bury_human = -1;
 
+player removeAction s_player_studybody;
+s_player_studybody = -1;
+
 if (!_isBuried) then {
     if (!_hasHarvested) then {
 
