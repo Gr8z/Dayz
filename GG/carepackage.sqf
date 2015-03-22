@@ -102,3 +102,15 @@ clearmagazinecargoglobal _boxx;
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
 _boxx addMagazineCargoGlobal [_mag, _var];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
+
+waitUntil{
+sleep 1;
+(({isPlayer _x && _x distance _box <= 5} count playableUnits > 0));
+};
+
+sleep 90;
+deleteMarker "MarkerDrop";
+
+_message = format["Good Job Survivors. The Air Drop has been Captured",_playerName];
+[nil,nil,rTitleText,_message, "PLAIN",6] call RE;
+diag_log text format["[AirDrop]: Air Drop captured Successfully. Deleting Marker"];
