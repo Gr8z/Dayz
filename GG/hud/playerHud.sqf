@@ -1,7 +1,5 @@
 disableSerialization;
 
-// player setVariable["AsReMixhud", true];//Variable Show/Hide HUD Support for control player hud
-
 AsReMixhud_Control = true; // player getVariable["AsReMixhud",true];
 
 
@@ -16,11 +14,6 @@ while {true} do
     Zupa_bank 					= _thePlayer getVariable["bankMoney",0];
 	
     
-
-	//if(AsReMixhud_humanity >= 5000) then { AsReMixhud_hmnicon = "<img size='0.8' image='GG\hud\icons\As_hmhero.paa'/>"; };
-	//if((AsReMixhud_humanity >= 200) && (AsReMixhud_humanity <= 4999)) then { AsReMixhud_hmnicon = "<img size='0.8' image='GG\hud\icons\As_hmcivil.paa'/>"; };
-//	if(AsReMixhud_humanity <= 199) then { AsReMixhud_hmnicon = "<img size='0.8' image='GG\hud\icons\As_hmbandit.paa'/>"; };
-	
 	_vitals ctrlSetStructuredText parseText format ["
 		<t size='0.9'> %1 </t><img size='0.8' align='right' image='GG\images\Money.paa'/>   <br/>
 		<t size='0.9'> %2 </t><img size='0.8' align='right' image='GG\images\Bank.paa'/>   <br/>",

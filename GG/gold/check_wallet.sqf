@@ -5,6 +5,12 @@ _hisMoney = _body getVariable ["cashMoney",0];
 _myMoney = player getVariable ["cashMoney",0];
 _myMoney = _myMoney + _hisMoney;
 
+if(_hisMoney > 999999) exitWith { cutText ["You can not loot more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
+
+if (_hisMoney == "STRING") exitWith {
+	systemChat format ['%2 has no coins',_hisMoney,_name];
+};
+
 if (_hisMoney == 0) exitWith {systemChat format ['%2 has no coins',_hisMoney,_name];};
 systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
 
