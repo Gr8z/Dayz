@@ -8,6 +8,11 @@ _body setVariable ["cashMoney", 0 , true];
 
 if(_hisMoney > 999999) exitWith { cutText ["You can not loot more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
 
+if (isNull cursorTarget) {
+	cutText ["Cannot loot coins, You must be near a body to loot coins.", "PLAIN DOWN"];
+};
+
+
 _PlayerNear = _body call dze_isnearest_player;
 if (_PlayerNear) exitWith {cutText [localize "str_pickup_limit_4", "PLAIN DOWN"]};
 
