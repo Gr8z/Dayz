@@ -5,8 +5,9 @@ private ["_folder","_servicePointClasses","_maxDistance","_actionTitleFormat","_
 // ---------------- CONFIG START ----------------
 
 // -- Single Currency Prices -- //
-_coinsRepairAir = 160;
-_coinsRepairVehicles = 40;
+_coinsRepairAir = 1000;
+_coinsRepairVehicles = 200;
+_coinsRepairArmed = 1000;
 
 _coinsRefuelAir = 60;
 _coinsRefuelVehicles = 20;
@@ -39,9 +40,23 @@ _refuel_amount = 0.01; // amount of fuel to add with every update (in percent)
 _repair_enable = true; // enable or disable the repair option
 _repair_costs = [
     ["Air",[CurrencyName,_coinsRepairAir]], // for helicopters and planes
+    ["HMMWV_M998A2_SOV_DES_EP1_DZE",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["HMMWV_M1151_M2_CZ_DES_EP1_DZE",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["HMMWV_m998_crows_M2_DES_EP1",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["BTR40_MG_TK_GUE_EP1",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["LandRover_MG_TK_EP1_DZE",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["UAZ_MG_TK_EP1_DZE",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["BAF_Jackal2_L2A1_W",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["BAF_Jackal2_GMG_W",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["GAZ_Vodnik_DZE",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["BRDM2_TK_EP1",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["BTR90_HQ",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["LAV25_HQ",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["M113_TK_EP1",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
+    ["M113_UN_EP1",[CurrencyName,_coinsRepairArmed]], // for helicopters and planes
 	["AllVehicles",[CurrencyName,_coinsRepairVehicles]] // for all other vehicles
 ];
-_repair_repairTime = 2; // time needed to repair each damaged part (in seconds)
+_repair_repairTime = 5; // time needed to repair each damaged part (in seconds)
 
 // rearm settings
 _rearm_enable = false; // enable or disable the rearm option
