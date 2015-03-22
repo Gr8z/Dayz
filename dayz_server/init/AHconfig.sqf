@@ -22,6 +22,7 @@
 										 "76561198044736724",  // Thirdhero
 										 "76561198182408150",  // Pirate Admin
 										 "76561198182352055",  // Milton
+										 "76561198084864687",  // Kozak
 										 "76561198182078641"  // Phantomz
 										 ]; 
 /*  SUPER ADMIN HERE      */ _SAdmins = [
