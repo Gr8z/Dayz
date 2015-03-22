@@ -1,4 +1,4 @@
-//Neutral military trader
+
 
 if (isServer) then {
 

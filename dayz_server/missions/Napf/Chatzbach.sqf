@@ -1,6 +1,4 @@
-//########################
-// Chatzbach Trader by EPD
-//########################
+
 //Medic
 _unit_1 = objNull;
 if (true) then

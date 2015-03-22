@@ -1,6 +1,4 @@
 
-//bor.sqf
-
 if (isServer) then {
 
 vehicle_8153 = objNull;

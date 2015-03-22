@@ -1,11 +1,3 @@
-/*
-Taviana.com 2.0 - Sabina Tunnel Roadblock
-Created by Uro
-Version: 1.00
-Date: 29/12/2013
-Visit us at: http://www.urogaming.co.uk
-You are not allowed to modify this file and redistribute it without permission given by me (Uro).
-*/
 
 _bldObj = objNull;
 if (true) then

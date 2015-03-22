@@ -1,4 +1,4 @@
-//Bandit camp by Bexs
+
 
 if (isServer) then {
 

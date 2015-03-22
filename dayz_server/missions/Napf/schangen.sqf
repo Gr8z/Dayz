@@ -1,4 +1,4 @@
-//Schangen Suvivor-Trader-City
+
 
 if (isServer) then {
 

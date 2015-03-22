@@ -1,8 +1,3 @@
-/*
-	DayZ Mission System Config by Vampire
-	DZMS: https://github.com/SMVampire/DZMS-DayZMissionSystem
-*/
-
 ///////////////////////////////////////////////////////////////////////
 // Do you want your players to gain humanity from killing mission AI?
 DZMSMissHumanity = true;

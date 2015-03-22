@@ -1,10 +1,4 @@
-/*																		//
-	DZMSAISpawn.sqf by Vampire
-	Usage: [position,unitcount,skillLevel] execVM "dir\DZMSAISpawn.sqf";
-		Position is the coordinates to spawn at [X,Y,Z]
-		UnitCount is the number of units to spawn
-		SkillLevel is the skill number defined in DZMSAIConfig.sqf
-*/																		//
+																//
 private ["_position","_unitcount","_skill","_wpRadius","_xpos","_ypos","_unitGroup","_aiskin","_unit","_weapon","_magazine","_wppos1","_wppos2","_wppos3","_wppos4","_wp1","_wp2","_wp3","_wp4","_wpfin","_unitArrayName","_unitMissionCount"];
 _position = _this select 0;
 _unitcount = _this select 1;

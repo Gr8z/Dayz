@@ -1,4 +1,4 @@
-// Hero Camp by Bexs
+
 
 if (isServer) then {
 

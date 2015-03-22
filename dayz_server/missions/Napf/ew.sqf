@@ -1,4 +1,4 @@
-//########## East Wholesaler by Bexs
+
 
 if (isServer) then {
 

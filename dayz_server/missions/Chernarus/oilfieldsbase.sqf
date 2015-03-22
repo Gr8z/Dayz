@@ -1,5 +1,4 @@
-/////designed by Kaysio ////
-////www.wtf-gaming.co.uk////
+
 
 if (isServer) then {
 

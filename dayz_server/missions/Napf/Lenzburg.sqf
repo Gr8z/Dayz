@@ -1,4 +1,3 @@
-//Lenzburg Survivor-Trader-City
 
 if (isServer) then {
 

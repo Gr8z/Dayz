@@ -1,4 +1,3 @@
-//Remove Weapon SiothieGaming german Youtubechannel: http://www.youtube.com/user/SiothieGaming
 {
 	if (_object isKindof "KORD") then {
          _object setVehicleAmmo 0;

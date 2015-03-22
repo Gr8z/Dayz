@@ -1,7 +1,3 @@
-/*-----------------------------------*/
-// by Raymix						//
-// July 10 2014					   //
-/*--------------------------------*/
 
 private ["_object","_objectSnapGizmo","_objColorActive","_objColorInactive","_classname","_whitelist","_radius","_cfg","_cnt","_pos","_findWhitelisted","_nearbyObject","_posNearby","_selectedAction","_newPos","_pointsNearby","_onWater","_waterBase"];
 //Args
