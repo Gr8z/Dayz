@@ -1,4 +1,4 @@
-DZE_BuildingLimit = 300;
+DZE_BuildingLimit = 150;
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
 DZE_crashLootConfig = [true,2,5,8,0];
