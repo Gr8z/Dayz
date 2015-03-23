@@ -258,10 +258,9 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                 uiSleep 2;
                 if (!inSafeZone) then
                 {
-                        call _endSafeZone;
 						[] spawn {
 							for "_x" from 1 to 30 do {
-								if (_x >= 6) then {cutText [format ["SAFEZONE WILL DISABLE IN %1s", 31-_x], "PLAIN DOWN"];};
+								if (_x >= 6) then {cutText [format ["GOD MODE WILL DISABLE IN %1s", 31-_x], "PLAIN DOWN"];};
 								uiSleep 1;
 								if (inSafeZone) exitWith {};
 								if (_x == 30) then {
