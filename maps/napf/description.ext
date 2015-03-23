@@ -102,11 +102,6 @@ class CfgSounds
     sound[]={GG\sounds\introSong.ogg,0.9,1};
     titles[] = {};
     };
-	class error1 {
-	name="error1";
-	sound[]={GG\sounds\error.ogg,1,1};
-	titles[] = {};
-   };
 };
 
 class RscLoadingText : RscText
