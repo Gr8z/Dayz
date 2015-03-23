@@ -2,7 +2,7 @@
 USE_CANBUILD = true;           // if you don't want to define your own positions
 USE_TraderCity = false; //      if you don't want to define your own positions (Epoch 1.0.5)
 USE_POSITIONS = false;   // to use own positions and radius
-USE_AI_REMOVER = false; // use this to remove Missionbots (AI) within 100m of a player if the player is in a SafeZone
+USE_AI_REMOVER = true; // use this to remove Missionbots (AI) within 100m of a player if the player is in a SafeZone
 USE_AntiSteal = false;   // use this to block opening gear if another player is within 3m!
 USE_SPEEDLIMIT = true;  // very secret function, nobody is supposed to find out what it does.
         SPEEDLIMIT = 20;                // Only used if USE_SPEEDLIMIT is true.
@@ -259,6 +259,16 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                 if (!inSafeZone) then
                 {
                         call _endSafeZone;
+						[] spawn {
+							for "_x" from 1 to 30 do {
+								if (_x >= 6) then {cutText [format ["SAFEZONE WILL DISABLE IN %1s", 31-_x], "PLAIN DOWN"];};
+								uiSleep 1;
+								if (inSafeZone) exitWith {};
+								if (_x == 30) then {
+									call _endSafeZone;
+								};
+							};
+						};
                 };
         };
 };
