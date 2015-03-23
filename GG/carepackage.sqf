@@ -37,7 +37,7 @@ _Time = time - lastpack;
 
 if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	DZE_ActionInProgress = false;
-	cutText [format["please wait %1 before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
+	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
 };
 
 if(!(canbuild) || (inSafeZone)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou are in a Safezone and cannot perform that action!" , "PLAIN DOWN"]; };
@@ -65,7 +65,7 @@ diag_log text format["[AirDrop]: Air Drop Called By a player Successfully"];
 lastpack = time;
 
 for "_x" from 1 to 100 do {
-	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1", 101-_x], "PLAIN DOWN"];};
+	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1s", 101-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
 
@@ -118,7 +118,3 @@ sleep 1;
 
 sleep 90;
 deleteMarker "MarkerDrop";
-
-_message = format["Good Job Survivors. The Air Drop has been Captured",_playerName];
-[nil,nil,rTitleText,_message, "PLAIN",6] call RE;
-diag_log text format["[AirDrop]: Air Drop captured Successfully. Deleting Marker"];
