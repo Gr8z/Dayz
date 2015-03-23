@@ -257,7 +257,7 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                         inSafeZone = false;
                 };
         };
-		if (!inSafeZone && _runOneTime) then {
+		if (!inSafeZone) then {
 			[] spawn {
 							for "_x" from 1 to 30 do {
 								if (_x >= 6) then {cutText [format ["GOD MODE WILL DISABLE IN %1s", 31-_x], "PLAIN DOWN"];};
@@ -269,7 +269,6 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
 							};
 						};
 		};
-		_runOneTime = true;
 };
 
 
