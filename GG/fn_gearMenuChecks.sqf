@@ -24,3 +24,16 @@ if ((!canbuild || inSafeZone) and _cTarget isKindOf "Man" and alive _cTarget and
 	cutText ["Cannot access other players gear in the safezone." , "PLAIN DOWN"];
 	_display closeDisplay 1;
 };
+
+if (!canbuild) then {
+	private ["_don_iscar","_don_ismycar","_don_crew"];
+	_don_iscar = false; _don_ismycar = false;
+	if (_cTarget isKindOf "LandVehicle" || _cTarget isKindOf "Air" || _cTarget isKindOf "Ship" ) then {
+		_don_crew = _cTarget getVariable ["don_crew", nil]; if (isNil "_don_crew") then {_don_crew = [getPlayerUID player];};
+		_don_iscar = true; if ((getPlayerUID player) in _don_crew) then {_don_ismycar = true;};
+	};
+	if (_don_iscar && !_don_ismycar) then {
+		cutText ["You can't access this vehicle gear!" , "PLAIN DOWN"];
+		_display closeDisplay 1;
+	};
+};
