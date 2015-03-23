@@ -96,7 +96,6 @@ inSafeZone = false;
 					sleep 1;
 					if (!canbuild) exitWith {};
 					if (_x == 30) then {
-						cutText ["Godoff and Shoton!", "PLAIN DOWN"];
 						if (isNil 'inNow') then
 						{
 								if (str fnc_usec_damageHandler == '{}') then
