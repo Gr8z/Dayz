@@ -37,6 +37,7 @@ if (isServer) exitWith
 waitUntil {((!isNil 'dayz_animalCheck') || (!isNil 'dayz_medicalH') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_gui'))};
 if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZone != 'BOOL') then { inSafeZone = false; }; };
 [_infiSZ] spawn {
+		_runOneTime = false;
         _infiSZ = _this select 0;
         _startSafeZone =
         {
@@ -255,10 +256,9 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
                 {
                         inSafeZone = false;
                 };
-                uiSleep 2;
-                if (!inSafeZone) then
-                {
-						[] spawn {
+        };
+		if (!inSafeZone && _runOneTime) then {
+			[] spawn {
 							for "_x" from 1 to 30 do {
 								if (_x >= 6) then {cutText [format ["GOD MODE WILL DISABLE IN %1s", 31-_x], "PLAIN DOWN"];};
 								uiSleep 1;
@@ -268,9 +268,11 @@ if (isNil 'inSafeZone') then { inSafeZone = false; } else { if (typename inSafeZ
 								};
 							};
 						};
-                };
-        };
+		};
+		_runOneTime = true;
 };
+
+
 if ((USE_AntiSteal) || (USE_SPEEDLIMIT)) then
 {
         [] spawn {
