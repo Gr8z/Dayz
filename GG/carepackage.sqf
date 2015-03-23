@@ -1,5 +1,9 @@
 private ["_cost","_positionM","_Marker","_LastUsedTime","_height","_downspeed","_wealth","_distance","_boxtype","_unit","_getPos","_position","_box","_chute","_smoke","_var","_textt","_tools","_items","_walls","_supplies","_weapon","_weapon2","_weapon3","_weapon4","_weapon5","_weapon6","_giveWep","_possibleMags","_mag","_whichBuild","_crateItems","_text"];
 
+if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
+DZE_ActionInProgress = true;
+
+
 _cost = 20000;
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
@@ -13,6 +17,7 @@ _getPos = getPos _unit;
 _position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _positionM = [_getPos select 0, _getPos select 1];
 _playerName = name player;
+
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
@@ -31,15 +36,16 @@ _crateItems = [_walls,_supplies,_items] call BIS_fnc_selectRandom;
 _Time = time - lastpack;
 
 if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
-	cutText [format["please wait %1 before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done
+	DZE_ActionInProgress = false;
+	cutText [format["please wait %1 before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
 };
 
-if(!(canbuild) || (inSafeZone)) exitWith { cutText ["\n\nYou are in a Safezone and cannot perform that action!" , "PLAIN DOWN"]; };
-if (dayz_combat == 1) exitwith { cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
+if(!(canbuild) || (inSafeZone)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou are in a Safezone and cannot perform that action!" , "PLAIN DOWN"]; };
+if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
 
 
-if ((count playableUnits) < _OnlineLimit) exitWith  { cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
-if(_wealth < _cost) exitWith { cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
+if ((count playableUnits) < _OnlineLimit) exitWith  {DZE_ActionInProgress = false; cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
+if(_wealth < _cost) exitWith {DZE_ActionInProgress = false; cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
 
 player setVariable["cashMoney",(_wealth - _cost),true];
 
@@ -102,6 +108,8 @@ clearmagazinecargoglobal _boxx;
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
 _boxx addMagazineCargoGlobal [_mag, _var];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
+
+DZE_ActionInProgress = false;
 
 waitUntil{
 sleep 1;
