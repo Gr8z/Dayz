@@ -100,7 +100,7 @@ inSafeZone = false;
 						{
 								if (str fnc_usec_damageHandler == '{}') then
 								{
-										_msg = 'GOD MODE OFF AND WEAPONS ACTIVATEd';
+										_msg = 'GOD MODE OFF AND WEAPONS ACTIVATED';
 										hint _msg;
 										taskHint [_msg, [1,0,0.1,1], 'taskFailed'];
 								};
