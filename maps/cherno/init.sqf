@@ -14,7 +14,7 @@ enableSentences false;
 call compile preprocessFileLineNumbers"GG\config.sqf";
 
 
-spawnArea= 500; 
+spawnArea= 1500; 
 dayz_minpos= -1; 
 dayz_maxpos	= 16000;
 dayz_MapArea = 14000;
