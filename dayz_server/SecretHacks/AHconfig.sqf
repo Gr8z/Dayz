@@ -14,7 +14,7 @@
 										 "76561198080045762", // Deadskin									 
 										 "76561198106963366", // Andrew/nor
 										 "76561198001066546", // MeowMix
-										 "0" // Phantomz
+										 "76561198134812190" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198169014271", // TempSniper
