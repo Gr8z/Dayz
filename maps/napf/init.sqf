@@ -11,8 +11,6 @@ player setVariable ["BIS_noCoreConversations", true];
 enableRadio true;
 enableSentences false;
 
-call compile preprocessFileLineNumbers"GG\config.sqf";
-
 spawnArea= 1500; 
 dayz_minpos = -1; 
 dayz_maxpos = 26000;
@@ -25,6 +23,7 @@ EpochEvents = [
 ];
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
+call compile preprocessFileLineNumbers "GG\config.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\A_Plot_for_Life\init\publicEH.sqf";
 progressLoadingScreen 0.2;
@@ -47,7 +46,7 @@ if (isServer) then {
 	
 };
 
-if (!isDedicated) then {
+if (!isDedicated  && hasInterface) then {
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
@@ -62,12 +61,14 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf"
 	execVM "GG\kill_msg.sqf";
 	execVM "GG\checkDriver.sqf";
+	
+	[] spawn { waitUntil{ uiSleep 5; ((format["%1", (side player)]) != "UNKNOWN")}; if ((format["%1", (side player)]) == "CIV") then { endMission "END1"; }; };
 };
-[] execVM "GG\safezone.sqf";
+
+execVM "GG\safezone.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\MapMarkerTitling.sqf";
 execVM "GG\weed\farms.sqf";
-
 
 #include "GG\BIS_Effects\init.sqf"
 

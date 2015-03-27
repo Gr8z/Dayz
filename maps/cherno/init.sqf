@@ -11,9 +11,6 @@ player setVariable ["BIS_noCoreConversations", true];
 enableRadio true;
 enableSentences false;
 
-call compile preprocessFileLineNumbers"GG\config.sqf";
-
-
 spawnArea= 1500; 
 dayz_minpos= -1; 
 dayz_maxpos	= 16000;
@@ -26,6 +23,7 @@ EpochEvents = [
 ];
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
+call compile preprocessFileLineNumbers "GG\config.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\A_Plot_for_Life\init\publicEH.sqf";
 progressLoadingScreen 0.2;
@@ -42,13 +40,10 @@ progressLoadingScreen 1.0;
 if (isServer) then {
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\dynamic_vehicle.sqf";
 	execVM "\z\addons\dayz_server\missions\Chernarus\mission.sqf";
-	diag_log text "APlotForLife";
-	_serverMonitor = [] execVM "custom\system\server_monitor1.sqf";
-	diag_log format["[_serverMonitor: %1]",_serverMonitor];
-	
+	_serverMonitor = [] execVM "custom\system\server_monitor1.sqf";	
 };
 
-if (!isDedicated) then {
+if (!isDedicated  && hasInterface) then {
 	0 fadeSound 0;
 	waitUntil {!isNil "dayz_loadScreenMsg"};
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
@@ -63,8 +58,11 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf"
 	execVM "GG\kill_msg.sqf";
 	execVM "GG\checkDriver.sqf";
+	
+	[] spawn { waitUntil{ uiSleep 5; ((format["%1", (side player)]) != "UNKNOWN")}; if ((format["%1", (side player)]) == "CIV") then { endMission "END1"; }; };
 };
-[] execVM "GG\safezone.sqf";
+
+execVM "GG\safezone.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\MapMarkerTitling.sqf";
 
