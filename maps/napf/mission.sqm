@@ -1368,7 +1368,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=10;
+		items=9;
 		class Item0
 		{
 			position[]={15506.952,6.2226005,13229.368};
@@ -1514,24 +1514,6 @@ class Mission
 			{
 			};
 		};
-		class Item9
-		{
-			position[]={7149.2681,0, 17894.717};
-			a=70;
-			b=70;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="dome2";
-            expCond="(vehicle player) in thislist;";
-            expActiv="dome = [] execVM ""GG\domes\dome2.sqf"";inSafezone = true;";
-            expDesactiv="terminate dome;[] execVM ""GG\domes\exitdome.sqf"";inSafezone = false;";
-			class Effects
-			{
-			};
-		};
-
 	};
 };
 class Intro

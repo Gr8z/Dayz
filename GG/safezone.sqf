@@ -100,7 +100,7 @@ inSafeZone = false;
 						{
 								if (str fnc_usec_damageHandler == '{}') then
 								{
-										_msg = 'GOD MODE OFF AND WEAPONS ACTIVATEd';
+										_msg = 'GOD MODE OFF AND WEAPONS ACTIVATED';
 										hint _msg;
 										taskHint [_msg, [1,0,0.1,1], 'taskFailed'];
 								};
@@ -236,7 +236,6 @@ inSafeZone = false;
 				_wait_time = diag_tickTime - _last_mark;
 				if (_wait_time < _max_time) then {
 					player action ["getOut", don_player_veh];
-					[objNull, player, rSAY, "error1"] call RE;
 					cuttext [format ["Owners:%1. %2 seconds to liberate.", don_player_veh getVariable ["don_passengers","Owners not found"], round (_max_time - _wait_time)], "PLAIN DOWN"];
 					cad_pvar_smessage = [format ["%1 is messing with your vehicle! %2 seconds to liberate!", name player, round (_max_time - _wait_time)], _don_veh_crew];
 					publicVariable "cad_pvar_smessage";

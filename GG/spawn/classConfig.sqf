@@ -54,6 +54,6 @@ _presetClasses = [
 	["VIP Scout 2","RUS_Soldier1","SurvivorW3_DZ",["RH_8Rnd_45cal_m1911",4,"RH_20Rnd_762x51_SD_hk417",4,VIP_ITEMS],["RH_hk417sdsp","RH_m1911sd",VIP_TOOLS],"DZ_CivilBackpack_EP1",[],[],11,0],
 	["VIP Scout 3","Sniper1_DZ","SurvivorW3_DZ",["RH_8Rnd_45cal_m1911",4,"20Rnd_762x51_DMR",4,VIP_ITEMS],["DMR_DZ","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",[],[],12,0],
 	["Soldier Level 1","Rocket_DZ","SurvivorWurban_DZ",["30Rnd_556x45_Stanag",4,"vil_usp45sd_mag",4,VIP_ITEMS],["RH_hk416glacog","vil_USP45SD",VIP_TOOLS],"DZ_ALICE_Pack_EP1",[],[],13,0],
-	["Soldier Level 3","frb_tl_mask","SurvivorWurban_DZ",["30Rnd_556x45_Stanag",4,"RH_7Rnd_50_AE",4,VIP_ITEMS],["RH_hk416aim","RH_Deaglemzb",VIP_TOOLS],"DZ_CivilBackpack_EP1",[],[],14,0],
+	["Soldier Level 2","frb_tl_mask","SurvivorWurban_DZ",["30Rnd_556x45_Stanag",4,"RH_7Rnd_50_AE",4,VIP_ITEMS],["RH_hk416aim","RH_Deaglemzb",VIP_TOOLS],"DZ_CivilBackpack_EP1",[],[],14,0],
 	["Soldier Level 3","SFSG_wdl_demo","SurvivorWurban_DZ",["20Rnd_762x51_B_SCAR",4,"RH_7Rnd_50_AE",4,"1Rnd_HE_M203",4,VIP_ITEMS],["SCAR_H_STD_EGLM_Spect","RH_Deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",[],[],15,0]
 ];

@@ -10,11 +10,11 @@
 										 "76561198122210030", // Pirate
 										 "76561198002511087", // Temp(Mod)
 										 "76561198021389971", // ThirdHero (mod ACC)										 
-										 "0", // nope
+										 "76561198151812540", // Casa
 										 "76561198080045762", // Deadskin									 
 										 "76561198106963366", // Andrew/nor
 										 "76561198001066546", // MeowMix
-										 "0" // Phantomz
+										 "76561198134812190" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198169014271", // TempSniper
