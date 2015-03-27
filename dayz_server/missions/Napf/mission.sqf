@@ -2,44 +2,17 @@
 
 if (isServer) then {
 
-  //Lenzburg
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Lenzburg.sqf";
-  
-  //Enem
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Emmen.sqf";
-  
-  // Neutral military
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\militaerneutral.sqf";  
-
-  // Schangen
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\schangen.sqf";  
-  
-  // West Wholesale
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ww.sqf";  
-  
-  // East Wholesale
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ew.sqf";    
-  
-  // Hero
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\hero.sqf";   
-  
-  // Bandit
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bandit.sqf";   
-  
-  // Black market
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\black.sqf";   
-  
-  // Weed
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\weed.sqf";  
-  
-  // Bank
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bankinit.sqf";   
-  
-  // Donor Base
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\DonorBase.sqf";   
-     
-    
-  // Chatzbach
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";   
      
   

@@ -15,7 +15,6 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\skalistyrefuge.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\westBase.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\terminus.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\donorBase.sqf";
 
 };
 

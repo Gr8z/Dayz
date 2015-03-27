@@ -1388,7 +1388,7 @@ class Mission
 	class Sensors
 	{
 
-		items=15;
+		items=11;
 
 		class Item0
 		{
@@ -1573,74 +1573,6 @@ class Mission
 			expCond="(player distance zoneblacksmall) < 50;";
 			expActiv="[""BLACK MARKET"",true,""enter""] spawn player_traderCity;";
 			expDesactiv="[""BLACK MARKET"",true,""leave""] spawn player_traderCity;";
-			class Effects
-			{
-			};
-		};
-		class Item11
-		{
-			position[]={16962.926, 0, 17584.91};
-			a=70;
-			b=70;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="dome1";
-            expCond="(vehicle player) in thislist;";
-            expActiv="dome = [] execVM ""GG\domes\dome1.sqf"";inSafezone = true;";
-            expDesactiv="terminate dome;[] execVM ""GG\domes\exitdome.sqf"";inSafezone = false;";
-			class Effects
-			{
-			};
-		};
-		class Item12
-		{
-			position[]={11982.75, 0 ,5488.3745};
-			a=70;
-			b=70;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="dome2";
-            expCond="(vehicle player) in thislist;";
-            expActiv="dome = [] execVM ""GG\domes\dome2.sqf"";inSafezone = true;";
-            expDesactiv="terminate dome;[] execVM ""GG\domes\exitdome.sqf"";inSafezone = false;";
-			class Effects
-			{
-			};
-		};
-		class Item13
-		{
-			position[]={7476.4512,0, 16604.084};
-			a=70;
-			b=70;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="dome4";
-            expCond="(vehicle player) in thislist;";
-            expActiv="dome = [] execVM ""GG\domes\dome4.sqf"";inSafezone = true;";
-            expDesactiv="terminate dome;[] execVM ""GG\domes\exitdome.sqf"";inSafezone = false;";
-			class Effects
-			{
-			};
-		};
-		class Item14
-		{
-			position[]={4249.1616, 0,5498.6196};
-			a=70;
-			b=70;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="dome5";
-            expCond="(vehicle player) in thislist;";
-            expActiv="dome = [] execVM ""GG\domes\dome5.sqf"";inSafezone = true;";
-            expDesactiv="terminate dome;[] execVM ""GG\domes\exitdome.sqf"";inSafezone = false;";
 			class Effects
 			{
 			};
