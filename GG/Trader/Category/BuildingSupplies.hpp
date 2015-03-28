@@ -15,6 +15,6 @@ class ItemTentDomed2 { type = "trade_items"; buy[] = {60,"Coins"}; sell[] = {30,
 class ItemLightBulb { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
 class Laserbatteries { type = "trade_items"; buy[] = {40,"Coins"}; sell[] = {20,"Coins"}; }; 
 class ItemGenerator { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {300,"Coins"}; }; 
-class fuel_pump_kit { type = "trade_items"; buy[] = {800,"Coins"}; sell[] = {300,"Coins"}; };
+class fuel_pump_kit { type = "trade_items"; buy[] = {5000,"Coins"}; sell[] = {2000,"Coins"}; };
 
 }; 
