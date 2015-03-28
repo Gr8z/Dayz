@@ -72,9 +72,9 @@ class Mission
 		day=1;
 		hour=12;
 	};
-	class Groups
+		class Groups
 	{
-		items=2;
+		items=3;
 		class Item0
 		{
 			side="WEST";
@@ -158,17 +158,39 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={-143.93861,0.52647489,2319.5012};
+					position[]={708,35,3533};
 					id=50;
 					side="LOGIC";
 					vehicle="FunctionsManager";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.6;
 				};
 			};
 		};
-	};
+		class Item2
+        {
+            side="CIV";
+            class Vehicles
+            {
+                items=1;
+                class Item0
+                {
+                    position[]={7214.79,0.869,6927.82};
+                    id=94;
+                    side="CIV";
+                    vehicle="Survivor1_DZ";
+                    player="PLAYER COMMANDER";
+                    skill=1;
+                    text="www.GHOSTZGAMERZ.com";
+                    init="this allowDamage false;";
+                    description="www.GHOSTZGAMERZ.com";
+                    name="www.GHOSTZGAMERZ.com";
+                    forceHeadlessClient=1;
+                };
+            };
+        };
+	}
 	class Markers
 	{
 		items=22;
