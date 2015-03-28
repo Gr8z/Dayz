@@ -5,7 +5,7 @@
 
 respawn = "BASE";
 respawndelay = 5;
-onLoadMission= "[GG] Overpoch Taviana";
+onLoadMission= "[GG] Overpoch Chernarus";
 OnLoadIntro = "Welcome to [GG] Ghostz Gamerz";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
