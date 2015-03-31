@@ -826,24 +826,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		s_player_downgrade_build = -1;
 	};
 
-	// inplace maintenance tool
-	if((_cursorTarget isKindOf "ModularItems" || _cursorTarget isKindOf "DZE_Housebase" || _typeOfCursorTarget == "LightPole_DZ") && (damage _cursorTarget >= DZE_DamageBeforeMaint)) then {
-		if ((s_player_lastTarget select 2) != _cursorTarget) then {
-			if (s_player_maint_build > 0) then {	
-				player removeAction s_player_maint_build;
-				s_player_maint_build = -1;
-			};
-		};
-
-		if (s_player_maint_build < 0) then {
-			s_player_lastTarget set [2,_cursorTarget];
-			s_player_maint_build = player addAction [format[localize "STR_EPOCH_ACTIONS_MAINTAIN",_text], "GG\player_buildingMaint.sqf",_cursorTarget, -2, false, true];
-		};
-	} else {
-		player removeAction s_player_maint_build;
-		s_player_maint_build = -1;
-	};
-
 
 	//Start Generator
 	if(_cursorTarget isKindOf "Generator_DZ") then {
@@ -1137,8 +1119,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_player_fillgen = -1;
 	player removeAction s_player_upgrade_build;
 	s_player_upgrade_build = -1;
-	player removeAction s_player_maint_build;
-	s_player_maint_build = -1;
 	player removeAction s_player_downgrade_build;
 	s_player_downgrade_build = -1;
 	player removeAction s_player_towing;
