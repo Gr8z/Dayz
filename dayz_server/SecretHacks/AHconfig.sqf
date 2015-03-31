@@ -14,6 +14,7 @@
 										 "76561198080045762", // Deadskin									 
 										 "76561198106963366", // Andrew/nor
 										 "76561198001066546", // MeowMix
+										 "76561198086518302", // DogeonMyFeet
 										 "76561198134812190" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
