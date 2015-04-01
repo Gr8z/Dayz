@@ -458,7 +458,7 @@ if(royale_vehicle == _player) then {
 
 	[] spawn {
 		private["_num_weapons","_num_items","_marker","_dot"];
-		royale_name		= "Skalisty Royale";	// Event name
+		royale_name		= "Skalisty Royale - By GR8";	// Event name
 		royale_pos		= [13620.6,3061.17,0];	// Where does the event take place
 		current_pos		= royale_pos;			// Safe pos
 		royale_safezone	= [13648.5,3888.39,0];	// Where should players be TP'ed that try and enter event location1
