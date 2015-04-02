@@ -39,10 +39,11 @@ if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	DZE_ActionInProgress = false;
 	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
 };
-if((count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ","CinderWall_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","MetalFloor_DZ"],_NearPlotMeters]) > 1)) exitWith {
+if(count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ","CinderWall_DZ","WoodLargeWall_DZ","WoodLargeWallDoor_DZ","WoodLargeWallWin_DZ","WoodSmallWall_DZ","MetalFloor_DZ"],_NearPlotMeters]) > 1) exitWith {
 	DZE_ActionInProgress = false; 
 	cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];
-}
+};
+
 if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
 if(!(canbuild) || (inSafeZone) || (count(nearestObjects [_cursorTarget, ["Infostand_2_EP1","Info_Board_EP1"],200]) < 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
 
