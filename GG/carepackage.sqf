@@ -45,7 +45,7 @@ if(count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ","CinderWall_DZ","
 };
 
 if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
-if(!(canbuild) || (inSafeZone) || (count(nearestObjects [_cursorTarget, ["Infostand_2_EP1","Info_Board_EP1"],200]) < 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
+if(!(canbuild) || (inSafeZone) || (count(nearestObjects [_cursorTarget, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
 
 if ((count playableUnits) < _OnlineLimit) exitWith  {DZE_ActionInProgress = false; cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
 if(_wealth < _cost) exitWith {DZE_ActionInProgress = false; cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
