@@ -63,11 +63,13 @@ if (!isDedicated) then {
 	execVM "GG\kill_msg.sqf";
 	execVM "GG\checkDriver.sqf";
 	execVM "GG\MapMarkerTitling.sqf";
-	execVM "GG\rewardLoyalty.sqf";
 };
 [] execVM "GG\safezone.sqf";
-execVM "GG\gold\init.sqf";
-execVM "GG\weed\farms.sqf";
+	execVM "GG\gold\init.sqf";
+	
+	execVM "GG\rewardLoyalty.sqf";
+	
+	execVM "GG\weed\farms.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
