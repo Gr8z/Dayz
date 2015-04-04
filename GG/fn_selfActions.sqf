@@ -16,7 +16,6 @@ diag_log ("Cheater");
 if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
 
 
-_adminList = ["76561198153784743"];
 _vehicle = vehicle player;
 _isPZombie = player isKindOf "PZombie_VB";
 _inVehicle = (_vehicle != player);
@@ -276,7 +275,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 				_fuid = _fuid + [_friendUID];
 			} forEach _friends;
 				_allowed = [_owner];    
-				_allowed = [_owner] + _adminList + _fuid;
+				_allowed = [_owner] + admins + _fuid;
 				if((getPlayerUID player) in _allowed)then{            
 				s_player_plotManagement = player addAction ["<t color='#0059FF'>Manage Plot</t>", "GG\plotManage\initPlotManagement.sqf", [], 5, false];
 			};

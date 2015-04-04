@@ -46,7 +46,11 @@ if (!_isOk) then {
 	//remove tentbag
 	player removeMagazine _item;
 	_dir = round(direction player);	
-	
+	if ((getPlayerUID player) in admins) exitWith {	
+				_isOk = false;	
+				_proceed = true;	
+				systemChat "Admin Fast Build Mode"; // SystemChat If Wanted
+	};
 	[1,1] call dayz_HungerThirst;
 	//wait a bit
 	player playActionNow "Medic";
