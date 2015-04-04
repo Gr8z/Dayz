@@ -23,7 +23,12 @@ server_spawnEvents =			compile preprocessFileLineNumbers "\z\addons\dayz_server\
 fnc_plyrHit   =					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
 fnc_remWepSG =                	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_remWepSG.sqf";
 server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
+fn_asyncCall = 					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fn_async.sqf";
 server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
+server_buyitem = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\store\server_buyitem.sqf";
+server_sellitem = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\store\server_sellitem.sqf";
+server_claimprice = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\store\server_claimprice.sqf";
+server_queryStoreitems = 		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\store\server_queryStoreitems.sqf";
 server_storevehicle = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
 server_spawnvehicle = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnvehicle.sqf";
 
@@ -33,6 +38,10 @@ server_sendToClient =			compile preprocessFileLineNumbers "\z\addons\dayz_server
 
 //onPlayerConnected 			{[_uid,_name] call server_onPlayerConnect;};
 onPlayerDisconnected 		{[_uid,_name] call server_onPlayerDisconnect;};
+//DB
+"extDB" callExtension "9:DATABASE:Dayz";
+"extDB" callExtension format["9:ADD:DB_RAW_V2:%1",1];
+"extDB" callExtension "9:LOCK";
 
 server_updateNearbyObjects = {
 	private["_pos"];

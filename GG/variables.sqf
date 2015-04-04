@@ -260,6 +260,9 @@ dayz_resetSelfActions = {
 	s_player_plot_take_ownership = -1;
 	s_player_driver_eject = -1;
 	Eject_Array = [];
+	s_auction_dialog2 = -1;
+	s_auction_dialog = -1;
+	s_auction_claim = -1;
 };
 call dayz_resetSelfActions;
 
