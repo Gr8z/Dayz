@@ -4,7 +4,6 @@ if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZ
 DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];
 DZE_crashLootConfig = [true,2,5,8,0];
 CurrencyName = "Coins";
-// Me + Your Mom = Fun
 DZE_ATM = ["Infostand_2_EP1"];
 LimitOnBank = true;
 MaxBankMoney = 100000;
