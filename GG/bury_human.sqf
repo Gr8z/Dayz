@@ -77,8 +77,8 @@ if (!_isBuried) then {
 
         _deathMessage = format["Rest in Peace, %1...",_name];
         cutText [_deathMessage, "PLAIN DOWN"];
-        [player,300] call player_humanityChange;
-        _id = [player,50,true,(getPosATL player)] spawn player_alertZombies;
+        [player,100] call player_humanityChange;
+        _id = [player,10,true,(getPosATL player)] spawn player_alertZombies;
         player playMove "AmovPercMstpSlowWrflDnon_Salute";
     } else {
         cutText ["The poor bastards been eaten, there's not much left to bury", "PLAIN DOWN"];
