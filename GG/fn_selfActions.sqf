@@ -16,7 +16,7 @@ diag_log ("Cheater");
 if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
 
 
-_adminList = ["76561198078201908","76561198078113515"];
+_adminList = ["76561198153784743"];
 _vehicle = vehicle player;
 _isPZombie = player isKindOf "PZombie_VB";
 _inVehicle = (_vehicle != player);

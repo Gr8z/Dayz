@@ -19,7 +19,6 @@
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
 										 "76561198169014271", // TempSniper
-										 "0", // Zane
 										 "76561198044736724",  // Thirdhero
 										 "76561198182408150",  // Pirate Admin
 										 "76561198182352055",  // Milton
@@ -27,7 +26,6 @@
 										 "76561198182078641"  // Phantomz
 										 ]; 
 /*  SUPER ADMIN HERE      */ _SAdmins = [
-										 "76561198078201908", // Gr8
 										 "76561198153784743", // Ghost
 										 "76561198126716235"  // Produkt
 										];
