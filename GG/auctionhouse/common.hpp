@@ -18,11 +18,7 @@ class Life_RscText {
 	tooltipColorShade[] = {0,0,0,0.65};
 };
 
-class Life_RscTitle : Life_RscText {
-	style = 0;
-	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
-	colorText[] = {0.95, 0.95, 0.95, 1};
-};
+
 
 class Life_RscShortcutButton {
 	idc = -1;
