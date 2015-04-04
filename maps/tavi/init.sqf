@@ -44,7 +44,7 @@ if (isServer) then {
 	diag_log text "APlotForLife";
 	_serverMonitor = [] execVM "custom\system\server_monitor1.sqf";
 	diag_log format["[_serverMonitor: %1]",_serverMonitor];
-	
+	"ctc_HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\humanitychange.sqf'};
 };
 
 if (!isDedicated) then {

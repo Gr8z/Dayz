@@ -43,23 +43,14 @@ _array = _this;
 if (count _array > 0) then {
 	_source = _array select 0;
 	_method = _array select 1;
-	if ((!isNull _source) && (_source != player)) then {
-		_canHitFree = player getVariable ["freeTarget",false];
-		_isBandit = (player getVariable["humanity",0]) <= -2000;
-		_punishment = _canHitFree || _isBandit; //if u are bandit || start first - player will not recieve humanity drop
-		_humanityHit = 0;
-		if (!_punishment) then {
-			//i'm "not guilty" - kill me && be punished
-			_myKills = ((player getVariable ["humanKills",0]) / 30) * 1000;
-			_humanityHit = -(2000 - _myKills);
-			_kills = _source getVariable ["humanKills",0];
-			_source setVariable ["humanKills",(_kills + 1),true];
-			PVDZE_send = [_source,"Humanity",[_source,_humanityHit,300]];
-			publicVariableServer "PVDZE_send";
+	if (!isNull _source) then {
+		if (_source != player) then {
+			// Killed
+			ctc_HumanityChange = [_body,_source];
+			publicVariableServer "ctc_HumanityChange"; //Send needed values to server.
+			ctc_HumanityChange = []; //Clean up global variable.
 		} else {
-			//i'm "guilty" - kill me as bandit
-			_killsV = _source getVariable ["banditKills",0];
-			_source setVariable ["banditKills",(_killsV + 1),true];
+			// Suicide
 		};
 	};
 	_body setVariable ["deathType",_method,true];
