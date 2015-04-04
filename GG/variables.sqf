@@ -742,7 +742,7 @@ dayz_allowedObjects = StaticVehicleArray + ["TentStorage","TentStorageDomed","Te
 ];
 
 //#########################INDESTRUCTIBLE ITEMS#########################
-indestructible = ["CinderWallHalf_DZ","CinderWall_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","MetalFloor_DZ"];
+indestructible = ["MBG_Warehouse_InEditor","MBG_Killhouse_1","MBG_Killhouse_2","MBG_Killhouse_3","MBG_Killhouse_4","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","MAP_stodola_old_open","Land_MBG_HeavyShelter","MAP_A_Pub_01","Land_A_Villa_EP1","MAP_A_Castle_Bastion","CinderWallHalf_DZ","CinderWall_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","MetalFloor_DZ"];
 //######################################################################
 
 DZE_ATM = ["Laptop_EP1","SmallTable","Infostand_2_EP1"];
