@@ -87,12 +87,11 @@ class ExtraRc {
         };
 	};
 	
-	class ExtraRc {
 	 class ItemRuby {
 	  class menuItem1 {
 		text = "Virtual Garage";
 		script = "[""Land_MBG_Garage_Single_A"",[""ItemToolbox"",""ItemHatchet_DZE""],[[""ItemRuby"", 1],[""PartGeneric"", 1]],[0,6.5,2.5]] execVM ""GG\A_Plot_for_Life\Action\player_build.sqf"";";
 	  };
 	 };
-	};
+	
 };
