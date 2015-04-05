@@ -633,26 +633,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		s_player_fireout = -1;
 	};
 	
-	//Auctionhouse
-	if(_typeOfCursorTarget == "Infostand_2_EP1" && (player distance _cursorTarget < 5)) then {
-		 if (s_auction_dialog2 < 0) then {
-			 s_auction_dialog2 = player addAction ["Buy Items from the AuctionHouse", "GG\auctionhouse\item_dialog.sqf",_cursorTarget, 0, true, false, "", ""];
-		 };
-		 if (s_auction_dialog < 0) then {
-			 s_auction_dialog = player addAction ["Sell Items to the AuctionHouse", "GG\auctionhouse\item_sell_list.sqf",_cursorTarget, 0, true, false, "", ""];
-		 };
-		 if (s_auction_claim < 0) then {
-			 s_auction_claim = player addAction ["Claim your Money from the AuctionHouse", "GG\auctionhouse\claimmoney.sqf",_cursorTarget, 0, true, false, "", ""];
-		 };
-	} else {
-		  player removeAction s_auction_dialog2;
-		  s_auction_dialog2 = -1;
-		  player removeAction s_auction_dialog;
-		  s_auction_dialog = -1;
-		  player removeAction s_auction_claim;
-		  s_auction_claim = -1;
-	};
-		
 	//Packing my tent
 	if(_isTent && (player distance _cursorTarget < 3)) then {
 		if (_ownerID == _playerUID) then {
