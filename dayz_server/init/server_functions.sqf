@@ -981,6 +981,7 @@ if (isServer) then {
 "PVDZE_veh_store" addPublicVariableEventHandler {(_this select 1) spawn server_storevehicle};
 "PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
 
+execVM "\z\addons\dayz_server\init\broadcaster.sqf";
 
 KK_fnc_floatToString = {
 	private "_arr";
@@ -1021,7 +1022,3 @@ KK_fnc_positionToString = {
 	diag_log _log;
 
 };
-
-currentInvites = [];
-publicVariable "currentInvites";
-"currentInvites" addPublicVariableEventHandler {publicVariable "currentInvites";};
