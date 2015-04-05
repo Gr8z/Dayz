@@ -256,3 +256,5 @@ class DeathScr {
 #include "GG\spawn\class.hpp"
 #include "GG\spawn\halo.hpp"
 #include "GG\spawn\spawn.hpp"
+
+#include "GG\auctionhouse\itemstore.hpp"

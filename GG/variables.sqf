@@ -2,7 +2,7 @@ disableSerialization;
 if (isNil "DayZ_UseSteamID") then {
 	DayZ_UseSteamID = true;
 };
-
+FastBuilding = ["0","76561198153784743"];
 MeleeWeapons = ["MeleeFishingPole","MeleeCrowbar","MeleeBaseBallBatNails","MeleeBaseBallBatBarbed","MeleeBaseBallBat","Crossbow_DZ","MeleeSledge","MeleeMachete","MeleeHatchet_DZE"];
 gear_done = false;
 //Cooking
@@ -260,6 +260,9 @@ dayz_resetSelfActions = {
 	s_player_plot_take_ownership = -1;
 	s_player_driver_eject = -1;
 	Eject_Array = [];
+	s_auction_dialog2 = -1;
+	s_auction_dialog = -1;
+	s_auction_claim = -1;
 };
 call dayz_resetSelfActions;
 

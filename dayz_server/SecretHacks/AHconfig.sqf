@@ -71,7 +71,7 @@ _UPW = false;	/* true or false */	/* recommended:  true */	/* "_UPW": Use Player
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
 /*  If you want install custom scripts using dialog windows, you can add IDD numbers  */
 /*  from the custom script's desc.h file included through MPMIssions/description.ext  */
-_ALLOWED_Dialogs = [-1,106,2200,20001,6900,6901,6902,6903,420420,41144,711194,55510,118338,20001,20002,20003,20004,20005,20006,711197,711195,88890];
+_ALLOWED_Dialogs = [-1,106,2200,20001,6900,6901,6902,6903,420420,41144,711194,55510,118338,20001,20002,20003,20004,20005,20006,711197,711195,88890,7800,8800];
 
 /*  Player that have one of these items in their inventory will get punished!  */
 _ForbiddenItems =

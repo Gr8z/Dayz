@@ -71,6 +71,11 @@ if (isServer) then {
 	"PVDZE_plr_TradeMenu"	addPublicVariableEventHandler {(_this select 1) spawn server_traders};
 	"PVDZE_plr_DeathB"		addPublicVariableEventHandler {(_this select 1) spawn server_deaths};
 
+	"PVDZE_getStoreitems" addPublicVariableEventHandler {(_this select 1) spawn server_queryStoreitems};
+	"PVDZE_sellItem" addPublicVariableEventHandler {(_this select 1) spawn server_sellitem};
+	"PVDZE_buyItem" addPublicVariableEventHandler {(_this select 1) spawn server_buyitem};
+	"PVDZE_claimmoney" addPublicVariableEventHandler {(_this select 1) spawn server_claimprice};
+	
 	"PVDZE_log_lockUnlock" addPublicVariableEventHandler {(_this select 1) spawn server_logUnlockLockEvent};
 };
 
