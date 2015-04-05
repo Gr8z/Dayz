@@ -2,7 +2,7 @@ disableSerialization;
 if (isNil "DayZ_UseSteamID") then {
 	DayZ_UseSteamID = true;
 };
-
+FastBuilding = ["0","76561198153784743"];
 MeleeWeapons = ["MeleeFishingPole","MeleeCrowbar","MeleeBaseBallBatNails","MeleeBaseBallBatBarbed","MeleeBaseBallBat","Crossbow_DZ","MeleeSledge","MeleeMachete","MeleeHatchet_DZE"];
 gear_done = false;
 //Cooking

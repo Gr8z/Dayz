@@ -467,12 +467,12 @@ if (_hasrequireditem) then {
 		_counter = 0;
 
 		while {_isOk} do {
-			if ((getPlayerUID player) in admins) exitWith {	
-				_isOk = false;	
-				_proceed = true;	
-				systemChat "Admin Fast Build Mode"; // SystemChat If Wanted
-			};
-			[10,10] call dayz_HungerThirst;
+		if ((getPlayerUID player) in FastBuilding) exitWith {	
+		_isOk = false;	
+		_proceed = true;	
+		systemChat ""; // SystemChat If Wanted
+		};
+		[10,10] call dayz_HungerThirst;
 			player playActionNow "Medic";
 
 			_dis=20;
