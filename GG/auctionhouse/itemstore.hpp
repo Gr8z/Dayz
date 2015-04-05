@@ -1,3 +1,22 @@
+class Life_RscEdit {
+	type = 2;
+	style = 0x00 + 0x40;
+	font = "Zeppelin32";
+	shadow = 2;
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	colorBackground[] = {0, 0, 0, 1};
+
+	colorText[] = {0.95, 0.95, 0.95, 1};
+	colorDisabled[] = {1, 1, 1, 0.25};
+	autocomplete = false;
+	colorSelection[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 1};
+	canModify = 1;
+	soundPush[] = { "", 0, 1 };
+	soundEnter[] =	{ "", 0, 1 };
+	soundClick[] ={ "", 0, 1 };
+	soundEscape[] ={ "", 0, 1 };
+	sound[] ={ "", 0, 1 };
+};
 class itemstore
 {
 	idd = 7800;
