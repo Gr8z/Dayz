@@ -39,7 +39,7 @@ server_sendToClient =			compile preprocessFileLineNumbers "\z\addons\dayz_server
 //onPlayerConnected 			{[_uid,_name] call server_onPlayerConnect;};
 onPlayerDisconnected 		{[_uid,_name] call server_onPlayerDisconnect;};
 //DB
-"extDB" callExtension "9:DATABASE:Database2";
+"extDB" callExtension "9:DATABASE:Dayz";
 "extDB" callExtension format["9:ADD:DB_RAW_V2:%1",1];
 "extDB" callExtension "9:LOCK";
 
