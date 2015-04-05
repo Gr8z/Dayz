@@ -1,5 +1,5 @@
 private ["_loginGroup","_loginVar"];
-
+waitUntil {uiSleep .25;(!isNil "PVDZE_plr_LoginRecord")};
 if (count units group player > 1) then {[player] join grpNull;};
 
 _savedGroup = profileNamespace getVariable["savedGroup",[]];
