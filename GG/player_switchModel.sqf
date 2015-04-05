@@ -96,7 +96,10 @@ _switchUnit = {
 addSwitchableUnit _newUnit;
 setPlayable _newUnit;
 selectPlayer _newUnit;
-if ((count units _oldGroup > 1) && (!isNil "PVDZE_plr_LoginRecord")) then {[player] join _oldGroup;deleteGroup _group;};
+if ((count units _oldGroup > 1) && {!isNil "PVDZE_plr_LoginRecord"}) then {
+    [_newUnit] join _oldGroup;
+    if (count units _group < 1) then {deleteGroup _group;};
+};
 removeAllWeapons _oldUnit;
 {_oldUnit removeMagazine _x;} count magazines _oldUnit;
 deleteVehicle _oldUnit;
