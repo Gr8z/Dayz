@@ -4432,7 +4432,7 @@ fnc_VoteTimeServer =
 			{
 				_cntday = 0;
 				_cntnight = 0;
-				if ((LastVoteGoneThrough) > diag_ticktime) then
+				if ((_cntVoted / _cntAll) > 0.7) then
 				{
 					_oUIDs = [];
 					{
