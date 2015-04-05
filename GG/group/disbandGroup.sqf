@@ -1,7 +1,11 @@
-private ["_callerUID","_targetUID","_friendlies","_myGroup","_rfriendlies"];
+private "_myGroup";
 
 _myGroup = group player;
-{[_x] join grpNull;} count units _myGroup;
+{
+	_saveGroup = _x getVariable["savedGroup",[]];
+	_x setVariable ["purgeGroup",_saveGroup,true];
+	[_x] join grpNull;
+} count units _myGroup;
 deleteGroup _myGroup;
 
 systemChat "The group has been disbanded";
