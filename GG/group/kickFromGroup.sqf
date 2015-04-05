@@ -13,6 +13,10 @@ _check = 0;
 
 if (_pTarget == player) exitWith {systemChat "You can not kick yourself";};
 if (_check == 0) exitWith {systemChat "You must select someone to kick first";};
+
+_saveGroup = _pTarget getVariable["savedGroup",[]];
+_pTarget setVariable ["purgeGroup",_saveGroup,true];
 [_pTarget] join grpNull;
+{_x setVariable ["purgeGroup",[(getPlayerUID _pTarget)],true];} count units group player;
 
 systemChat format["You have kicked %1 from the group",name _pTarget];

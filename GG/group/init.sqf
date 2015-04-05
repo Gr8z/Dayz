@@ -1,26 +1,33 @@
-waitUntil {uiSleep .25;(!isNil "PVDZE_plr_LoginRecord")};
+private ["_loginGroup","_loginVar"];
 
-_loginGroup = group player;
-if (count units _loginGroup > 1) then {[player] join grpNull;deleteGroup _loginGroup;};
-{
-	if ((!isNull _x) && {(_x getVariable["bodyUID","0"]) == (getPlayerUID player)}) then {
-		_bodyGroup = _x getVariable["bodyGroup",grpNull];
-		if (({alive _x} count units _bodyGroup) > 0) then {[player] join _bodyGroup;deleteGroup _loginGroup;};
-	};
-} count allDead;
+if (count units group player > 1) then {[player] join grpNull;};
+
+_savedGroup = profileNamespace getVariable["savedGroup",[]];
+player setVariable ["savedGroup",_savedGroup,true];
+player setVariable ["purgeGroup",0,true];
+if (count _savedGroup > 1) then {
+	{
+		if (((getPlayerUID _x) in _savedGroup) && {(getPlayerUID player) in (_x getVariable["savedGroup",[]])} && {_x != player}) exitWith {
+			_loginGroup = group player;
+			[player] join (group _x);
+			if (count units _loginGroup < 1) then {deleteGroup _loginGroup;};
+		};
+	} count playableUnits;
+};
+
 
 acceptGroupInvite = compile preprocessFileLineNumbers "GG\group\acceptGroupInvite.sqf";
 declineGroupInvite = compile preprocessFileLineNumbers "GG\group\declineGroupInvite.sqf";
 disbandGroup = compile preprocessFileLineNumbers "GG\group\disbandGroup.sqf";
+dzgmSlowLoop = compile preprocessFileLineNumbers "GG\group\slowLoop.sqf";
 inviteToGroup = compile preprocessFileLineNumbers "GG\group\inviteToGroup.sqf";
 kickFromGroup = compile preprocessFileLineNumbers "GG\group\kickFromGroup.sqf";
 leaveGroup = compile preprocessFileLineNumbers "GG\group\leaveGroup.sqf";
-mapLoop = compile preprocessFileLineNumbers "GG\group\mapLoop.sqf";
 playerSelectChange = compile preprocessFileLineNumbers "GG\group\playerSelectChange.sqf";
-updatePlayerList = compile preprocessFileLineNumbers "GG\group\updatePlayerList.sqf";
 tagName = true;
+updatePlayerList = compile preprocessFileLineNumbers "GG\group\updatePlayerList.sqf";
 	
 if (isNil "dzgmInit") then {call compile preprocessFileLineNumbers "GG\group\icons.sqf";};
 uiSleep 1;
 [] spawn dzgmInit;
-[] spawn mapLoop;
+[] spawn dzgmSlowLoop;
