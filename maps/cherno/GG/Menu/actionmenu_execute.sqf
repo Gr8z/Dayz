@@ -1,1 +1,0 @@
-[] execVM "GG\menu\actionmenu_main.sqf";
