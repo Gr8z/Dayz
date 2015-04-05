@@ -467,7 +467,6 @@ if (_hasrequireditem) then {
 		_counter = 0;
 
 		while {_isOk} do {
-		
 		if ((getPlayerUID player) in FastBuilding) exitWith {	
 		_isOk = false;	
 		_proceed = true;	
