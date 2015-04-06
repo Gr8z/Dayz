@@ -50,16 +50,16 @@ _UPW = false;	/* true or false */	/* recommended:  true */	/* "_UPW": Use Player
 /*  Use vehicle check?    */ _UVC = false;	/* true or false */	/* recommended: false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
 /*  Use zombie check?     */ _UZC = false;    /* true or false */    /* recommended:  true */    /* "Walk Amongst The Dead" or "ESS" needs this set to false */
 /*  Vehicle WHITELIST     */ _UVW = false;	/* true or false */	/* recommended: false */	/* if false - _ALLOWED_Vehicles won't not be used */
-/*  Vehicle Tradercheck   */ _VTC =  true;	/* true or false */	/* recommended:  true */	/* checks if a player is near a trader when 'purchasing' a vehicle */
+/*  Vehicle Tradercheck  */ _VTC =  false;	/* true or false */	/* recommended:  true */	/* checks if a player is near a trader when 'purchasing' a vehicle */
 
-/*  Cheatengine Checks ?  */ _UCC =  true;	/* true or false */	/* recommended:  true */	/* certain strings have been changed */
-/*  Use FileScan ?        */ _UFS =  true;	/* true or false */	/* recommended:  true */	/* spams the rpt but often finds hackers */
-/*  Use Anti Teleport?    */ _UAT =  true;	/* true or false */	/* recommended:  true */
+/*  Cheatengine Checks ?  */ _UCC =  false;	/* true or false */	/* recommended:  true */	/* certain strings have been changed */
+/*  Use FileScan ?        */ _UFS =  false;	/* true or false */	/* recommended:  true */	/* spams the rpt but often finds hackers */
+/*  Use Anti Teleport?    */ _UAT =  false;	/* true or false */	/* recommended:  true */
 /*  Use cut-scene ?       */ _UCS =  true;	/* true or false */	/* recommended:  true */	/* dynamicText ~ often colored, animated or used in credits */
-/*  Use Damage Check ?    */ _UDC =  true;	/* true or false */	/* recommended:  true */	/* try to catch Hacks that change the damage value of weapons */
+/*  Use Damage Check ?    */ _UDC =  false;	/* true or false */	/* recommended:  true */	/* try to catch Hacks that change the damage value of weapons */
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* recommended:  true */	/* might remove items from a custom crafting system.. */
-/*  HACKED BOX Check ?    */ _CHB =  true;	/* true or false */	/* recommended:  true */	/* custom crates might be deleted if "Max Cargo Count" is to low */
+/*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* recommended:  true */	/* custom crates might be deleted if "Max Cargo Count" is to low */
 /*  Max Cargo Count ?     */ _MCC =  650;
 
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* recommended:  true */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
