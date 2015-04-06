@@ -1028,3 +1028,8 @@ publicVariable "currentInvites";
 
 server_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_lockVault.sqf";
 "PVDZE_lockVault" addPublicVariableEventHandler {(_this select 1) spawn server_lockVault};
+
+cad_pvar_shared_var = 0; cad_pvar_server_answer = 1;
+"cad_pvar_shared_var" addPublicVariableEventHandler {
+	owner (_this select 1) publicVariableClient "cad_pvar_server_answer";
+};
