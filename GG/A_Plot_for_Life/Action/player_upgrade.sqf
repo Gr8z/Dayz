@@ -110,11 +110,7 @@ if ((count _upgrade) > 0) then {
 	} forEach _requirements;
 	
 	if (_proceed) then {
-		if ((getPlayerUID player) in admins) exitWith {	
-				_isOk = false;	
-				_proceed = true;	
-				systemChat "Admin Fast Build Mode"; // SystemChat If Wanted
-		};
+
 		[1,1] call dayz_HungerThirst;
 		player playActionNow "Medic";
 		[player,20,true,(getPosATL player)] spawn player_alertZombies;

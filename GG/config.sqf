@@ -1,4 +1,4 @@
-admins = ["0","76561198002511087"];
+admins = ["76561198078201908","76561198002511087","76561198002511087"];
 DZE_BuildingLimit = 150;
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 DZE_Garage = ["Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D"];

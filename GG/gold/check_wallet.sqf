@@ -6,10 +6,13 @@ _myMoney = player getVariable ["cashMoney",0];
 _myMoney = _myMoney + _hisMoney;
 _body setVariable ["cashMoney", 0 , true];
 
-if(_hisMoney > 999999) exitWith { cutText ["You can not loot more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
+DZE_ActionInProgress=true;
+
+if(_hisMoney > 999999) exitWith { cutText ["You can not loot more then 999,999 gold coins at once.", "PLAIN DOWN"];DZE_ActionInProgress=false; };
 
 if (isNull cursorTarget) exitWith {
 	cutText ["Cannot loot coins, You must be near a body to loot coins.", "PLAIN DOWN"];
+	DZE_ActionInProgress=false;
 };
 
 
@@ -25,3 +28,5 @@ if (typeName (_myMoney) == "SCALAR")then{
 };
 
 systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
+
+DZE_ActionInProgress=false;
