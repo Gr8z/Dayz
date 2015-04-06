@@ -1,4 +1,4 @@
-private ["_dikCode","_handled","_primaryWeapon","_secondaryWeapon","_nearbyObjects","_nill","_shift","_ctrl","_alt","_dropPrimary","_dropSecondary","_iItem","_removed","_iPos","_radius","_item"];
+private ["_dikCode","_handled","_primaryWeapon","_secondaryWeapon","_nearbyObjects","_nill","_shift","_ctrl","_alt","_dropPrimary","_dropSecondary","_iItem","_removed","_iPos","_radius","_item","Cobj","CobjType","CobjectName"];
 _dikCode = 	_this select 1;
 
 _handled = false;
@@ -101,9 +101,19 @@ _ctrl = 	_this select 3;
 _alt =		_this select 4;
 
 //diag_log format["Keypress: %1", _this];
-if ((_dikCode in actionKeys "Gear") && (vehicle player != player) && !_shift && !_ctrl && !_alt && !dialog) then {
-			createGearDialog [player, "RscDisplayGear"];
-			_handled = true;
+if ((_dikCode in actionKeys "Gear") and (vehicleplayer != player) and !_shift and !_ctrl and !_alt && !dialog) then{
+  _Cobj = cursorTarget;
+  _CobjType = typeOf _Cobj;
+  _Cobjectname = getText(configFile >> "CfgVehicles" >> _CobjType >> ("displayname");
+  if (_Cobjectname = "safe")then {
+    if(s_player_lockvault < 1) 
+      then{  createGearDialog [player, "RscDisplayGear"];
+      _handled = true;
+    };
+  }else{ 
+    createGearDialog [player, "RscDisplayGear"];
+    _handled = true;
+  };
 };
 
 if (_dikCode in (actionKeys "GetOver")) then {
