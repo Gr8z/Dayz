@@ -1025,3 +1025,6 @@ KK_fnc_positionToString = {
 currentInvites = [];
 publicVariable "currentInvites";
 "currentInvites" addPublicVariableEventHandler {publicVariable "currentInvites";};
+
+server_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_lockVault.sqf";
+"PVDZE_lockVault" addPublicVariableEventHandler {(_this select 1) spawn server_lockVault};

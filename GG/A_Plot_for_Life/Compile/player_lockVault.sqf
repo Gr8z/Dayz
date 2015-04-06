@@ -3,7 +3,7 @@
 	Usage: [_obj] spawn player_unlockVault;
 	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
 */
-private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking","_lockedClass","_text","_playerNear","_characterID","_PlayerUID","_vector"];
+private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking","_lockedClass","_text","_playerNear","_characterID","_PlayerUID","_vector","_inventoryCHK","_inventory"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_10") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -19,11 +19,12 @@ _text = 		getText (configFile >> "CfgVehicles" >> _objType >> "displayName");
 
 // Silently exit if object no longer exists
 if(isNull _obj) exitWith { DZE_ActionInProgress = false; };
+_inventoryCHK = str([getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj]);
 [1,1] call dayz_HungerThirst;
 player playActionNow "Medic";
 sleep 1;
 [player,"tentpack",0,false] call dayz_zombieSpeak;
-sleep 5;
+sleep 1;
 
 _playerNear = _obj call dze_isnearest_player;
 if(_playerNear) exitWith { DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_11") , "PLAIN DOWN"];  };
@@ -73,6 +74,7 @@ if(!isNull _obj) then {
 	_backpacks = 	getBackpackCargo _obj;
 
 	// remove vault
+	_inventory = [getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj];
 	deleteVehicle _obj;
 
 	// Fill variables with loot
@@ -80,6 +82,8 @@ if(!isNull _obj) then {
 	_holder setVariable ["MagazineCargo", _magazines, true];
 	_holder setVariable ["BackpackCargo", _backpacks, true];
 
+	PVDZE_lockVault = [_objectID,_objectUID,_holder,player,_inventory,(_inventoryCHK != str(_inventory))];
+	publicVariableServer "PVDZE_lockVault";
 	cutText [format[(localize "str_epoch_player_117"),_text], "PLAIN DOWN"];
 };
 s_player_lockvault = -1;
