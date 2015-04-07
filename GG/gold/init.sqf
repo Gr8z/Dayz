@@ -33,6 +33,8 @@ BankDialogWithdrawAmount = {
 	player setVariable["cashMoney",(_wealth + _amount),true];
 	player setVariable["bankMoney",(_bank - _amount),true];
 	
+	sleep 1;
+	
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
 	PVDZE_bank_Save = [player];
@@ -67,6 +69,8 @@ BankDialogDepositAmount = {
 			
 		cutText [format["You have deposited %1 %2.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];
 	};
+		
+	sleep 1;
 	
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
@@ -94,6 +98,8 @@ GivePlayerAmount = {
 	publicVariableServer "PVDZE_account_Doublecheck";
 	player setVariable["cashMoney",_wealth - _amount, true];
 	_target setVariable["cashMoney",_twealth + _amount, true];
+			
+	sleep 1;
 	
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
