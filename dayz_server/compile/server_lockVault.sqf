@@ -1,4 +1,4 @@
-private ["_objectID","_objectUID","_holder","_player","_inventory"];
+private ["_objectID","_objectUID","_holder","_player","_inventory","_key"];
 
 _objectID = _this select 0;
 _objectUID = _this select 1;
