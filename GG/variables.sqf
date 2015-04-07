@@ -779,7 +779,18 @@ if(isServer) then {
 	dayz_players = [];
 	dead_bodyCleanup = [];
 	needUpdate_objects = [];
-
+	
+	dontUpdate_objects = [
+						"ClutterCutter_EP1","Desk","FoldChair","FoldTable","Park_bench1","Park_bench2","Park_bench2_noRoad","SmallTable","WoodChair","Axe_woodblock","Barrel1","Barrel4","Barrel5","Barrels","Fuel_can","Garbage_can","Garbage_container","Haystack","Haystack_small",
+						  "HeliH","HeliHCivil","HeliHRescue","Land_Barrel_empty","Land_Barrel_sand","Land_Barrel_water","Land_Ind_BoardsPack1","Land_Ind_BoardsPack2","Land_Pneu","Land_ladder","Land_ladder_half","Misc_TyreHeap","Misc_concrete_High","Misc_palletsfoiled","Misc_palletsfoiled_heap",
+						  "Notice_board","Paleta1","Paleta2","Pile_of_wood","Satelit","Sr_border","BMP2Wreck","BRDMWreck","HMMWVWreck","LADAWreck","Land_BoatSmall_1","Land_BoatSmall_2a","Land_BoatSmall_2b","Mi8Wreck","SKODAWreck","T72Wreck","T72WreckTurret","UAZWreck","UH1Wreck","UralWreck",
+						  "datsun01Wreck","datsun02Wreck","hiluxWreck","Baseball","Can_small","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","Explosive","FloorMop","Loudspeaker","MetalBucket","Misc_Videoprojektor","Misc_Videoprojektor_platno","Misc_Wall_lamp","Notebook",
+						  "Radio","SatPhone","SkeetDisk","SkeetMachine","SmallTV","Suitcase","bomb","Body","Grave","Hanged","Hanged_MD","Mass_grave","Land_Bench_EP1","Land_Cabinet_EP1","Land_Carpet_2_EP1","Land_Carpet_EP1","Land_Chair_EP1","Land_Chest_EP1","Dirtmount_EP1","Land_Crates_EP1",
+						  "Land_Dirthump01_EP1","Land_Dirthump02_EP1","Land_Dirthump03_EP1","Land_Misc_Coil_EP1","Land_bags_EP1","C130J_wreck_EP1","UH60_wreck_EP1","Land_Bag_EP1","Land_Basket_EP1","Land_Blankets_EP1","Land_Boots_EP1","Land_Bowl_EP1","Land_Bucket_EP1","Land_Canister_EP1",
+						  "Land_Pillow_EP1","Land_Rack_EP1","Land_Reservoir_EP1","Land_Sack_EP1","Land_Shelf_EP1","Land_Table_EP1","Land_Table_small_EP1","Land_Teapot_EP1","Land_Urn_EP1","Land_Vase_EP1","Land_Vase_loam_2_EP1","Land_Vase_loam_3_EP1","Land_Vase_loam_EP1","Land_Water_pipe_EP1",
+						  "Land_Wheel_cart_EP1","Land_Wicker_basket_EP1","Land_stand_waterl_EP1","Land_sunshade_EP1","Land_tires_EP1","Microphone1_ep1","Microphone2_ep1","Microphone3_ep1","Misc_Backpackheap_EP1","Misc_TyreHeapEP1","Sign_sphere100cm_EP1","Sign_sphere10cm_EP1","Sign_sphere25cm_EP1"
+						  ];
+	
 	DZE_DYN_AntiStuck = 0;
 	DZE_DYN_AntiStuck2nd = 0;
 	DZE_DYN_AntiStuck3rd = 0;

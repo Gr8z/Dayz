@@ -31,6 +31,7 @@ if (_isNotOk && _isbuildable) exitWith {};
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
+if (_object in dontUpdate_objects) then {_needUpdate = false;};
 _needUpdate = _object in needUpdate_objects;
 
 _object_position = {
@@ -108,85 +109,30 @@ _object_position = {
 		};
 };
 
-_object_damage = {
-	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-		if ((typeOf _object) in DZE_Garage) then {
-			_damage = damage _object;
-			_array = _object getVariable ["GarageFriends",[]];
-		} else {
-			_hitpoints = _object call vehicle_getHitpoints;
-			_damage = damage _object;
-			_array = [];
-			{
-				_hit = [_object,_x] call object_getHit;
-				_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
-				if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-				_object setHit ["_selection", _hit];
-			} count _hitpoints;
-		};
+_object_hitpoints = {
+	private["_hitpoints","_array","_hit","_selection","_key","_damage","_updateType"];
 	
-		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-		//diag_log ("HIVE: WRITE: "+ str(_key));
-		_key call server_hiveWrite;
-	_object setVariable ["needUpdate",false,true];
-	};
-
-_object_killed = {
-	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-	if(_object isKindOf "AllVehicles") then{
-		_object execVM "\z\addons\dayz_server\compile\server_crashLoot.sqf";
-	}; 
+	_updateType = _this select 0;
 	_hitpoints = _object call vehicle_getHitpoints;
-	//_damage = damage _object;
-	_damage = 1;
+	if (_updateType != "killed") then {_damage = damage _object;} else {_damage = 1;};
 	_array = [];
 	{
 		_hit = [_object,_x] call object_getHit;
 		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
 		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-		_hit = 1;
-		_object setHit ["_selection", _hit];
-	} count _hitpoints;
-	
+		if (_updateType == "killed") then {_hit = 1;};
+		_object setHit ["_selection", _hit]
+	} forEach _hitpoints;
+		
 	if (_objectID == "0") then {
 		_key = format["CHILD:306:%1:%2:%3:",_uid,_array,_damage];
 	} else {
 		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
 	};
-	//diag_log ("HIVE: WRITE: "+ str(_key));
-	_key call server_hiveWrite;
-	_object setVariable ["needUpdate",false,true];
-	if ((count _this) > 2) then {
-		_killer = _this select 2;
-		_charID = _object getVariable ['CharacterID','0'];
-		_objID 	= _object getVariable['ObjectID','0'];
-		_objUID	= _object getVariable['ObjectUID','0'];
-		_worldSpace = getPosATL _object;
-		if (getPlayerUID _killer != "") then {
-			_name = if (alive _killer) then { name _killer; } else { format["OBJECT %1", _killer]; };
-			diag_log format["Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6, Killer: %7 (UID: %8)", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace, _name, (getPlayerUID _killer)];
-		} else {
-			diag_log format["Vehicle killed: Vehicle %1 (TYPE: %2), CharacterID: %3, ObjectID: %4, ObjectUID: %5, Position: %6", _object, (typeOf _object), _charID, _objID, _objUID, _worldSpace];
-		};
-	};
-};
-
-_object_repair = {
-	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-	_hitpoints = _object call vehicle_getHitpoints;
-	_damage = damage _object;
-	_array = [];
-	{
-		_hit = [_object,_x] call object_getHit;
-		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
-		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-		_object setHit ["_selection", _hit];
-	} count _hitpoints;
 	
-	_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
-	//diag_log ("HIVE: WRITE: "+ str(_key));
 	_key call server_hiveWrite;
 	_object setVariable ["needUpdate",false,true];
+		
 };
 
 _object_vehicleKey = {
@@ -332,44 +278,53 @@ _object_vehicleKey = {
 // TODO ----------------------
 
 _object setVariable ["lastUpdate",time,true];
-switch (_type) do {
-	case "all": {
-		call _object_position;
-		call _object_inventory;
-		call _object_damage;
-		};
-	case "position": {
+
+/** We're using IF, instead of SWITCH... **/
+/** We shall Update all Object Parts **/
+if (_type == "all") then {
+	call _object_position;
+	call _object_inventory;
+	[_type] call _object_hitpoints;
+};
+
+/** We shall Update the Position **/
+if (_type == "position") then {
+	if (!(_object in needUpdate_objects)) then {
+		//diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];
+		needUpdate_objects set [count needUpdate_objects, _object];
+	};
+};
+
+/** We shall Update the Gear **/
+if (_type == "gear") then {
+	call _object_inventory;
+};
+
+/** We shall Update the Damage **/
+if (_type == "damage") then {
+	if ( (time - _lastUpdate) > 5) then {
+		[_type] call _object_hitpoints;
+	} else {
 		if (!(_object in needUpdate_objects)) then {
-			//diag_log format["DEBUG Position: Added to NeedUpdate=%1",_object];
+			//diag_log format["DEBUG Damage: Added to NeedUpdate=%1",_object];
 			needUpdate_objects set [count needUpdate_objects, _object];
 		};
 	};
-	case "gear": {
-		call _object_inventory;
-			};
-	case "damage": {
-		if ( (time - _lastUpdate) > 5) then {
-			call _object_damage;
-		} else {
-			if (!(_object in needUpdate_objects)) then {
-				//diag_log format["DEBUG Damage: Added to NeedUpdate=%1",_object];
-				needUpdate_objects set [count needUpdate_objects, _object];
-			};
-		};
-	};
-	case "killed": {
-		call _object_killed;
-	};
-	case "repair": {
-		call _object_damage;
-	};
-	case "vehiclekey": {
-		_activatingPlayer = _this select 2;
-		_vehicleClassname = _this select 3;
-		_toKey = _this select 4;
-		_toKeyName = _this select 5;
-		_vehicle_ID = _this select 6;
-		_vehicle_UID = _this select 7;
-		[_activatingPlayer, _vehicleClassname, _toKey, _toKeyName, _vehicle_ID, _vehicle_UID] call _object_vehicleKey;
-	};
+};
+
+/** We can use one function for this **/
+if (_type == "killed" || _type == "repair") then {
+	[_type] call _object_hitpoints;
+};
+
+/** We shall Update the Vehicle Key **/
+if (_type == "vehiclekey") then {
+	_activatingPlayer = _this select 2;
+	_vehicleClassname = _this select 3;
+	_toKey = _this select 4;
+	_toKeyName = _this select 5;
+	_vehicle_ID = _this select 6;
+	_vehicle_UID = _this select 7;
+	[_activatingPlayer, _vehicleClassname, _toKey, _toKeyName, _vehicle_ID, _vehicle_UID] call _object_vehicleKey; //One Semicolon to much?
+};
 };
