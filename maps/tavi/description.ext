@@ -101,6 +101,12 @@ class CfgSounds
     sound[]={GG\sounds\introSong.ogg,0.9,1};
     titles[] = {};
     };
+	class bong
+	{
+	name="bong";
+	sound[]={GG\sounds\bong.ogg,0.9,1};
+	titles[] = {};
+	};
 };
 
 class RscLoadingText : RscText
