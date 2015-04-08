@@ -1,10 +1,3 @@
-// Plot Take Ownership by RimBlock (http://epochmod.com/forum/index.php?/user/12612-rimblock/)
-//
-// This script allows Plot pole owners to take ownership of all allowed buildables on their plot except lockable storage and tents.
-//
-// Note:
-// This code calls server_publishFullObject which also saves damage, inventory and fuel.  Hitpoints are assumed to be empty as this is for buildables only.
-
 private ["_distance","_plotpole","_playerUID","_isowner", "_findNearestObjects","_classname","_objectID", "_objectUID", "_position", "_worldspace", "_object", "_key","_invW","_invM","_invB","_itemsExist","_charID","_inventory","_vector"];
 
 _distance = (DZE_PlotPole select 0) + 1;

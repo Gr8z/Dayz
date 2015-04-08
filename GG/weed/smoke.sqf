@@ -15,15 +15,10 @@ else {
 	Flare attachTo [player,[0,0,0.]];
 };
 _nul = [objNull, player, rSAY, "cough"] call RE;
- sleep 5;
-titleText ["You are smoking the weed...","PLAIN DOWN"]; titleFadeOut 5;
 sleep 5;
 _id = [player,50,true,(getPosATL player)] spawn player_alertZombies;
  
-        
-if (_chance > 10) then
-    {
-
+       
     titleText ["You are stoned !","PLAIN DOWN"]; titleFadeOut 5;
     while {time < _drugTrip} do {
 
@@ -47,29 +42,7 @@ if (_chance > 10) then
         sleep 0.6;
 
         };  
-    
-    }
-else
-    {
 
-    titleText ["That must have been laced.","PLAIN DOWN"]; titleFadeOut 5;
-    while {time < _drugTrip} do {
-
-
-        _force = random 10;
-        "chromAberration" ppEffectEnable true;
-        "chromAberration" ppEffectAdjust [_force / 24, _force / 24, false];
-        "chromAberration" ppEffectCommit (0.3 + random 0.1);
-        "colorInversion" ppEffectEnable true;
-        "wetDistortion" ppEffectEnable true;
-        waituntil {ppEffectCommitted "chromAberration"};
-        sleep 0.6;
-
-
-        };  
-    };
-
-    
 "colorInversion" ppEffectEnable false;
 "wetDistortion" ppEffectEnable false;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [0.5,0.5,0.5,0], [0.5,0.5,0.5,0], [0.5,0.5,0.5,0]];
