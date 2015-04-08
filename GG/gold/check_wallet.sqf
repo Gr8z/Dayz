@@ -19,16 +19,17 @@ if (isNull cursorTarget) exitWith {
 
 
 _PlayerNear = _body call dze_isnearest_player;
-if (_PlayerNear) exitWith {cutText [localize "str_pickup_limit_4", "PLAIN DOWN"]};
+if (_PlayerNear) exitWith {DZE_ActionInProgress=false; cutText [localize "str_pickup_limit_4", "PLAIN DOWN"]};
 
 if (_hisMoney == 0) exitWith {
 	systemChat format ['%2 has no coins',_hisMoney,_name];
+	DZE_ActionInProgress=false;
 };
 
 if (typeName (_myMoney) == "SCALAR")then{
     player setVariable ["cashMoney", _myMoney , true];
 };
 
-systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
-
 DZE_ActionInProgress=false;
+
+systemChat format ['You took %1 coins from %2 !',_hisMoney,_name];
