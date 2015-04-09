@@ -1,10 +1,10 @@
 don_incar = 0;
 don_firedEH_1 = nil;
 don_godon_1 = 0;
-inSafeZone = false;
 [] spawn {
 	private ["_runOneTime","_canbuild","_don_passengers","_don_veh_crew","_don_player_veh","_don_veh_driver"];
-	waitUntil {!(isNil "canbuild")};
+	waitUntil {((!isNil 'dayz_animalCheck') || (!isNil 'dayz_medicalH') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_gui'))};
+	if (isNil 'canbuild') then { canbuild = true; } else { if (typename canbuild != 'BOOL') then { canbuild = true; }; };
 	_runOneTime = false;
 	_canbuild = canbuild;
 	while {true} do {
