@@ -139,55 +139,57 @@ Behaviour: If there is no Player near that Group for _timeTillFreeze the AI will
 Addition: None
 **/
 while {true} do {
-        _matchingObjectsArray = ((units _unitGroup) select 0) nearEntities ["CAManBase",_countRange];
-        _numberOfMatchingObjectsNumber = (count _matchingObjectsArray);
-       
-        if (_numberOfMatchingObjectsNumber >= 1) then {
-               
-                _state = _unitGroup getVariable["FrozenState",[time,true]];
-                _timeFroze = _state select 0;
-                _stateFroze = _state select 1;
-               
-                if (_stateFroze) then {
-               
-                        {
-                                if (isPlayer _x) then {
-                                       
-                                        if (freeze_log) then {
-                                                diag_log(format["[DEBUG] %1 Triggered Un-Freezing of Group: %2", _x, _unitGroup]);
-                                        };
-                                        [_unitGroup] spawn fnc_unfreeze;
-                                       
-                                } else {
-                               
-                                        if (!_stateFroze && ((time - _timeFroze) > _timeTillFreeze)) then {
-                       
-                                                if (freeze_log) then {
-                                                        diag_log(format["[DEBUG] Re-Freezing Group: %1", _unitGroup]);
-                                                };
-                                               
-                                                [_unitGroup] spawn fnc_freeze;
-                                       
-                                        };
-                                };
-                               
-                        } foreach _matchingObjectsArray;
-                       
-                } else {
-                       
-                        if (!_stateFroze && ((time - _timeFroze) > _timeTillFreeze)) then {
-                       
-                                if (freeze_log) then {
-                                        diag_log(format["[DEBUG] Re-Freezing Group: %1", _unitGroup]);
-                                };
-                                [_unitGroup] spawn fnc_freeze;
-                               
-                        };
-                       
-                };
-               
-        };
-       
-        sleep 15;
-       
+	_matchingObjectsArray = ((units _unitGroup) select 0) nearEntities ["CAManBase",_countRange];
+	if(!isnil "_matchingObjectsArray") then {
+		_numberOfMatchingObjectsNumber = (count _matchingObjectsArray);
+		
+		if (_numberOfMatchingObjectsNumber >= 1) then {
+			
+			_state = _unitGroup getVariable["FrozenState",[time,true]];
+			_timeFroze = _state select 0;
+			_stateFroze = _state select 1;
+			
+			if (_stateFroze) then {
+			
+				{
+					if (isPlayer _x) then {
+						
+						if (freeze_log) then {
+							diag_log(format["[DEBUG] %1 Triggered Un-Freezing of Group: %2", _x, _unitGroup]);
+						};
+						[_unitGroup] spawn fnc_unfreeze;
+						
+					} else {
+					
+						if (!_stateFroze && ((time - _timeFroze) > _timeTillFreeze)) then {
+				
+							if (freeze_log) then {
+								diag_log(format["[DEBUG] Re-Freezing Group: %1", _unitGroup]);
+							};
+							
+							[_unitGroup] spawn fnc_freeze;
+						
+						};
+					};
+					
+				} foreach _matchingObjectsArray;
+				
+			} else {
+			
+				if (!_stateFroze && ((time - _timeFroze) > _timeTillFreeze)) then {
+				
+					if (freeze_log) then {
+						diag_log(format["[DEBUG] Re-Freezing Group: %1", _unitGroup]);
+					};
+					[_unitGroup] spawn fnc_freeze;
+					
+				};
+				
+			};
+			
+		};
+	};
+	
+	sleep 15;
+	
 };
