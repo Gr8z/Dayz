@@ -48,6 +48,12 @@ BuildDonor = [
 "0"
 	// Add UIDs above, don't forget the comma
 ];
+
+FogDonor = [
+"0","0","0","0","0","0","0","0","0",
+"0"
+	// Add UIDs above, don't forget the comma
+];
 /////////// Engineer Class ///////
 Engineer1 = [
 	"0", //
@@ -257,3 +263,4 @@ publicVariable "vipListClasses";
 publicVariable "BankDonator";
 publicVariable "wardrobeDonor";
 publicVariable "BuildDonor";
+publicVariable "FogDonor";
