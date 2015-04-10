@@ -7,7 +7,6 @@ pathtoPack = "GG\deployables\";
 pathtoclothing = "GG\menu\wardrobe\";
 pathtoGroup = "GG\group\";
 pathtoAirDrop = "GG\";
-_UID = (getPlayerUID player);
 
 EXECscript1 = 'player execVM "'+pathtoscripts+'%1"';
 EXECscript2 = 'player execVM "'+pathtocolors+'%1"';
@@ -21,7 +20,6 @@ EXECscript10 = '[] spawn %1;';
 EXECscript11 = 'player execVM "'+pathtoclothing+'%1"';
 EXECscript12 = 'player execVM "'+pathtoGroup+'%1"';
 EXECscript13 = 'player execVM "'+pathtoAirDrop+'%1"';
-EXECscript14 = 'systemChat %1;';
 
 ActionMenu =
 [
@@ -124,37 +122,18 @@ FogMenu =
             ["Next page", [12], "#USER:FogMenu2", -5, [["expression", ""]], "1", "1"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
-if (_UID in FogDonor) then {
 FogMenu2 =
 [
 ["",true],
         ["3000M", [2],  "", -5, [["expression", format[EXECscript4 ,"3000"]]], "1", "1"],
-        ["3500M", [3],  "", -5, [["expression", format[EXECscript4 ,"3500"]]], "1", "1"],
-        ["4000M", [4],  "", -5, [["expression", format[EXECscript4 ,"4000"]]], "1", "1"],
-        ["4500M", [5],  "", -5, [["expression", format[EXECscript4 ,"4500"]]], "1", "1"],
-        ["5000M", [6],  "", -5, [["expression", format[EXECscript4 ,"5000"]]], "1", "1"],
-        ["5500M", [7],  "", -5, [["expression", format[EXECscript4 ,"5500"]]], "1", "1"],
-        ["10000M", [8],  "", -5, [["expression", format[EXECscript4 ,"10000"]]], "1", "1"],
-        ["20000M (Super Computer)", [6],  "", -5, [["expression", format[EXECscript4 ,"20000"]]], "1", "1"],
+        ["4000M", [3],  "", -5, [["expression", format[EXECscript4 ,"4000"]]], "1", "1"],
+        ["5000M", [4],  "", -5, [["expression", format[EXECscript4 ,"5000"]]], "1", "1"],
+        ["10000M", [5],  "", -5, [["expression", format[EXECscript4 ,"10000"]]], "1", "1"],
+        ["20000M (Super Computer)", [6],  "", -5, [["expression", format[EXECscript4 ,"20000.sqf"]]], "1", "1"],
             ["", [-1], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
-} else {
-FogMenu2 =
-[
-["",true],
-        ["3000M", [2],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["3500M", [3],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["4000M", [4],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["4500M", [5],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["5000M", [6],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["5500M", [7],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["10000M", [8],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-        ["20000M (Super Computer)", [6],  "", -5, [["expression", format[EXECscript14 ,"You Must Donate For The View Distance Perk at ghostzgamerz.com"]]], "1", "1"],
-            ["", [-1], "", -5, [["expression", ""]], "1", "0"],
-            ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
-];
-};
+
 environment =
 [
 	["",true],
