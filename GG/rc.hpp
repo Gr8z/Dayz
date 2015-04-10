@@ -74,10 +74,6 @@ class ExtraRc {
 			text = "3000 Meters";
 			script = "setViewDistance 3000; systemChat('ViewDistance: 3000'); systemChat('Warning: Higher the view distance Lower the FPS');";
 		};
-		class distance5000m {
-			text = "5000 Meters";
-			script = "setViewDistance 5000; systemChat('ViewDistance: 5000'); systemChat('Warning: Higher the view distance Lower the FPS');";
-		};
 	};
 	
 	class ItemRadio {
