@@ -85,14 +85,8 @@ GivePlayerAmount = {
 	if (_amount < 1 or _amount > _wealth) exitWith {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
 	};
-	if (!_isMan) exitWith {
-		cutText ["You are not facing anyone.", "PLAIN DOWN"];
-	};
-	if (_wealth == _twealth) exitWith {
-		cutText ["FAILED : Both Targets have same amount of money.", "PLAIN DOWN"];
-	};
 	if (_InTrd) exitWith {
-        cutText ["Other Player is busy, please wait.", "PLAIN DOWN"];
+        cutText ["Other Player is busy, try again...", "PLAIN DOWN"];
     };
 	PVDZE_account_Doublecheck = [player];
 	publicVariableServer "PVDZE_account_Doublecheck";
