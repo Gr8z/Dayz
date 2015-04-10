@@ -128,8 +128,11 @@ FogMenu2 =
         ["3000M", [2],  "", -5, [["expression", format[EXECscript4 ,"3000"]]], "1", "1"],
         ["4000M", [3],  "", -5, [["expression", format[EXECscript4 ,"4000"]]], "1", "1"],
         ["5000M", [4],  "", -5, [["expression", format[EXECscript4 ,"5000"]]], "1", "1"],
+        ["6000M", [4],  "", -5, [["expression", format[EXECscript4 ,"6000"]]], "1", "1"],
+        ["7000M", [4],  "", -5, [["expression", format[EXECscript4 ,"7000"]]], "1", "1"],
+        ["8000M", [4],  "", -5, [["expression", format[EXECscript4 ,"8000"]]], "1", "1"],
+        ["9000M", [4],  "", -5, [["expression", format[EXECscript4 ,"9000"]]], "1", "1"],
         ["10000M", [5],  "", -5, [["expression", format[EXECscript4 ,"10000"]]], "1", "1"],
-        ["20000M (Super Computer)", [6],  "", -5, [["expression", format[EXECscript4 ,"20000.sqf"]]], "1", "1"],
             ["", [-1], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];

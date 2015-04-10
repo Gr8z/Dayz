@@ -78,6 +78,26 @@ class ExtraRc {
 			text = "5000 Meters";
 			script = "setViewDistance 5000; systemChat('ViewDistance: 5000'); systemChat('Warning: Higher the view distance Lower the FPS');";
 		};
+		class distance6000m {
+			text = "6000 Meters";
+			script = "setViewDistance 6000; systemChat('ViewDistance: 6000'); systemChat('Warning: Higher the view distance Lower the FPS');";
+		};
+		class distance7000m {
+			text = "7000 Meters";
+			script = "setViewDistance 7000; systemChat('ViewDistance: 7000'); systemChat('Warning: Higher the view distance Lower the FPS');";
+		};
+		class distance8000m {
+			text = "8000 Meters";
+			script = "setViewDistance 8000; systemChat('ViewDistance: 8000'); systemChat('Warning: Higher the view distance Lower the FPS');";
+		};
+		class distance9000m {
+			text = "9000 Meters";
+			script = "setViewDistance 9000; systemChat('ViewDistance: 9000'); systemChat('Warning: Higher the view distance Lower the FPS');";
+		};
+		class distance10000m {
+			text = "10000 Meters";
+			script = "setViewDistance 10000; systemChat('ViewDistance: 10000'); systemChat('Warning: Higher the view distance Lower the FPS');";
+		};
 	};
 	
 	class ItemRadio {
