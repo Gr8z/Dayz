@@ -29,11 +29,9 @@ BankDialogWithdrawAmount = {
 	
 	if(_amount > 999999) exitWith { cutText ["You can not withdraw more then 999,999 gold coins at once.", "PLAIN DOWN"]; };
 	if(_amount < 1 or _amount > _bank) exitWith { cutText ["You can not withdraw more than is in your bank.", "PLAIN DOWN"]; };
-
+	
 	player setVariable["cashMoney",(_wealth + _amount),true];
 	player setVariable["bankMoney",(_bank - _amount),true];
-	
-	sleep 1;
 	
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
@@ -69,9 +67,7 @@ BankDialogDepositAmount = {
 			
 		cutText [format["You have deposited %1 %2.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];
 	};
-		
-	sleep 1;
-	
+
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
 	PVDZE_bank_Save = [player];
@@ -84,6 +80,7 @@ GivePlayerAmount = {
 	_target = cursorTarget;
 	_wealth = player getVariable["cashMoney",0];
 	_twealth = _target getVariable["cashMoney",0];
+	_InTrd = _target getVariable ["TrBsy",false];
 	_isMan = _target isKindOf "Man";
 	if (_amount < 1 or _amount > _wealth) exitWith {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
@@ -94,12 +91,13 @@ GivePlayerAmount = {
 	if (_wealth == _twealth) exitWith {
 		cutText ["FAILED : Both Targets have same amount of money.", "PLAIN DOWN"];
 	};
+	if (_InTrd) exitWith {
+        cutText ["Other Player is busy, please wait.", "PLAIN DOWN"];
+    };
 	PVDZE_account_Doublecheck = [player];
 	publicVariableServer "PVDZE_account_Doublecheck";
 	player setVariable["cashMoney",_wealth - _amount, true];
 	_target setVariable["cashMoney",_twealth + _amount, true];
-			
-	sleep 1;
 	
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";

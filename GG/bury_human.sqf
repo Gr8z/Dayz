@@ -18,7 +18,6 @@ if (!_isBuried) then {
     if (!_hasHarvested) then {
 
         _corpse setVariable["isBuried",true,true];
-		_corpse setVariable["CashMoney",0 ,true];
         player playActionNow "Medic";
         sleep 10;
 
