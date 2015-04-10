@@ -260,6 +260,8 @@ dayz_resetSelfActions = {
 	s_player_plot_take_ownership = -1;
 	s_player_driver_eject = -1;
 	Eject_Array = [];
+	s_player_put_earplugs_on = -1;
+    s_player_put_earplugs_off = -1;
 };
 call dayz_resetSelfActions;
 
@@ -1005,6 +1007,8 @@ if(!isDedicated) then {
 	DZE_InRadiationZone = false;
 
 	DZE_SaveTime = 30;
+	//earplugs init
+	Earplugs = false;
 };
 
 EVDVehicleArray = ["MMT_Civ","TT650_Civ","CSJ_GyroC"];
