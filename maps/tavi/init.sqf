@@ -67,7 +67,6 @@ if (!isDedicated) then {
 };
 execVM "GG\safezone.sqf";
 execVM "GG\gold\init.sqf";
-execVM "GG\rewardLoyalty.sqf";
 execVM "GG\weed\farms.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
