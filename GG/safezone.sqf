@@ -181,7 +181,9 @@ don_godon_1 = 0;
 			};
 		};
 		if (!canbuild && don_incar == 1) then {
-			_don_player_veh = don_player_veh; don_veh_crew = crew _don_player_veh; _don_veh_driver = driver _don_player_veh;
+			_don_player_veh = don_player_veh; 
+			don_veh_crew = crew _don_player_veh; 
+			_don_veh_driver = driver _don_player_veh;
 			_don_player_veh allowDamage false;
 			_don_player_veh removeAllEventHandlers "handleDamage";
 			_don_player_veh addEventHandler ["handleDamage", {0}];
@@ -231,7 +233,7 @@ don_godon_1 = 0;
 		if (!canbuild) then {
 			//VEHICLE OWNERITY CHECK
 			_don_veh_crew = don_player_veh getVariable ["don_crew", nil]; if (isNil "_don_veh_crew") then {_don_veh_crew = [getPlayerUID player];};
-			if !(getPlayerUID player in _don_veh_crew) then {
+			if (!(getPlayerUID player in _don_veh_crew) && {group _don_veh_driver != group player}) then {
 				call compile format ['if (isNil "don_%1") then {don_%1 = diag_tickTime;}; _last_mark = don_%1;', don_player_veh getVariable ["don_ownerity_code", 0]];
 				_wait_time = diag_tickTime - _last_mark;
 				if (_wait_time < _max_time) then {
