@@ -278,9 +278,6 @@ _object_vehicleKey = {
 // TODO ----------------------
 
 _object setVariable ["lastUpdate",time,true];
-_object setVariable ["lastUpdate",time,true];
-_object setVariable ["lastPosition",(getPosATL _object),true];
-_object setVariable ["lastHitpoints",(_object call vehicle_getHitpoints),true];
 
 /** We're using IF, instead of SWITCH... **/
 /** We shall Update all Object Parts **/

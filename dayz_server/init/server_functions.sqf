@@ -57,54 +57,11 @@ zombie_findOwner = {
 	deleteVehicle _unit;
 };
 
-/** This function Updates all - Damage, Position and Gear. - Is this really necessary?? **/
 vehicle_handleInteract = {
-	private["_object","_lastPosition","_lastInventory","_lastHitpoints","_inventory","_position","_hitpoints"];
+	private["_object"];
 	_object = _this select 0;
-	
-	/** Let's get the last Updates in Inventory and Position **/
-	_lastPosition = _object getVariable ["lastPosition"];
-	_lastInventory = _object getVariable ["lastInventory",[]];
-	_lastHitpoints = _object getVariable ["lastHitpoints"];
-	
-	/** Getting the current Inventory and Position, for comparison **/ 
-	_inventory = [
-			getWeaponCargo _object,
-			getMagazineCargo _object,
-			getBackpackCargo _object,
-			];
-			
-	_position = getPosATL _object;
-	
-	_hitpoints = _object call vehicle_getHitpoints;
-	
-	
-	/** Let's remove the Object from the List outside the IF, to prevent "double" removing, when 2 IF's a true.. **/
-	/** Also this must happen before we check, because otherwise it will be doubled, when calling server_updateObject **/
-	diag_log format["Removed Object %1 from List", _object];
 	needUpdate_objects = needUpdate_objects - [_object];
-	
-	/** Next we compare our results and check, if a Update is really required. **/
-	/** Compare Position **/
-	if (!(_lastPosition == _position)) then {
-		diag_log format["Updating Position of %1", _object];
-		[_object, "position"] call server_updateObject;
-	};
-	
-	/** Compare Inventory **/
-	if (!(_lastInventory == _inventory)) then {
-		diag_log format["Updating Gear of %1", _object];
-		[_object, "gear"] call server_updateObject;
-	};
-	
-	/** Compare Hitpoints **/
-	if (!(_lastHitpoints == _hitpoints)) then {
-		diag_log format["Updating Hitpoints of %1", _object];
-		[_object, "damage"] call server_updateObject;
-	};
-	
-	//needUpdate_objects = needUpdate_objects - [_object];
-	//[_object, "all"] call server_updateObject;
+	[_object, "all"] call server_updateObject;
 };
 
 array_reduceSizeReverse = {
