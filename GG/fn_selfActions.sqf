@@ -94,7 +94,7 @@ if (_inVehicle && (!Earplugs)) then {
             };
         };
     
-if (_inVehicle && (_vehicle isKindOf "Air") && (Earplugs)) then {
+if (_inVehicle && (Earplugs)) then {
     if (s_player_put_earplugs_off < 0) then {
         airvehicle = _vehicle;
         s_player_put_earplugs_off = airvehicle addAction ["Earplugs off","GG\Earplugs\earplugs_off.sqf","",5,false,true];
