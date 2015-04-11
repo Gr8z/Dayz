@@ -82,7 +82,7 @@ if (DZE_HeliLift) then {
 };
 
 // Earplugs
-if (_inVehicle && (_vehicle isKindOf "Air") && (!Earplugs)) then {
+if (_inVehicle && (!Earplugs)) then {
     if (s_player_put_earplugs_on < 0) then {
         airvehicle = _vehicle;
         s_player_put_earplugs_on = airvehicle addAction ["Earplugs on","GG\Earplugs\earplugs_on.sqf","",5,false,true];
