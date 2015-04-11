@@ -86,7 +86,7 @@ GivePlayerAmount = {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
 	};
 	if (!_isMan) exitWith {
-		cutText ["You are not facing anyone.", "PLAIN DOWN"];
+		cutText ["You are not looking correctly at a player", "PLAIN DOWN"];
 	};
 	if (_InTrd) exitWith {
         cutText ["Other Player is busy, try again...", "PLAIN DOWN"];
