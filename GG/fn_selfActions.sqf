@@ -387,26 +387,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		};
 	
 	};
-
-	/* Remove Scroll Removal for Plot Poles */
-	if(_player_deleteBuild) then {
-		if (_cursorTarget isKindOf "Plastic_Pole_EP1_DZ") then {
-			_owner = _cursorTarget getVariable ["ownerPUID","0"];
-		    _friends = _cursorTarget getVariable ["plotfriends", []];
-		    _fuid = [];
-		    {
-		    	_friendUID = _x select 0;
-		    	_fuid = _fuid + [_friendUID];
-		    } forEach _friends;
-		    _allowed = [_owner];    
-		    _allowed = [_owner] + _fuid;
-		    if((getPlayerUID player) in _allowed) then {            
-				_player_deleteBuild = true;
-			} else {
-				_player_deleteBuild = false;
-			};
-		};
-	};
 	
 	if(_player_deleteBuild) then {
 		if (s_player_deleteBuild < 0) then {
