@@ -674,7 +674,7 @@ dayz_recordLogin = {
 currentInvites = [];
 publicVariable "currentInvites";
 
-#include "ESSconfig.sqf"
+#include "Donators.sqf"
 
 
 dayz_perform_purge = {
