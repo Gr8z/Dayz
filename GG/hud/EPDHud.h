@@ -277,19 +277,6 @@ class playerStatusGUI {
                 sizeEx = 0.065;
                 colorText[] = {1,1,1,0.0};
             };
-			//OVERWEIGHT ICON
-			/*
-            class RscPicture_1210: RscPictureGUI
-            {
-                idc = 1210;
-                text = "\z\addons\dayz_code\gui\status\status_effect_weight.paa";
-                x = 0.72 * safezoneW + safezoneX;
-                y = 0.93 * safezoneH + safezoneY;
-                h = 0.057*safeZoneH;
-                w = 0.034*safeZoneW;				
-            };
-			*/
-		/*-----------------------------------------------*/
 		//SURVIVOR KILLS
 		class RscText_1400: RscTextGUIK
 		{
@@ -372,7 +359,7 @@ class playerStatusGUI {
 		class RscText_1423: RscTextGUIK
 		{
 			idc = 1423;
-			text = "Blood Left:";
+			text = "Blood:";
 			x = 0.33 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
@@ -398,7 +385,7 @@ class playerStatusGUI {
 		class RscText_1425: RscTextGUIK
 		{
 			idc = 1425;
-			text = "Restart in (min):";
+			text = "Restart:";
 			x = 0.53 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.1 * safezoneW;
@@ -407,47 +394,10 @@ class playerStatusGUI {
 			size = 0.03;
 			sizeEx = 0.03;
 		};
-		//WEBSITE
-		class RscText_1426: RscTextGUIK
-		{
-			idc = 1426;
-			text = "TS: ts.ghostzgamerz.com";
-			x = 0.885 * safezoneW + safezoneX;
-			y = 0.94 * safezoneH + safezoneY;
-			w = 0.15 * safezoneW;
-			h = 0.047 * safezoneH;
-			colorText[] = {1,1,1,1.0};
-			size = 0.03;
-			sizeEx = 0.03;
-		};
-		class RscText_1427: RscTextGUIK
-		{
-			idc = 1427;
-			text = "ww.GHOSTZGAMERZ.com";
-			x = 0.88 * safezoneW + safezoneX;
-			y = 0.96 * safezoneH + safezoneY;
-			w = 0.15 * safezoneW;
-			h = 0.047 * safezoneH;
-			colorText[] = {1,1,1,1.0};
-			size = 0.03;
-			sizeEx = 0.03;
-		};
-		class RscText_1428: RscTextGUIK
-		{
-			idc = 1428;
-			text = "Help Center";
-			x = 0.882 * safezoneW + safezoneX;
-			y = 0.86 * safezoneH + safezoneY;
-			w = 0.15 * safezoneW;
-			h = 0.047 * safezoneH;
-			colorText[] = {0,0.6,1,1};
-			size = 0.045;
-			sizeEx = 0.045;
-		};
 		class RscText_1429: RscTextGUIK
 		{
-			idc = 1429;
-			text = "Insert Key";
+			idc = 1426;
+			text = "FPS";
 			x = 0.89 * safezoneW + safezoneX;
 			y = 0.88 * safezoneH + safezoneY;
 			w = 0.15 * safezoneW;
