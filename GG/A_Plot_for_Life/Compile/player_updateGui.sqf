@@ -44,7 +44,7 @@ _bloodTotal = round((r_player_blood/12000)*100);
 _percentSign = "&#37";
 _RestartTime = 120-(round(serverTime/60));
 
-_ctrlBloodAmount      ctrlSetText str(_bloodTotal);
+_ctrlBloodAmount      ctrlSetText str(_bloodTotal+_percentSign);
 _ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0]);
 _ctrlServerRestart  ctrlSetText str(_RestartTime);
 
