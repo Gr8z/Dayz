@@ -218,7 +218,7 @@ class RscTitles
 {
 #include "GG\group\icons.hpp"
 #include "GG\hud\hud.hpp"
-
+#include "GG\hud\EPDHud.h"
 titles[] = {"DeathScr"};
 class DeathScr {
   idd = -1;
