@@ -45,9 +45,7 @@ _bloodTotal = round((r_player_blood/12000)*100);
 _mags = [currentWeapon player] + (weapons player) + (magazines player);
 if ('ItemGPS' in _mags) then {
 	_RestartTime = ({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1;
-} else {
-	_RestartTime = "NO GPS"
-}; 
+};
 _ctrlBloodAmount      ctrlSetText str(_bloodTotal);
 _ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0]);
 _ctrlServerRestart  ctrlSetText str(_RestartTime);
