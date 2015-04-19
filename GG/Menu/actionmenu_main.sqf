@@ -28,6 +28,8 @@ ActionMenu =
 		["Deploy Menu >>", [], "#USER:DeployMenu", -5, [["expression", ""]], "1", "1"],
 		["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
 		["Color Filters Menu>>", [], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
+		["Environmental sounds", [], "#USER:environment", -5, [["expression", ""]], "1", "1"],
+		["Toggle Grass", [], "#USER:grass", -5, [["expression", ""]], "1", "1"],
 		["Wardrobe Menu >>", [], "#USER:wardrobe", -5, [["expression", ""]], "1", "1"],
 		["View Distance (Fog) Menu >>", [], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
 		["Group  Menu >>", [], "", -5, [["expression", format[EXECscript12,"loadGroupManagement.sqf"]]], "1", "1"],
@@ -44,7 +46,6 @@ ActionMenua =
 		["Commit Suicide", [3],  "", -5, [["expression", format[EXECscript1,"suicide.sqf"]]], "1", "1"],
 		["Scream", [4],  "", -5, [["expression", "_sound = ['z_scream_3','z_scream_4'] call BIS_fnc_selectRandom;[nil,player,rSAY,[_sound,250]] call RE;"]], "1", "1"],
 		["Hints & Tips - Read Me!", [5],  "", -5, [["expression", format[EXECscript1,"help.sqf"]]], "1", "1"],			
-		["Environmental sounds", [6], "#USER:environment", -5, [["expression", ""]], "1", "1"],
 		["Toggle Debug Moniter", [7], "", -5, [["expression", format[EXECscript10,"fnc_debugX0"]]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
@@ -135,6 +136,13 @@ FogMenu2 =
         ["10000M", [5],  "", -5, [["expression", format[EXECscript4 ,"10000"]]], "1", "1"],
             ["", [-1], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+];
+
+grass =
+[
+	["",true],
+	["ON", [2],  "", -5, [["expression","setTerrainGrid 25; systemChat('Grass turned ON');"]], "1", "1"],
+	["OFF", [3],  "", -5, [["expression","setTerrainGrid 50; systemChat('Grass turned OFF');"]], "1", "1"]
 ];
 
 environment =
