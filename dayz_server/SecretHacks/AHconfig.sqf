@@ -188,7 +188,7 @@ _dayzActions =
 		If you don't want to use it - just do:
 		_sUptime = 0;
 	*/
-	_sUptime = 7200.5;
+	_sUptime = 0;
 	
 	
 	/*

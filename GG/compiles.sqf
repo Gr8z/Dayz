@@ -130,6 +130,7 @@ if (!isDedicated) then {
 
 	player_lockVault =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_lockVault.sqf";
 	player_updateGui =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_updateGui.sqf";
+	player_updateGui_1 =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_updateGui_1.sqf";
 	player_crossbowBolt =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_music.sqf";			//Used to generate ambient music
 	player_death =				compile preprocessFileLineNumbers "GG\player_death.sqf";

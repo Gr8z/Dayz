@@ -168,7 +168,7 @@ class playerStatusGUI {
 		class RscPicture_1310: RscPictureGUI
 		{
 			idc = 1310;
-			text = "GG\images\status\zombie.paa";
+			text = "GG\images\zombie.paa";
 			x = 0.66 * safezoneW + safezoneX;
 			y = 0.96 * safezoneH + safezoneY;
 			w = 0.027 * safezoneW;
@@ -411,7 +411,7 @@ class playerStatusGUI {
 		class RscText_1426: RscTextGUIK
 		{
 			idc = 1426;
-			text = "TS: 73.175.18.229";
+			text = "TS: ts.ghostzgamerz.com";
 			x = 0.885 * safezoneW + safezoneX;
 			y = 0.94 * safezoneH + safezoneY;
 			w = 0.15 * safezoneW;
@@ -423,7 +423,7 @@ class playerStatusGUI {
 		class RscText_1427: RscTextGUIK
 		{
 			idc = 1427;
-			text = "UK-Znation.enjin.com";
+			text = "ww.GHOSTZGAMERZ.com";
 			x = 0.88 * safezoneW + safezoneX;
 			y = 0.96 * safezoneH + safezoneY;
 			w = 0.15 * safezoneW;
