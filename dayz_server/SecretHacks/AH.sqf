@@ -4100,7 +4100,7 @@ publicVariable '"+_randvar28+"';
 		{
 			_array =
 			[
-				'grass','prunus','picea','fallentree','phragmites','acer','amygdalusn',
+				'prunus','picea','fallentree','phragmites','acer','amygdalusn',
 				'Brush','fiberplant','amygdalusc','boulder','Land_Farm_Cowshed_a','Land_Farm_Cowshed_b',
 				'Land_Farm_Cowshed_c','Land_HouseV_1L2','Land_HouseV2_02_Interier','Land_Church_02',
 				'Land_HouseV2_03B','Land_HouseV2_01B','Land_HouseV2_04_interier','c_grasstall'
