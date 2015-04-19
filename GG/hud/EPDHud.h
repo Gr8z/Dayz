@@ -361,7 +361,7 @@ class playerStatusGUI {
 		class RscText_1423: RscTextGUIK
 		{
 			idc = 1423;
-			text = "Blood:";
+			text = "Blood (%):";
 			x = 0.33 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
