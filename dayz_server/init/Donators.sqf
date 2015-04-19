@@ -138,7 +138,6 @@ Medic3 = [
 
 /////// Scout Class ///////////
 Scout1 = [
-	 // Jon Graham
 	"76561198130402012", // cenobite
 	"76561198141188022", // Dirty Mercenary
 	"76561198089649048", // jam tart
@@ -153,6 +152,8 @@ Scout1 = [
 	"76561198036896840", // Max Esser
 	"76561197961275063", // trials
 	"76561198134422754", // Venom
+	"76561198067566966", // [DHA] SnipernoSniping
+	"76561198035286268", // [DHA] YODA JEDI MASTER
 	"0" //
 ];
 Scout2 = [
