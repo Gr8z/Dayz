@@ -961,7 +961,7 @@ class FSM
        "dayz_loadScreenMsg = ""Setup Completed, Welcome to [GG] Ghostz Gamerz"";" \n
        "" \n
        "//GUI" \n
-       "3 cutRsc [""playerStatusGUIcustom"", ""PLAIN"",0];" \n
+       "3 cutRsc [""playerStatusGUI"", ""PLAIN"",0];" \n
        "//5 cutRsc [""playerKillScore"", ""PLAIN"",2];" \n
        "" \n
        "//Update GUI" \n

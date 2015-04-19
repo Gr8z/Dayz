@@ -216,7 +216,7 @@ if (!isDedicated) then {
 	ui_gear_sound =             compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_gear_sound.sqf";
 
 	//System
-	player_monitor =			compile preprocessFileLineNumbers "\z\addons\dayz_code\system\player_monitor.sqf";
+	player_monitor =			compile preprocessFileLineNumbers "GG\player_monitor.sqf";
 	player_spawn_1 =			compile preprocessFileLineNumbers "GG\spawn\player_spawn_1.sqf";
 	player_spawn_2 =			compile preprocessFileLineNumbers "GG\spawn\player_spawn_2.sqf";
 	onPreloadStarted 			"dayz_preloadFinished = false;";
