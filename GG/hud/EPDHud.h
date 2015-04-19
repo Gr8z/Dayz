@@ -348,7 +348,7 @@ class playerStatusGUI {
 		class RscText_1422: RscTextGUIK
 		{
 			idc = 1422;
-			text = "NO GPS";
+			text = "X";
 			x = 0.61 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.040 * safezoneW;
