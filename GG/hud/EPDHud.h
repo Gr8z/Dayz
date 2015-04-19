@@ -383,11 +383,11 @@ class playerStatusGUI {
 			size = 0.03;
 			sizeEx = 0.03;
 		};
-		//RESTART LABEL
+		// Players near
 		class RscText_1425: RscTextGUIK
 		{
 			idc = 1425;
-			text = "Restart:";
+			text = "Players Near (1000m):";
 			x = 0.53 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.1 * safezoneW;
