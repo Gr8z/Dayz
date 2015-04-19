@@ -21,13 +21,6 @@ class ExtraRc {
             script = "execVM 'GG\weed\harvest.sqf'";
         };
     };
-	
-	class ItemKiloHemp {
-        class smokeweed {
-            text = "Smoke";
-            script = "execVM 'GG\weed\smoke.sqf'";
-        };
-    };
 
 	class EvMoney {
 		class Bank {
