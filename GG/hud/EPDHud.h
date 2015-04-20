@@ -209,7 +209,7 @@ class playerStatusGUI {
             class RscPicture_1301: RscPictureGUI
             {
                 idc = 1301;
-				text = "\z\addons\dayz_code\gui\status\status_food_inside_ca.paa";
+
                 x = 0.41 * safezoneW + safezoneX;
                 y = 0.93 * safezoneH + safezoneY;
                 h = 0.057*safeZoneH;
@@ -219,7 +219,7 @@ class playerStatusGUI {
             class RscPicture_1302: RscPictureGUI
             {
                 idc = 1302;
-				text = "\z\addons\dayz_code\gui\status\status_thirst_inside_ca.paa";
+
                 x = 0.44 * safezoneW + safezoneX;
                 y = 0.93 * safezoneH + safezoneY;
                 h = 0.057*safeZoneH;
