@@ -13,6 +13,10 @@ class ExtraRc {
 			text = "Deploy Mozzie";
 			script = "['CSJ_GyroC'] execVM 'GG\deployables\deploy.sqf'";
 		};
+		class ActionMenu {
+			text = "Open Action Menu";
+			script = "[] execVM ""GG\menu\actionmenu_main.sqf"";";
+		};
 	};
 	
 	class ItemKnife {
