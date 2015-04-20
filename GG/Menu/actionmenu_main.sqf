@@ -82,7 +82,7 @@ SkyMenu =
         ["Color Bluff", [2],  "", -5, [["expression", format[EXECscript2 ,"16.sqf"]]], "1", "1"],
         ["Dark Draining", [4],  "", -5, [["expression", format[EXECscript2 ,"3.sqf"]]], "1", "1"],
         ["Sandy", [5],  "", -5, [["expression", format[EXECscript2 ,"4.sqf"]]], "1", "1"],
-        ["Summer Chernarus", [6],  "", -5, [["expression", format[EXECscript2 ,"5.sqf"]]], "1", "1"],
+        ["Summer", [6],  "", -5, [["expression", format[EXECscript2 ,"5.sqf"]]], "1", "1"],
         ["Dog Vision", [7],  "", -5, [["expression", format[EXECscript2 ,"6.sqf"]]], "1", "1"],
         ["Tropical", [8],  "", -5, [["expression", format[EXECscript2 ,"7.sqf"]]], "1", "1"],
         ["Photo", [9],  "", -5, [["expression", format[EXECscript2 ,"8.sqf"]]], "1", "1"],
