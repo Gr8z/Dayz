@@ -66,6 +66,7 @@ if (!isDedicated) then {
 	execVM "GG\MapMarkerTitling.sqf";
 };
 execVM "GG\safezone.sqf";
+execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
 
