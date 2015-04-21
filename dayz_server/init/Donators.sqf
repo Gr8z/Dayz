@@ -145,8 +145,8 @@ Scout1 = [
 	"76561198036896840", // Max Esser
 	"76561197961275063", // trials
 	"76561198134422754", // Venom
-	"76561198067566966", // [DHA] SnipernoSniping
-	"76561198035286268", // [DHA] YODA JEDI MASTER
+	"0", // [DHA] SnipernoSniping
+	"0", // [DHA] YODA JEDI MASTER
 	"0" //
 ];
 Scout2 = [
@@ -160,7 +160,7 @@ Scout2 = [
 	"76561198111358029", // Lemongrab
 	"76561198137019730", // Derpy (4/30 Expire)
 	"76561198118740693", // DHA ballsdeep(5/18 exp)
-	"76561198067566966", // [DHA] SnipernoSniping
+	"76561198035286268", // [DHA] yoda
 	"0" //
 ];
 Scout3 = [
@@ -179,7 +179,7 @@ Scout3 = [
 	"76561198079744086", // Iscariot [WG]
 	"76561198152543386", // lirik - temps son
 	"76561198027412819", // nubdox
-	"76561198035286268", // [DHA] YODA JEDI MASTER
+	"76561198067566966", // [DHA] SnipernoSniping
 	"0" //
 ];
 ///////////////////////////////
@@ -208,6 +208,7 @@ Soldier3 = [
 	"76561198151812540", // Casa Erotica
 	"76561198121350963", // BoJangles
 	"76561198138996701", // 905Drizzler
+	"76561198035286268", // [DHA] YODA JEDI MASTER
 	"0" //
 ];
 ///////////////////////////////
