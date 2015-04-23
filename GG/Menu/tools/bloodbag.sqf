@@ -18,7 +18,7 @@ private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_
 // Config Start-----------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-_bloodAmount = 12000; // Amount of blood to give to player
+_bloodAmount = 6000; // Amount of blood to give to player
 _bloodbagUseTime = 5; // Amount of time it takes in second for the player to use the self bloodbag
 _bloodbagLastUsedTime = 300; // Amount of time in seconds before player can use self bloodbag again after a succesful use
 

@@ -13,7 +13,6 @@ if (uiNamespace getVariable ["DZ_displayUI", 0] == 1) exitWith {
 };
 
 _display = uiNamespace getVariable 'DAYZ_GUI_display';
-//=======CEN=============
 _ctrlBloodOuter = _display displayCtrl 1200;
 _ctrlFoodBorder = _display displayCtrl 1201;
 _ctrlThirstBorder = _display displayCtrl 1202;
@@ -58,15 +57,12 @@ _ctrlFPS ctrlSetText str(_fps);
 _ctrlFPS ctrlSetTextColor [0.6, 0.73, 0.0, 0.75];
 
 _ctrlhumanKills = _display displayCtrl 1400;
-_ctrlhHeadshots = _display displayCtrl 1401;
 _ctrlbanditKills= _display displayCtrl 1402;
 _ctrlzombieKills= _display displayCtrl 1403;
 
 _ctrlhumanKills  ctrlSetText str(player getVariable["humanKills", 0]);
 _ctrlbanditKills ctrlSetText str(player getVariable["banditKills", 0]);
 _ctrlzombieKills ctrlSetText str(player getVariable["zombieKills", 0]);
-_ctrlhHeadshots  ctrlSetText str(player getVariable["headShots", 0]);
-//=======CEN=============
 //Food/Water/Blood
 _ctrlBlood ctrlSetTextColor     [(Dayz_GUI_R + (0.3 * (1-_bloodVal))),(Dayz_GUI_G * _bloodVal),(Dayz_GUI_B * _bloodVal), 0.5];
 _ctrlFood ctrlSetTextColor         [(Dayz_GUI_R + (0.3 * (1-_foodVal))),(Dayz_GUI_G * _foodVal),(Dayz_GUI_B * _foodVal), 0.5];
