@@ -17,9 +17,7 @@ if(isServer) then {
 	vehicle_monitor			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\vehicle_monitor.sqf";
 	find_position			= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\find_position.sqf";
 	load_ammo				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\load_ammo.sqf";
-	
-	cache_units				= compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\cache_units.sqf";
-	
+
 	call 					compile preprocessFileLineNumbers "\z\addons\dayz_server\WAI\compile\functions.sqf";
 
 	if(isNil("DZMSInstalled")) then {
