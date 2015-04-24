@@ -5027,9 +5027,9 @@ PV_AdminMainCode = {
 			if (MOD_EPOCH) then
 			{
 				adminadd = adminadd + ["  Spawn Epoch-Box",admincrateEpoch,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Donor Supply Package (Small)",supplypackage1,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Donor Supply Package (Medium)",supplypackage2,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Donor Supply Package (Large)",supplypackage3,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
 			};
 		};
 		call admin__FILL_MENUS;
@@ -6008,7 +6008,7 @@ PV_AdminMainCode = {
 			_csa = {getPlayerUID _x in PV_SuperLevel_List} count _sorted;
 			if (_csa > 0) then
 			{
-				_ctrl lbAdd "      SuperAdmin";
+				_ctrl lbAdd "      HeadAdmin";
 				_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 				_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 				{
@@ -6039,7 +6039,7 @@ PV_AdminMainCode = {
 		_cna = {getPlayerUID _x in PV_NormalLevel_List} count _sorted;
 		if (_cna > 0) then
 		{
-			_ctrl lbAdd "      NormalAdmin";
+			_ctrl lbAdd "      Admin";
 			_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 			_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 			{
@@ -6069,7 +6069,7 @@ PV_AdminMainCode = {
 		_cla = {getPlayerUID _x in PV_LowLevel_List} count _sorted;
 		if (_cla > 0) then
 		{
-			_ctrl lbAdd "      LowAdmin";
+			_ctrl lbAdd "      Moderator";
 			_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 			_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 			{
@@ -6764,13 +6764,13 @@ PV_AdminMainCode = {
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if (getPlayerUID player in PV_LowLevel_List) then {
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_NormalLevel_List) then {
-				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_SuperLevel_List) then {
-				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlSetForegroundColor [0,0,0,0];
 			_ctrl ctrlCommit 0;
@@ -6809,13 +6809,13 @@ PV_AdminMainCode = {
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if (getPlayerUID player in PV_LowLevel_List) then {
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_NormalLevel_List) then {
-				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_SuperLevel_List) then {
-				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -6850,13 +6850,13 @@ PV_AdminMainCode = {
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if (getPlayerUID player in PV_LowLevel_List) then {
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_NormalLevel_List) then {
-				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_SuperLevel_List) then {
-				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -6891,13 +6891,13 @@ PV_AdminMainCode = {
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if (getPlayerUID player in PV_LowLevel_List) then {
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_NormalLevel_List) then {
-				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			if (getPlayerUID player in PV_SuperLevel_List) then {
-				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  28112014IAHAT339A",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -7449,10 +7449,10 @@ PV_AdminMainCode = {
 		PVAH_AdminReq = [9004,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Small Supply Package Spawned!"];
-		cutText [format["Small Supply Package Spawned!"], "PLAIN DOWN"];
+		hint format["Starter Building Box Spawned!"];
+		cutText [format["Starter Supply Package Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - SMALL SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - Starter Building Box @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};	
@@ -7461,10 +7461,10 @@ PV_AdminMainCode = {
 		PVAH_AdminReq = [9005,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Medium Supply Package Spawned!"];
-		cutText [format["Medium Supply Package Spawned!"], "PLAIN DOWN"];
+		hint format["Medium Building Box Spawned!"];
+		cutText [format["Medium Building Box Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - MEDIUM SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - Medium Building Box @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};	
@@ -7473,10 +7473,10 @@ PV_AdminMainCode = {
 		PVAH_AdminReq = [9006,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Large Supply Package Spawned!"];
-		cutText [format["Large Supply Package Spawned!"], "PLAIN DOWN"];
+		hint format["Pro Building Box Spawned!"];
+		cutText [format["Pro Building Box Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - LARGE SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - Pro Building Box @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
