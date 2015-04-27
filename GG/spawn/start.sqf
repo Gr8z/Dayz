@@ -40,11 +40,9 @@ if (_go) then {
 		_ret
 	};
 	_hasMap = "ItemMap" in items player;
-	if !(_hasMap) then {
-	diag_log "Player has no MAP Starting class Select";
+	_hasGPS = "ItemGPS" in items player;
+	if !(_hasMap && _hasGPS) then {
 	#include "class.sqf"
-	} else {
-	diag_log "Player has map skipping class Select";
 	};
 	#include "spawn.sqf"
 	#include "halo.sqf"
