@@ -198,6 +198,7 @@ if (isServer) then {
 
 	_unitGroup setFormation "ECH LEFT";
 	_unitGroup selectLeader ((units _unitGroup) select 0);
+	[_unitGroup] spawn cache_units;
 
 	if(_aitype == "Hero") then {
 		if (!isNil "_mission") then {
