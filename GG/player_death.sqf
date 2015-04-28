@@ -81,6 +81,9 @@ addSwitchableUnit dayz_originalPlayer;
 setPlayable dayz_originalPlayer;
 selectPlayer dayz_originalPlayer;
 
+_body removeWeapon "ItemMap";
+_body removeWeapon "ItemFlashlight";
+
 //_myGroup = group _body;
 //[_body] joinSilent dayz_firstGroup;
 //deleteGroup _myGroup;
