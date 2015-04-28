@@ -24,7 +24,7 @@ if (r_player_infected && DZE_PlayerZed) then {
 PVDZE_plr_Died = [dayz_characterID,0,_body,_playerID,_infected, dayz_playerName];
 publicVariableServer "PVDZE_plr_Died";
 
-_id = [player,20,true,getPosATL player] call player_alertZombies;
+_id = [player,100,true,getPosATL player] call player_alertZombies;
 
 sleep 0.5;
 
