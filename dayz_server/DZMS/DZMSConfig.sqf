@@ -24,7 +24,7 @@ DZMSCleanDeath = false;
 DZMSRunGear = false;
 
 // How long before bodies disappear? (in seconds) (default = 2400)
-DZMSBodyTime = 2400;
+DZMSBodyTime = 1800;
 
 // Percentage of AI that must be dead before mission completes (default = 0)
 //( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
@@ -47,6 +47,7 @@ DZMSSceneryDespawnLoot = false;
 DZMSStaticPlc = true;
 
 // Array of static locations. X,Y,Z
+// Taviana
 if (dayZ_instance == 11) then {
 					DZMSStatLocs = [
 					[8428.0771,20356.59,0],
@@ -343,6 +344,7 @@ if (dayZ_instance == 11) then {
 					[9010.6904,5198.9766,0]
 					];
 };
+// Chernarus
 if (dayZ_instance == 22) then {
 					DZMSStatLocs = [
 					[5064.08,3727.29,0],
@@ -415,6 +417,7 @@ if (dayZ_instance == 22) then {
 					[12635.7,10819.6,0]
 					];
 };
+// Napf
 if (dayZ_instance == 33) then {
 					DZMSStatLocs = [
 					[14161,14136,0],

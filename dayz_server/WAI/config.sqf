@@ -3,7 +3,7 @@ if(isServer) then {
 	/* GENERAL CONFIG */
 
 		debug_mode					= false;		// enable debug
-		use_blacklist				= true;			// use blacklist
+		use_blacklist				= false;			// use blacklist
 		blacklist					= [
 			[[0,16000,0],[1000,-0,0]],				// Left
 			[[0,16000,0],[16000.0,14580.3,0]]		// Top
@@ -15,7 +15,7 @@ if(isServer) then {
 
 		ai_clear_body 				= false;		// instantly clear bodies
 		ai_clean_dead 				= true;			// clear bodies after certain amount of time
-		ai_cleanup_time 			= 7200;			// time to clear bodies in seconds
+		ai_cleanup_time 			= 1800;			// time to clear bodies in seconds
 		ai_clean_roadkill			= true; 		// clean bodies that are roadkills
 		ai_roadkill_damageweapon	= 0;			// percentage of chance a roadkill will destroy weapon AI is carrying
 
@@ -90,7 +90,7 @@ if(isServer) then {
 		wai_avoid_water				= 50;								// avoid spawning missions this close to water
 
 		
-		wai_mission_timer			= [30,900];							// time between missions 5-15 minutes
+		wai_mission_timer			= [300,900];							// time between missions 5-15 minutes
 		wai_mission_timeout			= [900,1800]; 						// time each missions takes to despawn if inactive 15-30 minutes
 		wai_timeout_distance		= 1000;								// if a player is this close to a mission then it won't time-out
 		
@@ -100,7 +100,7 @@ if(isServer) then {
 		wai_mission_fuel			= [5,60];							// fuel inside mission spawned vehicles [min%,max%]
 		wai_vehicle_damage			= [20,70];							// damages to spawn vehicles with [min%,max%]
 		wai_keep_vehicles			= true;								// save vehicles to database and keep them after restart
-		wai_lock_vehicles			= true;								// lock mission vehicles and add keys to random AI bodies (be careful with ai_clean_dead if this is true)
+		wai_lock_vehicles			= false;								// lock mission vehicles and add keys to random AI bodies (be careful with ai_clean_dead if this is true)
 		
 		wai_crates_smoke			= true;								// pop smoke on crate when mission is finished during daytime
 		wai_crates_flares			= true;								// pop flare on crate when mission is finished during nighttime
