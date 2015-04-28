@@ -1,8 +1,6 @@
 
 call compile preprocessFileLineNumbers "GG\deployables\common.sqf";
 
-if (dayz_combat == 1) exitwith { cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
-
 private ["_type","_inVehicle","_onLadder","_canDo","_materials","_proceed","_qty","_missing","_missingQty","_objectID"];
 
 _type = _this select 0;
@@ -30,7 +28,6 @@ if (_canDo) then {
 	if (_proceed) then {
 		closeDialog 1;
 
-//		cutText ["\n\nDeploying vehicle started", "PLAIN DOWN"];
 		cutText ["\n\nDeploying vehicle started... Move from current position to cancel", "PLAIN DOWN"];
 
 

@@ -1,8 +1,6 @@
 
 call compile preprocessFileLineNumbers "GG\deployables\common.sqf";
 
-if (dayz_combat == 1) exitwith { cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
-
 private ["_obj","_animState","_started","_finished"];
 
 if(DZE_ActionInProgress) exitWith { cutText ["Vehicle packing already in progress." , "PLAIN DOWN"]; };
