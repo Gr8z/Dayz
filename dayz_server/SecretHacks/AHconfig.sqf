@@ -14,6 +14,7 @@
 										 "76561198001066546", // MeowMix
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198121350963", // Bojanglezzzzz
+										 "76561198162046909", // Shahzad
 										 "76561198134812190" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
