@@ -3246,7 +3246,6 @@ publicVariable '"+_randvar28+"';
 				};
 				vehicle player setUnitRecoilCoefficient 1;
 				player setUnitRecoilCoefficient 1;
-				setTerrainGrid _FTG;
 				BIS_fnc_spawnCrew = {};
 				BIS_fnc_spawnGroup = {};
 				BIS_fnc_help = {};
