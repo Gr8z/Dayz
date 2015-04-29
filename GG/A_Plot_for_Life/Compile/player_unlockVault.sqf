@@ -131,9 +131,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			};
 	
 			cutText [format[(localize "str_epoch_player_125"),_text], "PLAIN DOWN"];
-			if (_characterID == 0) then {
-				SystemChat format["This %1 combo has been reset to 0000/RED00 due to inactivity",_text];
-			};
 		};
 	} else {
 		DZE_ActionInProgress = false; 
