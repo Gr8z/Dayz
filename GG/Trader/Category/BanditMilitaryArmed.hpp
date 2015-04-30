@@ -8,7 +8,6 @@ class LandRover_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {6000,"Coins"}
 class UAZ_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {6000,"Coins"};sell[] = {3000,"Coins"};}; 
 class BAF_Jackal2_L2A1_W {type = "trade_any_vehicle";buy[] = {40000,"Coins"};sell[] = {20000,"Coins"};};
 class BAF_Jackal2_GMG_W {type = "trade_any_vehicle";buy[] = {50000,"Coins"};sell[] = {25000,"coins"};};
-class GAZ_Vodnik_DZE {type = "trade_any_vehicle";buy[] = {60000,"Coins"};sell[] = {45000,"coins"};};
 class BRDM2_TK_EP1 {type = "trade_any_vehicle";buy[] = {150000,"Coins"};sell[] = {75000,"Coins"};}; 
 class BTR90_HQ {type = "trade_any_vehicle";buy[] = {70000,"Coins"};sell[] = {50000,"Coins"};}; 
 class LAV25_HQ {type = "trade_any_vehicle";buy[] = {80000,"Coins"};sell[] = {40000,"Coins"};}; 
