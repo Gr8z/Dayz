@@ -10,7 +10,7 @@ class BAF_Jackal2_L2A1_W {type = "trade_any_vehicle";buy[] = {40000,"Coins"};sel
 class BAF_Jackal2_GMG_W {type = "trade_any_vehicle";buy[] = {50000,"Coins"};sell[] = {25000,"coins"};};
 class BRDM2_TK_EP1 {type = "trade_any_vehicle";buy[] = {150000,"Coins"};sell[] = {75000,"Coins"};}; 
 class BTR90_HQ {type = "trade_any_vehicle";buy[] = {70000,"Coins"};sell[] = {50000,"Coins"};}; 
-class LAV25_HQ {type = "trade_any_vehicle";buy[] = {80000,"Coins"};sell[] = {40000,"Coins"};}; 
+class LAV25_HQ {type = "trade_any_vehicle";buy[] = {70000,"Coins"};sell[] = {50000,"Coins"};}; 
 class M113_TK_EP1 {type = "trade_any_vehicle";buy[] = {90000,"Coins"};sell[] = {50000,"Coins"};}; 
 class M113_UN_EP1 {type = "trade_any_vehicle";buy[] = {90000,"Coins"};sell[] = {50000,"Coins"};}; 
 };
