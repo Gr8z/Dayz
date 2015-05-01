@@ -72,7 +72,6 @@ if (_button == 1) then {
             _control =  _parent displayCtrl (1600 + _numActions);
             _control ctrlShow true;
             _height = _height + (0.025 * safezoneH);
-            // this needs to point the place where the script is in your mission (vehicle_pointer.sqf)
             _script =  "GG\vehicle_pointer.sqf";
             _exescript = format["_id = ['%2','%3'] execVM '%1';closeDialog 0;",_script,_keyOwner,_keyName];
             uiNamespace setVariable ['uiControl', _control];
