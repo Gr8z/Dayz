@@ -28,7 +28,7 @@ class PlotManagement
 		class RscShortcutButton_7009: Zupa_RscButtonMenu
 		{
 			idc = -1;
-			text = "Dome";
+			text = "Boundry";
 			x = 0.31 * safezoneW + safezoneX;
 			y = 0.22 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
@@ -104,7 +104,7 @@ class PlotManagement
 		class RscText_7003: RscTextT
 		{
 			idc = -1;
-			text = "PlotFriends";
+			text = "Plot Friends";
 			x = 0.45 * safezoneW + safezoneX;
 			y = 0.38 * safezoneH + safezoneY;
 			w = 0.13 * safezoneW;

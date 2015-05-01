@@ -154,10 +154,6 @@ if(!_cancel) then {
 
 			cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 
-			if (_isPole) then { //if item was a plotpole, build a visual radius around it
-				[] spawn player_plotPreview;
-			};
-
 			_tmpbuilt setVariable ["OEMPos",_location,true]; //store original location as a variable
 
 			if(_lockable > 1) then { //if item has code lock on it

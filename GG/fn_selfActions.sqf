@@ -311,16 +311,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		_plotDistance = (DZE_PlotPole select 0);
 		_PlotsmarkersNear = count (nearestObjects [_cursorTarget, ["Land_coneLight"], _PlotDistance]);
 
-		if (s_player_plot_boundary_on < 0) then {
-			If (_PlotsmarkersNear == 0 ) then{
-				s_player_plot_boundary_on = player addAction ["Show plot boundary", "GG\A_Plot_for_Life\Action\object_showPlotRadius.sqf", "", 1, false];
-			};
-		 };	
-		 if (s_player_plot_boundary_off < 0) then {
-			If (_PlotsmarkersNear > 0 ) then{
-				s_player_plot_boundary_off = player addAction ["Remove plot boundary", "GG\A_Plot_for_Life\Action\object_removePlotRadius.sqf", "", 1, false];
-			};
-		};
 		if (s_player_plot_take_ownership < 0) then {
 			if (DZE_PlotOwnership) then {
 				_isowner = [player, _cursorTarget] call FNC_check_owner;
@@ -332,10 +322,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	 } else {
 				player removeAction s_player_plotManagement;
 				s_player_plotManagement = -1;
-				player removeAction s_player_plot_boundary_on;
-				s_player_plot_boundary_on = -1;
-				player removeAction s_player_plot_boundary_off;
-				s_player_plot_boundary_off = -1;
 				player removeAction s_player_plot_take_ownership;
 				s_player_plot_take_ownership = -1;
 			};
@@ -1067,10 +1053,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
     s_player_maintain_area = -1;
     player removeAction s_player_maintain_area_preview;
     s_player_maintain_area_preview = -1;
-	player removeAction s_player_plot_boundary_on;
-	s_player_plot_boundary_on = -1;
-	player removeAction s_player_plot_boundary_off;
-	s_player_plot_boundary_off = -1;
 	player removeAction s_player_plot_take_ownership;
 	s_player_plot_take_ownership = -1;
 	player removeAction s_player_forceSave;

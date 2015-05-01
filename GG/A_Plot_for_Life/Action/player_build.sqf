@@ -530,10 +530,6 @@ if (_hasrequireditem) then {
 
 				cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 
-				if (_isPole) then {
-					[] spawn player_plotPreview;
-				};
-
 				_tmpbuilt setVariable ["OEMPos",_location,true];
 
 				if(_lockable > 1) then {
