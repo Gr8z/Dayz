@@ -4424,7 +4424,7 @@ fnc_VoteTimeServer =
 			{
 				_cntday = 0;
 				_cntnight = 0;
-				if ((_cntVoted / _cntAll) > 0.7) then
+				if ((_cntVoted / _cntAll) > 0.5) then
 				{
 					_oUIDs = [];
 					{
