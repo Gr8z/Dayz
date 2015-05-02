@@ -8,18 +8,18 @@ _pathtoclothing = "GG\menu\wardrobe\";
 _pathtoGroup = "GG\group\";
 _pathtoAirDrop = "GG\";
 
-_EXECscript1 = 'player _execVM "'+_pathtoscripts+'%1"';
-_EXECscript2 = 'player _execVM "'+_pathtocolors+'%1"';
+_EXECscript1 = 'player execVM "'+_pathtoscripts+'%1"';
+_EXECscript2 = 'player execVM "'+_pathtocolors+'%1"';
 _EXECscript4 = 'setviewdistance %1;';
-_EXECscript5 = 'player _execVM "'+_pathtodonations+'%1"';
-_EXECscript6 = 'player _execVM` "'+_pathtobuilding+'%1"';
-_EXECscript7 = '["%1"] _execVM "GG\deployables\deploy.sqf"';
-_EXECscript8 = 'player _execVM  "'+_pathtoPack+'%1"';
-_EXECscript9 = '["%1"] _execVM "GG\menu\tools\movements.sqf"';
+_EXECscript5 = 'player execVM "'+_pathtodonations+'%1"';
+_EXECscript6 = 'player execVM` "'+_pathtobuilding+'%1"';
+_EXECscript7 = '["%1"] execVM "GG\deployables\deploy.sqf"';
+_EXECscript8 = 'player execVM  "'+_pathtoPack+'%1"';
+_EXECscript9 = '["%1"] execVM "GG\menu\tools\movements.sqf"';
 _EXECscript10 = '[] spawn %1;';
-_EXECscript11 = 'player _execVM "'+_pathtoclothing+'%1"';
-_EXECscript12 = 'player _execVM "'+_pathtoGroup+'%1"';
-_EXECscript13 = 'player _execVM "'+_pathtoAirDrop+'%1"';
+_EXECscript11 = 'player execVM "'+_pathtoclothing+'%1"';
+_EXECscript12 = 'player execVM "'+_pathtoGroup+'%1"';
+_EXECscript13 = 'player execVM "'+_pathtoAirDrop+'%1"';
 
 ActionMenu =
 [
