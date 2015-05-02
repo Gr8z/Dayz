@@ -8,18 +8,18 @@ _pathtoclothing = "GG\menu\wardrobe\";
 _pathtoGroup = "GG\group\";
 _pathtoAirDrop = "GG\";
 
-_EXECscript1 = 'player _EXECVM "'+_pathtoscripts+'%1"';
-_EXECscript2 = 'player _EXECVM "'+_pathtocolors+'%1"';
+_EXECscript1 = 'player _execVM "'+_pathtoscripts+'%1"';
+_EXECscript2 = 'player _execVM "'+_pathtocolors+'%1"';
 _EXECscript4 = 'setviewdistance %1;';
-_EXECscript5 = 'player _EXECVM "'+_pathtodonations+'%1"';
-_EXECscript6 = 'player _EXECVM "'+_pathtobuilding+'%1"';
-_EXECscript7 = '["%1"] _EXECVM "GG\deployables\deploy.sqf"';
-_EXECscript8 = 'player _EXECVM  "'+_pathtoPack+'%1"';
-_EXECscript9 = '["%1"] _EXECVM "GG\menu\tools\movements.sqf"';
+_EXECscript5 = 'player _execVM "'+_pathtodonations+'%1"';
+_EXECscript6 = 'player _execVM` "'+_pathtobuilding+'%1"';
+_EXECscript7 = '["%1"] _execVM "GG\deployables\deploy.sqf"';
+_EXECscript8 = 'player _execVM  "'+_pathtoPack+'%1"';
+_EXECscript9 = '["%1"] _execVM "GG\menu\tools\movements.sqf"';
 _EXECscript10 = '[] spawn %1;';
-_EXECscript11 = 'player _EXECVM "'+_pathtoclothing+'%1"';
-_EXECscript12 = 'player _EXECVM "'+_pathtoGroup+'%1"';
-_EXECscript13 = 'player _EXECVM "'+_pathtoAirDrop+'%1"';
+_EXECscript11 = 'player _execVM "'+_pathtoclothing+'%1"';
+_EXECscript12 = 'player _execVM "'+_pathtoGroup+'%1"';
+_EXECscript13 = 'player _execVM "'+_pathtoAirDrop+'%1"';
 
 ActionMenu =
 [
@@ -28,8 +28,8 @@ ActionMenu =
 		["Deploy Menu >>", [], "#USER:DeployMenu", -5, [["expression", ""]], "1", "1"],
 		["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
 		["Color Filters Menu>>", [], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
-		["Environmental sounds", [], "#USER:environment", -5, [["expression", ""]], "1", "1"],
-		["Toggle Grass", [], "#USER:grass", -5, [["expression", ""]], "1", "1"],
+		["Toggle Environmental sounds >>", [], "#USER:environment", -5, [["expression", ""]], "1", "1"],
+		["Toggle Grass >>", [], "#USER:grass", -5, [["expression", ""]], "1", "1"],
 		["Wardrobe Menu >>", [], "#USER:wardrobe", -5, [["expression", ""]], "1", "1"],
 		["View Distance (Fog) Menu >>", [], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
 		["Group  Menu >>", [], "", -5, [["expression", format[_EXECscript12,"loadGroupManagement.sqf"]]], "1", "1"],
@@ -41,13 +41,13 @@ ActionMenua =
 [
 	["",true],
 		["Flip Vehicle", [2],  "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
-		["Call Air Drop", [2],  "", -5, [["expression", format[_EXECscript13,"carepackage.sqf"]]], "1", "1"],
-		["Scan Players (1000m)", [2],  "", -5, [["expression", format[_EXECscript13,"player_nearMe.sqf"]]], "1", "1"],
-		["Self Bloodbag", [3],  "", -5, [["expression", format[_EXECscript1,"bloodbag.sqf"]]], "1", "1"],
-		["Commit Suicide", [3],  "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
-		["Scream", [4],  "", -5, [["expression", "_sound = ['z_scream_3','z_scream_4'] call BIS_fnc_selectRandom;[nil,player,rSAY,[_sound,250]] call RE;"]], "1", "1"],
-		["Hints & Tips - Read Me!", [5],  "", -5, [["expression", format[_EXECscript1,"help.sqf"]]], "1", "1"],			
-		["Toggle Debug Moniter", [7], "", -5, [["expression", format[_EXECscript10,"fnc_debugX0"]]], "1", "1"],
+		["Call Air Drop", [3],  "", -5, [["expression", format[_EXECscript13,"carepackage.sqf"]]], "1", "1"],
+		["Scan Players (1000m)", [4],  "", -5, [["expression", format[_EXECscript13,"player_nearMe.sqf"]]], "1", "1"],
+		["Self Bloodbag", [5],  "", -5, [["expression", format[_EXECscript1,"bloodbag.sqf"]]], "1", "1"],
+		["Commit Suicide", [6],  "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
+		["Scream", [7],  "", -5, [["expression", "_sound = ['z_scream_3','z_scream_4'] call BIS_fnc_selectRandom;[nil,player,rSAY,[_sound,250]] call RE;"]], "1", "1"],
+		["Hints & Tips - Read Me!", [8],  "", -5, [["expression", format[_EXECscript1,"help.sqf"]]], "1", "1"],			
+		["Toggle Debug Moniter", [9], "", -5, [["expression", format[_EXECscript10,"fnc_debugX0"]]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];

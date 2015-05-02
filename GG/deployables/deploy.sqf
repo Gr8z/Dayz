@@ -60,7 +60,7 @@ if (_canDo) then {
 		};
 		r_doLoop = false;
 
-//		if (_finished) then {
+
 		_hasToolbox = "ItemToolbox" in items player;
 		if (_finished and _hasToolbox) then {
 			player removeWeapon "ItemToolbox";
