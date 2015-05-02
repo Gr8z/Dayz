@@ -51,16 +51,16 @@ if (_canDo) then {
 	};
 	r_doLoop = false;
 			
-	if (_finished || _hasGPS) then {
+	if (_finished && _hasGPS) then {
 		if( LastUsedCheck == 0 || (diag_tickTime-LastUsedCheck)>_allowedAfterTime) then {
 
 			_playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1)
 			 
-			uisleep 3;
+			uiSleep 3;
 
-			if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];`};
+			if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];};
 			if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
-			if (_playercount > 1) then {cutText [format["GPS: There are %1 in your area!",_playercount], "PLAIN DOWN"];`};
+			if (_playercount > 1) then {cutText [format["GPS: There are %1 in your area!",_playercount], "PLAIN DOWN"];};
 			LastUsedCheck = diag_tickTime;
 		} else {
 			cutText [format["You can not use this now. Available in %1 sec.",(_allowedAfterTime  - (diag_tickTime-LastUsedCheck))/1000], "PLAIN DOWN"];
