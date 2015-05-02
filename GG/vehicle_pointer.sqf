@@ -1,8 +1,3 @@
-//
-// Jahan Vehicle Pointer v0.1 (jahangir13 - 10/2014)
-// jahangir@gmx.de
-// Shows you a vehicle belonging to a key if in 1st search range. If not shows it on map (if allowed via config).
-//
 private ["_vehDistance","_showMarkerSearchText","_inventoryItems","_rNum""_name","_mark","_showMarkerType","_showMarkerColor","_showMarkerShape","_showMarkerSize","_showMarkerSearchText","_showFlareType","_showFlareOthers","_flare","_light","_showTime","_showMarkerTime","_showSign","_signHeight","_showOthers","_scanRadius","_scanRadius2","_showVehMapMarker","_vehTarget","_arrow","_vehsAround","_keyOwner","_x","_keyName","_ownerID","_vehFoundInRange","_classname","_vehDisplayName","_positionArrow","_location","_inventoryItems"];
 
 //###############################################################################################################################################
