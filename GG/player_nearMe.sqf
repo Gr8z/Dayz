@@ -14,7 +14,7 @@ LastUsedCheck = 0;
 if (!_hasGPS) exitWith {cutText ["You don't have a GPS", "PLAIN DOWN"];};
 if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],60]) > 1) exitWith {cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];};
 if (dayz_combat == 1) exitwith {cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
-if (_inVehicle) exitWith { cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; }
+if (_inVehicle) exitWith { cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; };
 
 cutText ["Scanning 1000m around you....", "PLAIN DOWN"];
 
