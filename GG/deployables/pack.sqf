@@ -96,7 +96,7 @@ if (_finished) then {
 	player switchMove "";
 	player playActionNow "stop";
 	player removeWeapon "ItemToolbox";
-	cutText ["Canceled packing vehicle", "PLAIN DOWN"];
+	cutText ["Cancelled packing vehicle", "PLAIN DOWN"];
 };
 
 DZE_ActionInProgress = false;

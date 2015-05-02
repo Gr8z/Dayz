@@ -18,6 +18,8 @@ _position = [_getPos select 0, (_getPos select 1) - 5, _height];
 _positionM = [_getPos select 0, _getPos select 1];
 _playerName = name player;
 _NearPlotMeters = 60;
+_vehicle = vehicle player;
+_inVehicle = (_vehicle != player);
 
 //item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
@@ -39,13 +41,13 @@ if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	DZE_ActionInProgress = false;
 	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
 };
-if(count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exitWith {
+if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exitWith {
 	DZE_ActionInProgress = false; 
 	cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];
 };
-
-if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
-if(!(canbuild) || (inSafeZone) || (count(nearestObjects [_cursorTarget, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
+if (_inVehicle) exitWith {DZE_ActionInProgress = false; cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; }
+if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
+if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
 
 if ((count playableUnits) < _OnlineLimit) exitWith  {DZE_ActionInProgress = false; cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
 if(_wealth < _cost) exitWith {DZE_ActionInProgress = false; cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };

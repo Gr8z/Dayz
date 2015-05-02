@@ -24,6 +24,13 @@ class ExtraRc {
             text = "Harvest weed";
             script = "execVM 'GG\weed\harvest.sqf'";
         };
+    };	
+	
+	class ItemGPS {
+        class playerNear {
+            text = "Scan players (1000m)";
+            script = "execVM 'GG\player_nearMe.sqf'";
+        };
     };
 
 	class EvMoney {
