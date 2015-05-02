@@ -13,7 +13,7 @@ LastUsedCheck = 0;
 
 if (!_hasGPS) exitWith {cutText ["You don't have a GPS", "PLAIN DOWN"];};
 if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],60]) > 1) exitWith {cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];};
-if (dayz_combat == 1) exitwith {cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"] };
+if (dayz_combat == 1) exitWith {cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
 if (_inVehicle) exitWith { cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; };
 
 cutText ["Scanning 1000m around you....", "PLAIN DOWN"];
@@ -49,25 +49,19 @@ while {r_doLoop} do {
 r_doLoop = false;
 		
 if (_finished) then {
-if( LastUsedCheck == 0 || (diag_tickTime-LastUsedCheck)>_allowedAfterTime)then{
+	if( LastUsedCheck == 0 || (diag_tickTime-LastUsedCheck)>_allowedAfterTime) then {
 
-_playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1)
- 
-uisleep 3;
+		_playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1)
+		 
+		uisleep 3;
 
-if (_playercount == 0) then {
-cutText ["GPS : No players detected near you..", "PLAIN DOWN"];
-};
-if (_playercount == 1) then {
-cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];
-};
-if (_playercount > 1) then {
-cutText [format["GPS: There are %1 in your area!",_playercount], "PLAIN DOWN"];
-};
-LastUsedCheck = diag_tickTime;
-}else{
-cutText [format["You can not use this now. Available in %1 sec.",(_allowedAfterTime  - (diag_tickTime-LastUsedCheck))/1000], "PLAIN DOWN"];
-}; 
+		if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];`};
+		if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
+		if (_playercount > 1) then {cutText [format["GPS: There are %1 in your area!",_playercount], "PLAIN DOWN"];`};
+		LastUsedCheck = diag_tickTime;
+	} else {
+		cutText [format["You can not use this now. Available in %1 sec.",(_allowedAfterTime  - (diag_tickTime-LastUsedCheck))/1000], "PLAIN DOWN"];
+	}; 
 } else {
 	r_interrupt = false;
 	player switchMove "";
