@@ -8,6 +8,7 @@ _type = _this select 0;
 _inVehicle = (vehicle player != player);
 _onLadder =	(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _canDo = (!r_drag_sqf and !r_player_unconscious and !_onLadder and !_inVehicle);
+_hasGPS = "ItemGPS" in items player;
 
 if (_canDo) then {
 	_materials = [_type] call EVDGetMaterials;
