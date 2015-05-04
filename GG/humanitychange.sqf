@@ -17,19 +17,19 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 		// Killer = Bandit
 		if(_vicHumanity < -5000) then {
 			// Victim = Bandit
-			humChange = +50;
+			humChange = +100;
 			_killer setVariable ["banditKills",(_kilBandits + 1),true];
 		} else {
 			if(_vicHumanity > 5000) then {
 				// Victim = Hero
-				humChange = -2000;
+				humChange = -1000;
 			} else {
 				if(_vicHumanity >= 2500) then{
 					// Victim = Friendly
-					humChange = -1500;
+					humChange = -750;
 				} else {
 					// Victim = Neutral
-					humChange = -1000;
+					humChange = -500;
 				};
 			};
 			_killer setVariable ["humanKills",(_kilHumans + 1),true];
@@ -44,14 +44,14 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 			} else {
 				if(_vicHumanity > 5000) then {
 					// Victim = Hero
-					humChange = -2000;
+					humChange = -1000;
 				} else {
 					if(_vicHumanity >= 2500) then{
 						// Victim = Friendly
-						humChange = -1500;
+						humChange = -750;
 					} else {
 						// Victim = Neutral
-						humChange = -1000;
+						humChange = -500;
 					};
 				};
 				_killer setVariable ["humanKills",(_kilHumans + 1),true];
@@ -66,14 +66,14 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 				} else {
 					if(_vicHumanity > 5000) then {
 						// Victim = Hero
-						humChange = -3000;
+						humChange = -1000;
 					} else {
 						if(_vicHumanity >= 2500) then{
 							// Victim = Friendly
-							humChange = -1500;
+							humChange = -750;
 						} else {
 							// Victim = Neutral
-							humChange = -1000;
+							humChange = -500;
 						};
 					};
 					_killer setVariable ["humanKills",(_kilHumans + 1),true];
@@ -87,14 +87,14 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 				} else {
 					if(_vicHumanity > 5000) then {
 						// Victim = Hero
-						humChange = -3000;
+						humChange = -1000;
 					} else {
 						if(_vicHumanity >= 2500) then{
 							// Victim = Friendly
-							humChange = -2000;
+							humChange = -750;
 						} else {
 							// Victim = Neutral
-							humChange = -1500;
+							humChange = -500;
 						};
 					};
 					_killer setVariable ["humanKills",(_kilHumans + 1),true];
