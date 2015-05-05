@@ -41,7 +41,7 @@ if (_go) then {
 	};
 	_hasMap = "ItemMap" in items player;
 	_hasGPS = "ItemGPS" in items player;
-	if !(_hasMap && _hasGPS) then {
+	if (!_hasMap && !_hasGPS) then {
 	#include "class.sqf"
 	};
 	#include "spawn.sqf"
