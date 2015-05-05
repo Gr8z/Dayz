@@ -311,8 +311,8 @@ class Mission
 		{
 			position[]={18179.379,134.84067,2129.0427};
 			name="NeutralTraderCIty3";
-			text="Aircraft Trader";
-			type="mil_circle";
+			text="Aircraft Dealer";
+			type="mil_dot";
 			colorName="ColorBlack";
 		};
 		class Item21
@@ -456,8 +456,8 @@ class Mission
 			age="UNKNOWN";
 			name="Military";
 			expCond="(player distance Military) < 100;";
-			expActiv="[""Military Trader"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""Military Trader "",true,""leave""] spawn player_traderCity;";
+			expActiv="[""Aircraft Dealer"",true,""enter""] spawn player_traderCity;";
+			expDesactiv="[""Aircraft Dealer"",true,""leave""] spawn player_traderCity;";
 			class Effects
 			{
 			};
