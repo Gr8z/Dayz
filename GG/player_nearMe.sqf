@@ -21,7 +21,7 @@ if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) 
 	cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];
 };
 
-if (!_hasGPS) exitWith {cutText ["You don't have a GPS", "PLAIN DOWN"];};
+if (!_hasGPS) exitWith {DZE_ActionInProgress = false;cutText ["You don't have a GPS", "PLAIN DOWN"];};
 if (_inVehicle) exitWith {DZE_ActionInProgress = false; cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; };
 if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
 if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to scan for players" , "PLAIN DOWN"]; };
