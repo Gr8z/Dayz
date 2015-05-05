@@ -8,6 +8,7 @@ _unit = player;
 _NearPlotMeters = 60;
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
+_hasGPS = "ItemGPS" in items player;
 
 _Time = time - lastpack;
 
