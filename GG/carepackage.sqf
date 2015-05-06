@@ -67,12 +67,12 @@ _message = format["%1 has called in an AirDrop, It is marked on your map, Go Cap
 [nil,nil,rTitleText,_message, "PLAIN",6] call RE;
 diag_log text format["[AirDrop]: Air Drop Called By a player Successfully"];
 
-lastpack = time;
-
 for "_x" from 1 to 100 do {
 	if (_x >= 2) then {cutText [format ["AIR DROP ARRIVING IN %1s", 101-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
+
+lastpack = time;
 
 _chute = createVehicle ["ParachuteMediumEast", _position, [], 0, "FLY"];
 _chutePos = getPos _chute;

@@ -10,7 +10,7 @@ _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
 _hasGPS = "ItemGPS" in items player;
 
-_Time = time - lastpack;
+_Time = time - lastscan;
 
 if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	DZE_ActionInProgress = false;
@@ -26,12 +26,14 @@ if (_inVehicle) exitWith {DZE_ActionInProgress = false; cutText ["\n\nYou are in
 if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
 if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exitWith { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to scan for players" , "PLAIN DOWN"]; };
 
-lastpack = time;
+_Radar = ["GG\sounds\GPS.ogv",1.04] spawn bis_fnc_customGPSvideo;
 
 for "_x" from 1 to 10 do {
 	if (_x >= 2) then {cutText [format ["SCANING IN PROGRESS...", 11-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
+
+lastscan = time;
 
 _playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1);
 
