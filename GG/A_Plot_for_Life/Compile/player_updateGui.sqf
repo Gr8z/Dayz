@@ -38,17 +38,15 @@ _ctrlFracture =     _display displayCtrl 1203;
 _ctrlBloodAmount = _display displayCtrl 1420;
 _ctrlHumanityAmount = _display displayCtrl 1421;
 _ctrlServerRestart = _display displayCtrl 1422;
-_ctrlPlayerName = _display displayCtrl 1428;
 
 _bloodTotal = round((r_player_blood/12000)*100);
 
-_playerName = name player;
+
 _RestartTime = (count playableUnits);
 
 _ctrlBloodAmount      ctrlSetText str(_bloodTotal);
 _ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0]);
 _ctrlServerRestart  ctrlSetText str(_RestartTime);
-_ctrlPlayerName = ctrlSetText str(_playerName);
 
 _ctrlFPS = _display displayCtrl 1321;
 _ctrlFPSOuter = _display displayCtrl 1322;
