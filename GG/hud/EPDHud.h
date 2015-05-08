@@ -396,6 +396,18 @@ class playerStatusGUI {
 			size = 0.03;
 			sizeEx = 0.03;
 		};
+		class RscText_1428: RscTextGUIK
+		{
+			idc = 1428;
+			text = "Ghostz Gamerz";
+			x = 0.882 * safezoneW + safezoneX;
+			y = 0.86 * safezoneH + safezoneY;
+			w = 0.15 * safezoneW;
+			h = 0.047 * safezoneH;
+			colorText[] = {0,0.6,1,1};
+			size = 0.045;
+			sizeEx = 0.045;
+		};
 		class RscText_1429: RscTextGUIK
 		{
 			idc = 1426;
