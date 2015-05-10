@@ -65,7 +65,6 @@ AllowedVehiclesList = [
 ["Mi17_DZ",2],
 ["UH1H_DZ",2],
 ["MH6J_DZ",2],
-["UH1Y",2],
 ["UH1Y_DZ",2],
 ["UH60M_EP1",2],
 ["UH60M_DZ",2],
