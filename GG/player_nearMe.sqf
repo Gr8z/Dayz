@@ -3,7 +3,7 @@ if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , 
 DZE_ActionInProgress = true;
 
 
-_LastUsedTime = 120;
+_LastUsedTime = 60;
 _unit = player;
 _NearPlotMeters = 60;
 _vehicle = vehicle player;
