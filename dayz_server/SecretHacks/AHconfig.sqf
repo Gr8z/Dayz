@@ -15,6 +15,7 @@
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
 										 "76561198035644919", // Snuffles
+										 "76561198141529869", // Tristan
 										 "76561198134812190" // Phantomz
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
