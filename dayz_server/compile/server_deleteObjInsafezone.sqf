@@ -50,16 +50,16 @@ if(isNil "HALV_VEHICLE_CLEANUPZONES")then{
 //			diag_log format["%2: Cleanup zones for napf selected! (check: %1)",_WorldName,_txt]; //logging if right worldname was selected, if uncommented
 			HALV_VEHICLE_CLEANUPZONES = [
 			//position					//radius	//cityname/text
-			[[8246.3184,15485.867,0],	125,		"Trader City Lenzburg"],
-			[[15506.952,13229.368,0],	125,		"Trader city Emmen"],
-			[[12399.751,5074.5273,0],	125,		"Trader City Schratten"],
-			[[10398.626,8279.4619,0],	125,		"Bandit Vendor"],
-			[[5149.9814,4864.1191,0],	125,		"Hero Vendor"],
-			[[2122.7954,7807.9878,0],	100,		"West Wholesaler"],
-			[[5379.0342,16103.187,0],	100,		"North Wholesaler"],
-			[[6772.8877,16983.27,0],	100,		"Nordic Boats"],
-			[[16839.973,5264.0566,0],	100,		"Pauls Boats"],
-			[[15128.379,16421.879,0],	100,		"AWOLs Airfield"]
+			[[8246.3184,15485.867,0],	50,			"Trader City Lenzburg"],
+			[[15506.952,13229.368,0],	100,		"Trader city Emmen"],
+			[9167.5254,5443.9243,0],	75,			"Trader City Schratten"],
+			[7841.8633,8851.4551,0],	25,			"Trader City Chatzbach"],
+//			[[12823.385,5274.624,0],	50,			"Bandit Vendor"],
+			[[11065.948,11801.703,0],	50,			"Hero Vendor"],
+			[[2036.6864,7815.2349,0],	100,		"West Wholesaler and Boat Dealer"],
+			[[16840.762,5261.2378,0],	100,		"East Wholesaler and Boat Dealer"],
+			[[8989.9902,7566.8682,0],	50,			"Black Market"],
+			[[18168.822,2115.8555,0],	100,		"Aircraft Dealer"]
 			];
 		};
 //chernarus
@@ -70,12 +70,12 @@ if(isNil "HALV_VEHICLE_CLEANUPZONES")then{
 			[[6325.6772,7807.7412,0],	100,		"Trader City Stary"],
 			[[4063.4226,11664.19,0],	100,		"Trader City Bash"],
 			[[11447.472,11364.504,0],	100,		"Trader City Klen"],
-			[[1606.6443,7803.5156,0],	100,		"Bandit Camp"],
+			[[3445.0112,3804.1453,0],	75,			"Trader City Bor"],
+//			[[1606.6443,7803.5156,0],	100,		"Bandit Camp"],
 			[[12944.227,12766.889,0],	100,		"Hero Camp"],
 			[[13441.16,5429.3013,0],	50,			"Wholesaler East"],
 			[[5066.8984,9729.3574,0],	100,		"Aircraft Dealer"],
-			[[4361.4937,2259.9526,0],	50,			"Wholesaler South"],
-			[[3445.0112,3804.1453,0],	75,			"Trader City Bor"]
+			[[4361.4937,2259.9526,0],	50,			"Wholesaler South"]
 			];
 		};
 //tavi
@@ -89,8 +89,8 @@ if(isNil "HALV_VEHICLE_CLEANUPZONES")then{
 			[[7376.6084,4296.5879,0],	60,			"Trader City Branibor"],
 //			[[10948.426,654.90265,0],	75,			"Bandit Vendor"],
 			[[15587.822,16394.049,0],	40,			"Hero Vendor"],
-			[[16555.732,10159.68,0],	100,			"Aircraft Dealer"],
-			[[6815.0776,8534.1504,0],	100,			"Aircraft Dealer 2"],
+			[[16555.732,10159.68,0],	100,		"Aircraft Dealer"],
+			[[6815.0776,8534.1504,0],	100,		"Aircraft Dealer 2"],
 			[[4066.3528,7265.0024,0],	50,			"Misc. Vendor"],
 			[[17497.631,7159.0879,0],	50,			"Misc. Vendor 2"],
 			[[17332.115,12930.239,0],	50,			"Boat Dealer"],
