@@ -15,6 +15,7 @@ don_godon_1 = 0;
                 {
                         _msg = 'You entered a Safe Zone!';
                         hint _msg;
+                        systemChat "Vehicles left in traders will be deleted after restart";
                         taskHint [_msg, [0,1,0,1], 'taskDone'];
                         inNow = nil;
                         outNow = true;
