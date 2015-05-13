@@ -4789,7 +4789,6 @@ publicVariable '"+_randvar28+"';
 				if !("+str _UIM+") then
 				{
 					admin_debug_run = false;
-					_BottomDebug = "+str _BottomDebug+";
 					while {debugMonitorX} do
 					{
 						_mags = [currentWeapon player] + (weapons player) + (magazines player);
@@ -4892,6 +4891,7 @@ publicVariable '"+_randvar28+"';
 					};
 				};
 			};
+			[] spawn fnc_debugX0;
 		};
 	};
 	[] spawn {
