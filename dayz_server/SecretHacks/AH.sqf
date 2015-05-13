@@ -4892,7 +4892,6 @@ publicVariable '"+_randvar28+"';
 					};
 				};
 			};
-			[] spawn fnc_debugX0;
 		};
 	};
 	[] spawn {

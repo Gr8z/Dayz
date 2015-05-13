@@ -41,7 +41,7 @@
 /*  Color esc menu TXT    */ _EscColor = [0.6,0,0,1];
 /*  DebugMonitor TXT      */ _BottomDebug = "GHOSTZGAMERZ.COM"; //do not use " in this text.
 /*  DebugMonitor Key      */ _ODK =  0xCF;	/* google DIK_KeyCodes (0xCF is END) */
-/*  Use DebugMonitor      */ _DMS = false;	/* true or false */	/* starts up with debugmonitor ON if true */
+/*  Use DebugMonitor      */ _DMS = true;	/* true or false */	/* starts up with debugmonitor ON if true */
 /*  DebugMonitor Action   */ _DMW = false;	/* true or false */	/* "Debug" option on mousewheel */
 /*  Mod EPOCH ?           */ _MEH =  true;	/* true or false */
 /* ********************************************************************************* */
