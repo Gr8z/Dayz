@@ -215,4 +215,15 @@ if (_dikCode == 0xB8) then {
     [] execVM "GG\menu\actionmenu_main.sqf";
 };
 
+if (_dikCode == 0xCF) then {
+	if(isNil 'debugMonitor') then {
+		debugMonitor = true;
+		[] spawn fnc_debug;
+	} else {
+		debugMonitor = !debugMonitor;
+		hintSilent '';
+		[] spawn fnc_debug;
+	};
+};
+
 _handled

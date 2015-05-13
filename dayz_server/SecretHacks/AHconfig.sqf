@@ -57,7 +57,7 @@
 /*  Forbid VON Sidechat   */ _VON =  true;	/* true or false */	/* talking on sidechat will put out a warning and kick if continue */
 /*  Use Chat Functions    */ _UCF =  true;	/* true or false */	/* Enables Chatfunctions like /dance */
 
-/*  Break Functions ?     */ _BHF = false;	/* true or false */	/* break some known functions used by hacks! */
+/*  Break Functions ?     */ _BHF = true;	/* true or false */	/* break some known functions used by hacks! */
 /*  Use vehicle check?    */ _UVC = true;	/* true or false */	/* using _ALLOWED_Vehicles and _FORBIDDEN_Vehicles lists */
 /*  Use zombie check?     */ _UZC = false;	/* true or false */	/* "Walk Amongst The Dead" or "ESS" needs this set to false */
 /*  Vehicle WHITELIST     */ _UVW = false;	/* true or false */	/* if false - _ALLOWED_Vehicles won't not be used */
