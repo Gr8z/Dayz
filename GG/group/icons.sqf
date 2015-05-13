@@ -21,7 +21,7 @@ dzgmIconsName = {
     };
     if (_makeIcons)then {
         _pIcons = [];
-		_pGicon = "\ca\ui\data\igui_side_indep_ca.paa";
+		_pGicon = "\ca\ui\data\igui_side_blufor_ca.paa";
         for "_markerIndex" from 0 to (_uc - 1) do {_pIcons set [_markerIndex,_pGicon];};
         player setVariable ["dzgmHudpIcons",_pIcons];
     };
@@ -32,11 +32,12 @@ dzgmIconsName = {
 		_pPos = getPosATL _x;
 		if (surfaceIsWater _pPos) then {_pPos = getPosASL _x;};
         _distance = _pPos distance player;
+        _distanceR = round _pPos distance player;
 		if ((_distance > 1) && {_distance < 2500}) then {
 			_pPos set [2,(_pPos select 2) + 1.5];
 			_screen = worldToScreen _pPos;
 			_pIcon = _pIcons select _index;
-			if (tagName) then {_tag = composeText [image _pIcon," ",_pName];} else {_tag = composeText [image _pIcon];};
+			if (tagName) then {_tag = composeText [image _pIcon," ",_pName," (",str _distanceR,"m)"];} else {_tag = composeText [image _pIcon];};
 			if ((count _screen) > 1) then {
 				_scale = 0;
 				_sx = _screen select 0;

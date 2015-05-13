@@ -671,9 +671,6 @@ dayz_recordLogin = {
 	_key call server_hiveWrite;
 };
 
-currentInvites = [];
-publicVariable "currentInvites";
-
 #include "Donators.sqf"
 
 
