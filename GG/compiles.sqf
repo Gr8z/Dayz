@@ -85,7 +85,7 @@ if (!isDedicated) then {
 	building_spawnZombies =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnZombies.sqf";
 	
 	
-	dayz_spaceInterrupt = compile preprocessFileLineNumbers "GG\Snap_Pro\dayz_spaceInterrupt.sqf";
+	dayz_spaceInterrupt = compile preprocessFileLineNumbers "GG\dayz_spaceInterrupt.sqf";
 	
 	/*Plot*/
 	PlotGetFriends      = compile preprocessFileLineNumbers "GG\plotManage\plotGetFriends.sqf";
@@ -129,7 +129,7 @@ if (!isDedicated) then {
 
 
 	player_lockVault =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_lockVault.sqf";
-	player_updateGui =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_updateGui.sqf";
+	player_updateGui =			compile preprocessFileLineNumbers "GG\player_updateGui.sqf";
 	player_crossbowBolt =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_music.sqf";			//Used to generate ambient music
 	player_death =				compile preprocessFileLineNumbers "GG\player_death.sqf";
