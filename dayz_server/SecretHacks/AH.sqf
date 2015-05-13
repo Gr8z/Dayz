@@ -4792,7 +4792,7 @@ publicVariable '"+_randvar28+"';
 					_BottomDebug = "+str _BottomDebug+";
 					while {debugMonitorX} do
 					{
-						mags = [currentWeapon player] + (weapons player) + (magazines player);
+						_mags = [currentWeapon player] + (weapons player) + (magazines player);
 						_My_speed = speed (vehicle player);
 						_kills = player getVariable['zombieKills',0];
 						_killsH = player getVariable['humanKills',0];
