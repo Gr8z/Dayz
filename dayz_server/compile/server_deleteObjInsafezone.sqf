@@ -52,8 +52,8 @@ if(isNil "HALV_VEHICLE_CLEANUPZONES")then{
 			//position					//radius	//cityname/text
 			[[8246.3184,15485.867,0],	50,			"Trader City Lenzburg"],
 			[[15506.952,13229.368,0],	100,		"Trader city Emmen"],
-			[9167.5254,5443.9243,0],	75,			"Trader City Schratten"],
-			[7841.8633,8851.4551,0],	25,			"Trader City Chatzbach"],
+			[[9167.5254,5443.9243,0],	75,			"Trader City Schratten"],
+			[[7841.8633,8851.4551,0],	25,			"Trader City Chatzbach"],
 //			[[12823.385,5274.624,0],	50,			"Bandit Vendor"],
 			[[11065.948,11801.703,0],	50,			"Hero Vendor"],
 			[[2036.6864,7815.2349,0],	100,		"West Wholesaler and Boat Dealer"],
