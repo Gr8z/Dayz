@@ -4792,110 +4792,103 @@ publicVariable '"+_randvar28+"';
 					_BottomDebug = "+str _BottomDebug+";
 					while {debugMonitorX} do
 					{
-						_pic = (getText (configFile >> 'CfgVehicles' >> (typeOf vehicle player) >> 'picture'));
-						if(player == vehicle player) then {_pic = (getText (configFile >> 'CfgWeapons' >> (currentWeapon player) >> 'picture'));
-						}else{_pic = (getText (configFile >> 'CfgVehicles' >> (typeOf vehicle player) >> 'picture'));};
-						
-						_txt = '';
-						_txt = (getText (configFile >> 'CfgVehicles' >> (typeOf vehicle player) >> 'displayName'));
-						
-						_stime = 0;
-						if(serverTime > 36000)then{_stime = time;}else{_stime = serverTime;};
-						_hours = (_stime/60/60);
-						_hours = toArray (str _hours);
-						_hours resize 1;
-						_hours = toString _hours;
-						_hours = compile _hours;
-						_hours = call  _hours;
-						_minutes = floor(_stime/60);
-						_minutes2 = ((_minutes - (_hours*60)) min 60) max 0;if(_minutes2 < 10) then {_minutes2 = format['0%1',_minutes2];};
-						
-						_pOn = [];
-						{
-							if(!isNull _x) then
-							{
-								if(getPlayerUID _x != '') then
-								{
-									_y = _x;
-									if(isPlayer _y) then
-									{
-										{
-											if(!((getPlayerUID _x) in _pOn) && (isPlayer _x)) then
-											{
-												_pOn = _pOn + [getPlayerUID _x];
-											};
-										} forEach (crew _y);
-									};
-								};
-							};
-						} forEach ([0,0,0] nearEntities ['AllVehicles', 10000000]);
-						_pOn = count _pOn;
-						
-						_humanity = player getVariable['humanity',0];
-						if(_humanity > 999999) then
-						{
-							_humanity = [_humanity] call fnc_format_humanity;
-							_humanity = toArray _humanity;
-							_humanity = _humanity - [44];
-							_humanity = toString _humanity;
-						};
-						
-						_timertext = 'UPTIME: ';
-						if(!isNil 'infiSTAR_UPTIMER') then
-						{
-							_timertext = 'Restart in: ';
-							_stime = 0;
-							if(serverTime > 36000)then{_stime = time;}else{_stime = serverTime;};
-							_upTimeLeft = infiSTAR_UPTIMER - _stime;
-							if(_upTimeLeft > 0) then
-							{
-								_hours = (_upTimeLeft/60/60);
-								_hours = toArray (str _hours);
-								_hours resize 1;
-								_hours = toString _hours;
-								_hours = compile _hours;
-								_hours = call  _hours;
-								_minutes = floor(_upTimeLeft/60);
-								_minutes2 = ((_minutes - (_hours*60)) min 60) max 0;if(_minutes2 < 10) then {_minutes2 = format['0%1',_minutes2];};
-							}
-							else
-							{
-								_hours = '0';
-								_minutes2 = '00';
-							};
-						};
-						
-						
-						hintSilent parseText format[""
-						<t size='1' font='Bitstream' align='Center' >[%1]</t><br/>
-						<t size='0.8' font='Bitstream' align='Center' >Players Online: %12</t><br/>
-						<img size='4.75' image='%4'/><br/>
-						<t size='1' font='Bitstream' align='left' color='#CC0000'>Blood: </t><t size='1' font='Bitstream' align='right'>%2</t><br/>
-						<t size='1' font='Bitstream' align='left' color='#0066CC'>Humanity: </t><t size='1' font='Bitstream' align='right'>%3</t><br/>
-						<br/>
-						<t size='1' font='Bitstream' align='left' color='#FFBF00'>Zombie Kills: </t><t size='1' font='Bitstream' align='right'>%9</t><br/>
-						<t size='1' font='Bitstream' align='left' color='#FFBF00'>Murders: </t><t size='1' font='Bitstream' align='right'>%10</t><br/>
-						<t size='1' font='Bitstream' align='left' color='#FFBF00'>Bandits Killed: </t><t size='1' font='Bitstream' align='right'>%11</t><br/>
-						<br/>
-						<t size='1' font='Bitstream' align='left' color='#FFBF00'>%13</t><t size='1' font='Bitstream' align='right'>%5h %6min</t><br/>
-						<t size='1' font='Bitstream' align='left' color='#FFBF00'>FPS: </t><t size='1' font='Bitstream' align='right'>%8</t><br/>
-						<t size='1' font='Bitstream' align='Center' color='#CC0000'>%7</t>
-						"",
-						_txt,
-						(r_player_blood),
-						_humanity,
-						_pic,
-						_hours,
-						_minutes2,
-						_BottomDebug,
-						(round diag_fps),
-						(player getVariable['zombieKills', 0]),
-						(player getVariable['humanKills', 0]),
-						(player getVariable['banditKills', 0]),
-						_pOn,
-						_timertext
-						];
-						uiSleep 1;
+						mags = [currentWeapon player] + (weapons player) + (magazines player);
+						_My_speed = speed (vehicle player);
+						_kills = player getVariable['zombieKills',0];
+						_killsH = player getVariable['humanKills',0];
+						_killsB = player getVariable['banditKills',0];
+						_headShots = player getVariable['headShots',0];
+						_humanity =	player getVariable['humanity',0];
+
+						_dmweapons = '';
+						_dmvehicle = '';
+						_dmweaponsname = '';
+						_dmvehiclename = '';
+						_dmweapons = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'picture'));
+						_dmvehicle = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'picture'));
+						_dmweaponsname = (gettext (configFile >> 'cfgWeapons' >> (currentWeapon player) >> 'displayName'));
+						_dmvehiclename = (gettext (configFile >> 'CfgVehicles' >> (typeof vehicle player) >> 'displayName'));
+
+						_zPos = getPos player select 2;
+
+						if ('ItemGPS' in _mags) then {
+							hintSilent parseText format [""
+							<t size='1.5'font='Bitstream'align='left'color='#0000FF'>%1</t>							<t size='0.90'font='Bitstream'align='right'color='#FFCC00'>FPS: %11</t><br/>
+							<t size='0.95'font='Bitstream'align='left'>Players:%2</t>							<t size='0.95'font='Bitstream'align='right'>1000m: %3</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#FF0000'>Blood:</t>						<t size='0.95'font='Bitstream'align='right'color='#FF0000'>%18&#37;</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#66FFFF'>Humanity:</t>						<t size='0.95'font='Bitstream'align='right'color='#66FFFF'>%5</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#66FF66'>Vehicles:</t>						<t size='0.95' font='Bitstream'align='right'color='#66FF66'>%16 / %17</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Zombies:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%8</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Bandits:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%6</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Survivors:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%7</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Headshot:</t>						<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%9</t><br/>
+							<t size='0.95'font='Bitstream'align='left'>GPS: %10 H: %20 S: %21</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#B4B4B4'>%12</t>						<t size='0.95'font='Bitstream'align='right'color='#B4B4B4'>%13</t><br/>
+							<img size='2' image='%14' align='left'/>									<img size='2' image='%15' align='right'/><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#FFFF00'>GHOSTZGAMERZ.COM</t>
+							"",
+							dayz_playerName,
+							(count playableUnits),
+							(({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1),
+							round(r_player_blood),
+							round _humanity,
+							_killsB,
+							_killsH,
+							_kills,
+							_headShots,
+							(mapGridPosition getPos player),
+							(round diag_fps),
+							_dmweaponsname,
+							_dmvehiclename,
+							_dmweapons,
+							_dmvehicle,
+							(count([6800, 9200, 0] nearEntities [['StaticWeapon','Car','Motorcycle','Tank','Air','Ship'],50000])),
+							count vehicles,
+							(round((r_player_blood/12000)*100)),
+							(299-(round(serverTime/60))),
+							(round _zPos),
+							round(_My_speed)
+							];
+							uiSleep 1;
+						} else {
+							hintSilent parseText format [""
+							<t size='1.5'font='Bitstream'align='left'color='#0000FF'>%1</t>							<t size='0.90'font='Bitstream'align='right'color='#FFCC00'>FPS: %11</t><br/>
+							<t size='0.95'font='Bitstream'align='left'>Players:%2</t>							<t size='0.95'font='Bitstream'align='right'>1000m: X</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#FF0000'>Blood:</t>						<t size='0.95'font='Bitstream'align='right'color='#FF0000'>%18&#37;</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#66FFFF'>Humanity:</t>						<t size='0.95'font='Bitstream'align='right'color='#66FFFF'>%5</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#66FF66'>Vehicles:</t>						<t size='0.95' font='Bitstream'align='right'color='#66FF66'>%16 / %17</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Zombies:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%8</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Bandits:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%6</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Killed Survivors:</t>					<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%7</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#D793D1'>Headshot:</t>						<t size='0.95'font='Bitstream'align='right'color='#D793D1'>%9</t><br/>
+							<t size='0.95'font='Bitstream'align='left'>GPS: XXXXXX H: X S: X</t><br/>
+							<t size='0.95'font='Bitstream'align='left'color='#B4B4B4'>%12</t>						<t size='0.95'font='Bitstream'align='right'color='#B4B4B4'>%13</t><br/>
+							<img size='2' image='%14' align='left'/>									<img size='2' image='%15' align='right'/><br/>
+							<t size='0.95'font='Bitstream'align='center'color='#FFFF00'>GHOSTZGAMERZ.COM</t>
+							"",
+							dayz_playerName,
+							(count playableUnits),
+							(({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1),
+							round(r_player_blood),
+							round _humanity,
+							_killsB,
+							_killsH,
+							_kills,
+							_headShots,
+							(mapGridPosition getPos player),
+							(round diag_fps),
+							_dmweaponsname,
+							_dmvehiclename,
+							_dmweapons,
+							_dmvehicle,
+							(count([6800, 9200, 0] nearEntities [['StaticWeapon','Car','Motorcycle','Tank','Air','Ship'],50000])),
+							count vehicles,
+							(round((r_player_blood/12000)*100)),
+							(299-(round(serverTime/60))),
+							(round _zPos),
+							round(_My_speed)
+							];
+							uiSleep 1;
 					};
 				};
 			};
