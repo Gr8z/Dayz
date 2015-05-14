@@ -65,6 +65,7 @@ if (!isDedicated) then {
 	execVM "GG\con_msg.sqf";
 	execVM "GG\checkDriver.sqf";
 	execVM "GG\MapMarkerTitling.sqf";
+	execVM "GG\Reward.sqf";
 };
 execVM "GG\safezone.sqf";
 execVM "GG\preview.sqf";
