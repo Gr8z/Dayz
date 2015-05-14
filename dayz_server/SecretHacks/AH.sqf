@@ -5335,7 +5335,7 @@ _randvar19Local = {
 				altstate_Admin = _alt;
 				if(_key == "+str _ODK+") then {[] spawn fnc_debugX0;};
 				if(_key == "+str _OpenMenuKey+") then {call admin_init;};
-				if((_key == 0x29) && {_shift}) then {if(!isNil 'infiSTAR_A2_debug') then {call infiSTAR_A2_debug;};};
+				if((_key == 0x02) && {_shift}) then {if(!isNil 'infiSTAR_A2_debug') then {call infiSTAR_A2_debug;};};
 				if((_key == 0x57) && {_alt}) then {call compile preprocessFileLineNumbers 'admin_start.sqf';};
 			};
 			if(isNil 'start_admin_Keybind_loop') then
