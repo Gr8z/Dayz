@@ -32,7 +32,7 @@ dzgmIconsName = {
 		_pPos = getPosATL _x;
 		if (surfaceIsWater _pPos) then {_pPos = getPosASL _x;};
         _distance = _pPos distance player;
-        _distanceR = round _pPos distance player;
+        _distanceR = round(_pPos distance player);
 		if ((_distance > 1) && {_distance < 2500}) then {
 			_pPos set [2,(_pPos select 2) + 1.5];
 			_screen = worldToScreen _pPos;
