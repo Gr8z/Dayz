@@ -45,7 +45,7 @@
 /*  DebugMonitor Action   */ _DMW = false;	/* true or false */	/* "Debug" option on mousewheel */
 /*  Mod EPOCH ?           */ _MEH =  true;	/* true or false */
 /* ********************************************************************************* */
-/*  EXPERIMENTAL CU FIX   */ _CUF = true;	/* true or false */	/* *experimental* - will transfer serverside units (including mission AI) to clientside */
+/*  EXPERIMENTAL CU FIX   */ _CUF = false;	/* true or false */	/* *experimental* - will transfer serverside units (including mission AI) to clientside */
 
 /*  Use Loaded Check(s)   */ _AHL = true;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
 /*  _timedif for _AHL     */ _TDI =    100;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
