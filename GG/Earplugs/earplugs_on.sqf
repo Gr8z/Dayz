@@ -1,6 +1,6 @@
 Earplugs = true;
 1 fadeSound 0.2;
-titleText [format["Earplugs are on"], "PLAIN DOWN"];
+systemChat "Earplugs Activated";
 enableEnvironment false;
 
 waituntil {vehicle player == player};
