@@ -70,6 +70,7 @@ execVM "GG\safezone.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
+execVM "GG\debug\debug.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
