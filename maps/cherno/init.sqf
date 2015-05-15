@@ -70,7 +70,6 @@ if (!isDedicated) then {
 execVM "GG\safezone.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
-execVM "GG\debug\debug.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
