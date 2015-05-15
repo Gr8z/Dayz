@@ -2,6 +2,7 @@ _halo = uiNamespace getVariable "haloChoice";
 deleteVehicle _holder;
 _finalSpawnPos = _debug;
 if (!isNil "_grid") then {_finalSpawnPos = _grid;};
+preloadCamera _finalSpawnPos;
 
 if (_halo > 0) then {
 	if (isNil "_haloType") then {	
