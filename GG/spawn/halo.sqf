@@ -20,6 +20,7 @@ _haloDrop = {
 	player reveal _plane;
 	player moveInCargo [_plane,2];
 	player action ["getInCargo",_plane,2];
+	_plane setVehicleLock "UNLOCKED";
 	_pPos = (group player) addWaypoint [_this,0];
 	[_this,_plane,_unit,_pPos,_haloHeight] spawn {
 		private "_plane";
