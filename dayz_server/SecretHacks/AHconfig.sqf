@@ -111,7 +111,7 @@ _ALLOWED_Vehicles = ["ALL IF _UVW = false","Tractor","Policecar"];
 /*  If "_UVC =  true;" this will delete all vehicles that are in "_FORBIDDEN_Vehicles"  */
 _FORBIDDEN_Vehicles =
 [
-	"A10","AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V",
+	"A10","AH1Z","AH64D","T90","F35B","AV8B2","UH1Y","Mi24_V",
 	"Mi24_P","Mi24_D","KA52","KA52Black","SU39","Su25_CDF","SU25_Ins",
 	"A10_US_EP1","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU",
 	"T72_CDF","T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1",
