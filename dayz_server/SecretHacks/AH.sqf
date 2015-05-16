@@ -8092,9 +8092,8 @@ PV_AdminMainCode = {
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
-adminESPicons =
+	adminESPicons =
 	{
-
 		if !(('ItemGPS' in items player) || {'ItemMap' in items player}) then
 		{
 			_config = ["ItemGPS"];
@@ -8143,11 +8142,13 @@ adminESPicons =
 					if(_unitCount == 1) then {
 						_name = name _x;
 						_veh = vehicle _x;
-						_type = typeOf _veh;	
+						_type = typeOf _veh;
+						
 						if(_name == "") then {_name = _type;};
 						_pos = (positionCameraToWorld [0,0,0]);
 						_posU = getPos _veh;
 						_dist = round(_pos distance _posU);
+						
 						if(_x == _veh) then
 						{
 							_show = format["%1 (%2m)",_name,_dist];
@@ -8163,6 +8164,7 @@ adminESPicons =
 							_show = format["%1 (%2m) - %3",_crewnames,_dist,_type];
 							_clr = _color_orange;
 						};
+						
 						_puid = getPlayerUID player;
 						if(_pid in (PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List)) then {_clr = _color_list};
 						if(!(_pid in PV_SuperLevel_List) || ((_pid in PV_SuperLevel_List) && (_puid in PV_SuperLevel_List)) || (_pid == _puid)) then
@@ -8208,6 +8210,45 @@ adminESPicons =
 			uiSleep 1;
 		};
 		{clearGroupIcons group _x;} forEach playableUnits;
+	};
+	fnc_espSHOW = {
+		disableSerialization;
+		{_x ctrlShow false;_x ctrlEnable false;} forEach TESTarr;
+		_camPos = positionCameraToWorld [0,0,0];
+		{
+			if(visibleMap)exitWith{};
+			_veh = vehicle _x;
+			_pos = ASLtoATL eyepos _x;
+			_dist = _camPos distance _pos;
+			_pos2D = worldToScreen _pos;
+			if(count _pos2D != 0) then
+			{
+				_dist = round _dist;
+				_text = format['<t size=''0.45'' color=''#0B80FF''>%1 (%2m)</t>',name _x,_dist];
+				if(_x != _veh) then
+				{
+					_crewnames = '';
+					{
+						_namex = name _x;
+						if(_crewnames == '') then
+						{
+							_crewnames = format['%1',_namex];
+						}
+						else
+						{
+							_crewnames = format['%1, %2',_crewnames,_namex];
+						};
+					} forEach (crew _veh);
+					_text = format['<t size=''0.45'' color=''#FF5926''>%1 (%2m) %3</t>',_crewnames,_dist,typeOf _veh];
+				};
+				_ctrl = TESTarr select _forEachIndex;
+				_ctrl ctrlEnable true;_ctrl ctrlShow true;
+				_ctrl ctrlSetStructuredText (parseText _text);
+				_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1)-0.05, safezoneW, safezoneH];
+				_ctrl ctrlSetFade (_dist/fnc_esp_distance)+.2;
+				_ctrl ctrlCommit 0;
+			};
+		} forEach ESP_UNIT_ARR;
 	};
 	admin_fnc_esp = {
 		disableSerialization;
