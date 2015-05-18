@@ -39,6 +39,6 @@ uiSleep 3;
 
 if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];};
 if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
-if (_playercount > 1) then {cutText [format["GPS: There are %1 in your area!",_playercount], "PLAIN DOWN"];};
+if (_playercount > 1) then {cutText [format["GPS: There are %1 players in your area!",_playercount], "PLAIN DOWN"];};
 
 DZE_ActionInProgress = false;

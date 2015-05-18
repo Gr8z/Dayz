@@ -3759,7 +3759,6 @@ publicVariable '"+_randvar28+"';
 				BIS_fnc_supplydrop = {};
 				BIS_fnc_spotter = {};
 				BIS_fnc_listPlayers = {};
-				bis_fnc_customGPSvideo = {};
 				if(isNil 'deathHandled') then { deathHandled = true; } else { if(typeName deathHandled != 'BOOL') then { deathHandled = true;YOLO = true; }; };
 				if(deathHandled) then
 				{

@@ -51,6 +51,7 @@ if(!isNull dayz_selectedDoor) then {
 		
 			if(HarderPenalty)then{				
 				titleCut ["","WHITE OUT",1];
+				[10,10] call dayz_HungerThirst;
 				// player scream
 				[player,"scream",0,false] call dayz_zombieSpeak;
 				[player,20,true,(getPosATL player)] spawn player_alertZombies;
