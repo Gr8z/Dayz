@@ -155,7 +155,6 @@ don_godon_1 = 0;
 										_veh removeAllEventHandlers 'HandleDamage';
 										_veh addeventhandler ['HandleDamage',{ _this call vehicle_handleDamage } ];
 										_veh allowDamage true;
-										_veh removeAllEventHandlers "Fired";
 								};
 						};
 					   
@@ -177,7 +176,6 @@ don_godon_1 = 0;
 								fnc_usec_damageHandler = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
 								player removeAllEventHandlers 'HandleDamage';
 								player addeventhandler ['HandleDamage',{_this call fnc_usec_damageHandler;} ];
-								player removeAllEventHandlers "Fired";
 						};
 					};
 				};
