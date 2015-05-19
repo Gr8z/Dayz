@@ -9,7 +9,7 @@ _haloDrop = {
 	_plane setPosATL _pPos;
 	_plane setVariable ["ObjectID",_oid,true];
 	_plane setVariable ["ObjectUID",_oid,true];
-	_plane setVehicleLock "UNLOCKED";
+	_plane setVehicleLock "LOCKED";
 	_plane flyInHeight _haloHeight;
 	_dir = [_pPos,_this] call BIS_fnc_dirTo;
     _plane setDir (90 -_dir); 
@@ -20,6 +20,7 @@ _haloDrop = {
 	player reveal _plane;
 	player moveInCargo [_plane,2];
 	player action ["getInCargo",_plane,2];
+	_plane setVehicleLock "LOCKED";
 	_pPos = (group player) addWaypoint [_this,0];
 	[_this,_plane,_unit,_pPos,_haloHeight] spawn {
 		private "_plane";
