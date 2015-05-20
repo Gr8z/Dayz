@@ -67,7 +67,7 @@
 /*  Use FileScan ?        */ _UFS =  true;	/* true or false */	/* spams the rpt but often finds hackers */
 /*  Use Anti Teleport?    */ _UAT =  true;	/* true or false */
 /*  Use cut-scene ?       */ _UCS =  true;	/* true or false */	/* dynamicText ~ often colored, animated or used in credits */
-/*  Use Damage Check ?    */ _UDC =  true;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
+/*  Use Damage Check ?    */ _UDC =  false;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
 /*  HACKED BOX Check ?    */ _CHB =  true;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
