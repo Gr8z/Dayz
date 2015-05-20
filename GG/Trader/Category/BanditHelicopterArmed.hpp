@@ -6,7 +6,7 @@ class Mi17_DZE {type = "trade_any_vehicle";buy[] = {20000,"Coins"};sell[] = {100
 class UH60M_EP1_DZE {type = "trade_any_vehicle";buy[] = {20000,"Coins"};sell[] = {10000,"Coins"};}; 
 class UH1Y_DZE {type = "trade_any_vehicle";buy[] = {20000,"Coins"};sell[] = {10000,"Coins"};}; 
 class MH60S_DZE {type = "trade_any_vehicle";buy[] = {40000,"Coins"};sell[] = {20000,"Coins"};}; 
-class AH6J_EP1 {type = "trade_any_vehicle";buy[] = {200000,"Coins"};sell[] = {10000,"Coins"};}; 
+class AH6J_EP1 {type = "trade_any_vehicle";buy[] = {50000,"Coins"};sell[] = {30000,"Coins"};}; 
 class pook_H13_transport {type = "trade_any_vehicle";buy[] = {30000,"Coins"};sell[] = {10000,"Coins"};}; 
 class pook_H13_transport_CDF {type = "trade_any_vehicle";buy[] = {30000,"Coins"};sell[] = {10000,"Coins"};}; 
 class pook_H13_transport_UNO {type = "trade_any_vehicle";buy[] = {30000,"Coins"};sell[] = {10000,"Coins"};}; 
