@@ -23,7 +23,7 @@ class Header
 {
  gameType = COOP;            //DM, Team, Coop, ...
  minPlayers = 1;             //min # of players the mission supports
- maxPlayers = 60;            //Max # of players the mission supports
+ maxPlayers = 55;            //Max # of players the mission supports
 };
 
 aiKills = 1;
