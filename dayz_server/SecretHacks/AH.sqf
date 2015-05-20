@@ -5991,15 +5991,12 @@ PV_AdminMainCode = {
 			_ctrl = _this select 3;
 			_alt = _this select 4;
 			if(_key == 0x42) then {closeDialog 0;};
-			if(_key == 0x02) then {call admin_animate1;};
-			if(_key == 0x03) then {call admin_animate2;};
 			if(_key == 0x16) then {call admin_generatekey;};
 			if(_key == 0x17) then {call admin_showid;};
 			if(_key == 0x44) then {call remove_spec_000;};
 		};
 		
 		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
-
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -10019,6 +10016,7 @@ PV_AdminMainCode = {
 	admin_animate1 =
 	{
 		{player reveal _x;} forEach (player nearObjects ['All',25]);
+		_nameP = 'DEAD';if((alive player)&&(getPlayerUID player != '')) then {_nameP = name player;};
 		_ct = cursorTarget;
 		if((!isNull _ct) && (_ct distance player < 15)) then
 		{
@@ -10026,7 +10024,10 @@ PV_AdminMainCode = {
 			{
 				if(locked _ct) then
 				{
-					[nil,nil,nil,[_ct,"[infiSTAR.de ADMIN-TOOL]"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
+					[nil,nil,nil,[_ct,"[ADMIN-TOOL]"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
+					_sl = format['%1 Unlocked %2',_nameP,_ct];
+					PVAH_WriteLogReq = [player,toArray _sl];
+					publicVariableServer 'PVAH_WriteLogReq';
 				}
 				else
 				{
@@ -10046,6 +10047,7 @@ PV_AdminMainCode = {
 	admin_animate2 =
 	{
 		{player reveal _x;} forEach (player nearObjects ['All',25]);
+		_nameP = 'DEAD';if((alive player)&&(getPlayerUID player != '')) then {_nameP = name player;};
 		_ct = cursorTarget;
 		if((!isNull _ct) && (_ct distance player < 15)) then
 		{
@@ -10058,7 +10060,10 @@ PV_AdminMainCode = {
 				else
 				{
 					[nil,nil,nil,_ct] execVM "\z\addons\dayz_code\actions\lock_veh.sqf";
-					cutText ["[infiSTAR.de ADMIN-TOOL] used to lock vehicle.", "PLAIN"];
+					cutText ["[ADMIN-TOOL] used to lock vehicle.", "PLAIN"];
+					_sl = format['%1 Locked %2',_nameP,_ct];
+					PVAH_WriteLogReq = [player,toArray _sl];
+					publicVariableServer 'PVAH_WriteLogReq';
 				};
 			};
 			{_ct animate [_x,0];} forEach ["Open_hinge","Open_latch","Lights_1","Lights_2","Open_door","DoorR","LeftShutter","RightShutter"];
