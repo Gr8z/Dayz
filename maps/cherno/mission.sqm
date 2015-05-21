@@ -434,7 +434,7 @@ class Mission
 			age="UNKNOWN";
 			name="zonebor";
 			expCond="(player distance zonebor) < 75;";
-			expActiv="[""Bor Trader."",true,""enter""]; canbuild = false;insafezone = true;";
+			expActiv="[""Bor Trader"",true,""enter""]; canbuild = false;insafezone = true;";
 			expDesactiv="[""Bor Trader"",true,""leave""]; canbuild = true;insafezone = false;";
 			class Effects
 			{
