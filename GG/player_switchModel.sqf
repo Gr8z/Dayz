@@ -1,4 +1,4 @@
-private ["_weapons","_backpackWpn","_backpackMag","_currentWpn","_backpackWpnTypes","_backpackWpnQtys","_countr","_class","_position","_dir","_currentAnim","_tagSetting","_playerUID","_countMags","_magazines","_primweapon","_secweapon","_newBackpackType","_muzzles","_oldUnit","_group","_newUnit","_playerObjName","_wpnType","_ismelee"];
+private ["_charID","_weapons","_backpackWpn","_backpackMag","_currentWpn","_backpackWpnTypes","_backpackWpnQtys","_countr","_class","_position","_dir","_currentAnim","_tagSetting","_playerUID","_countMags","_magazines","_primweapon","_secweapon","_newBackpackType","_muzzles","_oldUnit","_group","_newUnit","_playerObjName","_wpnType","_ismelee"];
 _class = _this;
 _position = getPosATL player;
 _dir = getDir player;
@@ -36,6 +36,7 @@ _currentWpn = currentMuzzle player;
 player setPosATL dayz_spawnPos;
 //BackUp Player Object
 _oldUnit = player;
+_charID = player getVariable["CharacterID",0];
 _oldGroup = group player;
 /**********************************/
 //DONT USE player AFTER THIS POINT//
@@ -43,6 +44,7 @@ _oldGroup = group player;
 //Create New Character
 _group = createGroup west;
 _newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
+_newUnit setVariable["CharacterID",_charID,true];
 _newUnit setPosATL _position;
 _newUnit setDir _dir;
 [_newUnit] joinSilent createGroup WEST;
