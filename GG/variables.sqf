@@ -242,6 +242,7 @@ dayz_resetSelfActions = {
 	s_player_heli_lift = -1;
 	s_player_heli_detach = -1;
 	s_player_lockUnlock_crtl = -1;
+	s_player_an2_reload = -1;
 	s_player_toggleDegree = -1;
 	s_player_toggleDegrees=[];
 	degreeActions = -1;
@@ -965,7 +966,7 @@ if(!isDedicated) then {
 	DZE_myHaloVehicle = objNull;
 	dayz_myLiftVehicle = objNull;
 	dayz_myLockedVehicle = objNull;
-	
+	dayz_An2Vehicle = objNull;
 	
 	DZE_Friends = [];
 

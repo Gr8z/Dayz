@@ -107,6 +107,12 @@ _key call server_hiveWrite;
 	clearMagazineCargoGlobal  _object;
 	// _object setVehicleAmmo DZE_vehicleAmmo;
 
+	//AN2_DZ add weapon - for all AN2-Types use "AN2_base" as classname
+    if (_object isKindOf "AN2_DZ") then {
+        _object addWeapon "PKT"; //M240_veh
+        _object setVehicleAmmo 0; //comment out if publish with ammo
+    };
+		
 	_object setVariable ["ObjectID", _oid, true];
 	
 	_object setVariable ["lastUpdate",time];

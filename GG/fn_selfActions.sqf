@@ -132,6 +132,17 @@ if (!DZE_ForceNameTagsOff) then {
 	};
 };
 
+// option to add ammo to An2 PKT gun
+if(_inVehicle and (_vehicle isKindOf "An2_DZ")) then {
+    if (s_player_an2_reload < 0) then {
+        dayz_An2Vehicle = _vehicle;
+        s_player_an2_reload = dayz_An2Vehicle addAction ["Add AMMO to PKT gun", "GG\An2_ammo.sqf",dayz_An2Vehicle,-10,false,true,"","player == driver _target"];
+    };
+} else {
+    dayz_An2Vehicle removeAction s_player_an2_reload;
+    s_player_an2_reload = -1;
+};
+
 if(_isPZombie) then {
 	if (s_player_callzombies < 0) then {
 		s_player_callzombies = player addAction [localize "STR_EPOCH_ACTIONS_RAISEHORDE", "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
