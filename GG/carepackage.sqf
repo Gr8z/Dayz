@@ -41,7 +41,7 @@ if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
 	DZE_ActionInProgress = false;
 	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
 };
-if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exitWith {
+if	((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 75) exitWith {
 	DZE_ActionInProgress = false; 
 	cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];
 };
