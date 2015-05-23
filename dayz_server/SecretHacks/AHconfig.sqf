@@ -113,16 +113,16 @@ _ALLOWED_Vehicles = ["ALL IF _UVW = false","Tractor","Policecar"];
 /*  If "_UVC =  true;" this will delete all vehicles that are in "_FORBIDDEN_Vehicles"  */
 _FORBIDDEN_Vehicles =
 [
-	"A10","AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V",
+	"A10","AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V","AAV","LAV25_DZ",
 	"Mi24_P","Mi24_D","KA52","KA52Black","SU39","Su25_CDF","SU25_Ins",
 	"A10_US_EP1","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU",
 	"T72_CDF","T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1",
-	"BAF_Apache_AH1_D","UH60M_MEV_EP1","Mi171Sh_rockets_CZ_EP1",
+	"BAF_Apache_AH1_D","UH60M_MEV_EP1","Mi171Sh_rockets_CZ_EP1","Ka60_PMC",
 	"Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1",
 	"T72_TK_EP1","BMP2_TK_EP1","BMP2_UN_EP1","BMP2_HQ_TK_EP1","ZSU_TK_EP1",
 	"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
-	"M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1",
-	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","AH6J_EP1"
+	"M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1","AV8B","Su39","Ka52","AW159_Lynx_BAF",
+	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","AH6J_EP1","Ka60_GL_PMC","ZSU_INS","M1A2_TUSK_MG"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
