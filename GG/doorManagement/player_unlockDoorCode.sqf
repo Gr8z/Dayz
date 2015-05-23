@@ -65,14 +65,14 @@ if(!isNull dayz_selectedDoor) then {
 
 				if (!isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};
 
-				if(KeyCodeTry >= ((round(random 10)) + 4)) then {
-			
-				if (isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};			
+				if (KeyCodeTry >= 5) then {
+					if (isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};			
 					cutText [(localize "str_epoch_player_19"), "PLAIN DOWN"];
 					_display = findDisplay 46;
 					_display closeDisplay 0;
+					player setVariable["NORRN_unconscious",true, true];
+					player setVariable["unconsciousTime",20,true];
 				};
-						
 			}else{
 
 				[10,10] call dayz_HungerThirst;
