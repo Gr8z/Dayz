@@ -111,7 +111,7 @@ if (!isNull _menClose && _hasPatient && !r_drag_sqf && !r_action && !_inVehicle 
 	//Allow player to drag
 	if(_unconscious) then {
 		r_action = true;
-		_action1 = _unit addAction [localize "str_actions_medical_01", "\z\addons\dayz_code\medical\drag.sqf",_unit, 0, true, true];
+		_action1 = _unit addAction [localize "str_actions_medical_01", "GG\medical\drag.sqf",_unit, 0, true, true];
 		_action2 = _unit addAction [localize "str_actions_medical_02", "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
 		r_player_actions = r_player_actions + [_action1,_action2];
 	};
