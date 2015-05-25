@@ -1,6 +1,6 @@
 
 class Category_569 { 
-class HMMWV_M998A2_SOV_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {30000,"Coins"};sell[] = 4000,"Coins"};}; 
+class HMMWV_M998A2_SOV_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {30000,"Coins"};sell[] = {4000,"Coins"};}; 
 class HMMWV_M1151_M2_CZ_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {28000,"Coins"};sell[] = {5000,"Coins"};};
 class HMMWV_m998_crows_M2_DES_EP1 {type = "trade_any_vehicle";buy[] = {200000,"Coins"};sell[] = {37500,"Coins"};}; 
 class BTR40_MG_TK_GUE_EP1 {type = "trade_any_vehicle";buy[] = {25000,"Coins"};sell[] = {7500,"Coins"};}; 
