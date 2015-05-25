@@ -1,7 +1,7 @@
 
 class Category_1007 {  
 class vil_G3a3 {type = "trade_weapons";buy[] = {4000,"Coins"};sell[] = {1000,"Coins"};}; 
-class vil_G3a2 {type = "trade_weapons";buy[] = {3000,"Coins"};sell[] = {7000,"Coins"};}; 
+class vil_G3a2 {type = "trade_weapons";buy[] = {3000,"Coins"};sell[] = {700,"Coins"};}; 
 class vil_G3a4 {type = "trade_weapons";buy[] = {4000,"Coins"};sell[] = {1000,"Coins"};}; 
 class vil_G3a4b {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {1500,"Coins"};}; 
 class vil_G3an {type = "trade_weapons";buy[] = {4000,"Coins"};sell[] = {1000,"Coins"};}; 
