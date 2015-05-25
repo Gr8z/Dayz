@@ -36,6 +36,6 @@ class FHQ_XM2010_SD_DESERT { type = "trade_weapons"; buy[] = {60000,"Coins"}; se
 class FHQ_XM2010_NV_DESERT { type = "trade_weapons"; buy[] = {50000,"Coins"}; sell[] = {5000,"Coins"}; }; 
 class FHQ_XM2010_NV_SD_DESERT { type = "trade_weapons"; buy[] = {70000,"Coins"}; sell[] = {5000,"Coins"}; };
 class m107_DZ { type = "trade_weapons"; buy[] = {80000,"Coins"}; sell[] = {25000,"Coins"}; };
-class BAF_AS50_scoped { type = "trade_weapons"; buy[] = {200000,"Coins"}; sell[] = {22500,"Coins"}; };
+class BAF_AS50_scoped { type = "trade_weapons"; buy[] = {200000,"Coins"}; sell[] = {26500,"Coins"}; };
 class M110_NVG_EP1 { type = "trade_weapons"; buy[] = {9000,"Coins"}; sell[] = {1500,"Coins"}; };
  }; 
