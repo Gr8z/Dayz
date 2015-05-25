@@ -20,6 +20,6 @@ class AKS_74_U { type = "trade_weapons"; buy[] = {200,"Coins"}; sell[] = {100,"C
 class AK_47_M { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {300,"Coins"}; }; 
 class AK_74 { type = "trade_weapons"; buy[] = {200,"Coins"}; sell[] = {100,"Coins"}; }; 
 class FN_FAL { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {250,"Coins"}; }; 
-class BAF_L85A2_RIS_SUSAT { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = 150,"Coins"}; }; 
+class BAF_L85A2_RIS_SUSAT { type = "trade_weapons"; buy[] = {600,"Coins"}; sell[] = {150,"Coins"}; }; 
 class BAF_L85A2_RIS_Holo { type = "trade_weapons"; buy[] = {900,"Coins"}; sell[] = {300,"Coins"}; }; 
 }; 
