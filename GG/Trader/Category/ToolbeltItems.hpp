@@ -15,7 +15,7 @@ class ItemWatch { type = "trade_weapons"; buy[] = {2,"Coins"}; sell[] = {1,"Coin
 class NVGoggles { type = "trade_weapons"; buy[] = {400,"Coins"}; sell[] = {100,"Coins"}; }; 
 class ItemCrowbar { type = "trade_weapons"; buy[] = {2,"Coins"}; sell[] = {1,"Coins"}; }; 
 class ItemMachete { type = "trade_weapons"; buy[] = {2,"Coins"}; sell[] = {1,"Coins"}; }; 
-class ItemKeyKit { type = "trade_weapons"; buy[] = {4000,"Coins"}; sell[] = {2000,"Coins"}; }; 
+class ItemKeyKit { type = "trade_weapons"; buy[] = {4000,"Coins"}; sell[] = {1000,"Coins"}; }; 
 class ItemFishingPole { type = "trade_weapons"; buy[] = {200,"Coins"}; sell[] = {100,"Coins"}; };
  }; 
 

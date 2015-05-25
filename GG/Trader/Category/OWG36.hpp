@@ -15,10 +15,10 @@ class vil_G36KSKES  {type = "trade_weapons";buy[] = {1000,"Coins"};sell[] = {500
 class vil_G36KES  {type = "trade_weapons";buy[] = {1000,"Coins"};sell[] = {500,"Coins"};}; 
 class vil_G36KV3  {type = "trade_weapons";buy[] = {1000,"Coins"};sell[] = {500,"Coins"};}; 
 class vil_G36KV3Des  {type = "trade_weapons";buy[] = {1100,"Coins"};sell[] = {500,"Coins"};}; 
-class vil_AG36  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {2000,"Coins"};}; 
-class vil_AG36A2  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {2000,"Coins"};}; 
-class vil_AG36KV  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {2000,"Coins"};}; 
-class vil_AG36KA4  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {2000,"Coins"};}; 
+class vil_AG36  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {1000,"Coins"};}; 
+class vil_AG36A2  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {1000,"Coins"};}; 
+class vil_AG36KV  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {1000,"Coins"};}; 
+class vil_AG36KA4  {type = "trade_weapons";buy[] = {5000,"Coins"};sell[] = {1000,"Coins"};}; 
 
 };
 

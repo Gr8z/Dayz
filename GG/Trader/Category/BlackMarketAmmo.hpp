@@ -22,7 +22,7 @@ class 150Rnd_127x107_DSHKM {type = "trade_items";buy[] = {500,"Coins"};sell[] = 
 class 100Rnd_127x99_M2 {type = "trade_items";buy[] = {500,"Coins"};sell[] = {400,"Coins"};}; 
 class 2000Rnd_762x51_M134 {type = "trade_items";buy[] = {1000,"Coins"};sell[] = {500,"Coins"};}; 
 class 5Rnd_86x70_L115A1 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
-class PG7V {type = "trade_items";buy[] = {10000,"Coins"};sell[] = {5050,"Coins"};};
-class PG7VR {type = "trade_items";buy[] = {50000,"Coins"};sell[] = {15000,"Coins"};};
+class PG7V {type = "trade_items";buy[] = {10000,"Coins"};sell[] = {2500,"Coins"};};
+class PG7VR {type = "trade_items";buy[] = {50000,"Coins"};sell[] = {7500,"Coins"};};
 
 }; 

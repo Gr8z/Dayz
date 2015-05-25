@@ -13,7 +13,7 @@ class FHQ_rem_5Rnd_300Win_XM2010_NT {type = "trade_items";buy[] = {400,"Coins"};
 class FHQ_rem_5Rnd_300Win_XM2010_NT_SD {type = "trade_items";buy[] = {900,"Coins"};sell[] = {200,"Coins"};}; 
 class FHQ_rem_7Rnd_338Lapua_MSR_NT {type = "trade_items";buy[] = {800,"Coins"};sell[] = {400,"Coins"};}; 
 class FHQ_rem_7Rnd_338Lapua_MSR_NT_SD {type = "trade_items";buy[] = {1000,"Coins"};sell[] = {400,"Coins"};}; 
-class 10Rnd_127x99_m107 {type = "trade_items";buy[] = {4000,"Coins"};sell[] = {2500,"Coins"};}; 
+class 10Rnd_127x99_m107 {type = "trade_items";buy[] = {4000,"Coins"};sell[] = {1250,"Coins"};}; 
 class 20Rnd_762x51_B_SCAR {type = "trade_items";buy[] = {200,"Coins"};sell[] = {100,"Coins"};}; 
 class 20rnd_762x51_SB_SCAR {type = "trade_items";buy[] = {300,"Coins"};sell[] = {100,"Coins"};};
 }; 
