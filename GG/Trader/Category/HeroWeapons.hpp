@@ -1,6 +1,6 @@
 
 class Category_477 { 
-class ItemGPS { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {8000,"Coins"}; }; 
+class ItemGPS { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {800,"Coins"}; }; 
 class FHQ_ACR_WDL_TWS_SD { type = "trade_weapons"; buy[] = {6000,"Coins"}; sell[] = {800,"Coins"}; }; 
 class FHQ_ACR_WDL_TWS { type = "trade_weapons"; buy[] = {3000,"Coins"}; sell[] = {500,"Coins"}; }; 
 class FHQ_ACR_BLK_TWS_SD { type = "trade_weapons"; buy[] = {6000,"Coins"}; sell[] = {800,"Coins"}; }; 
