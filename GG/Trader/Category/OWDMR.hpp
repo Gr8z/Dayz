@@ -2,7 +2,7 @@
 class Category_1003 { 
 class RH_m14 { type = "trade_weapons"; buy[] = {800,"Coins"}; sell[] = {400,"Coins"}; }; 
 class RH_m14acog { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {500,"Coins"}; }; 
-class RH_m14aim { type = "trade_weapons"; buy[] = {5000,"Coins"}; sell[] = {8000,"Coins"}; }; 
+class RH_m14aim { type = "trade_weapons"; buy[] = {5000,"Coins"}; sell[] = {800,"Coins"}; }; 
 class RH_m14eot { type = "trade_weapons"; buy[] = {900,"Coins"}; sell[] = {500,"Coins"}; }; 
 class RH_m21 { type = "trade_weapons"; buy[] = {1200,"Coins"}; sell[] = {600,"Coins"}; }; 
 class RH_sc2 { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {600,"Coins"}; }; 
