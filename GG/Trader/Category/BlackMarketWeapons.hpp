@@ -24,4 +24,6 @@ class bizon { type = "trade_weapons"; buy[] = {1000,"Coins"}; sell[] = {400,"Coi
 class M4A1_HWS_GL_SD_Camo { type = "trade_weapons"; buy[] = {2000,"Coins"}; sell[] = {500,"Coins"}; }; 
 class KSVK_DZE { type = "trade_weapons"; buy[] = {30000,"Coins"}; sell[] = {5000,"Coins"}; }; 
 class RPG7V { type = "trade_weapons"; buy[] = {50000,"Coins"}; sell[] = {5000,"Coins"}; }; 
+class M79_EP1 { type = "trade_weapons"; buy[] = {25000,"Coins"}; sell[] = {4000,"Coins"}; }; 
+class M32_EP1 { type = "trade_weapons"; buy[] = {75000,"Coins"}; sell[] = {10000,"Coins"}; }; 
 }; 
