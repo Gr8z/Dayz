@@ -71,7 +71,7 @@ if(!isNull dayz_selectedDoor) then {
 					_display = findDisplay 46;
 					_display closeDisplay 0;
 					player setVariable["NORRN_unconscious",true, true];
-					player setVariable["unconsciousTime",20,true];
+					player setVariable["unconsciousTime",180,true];
 				};
 			}else{
 
