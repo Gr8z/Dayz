@@ -10,15 +10,15 @@ class 1Rnd_Smoke_M203 { type = "trade_items"; buy[] = {300,"Coins"}; sell[] = {2
 class 1Rnd_SmokeRed_M203 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 class 1Rnd_SmokeGreen_M203 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 class 1Rnd_SmokeYellow_M203 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_HE_203 { type = "trade_items"; buy[] = {4200,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_FlareWhite_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_FlareGreen_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_FlareRed_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_FlareYellow_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_Smoke_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_SmokeRed_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_SmokeGreen_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
-class 6Rnd_SmokeYellow_203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_HE_M203 { type = "trade_items"; buy[] = {4200,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_FlareWhite_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_FlareGreen_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_FlareRed_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_FlareYellow_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_Smoke_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_SmokeRed_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_SmokeGreen_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
+class 6Rnd_SmokeYellow_M203 { type = "trade_items"; buy[] = {1500,"Coins"}; sell[] = {200,"Coins"}; }; 
 class HandGrenade_east { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; };
 class HandGrenade_west { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 
