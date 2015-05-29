@@ -1,6 +1,6 @@
 [] spawn {[] execVM "\z\addons\dayz_server\SecretHacks\AH.sqf";};
+[] ExecVM "\z\addons\dayz_server\init\removeVehicleAmmo.sqf";
 waituntil {!isnil "bis_fnc_init"};
-
 
 BIS_Effects_Burn =				{};
 server_playerLogin =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerLogin.sqf";
