@@ -13,8 +13,8 @@ _weapon = _args select 3;
 
 //if !([_costs] call player_checkAndRemoveItems) exitWith {};
 if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
-	_textMissing = _costs select 0 ;
-	cutText [format[(localize "STR_EPOCH_ACTIONS_12"), _costs select 1, _textMissing], "PLAIN DOWN"];
+    _repair_cost = _costs select 1;
+    cutText [format["You need %1 %2",_repair_cost,CurrencyName] , "PLAIN DOWN"];
 } else {
 
 	_type = typeOf _vehicle;
