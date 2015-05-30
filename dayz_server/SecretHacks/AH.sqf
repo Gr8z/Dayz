@@ -6803,7 +6803,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- NORMAL SPAWN","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		adminadd = adminadd + ["Air","","0","1","0","0",[]];
 		{
 			if(_x isKindOf "Air") then
@@ -6839,7 +6839,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- HIVE SPAWN","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		adminadd = adminadd + ["Air","","0","1","0","0",[]];
 		{
 			if(_x isKindOf "Air") then
@@ -6920,7 +6920,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		if(isNil 'wepsnMagsarr') then
 		{
 			wepsnMagsarr = [];
@@ -6965,7 +6965,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_WEPS_TO_SEARCH;
@@ -6984,7 +6984,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_MAGS_TO_SEARCH;
@@ -10841,7 +10841,7 @@ PV_AdminMainCode = {
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Buildings","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_OBJ_TO_SEARCH;
@@ -11921,7 +11921,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 				_mags = getArray (configFile >> 'CfgWeapons' >> _x >> 'magazines');
@@ -11939,7 +11939,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -11953,7 +11953,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -11966,7 +11966,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- NORMAL SPAWN","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -11979,7 +11979,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- HIVE SPAWN","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -11991,7 +11991,7 @@ PV_AdminMainCode = {
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Buildings","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
