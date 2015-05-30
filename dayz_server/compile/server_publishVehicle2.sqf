@@ -113,7 +113,7 @@ _key call server_hiveWrite;
         _object setVehicleAmmo 0; //comment out if publish with ammo
     };
 	
-	if (_object isKindOf "Ka60_PMC") then {
+	if (_object isKindOf "Ka60_GL_PMC") then {
 		_object magazinesTurret [-1];
 		_object removeMagazinesTurret ["14Rnd_57mm",[-1]];
 		_object WeaponsTurret [-1];
