@@ -1170,6 +1170,8 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_player_packOBJ = -1;
 	player removeAction s_player_garage;
 	s_player_garage = -1;
+	player removeAction s_player_special_backpack;
+	s_player_special_backpack = -1;
 	};
 
 
