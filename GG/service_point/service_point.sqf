@@ -50,6 +50,7 @@ _repair_costs = [
 		["BAF_Jackal2_GMG_W",[CurrencyName,_coinsRepairArmed]], 
 		["GAZ_Vodnik_DZE",[CurrencyName,_coinsRepairArmed]], 
 		["BRDM2_TK_EP1",[CurrencyName,_coinsRepairArmed]], 
+		["BRDM2_TK_GUE_EP1",[CurrencyName,_coinsRepairArmed]], 
 		["BTR90_HQ",[CurrencyName,_coinsRepairArmed]], 
 		["LAV25_HQ",[CurrencyName,_coinsRepairArmed]], 
 		["M113_TK_EP1",[CurrencyName,_coinsRepairArmed]],
@@ -66,6 +67,7 @@ _rearm_costs = [
         ["Air",[CurrencyName,_coinsRearmAir]], // 2 10oz Gold for helicopters and planes
         ["AllVehicles",[CurrencyName,_coinsRearmVehicles]],
 		["BRDM2_TK_EP1",[CurrencyName,_coinsRearmSUV]], 
+		["BRDM2_TK_GUE_EP1",[CurrencyName,_coinsRearmSUV]], 
 		["BTR90_HQ",[CurrencyName,_coinsRearmSUV]], 
 		["LAV25_HQ",[CurrencyName,_coinsRearmSUV]], 
 		["M113_TK_EP1",[CurrencyName,_coinsRearmSUV]], 
