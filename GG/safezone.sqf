@@ -189,7 +189,7 @@ don_godon_1 = 0;
 			_don_player_veh removeAllEventHandlers "handleDamage";
 			_don_player_veh addEventHandler ["handleDamage", {0}];
 			_don_player_veh removeAllEventHandlers "Fired";
-			_don_player_veh addEventHandler ['Fired', {_this call player_fired;}];		
+			_don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];			
 			//PASSENGERS NAMES
 			_don_passengers = ""; {if (Alive _x) then {_don_passengers = _don_passengers + format [" %1",name _x];};} forEach don_veh_crew;
 			_don_veh_crew = []; {if (Alive _x) then {_don_veh_crew = _don_veh_crew + [getPlayerUID _x];};} forEach don_veh_crew;
@@ -257,7 +257,7 @@ don_godon_1 = 0;
 			don_player_veh removeAllEventHandlers "handleDamage";
 			don_player_veh addEventHandler ["handleDamage", {0}];
 			don_player_veh removeAllEventHandlers "Fired";
-			don_player_veh addEventHandler ['Fired', {_this call player_fired;}];
+			don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
 		};
 		if (canbuild) then {
 			don_player_veh allowDamage true;
