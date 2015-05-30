@@ -114,8 +114,10 @@ _key call server_hiveWrite;
     };
 	
 	if (_object isKindOf "Ka60_GL_PMC") then {
-		_object WeaponsTurret [-1];
-		_object removeWeapon "80mmLauncher";
+		_object magazinesTurret [-1];
+        _object removeMagazinesTurret ["14Rnd_57mm",[-1]];
+        _object WeaponsTurret [-1];
+        _object removeWeapon "57mmLauncher";
 	};
 		
 	_object setVariable ["ObjectID", _oid, true];
