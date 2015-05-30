@@ -12,9 +12,9 @@ _coinsRepairArmed = 1000;
 _coinsRefuelAir = 60;
 _coinsRefuelVehicles = 20;
  
-_coinsRearmSUV = 2000;
-_coinsRearmAir = 2000;
-_coinsRearmVehicles = 1000;
+_coinsRearmSUV = 1000;
+_coinsRearmAir = 1000;
+_coinsRearmVehicles = 500;
  
 // -- End Single Currency Prices -- //
  
@@ -39,6 +39,7 @@ _refuel_amount = 0.05; // amount of fuel to add with every update (in percent)
 _repair_enable = true; // enable or disable the repair option
 _repair_costs = [
         ["Air",[CurrencyName,_coinsRepairAir]], // 5 Gold for helicopters and planes
+        ["AllVehicles",[CurrencyName,_coinsRepairVehicles]],
 		["HMMWV_M998A2_SOV_DES_EP1_DZE",[CurrencyName,_coinsRepairArmed]], 
 		["HMMWV_M1151_M2_CZ_DES_EP1_DZE",[CurrencyName,_coinsRepairArmed]], 
 		["HMMWV_m998_crows_M2_DES_EP1",[CurrencyName,_coinsRepairArmed]], 
@@ -54,8 +55,7 @@ _repair_costs = [
 		["LAV25_HQ",[CurrencyName,_coinsRepairArmed]], 
 		["M113_TK_EP1",[CurrencyName,_coinsRepairArmed]],
 		["ArmoredSUV_PMC_DZE",[CurrencyName,_coinsRepairArmed]],
-		["M113_UN_EP1",[CurrencyName,_coinsRepairArmed]],
-		["AllVehicles",[CurrencyName,_coinsRepairVehicles]]
+		["M113_UN_EP1",[CurrencyName,_coinsRepairArmed]]
 ];
  
 _repair_repairTime = 5; // time needed to repair each damaged part (in seconds)
@@ -63,16 +63,15 @@ _repair_repairTime = 5; // time needed to repair each damaged part (in seconds)
 // rearm settings
 _rearm_enable = true; // enable or disable the rearm option
 _rearm_costs = [
-        ["ArmoredSUV_PMC_DZE",[CurrencyName,_coinsRearmSUV]], // special costs for a single vehicle type\
+        ["ArmoredSUV_PMC_DZE",[CurrencyName,_coinsRearmSUV]], // special costs for a single vehicle type
+        ["Air",[CurrencyName,_coinsRearmAir]], // 2 10oz Gold for helicopters and planes
+        ["AllVehicles",[CurrencyName,_coinsRearmVehicles]],
 		["BRDM2_TK_EP1",[CurrencyName,_coinsRearmSUV]], 
 		["BRDM2_TK_GUE_EP1",[CurrencyName,_coinsRearmSUV]], 
 		["BTR90_HQ",[CurrencyName,_coinsRearmSUV]], 
 		["LAV25_HQ",[CurrencyName,_coinsRearmSUV]], 
 		["M113_TK_EP1",[CurrencyName,_coinsRearmSUV]], 
-		["M113_UN_EP1",[CurrencyName,_coinsRearmSUV]],
-        ["Air",[CurrencyName,_coinsRearmAir]],
-        ["AllVehicles",[CurrencyName,_coinsRearmVehicles]]
-		
+		["M113_UN_EP1",[CurrencyName,_coinsRearmSUV]]
 ]; 
  
 _rearm_magazineCount = 1; // amount of magazines to be added to the vehicle weapon
