@@ -46,7 +46,7 @@
 /* ********************************************************************************* */
 /*  EXPERIMENTAL CU FIX   */ _CUF = false;	/* true or false */	/* *experimental* - will transfer serverside units (including mission AI) to clientside */
 
-/*  Use Loaded Check(s)   */ _AHL = true;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
+/*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
 /*  _timedif for _AHL     */ _TDI =    100;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
 
 /*  revert onEachFrame    */ _REF =  true;	/* true or false */
