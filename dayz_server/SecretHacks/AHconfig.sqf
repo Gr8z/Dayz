@@ -8,6 +8,7 @@
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
 										 "76561198141529869", // Tristan
+										 "76561198026665364", // ElvaX
 										 "0" // 
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
