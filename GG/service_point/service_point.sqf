@@ -12,9 +12,9 @@ _coinsRepairArmed = 1000;
 _coinsRefuelAir = 60;
 _coinsRefuelVehicles = 20;
 
-_coinsRearmAir = 1000; // rearm is disabled
-_coinsRearmSUV = 1000; // rearm is disabled
-_coinsRearmVehicles = 1000; // rearm is disabled
+_coinsRearmAir = 400; // rearm is disabled
+_coinsRearmSUV = 200; // rearm is disabled
+_coinsRearmVehicles = 100; // rearm is disabled
 // -- End Single Currency Prices -- //
 
 // general settings
@@ -59,7 +59,7 @@ _repair_costs = [
 _repair_repairTime = 5; // time needed to repair each damaged part (in seconds)
 
 // rearm settings
-_rearm_enable = enable; // enable or disable the rearm option
+_rearm_enable = false; // enable or disable the rearm option
 _rearm_costs = [
 	["ArmoredSUV_PMC_DZE",[CurrencyName,_coinsRearmSUV]], // special costs for a single vehicle type
 	["Air",[CurrencyName,_coinsRearmAir]], // 2 10oz Gold for helicopters and planes
