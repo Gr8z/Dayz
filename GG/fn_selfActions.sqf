@@ -53,8 +53,7 @@ if (!isNull _nearLight) then {
 			{dayz_myLockedVehicle removeAction _x} count s_player_incarlockunlock;s_player_incarlockunlock = [];
 			s_player_inCarlockUnlock_crtl = -1;
     }; 
-	
-	
+
 //Grab Flare
 if (_canPickLight && !dayz_hasLight && !_isPZombie) then {
 	if (s_player_grabflare < 0) then {
@@ -925,17 +924,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	} else {
 		player removeAction s_player_packvehicle;
 		s_player_packvehicle = -1;
-	};
-	
-	//Custom Backpack Pickup
-	if(_typeOfCursorTarget in special_backpacks) then {
-	_name = getText (configFile >> "CfgVehicles" >> _typeOfCursorTarget >> "displayName");
-		if (s_player_special_backpack < 0) then {		 
-			s_player_special_backpack = player addAction [format[(localize "STR_DAYZ_CODE_1"),_name], "GG\backpack_pickup.sqf",["CfgVehicles",_typeOfCursorTarget,_cursorTarget], 20, true, true];
-		};
-	} else {
-			player removeAction s_player_special_backpack;
-			s_player_special_backpack = -1;
 	};
 	
 	// All Traders
