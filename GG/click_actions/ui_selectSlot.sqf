@@ -15,6 +15,8 @@ if (_button == 1) then {
     _pos set [1,((_this select 3) + 0.07)];
     
     _item = gearSlotData _control;
+	_rcDisabled = ["vil_20Rnd_762x51_G3"];
+	if (_item in _rcDisabled) exitWith {};
     
     _conf = configFile >> "cfgMagazines" >> _item;
     if (!isClass _conf) then {
@@ -54,6 +56,32 @@ if (_button == 1) then {
         _menu ctrlSetText format[_type,_name];
         _menu ctrlSetEventHandler ["ButtonClick",_compile];
     };
+	
+	// key colors
+        _colors = ["ItemKeyYellow","ItemKeyBlue","ItemKeyRed","ItemKeyGreen","ItemKeyBlack"];
+		if (configName(inheritsFrom(configFile >> "CfgWeapons" >> _item)) in _colors) then {
+            // characterID of the key (car character number)
+			_keyOwner = getNumber(configFile >> "CfgWeapons" >> _item >> "keyid");
+            // key name (like: e3f2)
+            _keyName = getText(configFile >> "CfgWeapons" >> _item >> "displayName");
+
+            //Menu entry Key vehicle pointer
+            _control =  _parent displayCtrl (1600 + _numActions);
+            _control ctrlShow true;
+            _height = _height + (0.025 * safezoneH);
+            _script =  "GG\vehicle_pointer.sqf";
+            _exescript = format["_id = ['%2','%3'] execVM '%1';closeDialog 0;",_script,_keyOwner,_keyName];
+            uiNamespace setVariable ['uiControl', _control];
+            // sets the text in the right button menu
+            _control ctrlSetText "Vehicle Pointer";
+            _control ctrlSetTextColor [0.3,0.4,1,1];
+            _control ctrlSetTooltip "Pinpoint vehicle. Mark on map if not in range.";
+            _control ctrlSetTooltipColorBox [0.3,0.4,1,1];
+            _control ctrlSetTooltipColorShade [0, 0, 0, 1];
+            _control ctrlSetTooltipColorText [0.3,0.4,1,1];
+            _control ctrlSetEventHandler ["ButtonClick",_exescript];
+            _numActions = _numActions + 1; // if there are other item action after that (other mods) add 1 to _numactions
+		};
 
     //### BEGIN MODIFIED CODE: extra click actions
     {
