@@ -18,6 +18,7 @@ _canBuildOnPlot = false;
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
+_playerUID = getPlayerUID player;
 
 DZE_Q = false;
 DZE_Z = false;
@@ -174,7 +175,7 @@ if(_IsNearPlot == 0) then {
     _nearestPole = _findNearestPole select 0;
 
     // Find owner
-    _ownerID = _nearestPole getVariable ["CharacterID","0"];
+    _ownerID = _nearestPole getVariable ["ownerPUID","0"];
 
     // diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
 
@@ -594,7 +595,7 @@ if (_hasrequireditem) then {
                     };
 
                     _tmpbuilt setVariable ["CharacterID",_combination,true];
-
+					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
 
                     PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location],_classname];
                     publicVariableServer "PVDZE_obj_Publish";
@@ -604,6 +605,7 @@ if (_hasrequireditem) then {
 
                 } else {
                     //_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
+					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
                     //### BEGIN MODIFIED CODE: player deploy
                     // fire?
                     //if(_tmpbuilt isKindOf "Land_Fire_DZ") then {

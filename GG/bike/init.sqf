@@ -49,8 +49,6 @@ if (isServer) exitWith {
 
 [] spawn {
 
-    // call dependency
-    call compile preprocessFileLineNumbers "overwrites\click_actions\init.sqf";
     if (!(isServer) && {isNil "DZE_CLICK_ACTIONS_BUILD"}) exitWith {
         diag_log text "BIKE: ERROR -- Click Actions Handler missing!";
     };
