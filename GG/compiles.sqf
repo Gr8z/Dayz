@@ -209,6 +209,7 @@ if (!isDedicated) then {
 	
 	//ui
 	player_selectSlot =			compile preprocessFileLineNumbers "GG\ui_selectSlot.sqf";
+	DZE_CLICK_ACTIONS_BUILD = _build;
 	player_gearSync	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSync.sqf";
 	player_gearSet	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSet.sqf";
 	ui_changeDisplay = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_changeDisplay.sqf";
