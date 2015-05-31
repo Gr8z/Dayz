@@ -11,7 +11,6 @@ if (isServer) then {
   call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\wholesalers.sqf";
   call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\farms.sqf";
   call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\bankinit.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\prison.sqf";
   call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\sabinatunnelblock.sqf";
 
 };
