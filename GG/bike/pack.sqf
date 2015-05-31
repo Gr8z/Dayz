@@ -15,7 +15,6 @@ _isPackingLocked = diag_tickTime - _lastPackTime < 10;
 } forEach [
     [(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS,                   "admin"],
     [!(call fnc_can_do),                                        format["You can't pack your %1 right now.",(_deployable call getDeployableDisplay)]],
-    [(player getVariable["combattimeout", 0]) >= time,          format["Can't pack a %1 while in combat!",(_deployable call getDeployableDisplay)]],
     [(damage cursorTarget > (_deployable call getDamageLimit)), format["The %1 must be under %2 percent damaged to pack!",(_deployable call getDeployableDisplay),(_deployable call getDamageLimit) * 100]],      
     [_isPackingLocked,                                          format["Someone just tried to pack that %1! Try again in a few seconds.",(_deployable call getDeployableDisplay)]],
     [DZE_PACKING,                                                      "You are already packing something!"],

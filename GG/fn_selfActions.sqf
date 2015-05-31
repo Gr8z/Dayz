@@ -917,15 +917,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 			s_player_repair_crtl = -1;
 		};
 	};
-	//Pack Vehicles
-	if (_typeOfCursorTarget in EVDVehicleArray and (player distance _cursorTarget < 5) and !(locked _cursorTarget) and (damage _cursorTarget < 1)) then {
-		if (s_player_packvehicle < 0) then {
-			s_player_packvehicle = player addAction ["Pack Vehicle", "GG\deployables\pack.sqf",_cursorTarget, 0, false, true, "",""];
-		};
-	} else {
-		player removeAction s_player_packvehicle;
-		s_player_packvehicle = -1;
-	};
 	
 	//Custom Backpack Pickup
 	if(_typeOfCursorTarget in special_backpacks) then {
@@ -1132,8 +1123,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	player removeAction s_player_plotpole_dialog;
     s_player_plotpole_dialog = -1;
 	
-	player removeAction s_player_packvehicle;
-	s_player_packvehicle = -1;
 	player removeAction s_player_packvehicle1;
 	s_player_packvehicle1 = -1;
 	
