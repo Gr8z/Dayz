@@ -258,7 +258,7 @@ class DeathScr {
 
 };
 #include "GG\group\groupManagement.hpp"
-#include "GG\rc.hpp"
+
 
 #include "GG\doorManagement\doorUnlock.hpp"
 #include "GG\doorManagement\doorManagement.hpp"
