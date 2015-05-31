@@ -5,6 +5,7 @@ DZE_ActionInProgress = true;
 
 _LastUsedTime = 60;
 _unit = player;
+_Range = 1000;
 _NearPlotMeters = 60;
 _inVehicle = (_vehicle != player);
 _hasGPS = "ItemGPS" in items player;
@@ -32,12 +33,11 @@ for "_x" from 1 to 10 do {
 
 lastscan = time;
 
-_playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'], 1000]))-1);
+_playercount =  count ((position player) nearEntities ['CAManBase',_Range]);
+_zombiecount =  count ((position player) nearEntities ['zZombie_Base',_Range]);
+_vehiclecount = count ((position player) nearEntities ['allVehicles',_Range]) - _playercount];
+uiSleep 3;		
 
-uiSleep 3;
-
-if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];};
-if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
-if (_playercount > 1) then {cutText [format["GPS: There are %1 players in your area!",_playercount], "PLAIN DOWN"];};
+cutText [format["GPS: Within %1 Meters - %2 AI/players, %3 zombies, %4 vehicles",_Range,_playercount,_zombiecount,_vehiclecount], "PLAIN DOWN"];
 
 DZE_ActionInProgress = false;
