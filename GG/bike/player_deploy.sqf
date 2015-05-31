@@ -180,7 +180,7 @@ if(_IsNearPlot == 0) then {
     // diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
 
     // check if friendly to owner
-    if(dayz_characterID == _ownerID) then {  //Keep ownership
+    if(_playerUID == _ownerID) then {  //Keep ownership
         // owner can build anything within his plot except other plots
         if(!_isPole) then {
             _canBuildOnPlot = true;
@@ -191,10 +191,17 @@ if(_IsNearPlot == 0) then {
     } else {
         // disallow building plot
         if(!_isPole) then {
-            _friendlies     = player getVariable ["friendlyTo",[]];
-            // check if friendly to owner
-            if(_ownerID in _friendlies) then {
-                _canBuildOnPlot = true;
+			
+			_friendlies = _nearestPole getVariable ["plotfriends",[]];
+			_fuid  = [];
+			{
+				  _friendUID = _x select 0;
+				  _fuid  =  _fuid  + [_friendUID];
+			} forEach _friendlies;
+			_builder  = getPlayerUID player;
+			// check if friendly to owner
+			if(_builder in _fuid) then {
+				_canBuildOnPlot = true;
             } else {
                 _exitWith = "You can't build on someone else's plot!";
             };
