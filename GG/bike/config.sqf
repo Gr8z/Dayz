@@ -6,6 +6,7 @@ DZE_DEPLOYABLES_CONFIG = [
     ["PartWoodPile",[0,2,0],5,1,true,true,false,true,true,false,false,["Land_Rack_EP1","Land_Table_EP1","Land_Shelf_EP1","WoodChair","Park_bench2","Park_bench1"],[],["PartWoodPile"],"true"],
     ["CinderBlocks",[0,2,0],5,1,false,true,false,false,false,true,true,["Hhedgehog_concrete","Land_CncBlock","Land_CncBlock_Stripes"],[],["CinderBlocks"],"true"],
     ["PartWoodPile",[0,2,0],5,1,true,true,true,true,false,false,["Pile_of_wood"],[],["PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile"],"true"],
+    ["EvDogTags",[0,2,0],5,1,true,true,true,true,false,false,["MAP_A_Castle_Bergfrit_dam"],[],[],"true"]
 ];
 
 //
