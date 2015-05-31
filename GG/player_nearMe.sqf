@@ -35,7 +35,7 @@ lastscan = time;
 
 _playercount =  count ((position player) nearEntities ['CAManBase',_Range]);
 _zombiecount =  count ((position player) nearEntities ['zZombie_Base',_Range]);
-_vehiclecount = count ((position player) nearEntities ['allVehicles',_Range]) - _playercount];
+_vehiclecount = count ((position player) nearEntities ['allVehicles',_Range]) - _playercount;
 uiSleep 3;		
 
 cutText [format["GPS: Within %1 Meters - %2 AI/players, %3 zombies, %4 vehicles",_Range,_playercount,_zombiecount,_vehiclecount], "PLAIN DOWN"];
