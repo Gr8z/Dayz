@@ -1,18 +1,6 @@
 class ExtraRc {
 
 	class ItemToolbox {
-		class BuildBike {
-			text = "Deploy Bike";
-			script = "['MMT_Civ'] execVM 'GG\deployables\deploy.sqf'";
-		};
-		class BuildMotorcycle {
-			text = "Deploy Motorcycle";
-			script = "['TT650_Civ'] execVM 'GG\deployables\deploy.sqf'";
-		};
-		class BuildMozzie {
-			text = "Deploy Mozzie";
-			script = "['CSJ_GyroC'] execVM 'GG\deployables\deploy.sqf'";
-		};
 		class ActionMenu {
 			text = "Open Action Menu";
 			script = "[] execVM ""GG\menu\actionmenu_main.sqf"";";

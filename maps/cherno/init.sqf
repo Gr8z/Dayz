@@ -32,6 +32,7 @@ progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
 progressLoadingScreen 0.4;
 call compile preprocessFileLineNumbers "GG\compiles.sqf";
+call compile preprocessFileLineNumbers "GG\bike\init.sqf";
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "traders.sqf";
 call compile preprocessFileLineNumbers "GG\tow_lift\init.sqf";
