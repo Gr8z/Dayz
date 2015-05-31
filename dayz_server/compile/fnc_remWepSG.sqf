@@ -33,7 +33,13 @@
 	};
 	if (_object isKindof "BAF_GMG_Tripod_D") then {
          _object setVehicleAmmo 0;
-
+	};
+	
+	if (_object isKindOf "Ka60_GL_PMC") then {
+		_object magazinesTurret [-1];
+        _object removeMagazinesTurret ["14Rnd_57mm",[-1]];
+        _object WeaponsTurret [-1];
+        _object removeWeapon "57mmLauncher";
 	};
 	
 } forEach vehicles; 
