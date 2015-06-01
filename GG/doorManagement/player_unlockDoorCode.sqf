@@ -25,12 +25,15 @@ if(!isNull dayz_selectedDoor) then {
 		cutText [(localize "STR_EPOCH_ACTIONS_16"), "PLAIN DOWN"];
 	} else {
 	
-		// get object combination
-		_objectCharacterID 	= _obj getVariable ["CharacterID","0"];
-
-		// Check combination
-		if (DZE_Lock_Door == _objectCharacterID) then {
-
+			// get object combination
+			_objectCharacterID  = _obj getVariable ["CharacterID","0"];
+			 
+			//Yeah, let's just go ahead and make this incredibly hard
+			_doorRandomCode = floor(random 100); //Change the number value to higher if you want tougher lock
+			_playerRandomCode = floor(random 100); //Make sure numbers are the same, otherwise player would have less chance to get it
+			
+			if (_doorRandomCode == _playerRandomCode) then { //So we're just gonna ignore what the player put in and use two random numbers
+			
 			[player,"combo_unlock",0,false] call dayz_zombieSpeak;
 
 			// close display
