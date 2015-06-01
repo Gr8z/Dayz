@@ -13,6 +13,11 @@ DELETE FROM `object_data_1`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 14 DAY)
 AND `Classname` IN ('Plastic_Pole_EP1_DZ','CinderWallDoorSmallLocked_DZ','CinderWallDoorLocked_DZ','CinderWallSmallDoorway_DZ','CinderWallDoorway_DZ','Land_DZE_WoodDoorLocked','CinderWallDoor_DZ','CinderWallDoorSmall_DZ','Land_DZE_WoodDoor','Land_DZE_GarageWoodDoor','Land_DZE_GarageWoodDoorLocked','Land_DZE_LargeWoodDoorLocked','Land_DZE_LargeWoodDoor','WoodLargeWallDoor_DZ');
 
+/* Delete deployed mozies and bikes */
+DELETE FROM `object_data_1`
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY)
+AND `Classname` IN ('CSJ_GyroC','TT650_Civ','MMT_Civ');
+
 /* Delete old login data */
 DELETE FROM `player_login`;
 
