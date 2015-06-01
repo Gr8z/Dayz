@@ -724,7 +724,7 @@ if(isNil "dayz_zedsAttackVehicles") then {
 // update objects
 dayz_updateObjects = ["Plane","Tank","Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
-special_backpacks = ["Tripod_Bag","DSHKM_TK_GUE_BAG_EP1","DSHKM_TK_GUE_BAG_EP1","KORD_UN_Bag_EP1","KORD_UN_Bag_EP1","KORD_UN_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
+special_backpacks = ["M2StaticMG_US_Bag_EP1","DSHKM_TK_GUE_BAG_EP1","KORD_UN_Bag_EP1","KORD_UN_Bag_EP1","KORD_UN_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
 dayz_reveal = ["AllVehicles","WeaponHolder","Land_A_tent","BuiltItems","ModularItems","DZE_Base_Object"];
 StaticVehicleArray = ["M240Nest_DZ","AGS_RU","MK19_TriPod","BAF_GMG_Tripod_D","M2StaticMG_US_EP1","M2HD_mini_TriPod","KORD_high","KORD","DSHkM_Mini_TriPod","DSHKM_Gue"];
 dayz_allowedObjects = StaticVehicleArray + ["TentStorage","TentStorageDomed","TentStorageDomed2", "VaultStorageLocked", "Hedgehog_DZ", 
