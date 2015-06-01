@@ -158,7 +158,7 @@ getHasDeployableParts = {
     _player    = _params select 0;
     _index     = _params select 1;
     _parts     = _index call getDeployableParts;
-    _inventory = (weapons _player) + (magazines _player) + (unitBackpack _player);
+    _inventory = (weapons _player) + (magazines _player);
     _return    = true;
     {
         _part = _x;
