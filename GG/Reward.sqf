@@ -5,7 +5,7 @@ while {_i < 7} do
 {
 	if ( _i == 1) then 
 	{
-		_reward = (500 * multiPlyWith);
+		_reward = (100 * multiPlyWith);
 		player setVariable ["cashMoney", ((player getVariable ["cashMoney", 0]) + _reward), true];
 		_msg = parseText format ["
 			<t align='center' color='#FFFFFF' shadow='2' size='1.75'>Loyalty time reward!</t><br/>
