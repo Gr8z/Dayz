@@ -1,12 +1,12 @@
 DZE_DEPLOYABLES_CONFIG = [
+	["M2StaticMG_US_Bag_EP1",[0,2,0],1,-1,false,false,false,true,false,true,false,["M2StaticMG_US_EP1"],[],["M2StaticMG_US_Bag_EP1"],"true"],
     ["ItemToolbox",[0,5,1],5,0.9,false,false,false,false,false,true,true,["MMT_Civ"],[],["ItemToolbox"],"true"],
 	["ItemToolbox",[0,5,1],5,0.5,false,true,false,true,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
 	["ItemToolbox",[0,5,2],7,0.5,false,true,false,true,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"],
     ["PartGeneric",[0,2,0],5,1,true,true,false,true,true,false,false,["Desk","FoldChair","FoldTable","SmallTable","Barrel1","Garbage_can"],[],["PartGeneric"],"true"],
     ["PartWoodPile",[0,2,0],5,1,true,true,false,true,true,false,false,["Land_Rack_EP1","Land_Table_EP1","Land_Shelf_EP1","WoodChair","Park_bench2","Park_bench1"],[],["PartWoodPile"],"true"],
     ["CinderBlocks",[0,2,0],5,1,false,true,true,true,false,false,["Hhedgehog_concrete","Land_CncBlock"],[],["CinderBlocks"],"true"],
-    ["PartWoodPile",[0,2,0],5,1,true,true,true,true,false,false,["Pile_of_wood"],[],["PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile"],"true"],
-	["EvDogTags",[0,10,0],5,1,false,true,true,true,false,false,["MAP_A_Castle_Bergfrit_dam"],[],[],"true"]
+    ["PartWoodPile",[0,2,0],5,1,true,true,true,true,false,false,["Pile_of_wood"],[],["PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile"],"true"]
 ];
 
 //
