@@ -31,7 +31,7 @@ class 30Rnd_9x19_UZI {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"C
 class 30Rnd_9x19_UZI_SD {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
 class 32Rnd_40mm_GMG {type = "trade_items";buy[] = {10000,"Coins"};sell[] = {3000,"Coins"};}; 
 class 48Rnd_40mm_MK19 {type = "trade_items";buy[] = {2000,"Coins"};sell[] = {1000,"Coins"};}; 
-class 5Rnd_86x70_L115A1 {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
+class 5Rnd_86x70_L115A1 {type = "trade_items";buy[] = {400,"Coins"};sell[] = {100,"Coins"};}; 
 class 6Rnd_45ACP {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
 class 75Rnd_545x39_RPK {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
 class 8Rnd_9x18_Makarov {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
