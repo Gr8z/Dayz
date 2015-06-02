@@ -224,10 +224,11 @@ _missing = "";
 _hasrequireditem = true;
 {
     _hastoolweapon = _x in weapons player;
-    if(!_hastoolweapon) exitWith { _hasrequireditem = false; _missing = getText (configFile >> "cfgWeapons" >> _x >> "displayName"); };
+	_hasBackpack = _x == typeOf (unitBackpack player);
+    if(!_hastoolweapon && !_hasBackpack) exitWith { _hasrequireditem = false; _missing = getText (configFile >> "cfgWeapons" >> _x >> "displayName"); };
 } count _require;
 //### BEGIN MODIFIED CODE player_deploy
-    _hastoolweapon = (_index call getDeployableKitClass) in ((weapons player) + (magazines player));
+    _hastoolweapon = (_index call getDeployableKitClass) in ((weapons player) + (magazines player) + [typeOf (unitBackpack player)]);
     if(!_hastoolweapon) then { _hasrequireditem = false; _missing = (_index call getDeployableKitDisplay); };
 //### END MODIFIED CODE: player_deploy
 

@@ -158,7 +158,7 @@ getHasDeployableParts = {
     _player    = _params select 0;
     _index     = _params select 1;
     _parts     = _index call getDeployableParts;
-    _inventory = (weapons _player) + (magazines _player);
+    _inventory = (weapons _player) + (magazines _player) + [(typeOf (unitBackpack _player))];
     _return    = true;
     {
         _part = _x;
@@ -183,5 +183,6 @@ removeDeployableParts = {
         _part = _x;
         _player removeWeapon _part;
         _player removeMagazine _part;
+        _player removeBackpack _part;
     } forEach _parts;
 };
