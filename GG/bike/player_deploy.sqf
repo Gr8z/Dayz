@@ -198,23 +198,23 @@ if(_IsNearPlot == 0) then {
 
     } else {
         // disallow building plot
-        if(!_isPole) then {
-			
-			_friendlies = _nearestPole getVariable ["plotfriends",[]];
-			_fuid  = [];
-			{
-				  _friendUID = _x select 0;
-				  _fuid  =  _fuid  + [_friendUID];
-			} forEach _friendlies;
-			_builder  = getPlayerUID player;
-			// check if friendly to owner
-			if(_builder in _fuid) then {
+			if(!_isPole) then {
+				// ### PLOT POLE MANAGEMENT START ###
+					_friendlies = _nearestPole getVariable ["plotfriends",[]];
+					_fuid = [];
+				{
+					_friendUID = _x select 0;
+					_fuid = _fuid + [_friendUID];
+				} forEach _friendlies;
+				_builder = getPlayerUID player;
+				// check if friendly to owner
+				if(_builder in _fuid) then {
 				_canBuildOnPlot = true;
-            } else {
-                _exitWith = "You can't build on someone else's plot!";
-            };
-        };
-    };
+				};
+				// ### PLOT POLE MANAGEMENT END ###
+				};
+			};
+		};
 };
 
 // _message
