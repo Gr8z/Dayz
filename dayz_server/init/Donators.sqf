@@ -275,6 +275,7 @@ Soldier3 = [
 	"76561198002511087", // TempSniper
 	"76561198044826851", // Conti Swag
 	"76561198134812190", // Phantomz
+	"76561198110162434", // ChemicalBurn Admin loadout
 	"76561198119066845", // Nick
 	"76561198151812540", // Casa Erotica
 	"76561198121350963", // BoJangles
