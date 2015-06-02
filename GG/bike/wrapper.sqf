@@ -183,7 +183,7 @@ removeDeployableParts = {
         _part = _x;
         _player removeWeapon _part;
         _player removeMagazine _part;
-        if (isClass(configFile >> "CfgVehicles" >> (typeOf _part))) then {
+        if (isClass(configFile >> "CfgVehicles" >> _part)) then {
 			removeBackpack _player;
 		};
     } forEach _parts;
