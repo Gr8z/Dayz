@@ -449,9 +449,6 @@ if (_hasrequireditem) then {
         if (isOnRoad [_position select 0, _position select 1, 0]) then { _cancel = true; _reason = "Cannot build on a road."; };
     };
 
-    // No building in trader zones
-    if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
-
     if(!_cancel) then {
 
         _classname = _classnametmp;
