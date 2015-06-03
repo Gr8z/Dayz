@@ -52,8 +52,8 @@ if(isServer) then {
 		ai_static_useweapon			= true;	// Allows AI on static guns to have a loadout 	
 		ai_static_weapons			= ["KORD_high_TK_EP1","DSHKM_Ins","M2StaticMG"];	// static guns
 
-		ai_static_skills			= false;	// Allows you to set custom array for AI on static weapons. (true: On false: Off) 
-		ai_static_array				= [["aimingAccuracy",0.20],["aimingShake",0.70],["aimingSpeed",0.75],["endurance",1.00],["spotDistance",0.70],["spotTime",0.50],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];
+		ai_static_skills			= true;	// Allows you to set custom array for AI on static weapons. (true: On false: Off) 
+		ai_static_array				= [["aimingAccuracy",0.70],["aimingShake",0.70],["aimingSpeed",0.75],["endurance",1.00],["spotDistance",0.50],["spotTime",0.60],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];
 
 		ai_gear0					= [["ItemBandage","ItemBandage","ItemAntibiotic"],["ItemRadio","ItemMachete","ItemCrowbar"]];
 		ai_gear1					= [["ItemBandage","ItemSodaPepsi","ItemMorphine"],["Binocular_Vector"]];
@@ -66,7 +66,7 @@ if(isServer) then {
 		ai_wep_machine				= ["RPK_74","MK_48_DZ","M249_EP1_DZ","Pecheneg_DZ","M240_DZ"];	// Light machine guns
 		ai_wep_sniper				= ["M14_EP1","SCAR_H_LNG_Sniper_SD","M110_NVG_EP1","SVD_CAMO","VSS_Vintorez","DMR_DZ","M40A3"];	// Sniper rifles
 		ai_wep_random				= [ai_wep_assault,ai_wep_assault,ai_wep_assault,ai_wep_sniper,ai_wep_machine];	// random weapon 60% chance assault rifle,20% light machine gun,20% sniper rifle
-		ai_wep_launchers_AT			= ["M136","RPG18","JAVELIN","M79_EP1","M32_EP1"];
+		ai_wep_launchers_AT			= ["M136","RPG18","JAVELIN"];
 		ai_wep_launchers_AA			= ["Strela","Igla","STINGER"];
 		
 		ai_packs					= ["DZ_Czech_Vest_Puch","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
@@ -75,7 +75,7 @@ if(isServer) then {
 		ai_special_skin				= ["Functionary1_EP1_DZ"];
 		ai_all_skin					= [ai_hero_skin,ai_bandit_skin,ai_special_skin];
 
-		ai_add_skin					= true;			// adds unit skin to inventory on death
+		ai_add_skin					= false;			// adds unit skin to inventory on death
 		
 	/* END AI CONFIG */
 
@@ -97,8 +97,8 @@ if(isServer) then {
 		wai_clean_mission			= true;								// clean all mission buildings after a certain period
 		wai_clean_mission_time		= 1800;								// time after a mission is complete to clean mission buildings
 
-		wai_mission_fuel			= [5,60];							// fuel inside mission spawned vehicles [min%,max%]
-		wai_vehicle_damage			= [20,70];							// damages to spawn vehicles with [min%,max%]
+		wai_mission_fuel			= [5,20];							// fuel inside mission spawned vehicles [min%,max%]
+		wai_vehicle_damage			= [50,90];							// damages to spawn vehicles with [min%,max%]
 		wai_keep_vehicles			= true;								// save vehicles to database and keep them after restart
 		wai_lock_vehicles			= false;								// lock mission vehicles and add keys to random AI bodies (be careful with ai_clean_dead if this is true)
 		
@@ -108,7 +108,7 @@ if(isServer) then {
 		wai_players_online			= 1; 								// number of players online before mission starts
 		wai_server_fps				= 1; 								// missions only starts if server FPS is over wai_server_fps
 		
-		wai_kill_percent			= 30;								// percentage of AI players that must be killed at "crate" missions to be able to trigger completion
+		wai_kill_percent			= 90;								// percentage of AI players that must be killed at "crate" missions to be able to trigger completion
 
 		wai_high_value				= true;								// enable the possibility of finding a high value item (defined below crate_items_high_value) inside a crate
 		wai_high_value_chance		= 1;								// chance in percent you find above mentioned item
@@ -123,19 +123,20 @@ if(isServer) then {
 		wai_bandit_limit			= 1;								// define how many bandit missions can run at once
 
 		wai_hero_missions			= [ 								// ["mission filename",% chance of picking this mission],Make sure the chances add up to 100,or it will not be accurate percentages
-										["patrol",11],
-										["black_hawk_crash",11],
+										["patrol",10],
+										["black_hawk_crash",10],
 										["armed_vehicle",8],
-										["bandit_base",7],
+										["bandit_base",6],
 										["captured_mv22",7],
 										["ikea_convoy",7],
-										["destroyed_ural",10],
+										["destroyed_ural",9],
 										["disabled_milchopper",9],
 										["mayors_mansion",9],
 										["weapon_cache",7],
 										["benlate",4],
                                         ["real_benlate",4],
-										["bandit_patrol",6]
+										["bandit_patrol",6],
+										["Armoured_Convoy",4]
 									];
 		wai_bandit_missions			= [
 										["patrol",8],
@@ -182,6 +183,7 @@ if(isServer) then {
 		crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM"];
 		crate_items_sniper			= [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
 		crate_items_president		= ["ItemDocument","ItemGoldBar10oz"];
+		crate_items_convoy			= 
 
 		crate_backpacks_all			= ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
 		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1"];
