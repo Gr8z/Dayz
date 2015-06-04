@@ -47,7 +47,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[16,ai_wep_sniper],[8,crate_tools_sniper],[3,crate_items_high_value],[4,crate_backpacks_large]] call dynamic_crate;
+		[_crate,[16,ai_wep_sniper],[8,crate_tools_sniper],[3,crate_items_convoy],[4,crate_backpacks_large]] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Armoured Convoy]: Ended at %1",_position];
