@@ -167,6 +167,7 @@ if(isServer) then {
 		crates_small				= ["GuerillaCacheBox","RULaunchersBox","RUBasicAmmunitionBox","RUOrdnanceBox","USBasicAmmunitionBox","USLaunchersBox","USOrdnanceBox","USOrdnanceBox_EP1","USLaunchers_EP1","USBasicWeapons_EP1","USBasicAmmunitionBox_EP1","UNBasicAmmunitionBox_EP1","TKOrdnanceBox_EP1","TKLaunchers_EP1","TKBasicAmmunitionBox_EP1","GuerillaCacheBox_EP1","GERBasicWeapons_EP1"];
 
 		crate_weapons_buildables	= ["ChainSaw","ChainSawB","ChainSawG","ChainSawP","ChainSawR"];
+		crate_weapons_convoy		= ["USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","m107","BAF_L85A2_RIS_CWS"]
 		
 		crate_tools					= ["ItemKeyKit","Binocular","Binocular_Vector","ItemCompass","ItemCrowbar","ItemEtool","ItemFishingPole","ItemFlashlightRed","ItemGPS","ItemHatchet_DZE","ItemKnife","ItemMachete","ItemMatchbox_DZE","ItemToolbox","NVGoggles"];
 		crate_tools_buildable		= ["ItemToolbox","ItemEtool","ItemCrowbar","ItemKnife"];
@@ -180,8 +181,8 @@ if(isServer) then {
 		crate_items_medical			= ["ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta"];
 		crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM"];
 		crate_items_sniper			= [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
-		crate_items_president		= [["ItemDocument",4],"ItemBriefcase50z","ItemBriefcase30oz","ItemBriefcase90oz"];
-		crate_items_convoy			= ["ItemBriefcase100oz","FoodMRE,4","ItemSodaMdew,2","2000Rnd_762x51_M134","100Rnd_127x99_M2","PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel"]; //Will add more later
+		crate_items_president		= [["ItemDocument",5],"ItemBriefcase50z","ItemBriefcase90oz"];
+		crate_items_convoy			= ["ItemBriefcase100oz","FoodMRE,4","ItemSodaMdew,2","2000Rnd_762x51_M134","100Rnd_127x99_M2","PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel",["5Rnd_127x99_AS50",1],["metal_floor_kit",4],["cinder_wall_kit",4],"PartPlywoodPack","PartPlankPack","cinder_door_kit","cinder_garage_kit","ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta","ItemComboLock",["CinderBlocks",10],"ItemCanvas","ItemComboLock",["ItemLightBulb",5],"ItemLockbox",["ItemSandbag",10],["ItemTankTrap",10],["ItemWire",10],["MortarBucket",10]]; //Will add more later
 
 		crate_backpacks_all			= ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
 		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1","DSHKM_TK_GUE_BAG_EP1","M2StaticMG_US_Bag_EP1","KORD_UN_Bag_EP1","AGS_UN_Bag_EP1","MK19_TriPod_US_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
