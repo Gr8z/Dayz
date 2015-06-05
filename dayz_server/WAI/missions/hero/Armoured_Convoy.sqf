@@ -1,6 +1,6 @@
 if(isServer) then {
-	 
-	private 		["_complete","_mission","_position","_crate","_crate_type","_vehicle","_vehclass"];
+
+	private 		["_complete","_mission","_position","_crate","_crate_type","_vehicle","_vehclass","_playerPresent","_dir"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
@@ -38,7 +38,7 @@ if(isServer) then {
 	//Condition
 	_complete = [
 		[_mission,_crate],	// mission number and crate
-		["kill"], 			// ["crate"], or ["kill"], or ["assassinate", _unitGroup],
+		["crate"], 			// ["crate"], or ["kill"], or ["assassinate", _unitGroup],
 		"A Bandit Armoured Convoy has been spotted! Take them out to secure their supplies!",	// mission announcement
 		"Survivors have managed to disable the Armoured Convoy and taken the supplies",															// mission success
 		"Survivors were unable to stop the convoy"														// mission fail
