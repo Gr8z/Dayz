@@ -67,5 +67,5 @@ if(isServer) then {
 
 	diag_log format["WAI: [Hero] real_benlate ended at %1",_position];
 
-	h_missionrunning = false;
+	h_missionsrunning = h_missionsrunning - 1;
 };
