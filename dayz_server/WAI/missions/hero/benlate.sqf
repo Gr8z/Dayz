@@ -38,11 +38,13 @@ if(isServer) then {
 	[[(_position select 0) + 50, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],50,2,"Pickup_PK_GUE","random","bandit","bandit",_mission] call vehicle_patrol;
 
 	
-	//Static mounted guns
+	//Static guns
+	_static_gun = ai_static_weapons call BIS_fnc_selectRandom;
 	[[
-		[(_position select 0) - 15, (_position select 1) + 15, 0],
-		[(_position select 0) + 15, (_position select 1) - 15, 0]
-	],"M2StaticMG","Easy","TK_INS_Bonesetter_EP1","Bandit",1,2,"Random","Random",_mission] call spawn_static;
+		[(_position select 0) - 13.135, (_position select 1) + 5.025, 15],
+		[(_position select 0) + 14.225, (_position select 1) + 5.025, 15],
+		[(_position select 0) + 35, (_position select 1) - 25, 0]
+	],_static_gun,"Medium","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	_complete = [
 		[_mission,_crate],		

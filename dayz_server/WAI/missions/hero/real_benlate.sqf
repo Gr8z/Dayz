@@ -45,12 +45,14 @@ if(isServer) then {
 	[[(_position select 0) + 50,(_position select 1),0],[50,50,0],800,"UH60M_EP1_DZE",5,"Random","Random",4,"Random","TK_Soldier_HAT_EP1","Random","Bandit",false,_mission] spawn heli_para;
 	
 	//Static guns
+	_static_gun = ai_static_weapons call BIS_fnc_selectRandom;
 	[[
 		[(_position select 0) - 13.135, (_position select 1) + 5.025, 15],
 		[(_position select 0) + 14.225, (_position select 1) + 5.025, 15],
 		[(_position select 0) + 35, (_position select 1) - 25, 0]
-	],"M2StaticMG","Extreme","TK_INS_Warlord_EP1","Bandit",1,2,"Random","Random",_mission] call spawn_static;
-
+	],_static_gun,"Medium","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	
+	
 	//Condition
 	_complete = [
 		[_mission,_crate],			
