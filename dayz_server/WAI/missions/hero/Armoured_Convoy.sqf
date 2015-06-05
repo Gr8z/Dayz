@@ -11,8 +11,8 @@ if(isServer) then {
 	_position		= [30] call find_position;
 	};
 	[_mission,_position,"Extreme","Armoured Convoy","MainHero",true] call mission_init;
-	
 	diag_log 		format["WAI: [Mission:[Hero] Armoured Convoy]: Starting... %1",_position];
+	
 
 	//Setup the crate
 	_crate_type 	= crates_large call BIS_fnc_selectRandom;
