@@ -1,6 +1,6 @@
 if(isServer) then {
 
-	private 		["_complete","_mission","_position","_crate","_crate_type","_vehicle","_vehclass","_playerPresent","_dir"];
+	private 		["_complete","_mission","_position","_crate","_crate_type","_vehicle","_vehclass","_dir"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
@@ -20,7 +20,7 @@ if(isServer) then {
 	
 	//Troops
 	[[_position select 0,_position select 1,0],4,"Extreme",["Random","AT"],4,"Random","Bandit","Random","Bandit",_mission] call spawn_group;
-	[[_position select 0,_position select 1,0],4,"Extreme",["Random","AA"],4,"Random","Bandit","Random","Bandit",_mission call spawn_group;
+	[[_position select 0,_position select 1,0],4,"Extreme",["Random","AA"],4,"Random","Bandit","Random","Bandit",_mission] call spawn_group;
 
 	//Humvee Patrol
 	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"HMMWV_Armored","Hard","Bandit","Bandit",_mission] call vehicle_patrol;
