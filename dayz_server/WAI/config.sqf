@@ -138,13 +138,12 @@ if(isServer) then {
 										["Armoured_Convoy",4]
 									];
 		wai_bandit_missions			= [
-										["patrol",8],
-										["armed_vehicle",8],
-										["black_hawk_crash",8],
-										["captured_mv22",5],
-										["broken_down_ural",11],
-										["hero_base",6],
-										["ikea_convoy",8],
+										["armed_vehicle",9],
+										["black_hawk_crash",9],
+										["captured_mv22",6],
+										["broken_down_ural",12],
+										["hero_base",9],
+										["ikea_convoy",9],
 										["medi_camp",10],
 										["presidents_mansion",6],
 										["sniper_extraction",6],
