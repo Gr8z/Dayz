@@ -32,9 +32,7 @@ if(isServer) then {
 	
 	//Spawn Vehicle
 	_dir		= floor(round(random 360));
-	
 	_vehclass 	= cargo_trucks		call BIS_fnc_selectRandom;
-	
 	_vehicle	= [_vehclass,_position,_mission,false,_dir]	call custom_publish;
 
 	//Condition
