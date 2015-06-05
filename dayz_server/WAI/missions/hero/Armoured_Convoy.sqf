@@ -23,12 +23,15 @@ if(isServer) then {
 	[[_position select 0,_position select 1,0],4,"Extreme",["Random","AA"],4,"Random","Bandit","Random","Bandit",_mission] call spawn_group;
 
 	//Humvee Patrol
-	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"HMMWV_Armored","Hard","Bandit","Bandit",_mission] call vehicle_patrol;
+	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"HMMWV_Armored","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	[[(_position select 0) + 120,  _position select 1, 0],[(_position select 0) + 120, _position select 1, 0],100,2,"BRDM2_TK_GUE_EP1","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	[[(_position select 0) +80 ,  _position select 1, 0],[(_position select 0) +80, _position select 1, 0],100,2,"HMMWV_M1151_M2_CZ_DES_EP1_DZE","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	 
 	//Heli Paradrop
-	[[(_position select 0), (_position select 1), 0],[0,0,0],400,"UH60M_EP1_DZE",10,"Extreme","Random",8,"Random","Bandit","Random","Bandit",true,_mission] spawn heli_para;
+	[[(_position select 0), (_position select 1), 0],[0,0,0],400,"CH_47F_EP1_DZE",12,"Extreme","Random",8,"Random","Bandit","Random","Bandit",false,_mission] spawn heli_para;
+	
+	//Heli patrol
+	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"UH1Y","Extreme","Bandit","Bandit",_mission] call heli_patrol;
 	
 	//Spawn Vehicle
 	_dir		= floor(round(random 360));
