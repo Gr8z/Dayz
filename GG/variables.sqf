@@ -1001,13 +1001,6 @@ if(!isDedicated) then {
 	Earplugs = false;
 };
 
-EVDVehicleArray = ["MMT_Civ","TT650_Civ","CSJ_GyroC"];
-dayz_allowedObjects = dayz_allowedObjects + EVDVehicleArray;
-
-if(isServer) then {
-	DZE_safeVehicle = DZE_safeVehicle + EVDVehicleArray;
-};
-
 //Model Variables
 AllPlayers set [count AllPlayers, "Bandit1_DZ",
 					"Bandit2_DZ",
