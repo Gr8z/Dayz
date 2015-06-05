@@ -185,7 +185,7 @@ if(isServer) then {
 		crate_items_convoy			= ["ItemBriefcase100oz","FoodMRE,4","ItemSodaMdew,2","2000Rnd_762x51_M134","100Rnd_127x99_M2","PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel"]; //Will add more later
 
 		crate_backpacks_all			= ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
-		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1"];
+		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1","DSHKM_TK_GUE_BAG_EP1","M2StaticMG_US_Bag_EP1","KORD_UN_Bag_EP1","AGS_UN_Bag_EP1","MK19_TriPod_US_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
 
 		crate_random				= [crate_items,crate_items_food,crate_items_buildables,crate_items_vehicle_repair,crate_items_medical,crate_items_chainbullets];
 
