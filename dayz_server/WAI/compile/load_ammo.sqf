@@ -47,8 +47,12 @@ call {
 	};
 	if(_type == "BRDM2_TK_GUE_EP1") exitWith {
 		_vehicle addMagazineTurret ["KPVT",[0]];
-		_vehicle addMagazineTurret ["100Rnd_762x54_PK",[1]];
 	};
+	if(_type == "HMMWV_M998_crows_M2_DES_EP1") exitWith {
+		_vehicle addMagazineTurret ["100Rnd_127x99_M2",[0]];
+	};
+	
+	
 
 	if(_type == "HMMWV_M1151_M2_CZ_DES_EP1_DZE") 	exitWith { _vehicle addMagazineTurret ["100Rnd_127x99_M2",[0]]; };
 	if(_type == "LandRover_MG_TK_EP1_DZE") 			exitWith { _vehicle addMagazineTurret ["100Rnd_127x99_M2",[0]]; };

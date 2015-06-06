@@ -23,7 +23,7 @@ if(isServer) then {
 	[[_position select 0,_position select 1,0],7,"Extreme",["Random","AA"],4,"Random","Bandit","Random","Bandit",_mission] call spawn_group;
 
 	//Humvee Patrol
-	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"HMMWV_Armored","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
+	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"HMMWV_M998_crows_M2_DES_EP1","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	[[(_position select 0) + 120,  _position select 1, 0],[(_position select 0) + 120, _position select 1, 0],100,2,"BRDM2_TK_GUE_EP1","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	[[(_position select 0) +80 ,  _position select 1, 0],[(_position select 0) +80, _position select 1, 0],100,2,"HMMWV_M1151_M2_CZ_DES_EP1_DZE","Extreme","Bandit","Bandit",_mission] call vehicle_patrol;
 	 
