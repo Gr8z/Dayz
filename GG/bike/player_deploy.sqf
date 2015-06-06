@@ -21,11 +21,7 @@ _canBuildOnPlot = false;
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
-if (DZE_APlotforLife) then {
-	_playerID = [player] call FNC_GetPlayerUID;
-}else{
-	_playerID = dayz_characterID;
-};
+_playerUID = getPlayerUID player;
 
 
 DZE_Q = false;
@@ -185,7 +181,7 @@ if(_IsNearPlot == 0) then {
     // Find owner
     _ownerID = _nearestPole getVariable ["ownerPUID","0"];
 
-    // diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
+    diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID,_playerUID];
 
     // check if friendly to owner
     if(_playerUID == _ownerID) then {  //Keep ownership
@@ -198,8 +194,6 @@ if(_IsNearPlot == 0) then {
 
     } else {
         // disallow building plot
-        if(!_isPole) then {
-			
 			_friendlies = _nearestPole getVariable ["plotfriends",[]];
 			_fuid  = [];
 			{
@@ -210,11 +204,8 @@ if(_IsNearPlot == 0) then {
 			// check if friendly to owner
 			if(_builder in _fuid) then {
 				_canBuildOnPlot = true;
-            } else {
-                _exitWith = "You can't build on someone else's plot!";
-            };
-        };
-    };
+			}; 
+		};
 };
 
 // _message
