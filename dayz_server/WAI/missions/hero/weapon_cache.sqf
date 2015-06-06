@@ -1,6 +1,6 @@
 if(isServer) then {
 
-	private 		["_complete","_crate_type","_mission","_position","_crate","_rndnum","_rndgro","_num_guns","_num_tools","_num_items"];
+	private 		["_complete","_crate_type","_mission","_position","_crate","_rndnum","_rndgro","_num_tools","_num_items"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
@@ -45,7 +45,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,10,4,0,2] call dynamic_crate;
+		[_crate,[10,crate_weapons_missionbase]4,0,2 call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Weapon Cache]: Ended at %1",_position];
