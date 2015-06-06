@@ -569,18 +569,10 @@ if (true) then
   _this setPos [18181.371, 2141.5144, 0.30465165];
 };
 
-_vehicle_226 = objNull;
-if (true) then
-{
-  _this = createVehicle ["HeliHCivil", [18165.711, 2127.5271, 7.6293945e-005], [], 0, "CAN_COLLIDE"];
-  _vehicle_226 = _this;
-  _this setPos [18165.711, 2127.5271, 7.6293945e-005];
-};
-
 _vehicle_227 = objNull;
 if (true) then
 {
-  _this = createVehicle ["HeliHCivil", [18205.145, 2114.5618, 0.00015258789], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["HeliHCivil", [18240.6,2085.85,0.00143433], [], 0, "CAN_COLLIDE"];
   _vehicle_227 = _this;
   _this setPos [18205.145, 2114.5618, 0.00015258789];
 };
