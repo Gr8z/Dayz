@@ -6,11 +6,11 @@ scriptName "Functions\misc\fn_selfActions.sqf";
 ************************************************************/
 private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehicle","_inVehicle","_hasFuelE","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_traderType","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_Unlock","_lock","_buy","_dogHandle","_lieDown","_warn","_hastinitem","_allowedDistance","_menu","_menu1","_humanity_logic","_low_high","_cancel","_metals_trader","_traderMenu","_isWreck","_isRemovable","_isDisallowRepair","_rawmeat","_humanity","_speed","_dog","_hasbottleitem","_isAir","_isShip","_playersNear","_findNearestGens","_findNearestGen","_IsNearRunningGen","_cursorTarget","_isnewstorage","_itemsPlayer","_ownerKeyId","_typeOfCursorTarget","_hasKey","_oldOwner","_combi","_key_colors","_player_deleteBuild","_player_flipveh","_player_lockUnlock_crtl","_player_butcher","_player_studybody","_player_cook","_player_boil","_hasFuelBarrelE","_hasHotwireKit","_player_SurrenderedGear","_isSurrendered","_isModular","_isModularDoor","_ownerKeyName","_temp_keys_names","_hasAttached","_allowTow","_liftHeli","_found","_posL","_posC","_height","_liftHelis","_attached","_playerUID","_characterID","_plotDistance","_PlotsNear", "_classname","_isowner"];
 
-if ((animationState player) in ["smk_urbanproneright","smk_prone_to_urbanprone_right","smk_urbanproneleft","smk_prone_to_urbanprone_left"]) then {
+if ((animationState player) in ["ActsPercMstpSnonWnonDnon_DancingDuoIvan","ActsPercMstpSnonWnonDnon_DancingDuoStefan","ActsPercMstpSnonWnonDnon_DancingStefan","AmovPercMstpSnonWnonDnon_idle68boxing","AmovPercMstpSnonWnonDnon_exerciseKata","AmovPercMstpSnonWnonDnon_exercisePushup","AmovPercMstpSnonWnonDnon_exercisekneeBendA","AmovPercMstpSnonWnonDnon_idle70chozeniPoRukou","smk_urbanproneright","smk_prone_to_urbanprone_right","smk_urbanproneleft","smk_prone_to_urbanprone_left"]) then {
 	if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 75) then {
 	player switchMove "";
 	player playActionNow "stop";
-	systemChat "Urban prone stances are not allowed near Plot Poles!";
+	systemChat "You can't do these awesome animations near Plot Poles!";
 	};
 };
 
