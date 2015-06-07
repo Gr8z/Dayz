@@ -53,5 +53,5 @@ if(isServer) then {
 
 	diag_log format["WAI: [Mission:[Hero] Armoured Convoy]: Ended at %1",_position];
 
-	h_missionsrunning = h_missionsrunning - 1;
+	b_missionsrunning = b_missionsrunning - 1;
 };
