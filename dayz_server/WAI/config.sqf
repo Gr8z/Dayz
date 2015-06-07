@@ -142,15 +142,16 @@ if(isServer) then {
 										["armed_vehicle",9],
 										["black_hawk_crash",9],
 										["captured_mv22",6],
-										["broken_down_ural",12],
+										["broken_down_ural",10],
 										["hero_base",9],
 										["ikea_convoy",9],
-										["medi_camp",10],
+										["medi_camp",8],
 										["presidents_mansion",6],
 										["sniper_extraction",6],
-										["weapon_cache",8],
-										["farmer_give",8],
-                                        ["troop_supply",8]
+										["weapon_cache",7],
+										["farmer_give",7],
+                                        ["troop_supply",7]
+										["Armoured_Convoy",7]
 									];
 		
 		// Vehicle arrays
