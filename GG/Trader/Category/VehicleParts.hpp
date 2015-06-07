@@ -1,6 +1,6 @@
 
 class Category_677 { 
-class ItemJerrycan { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
+class ItemJerrycan { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {2,"Coins"}; }; 
 class ItemJerrycanEmpty { type = "trade_items"; buy[] = {2,"Coins"}; sell[] = {1,"Coins"}; };  
 class ItemMixOil { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 class PartEngine { type = "trade_items"; buy[] = {500,"Coins"}; sell[] = {250,"Coins"}; }; 
