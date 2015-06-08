@@ -7,7 +7,7 @@
 										 "76561198058099842", // Fap
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
-										 "0", // Tristan
+										 "76561198141529869", // Tristan
 										 "76561198026665364", // ElvaX
 										 "0" // 
 										 ]; 
@@ -25,9 +25,10 @@
 										"76561198078201908", // Gr8
 										"76561198153784743", // Ghost
 										"76561198002511087", // TempSniper
-										"76561198021389971" // Thirdhero
+										"76561198021389971", // Thirdhero
+										"76561197970044945" // MyCheezy (WAI TEST)
 										];
-/*  BANNED UIDs HERE      */ _BLOCKED = ["76561198199615169","76561198078593363","76561198124879011","76561198170547145","76561198067166357","76561198130911159","7656119817330326","0","76561198181853602","76561198119127262","76561198068094642","76561198204818956","76561198165211039","76561198074110583","76561198098254345","76561198054619746","76561198061552644","76561198068243806","76561198164444108","76561198165496777","76561198160602020","76561198018065224","76561198202739900"]; //do not have a , at the end.
+/*  BANNED UIDs HERE      */ _BLOCKED = ["76561198078593363","76561198124879011","76561198170547145","76561198067166357","76561198130911159","7656119817330326","0","76561198181853602","76561198119127262","76561198068094642","76561198204818956","76561198165211039","76561198074110583","76561198098254345","76561198054619746","76561198061552644","76561198068243806","76561198164444108","76561198165496777","76561198160602020","76561198018065224","76561198202739900"]; //do not have a , at the end.
 
 /*  HEADLESS ClIENT UIDs  */ _HEADLESS_CLIENT_UIDs = ["0","0","0"]; //do not have a , at the end.
 
@@ -71,7 +72,7 @@
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
 /*  HACKED BOX Check ?    */ _CHB =  true;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
-/*  Max Cargo Count ?     */ _MCC =  2000;
+/*  Max Cargo Count ?     */ _MCC =  650;
 
 /*  MouseMoving EH check  */ _MOH =  true;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
@@ -115,12 +116,13 @@ _FORBIDDEN_Vehicles =
 	"Mi24_P","Mi24_D","KA52","KA52Black","SU39","Su25_CDF","SU25_Ins",
 	"A10_US_EP1","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU",
 	"T72_CDF","T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1",
-	"BAF_Apache_AH1_D","UH60M_MEV_EP1","Mi171Sh_rockets_CZ_EP1",
+	"BAF_Apache_AH1_D","UH60M_MEV_EP1","Mi171Sh_rockets_CZ_EP1","Mi171Sh_CZ_EP1",
 	"Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1",
 	"T72_TK_EP1","BMP2_TK_EP1","BMP2_UN_EP1","BMP2_HQ_TK_EP1","ZSU_TK_EP1",
 	"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
 	"M113Ambul_UN_EP1","M2A2_EP1","AV8B","Su39","Ka52","AW159_Lynx_BAF","M1128_MGS_EP1","M119_US_EP1",
 	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","AH6J_EP1","Ka60_PMC","ZSU_INS","M1A2_TUSK_MG","Ural_ZU23_CDF"
+	"GNT_C18F","GNT_C18E","GNT_C18T",
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
