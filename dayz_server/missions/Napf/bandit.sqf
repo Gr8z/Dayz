@@ -154,16 +154,6 @@ if (true) then
   _this setPos [12848.55, 5285.2329, 0.00010681152];
 };
 
-_vehicle_30 = objNull;
-if (true) then
-{
-  _this = createVehicle ["Ural_ZU23_CDF", [12760.835, 5260.1323, 0.00018310547], [], 0, "CAN_COLLIDE"];
-  _vehicle_30 = _this;
-  _this setDir -2.8193345;
-  _this setVehicleLock "LOCKED";
-  _this setPos [12760.835, 5260.1323, 0.00018310547];
-};
-
 _vehicle_37 = objNull;
 if (true) then
 {
