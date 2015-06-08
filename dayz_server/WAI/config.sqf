@@ -136,7 +136,7 @@ if(isServer) then {
 										["benlate",4],
                                         ["real_benlate",4],
 										["bandit_patrol",6],
-										["Armoured_Convoy",7]
+										["Armoured_Convoy",7],
 									];
 		wai_bandit_missions			= [
 										["armed_vehicle",9],
@@ -150,8 +150,8 @@ if(isServer) then {
 										["sniper_extraction",6],
 										["weapon_cache",7],
 										["farmer_give",7],
-                                        ["troop_supply",7]
-										["Armoured_Convoy",7]
+                                        ["troop_supply",7],
+										["Armoured_Convoy",7],
 									];
 		
 		// Vehicle arrays
