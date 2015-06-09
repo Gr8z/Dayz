@@ -144,6 +144,3 @@ if (worldName == "chernarus") then {
 
 dayzPlayerLogin = [_charID,_inventory,_backpack,_survival,_isNew,dayz_versionNo,_model,_isHiveOk,_newPlayer,_isInfected];
 (owner _playerObj) publicVariableClient "dayzPlayerLogin";
-
-connectionMessage = format["%1 CONNECTED",_playerName];
-publicVariable "connectionMessage";

@@ -91,9 +91,6 @@ _playerObj setVariable["NORRN_unconscious",true,true];
     
         diag_log format["COMBAT LOGGED: %1 (%2) at location %3 - DEBUG: Weapons: (%4 - %5) / Magazines: (%6 - %7) / Backpack: (%8)",_playerName,_timeout,(getPosATL _playerObj),_weapons,_weapons_backpack,_magazines,_magazines_backpack,_backpack];
 
-		connectionMessage = format["%1 COMBAT LOGGED!",_playerName];
-		publicVariable "connectionMessage";		
-
         _removebackpack = true;
 
         {
@@ -104,8 +101,6 @@ _playerObj setVariable["NORRN_unconscious",true,true];
             _playerObj removeWeapon _x;
         } count _weapons;
 };
-connectionMessage = format["%1 DISCONNECTED",_playerName];
-publicVariable "connectionMessage";
 diag_log format["DISCONNECT: %1 (%2) Object: %3, _characterID: %4 at loc %5", _playerName,_playerUID,_playerObj,_characterID, (getPosATL _playerObj)];
 
 
