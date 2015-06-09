@@ -1,6 +1,6 @@
 if(isServer) then {
 
-	private 		["_complete","_crate_type","_mission","_playerPresent","_position","_crate","_baserunover"];
+	private 		["_complete","_crate_type","_mission","_position","_crate","_baserunover"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
@@ -44,7 +44,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,5,5,10,2] call dynamic_crate;
+		[_crate,[5,crate_weapons_missionbase],5,10,2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Bandit] Black Hawk Crash]: Ended at %1",_position];

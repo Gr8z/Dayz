@@ -1,6 +1,6 @@
 if(isServer) then {
 
-	private 		["_complete","_crate","_mission","_static_gun","_crate_type","_rndnum","_playerPresent","_vehname","_vehicle","_position","_vehclass"];
+	private 		["_complete","_crate","_mission","_static_gun","_crate_type","_rndnum","_vehname","_vehicle","_position","_vehclass"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
@@ -52,7 +52,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,0,0,[25,crate_items_chainbullets],2] call dynamic_crate;
+		[_crate,0,0,[20,crate_items_chainbullets],2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Bandit] armed_vehicle ended at %1",_position];
