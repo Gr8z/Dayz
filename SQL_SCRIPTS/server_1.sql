@@ -15,7 +15,7 @@ AND `Classname` IN ('Plastic_Pole_EP1_DZ','CinderWallDoorSmallLocked_DZ','Cinder
 
 /* Delete deployed mozies and bikes */
 DELETE FROM `object_data_1`
-WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 1 DAY)
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 4 HOUR)
 AND `Classname` IN ('CSJ_GyroC','TT650_Civ','MMT_Civ');
 
 /* Delete old login data */
