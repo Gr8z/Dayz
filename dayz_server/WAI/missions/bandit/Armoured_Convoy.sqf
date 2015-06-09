@@ -31,7 +31,7 @@ if(isServer) then {
 	[[(_position select 0), (_position select 1), 0],[0,0,0],400,"CH_47F_EP1_DZE",12,"Extreme","Random",8,"Random","Hero","Random","Hero",false,_mission] spawn heli_para;
 	
 	//Heli patrol
-	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"UH1Y_DZE","Extreme","Hero","Hero",_mission] call heli_patrol;
+	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"UH1Y_DZ","Extreme","Hero","Hero",_mission] call heli_patrol;
 	
 	//Spawn Vehicle
 	_dir		= floor(round(random 360));
@@ -48,7 +48,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[5,crate_weapons_convoy],[8,crate_tools_sniper],[30,crate_items_convoy],[4,crate_backpacks_large]] call dynamic_crate;
+		[_crate,[5,crate_weapons_convoy],[8,crate_tools_sniper],[20,crate_items_convoy],[4,crate_backpacks_large]] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Armoured Convoy]: Ended at %1",_position];
