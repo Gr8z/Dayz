@@ -98,8 +98,8 @@ if(isServer) then {
 		wai_clean_mission			= true;								// clean all mission buildings after a certain period
 		wai_clean_mission_time		= 1800;								// time after a mission is complete to clean mission buildings
 
-		wai_mission_fuel			= [5,20];							// fuel inside mission spawned vehicles [min%,max%]
-		wai_vehicle_damage			= [50,90];							// damages to spawn vehicles with [min%,max%]
+		wai_mission_fuel			= [5,10];							// fuel inside mission spawned vehicles [min%,max%]
+		wai_vehicle_damage			= [70,90];							// damages to spawn vehicles with [min%,max%]
 		wai_keep_vehicles			= true;								// save vehicles to database and keep them after restart
 		wai_lock_vehicles			= false;								// lock mission vehicles and add keys to random AI bodies (be careful with ai_clean_dead if this is true)
 		
@@ -116,12 +116,12 @@ if(isServer) then {
 
 		wai_enable_minefield		= true;								// enable minefields to better defend missions
 		wai_use_launchers			= true;								// add a rocket launcher to each spawned AI group
-		wai_remove_launcher			= false;								// remove rocket launcher from AI on death
+		wai_remove_launcher			= true;								// remove rocket launcher from AI on death
 
 		// Missions
 		wai_radio_announce			= false;								// Setting this to true will announce the missions to those that hold a radio only
-		wai_hero_limit				= 2;								// define how many hero missions can run at once
-		wai_bandit_limit			= 2;								// define how many bandit missions can run at once
+		wai_hero_limit				= 1;								// define how many hero missions can run at once
+		wai_bandit_limit			= 1;								// define how many bandit missions can run at once
 
 		wai_hero_missions			= [ 								// ["mission filename",% chance of picking this mission],Make sure the chances add up to 100,or it will not be accurate percentages
 										["black_hawk_crash",10],
@@ -131,17 +131,17 @@ if(isServer) then {
 										["ikea_convoy",8],
 										["destroyed_ural",10],
 										["disabled_milchopper",9],
-										["mayors_mansion",8],
+										["mayors_mansion",9],
 										["weapon_cache",8],
 										["benlate",4],
                                         ["real_benlate",4],
-										["bandit_patrol",6],
-										["Armoured_Convoy",7]
+										["bandit_patrol",7],
+										["Armoured_Convoy",5]
 									];
 		wai_bandit_missions			= [
-										["armed_vehicle",9],
+										["armed_vehicle",10],
 										["black_hawk_crash",9],
-										["captured_mv22",6],
+										["captured_mv22",7],
 										["broken_down_ural",10],
 										["hero_base",9],
 										["ikea_convoy",9],
@@ -151,7 +151,7 @@ if(isServer) then {
 										["weapon_cache",7],
 										["farmer_give",7],
                                         ["troop_supply",7],
-										["Armoured_Convoy",7]
+										["Armoured_Convoy",5]
 									];
 		
 		// Vehicle arrays
@@ -169,7 +169,7 @@ if(isServer) then {
 		crates_small				= ["GuerillaCacheBox","RULaunchersBox","RUBasicAmmunitionBox","RUOrdnanceBox","USBasicAmmunitionBox","USLaunchersBox","USOrdnanceBox","USOrdnanceBox_EP1","USLaunchers_EP1","USBasicWeapons_EP1","USBasicAmmunitionBox_EP1","UNBasicAmmunitionBox_EP1","TKOrdnanceBox_EP1","TKLaunchers_EP1","TKBasicAmmunitionBox_EP1","GuerillaCacheBox_EP1","GERBasicWeapons_EP1"];
 
 		crate_weapons_buildables	= ["ChainSaw","ChainSawB","ChainSawG","ChainSawP","ChainSawR"];
-		crate_weapons_convoy		= ["USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","m107","BAF_L85A2_RIS_CWS"];
+		crate_weapons_convoy		= ["USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","m107","BAF_L85A2_RIS_CWS","USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","m107","BAF_L85A2_RIS_CWS","JAVELIN","STINGER","M136"];
 		crate_weapons_missionbase	= ["M16A4_ACG","Sa58V_RCO_EP1","SCAR_L_STD_Mk4CQT","M8_sharpshooter","M4A1_HWS_GL_camo","SCAR_L_STD_HOLO","M4A3_CCO_EP1","M4A3_CCO_EP1","M4A1_AIM_SD_camo","M16A4","m8_carbine","BAF_L85A2_RIS_Holo","Sa58V_CCO_EP1","vil_AEK2","vil_AEK_GL","vil_AeK_3","vil_AeK_23","vil_AeK_3_K","vil_AK_101","vil_AK_103","vil_ak12_ap","vil_AK_74m","SCAR_L_CQC_CCO_SD","SCAR_L_CQC","SCAR_L_CQC_Holo","SCAR_L_CQC_EGLM_Holo","SCAR_L_STD_EGLM_RCO","SCAR_L_STD_HOLO","SCAR_L_STD_Mk4CQT","SCAR_H_CQC_CCO","SCAR_H_CQC_CCO_SD","SCAR_H_STD_EGLM_Spect","vil_AG3","vil_AG3EOT","vil_G3a2","vil_G3a3","vil_G3an","vil_G3anb","vil_G3SG1","vil_G3sg1b","vil_G3a4b","vil_G3a4","RH_hk416","RH_hk416acog","RH_hk416glacog","RH_hk416gl","RH_hk416aim","RH_hk416glaim","RH_hk416s","RH_hk416sglacog","RH_hk416sgleotech","RH_hk416sd","RH_hk416sdaim","RH_hk416sdeotech","RH_hk417","RH_hk417acog","RH_hk417aim","RH_hk417saim","RH_hk417sd","RH_hk417sdaim","RH_hk417sp","RH_ctar21","RH_ctar21glacog","RH_ctar21m","RH_star21","RH_masacog","RH_masbacog","RH_masaim","RH_masbaim","RH_masb","RH_maseotech","RH_massd","RH_masbsdacog","RH_massdaim","RH_massdeotech","RH_masbsdeotech","RPK_74","MK_48_DZ","M249_EP1_DZ","Pecheneg_DZ","M240_DZ","vil_zastava_m84","vil_RPK75_M72","vil_RPK74M_P29","vil_RPK74","vil_RPK75","vil_RPK","vil_RPD","vil_PKM","vil_PK","vil_PKP_EOT","vil_PKP","vil_MG4E","vil_MG4","vil_Mg3","skavil_M60e3","skavil_M60","vil_M249_Para","vil_M240_B","vil_RPK75_Romania","M14_EP1","SCAR_H_LNG_Sniper_SD","M110_NVG_EP1","SVD_CAMO","VSS_Vintorez","DMR_DZ","M40A3","USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","RH_m14","RH_m1sacog","RH_m1saim","RH_m1stshd","RH_m21","RH_sc2acog","RH_sc2aim","RH_sc2eot","RH_sc2shd","RH_sc2sp","vil_SR25","vil_SR25SD","BAF_LRR_scoped","SCAR_H_LNG_Sniper","SCAR_H_LNG_Sniper_SD"]; 
 		
 		crate_tools					= ["ItemKeyKit","Binocular","Binocular_Vector","ItemCompass","ItemCrowbar","ItemEtool","ItemFishingPole","ItemFlashlightRed","ItemGPS","ItemHatchet_DZE","ItemKnife","ItemMachete","ItemMatchbox_DZE","ItemToolbox","NVGoggles"];
@@ -185,8 +185,8 @@ if(isServer) then {
 		crate_items_medical			= ["ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta"];
 		crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM"];
 		crate_items_sniper			= [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
-		crate_items_president		= [["ItemDocument",2],"ItemBriefcase50z","ItemBriefcase90oz","ItemBriefcase100oz"];
-		crate_items_convoy			= ["ItemBriefcase100oz",["FoodMRE",4],["ItemSodaMdew",2],"2000Rnd_762x51_M134","100Rnd_127x99_M2","PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel",["5Rnd_127x99_AS50",1],["metal_floor_kit",4],["cinder_wall_kit",4],"PartPlywoodPack","PartPlankPack","cinder_door_kit","cinder_garage_kit","ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta","ItemComboLock",["CinderBlocks",10],"ItemCanvas","ItemComboLock",["ItemLightBulb",5],"ItemLockbox",["ItemSandbag",10],["ItemTankTrap",10],["ItemWire",10],["MortarBucket",10]]; //Will add more later
+		crate_items_president		= [["ItemDocument",2],"ItemBriefcase90oz","ItemBriefcase100oz"];
+		crate_items_convoy			= [["ItemBriefcase100oz",3],["FoodMRE",4],["ItemSodaMdew",2],"2000Rnd_762x51_M134","100Rnd_127x99_M2",["5Rnd_127x99_AS50",1],["metal_floor_kit",4],["cinder_wall_kit",4],"PartPlywoodPack","PartPlankPack","cinder_door_kit","cinder_garage_kit","ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta","ItemComboLock",["CinderBlocks",10],"ItemCanvas","ItemComboLock",["ItemLightBulb",5],"ItemLockbox",["ItemSandbag",10],["ItemTankTrap",10],["ItemWire",10],["MortarBucket",10]]; //Will add more later
 
 		crate_backpacks_all			= ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
 		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1","DSHKM_TK_GUE_BAG_EP1","M2StaticMG_US_Bag_EP1","KORD_UN_Bag_EP1","AGS_UN_Bag_EP1","MK19_TriPod_US_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
