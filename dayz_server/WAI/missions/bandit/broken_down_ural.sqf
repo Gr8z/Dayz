@@ -1,6 +1,6 @@
 if(isServer) then {
 
-	private			["_complete","_baserunover","_crate_type","_crate","_mission","_position","_num_guns","_num_tools","_num_items","_rndnum","_rndgro"];
+	private			["_complete","_baserunover","_crate_type","_crate","_mission","_position","_num_tools","_num_items","_rndnum","_rndgro"];
 
 	// Get mission number, important we do this early
 	_mission 		= count wai_mission_data -1;
