@@ -64,7 +64,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,15,5,[15,crate_items_president],2] call dynamic_crate;
+		[_crate,[15,crate_weapons_missionbase],5,[10,crate_items_president],2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Hero] real_benlate ended at %1",_position];
