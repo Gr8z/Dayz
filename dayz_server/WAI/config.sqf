@@ -91,7 +91,7 @@ if(isServer) then {
 		wai_avoid_water				= 50;								// avoid spawning missions this close to water
 
 		
-		wai_mission_timer			= [30,60];							// time between missions 5-15 minutes
+		wai_mission_timer			= [300,900];							// time between missions 5-15 minutes
 		wai_mission_timeout			= [900,1800]; 						// time each missions takes to despawn if inactive 15-30 minutes
 		wai_timeout_distance		= 1000;								// if a player is this close to a mission then it won't time-out
 		
