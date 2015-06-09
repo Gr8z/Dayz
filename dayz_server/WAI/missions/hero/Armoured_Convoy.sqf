@@ -31,7 +31,7 @@ if(isServer) then {
 	[[(_position select 0), (_position select 1), 0],[0,0,0],400,"CH_47F_EP1_DZE",12,"Extreme","Random",8,"Random","Bandit","Random","Bandit",false,_mission] spawn heli_para;
 	
 	//Heli patrol
-	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"UH1Y","Extreme","Bandit","Bandit",_mission] call heli_patrol;
+	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],100,2,"UH1Y_DZE","Extreme","Bandit","Bandit",_mission] call heli_patrol;
 	
 	//Spawn Vehicle
 	_dir		= floor(round(random 360));
