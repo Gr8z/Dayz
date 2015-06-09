@@ -41,7 +41,8 @@ if(isServer) then {
 	//Condition
 	_complete = [
 		[_mission,_crate],	// mission number and crate
-		["crate"], 			// ["crate"], or ["kill"], or ["assassinate", _unitGroup],
+		["crate"], 			// ["crate"], or ["kill"], or ["assassinate", _unitGroup]
+		[_vehicle], 		// cleanup objects
 		"A Hero Armoured Convoy has been spotted! Take them out to secure their supplies!",	// mission announcement
 		"Survivors have managed to disable the Armoured Convoy and taken the supplies",															// mission success
 		"Survivors were unable to stop the convoy"														// mission fail
