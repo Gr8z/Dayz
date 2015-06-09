@@ -100,6 +100,11 @@ _playerObj setVariable["NORRN_unconscious",true,true];
         {
             _playerObj removeWeapon _x;
         } count _weapons;
+		
+		// Message whole server when player combat logs
+		_message = format["PLAYER COMBAT LOGGED: %1",_playerName];
+		[nil, nil, rTitleText, _message, "PLAIN"] call RE;
+		
 };
 diag_log format["DISCONNECT: %1 (%2) Object: %3, _characterID: %4 at loc %5", _playerName,_playerUID,_playerObj,_characterID, (getPosATL _playerObj)];
 
