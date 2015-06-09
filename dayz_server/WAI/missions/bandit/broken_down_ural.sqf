@@ -43,7 +43,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,4,8,36,2] call dynamic_crate;
+		[_crate,[4,crate_weapons_missionbase],8,36,2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Bandit] Ural Attack]: Ended at %1",_position];
