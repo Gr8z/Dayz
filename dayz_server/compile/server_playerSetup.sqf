@@ -213,8 +213,13 @@ _playerObj setVariable["humanity_CHK",_humanity];
 //_playerObj setVariable["state",_state,true];
 _playerObj setVariable["lastPos",getPosATL _playerObj];
 //Soul start: SC Edit >>> assigning player new variable for cashmoney and bankMoney
-_playerObj setVariable ["cashMoney",_cashMoney,true];	
-_playerObj setVariable ["cashMoney_CHK",_cashMoney];	
+if(_cashMoney > 0) then {
+	_playerObj setVariable["cashMoney",_cashMoney,true];
+	_playerObj setVariable["cashMoney_CHK",_cashMoney];
+} else {
+	_playerObj setVariable["cashMoney",0,true];
+	_playerObj setVariable["cashMoney_CHK",0];
+};
 //Soul end: SC Edit
 
  dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];

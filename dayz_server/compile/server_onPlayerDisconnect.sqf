@@ -38,7 +38,7 @@ diag_log format["LOGOUT IN VEHICLE: %1 at location %2", _playerName,(getPosATL _
 
 if ((_timeout - time) > 0) then {
 
-_playerObj setVariable["NORRN_unconscious",true,true];
+		_playerObj setVariable["NORRN_unconscious",true,true];
         _playerObj setVariable["unconsciousTime",120,true];
 
         _pos                 = getPosAtl _playerObj;
