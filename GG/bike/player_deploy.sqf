@@ -501,7 +501,7 @@ if (_hasrequireditem) then {
 			private["_newPosition","_finished","_oldPosition"];
 			if(isNil "_oldPosition") then { _oldPosition = position player;};
 			_finished = false;
-			sleep 2;
+			sleep 1;
 			if ((position player) distance _oldPosition <= 1) then {
 				_finished = true;
 			};

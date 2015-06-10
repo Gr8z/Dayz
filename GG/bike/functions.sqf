@@ -15,14 +15,13 @@ fnc_bike_crafting_animation = {
     [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
     [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
    
+    _isLoopDone = false;
+	_isAnimationCompleted = false;
+	_exitWith = "nil";
+   
     while {!_isLoopDone} do {
         private["_newPosition","_finished","_oldPosition"];
 		if(isNil "_oldPosition") then { _oldPosition = position player;};
-		
-		_isLoopDone = false;
-		_isAnimationStarted = false;
-		_isAnimationCompleted = false;
-		_exitWith = "nil";
 		
 		sleep 1;
 		
