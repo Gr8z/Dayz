@@ -493,37 +493,18 @@ if (_hasrequireditem) then {
         while {_isOk} do {
 
             [10,10] call dayz_HungerThirst;
-
             _dis=20;
             _sfx = "repair";
             [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
             [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 
-            r_interrupt = false;
-            r_doLoop = true;
-            _started = false;
-            _finished = false;
-
-            while {r_doLoop} do {
-                _animState = animationState player;
-                _isMedic = true;
-                if (_isMedic) then {
-                    _started = true;
-                };
-                if (_started && !_isMedic) then {
-                    r_doLoop = false;
-                    _finished = true;
-                };
-                if (r_interrupt || (player getVariable["combattimeout", 0] >= time)) then {
-                    r_doLoop = false;
-                };
-                if (DZE_cancelBuilding) exitWith {
-                    r_doLoop = false;
-                };
-                sleep 0.1;
-            };
-            r_doLoop = false;
-
+			private["_newPosition","_finished","_oldPosition"];
+			if(isNil "_oldPosition") then { _oldPosition = position player;};
+			_finished = false;
+			sleep 2;
+			if ((position player) distance _oldPosition <= 1) then {
+				_finished = true;
+			};
 
             if(!_finished) exitWith {
                 _isOk = false;

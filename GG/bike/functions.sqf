@@ -14,25 +14,22 @@ fnc_bike_crafting_animation = {
     _sfx = "repair";
     [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
     [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
-
-    r_interrupt = false;
-    _isLoopDone = false;
-    _isAnimationStarted = false;
-    _isAnimationCompleted = false;
-    _animationState = animationState player;
-    _isAnimationActive = false;
-    _exitWith = "nil";
-
+   
     while {!_isLoopDone} do {
-        _animationState = animationState player;
-        _isAnimationActive = true;
-        if (_isAnimationActive) then {
-            _isAnimationStarted = true;
-        };
-        if (_isAnimationStarted and !_isAnimationActive) then {
-            _isLoopDone = true;
-            _isAnimationCompleted = true;
-        };
+        private["_newPosition","_finished","_oldPosition"];
+		if(isNil "_oldPosition") then { _oldPosition = position player;};
+		
+		_isLoopDone = false;
+		_isAnimationStarted = false;
+		_isAnimationCompleted = false;
+		_exitWith = "nil";
+		
+		sleep 1;
+		
+		if ((position player) distance _oldPosition <= 1) then {
+			_isLoopDone = true;
+			_isAnimationCompleted = true;
+		};
         {
             if(call compile (_x select 0)) exitWith {
                 _exitWith = _x select 1;
