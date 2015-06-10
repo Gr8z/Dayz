@@ -493,7 +493,6 @@ if (_hasrequireditem) then {
         while {_isOk} do {
 
             [10,10] call dayz_HungerThirst;
-            player playActionNow "PutDown";
 
             _dis=20;
             _sfx = "repair";
@@ -507,7 +506,7 @@ if (_hasrequireditem) then {
 
             while {r_doLoop} do {
                 _animState = animationState player;
-                _isMedic = ["PutDown",_animState] call fnc_inString;
+                _isMedic = true;
                 if (_isMedic) then {
                     _started = true;
                 };

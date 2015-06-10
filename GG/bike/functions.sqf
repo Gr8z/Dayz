@@ -15,7 +15,6 @@ fnc_bike_crafting_animation = {
     [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
     [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
 
-    player playActionNow "PutDown";
     r_interrupt = false;
     _isLoopDone = false;
     _isAnimationStarted = false;
@@ -26,7 +25,7 @@ fnc_bike_crafting_animation = {
 
     while {!_isLoopDone} do {
         _animationState = animationState player;
-        _isAnimationActive = ["PutDown",_animationState] call fnc_inString;
+        _isAnimationActive = true;
         if (_isAnimationActive) then {
             _isAnimationStarted = true;
         };
