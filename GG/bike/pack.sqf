@@ -30,18 +30,6 @@ if(_exitWith != "nil" && _exitWith != "admin") exitWith {
 _cursorTarget setVariable["lastPackTime",diag_tickTime,true];
 DZE_PACKING = true;
 
-// do the crafting animation until we either finish it or one of these conditions is broken
-_exitWith = [
-    ["(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS",          "admin"],
-    ["r_interrupt",                                      format["Packing %1 interrupted!",(_deployable call getDeployableDisplay)]],
-] call fnc_bike_crafting_animation;
-
-// if we got an error message, show it and leave the script
-if(_exitWith != "nil" && _exitWith != "admin") exitWith {
-    DZE_PACKING = false;
-    taskHint [_exitWith, DZE_COLOR_DANGER, "taskFailed"];
-};
-
 // give the stuff back and delete the vehicle
 {
     if(isClass(configFile >> "CfgWeapons" >> _x)) then {

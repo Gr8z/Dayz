@@ -5,45 +5,6 @@ fnc_can_do = {
     (!r_drag_sqf and !r_player_unconscious and !_onLadder)
 };
 
-// this goes through a crafting animation until the loop is interrupted until interrupted by a set of conditions fed to the function
-// it then returns the result of what broke the loop, or "nil" -- yes, string of "nil" -- if not broken
-fnc_bike_crafting_animation = {
-    private["_dis","_sfx","_isLoopDone","_isAnimationStarted","_isAnimationCompleted","_animationState","_isAnimationActive","_exitWith"];
-
-    _dis=10;
-    _sfx = "repair";
-    [player,_sfx,0,false,_dis] call dayz_zombieSpeak;
-    [player,_dis,true,(getPosATL player)] spawn player_alertZombies;
-   
-    _isLoopDone = false;
-	_isAnimationCompleted = false;
-	_exitWith = "nil";
-   
-    while {!_isLoopDone} do {
-        private["_newPosition","_finished","_oldPosition"];
-		if(isNil "_oldPosition") then { _oldPosition = position player;};
-		
-		sleep 1;
-		
-		if ((position player) distance _oldPosition <= 1) then {
-			_isLoopDone = true;
-			_isAnimationCompleted = true;
-		};
-        {
-            if(call compile (_x select 0)) exitWith {
-                _exitWith = _x select 1;
-            };
-        } forEach _this;
-        if (_exitWith != "nil") then {
-            _isLoopDone = true;
-            player switchMove "";
-            player playActionNow "stop";
-        };
-        sleep 0.3;
-    };
-    _exitWith
-};
-
 fnc_set_temp_deployable_id = {
     _this setVariable ["DeployedBy",call fnc_temp_deployable_id, true]; 
 };
