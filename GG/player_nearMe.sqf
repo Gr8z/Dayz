@@ -33,13 +33,12 @@ for "_x" from 1 to 10 do {
 
 lastscan = time;
 
-_zombiecount =  count ((position player) nearEntities ['zZombie_Base',_Range]);
-_playercount =  count ((position player) nearEntities ['CAManBase',_Range]) - _zombiecount - 1;
-_playercount1 =  count ((position player) nearEntities ['CAManBase',_Range]);
-_vehiclecount = count ((position player) nearEntities ['allVehicles',_Range]) - _playercount1;
-uiSleep 3;		
+_playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllVehicles'],_Range]))-1);
 
-cutText [format["GPS: Within %1 Meters - %2 AI/players, %3 zombies, %4 vehicles",_Range,_playercount,_zombiecount,_vehiclecount], "PLAIN DOWN"];
-systemChat format["GPS: Within %1 Meters - %2 AI/players, %3 zombies, %4 vehicles",_Range,_playercount,_zombiecount,_vehiclecount];
+uiSleep 3;
+
+if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];};
+if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
+if (_playercount > 1) then {cutText [format["GPS: There are %1 players in your area!",_playercount], "PLAIN DOWN"];};
 
 DZE_ActionInProgress = false;
