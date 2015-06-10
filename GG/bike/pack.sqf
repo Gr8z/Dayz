@@ -34,7 +34,6 @@ DZE_PACKING = true;
 _exitWith = [
     ["(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS",          "admin"],
     ["r_interrupt",                                      format["Packing %1 interrupted!",(_deployable call getDeployableDisplay)]],
-    ["(player getVariable['combattimeout', 0]) >= time", format["Can't pack a %1 while in combat!",(_deployable call getDeployableDisplay)]]
 ] call fnc_bike_crafting_animation;
 
 // if we got an error message, show it and leave the script
