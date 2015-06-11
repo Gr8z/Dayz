@@ -199,6 +199,7 @@ if(_IsNearPlot == 0) then {
 
     } else {
         // disallow building plot
+		if(!_isPole) then {
 			_friendlies = _nearestPole getVariable ["plotfriends",[]];
 			_fuid  = [];
 			{
@@ -209,7 +210,9 @@ if(_IsNearPlot == 0) then {
 			// check if friendly to owner
 			if(_builder in _fuid) then {
 				_canBuildOnPlot = true;
-			}; 
+			} else {
+                _exitWith = "You can't build on someone else's plot!";
+            };
 		};
 };
 
