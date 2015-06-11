@@ -211,7 +211,7 @@ if (!isNull _humanityTarget && isPlayer _humanityTarget && alive _humanityTarget
                 };
             };
             if((_humanityTarget getVariable ["DZE_display_name", false]) || (DZE_ForceNameTagsInTrader && isInTraderCity)) then {
-                _string = format["<t %2 align='center' size='%3'>%1</t>",(name _humanityTarget),_color,_size];
+                _string = format["<t %2 align='center' size='%3'>%1</t><br /><t %2 align='center' size='%3'>Humanity: %4</t>",(name _humanityTarget),_color,_size,_humanity];
             };
         };
     };

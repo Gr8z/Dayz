@@ -233,12 +233,15 @@ don_godon_1 = 0;
 		don_incar = 1;
 		if (!canbuild) then {
 			//VEHICLE OWNERITY CHECK
-			_don_veh_crew = don_player_veh getVariable ["don_crew", nil]; if (isNil "_don_veh_crew") then {_don_veh_crew = [getPlayerUID player];};
+			_don_veh_crew = don_player_veh getVariable ["don_crew", nil]; 
+			if (isNil "_don_veh_crew") then {_don_veh_crew = [player] call FNC_GetPlayerUID;};
 			if !(getPlayerUID player in _don_veh_crew) then {
 				call compile format ['if (isNil "don_%1") then {don_%1 = diag_tickTime;}; _last_mark = don_%1;', don_player_veh getVariable ["don_ownerity_code", 0]];
 				_wait_time = diag_tickTime - _last_mark;
 				if (_wait_time < _max_time) then {
 					player action ["getOut", don_player_veh];
+					player setVariable["NORRN_unconscious",true,true];
+					player setVariable["unconsciousTime",5,true];
 					cuttext [format ["Owners:%1. %2 seconds to liberate.", don_player_veh getVariable ["don_passengers","Owners not found"], round (_max_time - _wait_time)], "PLAIN DOWN"];
 					cad_pvar_smessage = [format ["%1 is messing with your vehicle! %2 seconds to liberate!", name player, round (_max_time - _wait_time)], _don_veh_crew];
 					publicVariable "cad_pvar_smessage";
