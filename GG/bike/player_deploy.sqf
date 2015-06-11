@@ -21,13 +21,7 @@ _canBuildOnPlot = false;
 
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
-_playerUID = [player] call FNC_GetPlayerUID;
-
-if (DZE_APlotforLife) then {
-	_playerID = [player] call FNC_GetPlayerUID;
-}else{
-	_playerID = dayz_characterID;
-};
+_playerUID = getPlayerUID player;
 
 
 DZE_Q = false;
@@ -186,10 +180,10 @@ if(_IsNearPlot == 0) then {
     // Find owner
     _ownerID = _nearestPole getVariable ["ownerPUID","0"];
 
-    diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID,_playerID];
+    diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID,_playerUID];
 
     // check if friendly to owner
-    if(_playerID == _ownerID) then {  //Keep ownership
+    if(_playerUID == _ownerID) then {  //Keep ownership
         // owner can build anything within his plot except other plots
         if(!_isPole) then {
             _canBuildOnPlot = true;
@@ -592,25 +586,32 @@ if (_hasrequireditem) then {
                     };
 
                     _tmpbuilt setVariable ["CharacterID",_combination,true];
-					_tmpbuilt setVariable ["ownerPUID",_playerID,true];
+					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
 
-                    PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location,_playerUID],_classname];
+                    PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location],_classname];
                     publicVariableServer "PVDZE_obj_Publish";
 
                     cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
 
 
                 } else {
-                    _tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
-					_tmpbuilt setVariable ["ownerPUID",_playerID,true];
-					
+                    //_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
+					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
+                    //### BEGIN MODIFIED CODE: player deploy
+                    // fire?
+                    //if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
+                    //    _tmpbuilt spawn player_fireMonitor;
+                    //} else {
+                    //    PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
+                    //    publicVariableServer "PVDZE_obj_Publish";
+                    //};
                     if (_index call getPermanent) then {
                         _tmpbuilt call fnc_set_temp_deployable_id;
                         if(_index call getDeployableSimulation) then {
                             PVDZE_veh_Publish = [_tmpbuilt,[_dir,_position],(_index call getDeployableClass),true,call fnc_perm_deployable_id];
                             publicVariableServer "PVDZE_veh_Publish";
                         } else {
-                            PVDZE_obj_Publish = [call fnc_perm_deployable_id,_tmpbuilt,[_dir,_position,,_playerUID],(_index call getDeployableClass)];
+                            PVDZE_obj_Publish = [call fnc_perm_deployable_id,_tmpbuilt,[_dir,_position],(_index call getDeployableClass)];
                             publicVariableServer "PVDZE_obj_Publish";
                         };
                     } else {
