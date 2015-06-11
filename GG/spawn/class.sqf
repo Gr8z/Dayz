@@ -53,21 +53,21 @@ classPick = {
 		if ((_hlevel < 0) && {_humanity >= _hlevel}) exitWith {systemChat format["Your humanity must be less than %1 for this class.",_hlevel];_go=0;};
 		if ((_hlevel > 0) && {_humanity <= _hlevel}) exitWith {systemChat format["Your humanity must be greater than %1 for this class.",_hlevel];_go=0;};
 		
-		if ((_level == 1) && {!(_puid in Engineer1 + Engineer2 + Engineer3)}) exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
-		if ((_level == 2) && {!(_puid in Engineer2 + Engineer3)}) exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
-		if ((_level == 3) && {!(_puid in Engineer3)}) exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
-		if ((_level == 4) && {!(_puid in Marksman1 + Marksman2 + Marksman3)}) exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
-		if ((_level == 5) && {!(_puid in Marksman2 + Marksman3)}) exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
-		if ((_level == 6) && {!(_puid in Marksman3)}) exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
-		if ((_level == 7) && {!(_puid in Medic1 + Medic2 + Medic3)}) exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
-		if ((_level == 8) && {!(_puid in Medic2 + Medic3)}) exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
-		if ((_level == 9) && {!(_puid in Medic3)}) exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
-		if ((_level == 10) && {!(_puid in Scout1 + Scout2 + Scout3)}) exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
-		if ((_level == 11) && {!(_puid in Scout2 + Scout3)}) exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
-		if ((_level == 12) && {!(_puid in Scout3)}) exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
-		if ((_level == 13) && {!(_puid in Soldier1 + Soldier2 + Soldier3)}) exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
-		if ((_level == 14) && {!(_puid in Soldier2 + Soldier3)}) exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
-		if ((_level == 15) && {!(_puid in Soldier3)}) exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
+		if ((_level == 1)  && {!(_puid in _Engineer1 + _Engineer2 + _Engineer3)}) 	exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
+		if ((_level == 2)  && {!(_puid in _Engineer2 + _Engineer3)}) 			  	exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
+		if ((_level == 3)  && {!(_puid in _Engineer3)}) 						  	exitWith {systemChat "Only Available for Engineer Loadout Donators.";_go=0;};
+		if ((_level == 4)  && {!(_puid in _Marksman1 + _Marksman2 + _Marksman3)}) 	exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
+		if ((_level == 5)  && {!(_puid in _Marksman2 + _Marksman3)}) 			  	exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
+		if ((_level == 6)  && {!(_puid in _Marksman3)}) 						  	exitWith {systemChat "Only Available for Marksman Loadout Donators.";_go=0;};
+		if ((_level == 7)  && {!(_puid in _Medic1 + _Medic2 + _Medic3)}) 		  	exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
+		if ((_level == 8)  && {!(_puid in _Medic2 + _Medic3)}) 					  	exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
+		if ((_level == 9)  && {!(_puid in _Medic3)}) 								exitWith {systemChat "Only Available for Medic Loadout Donators.";_go=0;};
+		if ((_level == 10) && {!(_puid in _Scout1 + _Scout2 + _Scout3)}) 			exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
+		if ((_level == 11) && {!(_puid in _Scout2 + _Scout3)}) 						exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
+		if ((_level == 12) && {!(_puid in _Scout3)}) 								exitWith {systemChat "Only Available for Scout Loadout Donators.";_go=0;};
+		if ((_level == 13) && {!(_puid in _Soldier1 + _Soldier2 + _Soldier3)}) 		exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
+		if ((_level == 14) && {!(_puid in _Soldier2 + _Soldier3)}) 					exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
+		if ((_level == 15) && {!(_puid in _Soldier3)})								exitWith {systemChat "Only Available for Soldier Loadout Donators.";_go=0;};
 
 	};
 	if (_go > 0) then {uiNamespace setVariable ["classChoice",_class];};

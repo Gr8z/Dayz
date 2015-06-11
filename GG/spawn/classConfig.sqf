@@ -57,3 +57,15 @@ _presetClasses = [
 	["Soldier Level 2","frb_tl_mask","SurvivorWurban_DZ",["30Rnd_556x45_Stanag",4,"RH_7Rnd_50_AE",4,VIP_ITEMS],["RH_hk416aim","RH_Deaglemzb",VIP_TOOLS],"DZ_CivilBackpack_EP1",[],[],14,0],
 	["Soldier Level 3","SFSG_wdl_demo","SurvivorWurban_DZ",["20Rnd_762x51_B_SCAR",4,"RH_7Rnd_50_AE",4,"1Rnd_HE_M203",4,VIP_ITEMS],["SCAR_H_STD_EGLM_Spect","RH_Deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",[],[],15,0]
 ];
+
+_Engineer1 = Engineer1;_Engineer2 = Engineer2;_Engineer3 = Engineer3;
+_Marksman1 = Marksman1;_Marksman2 = Marksman2;_Marksman3 = Marksman3;
+_Medic1 = Medic1;_Medic2 = Medic2;_Medic3 = Medic3;
+_Scout1 = Scout1;_Scout2 = Scout2;_Scout3 = Scout3;
+_Soldier1 = Soldier1;_Soldier2 = Soldier2;_Soldier3 = Soldier3;
+
+Engineer1=nil;Engineer2=nil;Engineer3=nil;
+Marksman1=nil;Marksman2=nil;Marksman3=nil;
+Medic1=nil;Medic2=nil;Medic3=nil;
+Scout1=nil;Scout2=nil;Scout3=nil;
+Soldier1=nil;Soldier2=nil;Soldier3=nil;

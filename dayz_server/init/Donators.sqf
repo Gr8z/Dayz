@@ -304,14 +304,6 @@ Soldier3 = [
 ];
 ///////////////////////////////
 
-vipListBase = [
-	"0"
-];
-
-vipListBases = [
-	[]
-];
-
 vipListClass = [
 	"76561198078201908", //Gr8
 	"76561198153784743", //Ghost
@@ -340,8 +332,6 @@ publicVariable "Soldier1";
 publicVariable "Soldier2";
 publicVariable "Soldier3";
 publicVariable "vipSpawn";
-publicVariable "vipListBase";
-publicVariable "vipListBases";
 publicVariable "vipListClass";
 publicVariable "vipListClasses";
 publicVariable "BankDonator";
