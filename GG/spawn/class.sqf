@@ -110,7 +110,6 @@ if !(_isPZombie) then {
 	{player removeMagazine _x;} count magazines player;
 	removeAllItems player;
 	removeAllWeapons player;
-	removeBackpack player;
 	player addWeapon "ItemWatch";_qty=1;
 	_light = "#lightpoint" createVehicleLocal _debug;
 	_light lightAttachObject [player,[0,1,.1]];
@@ -214,7 +213,6 @@ if !(_isPZombie) then {
 	{player removeMagazine _x;} count magazines player;
 	removeAllItems player;
 	removeAllWeapons player;
-	removeBackpack player;
 	player addWeapon "Loot";
 	player addWeapon "Flare";
 	

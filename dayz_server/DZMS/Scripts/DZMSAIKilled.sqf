@@ -44,7 +44,6 @@ if (isPlayer _player) then {
 	if (DZMSRunGear) then {
 		//Since a player ran them over, or they died from unknown causes
 		//Lets strip their gear
-		removeBackpack _unit;
 		removeAllWeapons _unit;
 		{
 			_unit removeMagazine _x
