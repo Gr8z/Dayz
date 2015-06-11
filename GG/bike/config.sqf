@@ -11,7 +11,7 @@ DZE_DEPLOYABLES_CONFIG = [
 	["CinderBlocks",[0,2,0],5,1,false,true,true,true,false,false,["Hhedgehog_concrete","Land_CncBlock"],[],["CinderBlocks"],"true"],
     ["PartGeneric",[0,2,0],5,1,true,true,false,true,true,false,false,["Desk","FoldChair","FoldTable","SmallTable","Barrel1","Garbage_can"],[],["PartGeneric"],"true"],
     ["PartWoodPile",[0,2,0],5,1,true,true,false,true,true,false,false,["Land_Rack_EP1","Land_Table_EP1","Land_Shelf_EP1","WoodChair","Park_bench2","Park_bench1"],[],["PartWoodPile"],"true"],
-    ["PartWoodPile",[0,2,0],5,1,true,true,true,true,false,false,["Pile_of_wood"],[],["PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile","PartWoodPile"],"true"]
+    ["ItemPlotDeed",[0,8,0],5,-1,false,false,false,true,true,true,true,["Land_MBG_Garage_Single_A","HeliH"],[],["ItemPlotDeed"],"true"]
 ];
 
 //
