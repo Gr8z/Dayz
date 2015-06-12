@@ -4221,10 +4221,11 @@ publicVariable '"+_randvar28+"';
 									_chat ctrlSetText format['You have to wait %1s',ceil((_startTime + _waitTime) - time)];
 								};
 							};
-							if(_txt in ['!cen','/cen','cen']) then
+							if(_txt in ['!admin','/admin','admin','admins']) then
 							{
 								(_display) closeDisplay 0;
 								[nil,player,rSAY,['babycry_1', 100]] call RE;
+								_chat ctrlSetText 'I need to get in Teamspeak to talk to an admin';
 							};
 						};
 						if("+str _UDN+") then
