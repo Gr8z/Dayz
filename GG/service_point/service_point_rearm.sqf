@@ -1,3 +1,5 @@
+// Vehicle Service Point (Rearm) by Axe Cop
+
 private ["_vehicle","_args","_servicePoint","_costs","_magazineCount","_weapon","_type","_name","_weaponType","_weaponName","_turret","_magazines","_ammo","_textMissing"];
 
 _vehicle = _this select 0;
@@ -8,9 +10,6 @@ _servicePoint = _args select 0;
 _costs = _args select 1;
 _magazineCount = _args select 2;
 _weapon = _args select 3;
-_reload = needReload _vehicle;
-
-if (_reload > 0) {titleText ["Your vehicle can only store 1 magazine.", "PLAIN"];};
 
 if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
     _repair_cost = _costs select 1;
@@ -26,6 +25,9 @@ if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
 	
 	_magazines = getArray (configFile >> "CfgWeapons" >> _weaponType >> "magazines");
 	_ammo = _magazines select 0; // rearm with the first magazine
+	
+	// remove all magazines
+	_vehicle removeMagazineTurret [_ammo, _turret];
 	
 	// add magazines
 	for "_i" from 1 to _magazineCount do {

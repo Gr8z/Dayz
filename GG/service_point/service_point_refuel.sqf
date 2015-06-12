@@ -1,3 +1,4 @@
+// Vehicle Service Point (Refuel) by Axe Cop
 
 private ["_vehicle","_args","_servicePoint","_costs","_updateInterval","_amount","_type","_name","_textMissing"];
 

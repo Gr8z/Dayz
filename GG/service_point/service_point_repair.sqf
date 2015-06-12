@@ -1,3 +1,5 @@
+// Vehicle Service Point (Repair) by Axe Cop
+
 private ["_vehicle","_args","_servicePoint","_costs","_repairTime","_type","_name","_hitpoints","_allRepaired","_textMissing"];
 
 _vehicle = _this select 0;
