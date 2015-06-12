@@ -10,7 +10,7 @@ _magazineCount = _args select 2;
 _weapon = _args select 3;
 _reload = needReload _vehicle;
 
-if !(_reload) {titleText ["Your vehicle can only store 1 magazine.", "PLAIN"];};
+if (_reload > 0) {titleText ["Your vehicle can only store 1 magazine.", "PLAIN"];};
 
 if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
     _repair_cost = _costs select 1;
