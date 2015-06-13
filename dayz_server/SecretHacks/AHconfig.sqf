@@ -2,12 +2,12 @@
 /*  Key to open the menu  */ _OpenMenuKey = 0x3B;    /* google DIK_KeyCodes (0x3C is F2) */
 /*  LOW ADMIN HERE        */ _LAdmins = [
 										 "76561198122210030", // Pirate																		 
-										 "76561198151812540", // Casa
+										 "0", // Casa
 										 "76561198080045762", // Deadskin	(Mod)								 
 										 "76561198058099842", // Fap
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
-										 "76561198141529869", // Tristan
+										 "0", // Tristan
 										 "76561198026665364", // ElvaX
 										 "76561197970044945", // MrCheeseyman
 										 "76561198030001934", // CraigusMcGooch
