@@ -42,6 +42,16 @@ _isWreckBuilding = _objType in DZE_isWreckBuilding;
 _isMine = _objType in ["Land_iron_vein_wreck","Land_silver_vein_wreck","Land_gold_vein_wreck"];
 _isModular = _obj isKindOf "ModularItems";
 
+if (_objType in ["Iron_Vein_DZE","Silver_Vein_DZE","Gold_Vein_DZE","Supply_Crate_DZE"]) then {
+	if (_objType == "Iron_Vein_DZE") 	then 	{_objType = "Land_iron_vein_wreck"};
+	if (_objType == "Iron_Vein_DZE")	then	{_objType = "Land_iron_vein_wreck"};
+	if (_objType == "Silver_Vein_DZE")	then	{_objType = "Land_silver_vein_wreck"};
+	if (_objType == "Gold_Vein_DZE")	then	{_objType = "Land_gold_vein_wreck"};
+	if (_objType == "Supply_Crate_DZE")	then	{_objType = "Land_ammo_supply_wreck"};
+};
+
+if(({isPlayer _x && _x != player} count (player nearEntities [['CAManBase'], 10])) > 0 && _isWreck  && _isWreckBuilding && !_isModular) exitWith { cutText ["The other Person is interrupting my actions" , "PLAIN DOWN"]; };
+
 _limit = 3;
 if (DZE_StaticConstructionCount > 0) then {
 	_limit = DZE_StaticConstructionCount;

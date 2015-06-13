@@ -407,6 +407,8 @@ spawn_ammosupply = {
 			_veh setDir round(random 360);
 			_veh setpos _position;
 			_veh setVariable ["ObjectID","1",true];
+			_veh addEventHandler ["HandleDamage", {false}];
+			_veh enableSimulation false;
 		};
 	};
 };
@@ -495,7 +497,8 @@ spawn_mineveins = {
 			_veh setpos _position;
 
 			_veh setVariable ["ObjectID","1",true];
-
+			_veh addEventHandler ["HandleDamage", {false}];
+			_veh enableSimulation false;
 		
 		};
 	};
