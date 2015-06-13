@@ -188,7 +188,7 @@ class Mission
 		};
 		class Item2
 		{
-			position[]={4492.81,8296.52,0.00140381};
+			position[]={4492.81,0,8296.52};
 			name="DichinaBase";
 			text="Dichina Base";
 			type="defend";
