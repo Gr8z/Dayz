@@ -1,5 +1,3 @@
-// Vehicle Service Point (Rearm) by Axe Cop
-
 private ["_vehicle","_args","_servicePoint","_costs","_magazineCount","_weapon","_type","_name","_weaponType","_weaponName","_turret","_magazines","_ammo","_textMissing"];
 
 _vehicle = _this select 0;
