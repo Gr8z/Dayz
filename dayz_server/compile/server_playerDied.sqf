@@ -18,6 +18,7 @@ sleep 3;
 
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
+_pic = _victim getVariable["AttackedByWeaponImg", "nil"];
 
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
@@ -36,10 +37,7 @@ if ((typeName _killer) != "STRING") then
 		_message = format["%1 was killed by %2 with weapon %3 from %4m",_victimName, _killerName, _weapon, _distance];
 		_loc_message = format["PKILL: %1 was killed by %2 with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance];
 	
-	
-		_pic = _victim getVariable["AttackedByWeaponImg", "nil"];
-		
-                if ((gettext (configFile >> 'cfgWeapons' >> (currentWeapon _killer) >> 'displayName')) != "Throw") then {
+        if ((gettext (configFile >> 'cfgWeapons' >> (currentWeapon _killer) >> 'displayName')) != "Throw") then {
 			if (!isNil "_pic") then {
 				_kill_txt = format ["<t align='left' size='0.7'>%1 </t>",_killerName,_pic,_victimName,(ceil _distance)];
 				_kill_txt = _kill_txt + format ["<img size='0.9' align='left' image='%2'/>",_killerName,_pic,_victimName,(ceil _distance)];
