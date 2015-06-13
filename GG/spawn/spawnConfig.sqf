@@ -4,10 +4,6 @@ _spawnNearGroup = true; // Allow players to spawn near their group. Blocked if t
 _spawnNearPlot = false; // Allow players to spawn near their plot. Blocked if the player has a body within bodyCheck distance of their plot. Requires Plot4Life to work. 
 _spawnRadius = 800; // Distance around spawn to find a safe pos. Lower is closer to exact coordinates. Do not set too low or BIS_fnc_findSafePos may fail.
 
-_vipSpawn = vipSpawn;
-vipSpawn = nil;
-
-
 _spawnPoints = switch (toLower worldName) do {
 case "chernarus":{
 	[

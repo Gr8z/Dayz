@@ -1,4 +1,4 @@
-#define GET_TEXT disableSerialization;_text=lbText[8888,(lbCurSel 8888)];{if(_text==(_x select 0))then{_spawn=_x;};}forEach _spawnPoints;
+#define GET_TEXT disableSerialization;_text=lbText[8888,(lbCurSel 8888)];{if(_text==(_x select 0))then{_spawn=_x;};}forEach _spawnPoints+vipListBases;
 #define GROUP_POS _leader=leader((uiNamespace getVariable "myGroupPos")select 0);_grid=getPosATL _leader;if(surfaceIsWater _grid)then{_grid=getPosASL _leader;};
 #define PLOT_POS _plot=(uiNamespace getVariable "myPlotPos")select 0;_grid=getPosATL _plot;if(surfaceIsWater _grid)then{_grid=getPosASL _plot;};
 #define UNLCK_PIC _lb lbSetPicture[_index,"\ca\ui\data\objective_complete_ca.paa"];
@@ -59,7 +59,7 @@ spawnFill = {
 			_level = _x select 2;
 			_hlevel = _x select 3;
 			if (((_hlevel < 0) && {_humanity >= _hlevel}) || 
-				{(_level == 1) && {!(_puid in _vipSpawn)}} || 
+				{(_level == 1) && {!(_puid in vipSpawn)}} || 
 				{(_hlevel > 0) && {_humanity <= _hlevel}}
 				) then {_lock=1;};
 			_index = _lb lbAdd _text;
@@ -73,6 +73,13 @@ spawnFill = {
 	} forEach _spawnPoints;
 	if ((_blockGroup < 1) && {_spawnNearGroup} && {count (uiNamespace getVariable "myGroupPos") > 0}) then {_index = _lb lbAdd "Near MyGroup";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
 	if ((_blockPlot < 1) && {count (uiNamespace getVariable "myPlotPos") > 0}) then {_index = _lb lbAdd "Near My PlotPole";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
+	if (_puid in vipListBase) then {
+		{if (_puid == _x) then {_index = _forEachIndex;};} forEach vipListBase;
+		_base = vipListBases select _index;
+		_index = _lb lbAdd (_base select 0);
+		_lb lbSetColor [_index,[0,1,0,.8]];
+		UNLCK_PIC
+	};
 	lbSort _lb;
 };
 
@@ -91,7 +98,7 @@ spawnPick = {
 		_puid = getPlayerUID player;
 		if ((_hlevel < 0) && {_humanity >= _hlevel}) exitWith {systemChat format["Your humanity must be less than %1 for this spawn.",_hlevel];_go=0;};
 		if ((_hlevel > 0) && {_humanity <= _hlevel}) exitWith {systemChat format["Your humanity must be greater than %1 for this spawn.",_hlevel];_go=0;};
-		if ((_level == 1) && {!(_puid in _vipSpawn)}) exitWith {systemChat "Donate for VIP Spawn to Unlock this Spawn";_go=0;};
+		if ((_level == 1) && {!(_puid in vipSpawn)}) exitWith {systemChat "Donate for VIP Spawn to Unlock this Spawn";_go=0;};
 	};
 	if (_go > 0) then {uiNamespace setVariable ["spawnChoice",_spawn];};
 };
