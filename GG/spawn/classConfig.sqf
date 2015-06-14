@@ -3,7 +3,7 @@
 
 _startBag = "DZ_ALICE_Pack_EP1";
 _startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_12Rnd_45cal_usp",3];
-_startWeps = ["ItemMap","ItemFlashlight","ItemToolbox","RH_uspm"];
+_startWeps = ["ItemMap","ItemFlashlight","ItemToolbox","RH_uspm","ItemCompass"];
 _customLoadout = [
 	"76561198078201908", //Gr8
 	"76561198153784743", //Ghost
@@ -30,8 +30,8 @@ _presetClasses = [
 		[],3,
 		0,0
 	],
-	["Bandit","Bandit2_DZ","BanditW1_DZ",["10x_303",2,"ItemSodaRabbit"],["LeeEnfield"],"",[],[],0,-5000],
-	["Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["30Rnd_556x45_Stanag",4],["M4A1","ItemEtool","ItemGPS"],"",[],[],0,5000],
+	["Bandit","Bandit2_DZ","BanditW1_DZ",["10x_303",2,"ItemSodaRabbit"],["LeeEnfield","ItemCompass"],"",[],[],0,-5000],
+	["Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["30Rnd_556x45_Stanag",4],["M4A1","ItemEtool","ItemGPS","ItemCompass"],"",[],[],0,5000],
 	["Survivor","Survivor2_DZ","SurvivorW2_DZ",[],[],"",[],[],0,0],
 	["British Soldier","Soldier1_DZ","SurvivorWcombat_DZ",[],[],"",[],[],0,0],
 	["Business Person","Functionary1_EP1_DZ","SurvivorWurban_DZ",["ItemBriefcaseS20oz"],[],"",[],[],0,0],
