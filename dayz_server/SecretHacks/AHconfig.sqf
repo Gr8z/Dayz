@@ -2,15 +2,16 @@
 /*  Key to open the menu  */ _OpenMenuKey = 0x3B;    /* google DIK_KeyCodes (0x3C is F2) */
 /*  LOW ADMIN HERE        */ _LAdmins = [
 										 "76561198122210030", // Pirate																		 
-										 "0", // Casa
 										 "76561198080045762", // Deadskin	(Mod)								 
 										 "76561198058099842", // Fap
 										 "76561198086518302", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
-										 "0", // Tristan
 										 "76561198026665364", // ElvaX
 										 "76561197970044945", // MrCheeseyman
 										 "76561198030001934", // CraigusMcGooch
+										 "76561198080687547", // Darksnuggles
+										 "76561198073669230", // Jack Black
+										 "76561198106969966", // Sassy
 										 "0" // 
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
@@ -20,7 +21,6 @@
 										 "76561197973172761",  // Milton
 										 "76561198183434467",  // MeowMix
 										 "76561198084864687",  // Kozak
-										 "0",  // Lazy fuk
 										 "76561198195305425",  // Shahzad
 										 "0"
 										 ]; 
