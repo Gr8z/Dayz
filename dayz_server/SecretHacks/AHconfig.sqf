@@ -12,6 +12,7 @@
 										 "76561198080687547", // Darksnuggles
 										 "76561198073669230", // Jack Black
 										 "76561198106969966", // Sassy
+										 "76561198110162434", // Chemical Burn
 										 "0" // 
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
