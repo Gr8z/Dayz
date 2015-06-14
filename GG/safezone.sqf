@@ -233,8 +233,7 @@ don_godon_1 = 0;
 		don_incar = 1;
 		if (!canbuild) then {
 			//VEHICLE OWNERITY CHECK
-			_don_veh_crew = don_player_veh getVariable ["don_crew", nil]; 
-			if (isNil "_don_veh_crew") then {_don_veh_crew = [player] call FNC_GetPlayerUID;};
+			_don_veh_crew = don_player_veh getVariable ["don_crew", nil]; if (isNil "_don_veh_crew") then {_don_veh_crew = [getPlayerUID player];};
 			if !(getPlayerUID player in _don_veh_crew) then {
 				call compile format ['if (isNil "don_%1") then {don_%1 = diag_tickTime;}; _last_mark = don_%1;', don_player_veh getVariable ["don_ownerity_code", 0]];
 				_wait_time = diag_tickTime - _last_mark;
