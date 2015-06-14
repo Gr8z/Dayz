@@ -101,27 +101,21 @@ class CfgSounds
 	class carLock
     {
     name = "signalka";
-    sound[] = {GG\sounds\lock.ogg,.1,1};
+    sound[] = {GG\sounds\lock.ogg,0.1,1};
     titles[] = {};
     };
 	class suvLock
     {
     name = "suvLock";
-    sound[] = {GG\sounds\suvLock.ogg,.1,1};
+    sound[] = {GG\sounds\suvLock.ogg,0.1,1};
     titles[] = {};
     };
 	class introSong
     {
     name = "introSong";
-    sound[]={GG\sounds\introSong.ogg,0.9,1};
+    sound[]={GG\sounds\introSong.ogg,0.4,1};
     titles[] = {};
     };
-	class bong
-	{
-	name="bong";
-	sound[]={GG\sounds\bong.ogg,0.9,1};
-	titles[] = {};
-	};
 };
 
 class RscLoadingText : RscText
