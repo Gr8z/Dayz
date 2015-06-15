@@ -133,7 +133,9 @@ _FORBIDDEN_Vehicles =
 	"Igla_AA_pod_East","Igla_AA_pod_East","Stinger_pod_US_EP1","TOW_TriPod_US_EP1","TOW_TriPod","Metis_TK_EP1","Metis",
 	"SPG9_TK_GUE_EP1","Stinger_Pod","SPG9_CDF","SPG9_Ins","SPG9_Gue","SPG9_TK_INS_EP1","AGS_TK_INS_EP1","AGS_CZ_EP1",
 	"MK19_TriPod_US_EP1","AGS_UN_EP1","2b14_82mm_CZ_EP1","2b14_82mm_GUE","2b14_82mm","M252","2b14_82mm_INS","2b14_82mm_CDF",
-	"2b14_82mm_TK_GUE_EP","2b14_82mm_TK_EP1","M252_US_EP1","M252_US_EP1","BRDM2_Gue","BRDM2_CDF","BRDM2_INS","HMMWV_M998_crows_MK19_DES_EP1"
+	"2b14_82mm_TK_GUE_EP","2b14_82mm_TK_EP1","M252_US_EP1","M252_US_EP1","BRDM2_Gue","BRDM2_CDF","BRDM2_INS",
+	"HMMWV_M998_crows_MK19_DES_EP1","Chukar","Chukar_EP1","Chukar_EP1","Su25_Ins","MQ0PredatorB","MQ0PredatorB_US_EP1",
+	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","A10","Ka60_GL_PMC"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
