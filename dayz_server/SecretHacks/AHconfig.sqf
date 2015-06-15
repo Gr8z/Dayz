@@ -117,7 +117,7 @@ _ALLOWED_Vehicles = ["ALL IF _UVW = false","Tractor","Policecar"];
 _FORBIDDEN_Vehicles =
 [
 	"AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V","AAV","LAV25_DZ","Mi24_P","Mi24_D","KA52","KA52Black","SU39",
-	"Su25_CDF","SU25_Ins","A10_US_EP1","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU","T72_CDF",
+	"Su25_CDF","SU25_Ins","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU","T72_CDF",
 	"T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1","BAF_Apache_AH1_D","UH60M_MEV_EP1",
 	"Mi17_rockets_RU","Mi171Sh_rockets_CZ_EP1","Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1",
 	"T72_TK_EP1","BMP2_TK_EP1","BMP2_UN_EP1","BMP2_HQ_TK_EP1","ZSU_TK_EP1","MLRS_DES_EP1","T34_TK_EP1",
@@ -135,7 +135,7 @@ _FORBIDDEN_Vehicles =
 	"MK19_TriPod_US_EP1","AGS_UN_EP1","2b14_82mm_CZ_EP1","2b14_82mm_GUE","2b14_82mm","M252","2b14_82mm_INS","2b14_82mm_CDF",
 	"2b14_82mm_TK_GUE_EP","2b14_82mm_TK_EP1","M252_US_EP1","M252_US_EP1","BRDM2_Gue","BRDM2_CDF","BRDM2_INS",
 	"HMMWV_M998_crows_MK19_DES_EP1","Chukar","Chukar_EP1","Chukar_EP1","Su25_Ins","MQ0PredatorB","MQ0PredatorB_US_EP1",
-	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","A10","Ka60_GL_PMC"
+	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
