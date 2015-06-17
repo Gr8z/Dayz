@@ -5,6 +5,7 @@ _unconscious = 	_dragee getVariable ["NORRN_unconscious", false];
 
 if (isNull _dragee) exitWith {}; 
 if (!_unconscious) exitWith {}; 
+if (!canbuild) exitWith {};
 
 //player assumes dragging posture
 _dragee setVariable ["NORRN_unit_dragged", true, true]; 
