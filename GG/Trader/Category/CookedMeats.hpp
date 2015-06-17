@@ -7,4 +7,4 @@ class FoodmuttonCooked { type = "trade_items"; buy[] = {40,"Coins"}; sell[] = {2
 class FoodrabbitCooked { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
 class ItemTroutCooked { type = "trade_items"; buy[] = {2000,"Coins"}; sell[] = {250,"Coins"}; }; 
 class ItemSeaBassCooked { type = "trade_items"; buy[] = {3000,"Coins"}; sell[] = {500,"Coins"}; }; 
-class ItemTunaCooked { type = "trade_items"; buy[] = {6000,"Coins"}; sell[] = {1250,"Coins"}; }; }; 
+class ItemTunaCooked { type = "trade_items"; buy[] = {5400,"Coins"}; sell[] = {1450,"Coins"}; }; }; 
