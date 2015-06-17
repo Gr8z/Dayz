@@ -2,7 +2,7 @@
 class Category_527 { 
 class FHQ_rem_30Rnd_680x43_ACR {type = "trade_items";buy[] = {150,"Coins"};sell[] = {50,"Coins"};};
 class FHQ_rem_30Rnd_680x43_ACR_SD {type = "trade_items";buy[] = {250,"Coins"};sell[] = {50,"Coins"};};
-class 20Rnd_9x39_SP5_VSS {type = "trade_items";buy[] = {300,"Coins"};sell[] = {100,"Coins"};}; 
+class 20Rnd_9x39_SP5_VSS {type = "trade_items";buy[] = {300,"Coins"};sell[] = {115,"Coins"};}; 
 class 8Rnd_B_Beneli_74Slug {type = "trade_items";buy[] = {2,"Coins"};sell[] = {1,"Coins"};}; 
 class 20Rnd_762x51_SB_SCAR {type = "trade_items";buy[] = {100,"Coins"};sell[] = {50,"Coins"};}; 
 class 8Rnd_B_Beneli_Pellets {type = "trade_items";buy[] = {2,"Coins"};sell[] = {1,"Coins"};}; 
@@ -18,11 +18,11 @@ class 75Rnd_545x39_RPK {type = "trade_items";buy[] = {30,"Coins"};sell[] = {10,"
 class 64Rnd_9x19_Bizon {type = "trade_items";buy[] = {10,"Coins"};sell[] = {5,"Coins"};}; 
 class 5Rnd_127x108_KSVK {type = "trade_items";buy[] = {200,"Coins"};sell[] = {100,"Coins"};}; 
 class 50Rnd_127x107_DSHKM {type = "trade_items";buy[] = {200,"Coins"};sell[] = {100,"Coins"};};
-class 150Rnd_127x107_DSHKM {type = "trade_items";buy[] = {500,"Coins"};sell[] = {400,"Coins"};};
-class 100Rnd_127x99_M2 {type = "trade_items";buy[] = {500,"Coins"};sell[] = {400,"Coins"};}; 
-class 2000Rnd_762x51_M134 {type = "trade_items";buy[] = {1000,"Coins"};sell[] = {500,"Coins"};}; 
-class 5Rnd_86x70_L115A1 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {100,"Coins"}; }; 
-class PG7V {type = "trade_items";buy[] = {10000,"Coins"};sell[] = {2500,"Coins"};};
-class PG7VR {type = "trade_items";buy[] = {50000,"Coins"};sell[] = {7500,"Coins"};};
+class 150Rnd_127x107_DSHKM {type = "trade_items";buy[] = {450,"Coins"};sell[] = {350,"Coins"};};
+class 100Rnd_127x99_M2 {type = "trade_items";buy[] = {450,"Coins"};sell[] = {350,"Coins"};}; 
+class 2000Rnd_762x51_M134 {type = "trade_items";buy[] = {900,"Coins"};sell[] = {575,"Coins"};}; 
+class 5Rnd_86x70_L115A1 { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {115,"Coins"}; }; 
+class PG7V {type = "trade_items";buy[] = {9000,"Coins"};sell[] = {2845,"Coins"};};
+class PG7VR {type = "trade_items";buy[] = {45000,"Coins"};sell[] = {8625,"Coins"};};
 
 }; 
