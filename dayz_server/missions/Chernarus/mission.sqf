@@ -13,7 +13,7 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\nw_airstrip.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\oilfieldsbase.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\skalistyrefuge.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\westBase.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\debug.sqf";
 };
 
 _vehicle_2 = objNull;

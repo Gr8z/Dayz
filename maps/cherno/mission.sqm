@@ -306,6 +306,12 @@ class Mission
 			type="mil_dot";
 			colorName="ColorOrange";
 		};
+		class Item17
+		{
+			position[]={64.971161,0.13931541,1590.6635};
+			name="respawn_west";
+			type="Empty";
+		};
 	};
 	class Sensors
 	{
