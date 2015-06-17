@@ -3,21 +3,8 @@ private ["_debug","_go","_holder","_isPZombie","_platform"];
 
 _debug = getMarkerPos "respawn_west";
 
-	if (surfaceIsWater _debug) then {
-		_debug set [2,2];
-		_platform = "MetalFloor_DZ" createVehicleLocal _debug;
-		_platform setPosASL _debug;
-		_platform allowDamage false;
-		_platform hideObject true;
-		_platform enableSimulation false;
-	};
-	waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 	diag_log "spawn script starting..";
-	_isPZombie = player isKindOf "PZombie_VB";
-	_go = dayzPlayerLogin2 select 2;
 
-
-if (_go) then {
 	enableEnvironment false;
 	0 fadeSound 0;
 	if ((player distance _debug) > 100) then {
@@ -54,4 +41,3 @@ if (_go) then {
 	enableEnvironment true;
 	0 fadeSound 1;
 	if (isNil "_halo") then {cutText ["","BLACK IN"];};
-};

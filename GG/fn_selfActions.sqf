@@ -733,10 +733,19 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	} else {		
 		player removeAction s_bank_dialog2;
 		s_bank_dialog2 = -1;
+	};	
+	
+	if(_typeOfCursorTarget in DZE_ATM  and (player distance _cursorTarget < 3)) then {		
+		if (s_spawn_dialog < 0) then {
+			s_spawn_dialog = player addAction ["SPAWN SELECTION", "GG\spawn\start.sqf",_cursorTarget, 3, true, true, "", ""];
+		};
+	} else {		
+		player removeAction s_spawn_dialog;
+		s_spawn_dialog = -1;
 	};
 
 	//Allow owner to pack vault
-	if(_typeOfCursorTarget in DZE_UnLockedStorage && _characterID != "0" && (player distance _cursorTarget < 3)) then {
+	if(_typeOfCursorTarget == "MAP_phonebox" && _characterID != "0" && (player distance _cursorTarget < 3)) then {
 
 		if (s_player_lockvault < 0) then {
 			if(_characterID == dayz_combination || _ownerID == dayz_playerUID) then {
@@ -1154,7 +1163,9 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	player removeAction s_bank_dialog;
 	s_bank_dialog = -1;
 	player removeAction s_bank_dialog2;
-	s_bank_dialog2 = -1;
+	s_bank_dialog2 = -1;	
+	player removeAction s_spawn_dialog;
+	s_spawn_dialog = -1;
 	player removeAction s_player_packOBJ;
 	s_player_packOBJ = -1;
 	player removeAction s_player_garage;

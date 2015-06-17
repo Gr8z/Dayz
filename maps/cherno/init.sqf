@@ -54,7 +54,6 @@ if (!isDedicated) then {
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
 	_playerMonitor = 	[] execVM "GG\player_monitor.sqf";	
-	execVM "GG\spawn\start.sqf";
 	[] execVM "GG\group\init.sqf";
 	[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	_nil = [] execVM "GG\remote.sqf";
