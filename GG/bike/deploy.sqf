@@ -42,7 +42,7 @@ if(!DZE_DEPLOYING_SUCCESSFUL) then {
     taskHint [format["You've built a %1!",(_this call getDeployableDisplay)], DZE_COLOR_PRIMARY, "taskDone"];
 
     sleep 10;
-
+	player removeAllEventHandlers 'WeaponDisassembled';
     // notify of despawn if it's not a permanent vehicle
     if (!(_this call getPermanent)) then { 
         cutText ["Warning: Deployed Mountian Bikes DO NOT SAVE after server restart!", "PLAIN DOWN"]; 

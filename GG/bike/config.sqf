@@ -6,18 +6,13 @@ DZE_DEPLOYABLES_CONFIG = [
 	["MK19_TriPod_US_Bag_EP1",[0,2,0],1,0.9,true,false,false,true,false,true,false,["MK19_TriPod"],[],["MK19_TriPod_US_Bag_EP1"],"true"],
 	["BAF_GMG_ACOG_minitripod_bag",[0,2,0],1,0.9,true,false,false,true,false,true,false,["BAF_GMG_Tripod_D"],[],["BAF_GMG_ACOG_minitripod_bag"],"true"],
     ["ItemToolbox",[0,5,1],5,0.9,false,false,false,false,false,true,true,["MMT_Civ"],[],["ItemToolbox"],"true"],
-	["ItemToolbox",[0,5,1],5,0.5,false,true,false,true,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
-	["ItemToolbox",[0,5,2],7,0.5,false,true,false,true,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"],
-	["CinderBlocks",[0,2,0],5,1,false,true,true,true,false,false,["Hhedgehog_concrete","Land_CncBlock"],[],["CinderBlocks"],"true"],
-    ["PartGeneric",[0,2,0],5,1,true,true,false,true,true,false,false,["Desk","FoldChair","FoldTable","SmallTable","Barrel1","Garbage_can"],[],["PartGeneric"],"true"],
-    ["PartWoodPile",[0,2,0],5,1,true,true,false,true,true,false,false,["Land_Rack_EP1","Land_Table_EP1","Land_Shelf_EP1","WoodChair","Park_bench2","Park_bench1"],[],["PartWoodPile"],"true"],
-    ["ItemPlotDeed",[0,8,0],5,-1,false,false,false,true,true,true,true,["Land_MBG_Garage_Single_A","HeliH"],[],["ItemPlotDeed"],"true"]
+	["ItemToolbox",[0,5,1],5,0.5,false,false,false,true,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
+	["ItemToolbox",[0,5,2],7,0.5,false,false,false,true,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"]
 ];
 
 //
 DZE_DEPLOYABLE_NAME_MAP = [
-    ["Notebook","Macbook Pro"],
-    ["Hhedgehog_concrete","Dragon Teeth"]
+    ["Notebook","Macbook Pro"]
 ];
 
 DZE_DEPLOYABLE_ADMINS = [

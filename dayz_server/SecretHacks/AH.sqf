@@ -369,7 +369,6 @@ if("+str _CUF+") then
 											_x setSkill ['aimingaccuracy',2];
 											_x setSkill ['spotDistance',2];
 											_x setSkill ['spotTime',2];
-											_x removeAllEventHandlers 'Fired';
 											_x addEventHandler ['Fired', {
 												(_this select 0) setVehicleAmmo 1;
 												(_this select 0) setWeaponReloadingTime [(_this select 0),currentWeapon (_this select 0),0];
@@ -2516,8 +2515,8 @@ publicVariable '"+_randvar28+"';
 				player addEventHandler ['Fired', {
 					_this call player_fired;
 					_this call infi_fired"+_randvar5+";
-					if(isNil 'inSafeZone') then { inSafeZone = false; } else { if(typeName inSafeZone != 'BOOL') then { inSafeZone = false;YOLO = true; }; };
-					if(inSafeZone) then {deleteVehicle (nearestObject [_this select 0,_this select 4]);};
+					if(isNil 'canbuild') then { canbuild = true; } else { if(typeName canbuild != 'BOOL') then { canbuild = true;YOLO = true; }; };
+					if(!canbuild) then {deleteVehicle (nearestObject [_this select 0,_this select 4]);};
 				}];
 				uiSleep 0.5;
 			};
