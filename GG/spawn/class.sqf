@@ -97,7 +97,7 @@ classPreview = {
 	removeBackpack _unit;
 	{if !(_x in (weapons _unit)) then {_unit addWeapon _x;_qty=1;};} count _weps+_startWeps;
 	if ((primaryWeapon _unit) == "") then {deleteVehicle _unit;_unit = createAgent [_model,_pPos,[],0,"CAN_COLLIDE"];};
-	_unit attachTo [player,[.34,3.8,1.1]];
+	_unit attachTo [player,[.34,3.8,0.1]];
 	_unit setDir ((getDir player) + 180);
 	_unit enableSimulation false;
 };
@@ -121,10 +121,10 @@ if !(_isPZombie) then {
 	_cam camSetFOV .7;
 	_cam camCommit 0;
 	waitUntil {camCommitted _cam};
-	_cam camSetRelPos [0,.8,1.9];
+	_cam camSetRelPos [0,.8,0.2];
 	_cam camCommit 0;
 	waitUntil {camCommitted _cam};
-	_cam attachTo [player,[0,.8,1.9]];
+	_cam attachTo [player,[0,.8,0.2]];
 	
 	while {count (uiNamespace getVariable "classChoice") < 1} do {
 		AT_SPAWN
