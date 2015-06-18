@@ -28,7 +28,7 @@ _walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","It
 _supplies = ["CinderBlocks","MortarBucket","ItemTankTrap","PartWoodPlywood","PartWoodLumber","ItemPole","PartGlass"];
 
 
-_giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS"] call BIS_fnc_selectRandom;
+_giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1"] call BIS_fnc_selectRandom;
 _possibleMags = getArray (configfile >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags select 0;
 
@@ -85,6 +85,7 @@ _chute setVariable ["ObjectID", ""];
 _smoke = "SmokeShellBlue" createVehicle (getPos _box);
 _smoke attachTo [_box, [0,0,0]];
 _var = floor((random 20) + 1);
+_var2 = floor((random 10) + 1);
 
 //display text to alert user
 _textt = format ["\nCarepackage is above you!",10];
@@ -111,7 +112,7 @@ clearmagazinecargoglobal _boxx;
 
 {_boxx addMagazineCargoGlobal [_x, _var];} forEach _crateItems;
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
-_boxx addMagazineCargoGlobal [_mag, _var];
+_boxx addMagazineCargoGlobal [_mag, _var2];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
 
 DZE_ActionInProgress = false;
