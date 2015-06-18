@@ -97,7 +97,7 @@ classPreview = {
 	removeBackpack _unit;
 	{if !(_x in (weapons _unit)) then {_unit addWeapon _x;_qty=1;};} count _weps+_startWeps;
 	if ((primaryWeapon _unit) == "") then {deleteVehicle _unit;_unit = createAgent [_model,_pPos,[],0,"CAN_COLLIDE"];};
-	_unit attachTo [player,[.34,3.8,1.1]];
+	_unit attachTo [player,[.34,1.8,1.1]];
 	_unit setDir ((getDir player) + 180);
 	_unit enableSimulation false;
 };
