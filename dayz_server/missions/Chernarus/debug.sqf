@@ -294,9 +294,10 @@ if (true) then
 _vehicle_243 = objNull;
 if (true) then
 {
-  _this = createVehicle ["SignM_UN_Base_EP1", [71.474258, 1589.5548, 0.57002473], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["WarfareBunkerSign", [71.474258, 1589.5548, 0.57002473], [], 0, "CAN_COLLIDE"];
   _vehicle_243 = _this;
   _this setDir 79.330956;
+  _this setVehicleInit "this setObjectTexture [0, ""GG.jpg""]";
   _this setPos [71.474258, 1589.5548, 0.57002473];
 };
 
@@ -307,14 +308,6 @@ if (true) then
   _vehicle_244 = _this;
   _this setDir 31.412006;
   _this setPos [64.631271, 1601.5685];
-};
-
-_vehicle_246 = objNull;
-if (true) then
-{
-  _this = createVehicle ["WeaponHolder_M4A1", [63.216022, 1603.9229, 0.11660497], [], 0, "CAN_COLLIDE"];
-  _vehicle_246 = _this;
-  _this setPos [63.216022, 1603.9229, 0.11660497];
 };
 
 _vehicle_249 = objNull;
