@@ -2,8 +2,9 @@
 private ["_debug","_go","_holder","_isPZombie","_platform"];
 
 _debug = getMarkerPos "respawn_west";
-
-	diag_log "spawn script starting..";
+diag_log "spawn script starting..";
+_isPZombie = player isKindOf "PZombie_VB";
+_go = dayzPlayerLogin2 select 2;
 
 	enableEnvironment false;
 	0 fadeSound 0;
