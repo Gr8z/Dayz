@@ -434,7 +434,7 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={3445.0112,0,3804.1453};
+			position[]={64.971161,0, 1590.6635};
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
