@@ -88,7 +88,7 @@ _var = floor((random 20) + 1);
 _var2 = floor((random 10) + 1);
 
 //display text to alert user
-_textt = format ["\nCarepackage is above you!",10];
+_textt = format ["\The Air Drop is above you!",10];
 titleText [_textt,"PLAIN DOWN"];
 
 while {getPos _box select 2 > 4} do
