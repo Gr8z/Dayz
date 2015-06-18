@@ -1029,10 +1029,4 @@ cad_pvar_shared_var = 0; cad_pvar_server_answer = 1;
 	owner (_this select 1) publicVariableClient "cad_pvar_server_answer";
 };
 
-_lastcheck = diag_tickTime;
-while {true} do {
-	if (((diag_tickTime - _lastcheck) > 600)) then
-		#include "cleanup.sqf";
-	};
-	sleep 5;
-};
+#include "cleanup.sqf";
