@@ -441,8 +441,8 @@ class Mission
 			age="UNKNOWN";
 			name="debug";
 			expCond="(player distance debug) < 200;";
-			expActiv="s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];fnc_usec_damageHandler = {};player removeAllEventHandlers 'handleDamage';player addEventHandler ['handleDamage', {false}];player allowDamage false;Gfired = player addEventHandler ['Fired',{deleteVehicle (_this select 6);}];";
-			expDesactiv="player removeAction s_spawn_dialog;s_spawn_dialog = -1;fnc_usec_damageHandler = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';player allowDamage true;player removeAllEventHandlers 'handleDamage';player addEventHandler ['handleDamage', {_this call fnc_usec_damageHandler;}];player removeEventHandler ['Fired', Gfired]; Gfired = nil;";
+			expActiv="inDebug = false;";
+			expDesactiv="inDebug = true;";
 			class Effects
 			{
 			};

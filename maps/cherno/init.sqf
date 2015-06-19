@@ -66,6 +66,7 @@ if (!isDedicated) then {
 	execVM "GG\Reward.sqf";
 };
 execVM "GG\safezone.sqf";
+execVM "GG\debug.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 
