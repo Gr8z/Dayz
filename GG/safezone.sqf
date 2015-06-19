@@ -124,6 +124,14 @@ don_godon_1 = 0;
 						object_monitorGear = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\object_monitorGear.sqf';
 						vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
 					   
+						if (isNil "don_firedEH_1") then {
+							don_firedEH_1 = 0; sleep 0.025;
+							don_firedEH_1 = player addEventHandler ["Fired",{
+								cutText ["You can not fire in a SafeZone!","WHITE IN", 2];
+								deleteVehicle (_this select 6);
+							}];
+						};
+					   
 						_veh = vehicle player;
 						_szs = _veh getVariable ['inSafeZone',0];
 						if (_szs == 1) then
