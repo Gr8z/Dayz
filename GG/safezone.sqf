@@ -1,5 +1,4 @@
 don_incar = 0;
-don_firedEH_1 = nil;
 don_godon_1 = 0;
 [] spawn {
 	private ["_runOneTime","_canbuild","_don_passengers","_don_veh_crew","_don_player_veh","_don_veh_driver"];
@@ -7,6 +6,8 @@ don_godon_1 = 0;
 	if (isNil 'canbuild') then { canbuild = true; } else { if (typename canbuild != 'BOOL') then { canbuild = true; }; };
 	_runOneTime = false;
 	_canbuild = canbuild;
+	
+	
 	while {true} do {
 		waitUntil {!((_canbuild && canbuild) || (!_canbuild && !canbuild)) || !_runOneTime};
 		_canbuild = canbuild;
@@ -26,12 +27,10 @@ don_godon_1 = 0;
                                 publicVariableServer 'PVDZE_send';
                         };
                 };
-				if (isNil "don_firedEH_1") then {
-					don_firedEH_1 = 0; sleep 0.025;
-					don_firedEH_1 = player addEventHandler ["Fired",{
-						cutText ["You can not fire in a SafeZone!","WHITE IN", 2];
-						deleteVehicle (_this select 6);
-					}];
+				
+				player_fired = {
+					deleteVehicle (nearestObject [_this select 0,_this select 4]);
+					cutText ['You can not fire in a SafeZone!','WHITE IN'];
 				};
 				
                 wild_spawnZombies = {};
@@ -41,7 +40,7 @@ don_godon_1 = 0;
                 player addEventHandler ['handleDamage', {false}];
                 player allowDamage false;
 				player removeAllEventHandlers 'Fired';
-                player addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
+                player addEventHandler ['Fired', {_this call player_fired;}];
                 _veh = vehicle player;
                 _szs = _veh getVariable ['inSafeZone',0];
                 if (_szs == 0) then
@@ -50,10 +49,10 @@ don_godon_1 = 0;
                         if (player != _veh) then
                         {
                                 _veh removeAllEventHandlers 'Fired';
-                                _veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
+                                _veh addEventHandler ['Fired', {_this call player_fired;}];
                                 {
                                         _x removeAllEventHandlers 'Fired';
-                                        _x addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
+                                        _x addEventHandler ['Fired', {_this call player_fired;}];
                                 } forEach (crew _veh);
                                 vehicle_handleDamage = {false};
                                 _veh removeAllEventHandlers 'HandleDamage';
@@ -121,18 +120,15 @@ don_godon_1 = 0;
 						};
 						wild_spawnZombies = compile preprocessFileLineNumbers 'GG\zombies\wild_spawnZombies.sqf';
 						zombie_generate = compile preprocessFileLineNumbers 'GG\zombies\zombie_generate.sqf';
-					   
+						
+						player_fired = {
+							deleteVehicle (nearestObject [_this select 0,_this select 4]);
+							cutText ['You can not fire in a SafeZone!','WHITE IN'];
+						};
+						
 						fnc_usec_unconscious = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						object_monitorGear = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\object_monitorGear.sqf';
 						vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
-					   
-						if (isNil "don_firedEH_1") then {
-							don_firedEH_1 = 0; sleep 0.025;
-							don_firedEH_1 = player addEventHandler ["Fired",{
-								cutText ["You can not fire in a SafeZone!","WHITE IN", 2];
-								deleteVehicle (_this select 6);
-							}];
-						};
 					   
 						_veh = vehicle player;
 						_szs = _veh getVariable ['inSafeZone',0];
@@ -178,7 +174,7 @@ don_godon_1 = 0;
 			_don_player_veh removeAllEventHandlers "handleDamage";
 			_don_player_veh addEventHandler ["handleDamage", {0}];
 			_don_player_veh removeAllEventHandlers "Fired";
-			_don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];	
+			_don_player_veh addEventHandler ['Fired', {_this call player_fired;}];	
 			//PASSENGERS NAMES
 			_don_passengers = ""; {if (Alive _x) then {_don_passengers = _don_passengers + format [" %1",name _x];};} forEach don_veh_crew;
 			_don_veh_crew = []; {if (Alive _x) then {_don_veh_crew = _don_veh_crew + [getPlayerUID _x];};} forEach don_veh_crew;
@@ -248,7 +244,7 @@ don_godon_1 = 0;
 			don_player_veh removeAllEventHandlers "handleDamage";
 			don_player_veh addEventHandler ["handleDamage", {0}];
 			don_player_veh removeAllEventHandlers "Fired";
-			don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
+			don_player_veh addEventHandler ['Fired', {_this call player_fired;}];
 		};
 		if (canbuild) then {
 			don_player_veh allowDamage true;
