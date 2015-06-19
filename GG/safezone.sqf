@@ -26,9 +26,16 @@ don_godon_1 = 0;
                                 publicVariableServer 'PVDZE_send';
                         };
                 };
+				if (isNil "don_firedEH_1") then {
+					don_firedEH_1 = 0; sleep 0.025;
+					don_firedEH_1 = player addEventHandler ["Fired",{
+						cutText ["You can not fire in a SafeZone!","WHITE IN", 2];
+						deleteVehicle (_this select 6);
+					}];
+				};
+				
                 wild_spawnZombies = {};
-                zombie_generate = {};
-               
+                zombie_generate = {}; 
                 fnc_usec_damageHandler = {};
                 player removeAllEventHandlers 'handleDamage';
                 player addEventHandler ['handleDamage', {false}];
@@ -41,10 +48,10 @@ don_godon_1 = 0;
                         if (player != _veh) then
                         {
                                 _veh removeAllEventHandlers 'Fired';
-                                _veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
+                                _veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
                                 {
                                         _x removeAllEventHandlers 'Fired';
-                                        _x addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
+                                        _x addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
                                 } forEach (crew _veh);
                                 vehicle_handleDamage = {false};
                                 _veh removeAllEventHandlers 'HandleDamage';
@@ -161,7 +168,7 @@ don_godon_1 = 0;
 			_don_player_veh removeAllEventHandlers "handleDamage";
 			_don_player_veh addEventHandler ["handleDamage", {0}];
 			_don_player_veh removeAllEventHandlers "Fired";
-			_don_player_veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];		
+			_don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];	
 			//PASSENGERS NAMES
 			_don_passengers = ""; {if (Alive _x) then {_don_passengers = _don_passengers + format [" %1",name _x];};} forEach don_veh_crew;
 			_don_veh_crew = []; {if (Alive _x) then {_don_veh_crew = _don_veh_crew + [getPlayerUID _x];};} forEach don_veh_crew;
@@ -231,7 +238,7 @@ don_godon_1 = 0;
 			don_player_veh removeAllEventHandlers "handleDamage";
 			don_player_veh addEventHandler ["handleDamage", {0}];
 			don_player_veh removeAllEventHandlers "Fired";
-			don_player_veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
+			don_player_veh addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
 		};
 		if (canbuild) then {
 			don_player_veh allowDamage true;
