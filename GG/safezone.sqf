@@ -26,10 +26,6 @@ don_godon_1 = 0;
                                 publicVariableServer 'PVDZE_send';
                         };
                 };
-                player_fired = {
-                        deleteVehicle (nearestObject [_this select 0,_this select 4]);
-                        cutText ['You can not fire in a SafeZone!','WHITE IN'];
-                };
                 wild_spawnZombies = {};
                 zombie_generate = {};
                
@@ -45,10 +41,10 @@ don_godon_1 = 0;
                         if (player != _veh) then
                         {
                                 _veh removeAllEventHandlers 'Fired';
-                                _veh addEventHandler ['Fired', {_this call player_fired;}];
+                                _veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
                                 {
                                         _x removeAllEventHandlers 'Fired';
-                                        _x addEventHandler ['Fired', {_this call player_fired;}];
+                                        _x addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
                                 } forEach (crew _veh);
                                 vehicle_handleDamage = {false};
                                 _veh removeAllEventHandlers 'HandleDamage';
@@ -117,30 +113,6 @@ don_godon_1 = 0;
 						wild_spawnZombies = compile preprocessFileLineNumbers 'GG\zombies\wild_spawnZombies.sqf';
 						zombie_generate = compile preprocessFileLineNumbers 'GG\zombies\zombie_generate.sqf';
 					   
-					   
-						player_fired = {
-								_this call compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_fired.sqf';
-								_unit = _this select 0;
-								_weapon = _this select 1;
-								_muzzle = _this select 2;
-								_mode = _this select 3;
-								_ammo = _this select 4;
-								_magazine = _this select 5;
-								_projectile = _this select 6;
-								_screenToWorld = screenToWorld [0.5,0.5];
-								_near = _screenToWorld nearEntities ['AllVehicles',100];
-								{
-										if (isPlayer _x) then
-										{
-												_szs = _x getVariable ['inSafeZone',0];
-												if (_szs == 1) then
-												{
-														deleteVehicle (nearestObject [_unit,_ammo]);
-												};
-										};
-								} forEach _near;
-						};
-					   
 						fnc_usec_unconscious = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						object_monitorGear = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\object_monitorGear.sqf';
 						vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
@@ -189,7 +161,7 @@ don_godon_1 = 0;
 			_don_player_veh removeAllEventHandlers "handleDamage";
 			_don_player_veh addEventHandler ["handleDamage", {0}];
 			_don_player_veh removeAllEventHandlers "Fired";
-			_don_player_veh addEventHandler ['Fired', {_this call player_fired;}];		
+			_don_player_veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];		
 			//PASSENGERS NAMES
 			_don_passengers = ""; {if (Alive _x) then {_don_passengers = _don_passengers + format [" %1",name _x];};} forEach don_veh_crew;
 			_don_veh_crew = []; {if (Alive _x) then {_don_veh_crew = _don_veh_crew + [getPlayerUID _x];};} forEach don_veh_crew;
@@ -259,7 +231,7 @@ don_godon_1 = 0;
 			don_player_veh removeAllEventHandlers "handleDamage";
 			don_player_veh addEventHandler ["handleDamage", {0}];
 			don_player_veh removeAllEventHandlers "Fired";
-			don_player_veh addEventHandler ['Fired', {_this call player_fired;}];
+			don_player_veh addEventHandler ['Fired', {NearestObject [_this select 0,_this select 4] setPos[0,0,0];cutText ['You can not fire in a SafeZone!','WHITE IN'];}];
 		};
 		if (canbuild) then {
 			don_player_veh allowDamage true;
