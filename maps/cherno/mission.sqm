@@ -309,7 +309,7 @@ class Mission
 	};
 	class Sensors
 	{
-	items=8;
+	items=9;
 	
 		class Item0
 		{
