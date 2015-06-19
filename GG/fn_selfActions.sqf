@@ -734,15 +734,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		player removeAction s_bank_dialog2;
 		s_bank_dialog2 = -1;
 	};	
-	
-	if(_typeOfCursorTarget == "MAP_phonebox"  and (player distance _cursorTarget < 3)) then {		
-		if (s_spawn_dialog < 0) then {
-			s_spawn_dialog = player addAction ["SPAWN SELECTION", "GG\spawn\start.sqf",_cursorTarget, 3, true, true, "", ""];
-		};
-	} else {		
-		player removeAction s_spawn_dialog;
-		s_spawn_dialog = -1;
-	};
 
 	//Allow owner to pack vault
 	if(_typeOfCursorTarget in DZE_UnLockedStorage && _characterID != "0" && (player distance _cursorTarget < 3)) then {
@@ -1164,8 +1155,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_bank_dialog = -1;
 	player removeAction s_bank_dialog2;
 	s_bank_dialog2 = -1;	
-	player removeAction s_spawn_dialog;
-	s_spawn_dialog = -1;
 	player removeAction s_player_packOBJ;
 	s_player_packOBJ = -1;
 	player removeAction s_player_garage;
