@@ -40,6 +40,8 @@ don_godon_1 = 0;
                 player removeAllEventHandlers 'handleDamage';
                 player addEventHandler ['handleDamage', {false}];
                 player allowDamage false;
+				player removeAllEventHandlers 'Fired';
+                player addEventHandler ["Fired",{deleteVehicle (_this select 6);}];
                 _veh = vehicle player;
                 _szs = _veh getVariable ['inSafeZone',0];
                 if (_szs == 0) then
