@@ -441,8 +441,8 @@ class Mission
 			age="UNKNOWN";
 			name="debug";
 			expCond="(player distance debug) < 200;";
-			expActiv="inDebug = false;";
-			expDesactiv="inDebug = true;";
+			expActiv="inDebug = false;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
+			expDesactiv="inDebug = true;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
 			class Effects
 			{
 			};
