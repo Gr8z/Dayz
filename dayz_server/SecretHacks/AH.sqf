@@ -4934,7 +4934,7 @@ fnc_VoteTimeServer =
 	_vote = _array select 1;
 	
 	if(isNil 'TimeVoteCooldown') then {TimeVoteCooldown = 300;};
-	if(isNil 'LastVoteGoneThrough') then {LastVoteGoneThrough = 600;};
+	if(isNil 'LastVoteGoneThrough') then {LastVoteGoneThrough = 1500;};
 	if((LastVoteGoneThrough == 0) || ((TimeVoteCooldown + LastVoteGoneThrough) < diag_tickTime)) then
 	{
 		if(isNil 'VoteArray') then {VoteArray = [];};
