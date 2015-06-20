@@ -241,7 +241,7 @@ if (true) then
 _vehicle_148 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_Gunrack2", [59.811668, 1605.3683, 0.035985526], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["GunRack_DZ", [59.811668, 1605.3683, 0.035985526], [], 0, "CAN_COLLIDE"];
   _vehicle_148 = _this;
   _this setPos [59.811668, 1605.3683, 0.035985526];
 };
