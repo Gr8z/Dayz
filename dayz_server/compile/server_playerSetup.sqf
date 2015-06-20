@@ -193,9 +193,9 @@ if (count _stats > 0) then {
 	if (_randomSpot) then {
 		if (!isDedicated) then {endLoadingScreen;};
 		_worldspace = switch (toLower worldName) do {
-			case "chernarus":{[0,[64.971161, 1590.6635, 0.3]];};
-			case "tavi":{_worldspace = [0,[_debug select 0,_debug select 1,0.3]];};
-			case "napf":{_worldspace = [0,[_debug select 0,_debug select 1,0.3]];};
+			case "chernarus":	{[0,[64.971161, 1590.6635, 0.3]];};
+			case "tavi":		{[0,[2062.0693, 8281.7227, 0.3]];};
+			case "napf":		{[0,[2062.0693, 8281.7227, 0.3]];};
 		};
 	};
 
