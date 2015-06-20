@@ -333,7 +333,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			position[]={15506.952,6.2226005,13229.368};
