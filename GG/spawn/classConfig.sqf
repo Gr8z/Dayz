@@ -31,7 +31,7 @@ _presetClasses = [
 		0,0
 	],
 	["Bandit","Bandit2_DZ","BanditW1_DZ",["10x_303",2,"ItemSodaRabbit"],["LeeEnfield","ItemCompass"],"",[],[],0,-5000],
-	["Mid Level Bandit","Bandit2_DZ","BanditW1_DZ",["64Rnd_9x19_SD_Bizon",2,"ItemSodaRabbit"],["bizon_silenced","ItemCompass"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
+	["Mid Level Bandit","Bandit2_DZ","BanditW1_DZ",["30Rnd_9x19_MP5SD",2,"ItemSodaRabbit"],["MP5SD","ItemCompass"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
 	["Super Bandit","Bandit2_DZ","BanditW1_DZ",["30Rnd_545x39_AK",2,"ItemSodaRabbit"],["AK_74","ItemCompass"],"DZ_ALICE_Pack_EP1",[],[],0,-35000],
 	["Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["15Rnd_W1866_Slug",2],["Winchester1866","ItemEtool","ItemGPS","ItemCompass"],"",[],[],0,5000],
 	["Mid Level Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["30Rnd_556x45_Stanag",3],["M4A1","ItemEtool","ItemGPS","ItemCompass"],"DZ_ALICE_Pack_EP1",[],[],0,15000],
