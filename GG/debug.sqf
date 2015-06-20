@@ -11,7 +11,6 @@ while {true} do {
 
     thePlayer = vehicle player;
     _EH_Fired = thePlayer addEventHandler ["Fired", {
-	titleText ["weapons disabled","PLAIN DOWN"]; titleFadeOut 4;
         NearestObject [_this select 0,_this select 4] setPos[0,0,0];
     }];
 

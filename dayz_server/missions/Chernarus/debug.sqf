@@ -331,7 +331,7 @@ if (true) then
 _vehicle_252 = objNull;
 if (true) then
 {
-  _this = createVehicle ["MAP_Toilet", [59.099758, 1579.6887, -0.12719934], [], 0, "CAN_COLLIDE"];
+  _this = createVehicle ["Land_Toilet", [59.099758, 1579.6887, -0.12719934], [], 0, "CAN_COLLIDE"];
   _vehicle_252 = _this;
   _this setDir 169.10435;
   _this setPos [59.099758, 1579.6887, -0.12719934];
