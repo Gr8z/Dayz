@@ -38,7 +38,6 @@ if (!isNull _nearLight) then {
 		if (s_player_inCarlockUnlock_crtl < 0) then {
 			dayz_myLockedVehicle = _vehicle;
 			_text = getText (configFile >> "CfgVehicles" >> typeOf(dayz_myLockedVehicle) >> "displayName");
-			cutText [ format ["vehicle: %1", _text], "PLAIN DOWN"];
 			if(locked dayz_myLockedVehicle) then {
 			_Unlock = dayz_myLockedVehicle addAction [format[localize "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, false], 2, true, true, "", ""];
 			s_player_incarlockunlock set [count s_player_incarlockunlock,_Unlock];
