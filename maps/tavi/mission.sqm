@@ -352,7 +352,7 @@ class Mission
 	class Sensors
 	{
 
-		items=11;
+		items=12;
 
 		class Item0
 		{
@@ -537,6 +537,21 @@ class Mission
 			expCond="(player distance zoneblacksmall) < 50;";
 			expActiv="[""BLACK MARKET"",true,""enter""] spawn player_traderCity;";
 			expDesactiv="[""BLACK MARKET"",true,""leave""] spawn player_traderCity;";
+			class Effects
+			{
+			};
+		};
+		class Item11
+		{
+			position[]={1314.6034,0, 7695.9707};
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="debug";
+			expCond="(player distance debug) < 10;";
+			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
+			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
 			class Effects
 			{
 			};
