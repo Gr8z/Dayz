@@ -3,7 +3,6 @@ _onScreenTime = 6;
 
 waitUntil {!isNil "dayz_animalCheck"}; 
 sleep 5;
-playsound "introSong";
 _role1 = "Welcome To";
 _role1names = ["[GG] Ghostz Gamerz","Dayz Overpoch"];
 _role2 = "Group Management";
