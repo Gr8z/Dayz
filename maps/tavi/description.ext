@@ -110,12 +110,6 @@ class CfgSounds
     sound[] = {GG\sounds\suvLock.ogg,0.1,1};
     titles[] = {};
     };
-	class introSong
-    {
-    name = "introSong";
-    sound[]={GG\sounds\introSong.ogg,0.4,1};
-    titles[] = {};
-    };
 };
 
 class RscLoadingText : RscText
