@@ -14,6 +14,7 @@ if (isServer) then {
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\weed.sqf";  
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bankinit.sqf";   
   call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\debug.sqf";   
      
   
   //#######################################################  Lenzburg Tradercity  ###########################################################

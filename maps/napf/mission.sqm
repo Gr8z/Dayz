@@ -333,7 +333,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=9;
+		items=10;
 		class Item0
 		{
 			position[]={15506.952,6.2226005,13229.368};
@@ -483,6 +483,21 @@ class Mission
 			expCond="(player distance Chatzbach) < 25;";
 			expActiv="[""Trader City Chatzbach"",true,""enter""] spawn player_traderCity;";
 			expDesactiv="[""Trader City Chatzbach"",true,""leave""] spawn player_traderCity;";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={2060.04,0,8284.01};
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="debug";
+			expCond="(player distance debug) < 10;";
+			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
+			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
 			class Effects
 			{
 			};

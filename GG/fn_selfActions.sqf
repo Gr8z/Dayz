@@ -38,7 +38,6 @@ if (!isNull _nearLight) then {
 		if (s_player_inCarlockUnlock_crtl < 0) then {
 			dayz_myLockedVehicle = _vehicle;
 			_text = getText (configFile >> "CfgVehicles" >> typeOf(dayz_myLockedVehicle) >> "displayName");
-			cutText [ format ["vehicle: %1", _text], "PLAIN DOWN"];
 			if(locked dayz_myLockedVehicle) then {
 			_Unlock = dayz_myLockedVehicle addAction [format[localize "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, false], 2, true, true, "", ""];
 			s_player_incarlockunlock set [count s_player_incarlockunlock,_Unlock];
@@ -733,7 +732,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	} else {		
 		player removeAction s_bank_dialog2;
 		s_bank_dialog2 = -1;
-	};
+	};	
 
 	//Allow owner to pack vault
 	if(_typeOfCursorTarget in DZE_UnLockedStorage && _characterID != "0" && (player distance _cursorTarget < 3)) then {
@@ -1154,7 +1153,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	player removeAction s_bank_dialog;
 	s_bank_dialog = -1;
 	player removeAction s_bank_dialog2;
-	s_bank_dialog2 = -1;
+	s_bank_dialog2 = -1;	
 	player removeAction s_player_packOBJ;
 	s_player_packOBJ = -1;
 	player removeAction s_player_garage;

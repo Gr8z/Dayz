@@ -169,7 +169,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=17;
+		items=16;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -204,21 +204,13 @@ class Mission
 		};
 		class Item4
 		{
-			position[]={713.67548, 0, 1872.6334};
-			name="WestBase";
-			text="West Base";
-			type="defend";
-			colorName="ColorRed";
-		};
-		class Item5
-		{
 			position[]={3445.0112,0,3804.1453};
 			name="Tradercitybor";
 			text="Trader City Bor";
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item6
+		class Item5
 		{
 			position[]={4069.8455,365.19922,11661.84};
 			name="Tradercitybash";
@@ -226,7 +218,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item7
+		class Item6
 		{
 			position[]={11469.787,317.32358,11356.751};
 			name="Tradercityklen";
@@ -234,7 +226,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorGreen";
 		};
-		class Item8
+		class Item7
 		{
 			position[]={6345.6113,306.13721,7808.5073};
 			name="Tradercitystary";
@@ -242,7 +234,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item9
+		class Item8
 		{
 			position[]={1100.69,0,2844.99};
 			name="boatsnwholesale_1";
@@ -250,7 +242,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item10
+		class Item9
 		{
 			position[]={13247.175,7.9455967,6076.4395};
 			name="boatsnwholesale_1_1";
@@ -258,7 +250,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item11
+		class Item10
 		{
 			position[]={5068.6636,338.99176,9723.4248};
 			name="Airplane Dealer";
@@ -266,7 +258,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlue";
 		};
-		class Item12
+		class Item11
 		{
 			position[]={8385.834,1.6642252,2368.8264};
 			name="Boat Dealer";
@@ -274,7 +266,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorOrange";
 		};
-		class Item13
+		class Item12
 		{
 			position[]={12945.273,209.10101,12751.496};
 			name="HeroVendor";
@@ -282,7 +274,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlue";
 		};
-		class Item14
+		class Item13
 		{
 			position[]={13093.446,0.42457402,8241.5625};
 			name="Boat Dealer_1";
@@ -290,7 +282,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorOrange";
 		};
-		class Item15
+		class Item14
 		{
 			position[]={1610.4834,283.97122,7781.9917};
 			name="BanditVendor";
@@ -298,7 +290,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorRed";
 		};
-		class Item16
+		class Item15
 		{
 			position[]={9464.64, 0, 11483.8};
 			name="HempField";
@@ -309,7 +301,7 @@ class Mission
 	};
 	class Sensors
 	{
-	items=8;
+	items=9;
 	
 		class Item0
 		{
@@ -428,6 +420,36 @@ class Mission
 			expCond="(player distance zonebor) < 75;";
 			expActiv="[""Bor Trader"",true,""enter""]; canbuild = false;insafezone = true;";
 			expDesactiv="[""Bor Trader"",true,""leave""]; canbuild = true;insafezone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={64.971161,0, 1590.6635};
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="debug";
+			expCond="(player distance debug) < 15;";
+			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
+			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={64.971161,0, 1590.6635};
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="debug";
+			expCond="(player distance debug) < 10;";
+			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
+			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
 			class Effects
 			{
 			};
