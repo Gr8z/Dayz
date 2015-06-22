@@ -17,9 +17,21 @@ classFill = {
 		_hlevel = _x select 9;
 		if (count _x > 11) then {_level = _x select 19;_hlevel = _x select 20;};
 		if (((_hlevel < 0) && {_humanity >= _hlevel}) || 
-				{(_level == 1) && {!(_puid in _classLevel1)}} || 
-				{(_level == 2) && {!(_puid in _classLevel2)}} ||
-				{(_level == 3) && {!(_puid in _classLevel3)}} ||
+				{(_level == 1) && {!(_puid in Engineer1 + Engineer2 + Engineer3)}} || 
+				{(_level == 2) && {!(_puid in Engineer2 + Engineer3)}} ||
+				{(_level == 3) && {!(_puid in Engineer3)}} ||
+				{(_level == 4) && {!(_puid in Marksman1 + Marksman2 + Marksman3)}} ||
+				{(_level == 5) && {!(_puid in Marksman2 + Marksman3)}} ||
+				{(_level == 6) && {!(_puid in Marksman3)}} ||
+				{(_level == 7) && {!(_puid in Medic1 + Medic2 + Medic3)}} ||
+				{(_level == 8) && {!(_puid in Medic2 + Medic3)}} ||
+				{(_level == 9) && {!(_puid in Medic3)}} ||
+				{(_level == 10) && {!(_puid in Scout1 + Scout2 + Scout3)}} ||
+				{(_level == 11) && {!(_puid in Scout2 + Scout3)}} ||
+				{(_level == 12) && {!(_puid in Scout3)}} ||
+				{(_level == 13) && {!(_puid in Soldier1 + Soldier2 + Soldier3)}} ||
+				{(_level == 14) && {!(_puid in Soldier2 + Soldier3)}} ||
+				{(_level == 15) && {!(_puid in Soldier3)}} ||
 				{(_hlevel > 0) && {_humanity <= _hlevel}}
 				) then {_lock=1;};
 		_index = lbAdd [8888,_x select 0];
