@@ -256,8 +256,6 @@ dayz_resetSelfActions = {
 	s_player_plot_boundary_on = -1;
 	s_player_plot_boundary_off = -1;
 	s_player_plot_take_ownership = -1;
-	s_player_driver_eject = -1;
-	Eject_Array = [];
 	s_player_put_earplugs_on = -1;
     s_player_put_earplugs_off = -1;
 };
@@ -311,10 +309,6 @@ r_isBandit =			false;
 isInTraderCity =		false;
 NORRN_dropAction =		-1;
 DZE_PROTOBOX = objNull;
-
-s_player_driver_eject = -1;
-Eject_Array = [];
-Player_Vehicle_Crew_Count=0;
 
 //ammo routine
 r_player_actions2 = [];
