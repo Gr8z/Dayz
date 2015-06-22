@@ -1,4 +1,34 @@
 disableSerialization;
+
+//Model Variables
+Bandit1_DZ = 	"Bandit1_DZ";
+Bandit2_DZ = 	"Bandit2_DZ";
+BanditW1_DZ = 	"BanditW1_DZ";
+BanditW2_DZ = 	"BanditW2_DZ";
+Survivor1_DZ = 	"Survivor2_DZ";
+Survivor2_DZ = 	"Survivor2_DZ";
+SurvivorW2_DZ = "SurvivorW2_DZ";
+SurvivorW3_DZ = "SurvivorW2_DZ";
+Sniper1_DZ = 	"Sniper1_DZ";
+Camo1_DZ = 		"Camo1_DZ";
+Soldier1_DZ = 	"Soldier1_DZ";
+Rocket_DZ = 	"Rocket_DZ";
+
+//Model Variables
+AllPlayers set [
+	count AllPlayers, 
+	"Bandit1_DZ",
+	"Bandit2_DZ",
+	"BanditW1_DZ",
+	"BanditW2_DZ",
+	"Survivor2_DZ",
+	"SurvivorW2_DZ",
+	"Sniper1_DZ",
+	"Camo1_DZ",
+	"Soldier1_DZ",
+	"Rocket_DZ"
+];
+
 if (isNil "DayZ_UseSteamID") then {
 	DayZ_UseSteamID = true;
 };
