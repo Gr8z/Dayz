@@ -261,9 +261,6 @@ class DeathScr {
 #include "GG\advancedTrading\defines.hpp"
 #include "GG\advancedTrading\advancedTrading.hpp"
 
-#include "GG\Garage\garage_defines.hpp"
-#include "GG\Garage\garage_dialog.hpp"
-
 #include "GG\spawn\class.hpp"
 #include "GG\spawn\halo.hpp"
 #include "GG\spawn\spawn.hpp"

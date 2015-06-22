@@ -46,15 +46,6 @@ SC_fnc_addCoins =
 if (!isDedicated) then {
 
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-
-	garage_getnearVeh = compile preprocessFileLineNumbers "GG\Garage\garage_nearvehicles.sqf";
-	garage_getstoredVeh = compile preprocessFileLineNumbers "GG\Garage\garage_storedvehicles.sqf";
-	garage_manage = compile preprocessFileLineNumbers "GG\Garage\garage_manage.sqf";
-	garage_fillplayers = compile preprocessFileLineNumbers "GG\Garage\garage_fillplayers.sqf";
-	garage_addfriend = compile preprocessFileLineNumbers "GG\Garage\garage_addfriend.sqf";
-	garage_removefriend = compile preprocessFileLineNumbers "GG\Garage\garage_removefriend.sqf";
-	garage_spawnVehicle = compile preprocessFileLineNumbers "GG\Garage\garage_spawnvehicle.sqf";
-	garage_storeVehicle = compile preprocessFileLineNumbers "GG\Garage\garage_storeVehicle.sqf";
 	
 	DoorGetFriends 		= compile preprocessFileLineNumbers "GG\doorManagement\doorGetFriends.sqf";
 	DoorNearbyHumans 	= compile preprocessFileLineNumbers "GG\doorManagement\doorNearbyHumans.sqf";

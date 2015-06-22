@@ -24,8 +24,6 @@ fnc_plyrHit   =					compile preprocessFileLineNumbers "\z\addons\dayz_server\com
 fnc_remWepSG =                	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_remWepSG.sqf";
 server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
-server_storevehicle = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_storevehicle.sqf";
-server_spawnvehicle = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnvehicle.sqf";
 
 /* PVS/PVC - Skaronator */
 server_sendToClient =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_sendToClient.sqf";
@@ -972,10 +970,6 @@ if (isServer) then {
 		};
 	};
 };
-
-"PVDZE_veh_store" addPublicVariableEventHandler {(_this select 1) spawn server_storevehicle};
-"PVDZE_veh_spawn" addPublicVariableEventHandler {(_this select 1) spawn server_spawnvehicle};
-
 
 KK_fnc_floatToString = {
 	private "_arr";
