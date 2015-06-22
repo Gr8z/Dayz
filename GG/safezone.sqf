@@ -20,11 +20,9 @@ don_godon_1 = 0;
                         inNow = nil;
                         outNow = true;
                        
-                        if (LOG_EnterLeave) then
-                        {
-                                PVDZE_send = [player,'SafeZoneState',[1]];
-                                publicVariableServer 'PVDZE_send';
-                        };
+                        PVDZE_send = [player,'SafeZoneState',[1]];
+                        publicVariableServer 'PVDZE_send';
+
                 };
                 player_fired = {
                         deleteVehicle (nearestObject [_this select 0,_this select 4]);
@@ -108,11 +106,9 @@ don_godon_1 = 0;
 								inNow = true;
 								outNow = nil;
 							   
-								if (LOG_EnterLeave) then
-								{
-										PVDZE_send = [player,'SafeZoneState',[0]];
-										publicVariableServer 'PVDZE_send';
-								};
+								PVDZE_send = [player,'SafeZoneState',[0]];
+								publicVariableServer 'PVDZE_send';
+
 						};
 						wild_spawnZombies = compile preprocessFileLineNumbers 'GG\zombies\wild_spawnZombies.sqf';
 						zombie_generate = compile preprocessFileLineNumbers 'GG\zombies\zombie_generate.sqf';
