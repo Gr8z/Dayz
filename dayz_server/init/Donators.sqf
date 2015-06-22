@@ -240,6 +240,7 @@ Scout1 = [
 	"76561198120396093", // connor(OD-2015-06-18) #9537
 	"76561198093358054", // Strategy(OD-2015-06-18) #9539 
 	"76561198123877154", // Vss Vintorez(OD-2015-06-14) twan.steamgames@gmail.com - EXP - 2015-07-14
+	"76561197972391627", // [BTY]Neux (OD-2015-06-21) #9589
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -270,6 +271,7 @@ Scout2 = [
 	"76561198017655721", // [M6x9-46] Dank Memes(OD-2015-06-19) #9542  
 	"76561198093358054", // strategy (OD-2015-06-19) #9552
 	"76561198132250547", // SyNc (OD-2015-06-20) #9569 
+	"76561198125567316", // SirKillAlot (OD-2015-06-22) #9594
 	// Add UIDs above, don't forget the comma
 "0"
 ];
