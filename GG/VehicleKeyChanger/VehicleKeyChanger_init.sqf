@@ -117,5 +117,5 @@ while{true} do {
 		player removeAction s_player_changeKey;
 		s_player_changeKey = -1;
 	};
-
+	uiSleep 2;
 };
