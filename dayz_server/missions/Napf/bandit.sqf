@@ -613,16 +613,6 @@ if (true) then
   _this setPos [12799.742, 5280.4941, 10.458196];
 };
 
-_vehicle_154 = objNull;
-if (true) then
-{
-  _this = createVehicle ["M252", [12837.17, 5303.7178, 14.010012], [], 0, "CAN_COLLIDE"];
-  _vehicle_154 = _this;
-  _this setDir 27.91354;
-  _this setVehicleLock "LOCKED";
-  _this setPos [12837.17, 5303.7178, 14.010012];
-};
-
 _vehicle_155 = objNull;
 if (true) then
 {

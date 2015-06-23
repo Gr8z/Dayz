@@ -391,16 +391,6 @@ if (true) then
   _this setPos [11065.814, 11858.108, -0.1333949];
 };
 
-_vehicle_165 = objNull;
-if (true) then
-{
-  _this = createVehicle ["ZU23_TK_GUE_EP1", [11068.957, 11829.63, 30.132988], [], 0, "CAN_COLLIDE"];
-  _vehicle_165 = _this;
-  _this setDir -7.3350382;
-  _this setVehicleLock "LOCKED";
-  _this setPos [11068.957, 11829.63, 30.132988];
-};
-
 _vehicle_166 = objNull;
 if (true) then
 {
