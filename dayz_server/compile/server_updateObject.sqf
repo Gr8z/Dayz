@@ -1,9 +1,14 @@
+
 /*[_object,_type] spawn server_updateObject; */
-private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk","_parachuteWest","_firstTime","_object_killed","_object_repair","_isbuildable","_object_vehicleKey","_activatingPlayer","_vehicleClassname","_toKey","_toKeyName","_vehicle_ID","_vehicle_UID","_garagelist"];
+
+private ["_object","_type","_objectID","_uid","_lastUpdate","_needUpdate","_object_position","_object_inventory","_object_damage","_isNotOk","_parachuteWest","_firstTime","_object_killed","_object_repair","_isbuildable","_object_vehicleKey","_activatingPlayer","_vehicleClassname","_toKey","_toKeyName","_vehicle_ID","_vehicle_UID"];
 
 _object = 	_this select 0;
+
+
 if(isNull(_object)) exitWith {diag_log format["Skipping Null Object: %1", _object];};
-if ((typeOf _object) in DZE_Garage) then {_garagelist = _this select 2;};
+
+
 _type = _this select 1;
 _parachuteWest = ((typeOf _object == "ParachuteWest") || (typeOf _object == "ParachuteC"));
 _isbuildable = (typeOf _object) in dayz_allowedObjects;
@@ -16,22 +21,29 @@ _uid = 		_object getVariable ["ObjectUID","0"];
 if ((typeName _objectID != "string") || (typeName _uid != "string")) then
 { 
     diag_log(format["Non-string Object: ID %1 UID %2", _objectID, _uid]); 
+
+
     _objectID = "0";
     _uid = "0";
 };
 if (!_parachuteWest && !(locked _object)) then {
 	if (_objectID == "0" && _uid == "0") then {
+
 		_object_position = getPosATL _object;
     	_isNotOk = true;
 	};
 };
 
+
 if (_isNotOk && _isbuildable) exitWith {};
+
+
 //if (_isNotOk) exitWith { deleteVehicle _object; diag_log(format["Deleting object %1 with invalid ID at pos [%2,%3,%4]",typeOf _object,_object_position select 0,_object_position select 1, _object_position select 2]); };
 
 
 _lastUpdate = _object getVariable ["lastUpdate",time];
 _needUpdate = _object in needUpdate_objects;
+
 
 _object_position = {
 	private["_position","_worldspace","_fuel","_key","_colour","_colour2"];
@@ -63,34 +75,25 @@ _object_position = {
 
 		_object_inventory = {
 			private["_inventory","_previous","_key"];
-		if ((typeOf _object) in DZE_Garage) then {
-			if (isNil "_garagelist") then {
-				_garagelist = _object getVariable ["StoredVehicles",[]];
+			_isNormal = true;
+			if (typeOf (_object) == "Plastic_Pole_EP1_DZ") then{
+				_isNormal = false;
+				_inventory = _object getVariable ["plotfriends", []]; //We're replacing the inventory with UIDs for this item
+			}; 
+			if (typeOf (_object)in DZE_DoorsLocked) then{
+				_isNormal = false;
+				_inventory = _object getVariable ["doorfriends", []]; //We're replacing the inventory with UIDs for this item
 			};
-			if (_objectID == "0") then {
-					_key = format["CHILD:309:%1:%2:",_uid,_garagelist];
-				} else {
-					_key = format["CHILD:303:%1:%2:",_objectID,_garagelist];
-				};
-				_key call server_hiveWrite;
-		} else {
-		_isNormal = true;
-		if (typeOf (_object) == "Plastic_Pole_EP1_DZ") then{
-			_isNormal = false;
-			_inventory = _object getVariable ["plotfriends", []]; //We're replacing the inventory with UIDs for this item
-		}; 
-		if (typeOf (_object)in DZE_DoorsLocked) then{
-			_isNormal = false;
-			_inventory = _object getVariable ["doorfriends", []]; //We're replacing the inventory with UIDs for this item
-		};
 
-		if(_isNormal)then {
-			_inventory = [
-			getWeaponCargo _object,
-			getMagazineCargo _object,
-			getBackpackCargo _object
-			];
-		};
+			if(_isNormal)then {
+				_inventory = [
+
+				getWeaponCargo _object,
+				getMagazineCargo _object,
+				getBackpackCargo _object
+				];
+			};
+
 
 		_previous = str(_object getVariable["lastInventory",[]]);
 		if (str(_inventory) != _previous) then {
@@ -106,29 +109,26 @@ _object_position = {
 			_key call server_hiveWrite;
 			};
 		};
-};
 
 _object_damage = {
-	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
-		if ((typeOf _object) in DZE_Garage) then {
-			_damage = damage _object;
-			_array = _object getVariable ["GarageFriends",[]];
-		} else {
-			_hitpoints = _object call vehicle_getHitpoints;
-			_damage = damage _object;
-			_array = [];
-			{
-				_hit = [_object,_x] call object_getHit;
-				_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
-				if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
-				_object setHit ["_selection", _hit];
-			} count _hitpoints;
-		};
-	
+		private["_hitpoints","_array","_hit","_selection","_key","_damage"];
+			
+		_hitpoints = _object call vehicle_getHitpoints;
+		_damage = damage _object;
+		_array = [];
+		{
+
+			_hit = [_object,_x] call object_getHit;
+			_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
+			if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
+			_object setHit ["_selection", _hit];
+		} count _hitpoints;
+
+		
 		_key = format["CHILD:306:%1:%2:%3:",_objectID,_array,_damage];
 		//diag_log ("HIVE: WRITE: "+ str(_key));
 		_key call server_hiveWrite;
-	_object setVariable ["needUpdate",false,true];
+		_object setVariable ["needUpdate",false,true];
 	};
 
 _object_killed = {
