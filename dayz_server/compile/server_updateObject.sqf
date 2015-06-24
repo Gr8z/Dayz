@@ -65,12 +65,12 @@ _object_position = {
 		];
 		_fuel = 0;
 	};
-		if (_object isKindOf "AllVehicles") then {
-			_fuel = fuel _object;
-		};
-		_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
-		//diag_log ("HIVE: WRITE: "+ str(_key));
-		_key call server_hiveWrite;
+	if (_object isKindOf "AllVehicles") then {
+		_fuel = fuel _object;
+	};
+	_key = format["CHILD:305:%1:%2:%3:",_objectID,_worldspace,_fuel];
+	//diag_log ("HIVE: WRITE: "+ str(_key));
+	_key call server_hiveWrite;
 };
 
 		_object_inventory = {
@@ -95,18 +95,18 @@ _object_position = {
 			};
 
 
-		_previous = str(_object getVariable["lastInventory",[]]);
-		if (str(_inventory) != _previous) then {
-			if(alive _object) then{
-				_object setVariable["lastInventory",_inventory];
-			};
-			if (_objectID == "0") then {
-				_key = format["CHILD:309:%1:%2:",_uid,_inventory];
-			} else {
-				_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
-			};
-			//diag_log ("HIVE: WRITE: "+ str(_key));
-			_key call server_hiveWrite;
+			_previous = str(_object getVariable["lastInventory",[]]);
+			if (str(_inventory) != _previous) then {
+				if(alive _object) then{
+					_object setVariable["lastInventory",_inventory];
+				};
+				if (_objectID == "0") then {
+					_key = format["CHILD:309:%1:%2:",_uid,_inventory];
+				} else {
+					_key = format["CHILD:303:%1:%2:",_objectID,_inventory];
+				};
+				//diag_log ("HIVE: WRITE: "+ str(_key));
+				_key call server_hiveWrite;
 			};
 		};
 
