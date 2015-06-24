@@ -702,7 +702,6 @@ class CfgLoot {
 	    {"Skin_Drake_Light_DZ", 0.07},
 	    {"Skin_Soldier_TL_PMC_DZ", 0.07},
 	    {"Skin_Soldier_Sniper_PMC_DZ", 0.05},
-	    {"Skin_Soldier_Bodyguard_AA12_PMC_DZ", 0.07},
 	    {"Skin_CZ_Special_Forces_GL_DES_EP1_DZ", 0.08},
 	    {"Skin_FR_OHara_DZ", 0.08},
 	    {"Skin_FR_Rodriguez_DZ", 0.09},

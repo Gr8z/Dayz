@@ -11,7 +11,7 @@ _loot_lists 	=
 			["ItemSodaRbull","ItemSodaR4z0r","ItemSodaRbull","ItemSodaR4z0r","ItemSodaRbull","ItemSodaR4z0r","ItemSodaRbull","ItemSodaR4z0r","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked","FoodbaconCooked","FoodchickenCooked"]
 		],
 		[
-			["Skin_Camo1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_CZ_Special_Forces_GL_DES_EP1_DZ","Skin_Drake_Light_DZ","Skin_FR_OHara_DZ","Skin_FR_Rodriguez_DZ","Skin_Graves_Light_DZ","Skin_Sniper1_DZ","Skin_Soldier1_DZ","Skin_Soldier_Bodyguard_AA12_PMC_DZ"]
+			["Skin_Camo1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_CZ_Special_Forces_GL_DES_EP1_DZ","Skin_Drake_Light_DZ","Skin_FR_OHara_DZ","Skin_FR_Rodriguez_DZ","Skin_Graves_Light_DZ","Skin_Sniper1_DZ","Skin_Soldier1_DZ"]
 		],
 		[
 			["Skin_Functionary1_EP1_DZ","Skin_Pilot_EP1_DZ","Skin_Priest_DZ","Skin_Rocker1_DZ","Skin_Rocker2_DZ","Skin_RU_Policeman_DZ","Skin_RU_Policeman_DZ","Skin_Pilot_EP1_DZ","Skin_Functionary1_EP1_DZ","Skin_Priest_DZ"]
