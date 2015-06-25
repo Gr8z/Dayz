@@ -1,15 +1,8 @@
-/*
-if ((player getVariable["combattimeout",0]) > 0) exitWith {
-	_worldPos = player modelToWorld [0, -20, 0];
-	player setPos _worldPos;
-	cutText ["You can not enter the safezone while in combat!!","PLAIN DOWN"];
-};
-*/
 canbuild = false;
 inSafeZone = true;
 isInTraderCity = true;
 if (!isNil "timer60") then { terminate timer60; };
-//if (!isNil "SafezoneFiredEvent2") then { terminate SafezoneFiredEvent2; };
+
 
 SafeZoneEnterCount = SafeZoneEnterCount + 1;
 [] spawn { uiSleep 120; SafeZoneEnterCount = SafeZoneEnterCount - 1; };
@@ -31,12 +24,17 @@ if (SafeZoneEnterCount > 3) then {
 };
 
 hintSilent parseText format ["
-	<t align='center' color='#52bf90' shadow='2' size='1.75'>** SAFE-ZONE **</t><br/>
-	<t align='center' color='#52bf90'>------------------------------</t><br/>
+	<t align='center' color='#37AAE1' shadow='2' size='1.75'>SAFEZONE</t><br/>
+	<img size='8' image='GG\images\logo.paa'/>
 	<br/>
-	<t align='center' color='#52bf90'>You have entered a safezone, godmode is enabled and your weapon deactivated!</t><br/>
+	<t align='center' color='#868686'>------------------------------</t><br/>
+	<br/>
+	<t align='center' color='#52bf90'>You have entered a safezone, You have god mode but your weapons are disabled</t><br/>
+	<t align='center' color='#52bf90'>Your vehicle's speed is limited, and your vehicle is protected from thiefs</t><br/>
 	<br/>
 	<t align='center' color='#FF0000'>DO NOT cross safezone border more than 2 times!!</t>
+	<br/>	
+	<t align='center' color='#FF0000'>Vehicles left in traders will be deleted after restart!!</t>
 	<br/>
 "];
 /*
