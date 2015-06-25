@@ -4,7 +4,7 @@ isInTraderCity = false;
 
 hintSilent parseText format ["
 	<t align='center' color='#37AAE1' shadow='2' size='1.75'>SAFEZONE</t><br/>
-	<img size='8' image='GG\images\logo.paa'/>
+	<img size='5' image='GG\images\logo.paa'/>
 	<br/>
 	<t align='center' color='#868686'>------------------------------</t><br/>
 	<br/>
@@ -24,7 +24,7 @@ player removeEventHandler ["Fired", SafezoneFiredEvent];
 
 timer60 = [] spawn {
 	SafezoneFiredEvent2 = player addEventHandler ["Fired", {
-		cutText ["Your weapon will activate within 30 Seconds!","PLAIN DOWN",4];
+		titleText ["Your weapon will activate within 30 seconds!","PLAIN DOWN"]; titleFadeOut 4;
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
 	

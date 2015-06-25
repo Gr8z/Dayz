@@ -25,7 +25,7 @@ if (SafeZoneEnterCount > 3) then {
 
 hintSilent parseText format ["
 	<t align='center' color='#37AAE1' shadow='2' size='1.75'>SAFEZONE</t><br/>
-	<img size='8' image='GG\images\logo.paa'/>
+	<img size='5' image='GG\images\logo.paa'/>
 	<br/>
 	<t align='center' color='#868686'>------------------------------</t><br/>
 	<br/>
