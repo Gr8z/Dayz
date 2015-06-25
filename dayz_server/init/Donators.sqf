@@ -177,6 +177,7 @@ Marksman3 = [
 	"76561198110162434", // ChemicalBurn Admin loadout
 	"76561197987708496", // Gajoll (od-2015-06-14) #9477
 	"76561198010891106", // John Clark (od-2015-06-14) #9485
+	"76561197973432427", // Hollywood (od-2015-06-25) #9631
 	// Add UIDs above, don't forget the comma
 "0"
 ];
