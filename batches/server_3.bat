@@ -55,7 +55,10 @@ echo.
 echo Moving Files back to root
 move C:\Dayz\maps\napf\GG C:\Dayz\
 echo.
+echo Starting Dayz Server
 timeout 2
+:: start the server..
+start /wait /REALTIME "arma2" /min "E:\A2Server\server_3.exe" -port=2342 "-config=server_3\config.cfg" "-cfg=server_3\basic.cfg" "-profiles=server_3" -name=server_3 "-mod=@DayzOverwatch;@DayZ_Epoch;@server_3;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"  -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
 echo.
 echo Starting Bec
 timeout 2
@@ -70,11 +73,6 @@ timeout 2
 set listerpath="E:\A2Server\Blacklister\server_3"
 cd /d %listerpath%
 start "" "Blacklister.exe"
-echo.
-echo Starting Dayz Server
-timeout 2
-:: start the server..
-start /REALTIME "arma2" /min "E:\A2Server\server_3.exe" -port=2342 "-config=server_3\config.cfg" "-cfg=server_3\basic.cfg" "-profiles=server_3" -name=server_3 "-mod=@DayzOverwatch;@DayZ_Epoch;@server_3;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"
 echo.
 cls
 @exit
