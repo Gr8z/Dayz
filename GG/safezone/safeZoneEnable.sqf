@@ -20,7 +20,6 @@ if (SafeZoneEnterCount > 3) then {
 	r_player_unconscious = true;
 	player setVariable["medForceUpdate",true,true];
 	player setVariable ["unconsciousTime", r_player_timeout, true];
-	//titleText ["WARNING: 5 minute knock-out for abusing safezone!","PLAIN"];
 };
 
 hintSilent parseText format ["
@@ -37,10 +36,6 @@ hintSilent parseText format ["
 	<t align='center' color='#FF0000'>Vehicles left in traders will be deleted after restart!!</t>
 	<br/>
 "];
-/*
-	<img size='8' image='Scripts\safezone\sign.paa'/>
-	<br/>
-*/
 
 fnc_usec_damageHandler = {};
 player_zombieCheck = {};
@@ -72,14 +67,16 @@ SafezoneZSHIELD = [] spawn {
 
 SafezoneVehicleSpeedLimit = [] spawn {
 	while {true} do {
-		waitUntil {vehicle player != player && !((vehicle player) isKindOf 'Air') && !((vehicle player) isKindOf 'Bicycle')};
-		_vehicle = vehicle player;
-		_curspeed = speed _vehicle;
-		if (_curspeed > 18) then {
-			_vel = velocity _vehicle;
-			_dir = direction _vehicle;
-			_speed = _curspeed - 18;
-			_vehicle setVelocity [(_vel select 0)-((sin _dir)*_speed),(_vel select 1)- ((cos _dir)*_speed),(_vel select 2)];
+		_obj = vehicle player;
+		waitUntil {_obj != player && !((_obj) isKindOf 'Air') && !((_obj) isKindOf 'Plane') && !((_obj) isKindOf 'Bicycle')};
+		_speed = abs speed _obj;
+		if ((_obj != player) && (_speed > 20)) then
+		{
+			_vel = velocity _obj;
+			_x = 0.8;
+			if (_speed > 50) then {_x = 0.1;};
+			_velNew = [(_vel select 0) * _x, (_vel select 1) * _x,(_vel select 2) * _x];
+			_obj SetVelocity _velNew;
 		};
 		uiSleep 0.1;
 	};
