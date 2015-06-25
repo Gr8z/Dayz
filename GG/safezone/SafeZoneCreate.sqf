@@ -4,7 +4,7 @@ _trigger_pos = getPos _trigger;
 _trigger_area = triggerArea _trigger;
 _angle = _trigger_area select 2;
 _radius = _trigger_area select 0;
-_distance = 25; // meters
+_distance = 10; // meters
 //_distance = 18; // meters
 _count = round((2 * 3.14592653589793 * _radius) / _distance);
 _step = 360/_count;
@@ -17,8 +17,5 @@ for "_x" from 0 to _count do
 
 	_pos = [_a,_b];
 	_angle = _angle + _step;
-	_sign = createVehicle ["Land_aif_billboard_chuckiemike", _pos, [], 0, "CAN_COLLIDE"];
-	//_sign = createVehicle ["SignM_FARP_Winchester_EP1", _pos, [], 0, "CAN_COLLIDE"]; //++
-	//_sign setVehicleInit "this setObjectTexture [0, ""Scripts\safezone\sign.paa""];"; //++
-	_sign setDir ([_pos, _trigger_pos] call BIS_fnc_DirTo);
+	_object = createVehicle ['Sign_sphere100cm_EP1', _pos, [], 0, 'CAN_COLLIDE'];
 };
