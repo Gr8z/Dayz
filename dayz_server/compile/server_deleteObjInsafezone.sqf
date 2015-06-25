@@ -93,10 +93,6 @@ if(isNil "HALV_VEHICLE_CLEANUPZONES")then{
 			[[6815.0776,8534.1504,0],	100,		"Aircraft Dealer 2"],
 			[[4066.3528,7265.0024,0],	50,			"Misc. Vendor"],
 			[[17497.631,7159.0879,0],	50,			"Misc. Vendor 2"],
-			[[17332.115,12930.239,0],	50,			"Boat Dealer"],
-			[[10570.494,16772.477,0],	50,			"Boat Dealer 2"],
-			[[10698.463,5983.665,0],	50,			"Boat Dealer 3"],
-			[[5419.2437,9503.5479,0],	50,			"Boat Dealer 4"],
 			[[13342.758,8611.9932,0],	20,			"Wholesaler"],
 			[[9859.4209,7471.5684,0],	20,			"Wholesaler"] // <-- no comma for last entry
 			];
