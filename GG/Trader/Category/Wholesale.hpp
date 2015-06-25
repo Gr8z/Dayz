@@ -11,7 +11,7 @@ class bulk_PartGeneric { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {
 class PartPlywoodPack { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
 class PartPlankPack { type = "trade_items"; buy[] = {10,"Coins"}; sell[] = {5,"Coins"}; }; 
 class ItemFuelBarrelEmpty { type = "trade_items"; buy[] = {100,"Coins"}; sell[] = {50,"Coins"}; }; 
-class metal_floor_kit { type = "trade_items"; buy[] = {9000,"Coins"}; sell[] = {3000,"Coins"}; }; 
+class metal_floor_kit { type = "trade_items"; buy[] = {9000,"Coins"}; sell[] = {4500,"Coins"}; }; 
 class cinder_garage_kit { type = "trade_items"; buy[] = {6000,"Coins"}; sell[] = {2500,"Coins"}; }; 
 class cinder_door_kit { type = "trade_items"; buy[] = {5000,"Coins"}; sell[] = {2000,"Coins"}; }; 
 class cinder_wall_kit { type = "trade_items"; buy[] = {5000,"Coins"}; sell[] = {2000,"Coins"}; }; }; 
