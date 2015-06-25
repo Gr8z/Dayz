@@ -173,6 +173,7 @@ dayz_combination = "";
 dayz_humanitytarget = "";
 dayz_combatLog = "";
 canRoll = true;
+SafeZoneEnterCount = 0;
 
 canbuild = true;
 
