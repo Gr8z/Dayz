@@ -60,7 +60,7 @@ echo.
 echo Starting Dayz Server
 timeout 2
 :: start the server..
-start /wait /REALTIME "arma2" /min "E:\A2Server\server_2.exe" -port=2322 "-config=server_2\config.cfg" "-cfg=server_2\basic.cfg" "-profiles=server_2" -name=server_2 "-mod=@DayzOverwatch;@DayZ_Epoch;@Server_2;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"  -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
+start /REALTIME "arma2" /min "E:\A2Server\server_2.exe" -port=2322 "-config=server_2\config.cfg" "-cfg=server_2\basic.cfg" "-profiles=server_2" -name=server_2 "-mod=@DayzOverwatch;@DayZ_Epoch;@Server_2;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"  -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
 echo.
 echo Starting Bec
 timeout 2
