@@ -55,7 +55,7 @@ _baserunover = [_baserunover0,_baserunover1,_baserunover2,_baserunover3,_baserun
 	] call mission_winorfail;
 
 	if(_complete) then {
-	[_crate,5,5,[5,crate_items_gem_tower],2] call dynamic_crate;
+	[_crate,[5,crate_weapons_missionbase],5,[3,crate_items_gem_tower],2] call dynamic_crate;
 	};	
 	
 	diag_log format["WAI: [Mission:[Bandit] Gem Tower]: Ended at %1",_position];

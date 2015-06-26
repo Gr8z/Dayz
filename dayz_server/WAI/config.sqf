@@ -67,7 +67,7 @@ if(isServer) then {
 		ai_wep_sniper				= ["M14_EP1","SCAR_H_LNG_Sniper_SD","M110_NVG_EP1","SVD_CAMO","VSS_Vintorez","DMR_DZ","M40A3","USSR_cheytacM200_sd","vil_SVD_N","FHQ_MSR_DESERT","FHQ_MSR_NV_DESERT","FHQ_MSR_NV_SD_DESERT","FHQ_MSR_SD_DESERT","FHQ_RSASS_TAN","FHQ_RSASS_SD_TAN","vil_SV_98_69","vil_SV_98","vil_SV_98_SD","vil_SVDK","FHQ_XM2010_DESERT","FHQ_XM2010_NV_DESERT","FHQ_XM2010_NV_SD_DESERT","FHQ_XM2010_SD_DESERT","USSR_cheytacM200","RH_hk417sp","vil_M110","vil_M110sd","RH_m14","RH_m1sacog","RH_m1saim","RH_m1stshd","RH_m21","RH_sc2acog","RH_sc2aim","RH_sc2eot","RH_sc2shd","RH_sc2sp","vil_SR25","vil_SR25SD","BAF_LRR_scoped","SCAR_H_LNG_Sniper","SCAR_H_LNG_Sniper_SD"];	// Sniper rifles
 		ai_wep_acr					= ["FHQ_ACR_BLK_IRN","FHQ_ACR_TAN_IRN","FHQ_ACR_SNW_IRN","FHQ_ACR_WDL_IRN","FHQ_ACR_BLK_CCO","FHQ_ACR_TAN_CCO","FHQ_ACR_SNW_CCO","FHQ_ACR_WDL_CCO","FHQ_ACR_BLK_CCO_GL","FHQ_ACR_TAN_CCO_GL","FHQ_ACR_SNW_CCO_GL","FHQ_ACR_WDL_CCO_GL","FHQ_ACR_BLK_G33","FHQ_ACR_TAN_G33","FHQ_ACR_SNW_G33","FHQ_ACR_WDL_G33","FHQ_ACR_BLK_G33_GL","FHQ_ACR_TAN_G33_GL","FHQ_ACR_TAN_G33_GL","FHQ_ACR_SNW_G33_GL","FHQ_ACR_WDL_G33_GL","FHQ_ACR_BLK_HAMR","FHQ_ACR_TAN_HAMR","FHQ_ACR_SNW_HAMR","FHQ_ACR_WDL_HAMR","FHQ_ACR_BLK_HAMR_GL","FHQ_ACR_TAN_HAMR_GL","FHQ_ACR_SNW_HAMR_GL","FHQ_ACR_WDL_HAMR_GL","FHQ_ACR_BLK_HWS","FHQ_ACR_TAN_HWS","FHQ_ACR_SNW_HWS","FHQ_ACR_WDL_HWS","FHQ_ACR_BLK_HWS_GL","FHQ_ACR_TAN_HWS_GL","FHQ_ACR_SNW_HWS_GL","FHQ_ACR_WDL_HWS_GL","FHQ_ACR_BLK_IRN_GL","FHQ_ACR_TAN_IRN_GL","FHQ_ACR_SNW_IRN_GL","FHQ_ACR_WDL_IRN_GL","FHQ_ACR_BLK_RCO","FHQ_ACR_TAN_RCO","FHQ_ACR_SNW_RCO","FHQ_ACR_WDL_RCO","FHQ_ACR_BLK_RCO_GL","FHQ_ACR_TAN_RCO_GL","FHQ_ACR_SNW_RCO_GL","FHQ_ACR_WDL_RCO_GL","FHQ_ACR_TAN_CCO_GL_SD","FHQ_ACR_SNW_CCO_GL_SD","FHQ_ACR_WDL_CCO_GL_SD","FHQ_ACR_BLK_CCO_SD","FHQ_ACR_TAN_CCO_SD","FHQ_ACR_SNW_CCO_SD","FHQ_ACR_WDL_CCO_SD","FHQ_ACR_BLK_G33_GL_SD","FHQ_ACR_TAN_G33_GL_SD","FHQ_ACR_SNW_G33_GL_SD","FHQ_ACR_WDL_G33_GL_SD","FHQ_ACR_BLK_G33_SD","FHQ_ACR_TAN_G33_SD","FHQ_ACR_SNW_G33_SD","FHQ_ACR_WDL_G33_SD","FHQ_ACR_BLK_HAMR_GL_SD","FHQ_ACR_TAN_HAMR_GL_SD","FHQ_ACR_SNW_HAMR_GL_SD","FHQ_ACR_WDL_HAMR_GL_SD","FHQ_ACR_BLK_HAMR_SD","FHQ_ACR_TAN_HAMR_SD","FHQ_ACR_SNW_HAMR_SD","FHQ_ACR_WDL_HAMR_SD","FHQ_ACR_BLK_HWS_GL_SD","FHQ_ACR_TAN_HWS_GL_SD","FHQ_ACR_SNW_HWS_GL_SD","FHQ_ACR_WDL_HWS_GL_SD","FHQ_ACR_BLK_HWS_SD","FHQ_ACR_TAN_HWS_SD","FHQ_ACR_SNW_HWS_SD","FHQ_ACR_WDL_HWS_SD","FHQ_ACR_BLK_IRN_GL_SD","FHQ_ACR_TAN_IRN_GL_SD","FHQ_ACR_SNW_IRN_GL_SD","FHQ_ACR_WDL_IRN_GL_SD","FHQ_ACR_BLK_RCO_GL_SD","FHQ_ACR_TAN_RCO_GL_SD","FHQ_ACR_SNW_RCO_GL_SD","FHQ_ACR_WDL_RCO_GL_SD","FHQ_ACR_BLK_RCO_SD","FHQ_ACR_TAN_RCO_SD","FHQ_ACR_SNW_RCO_SD","FHQ_ACR_WDL_RCO_SD","FHQ_ACR_BLK_IRN_SD","FHQ_ACR_TAN_IRN_SD","FHQ_ACR_SNW_IRN_SD","FHQ_ACR_WDL_IRN_SD"]; //All ACR types except thermal
 		ai_wep_random				= [ai_wep_assault,ai_wep_assault,ai_wep_assault,ai_wep_sniper,ai_wep_sniper,ai_wep_machine,ai_wep_machine,ai_wep_acr];	// random weapon 60% chance assault rifle,20% light machine gun,20% sniper rifle
-		ai_wep_launchers_AT			= ["M136","RPG18","JAVELIN","RPG18","RPG18","RPG18","RPG18","RPG18","RPG18","RPG18"];
+		ai_wep_launchers_AT			= ["M136","RPG18","JAVELIN","RPG7V"];
 		ai_wep_launchers_AA			= ["Strela","Igla","STINGER"];
 		
 		ai_packs					= ["DZ_Czech_Vest_Puch","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
@@ -91,7 +91,7 @@ if(isServer) then {
 		wai_avoid_water				= 50;								// avoid spawning missions this close to water
 
 		
-		wai_mission_timer			= [300,800];							// time between missions 5-15 minutes
+		wai_mission_timer			= [300,600];							// time between missions 5-15 minutes
 		wai_mission_timeout			= [900,1200]; 						// time each missions takes to despawn if inactive 15-30 minutes
 		wai_timeout_distance		= 1000;								// if a player is this close to a mission then it won't time-out
 		
@@ -112,7 +112,7 @@ if(isServer) then {
 		wai_kill_percent			= 0;								// percentage of AI players that must be killed at "crate" missions to be able to trigger completion
 
 		wai_high_value				= true;								// enable the possibility of finding a high value item (defined below crate_items_high_value) inside a crate
-		wai_high_value_chance		= 1;								// chance in percent you find above mentioned item
+		wai_high_value_chance		= 10;								// chance in percent you find above mentioned item
 
 		wai_enable_minefield		= true;								// enable minefields to better defend missions
 		wai_use_launchers			= true;								// add a rocket launcher to each spawned AI group
@@ -120,8 +120,8 @@ if(isServer) then {
 
 		// Missions
 		wai_radio_announce			= false;								// Setting this to true will announce the missions to those that hold a radio only
-		wai_hero_limit				= 1;								// define how many hero missions can run at once
-		wai_bandit_limit			= 1;								// define how many bandit missions can run at once
+		wai_hero_limit				= 2;								// define how many hero missions can run at once
+		wai_bandit_limit			= 2;								// define how many bandit missions can run at once
 
 		wai_hero_missions			= [ 								// ["mission filename",% chance of picking this mission],Make sure the chances add up to 100,or it will not be accurate percentages
 										["black_hawk_crash",7],
@@ -198,7 +198,7 @@ if(isServer) then {
 		crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM","150Rnd_127x108_KORD"];
 		crate_items_sniper			= [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
 		crate_items_president		= [["ItemDocument",2],"ItemBriefcase90oz","ItemBriefcase100oz"];
-		crate_items_convoy			= ["ItemBriefcase100oz","FoodMRE","ItemSodaMdew","2000Rnd_762x51_M134","100Rnd_127x99_M2","metal_floor_kit","cinder_wall_kit","cinder_door_kit","cinder_garage_kit","ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta","ItemComboLock","CinderBlocks","ItemCanvas","ItemComboLock","ItemLightBulb","ItemLockbox","ItemSandbag","ItemTankTrap","ItemWire","MortarBucket","ItemBriefcase100oz","FoodMRE","ItemSodaMdew","2000Rnd_762x51_M134","100Rnd_127x99_M2","metal_floor_kit","cinder_wall_kit","cinder_door_kit","cinder_garage_kit","ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta","ItemComboLock","CinderBlocks","ItemCanvas","ItemComboLock","ItemLightBulb","ItemLockbox","ItemSandbag","ItemTankTrap","ItemWire","MortarBucket","ItemHotwireKit","PipeBomb"]; //Will add more later
+		crate_items_convoy			= [["ItemBriefcase100oz",3],"FoodMRE","ItemSodaMdew","metal_floor_kit","cinder_wall_kit","cinder_door_kit","cinder_garage_kit","ItemComboLock","CinderBlocks","ItemComboLock","ItemLockbox","MortarBucket","ItemHotwireKit","PipeBomb","PG7VR"]; //Will add more later
 		crate_items_crop_raider		= ["ItemKiloHemp"];
 		crate_items_gem_tower		= ["ItemRuby","ItemEmerald","ItemSapphire","ItemCitrine","ItemTopaz","ItemAmethyst","ItemObsidian"];
 
