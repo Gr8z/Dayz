@@ -13,11 +13,21 @@ enableSentences false;
 
 call compile preprocessFileLineNumbers"GG\config.sqf";
 
-
 spawnArea= 1500; 
 dayz_minpos= -1; 
 dayz_maxpos	= 16000;
 dayz_MapArea = 14000;
+
+GGSafezones = [
+	[zonestary, 100, "Stary"],
+	[zonebash, 100, "Bash"],
+	[zoneklen, 100, "Klen"],
+	[zonebor, 75, "Bor"],
+	[zonehero, 100, "Hero"],
+	[zoneaircraft, 100, "Aircraft"],
+	[zonewholesale1, 50, "Wholesale 1"],
+	[zonewholesale2, 50, "Wholesale 2"]
+];
 
 EpochEvents = [
 	["any","any","any","any",30,"abandonedvault"],

@@ -18,7 +18,7 @@ dayz_minpos = -26000;
 dayz_maxpos = 26000;
 dayz_MapArea = 20000;
 
-SafezoneZ = [
+GGSafezones = [
 	[zonesabina, 40, "Sabina"],
 	[zonelyep, 50, "Lyepestok"],
 	[zonebilgrad, 50, "Bilgrad"],

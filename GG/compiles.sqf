@@ -757,7 +757,7 @@ if (!isDedicated) then {
 			_marker setMarkerSizeLocal [_radius, _radius];
 		};
 		true 
-	} count SafezoneZ;
+	} count GGSafezones;
 	
 	
 	
