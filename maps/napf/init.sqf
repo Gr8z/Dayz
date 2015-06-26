@@ -18,6 +18,18 @@ dayz_minpos = -1;
 dayz_maxpos = 26000;
 dayz_MapArea = 18000;
 
+GGSafezones = [
+	[Schratten, 75, "Schratten"],
+	[Emmen, 100, "Emmen"],
+	[Lenz, 50, "Lenzburg"],
+	[Chatzbach, 25, "Chatzbach"],
+	[Hero, 50, "Hero"],
+	[Wholesale1, 100, "West Wholesaler and Boat Dealer"],
+	[Wholesaler, 100, "East Wholesaler and Boat Dealer"],
+	[black, 50, "Black Market"],
+	[Aircraft, 100, "Aircraft"]
+];
+
 EpochEvents = [
 	["any","any","any","any",30,"abandonedvault"],
 	["any","any","any","any",0,"crash_spawner"],
@@ -61,7 +73,6 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\kill_msg.sqf";
 };
-execVM "GG\safezone.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
