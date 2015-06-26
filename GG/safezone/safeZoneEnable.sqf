@@ -1,8 +1,7 @@
 canbuild = false;
 inSafeZone = true;
 isInTraderCity = true;
-if (!isNil "timer60") then { terminate timer60; };
-if (isNil "player_veh") then { player_veh = vehicle player; };
+if (!isNil "timer30") then { terminate timer30; };
 
 SafeZoneEnterCount = SafeZoneEnterCount + 1;
 [] spawn { uiSleep 120; SafeZoneEnterCount = SafeZoneEnterCount - 1; };
@@ -43,7 +42,7 @@ player allowDamage false;
 player removeAllEventhandlers "handleDamage";
 player addEventhandler ["handleDamage", {false}];
 
-SafezoneVehicleFiredEvent = player_veh addEventHandler ["Fired", {
+SafezoneFiredEvent = player addEventHandler ["Fired", {
 	titleText ["You can not fire your weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
 	NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 }];
@@ -68,7 +67,7 @@ SafezoneZSHIELD = [] spawn {
 
 SafezoneVehicleSpeedLimit = [] spawn {
 	while {true} do {
-		if (isNil "player_veh") then { player_veh = vehicle player; };
+		player_veh = vehicle player;
 		waitUntil {player_veh != player && !((player_veh) isKindOf 'Air') && !((player_veh) isKindOf 'Plane') && !((player_veh) isKindOf 'Bicycle')};
 		_speed = abs speed player_veh;
 		if ((player_veh != player) && (_speed > 20)) then
@@ -121,7 +120,7 @@ SafezoneTheft = [] spawn {
 SafezoneVechicles = [] spawn {
 	while {true} do {
 		waitUntil {uiSleep 0.25; vehicle player != player};
-		if (isNil "player_veh") then { player_veh = vehicle player; };
+		player_veh = vehicle player;
 		player_veh_isAir = player_veh isKindOf "Air";
 		_player_driver = player == driver player_veh;
 		_veh_owner = player_veh getVariable ['owner', objNull];
@@ -129,12 +128,18 @@ SafezoneVechicles = [] spawn {
 			if (_player_driver) then {
 				player_veh setVariable ['owner', player, true]; _veh_owner = player;
 				player_veh removeAllEventHandlers "handleDamage";
-				player_veh removeAllEventHandlers 'Fired';
 				player_veh addEventHandler ['handleDamage',{0}];
-				SafezoneVehicleFiredEvent = player_veh addEventHandler ["Fired", {
+				player_veh addEventHandler ['Fired', {
 					titleText ["You can not fire your vehicle's weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
 					NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 				}];
+				{
+					_x removeAllEventHandlers 'Fired';
+					_x addEventHandler ['Fired', {
+						titleText ["You can not fire your vehicle's weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
+						NearestObject [_this select 0,_this select 4] setPos [0,0,0];
+					}];
+				} forEach (crew player_veh);
 			} else {
 				cutText [format['%1, This is an abondoned vehicle. Enter in the driver/pilot seat to claim this vehicle.',name player],'PLAIN'];
 				player action ['getOut', player_veh];
