@@ -14,6 +14,7 @@
 										 "76561198106963366", // Sassy
 										 "76561198054897830", // Akrantz
 										 "76561198110162434", // Chemical Burn
+										 "76561198036438380", // Rumplestiltskin
 										 "0" // 
 										 ]; 
 /*  NORMAL ADMIN HERE     */ _NAdmins = [
