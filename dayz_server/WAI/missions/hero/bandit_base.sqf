@@ -65,7 +65,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[20,crate_weapons_missionbase],[8,crate_tools_sniper],[3,crate_items_high_value],[4,crate_backpacks_large]] call dynamic_crate;
+		[_crate,[10,crate_weapons_missionbase],[8,crate_tools_sniper],[3,crate_items_high_value],[4,crate_backpacks_large]] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Bandit Base]: Ended at %1",_position];

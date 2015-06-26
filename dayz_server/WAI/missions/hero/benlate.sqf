@@ -55,7 +55,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[25,crate_weapons_missionbase],4,2,4] call dynamic_crate;
+		[_crate,[16,crate_weapons_missionbase],4,2,4] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Kill Bin Laden]: Ended at %1",_position];
