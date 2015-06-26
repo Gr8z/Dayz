@@ -1,6 +1,7 @@
 canbuild = true;
 inSafeZone = false;
 isInTraderCity = false;
+player_veh = vehicle player;
 
 hintSilent parseText format ["
 	<t align='center' color='#37AAE1' shadow='2' size='1.75'>SAFEZONE</t><br/>
@@ -22,10 +23,10 @@ terminate SafezoneTheft;
 terminate SafezoneVechicles;
 
 if (!isNil "timer60") then { terminate timer60; };
-vehicle player removeEventHandler ["Fired", SafezoneVehicleFiredEvent];
+player_veh removeEventHandler ["Fired", SafezoneVehicleFiredEvent];
 
 timer60 = [] spawn {
-	SafezoneFiredEvent2 = vehicle player addEventHandler ["Fired", {
+	SafezoneFiredEvent2 = player_veh addEventHandler ["Fired", {
 		titleText ["Your weapon will activate within 30 seconds!","PLAIN DOWN"]; titleFadeOut 4;
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
@@ -37,7 +38,7 @@ timer60 = [] spawn {
 		player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		player allowDamage true;
 		player removeAllEventHandlers "HandleDamage";
-		vehicle player removeEventHandler ["Fired", SafezoneVehicleFiredEvent2];
+		player_veh removeEventHandler ["Fired", SafezoneVehicleFiredEvent2];
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
 		
 		taskHint ["PROTECTION DISABLED", [1,(68/255),(68/255),1], "taskFailed"];

@@ -68,16 +68,16 @@ SafezoneZSHIELD = [] spawn {
 
 SafezoneVehicleSpeedLimit = [] spawn {
 	while {true} do {
-		_obj = vehicle player;
-		waitUntil {_obj != player && !((_obj) isKindOf 'Air') && !((_obj) isKindOf 'Plane') && !((_obj) isKindOf 'Bicycle')};
-		_speed = abs speed _obj;
-		if ((_obj != player) && (_speed > 20)) then
+		if (!isNil "player_veh") then { player_veh = vehicle player; };
+		waitUntil {player_veh != player && !((player_veh) isKindOf 'Air') && !((player_veh) isKindOf 'Plane') && !((player_veh) isKindOf 'Bicycle')};
+		_speed = abs speed player_veh;
+		if ((player_veh != player) && (_speed > 20)) then
 		{
-			_vel = velocity _obj;
+			_vel = velocity player_veh;
 			_x = 0.8;
 			if (_speed > 50) then {_x = 0.1;};
 			_velNew = [(_vel select 0) * _x, (_vel select 1) * _x,(_vel select 2) * _x];
-			_obj SetVelocity _velNew;
+			player_veh SetVelocity _velNew;
 		};
 		uiSleep 0.1;
 	};
@@ -121,7 +121,7 @@ SafezoneTheft = [] spawn {
 SafezoneVechicles = [] spawn {
 	while {true} do {
 		waitUntil {uiSleep 0.25; vehicle player != player};
-		player_veh = vehicle player;
+		if (!isNil "player_veh") then { player_veh = vehicle player; };
 		player_veh_isAir = player_veh isKindOf "Air";
 		_player_driver = player == driver player_veh;
 		_veh_owner = player_veh getVariable ['owner', objNull];
