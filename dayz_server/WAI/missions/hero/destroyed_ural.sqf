@@ -23,8 +23,8 @@ if(isServer) then {
 	_baserunover 	setVectorUp surfaceNormal position _baserunover;
 
 	//Troops
-	_rndnum 	= 2 + round (random 2);
-	_rndgro 	= 1 + round (random 2);
+	_rndnum 	= 3 + round (random 2);
+	_rndgro 	= 2 + round (random 2);
 
 	[[_position select 0,_position select 1,0],_rndnum,"Easy",["Random","AT"],4,"Random","Bandit","Random","Bandit",_mission] call spawn_group;
 
@@ -43,7 +43,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[4,crate_weapons_missionbase],8,36,2] call dynamic_crate;
+		[_crate,[10,crate_weapons_missionbase],8,36,2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Ural Attack]: Ended at %1",_position];

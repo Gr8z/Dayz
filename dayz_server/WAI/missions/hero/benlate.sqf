@@ -40,8 +40,8 @@ if(isServer) then {
 	//Static guns
 	_static_gun = ai_static_weapons call BIS_fnc_selectRandom;
 	[[
-		[(_position select 0) - 13.135, (_position select 1) + 5.025, 15],
-		[(_position select 0) + 14.225, (_position select 1) + 5.025, 15],
+		[(_position select 0) - 20, (_position select 1) + 5.025, 0],
+		[(_position select 0) + 20, (_position select 1) + 5.025, 0],
 		[(_position select 0) + 35, (_position select 1) - 25, 0]
 	],_static_gun,"Medium","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 

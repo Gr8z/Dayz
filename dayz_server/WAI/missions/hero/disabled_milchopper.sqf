@@ -35,7 +35,7 @@ if(isServer) then {
 		[(_position select 0) + 30, (_position select 1) + 30, 0],
 		[(_position select 0) - 30, (_position select 1) - 30, 0],
 		[(_position select 0) - 30, (_position select 1) + 30, 0]
-	],"M2StaticMG","Medium","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Medium","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	//Spawn vehicle
 	_vehicle		= [_vehclass,_position,_mission] call custom_publish;

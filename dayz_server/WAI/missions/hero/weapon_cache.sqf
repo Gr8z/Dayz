@@ -32,7 +32,7 @@ if(isServer) then {
 	[[
 		[(_position select 0) + 10, (_position select 1) + 10, 0],
 		[(_position select 0) - 10, (_position select 1) - 10, 0]
-	],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	//Condition
 	_complete = [
@@ -45,7 +45,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[15,crate_weapons_missionbase],4,0,2] call dynamic_crate;
+		[_crate,[30,crate_weapons_missionbase],4,0,2] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Weapon Cache]: Ended at %1",_position];

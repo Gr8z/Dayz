@@ -31,7 +31,7 @@ if(isServer) then {
 	[[
 		[(_position select 0) + 20, (_position select 1) + 20, 0],
 		[(_position select 0) - 20, (_position select 1) - 20, 0]
-	],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	//Condition
 	_complete = [
@@ -46,7 +46,7 @@ if(isServer) then {
 	diag_log format["WAI: [Mission:[Hero] Black Hawk Crash]: Ended at %1",_position];
 
 	if(_complete) then {
-		[_crate,[5,crate_weapons_missionbase],5,10,2] call dynamic_crate;
+		[_crate,[20,crate_weapons_missionbase],5,10,2] call dynamic_crate;
 	};
 
 	h_missionsrunning = h_missionsrunning - 1;
