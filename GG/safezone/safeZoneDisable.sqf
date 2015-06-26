@@ -26,7 +26,7 @@ if (!isNil "timer60") then { terminate timer60; };
 player_veh removeEventHandler ["Fired", SafezoneVehicleFiredEvent];
 
 timer60 = [] spawn {
-	SafezoneFiredEvent2 = player_veh addEventHandler ["Fired", {
+	SafezoneVehicleFiredEvent2 = player_veh addEventHandler ["Fired", {
 		titleText ["Your weapon will activate within 30 seconds!","PLAIN DOWN"]; titleFadeOut 4;
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
