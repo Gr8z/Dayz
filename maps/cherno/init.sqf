@@ -72,7 +72,6 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\kill_msg.sqf";
 };
-execVM "GG\safezone.sqf";
 execVM "GG\debug.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
