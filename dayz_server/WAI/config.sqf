@@ -2,7 +2,7 @@ if(isServer) then {
 
 	/* GENERAL CONFIG */
 
-		debug_mode					= false;		// enable debug
+		debug_mode					= true;		// enable debug
 		use_blacklist				= false;			// use blacklist
 		blacklist					= [
 			[[0,16000,0],[1000,-0,0]],				// Left
@@ -91,7 +91,7 @@ if(isServer) then {
 		wai_avoid_water				= 50;								// avoid spawning missions this close to water
 
 		
-		wai_mission_timer			= [30,60];							// time between missions 5-15 minutes
+		wai_mission_timer			= [300,600];							// time between missions 5-15 minutes
 		wai_mission_timeout			= [900,1200]; 						// time each missions takes to despawn if inactive 15-30 minutes
 		wai_timeout_distance		= 1000;								// if a player is this close to a mission then it won't time-out
 		
@@ -209,6 +209,15 @@ if(isServer) then {
 
 	/* END WAI MISSIONS CONFIG */
 
+	// DEBUG SETTINGS
+		if(debug_mode) then {
+			//wai_remove_launcher		= true;	
+			wai_mission_timer		= [60,60];
+			wai_mission_timeout		= [300,300];				
+			wai_bandit_missions		= [["cannibal_cave",50]];	
+			wai_hero_missions		= [["cannibal_cave",50]];
+		};
+		
 	/* STATIC MISSIONS CONFIG */
 
 		static_missions				= false;		// use static mission file
