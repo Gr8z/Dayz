@@ -24,7 +24,7 @@ echo.
 timeout 1
 echo.
 echo Moving Files into the mission
-move C:\Dayz\GG C:\Dayz\maps\Chernarus
+move C:\Dayz\GG C:\Dayz\maps\cherno
 echo.
 timeout 1
 echo.
@@ -40,7 +40,7 @@ echo.
 timeout 1
 echo.
 echo Moving Files back to root
-move C:\Dayz\maps\Chernarus\GG C:\Dayz\
+move C:\Dayz\maps\cherno\GG C:\Dayz\
 echo.
 echo Starting Dayz Server
 timeout 1
