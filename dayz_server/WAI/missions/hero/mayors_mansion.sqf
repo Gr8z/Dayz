@@ -56,7 +56,7 @@ if(isServer) then {
 	[[
 		[(_position select 0) - 15, (_position select 1) + 15, 8],
 		[(_position select 0) + 15, (_position select 1) - 15, 8]
-	],"M2StaticMG","Easy","Bandit","Bandit",1,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Easy","Bandit","Bandit",1,2,"Random","Random",_mission] call spawn_static;
 
 	_complete = [
 		[_mission,_crate],		// mission number and crate
@@ -68,7 +68,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[16,crate_weapons_missionbase],4,0,4] call dynamic_crate;
+		[_crate,[8,crate_weapons_mansion],4,[4,crate_items_president],4] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Mayors Mansion]: Ended at %1",_position];

@@ -30,7 +30,7 @@ if(isServer) then {
 		[(_position select 0) + 25, (_position select 1) + 25, 0],
 		[(_position select 0) - 25, (_position select 1) - 25, 0],
 		[(_position select 0) + 25, (_position select 1) - 25, 0]
-	],"M2StaticMG","Hard","Bandit","Bandit",1,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Hard","Bandit","Bandit",1,2,"Random","Random",_mission] call spawn_static;
 
 	//Heli Para Drop
 	[[(_position select 0),(_position select 1),0],[0,0,0],400,"BAF_Merlin_HC3_D",10,"Random","Random",4,"Random","Bandit","Random","Bandit",false,_mission] spawn heli_para;
@@ -63,7 +63,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[1,crate_weapons_buildables],[4,crate_tools_buildable],[20,crate_items_buildingsups],4] call dynamic_crate;
+		[_crate,[1,crate_weapons_buildables],[4,crate_tools_buildable],[30,crate_items_buildingsups],4] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Disabled Convoy]: Ended at %1",_position];

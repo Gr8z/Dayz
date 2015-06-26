@@ -46,10 +46,10 @@ if(isServer) then {
 	[[(_position select 0) + 100, _position select 1, 0],[(_position select 0) + 100, _position select 1, 0],50,2,"HMMWV_Armored","Hard","Bandit","Bandit",_mission] call vehicle_patrol;
 	 
 	//Static Guns
-	[[[(_position select 0) - 10, (_position select 1) + 10, 0]],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
-	[[[(_position select 0) + 10, (_position select 1) - 10, 0]],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
-	[[[(_position select 0) + 10, (_position select 1) + 10, 0]],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
-	[[[(_position select 0) - 10, (_position select 1) - 10, 0]],"M2StaticMG","Easy","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	[[[(_position select 0) - 10, (_position select 1) + 10, 0]],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	[[[(_position select 0) + 10, (_position select 1) - 10, 0]],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	[[[(_position select 0) + 10, (_position select 1) + 10, 0]],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	[[[(_position select 0) - 10, (_position select 1) - 10, 0]],"KORD_high_TK_EP1","Extreme","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	//Heli Paradrop
 	[[(_position select 0), (_position select 1), 0],[0,0,0],400,"UH1H_DZ",10,"Random","Random",4,"Random","Bandit","Random","Bandit",true,_mission] spawn heli_para;
@@ -65,7 +65,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[10,crate_weapons_missionbase],[8,crate_tools_sniper],[3,crate_items_high_value],[4,crate_backpacks_large]] call dynamic_crate;
+		[_crate,[5,crate_weapons_base],[8,crate_tools_sniper],[3,crate_items_high_value],[4,crate_backpacks_large]] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Bandit Base]: Ended at %1",_position];

@@ -33,7 +33,7 @@ if(isServer) then {
 	[[
 		[(_position select 0) + 10, (_position select 1) + 10, 0],
 		[(_position select 0) + 10, (_position select 1) - 10, 0]
-	],"M2StaticMG","Hard","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
+	],"KORD_high_TK_EP1","Hard","Bandit","Bandit",0,2,"Random","Random",_mission] call spawn_static;
 
 	//MV22
 	_vehclass 		= "MV22_DZ";
@@ -54,7 +54,7 @@ if(isServer) then {
 	] call mission_winorfail;
 
 	if(_complete) then {
-		[_crate,[6,crate_weapons_missionbase],0,[80,crate_items_medical],0] call dynamic_crate;
+		[_crate,[10,crate_weapons_missionbase],0,[80,crate_items_medical],0] call dynamic_crate;
 	};
 
 	diag_log format["WAI: [Mission:[Hero] Captured MV22]: Ended at %1",_position];
