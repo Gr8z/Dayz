@@ -43,7 +43,7 @@ timer30 = [] spawn {
 		_veh = vehicle player;
 		if (player != _veh) then
 		{
-			vehicle_handleDamage = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\vehicle_handleDamage.sqf';
+			vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
 			_veh removeAllEventHandlers 'HandleDamage';
 			_veh addeventhandler ['HandleDamage',{ _this call vehicle_handleDamage } ];
 			_veh allowDamage true;

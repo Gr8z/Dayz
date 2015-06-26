@@ -127,8 +127,9 @@ SafezoneVechicles = [] spawn {
 		if (isNull _veh_owner) then {
 			if (_player_driver) then {
 				player_veh setVariable ['owner', player, true]; _veh_owner = player;
-				player_veh removeAllEventHandlers "handleDamage";
-				player_veh addEventHandler ['handleDamage',{0}];
+				vehicle_handleDamage = {false};
+				player_veh removeAllEventHandlers 'HandleDamage';
+				player_veh addeventhandler ['HandleDamage',{ _this call vehicle_handleDamage } ];
 				player_veh addEventHandler ['Fired', {
 					titleText ["You can not fire your vehicle's weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
 					NearestObject [_this select 0,_this select 4] setPos [0,0,0];
