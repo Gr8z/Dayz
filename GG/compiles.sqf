@@ -732,5 +732,33 @@ if (!isDedicated) then {
 	
 	call compile preprocessFileLineNumbers "GG\gold\player_traderMenu.sqf";
 	
+	//Safe-zones ---------------------------------------
+	SafeZoneCreate 			= compile preprocessFileLineNumbers "GG\safezone\SafeZoneCreate.sqf";
+	SafeZoneEnable 			= compile preprocessFileLineNumbers "GG\safezone\safeZoneEnable.sqf";
+	SafeZoneDisable 		= compile preprocessFileLineNumbers "GG\safezone\safeZoneDisable.sqf";
+	{
+		private ["_pos", "_radius", "_name", "_trigger", "_marker"];
+		_pos = _x select 0;
+		_radius = _x select 1;
+		_name = _x select 2;
+		_trigger = createTrigger ["EmptyDetector", _pos];
+		_trigger setTriggerArea [_radius, _radius, 0, false];
+		_trigger setTriggerActivation ["ANY", "PRESENT", true];
+		_trigger setTriggerType "SWITCH";
+		if (isServer) then {
+			_trigger spawn SafeZoneCreate;
+		} else {
+			_trigger setTriggerStatements ["(vehicle player) in thisList", "call SafeZoneEnable", "call SafeZoneDisable"];
+			_marker = createMarkerLocal [format["Safezone%1", _name], _pos];
+			_marker setMarkerShapeLocal "ELLIPSE";
+			_marker setMarkerTypeLocal "Empty";
+			_marker setMarkerColorLocal "ColorGreen";
+			_marker setMarkerBrushLocal "Grid";
+			_marker setMarkerSizeLocal [_radius, _radius];
+		};
+		true 
+	} count GGSafezones;
+	
+	
 	
 initialized = true;

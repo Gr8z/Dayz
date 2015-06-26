@@ -6,7 +6,7 @@ _state = false;
 
 {if ((_unit distance (_x select 0)) < 120) exitWith {_state = true;};} forEach safezones;
 if (_state) exitWith {};
-if ((locked _unit && (count (crew _unit)) == 0) && (count(nearestObjects [_unit, ["Plastic_Pole_EP1_DZ"],60]) > 0)) exitWith {_state = true;};
+if (((locked _unit && (count (crew _unit)) == 0) && (count(nearestObjects [_unit, ["Plastic_Pole_EP1_DZ"],60]) > 0)) || (!canbuild)) exitWith {_state = true;};
 if (_selection != "") then {_strH = "hit_" + _selection;} else {_strH = "totalDmg";};
 if (_total >= 0.98) then {_total = 1.0;};
 if (local _unit) then {

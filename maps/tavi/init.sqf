@@ -18,6 +18,20 @@ dayz_minpos = -26000;
 dayz_maxpos = 26000;
 dayz_MapArea = 20000;
 
+GGSafezones = [
+	[zonesabina, 40, "Sabina"],
+	[zonelyep, 50, "Lyepestok"],
+	[zonebilgrad, 50, "Bilgrad"],
+	[zonebranibor, 60, "Branibor"],
+	[zonekrasno, 100, "Krasno"],
+	[zonedubovo, 100, "Dubovo"],
+	[zonewholesalesouth, 50, "South Wholesaler"],
+	[zonewholesalenorth, 50, "North Wholesaler"],
+	[zoneblackbig, 50, "BLACK MARKET"],
+	[zoneblacksmall, 50, "BLACK MARKET"],
+	[zonehero, 40, "Hero"]
+];
+
 EpochEvents = [
 	["any","any","any","any",30,"abandonedvault"],
 	["any","any","any","any",0,"crash_spawner"],
@@ -60,11 +74,7 @@ if (!isDedicated) then {
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\kill_msg.sqf";
-	execVM "GG\checkDriver.sqf";
-	execVM "GG\MapMarkerTitling.sqf";
-	execVM "GG\Reward.sqf";
 };
-execVM "GG\safezone.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
