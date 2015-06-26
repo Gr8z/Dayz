@@ -18,14 +18,21 @@ hintSilent parseText format ["
 terminate SafezoneVehicleSpeedLimit;
 terminate SafezoneSkinChange;
 terminate SafezoneZSHIELD;
+terminate SafezoneTheft;
+terminate SafezoneVechicles;
 
 if (!isNil "timer60") then { terminate timer60; };
 player removeEventHandler ["Fired", SafezoneFiredEvent];
+player_veh removeEventHandler ["Fired", SafezoneVehicleFiredEvent];
 
 timer60 = [] spawn {
 	SafezoneFiredEvent2 = player addEventHandler ["Fired", {
 		titleText ["Your weapon will activate within 30 seconds!","PLAIN DOWN"]; titleFadeOut 4;
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
+	}];
+	SafezoneVehicleFiredEvent2 = player_veh addEventHandler ["Fired", {
+			titleText ["You can not fire your vehicle's weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
+			NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
 	
 	uiSleep (15 + (random 15));
@@ -36,6 +43,7 @@ timer60 = [] spawn {
 		player allowDamage true;
 		player removeAllEventHandlers "HandleDamage";
 		player removeEventHandler ["Fired", SafezoneFiredEvent2];
+		player removeEventHandler ["Fired", SafezoneVehicleFiredEvent2];
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
 		
 		taskHint ["PROTECTION DISABLED", [1,(68/255),(68/255),1], "taskFailed"];

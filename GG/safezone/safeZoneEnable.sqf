@@ -53,6 +53,7 @@ SafezoneSkinChange = [] spawn {
 	waitUntil {sleep 1; typeOf player != _skin};
 	terminate SafezoneVehicleSpeedLimit;
 	terminate SafezoneZSHIELD;
+	terminate SafezoneTheft;
 	call SafeZoneEnable;
 };
 
@@ -79,5 +80,73 @@ SafezoneVehicleSpeedLimit = [] spawn {
 			_obj SetVelocity _velNew;
 		};
 		uiSleep 0.1;
+	};
+};
+
+SafezoneTheft = [] spawn {
+	while {true} do {
+		waitUntil {uiSleep 0.25; vehicle player == player};
+		_playerID = player getVariable ["CharacterID",0];
+		//GET PLAYER FRIENDS
+		_friends = units group player;
+		//CHECK FOR PLAYER GEAR ACCESS
+		_near = [];
+		{if (isPlayer _x && _x != player) then {_near = _near + [_x];};} forEach (player nearEntities ['CAManBase',4]);
+		_countNear = count _near;
+		if (_countNear > 0) then {
+			_countNearFriends = {_x in _friends || _playerID in (_x getVariable ["friendlies",[]])} count _near;
+			if (_countNear > _countNearFriends && !isNull findDisplay 106) then {
+				(findDisplay 106) closedisplay 0;
+				closeDialog 0;closeDialog 0;closeDialog 0;
+				cutText [format['%1, You are near a player from another group, cannot access gear.',name player],'PLAIN'];
+			};
+		};
+		//CHECK FOR VEHCILE GEAR ACCESS
+		_arround = player nearEntities [['LandVehicle','Air','ship'],25];_near = [];
+		{if (player distance _x < ((sizeOf typeOf _x)/2) + 3) then {_near = _near + [_x];};} forEach _arround;
+		_countNear = count _near;
+		_countNearMine = {
+			_owner = _x getVariable ['owner',objNull];
+			_owner in _friends || _playerID in (_owner getVariable ["friendlies",[]])
+		} count _near;
+		if (_countNear > _countNearMine && !isNull findDisplay 106) then {
+			(findDisplay 106) closedisplay 0;
+			closeDialog 0;closeDialog 0;closeDialog 0;
+			cutText [format["%1. You are near other player's vehicle, you cannot access gear",name player],"PLAIN"];
+		};
+		uiSleep 0.25;
+	};
+};
+
+SafezoneVechicles = [] spawn {
+	while {true} do {
+		waitUntil {uiSleep 0.25; vehicle player != player};
+		player_veh = vehicle player;
+		player_veh_isAir = player_veh isKindOf "Air";
+		_player_driver = player == driver player_veh;
+		_veh_owner = player_veh getVariable ['owner', objNull];
+		if (isNull _veh_owner) then {
+			if (_player_driver) then {
+				player_veh setVariable ['owner', player, true]; _veh_owner = player;
+				player_veh removeAllEventHandlers "handleDamage";
+				player_veh removeAllEventHandlers 'Fired';
+				player_veh addEventHandler ['handleDamage',{0}];
+				SafezoneVehicleFiredEvent = player_veh addEventHandler ["Fired", {
+					titleText ["You can not fire your vehicle's weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
+					NearestObject [_this select 0,_this select 4] setPos [0,0,0];
+				}];
+			} else {
+				cutText [format['%1, This is an abondoned vehicle. Enter in the driver/pilot seat to claim this vehicle.',name player],'PLAIN'];
+				player action ['getOut', player_veh];
+			};
+		} else {
+			_ownerGroup = units group _veh_owner;
+			_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
+			_playerID = player getVariable ["CharacterID","0"];
+			if !(player in _ownerGroup || _playerID in _ownerGroupTag) then {
+				player action ['getOut', player_veh];
+			};
+		};
+	uiSleep 0.25;
 	};
 };
