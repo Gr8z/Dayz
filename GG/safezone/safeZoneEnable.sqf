@@ -138,7 +138,7 @@ SafezoneVechicles = [] spawn {
 			_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
 			_playerID = player getVariable ["CharacterID","0"];
 			if !(player in _ownerGroup || _playerID in _ownerGroupTag) then {
-				cutText [format['%1, You are in a vehicle owned by another player',name player],'PLAIN'];
+				cutText [format['%1, You are in a vehicle owned by another player',name player],'WHITE IN'];
 				player action ['getOut', player_veh];
 			};
 		};
