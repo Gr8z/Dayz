@@ -21,6 +21,9 @@ terminate SafezoneZSHIELD;
 terminate SafezoneTheft;
 terminate SafezoneVechicles;
 
+PVDZE_send = [player,'SafeZoneState',[0]];
+publicVariableServer 'PVDZE_send';
+
 if (!isNil "timer30") then { terminate timer30; };
 player removeEventHandler ["Fired", SafezoneFiredEvent];
 

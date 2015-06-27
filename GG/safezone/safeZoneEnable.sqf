@@ -36,6 +36,8 @@ hintSilent parseText format ["
 	<br/>
 "];
 
+PVDZE_send = [player,'SafeZoneState',[1]];
+publicVariableServer 'PVDZE_send';
 fnc_usec_damageHandler = {};
 player_zombieCheck = {};
 player allowDamage false;
