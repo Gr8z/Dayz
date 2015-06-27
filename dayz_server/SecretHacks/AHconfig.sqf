@@ -77,7 +77,7 @@
 /*  Use Damage Check ?    */ _UDC =  false;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
-/*  HACKED BOX Check ?    */ _CHB =  true;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
+/*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
 /*  Max Cargo Count ?     */ _MCC =  650;
 
 /*  MouseMoving EH check  */ _MOH =  true;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
