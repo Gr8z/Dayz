@@ -29,7 +29,7 @@ player removeEventHandler ["Fired", SafezoneFiredEvent];
 
 timer30 = [] spawn {
 	SafezoneFiredEvent2 = player addEventHandler ["Fired", {
-		titleText ["Your weapon will activate within 30 seconds!","PLAIN DOWN"]; titleFadeOut 4;
+		cutText ['Your weapon will activate within 30 seconds!','WHITE IN'];
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
 	

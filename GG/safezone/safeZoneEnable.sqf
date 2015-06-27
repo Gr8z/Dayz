@@ -45,7 +45,7 @@ player removeAllEventhandlers "handleDamage";
 player addEventhandler ["handleDamage", {false}];
 
 SafezoneFiredEvent = player addEventHandler ["Fired", {
-	titleText ["You can not fire your weapon in a safezone.","PLAIN DOWN"]; titleFadeOut 4;
+	cutText ['You can not fire in a SafeZone!','WHITE IN'];
 	NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 }];
 
