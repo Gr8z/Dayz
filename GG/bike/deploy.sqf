@@ -44,7 +44,7 @@ if(!DZE_DEPLOYING_SUCCESSFUL) then {
     sleep 10;
     // notify of despawn if it's not a permanent vehicle
     if (!(_this call getPermanent)) then { 
-        cutText ["Warning: Deployed Mountian Bikes DO NOT SAVE after server restart!", "PLAIN DOWN"]; 
+        cutText ["Warning: Deployed Vehicles DO NOT SAVE after server restart!", "PLAIN DOWN"]; 
     } else {
         cutText ["This vehicle is permanent and will persist through server restarts!", "PLAIN DOWN"]; 
     };
