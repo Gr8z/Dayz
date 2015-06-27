@@ -39,16 +39,6 @@ timer30 = [] spawn {
 		player removeAllEventHandlers "HandleDamage";
 		player removeEventHandler ["Fired", SafezoneFiredEvent2];
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
-		
-		_veh = vehicle player;
-		if (player != _veh) then
-		{
-			vehicle_handleDamage = compile preprocessFileLineNumbers 'GG\vehicle_handleDamage.sqf';
-			_veh removeAllEventHandlers 'HandleDamage';
-			_veh addeventhandler ['HandleDamage',{ _this call vehicle_handleDamage } ];
-			_veh allowDamage true;
-			_veh removeAllEventHandlers 'Fired';
-		};
 	
 		taskHint ["PROTECTION DISABLED", [1,(68/255),(68/255),1], "taskFailed"];
 	};

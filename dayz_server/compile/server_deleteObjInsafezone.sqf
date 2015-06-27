@@ -145,7 +145,7 @@ if(_possiblematch)then{
 			if(_delbikmot)then{{if(_obj isKindOf _x)then{_defdel = true};}count _defdelar;};
 			if(_defdel)then{_Action=3;diag_log format["%2: %1 is Model to delete by default!",_typeOf,_txt];};
 			if(getDammage _obj > _dam)then{_Action=3;diag_log format["%2: %1 too damaged",_typeOf,_txt];};
-			if(_unlock and !_defdel and (locked _obj))then{_obj setVehicleLock "UNLOCKED";_obj setVariable ["R3F_LOG_disabled",false,true];diag_log format["%2: %1 Un-Locked",_typeOf,_txt];};
+			if(_unlock and !_defdel and (locked _obj))then{_obj setVehicleLock "UNLOCKED";_obj setVariable ["LOG_disabled",false,true];diag_log format["%2: %1 Un-Locked",_typeOf,_txt];};
 			switch(_Action)do{
 				case 0:{deleteVehicle _obj;diag_log format["%2: %1 Deleted, but remains in DB (Dont forget to clean this up)",_typeOf,_txt];};
 				case 1:{

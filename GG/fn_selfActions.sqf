@@ -885,7 +885,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 			dayz_myCursorTarget = _cursorTarget;
 			_menu = dayz_myCursorTarget addAction [localize "STR_EPOCH_PLAYER_REPAIRV", "\z\addons\dayz_code\actions\repair_vehicle.sqf",_cursorTarget, 0, true, false];
 			s_player_repairActions set [count s_player_repairActions,_menu];
-			if (!(_cursorTarget getVariable ["R3F_LOG_disabled", false]) && (count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ"],100]) < 1) && (_Build) && !(locked _cursorTarget)) then {
+			if (!(_cursorTarget getVariable ["LOG_disabled", false]) && (count(nearestObjects [_cursorTarget, ["Plastic_Pole_EP1_DZ"],100]) < 1) && (_Build) && !(locked _cursorTarget)) then {
 				_menu1 = dayz_myCursorTarget addAction [localize "STR_EPOCH_PLAYER_SALVAGEV", "GG\salvage_vehicle.sqf",_cursorTarget, 0, true, false];
 				s_player_repairActions set [count s_player_repairActions,_menu1];
 			};
