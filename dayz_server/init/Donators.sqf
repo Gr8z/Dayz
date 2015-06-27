@@ -82,7 +82,7 @@ BuildDonor = [
 /////////// Engineer Class ///////
 Engineer1 = [
 	"76561198097415737", // Adam
-	"76561198075993909", // cory(OD-2015-05-22)#9113
+	"0", // cory(OD-2015-05-22)#9113-You pay then you get loadout
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
 	"76561198179637007", // Toqq A.K.A MAVERICK(OD-2015-06-12)#9439
 	// Add UIDs above, don't forget the comma
