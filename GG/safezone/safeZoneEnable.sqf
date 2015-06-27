@@ -97,7 +97,7 @@ SafezoneTheft = [] spawn {
 			if (_countNear > _countNearFriends && !isNull findDisplay 106) then {
 				(findDisplay 106) closedisplay 0;
 				closeDialog 0;closeDialog 0;closeDialog 0;
-				cutText [format['%1, You are near a player from another group, cannot access gear.',name player],'PLAIN'];
+				cutText [format['%1, You are near another player, cannot access gear.',name player],'PLAIN'];
 			};
 		};
 		//CHECK FOR VEHCILE GEAR ACCESS
@@ -136,6 +136,7 @@ SafezoneVechicles = [] spawn {
 			_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
 			_playerID = player getVariable ["CharacterID","0"];
 			if !(player in _ownerGroup || _playerID in _ownerGroupTag) then {
+				cutText [format['%1, You are in a vehicle owned by another player',name player],'PLAIN'];
 				player action ['getOut', player_veh];
 			};
 		};
