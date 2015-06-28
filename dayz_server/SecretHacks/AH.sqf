@@ -2512,12 +2512,6 @@ publicVariable '"+_randvar28+"';
 				player removeAllEventHandlers 'Killed';
 				player addEventHandler ['Killed', {if(isNil 'LASTDAMAGESOURCE') then {LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE) then {LASTDAMAGESOURCE = player;};};_id = [LASTDAMAGESOURCE,'shotheavy'] spawn player_death}];
 				player removeAllEventHandlers 'Fired';
-				player addEventHandler ['Fired', {
-					_this call player_fired;
-					_this call infi_fired"+_randvar5+";
-					if(isNil 'canbuild') then { canbuild = true; } else { if(typeName canbuild != 'BOOL') then { canbuild = true;YOLO = true; }; };
-					if(!canbuild) then {deleteVehicle (nearestObject [_this select 0,_this select 4]);};
-				}];
 				uiSleep 0.5;
 			};
 		};
