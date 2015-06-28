@@ -74,7 +74,7 @@ if (!isDedicated) then {
 	player_dumpBackpack = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_dumpBackpack.sqf";
 	building_spawnLoot =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnLoot.sqf";
 	building_spawnZombies =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\building_spawnZombies.sqf";
-	randomMags =					compile preprocessFileLineNumbers "GG\p2_randomMags.sqf";
+	randomMags =					compile preprocessFileLineNumbers "GG\randomMags.sqf";
 	
 	dayz_spaceInterrupt = compile preprocessFileLineNumbers "GG\dayz_spaceInterrupt.sqf";
 	
