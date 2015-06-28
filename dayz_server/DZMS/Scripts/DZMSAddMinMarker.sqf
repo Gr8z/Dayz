@@ -10,7 +10,7 @@ DZMSMinName = _this select 1;
 _nul = createMarker ["DZMSMinMarker", DZMSMinCoords];
 "DZMSMinMarker" setMarkerColor "ColorRed";
 "DZMSMinMarker" setMarkerShape "ELLIPSE";
-"DZMSMinMarker" setMarkerBrush "Grid";
+"DZMSMinMarker" setMarkerBrush "Solid";
 "DZMSMinMarker" setMarkerSize [150,150];
 _nil = createMarker ["DZMSMinDot", DZMSMinCoords];
 "DZMSMinDot" setMarkerColor "ColorBlack";

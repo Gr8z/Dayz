@@ -20,7 +20,7 @@ while {_run} do
 		_nul = createMarker ["DZMSMajMarker", DZMSMajCoords];
 		"DZMSMajMarker" setMarkerColor "ColorRed";
 		"DZMSMajMarker" setMarkerShape "ELLIPSE";
-		"DZMSMajMarker" setMarkerBrush "Grid";
+		"DZMSMajMarker" setMarkerBrush "Solid";
 		"DZMSMajMarker" setMarkerSize [175,175];
 		_zap = createMarker ["DZMSMajDot", DZMSMajCoords];
 		"DZMSMajDot" setMarkerColor "ColorBlack";
@@ -35,7 +35,7 @@ while {_run} do
 		_nil = createMarker ["DZMSMinMarker", DZMSMinCoords];
 		"DZMSMinMarker" setMarkerColor "ColorRed";
 		"DZMSMinMarker" setMarkerShape "ELLIPSE";
-		"DZMSMinMarker" setMarkerBrush "Grid";
+		"DZMSMinMarker" setMarkerBrush "Solid";
 		"DZMSMinMarker" setMarkerSize [150,150];
 		_zip = createMarker ["DZMSMinDot", DZMSMinCoords];
 		"DZMSMinDot" setMarkerColor "ColorBlack";

@@ -10,7 +10,7 @@ DZMSMajName = _this select 1;
 _nul = createMarker ["DZMSMajMarker", DZMSMajCoords];
 "DZMSMajMarker" setMarkerColor "ColorRed";
 "DZMSMajMarker" setMarkerShape "ELLIPSE";
-"DZMSMajMarker" setMarkerBrush "Grid";
+"DZMSMajMarker" setMarkerBrush "Solid";
 "DZMSMajMarker" setMarkerSize [175,175];
 _nil = createMarker ["DZMSMajDot", DZMSMajCoords];
 "DZMSMajDot" setMarkerColor "ColorBlack";
