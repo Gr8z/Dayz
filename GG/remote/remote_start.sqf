@@ -9,7 +9,6 @@ _i = 0;
 		_ownerID2 = _vehicle getVariable ["CharacterID", "0"];
 
 		if(_ownerID == _ownerID2) then {
-			if(!locked _vehicle) then {
 				if(player distance _vehicle < 50) then {
 					DZE_ActionInProgress = true;
 					
@@ -21,7 +20,6 @@ _i = 0;
 										
 					DZE_ActionInProgress = false;
 				};
-			};
 		};
 		
 		_i = _i + 1;

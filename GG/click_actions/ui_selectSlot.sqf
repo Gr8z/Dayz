@@ -148,15 +148,27 @@ if (_button == 1) then {
 							_menu ctrlSetEventHandler ["ButtonClick",_script];
 						};
 						
-						//Engine start
-						_menu =  _parent displayCtrl (1600 + _numActions + 1);
-						_menu ctrlShow true;
-						_text =  "START";
-						_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_start.sqf""";
-						_height = _height + (0.025 * safezoneH);
-						uiNamespace setVariable ['uiControl', _control];
-						_menu ctrlSetText _text;
-						_menu ctrlSetEventHandler ["ButtonClick",_script];
+						if (isEngineOn _x) then {
+							//Engine start
+							_menu =  _parent displayCtrl (1600 + _numActions + 1);
+							_menu ctrlShow true;
+							_text =  "Stop";
+							_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_start.sqf""";
+							_height = _height + (0.025 * safezoneH);
+							uiNamespace setVariable ['uiControl', _control];
+							_menu ctrlSetText _text;
+							_menu ctrlSetEventHandler ["ButtonClick",_script];
+						} else {
+							//Engine start
+							_menu =  _parent displayCtrl (1600 + _numActions + 1);
+							_menu ctrlShow true;
+							_text =  "Start";
+							_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_start.sqf""";
+							_height = _height + (0.025 * safezoneH);
+							uiNamespace setVariable ['uiControl', _control];
+							_menu ctrlSetText _text;
+							_menu ctrlSetEventHandler ["ButtonClick",_script];
+						};
 											
 					};
 					
