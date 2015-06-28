@@ -160,7 +160,7 @@ if (_button == 1) then {
 							_menu ctrlSetEventHandler ["ButtonClick",_script];
 						} else {
 							//Engine start
-							_menu =  _parent displayCtrl (1600 + _numActions + 1);
+							_menu =  _parent displayCtrl (1600 + _numActions + 2);
 							_menu ctrlShow true;
 							_text =  "Start";
 							_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_start.sqf""";
@@ -171,7 +171,7 @@ if (_button == 1) then {
 						};
 						
 						//Eject Crew
-						_menu =  _parent displayCtrl (1600 + _numActions + 1);
+						_menu =  _parent displayCtrl (1600 + _numActions + 2);
 						_menu ctrlShow true;
 						_text =  "Eject Crew";
 						_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_eject.sqf""";
