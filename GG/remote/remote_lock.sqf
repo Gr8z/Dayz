@@ -14,10 +14,6 @@ _i = 0;
 					DZE_ActionInProgress = true;
 					{player removeAction _x} forEach s_player_lockunlock;s_player_lockunlock = [];
 					s_player_lockUnlock_crtl = 1;
-					player action ["lightOn", _vehicle];
-					_nul = [objNull, _vehicle, rSAY, "carlock", _sounddist] call RE;
-					sleep 0.5;
-					player action ["lightOff", _vehicle];
 					PVDZE_veh_Lock = [_vehicle,true];
 					if (local _vehicle) then {
 						PVDZE_veh_Lock spawn local_lockUnlock
