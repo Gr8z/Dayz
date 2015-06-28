@@ -211,6 +211,7 @@ Medic3 = [
 	"76561198052352146", // Dion aka Red Baron (OD-2015-06-06)#9368 
 	"76561198077026471", // Final Boss Vroxas (OD-2015-06-07)#9380 
 	"76561198089649048", // Gen. GIZZY (OD-2015-06-19)#9547
+	"76561198035270592", // Kestrel (OD-2015-06-27) #9652
 	// Add UIDs above, don't forget the comma
 "0"
 ];
