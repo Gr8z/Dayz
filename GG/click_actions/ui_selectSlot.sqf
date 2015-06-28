@@ -149,7 +149,7 @@ if (_button == 1) then {
 						};
 						
 						if (isEngineOn _x) then {
-							//Engine start
+							//Engine stop
 							_menu =  _parent displayCtrl (1600 + _numActions + 1);
 							_menu ctrlShow true;
 							_text =  "Stop";
@@ -169,6 +169,16 @@ if (_button == 1) then {
 							_menu ctrlSetText _text;
 							_menu ctrlSetEventHandler ["ButtonClick",_script];
 						};
+						
+						//Eject Crew
+						_menu =  _parent displayCtrl (1600 + _numActions + 1);
+						_menu ctrlShow true;
+						_text =  "Eject Crew";
+						_script =  "[""" + _ownerID + """] execVM ""GG\remote\remote_eject.sqf""";
+						_height = _height + (0.025 * safezoneH);
+						uiNamespace setVariable ['uiControl', _control];
+						_menu ctrlSetText _text;
+						_menu ctrlSetEventHandler ["ButtonClick",_script];
 											
 					};
 					

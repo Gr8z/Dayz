@@ -1,6 +1,5 @@
 private ["_ownerID","_objects","_i","_ownerID2","_vehicle"];
 _ownerID = _this select 0;
-_sounddist = 120;
 _objects = nearestObjects [getPos player, ["LandVehicle","Helicopter","Plane","Ship"], 50];
 _i = 0;
 {
@@ -25,6 +24,8 @@ _i = 0;
 					
 					s_player_lockUnlock_crtl = -1;
 					DZE_ActionInProgress = false;
+				} else {
+					titleText ["You need to be 50m near the vehicle","PLAIN DOWN"];
 				};
 			};
 		};
