@@ -49,3 +49,4 @@ DZE_dirWithDegrees = true;
 DZE_AllowForceSave = true;
 DZE_ForceNameTagsInTrader = true;
 DZE_Surrender = true;
+MaxMineVeins = 10;
