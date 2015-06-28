@@ -24,7 +24,7 @@ _i = 0;
 					} else {
 						publicVariable "PVDZE_veh_Lock";
 					};
-
+					(findDisplay 106) closedisplay 0;
 					titleText ["Vehicle has been unlocked","PLAIN DOWN"];
 					
 					s_player_lockUnlock_crtl = -1;

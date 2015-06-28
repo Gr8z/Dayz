@@ -17,7 +17,7 @@ _i = 0;
 					} else {
 						player action ["engineOn", _vehicle];
 					};
-										
+					(findDisplay 106) closedisplay 0;					
 					DZE_ActionInProgress = false;
 				};
 		};
