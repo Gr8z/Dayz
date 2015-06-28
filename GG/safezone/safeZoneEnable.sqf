@@ -71,7 +71,6 @@ SafezoneTheft = [] spawn {
 		//GET PLAYER FRIENDS
 		_friends = units group player;
 		_near = [];
-
 		//CHECK FOR VEHCILE GEAR ACCESS
 		_arround = player nearEntities [['LandVehicle','Air','ship'],25];_near = [];
 		{if (player distance _x < ((sizeOf typeOf _x)/2) + 3) then {_near = _near + [_x];};} forEach _arround;
