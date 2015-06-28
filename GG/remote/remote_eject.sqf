@@ -19,8 +19,6 @@ _i = 0;
 					titleText ["Vehicle crew has been ejected","PLAIN DOWN"];
 
 					DZE_ActionInProgress = false;
-				} else {
-					titleText ["You need to be 100m near the vehicle","PLAIN DOWN"];
 				};
 		};
 		

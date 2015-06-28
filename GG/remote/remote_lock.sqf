@@ -24,8 +24,6 @@ _i = 0;
 					
 					s_player_lockUnlock_crtl = -1;
 					DZE_ActionInProgress = false;
-				} else {
-					titleText ["You need to be 50m near the vehicle","PLAIN DOWN"];
 				};
 			};
 		};
