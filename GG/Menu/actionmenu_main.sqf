@@ -25,8 +25,6 @@ ActionMenu =
 [
 	["",true],
 		["Action Menu >>", [], "#USER:ActionMenua", -5, [["expression", ""]], "1", "1"],
-		["Deploy Menu >>", [], "#USER:DeployMenu", -5, [["expression", ""]], "1", "1"],
-		["Movement Menu >>",[],"#USER:MovementMenu", -5,[["expression",""]],"1","1"],
 		["Color Filters Menu>>", [], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
 		["Toggle Environmental sounds >>", [], "#USER:environment", -5, [["expression", ""]], "1", "1"],
 		["Toggle Grass >>", [], "#USER:grass", -5, [["expression", ""]], "1", "1"],
@@ -47,35 +45,8 @@ ActionMenua =
 		["Commit Suicide", [6],  "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
 		["Scream", [7],  "", -5, [["expression", "_sound = ['z_scream_3','z_scream_4'] call BIS_fnc_selectRandom;[nil,player,rSAY,[_sound,250]] call RE;"]], "1", "1"],
 		["Hints & Tips - Read Me!", [8],  "", -5, [["expression", format[_EXECscript1,"help.sqf"]]], "1", "1"],			
-		["Toggle Debug Moniter", [9], "", -5, [["expression", format[_EXECscript10,"fnc_debugX0"]]], "1", "1"],
 		["", [-1], "", -5, [["expression", ""]], "1", "0"],
 			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
-];
-
-DeployMenu =
-[
-	["",true],
-		["Deploy Bike", [2],  "", -5, [["expression", format[_EXECscript7,"MMT_Civ"]]], "1", "1"],
-		["Deploy Motorcycle", [3],  "", -5, [["expression", format[_EXECscript7,"TT650_Civ"]]], "1", "1"],
-		["Deploy Gyrocopter", [4],  "", -5, [["expression", format[_EXECscript7,"CSJ_GyroC"]]], "1", "1"],
-		["Pack Created Vehicle", [5],  "", -5, [["expression", format[_EXECscript8,"pack.sqf"]]], "1", "1"],		
-		["", [-1], "", -5, [["expression", ""]], "1", "0"],
-			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
-];
-
-MovementMenu =
-[
-	["",true],
-	["Dance1",[],"", -5,[["expression",format[_EXECscript9,"ActsPercMstpSnonWnonDnon_DancingDuoIvan"]]],"1","1"],
-	["Dance2",[],"", -5,[["expression",format[_EXECscript9,"ActsPercMstpSnonWnonDnon_DancingDuoStefan"]]],"1","1"],
-	["Dance3",[],"", -5,[["expression",format[_EXECscript9,"ActsPercMstpSnonWnonDnon_DancingStefan"]]],"1","1"],
-	["Boxing",[],"", -5,[["expression",format[_EXECscript9,"AmovPercMstpSnonWnonDnon_idle68boxing"]]],"1","1"],
-	["Karate",[],"", -5,[["expression",format[_EXECscript9,"AmovPercMstpSnonWnonDnon_exerciseKata"]]],"1","1"],
-	["Pushups",[],"", -5,[["expression",format[_EXECscript9,"AmovPercMstpSnonWnonDnon_exercisePushup"]]],"1","1"],
-	["Squat",[],"", -5,[["expression",format[_EXECscript9,"AmovPercMstpSnonWnonDnon_exercisekneeBendA"]]],"1","1"],
-	["HandStand",[],"", -5,[["expression",format[_EXECscript9,"AmovPercMstpSnonWnonDnon_idle70chozeniPoRukou"]]],"1","1"],
-		["", [], "", -5, [["expression", ""]], "1", "0"],
-		["Main Menu", [20], "#USER:ActionMenu", -5, [["expression", ""]], "1", "1"]
 ];
 
 SkyMenu =

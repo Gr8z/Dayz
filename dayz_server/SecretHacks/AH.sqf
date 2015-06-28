@@ -4163,64 +4163,15 @@ publicVariable '"+_randvar28+"';
 										[objNull, player, rswitchMove,''] call RE;
 										player playActionNow 'stop';
 									};
-									if(_txt in ['pushup','/pushup']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_exercisePushup'] call RE;
-									};
-									if(_txt in ['handstand','/handstand']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle70chozeniPoRukou'] call RE;
-									};
-									if(_txt in ['boxing','/boxing']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle68boxing'] call RE;
-									};
-									if(_txt in ['karate','/karate','fighter','/fighter']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_exerciseKata'] call RE;
-									};
-									if(_txt in ['boogie','/boogie']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingDuoIvan'] call RE;
-									};                             
-									if(_txt in ['dance','/dance']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingStefan'] call RE;
-									};
-									if(_txt in ['clubbing','/clubbing']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingDuoStefan'] call RE;
-									};
-									if(_txt in ['excercise','/excercise']) then
-									{
-										(_display) closeDisplay 0;
-										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle69drepy'] call RE;
-									};
 								};
 							};
 							if(_txt in ['/killme','killme']) then
 							{
-								_waitTime = 180;
-								if(time > _startTime + _waitTime) then
-								{
-									_chat ctrlSetText 'I just suicided!';
-									[player,'sick'] spawn player_death;
-									player setHit['Body',1];
-									_startTime = time;
-								}
-								else
-								{
-									_chat ctrlSetText format['You have to wait %1s',ceil((_startTime + _waitTime) - time)];
-								};
+								_chat ctrlSetText 'I just suicided!';
+								[player,'sick'] spawn player_death;
+								player setHit['Body',1];
 							};
-							if(_txt in ['!admin','/admin','admin','admins']) then
+							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN']) then
 							{
 								(_display) closeDisplay 0;
 								[nil,player,rSAY,['babycry_1', 100]] call RE;
@@ -4229,12 +4180,12 @@ publicVariable '"+_randvar28+"';
 						};
 						if("+str _UDN+") then
 						{
-							if(_txt in ['!vote day','/vote day','vote day','!day','/day']) then
+							if(_txt in ['!vote day','/vote day','vote day','!day','/day','voteday','/voteday','!voteday']) then
 							{
 								(_display) closeDisplay 0;
 								[player,'DAY'] call "+_randvar37+";
 							};
-							if(_txt in ['!vote night','/vote night','vote night','!night','/night']) then
+							if(_txt in ['!vote night','/vote night','vote night','!night','/night','votenight','/votenight','!votenight']) then
 							{
 								(_display) closeDisplay 0;
 								[player,'NIGHT'] call "+_randvar37+";
@@ -4244,24 +4195,8 @@ publicVariable '"+_randvar28+"';
 						{
 							(_display) closeDisplay 0;
 							systemChat 'ChatCommands:';
-							systemChat '/stop, stop, /pushup, pushup, /handstand, handstand, /boxing, boxing,';
-							systemChat '/karate, karate, /fighter, fighter, /boogie, boogie,';
-							systemChat '/dance, dance, /clubbing, clubbing, /excercise, excercise,';
 							if("+str _UDN+") then {systemChat '!vote day,/vote day, vote day,!vote night,/vote night, vote night';};
 							systemChat '/killme, killme';
-						};
-						if(_txt in ['/m']) then
-						{
-							[] spawn {
-								for '_i' from 0 to 10 do
-								{
-									closeDialog 0;closeDialog 0;closeDialog 0;
-									uiSleep 0.2;
-								};
-							};
-							(_display) closeDisplay 0;
-							_log = format['BadText: %1',_txt];
-							[_name,_puid,'HLOG',toArray (_log)] call "+_randvar37+";
 						};
 						if!(_puid in "+str _allAdmins+") then
 						{
