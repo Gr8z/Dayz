@@ -410,16 +410,6 @@ if (_hasrequireditem) then {
             deleteVehicle _object;
         };
 
-        if (player getVariable["combattimeout", 0] >= time) exitWith {
-            _isOk = false;
-            _cancel = true;
-            _reason = (localize "str_epoch_player_43");
-            detach _object;
-            _object setPos[0,0,0];
-            hideObject _object;
-            deleteVehicle _object;
-        };
-
         if (DZE_cancelBuilding) exitWith {
             _isOk = false;
             _cancel = true;
