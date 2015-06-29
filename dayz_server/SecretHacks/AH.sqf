@@ -4337,6 +4337,12 @@ publicVariable '"+_randvar28+"';
 							{
 								(_display) closeDisplay 0;
 								[nil,player,rSAY,['babycry_1', 100]] call RE;
+								uiSleep 2;
+								systemChat 'Asking For Help in SideChat Is forbidden';		
+								uiSleep 2;
+								systemChat 'You get ahold of an admin, you must get in Teamspeak Support Channels';
+								uiSleep 2;
+								systemChat 'Teamspeak Server : TS.GHOSTZGAMERZ.COM';
 							};
 						};
 						if("+str _UDN+") then
