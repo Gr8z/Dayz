@@ -83,8 +83,6 @@ class CfgLootSmall {
 
 
 	PistolsLow[] = {
-		{"DDOPP_X3",0.50}, 
-		{"DDOPP_X3_b",0.50}, 
 		{"RH_mk22sd",0.50}, 
 		{"RH_mk22vsd",0.50}, 
 		{"Makarov",0.50}, 
@@ -103,8 +101,6 @@ class CfgLootSmall {
 		{"RH_tt33",0.50}, 
 		{"RH_m93r",0.50}, 
 		{"vil_B_HP",0.50}, 
-		{"DDOPP_X26",0.50}, 
-		{"DDOPP_X26_b",0.50}, 
 		{"RH_mk22",0.50}, 
 		{"RH_mk22v",0.50}, 
 		{"RH_mk2",0.50}, 
