@@ -44,8 +44,9 @@ timer30 = [] spawn {
 		player_zombieCheck = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		player allowDamage true;
 		player removeAllEventHandlers "HandleDamage";
+		player removeEventHandler ["Fired", SafezoneFiredEvent2];
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
-		player removeAllEventHandlers "Fired";
+		
 		taskHint ["PROTECTION DISABLED", [1,(68/255),(68/255),1], "taskFailed"];
 	};
 };
