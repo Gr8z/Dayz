@@ -72,8 +72,6 @@ SafezoneTheft = [] spawn {
 		_friends = units group player;
 		//CHECK FOR PLAYER GEAR ACCESS
 		_near = [];
-<<<<<<< HEAD
-=======
 		{if (isPlayer _x && _x != player) then {_near = _near + [_x];};} forEach (player nearEntities ['CAManBase',4]);
 		_countNear = count _near;
 		if (_countNear > 0) then {
@@ -84,7 +82,7 @@ SafezoneTheft = [] spawn {
 				cutText [format['%1, You are near another player, cannot access gear.',name player],'PLAIN'];
 			};
 		};
->>>>>>> parent of efec273... troll mode off
+
 		//CHECK FOR VEHCILE GEAR ACCESS
 		_arround = player nearEntities [['LandVehicle','Air','ship'],25];_near = [];
 		{if (player distance _x < ((sizeOf typeOf _x)/2) + 3) then {_near = _near + [_x];};} forEach _arround;
