@@ -11,8 +11,6 @@ _missName = "Bandit Squad";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"A Bandit Squad has been spotted!\nStop them from completing their patrol!", "PLAIN",10] call RE;
-RemoteMessage = ["dynamic_text","Bandit Hunting Party","A Bandit Squad has been spotted! Stop them from completing their patrol!"];
-publicVariable "RemoteMessage";	
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;

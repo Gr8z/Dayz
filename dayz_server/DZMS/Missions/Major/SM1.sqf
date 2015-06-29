@@ -12,8 +12,6 @@ _missName = "NATO Weapons Cache";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have Overrun a NATO Weapons Cache!", "PLAIN",10] call RE;
-RemoteMessage = ["dynamic_text","Weapons Cache","Bandits have Overrun a NATO Weapons Cache!"];
-publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;

@@ -11,8 +11,6 @@ _missName = "Humvee Crash";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"A Humvee has crashed!\nGo Investigate the Cause of the Wreck!", "PLAIN",10] call RE;
-RemoteMessage = ["dynamic_text","Hummer Wreck","A Humvee has crashed! Go Investigate the Cause of the Wreck!"];
-publicVariable "RemoteMessage";	
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;

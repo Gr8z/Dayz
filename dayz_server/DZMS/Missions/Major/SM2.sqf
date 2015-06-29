@@ -12,8 +12,6 @@ _missName = "Supply Drop";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"An AN-2 with Bandit Supplies is Flying In!\nGet to the Location and Capture the Package!", "PLAIN",10] call RE;
-RemoteMessage = ["dynamic_text","AN-2 Supply Drop","An AN-2 with Bandit Supplies is Flying In! Get to the Location and Capture the Package!"];
-publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;

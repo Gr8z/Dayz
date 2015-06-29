@@ -12,8 +12,6 @@ _missName = "Helicopter Landing";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"A Supply Helicopter has been Forced to Land!\nStop the Bandits from Taking Control of it!", "PLAIN",10] call RE;
-RemoteMessage = ["dynamic_text","Supply Heli Crash","A Supply Helicopter has been Forced to Land! Stop the Bandits from Taking Control of it!"];
-publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;
