@@ -662,15 +662,15 @@ MeleeWeaps[] = {
 
 /* Done */
 RocketWeaps[] = {
-    {"Vil_RPO_A",0.18}, 
-    {"M136",0.16},		
-    {"vilas_rpg22",0.12}, 
-    {"Vil_RPG7V_PGO",0.09}, 
-    {"Vil_RPG7d_PGO",0.09}, 
-    {"vil_Panzerfaust3",0.07}, 
-    {"vil_CG84T",0.06}, 
-    {"Vil_RPG16",0.19}, 
-    {"Vil_RPG29",0.04}
+    {"Vil_RPO_A",0.004}, 
+    {"M136",0.004},		
+    {"vilas_rpg22",0.003}, 
+    {"Vil_RPG7V_PGO",0.003}, 
+    {"Vil_RPG7d_PGO",0.004}, 
+    {"vil_Panzerfaust3",0.004}, 
+    {"vil_CG84T",0.004}, 
+    {"Vil_RPG16",0.003}, 
+    {"Vil_RPG29",0.004}
 };
 
 
@@ -679,7 +679,7 @@ UltraWeaps[] = {
 	{"revolver_gold_EP1",0.28},
 	{"RH_Deagleg",0.2},
 	{"RH_anacg",0.24},
-	{"Javelin",	0.03},
+	{"Javelin",	0.002},
 	{"AKS_GOLD",0.27}
 };
 
