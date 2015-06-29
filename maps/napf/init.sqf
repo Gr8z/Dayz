@@ -72,11 +72,11 @@ if (!isDedicated) then {
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\kill_msg.sqf";
+	execVM "GG\ggah.sqf";
 };
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
-execVM "GG\ggah.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
