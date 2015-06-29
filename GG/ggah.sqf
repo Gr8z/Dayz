@@ -53,7 +53,7 @@ if (!isDedicated) then {
 		};
 	};
 
-	if (!((getPlayerUID player) in ["00","00","00","00","00","00"])) then { //ADD ADMIN IDS HERE//
+	if (!((getPlayerUID player) in (PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List))) then { //ADD ADMIN IDS HERE//
 		preProcessFileLineNumbers 'Scan completed, bad content was not found';
 		[] spawn nopeScan;
 	};
