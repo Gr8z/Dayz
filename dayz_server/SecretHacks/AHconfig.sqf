@@ -8,7 +8,7 @@
 										 "76561198162046909", // Shahzad
 										 "76561198026665364", // ElvaX
 										 "76561197970044945", // MrCheeseyman
-										 "76561198030001934", // CraigusMcGooch
+										 "0", // CraigusMcGooch
 										 "76561198080687547", // Darksnuggles
 										 "76561198073669230", // Jack Black
 										 "76561198106963366", // Sassy
