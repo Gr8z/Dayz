@@ -11,6 +11,8 @@ _missName = "Stash House";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have set up a Weapon Stash House!\nGo Empty it Out!", "PLAIN",10] call RE;
+RemoteMessage = ["dynamic_text","Bandit Stash House","Bandits have set up a Weapon Stash House! Go Empty it Out!"];
+publicVariable "RemoteMessage";	
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;

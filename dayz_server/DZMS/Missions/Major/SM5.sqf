@@ -12,6 +12,8 @@ _missName = "Ural Ambush";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have Ambushed a Ural Carrying Supplies!", "PLAIN",10] call RE;
+RemoteMessage = ["dynamic_text","Medical Ural Attack","Bandits have Ambushed a Ural Carrying Supplies!"];
+publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;

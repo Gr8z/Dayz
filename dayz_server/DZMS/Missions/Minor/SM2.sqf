@@ -11,6 +11,8 @@ _missName = "Medical Outpost";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have established a Medical Outpost!\nGo Secure their Medical Supplies!", "PLAIN",10] call RE;
+RemoteMessage = ["dynamic_text","Medical Outpost","Bandits have established a Medical Outpost! Go Secure their Medical Supplies!"];
+publicVariable "RemoteMessage";	
 
 //DZMSAddMinMarker is a simple script that adds a marker to the location
 [_coords,_missName] ExecVM DZMSAddMinMarker;

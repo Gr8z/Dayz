@@ -12,6 +12,8 @@ _missName = "Medical Cache";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have Taken Over a Survivor Medical Cache!", "PLAIN",10] call RE;
+RemoteMessage = ["dynamic_text","Medical Crate","Bandits have Taken Over a Survivor Medical Cache!"];
+publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;

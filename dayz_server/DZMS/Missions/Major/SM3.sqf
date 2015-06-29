@@ -12,6 +12,8 @@ _missName = "Bandit Medical Camp";
 _coords = call DZMSFindPos;
 
 [nil,nil,rTitleText,"Bandits have Opened a Medical Camp!\nStop Them from Re-Supplying the Region!", "PLAIN",10] call RE;
+RemoteMessage = ["dynamic_text","Medical Supply Camp","Bandits have Opened a Medical Camp! Stop Them from Re-Supplying the Region!"];
+publicVariable "RemoteMessage";	
 
 //DZMSAddMajMarker is a simple script that adds a marker to the location
 [_coords,_missname] ExecVM DZMSAddMajMarker;
