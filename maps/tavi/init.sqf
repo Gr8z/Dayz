@@ -40,7 +40,7 @@ EpochEvents = [
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
 progressLoadingScreen 0.1;
-call compile preprocessFileLineNumbers "GG\A_Plot_for_Life\init\publicEH.sqf";
+call compile preprocessFileLineNumbers "GG\publicEH.sqf";
 progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
 progressLoadingScreen 0.4;

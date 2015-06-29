@@ -4402,7 +4402,7 @@ publicVariable '"+_randvar28+"';
 								_steps = 1 / _mytime;	
 								for '_i' from 0 to _mytime do
 								{
-									_txt = format['%1s',_mytime - _i];
+									_txt = format['You are unconscious - %1s',_mytime - _i];
 									startLoadingScreen [_txt,'DayZ_loadingScreen'];
 									progressLoadingScreen (_steps*_i);
 									uiSleep 1;
