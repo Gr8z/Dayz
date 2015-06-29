@@ -114,3 +114,43 @@ SafezoneVechicles = [] spawn {
 	uiSleep 0.25;
 	};
 };
+
+SafezoneGuns = [] spawn {
+	while {true} do {
+		waitUntil {uiSleep 0.25; vehicle player == player};
+		_notInSafeZone =
+		[
+			'MAAWS','RPG7V','M136','RPG18','STINGER',
+			'MeleeHatchet_DZE','MeleeHatchet','MeleeCrowbar','MeleeMachete','MeleeFishingPole','MeleeSledge',
+			'MeleeBaseBallBatNails','MeleeBaseBallBatBarbed','MeleeBaseBallBat'
+		];
+		_cwep = currentWeapon player;
+		if (_cwep in _notInSafeZone) then
+		{
+			_swep = '';
+			{
+				if ((getNumber (configFile >> 'CfgWeapons' >> _x >> 'Type')) == 2) exitWith
+				{
+					_swep = _x;
+				};
+			} forEach (weapons player);
+			if (_swep == '') then
+			{
+				player playActionNow 'PutDown';
+				_iPos = getPosATL player;
+				_radius = 1;
+				_removed = ([player,_cwep,1] call BIS_fnc_invRemove);
+				if (_removed == 1) then
+				{
+					_item = createVehicle ['WeaponHolder', _iPos, [], _radius, 'CAN_COLLIDE'];
+					_item addWeaponCargoGlobal [_cwep,1];
+				};
+			}
+			else
+			{
+				player selectweapon _swep;
+			};
+		};
+		uiSleep 0.1;
+	};
+};

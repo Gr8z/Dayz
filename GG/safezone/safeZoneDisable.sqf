@@ -20,6 +20,7 @@ terminate SafezoneSkinChange;
 terminate SafezoneZSHIELD;
 terminate SafezoneTheft;
 terminate SafezoneVechicles;
+terminate SafezoneGuns;
 
 PVDZE_send = [player,'SafeZoneState',[0]];
 publicVariableServer 'PVDZE_send';
