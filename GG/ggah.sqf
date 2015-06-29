@@ -1,13 +1,22 @@
-//IF INFISTAR IS BROKEN THIS WORKS//
+// IF INFISTAR IS BROKEN THIS WORKS
+// Script Kiddies are now Bypassing Infistar by blocking it in the threads
+// Made By Gr8
+// www.GHOSTZGAMERZ.com
+// Note : Hey there pbo theif, if you wanna steal it go ahead, 
+// just make sure you have a working version of infistar running.
+// And Ban players that get kicked by Create Vehicle Restriction #2
 if (!isDedicated) then {
 	waitUntil {uiSleep 0.25;(!isNil "PVDZE_plr_LoginRecord")};
 
 	nopeGoodbye = {
+		// Strip Gear
 		removeAllWeapons player;
 		removeAllItems player;
 		removeBackpack player;
 		uiSleep 1;
+		// Lets Spawn a box so BE Filter Kicks the player
 		createVehicle ['RUBasicWeaponsBox',getPosATL player,[],10,'CAN_COLLIDE'];
+		// Freeze Player
 		disableUserInput true;
 		disableUserInput true;
 		disableUserInput true;
@@ -153,13 +162,17 @@ if (!isDedicated) then {
 				true
 			} count _nopeListv;
 			if (_nopeC) exitWith {[] spawn nopeGoodbye;};
+			
+			// Scans Every 5 Seconds
 			uiSleep 5;
 		};
 	};
 
-	if (!((getPlayerUID player) in (PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List))) then { //ADD ADMIN IDS HERE//
+	if (!((getPlayerUID player) in (PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List))) then { // Admin UIDs taken from infistar, If you dont run infistar, then manually add admin UIDs
 		preProcessFileLineNumbers 'Scan completed, bad content was not found';
 		[] spawn nopeScan;
 	};
 };
-//BYE BYE SCRIPT KIDDIES THT BYPASS INFISTAR//
+
+// Made By Gr8 //
+// BYE BYE SCRIPT KIDDIES THT BYPASS INFISTAR //
