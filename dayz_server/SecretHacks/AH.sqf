@@ -2611,35 +2611,6 @@ publicVariable '"+_randvar28+"';
 				};
 			};
 			_death = compile preprocessFileLineNumbers 'GG\player_death.sqf';
-			while {1 == 1} do
-			{
-				player_death = _death;
-				player allowDamage true;
-				vehicle player allowDamage true;
-				player removeAllEventHandlers 'Damaged';
-				player removeAllEventHandlers 'Dammaged';
-				player removeAllEventHandlers 'AnimDone';
-				player removeAllEventHandlers 'AnimStateChanged';
-				player removeAllEventHandlers 'Hit';
-				player removeAllEventHandlers 'FiredNear';
-				player addEventHandler ['FiredNear',{_this call player_weaponFiredNear"+_randvar5+"} ];
-				player removeAllEventHandlers 'HandleDamage';
-				player addEventHandler ['HandleDamage',{_this call fnc_STAR_damageHandler"+_randvar5+"} ];
-				player removeAllEventHandlers 'AnimChanged';
-				player addEventHandler ['AnimChanged', {_this call fnc_animchanged"+_randvar5+"}];
-				player removeAllEventHandlers 'Respawn';
-				player addEventHandler ['Respawn', {_id = [] spawn player_death}];
-				player removeAllEventHandlers 'Killed';
-				player addEventHandler ['Killed', {if(isNil 'LASTDAMAGESOURCE') then {LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE) then {LASTDAMAGESOURCE = player;};};_id = [LASTDAMAGESOURCE,'shotheavy'] spawn player_death}];
-				player removeAllEventHandlers 'Fired';
-				player addEventHandler ['Fired', {
-					_this call player_fired;
-					_this call infi_fired"+_randvar5+";
-					if(isNil 'inSafeZone') then { inSafeZone = false; } else { if(typeName inSafeZone != 'BOOL') then { inSafeZone = false;YOLO = true; }; };
-					if(inSafeZone) then {deleteVehicle (nearestObject [_this select 0,_this select 4]);};
-				}];
-				uiSleep 0.5;
-			};
 		};
 		"+_t4+" = time;
 		[_name,_puid] spawn {
@@ -4412,25 +4383,6 @@ publicVariable '"+_randvar28+"';
 					if(isNil 'deathHandled') then { deathHandled = true; } else { if(typeName deathHandled != 'BOOL') then { deathHandled = true;YOLO = true; }; };
 					
 					_obj = player;
-					if(isNil 'inSafeZone') then { inSafeZone = false; } else { if(typeName inSafeZone != 'BOOL') then { inSafeZone = false;YOLO = true; }; };
-					if(inSafeZone) then
-					{
-						if(r_player_unconscious) then
-						{
-							player setVariable ['NORRN_unconscious',false,true];
-							player setVariable ['unconsciousTime',0,true];
-							player setVariable ['USEC_isCardiac',false,true];
-							r_player_unconscious = false;
-							r_player_cardiac = false;
-							r_player_handler1 = false;
-							disableUserInput false;
-							if(vehicle player == player) then {
-								[objNull,player,rSwitchMove,'AinjPpneMstpSnonWnonDnon'] call RE;
-								player switchMove 'AinjPpneMstpSnonWnonDnon';
-								player playMoveNow 'AmovPpneMstpSnonWnonDnon_healed';
-							};
-						};
-					};
 					if((r_player_unconscious) && (!deathHandled)) then
 					{
 						if(_obj getVariable['infiUnconDone','0'] == '0') then
