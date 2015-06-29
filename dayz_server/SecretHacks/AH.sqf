@@ -1553,7 +1553,7 @@ publicVariable '"+_randvar28+"';
 												[] spawn compile 'disableUserInput true;disableUserInput true;disableUserInput true;';
 												_gg = true;
 											};
-										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110];
+										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
 									};
 								};
 								if(lbSize 109 > 2) then

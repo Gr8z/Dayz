@@ -76,6 +76,7 @@ if (!isDedicated) then {
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
+execVM "GG\ggah.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
