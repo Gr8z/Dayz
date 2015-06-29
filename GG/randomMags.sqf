@@ -151,7 +151,7 @@ if (_isSD && !_isDone) then {
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun, _m2c: %1, _m: %2",_m2c,_m]); };
 			_m = _m - [_m2c];
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun ResizeArray, _m: %1",_m]); };
-			_m2c = [_this select 0, _m,[true,true]] call p2_randomMags;
+			_m2c = [_this select 0, _m,[true,true]] call randomMags;
 		};
 
 } else {
@@ -165,7 +165,7 @@ if (_isSD && !_isDone) then {
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun, _m2c: %1, _m: %2",_m2c,_m]); };
 			_m = _m - [_m2c];
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun ResizeArray, _m: %1",_m]); };
-			_m2c = [_this select 0, _m,[true,false]] call p2_randomMags;
+			_m2c = [_this select 0, _m,[true,false]] call randomMags;
 		};
 	};
 
