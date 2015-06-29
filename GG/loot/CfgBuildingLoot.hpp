@@ -458,7 +458,7 @@
                          {"", "HMGWeaps",  0.03}, 
                          {"", "SniperMedWeaps",  0.06}, 
                          {"", "LauncherWeaps",  0.03},
-                         {"", "RocketWeaps",  0.02},
+                         {"", "RocketWeaps",  0.01},
                          {"", "UltraWeaps",  0.01},
                          {"", "PistolTopWeaps",  0.01}, 
                          {"", "SniperTopWeaps",  0.01},
