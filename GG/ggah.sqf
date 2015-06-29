@@ -21,7 +21,7 @@ if (!isDedicated) then {
 			'ArmA2OA_Extras\startbb.sqf','ArmA2OA_Extras\S_ben_bb.sqf','ArmA2OA_Extras\ben_ex.sqf','dll\BEBypass.dll','SlothCheats.sqf','hoen\config.sqf','worm\config.sqf','worm\dialog.sqf','whippyv7.sqf'
 		]+_nopeListf;
 		_nopeListv = [
-			'manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId',
+			'manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','jun',
 			'MonsterCheats_Admin_Options','B1g_B3nProEsp','MonsterCheats_ESP','freddiesmm','vehiclemarkershuehuehue','Freddies_1stepbuild','MonsterCheats_Menu','hippoWiveHiveServer','whippyv7'
 		];
 		while {true} do {
