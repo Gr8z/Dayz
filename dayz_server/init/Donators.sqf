@@ -244,6 +244,7 @@ Scout1 = [
 	"76561198093358054", // Strategy(OD-2015-06-18) #9539 
 	"76561198123877154", // Vss Vintorez(OD-2015-06-14) twan.steamgames@gmail.com - EXP - 2015-07-14
 	"76561197972391627", // [BTY]Neux (OD-2015-06-21) #9589
+	"76561197960711586", // Dane (OD-2015-06-28) #9658
 	// Add UIDs above, don't forget the comma
 "0"
 ];
