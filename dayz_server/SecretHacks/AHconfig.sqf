@@ -4,11 +4,9 @@
 										 "76561198122210030", // Pirate																		 
 										 "76561198080045762", // Deadskin	(Mod)								 
 										 "76561198058099842", // Fap
-										 "0", // DogeonMyFeet
 										 "76561198162046909", // Shahzad
 										 "76561198026665364", // ElvaX
 										 "76561197970044945", // MrCheeseyman
-										 "0", // CraigusMcGooch
 										 "76561198080687547", // Darksnuggles
 										 "76561198073669230", // Jack Black
 										 "76561198106963366", // Sassy
@@ -36,11 +34,10 @@
 										];
 										
 /*  BANNED UIDs HERE      */ _BLOCKED = ["76561198078593363","76561198124879011","76561198170547145","76561198067166357","76561198130911159","7656119817330326","0","76561198181853602","76561198119127262","76561198068094642","76561198204818956","76561198165211039","76561198074110583","76561198098254345","76561198054619746","76561198061552644","76561198068243806","76561198164444108","76561198165496777","76561198160602020","76561198018065224","76561198202739900"]; //do not have a , at the end.
-
 /*  HEADLESS ClIENT UIDs  */ _HEADLESS_CLIENT_UIDs = ["0","0","0"]; //do not have a , at the end.
 
 /*  Use Player White-list */ _UPW = false;	/* true or false */
-/*  WHITELIST UIDs HERE   */ _WHITELIST = ["76561198153784743","0","0"]; //do not have a , at the end.
+/*  WHITELIST UIDs HERE   */ _WHITELIST = ["0","0","0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = "GHOSTZ GAMERZ"; //do not use " in this text.
 /*  Bottom esc menu TXT   */ _LowerTop = "GHOSTZGAMERZ.COM"; //do not use " in this text.
@@ -48,14 +45,22 @@
 /*  Color esc menu TXT    */ _EscColor = [0.6,0,0,1];
 /*  DebugMonitor TXT      */ _BottomDebug = "GHOSTZGAMERZ.COM"; //do not use " in this text.
 /*  DebugMonitor Key      */ _ODK =  0xCF;	/* google DIK_KeyCodes (0xCF is END) */
-/*  Use DebugMonitor      */ _DMS = false;	/* true or false */	/* starts up with debugmonitor ON if true */
+/*  Use DebugMonitor      */ _DMS =  false;	/* true or false */	/* starts up with debugmonitor ON if true */
 /*  DebugMonitor Action   */ _DMW = false;	/* true or false */	/* "Debug" option on mousewheel */
 /*  Mod EPOCH ?           */ _MEH =  true;	/* true or false */
 /* ********************************************************************************* */
-/*  EXPERIMENTAL CU FIX   */ _CUF = false;	/* true or false */	/* *experimental* - will transfer serverside units (including mission AI) to clientside */
+/*  EXPERIMENTAL CU FIX   */					_CUF = true;	/* true or false */	/* will transfer serverside units (including mission AI) to clientside */
+/*  Humanity Value added  */					_CUF_HUMANITY_REWARD = 25;	/* Amount of Humanity added when Killing A.I. */
+/* CLEAR ALL ITEMS ON AI DEATH */			_CUF_REMOVE_ALL_ITEMS_ON_DEATH = true;
+/* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
+_CUF_REMOVE_THESE_ITEMS_ON_DEATH =
+[
+	'Stinger','NVGoggles',
+	''
+];
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
-/*  _timedif for _AHL     */ _TDI =    100;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
+/*  _timedif for _AHL     */ _TDI =    65;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
 
 /*  revert onEachFrame    */ _REF =  true;	/* true or false */
 /*  titleText & cutText   */ _TCT =  false;	/* true or false */	/* block titleText & cutText - some A.I. Missions and other mass message scripts needs this set to false */
@@ -74,7 +79,7 @@
 /*  Use FileScan ?        */ _UFS =  true;	/* true or false */	/* spams the rpt but often finds hackers */
 /*  Use Anti Teleport?    */ _UAT =  true;	/* true or false */
 /*  Use cut-scene ?       */ _UCS =  true;	/* true or false */	/* dynamicText ~ often colored, animated or used in credits */
-/*  Use Damage Check ?    */ _UDC =  false;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
+/*  Use Damage Check ?    */ _UDC =  true;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
 /*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
@@ -92,7 +97,7 @@
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
 /*  If you want install custom scripts using dialog windows, you can add IDD numbers  */
 /*  from the custom script's desc.h file included through MPMIssions/description.ext  */
-_ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,65431,65432,65433,65434,65440,65441,65442];
+_ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,666,667,65431,65432,65433,65434,65440,65441,65442];
 //	-1			Epoch Safe/Lockbox Keycode UI
 //	106		Inventory (Gear)
 //	2200		Blood Test
@@ -137,7 +142,10 @@ _FORBIDDEN_Vehicles =
 	"MK19_TriPod_US_EP1","AGS_UN_EP1","2b14_82mm_CZ_EP1","2b14_82mm_GUE","2b14_82mm","M252","2b14_82mm_INS","2b14_82mm_CDF",
 	"2b14_82mm_TK_GUE_EP","2b14_82mm_TK_EP1","M252_US_EP1","M252_US_EP1","BRDM2_Gue","BRDM2_CDF","BRDM2_INS",
 	"HMMWV_M998_crows_MK19_DES_EP1","Chukar","Chukar_EP1","MQ0PredatorB","MQ0PredatorB_US_EP1",
-	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC"
+	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC",
+	"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
+	"M113_TK_EP1","M113_UN_EP1","M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1",
+	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
@@ -148,10 +156,10 @@ _cMenu =
 	"RscWatchDir","RscDisplayClassSelecter","RscDisplayGenderSelect",
 	"RscDisplaySpawnSelecter","RscWatchMoreDir","#GETIN","RscStatus",
 	"RscCombatMode","RscFormations","RscTeam","RscSelectTeam","RscReply",
-	"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu","AdvancedTrading",
+	"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu",
 	"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:DamiSpawn","#USER:VoteMenu",
-	"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass"
-
+	"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass",
+	"BTC_Hud","PlotManagement"
 ];
 
 /*  ALLOWED Actions "_dayzActions" are only used if you have "_CSA =  true;"  */
@@ -199,13 +207,13 @@ _dayzActions =
 	"s_player_lockunlock","s_vehicle_lockunlock","s_player_toggleSnap","s_player_toggleSnapSelect","s_player_toggleSnapSelectPoint",
 	"s_player_evacCall","s_player_makeEvacChopper","s_player_clearEvacChopper",
 	"s_player_deploybike2","s_player_deploymoped","s_player_deploymoped2","s_player_deploymozzie","s_player_deploymozzie2",
-	"s_player1969_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
+	"s_player249_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
 	"s_player_setVectorsBack","s_player_setVectorsLeft","s_player_setVectorsRight","s_player_setVectors1","s_player_setVectors5","s_player_setVectors45",
 	"s_player_setVectors90","s_player_paint","DoorManagement","Entercode"
 ];
 /* ********************************************************************************* */
 	//	NEW (EXPERIMENTAL):
-	_UDP = true;	// Use Dupe Protection			/* true or false */
+	_UDP = false;	// Use Dupe Protection			/* true or false */
 	_URG = false;	// Antirefuel & AntiCargod		/* true or false */
 	_UIC = false;	//	Vehicle ID Check	/* true or false */
 	_UCL =  true;	// Use Anti Combat Log	/* true or false */
@@ -227,7 +235,7 @@ _dayzActions =
 		If you don't want to use it - just do:
 		_sUptime = 0;
 	*/
-	_sUptime = 7200.5;
+	_sUptime = 7201;
 	
 	
 	/*
@@ -243,8 +251,3 @@ _dayzActions =
 		When "_BHF =  true;" which it always should be in my opinion, then this will check if "_BHF" is persistent.
 	*/
 	_FRC =  true;	/* true or false */
-/* ********************************************************************************* */
-/* *******************Developer : infiSTAR (infiSTAR23@gmail.com)******************* */
-/* **************infiSTAR Copyright®© 2011 - 2015 All rights reserved.************** */
-/* *********************************www.infiSTAR.de********************************* */
-/* ****DayZAntiHack.com***DayZAntiHack.de***ArmaAntiHack.com***Arma3AntiHack.com**** */
