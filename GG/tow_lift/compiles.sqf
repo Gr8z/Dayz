@@ -30,7 +30,7 @@ if (!isDedicated) then {
 		private ["_return","_target"]; 
 		_target = (_this select 0);
 		_return = true; 
-			if ( (!(LOG_CFG_ALLOW_LOCKED) && (locked _target)) || (!(canbuild) ) then { 
+			if ( (!(LOG_CFG_ALLOW_LOCKED) && (locked _target)) || (!(canbuild)) ) then { 
 				_return = false; 
 			};
 			
