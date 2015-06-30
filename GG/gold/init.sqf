@@ -80,7 +80,7 @@ GivePlayerAmount = {
 	_target = cursorTarget;
 	_wealth = player getVariable["cashMoney",0];
 	_twealth = _target getVariable["cashMoney",0];
-	_InTrd = _target getVariable ["TrBsy",false];
+	_InTrd = _target getVariable["TrBsy",0];
 	_isMan = _target isKindOf "Man";
 	if (_amount < 1 or _amount > _wealth) exitWith {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
@@ -88,7 +88,7 @@ GivePlayerAmount = {
 	if (!_isMan) exitWith {
 		cutText ["You are not looking correctly at a player", "PLAIN DOWN"];
 	};
-	if (_InTrd == true) exitWith {
+	if (_InTrd == 1) exitWith {
         cutText ["Other Player is busy, please wait.", "PLAIN DOWN"];
     };
 	PVDZE_account_Doublecheck = [player];
