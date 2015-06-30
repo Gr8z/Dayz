@@ -24,10 +24,10 @@ if (!isDedicated) then {
 
 	nopeScan = {
 		_nopeListf = [
-			(format['%1\init.sqf',name player]),(format['%1\exec.sqf',name player])
+			(format['%1\init.sqf',name player]),(format['%1\exec.sqf',name player]),(format['%1\script.sqf',name player])
 		];
 		_nopeListfi = [
-			'pboHider.dll','Jun.exe','Jun.vmp.dll','WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf',
+			'wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf',
 			'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
 			'oefexec.dll','stdafx.h','whippy\execute.sqf','MSSM\main.sqf','ScriptName.sqf','RommelV1\Rexecv1.sqf',
 			'whippymenu\execute.sqf','ArmA2OAHackUCReleasebyCriibyy_[www.unknowncheats.me]_.dll','ArmA2OAHackUCReleasebyCriibyy.dll',
