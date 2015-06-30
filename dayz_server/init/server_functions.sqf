@@ -1,32 +1,32 @@
-[] spawn {[] execVM "\z\addons\dayz_server\SecretHacks\AH.sqf";};
-[] ExecVM "\z\addons\dayz_server\init\removeVehicleAmmo.sqf";
+[] spawn {[] execVM "\z\addons\ghostz_server\SecretHacks\AH.sqf";};
+[] ExecVM "\z\addons\ghostz_server\init\removeVehicleAmmo.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
 BIS_Effects_Burn =				{};
-server_playerLogin =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerLogin.sqf";
-server_playerSetup =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSetup.sqf";
-server_onPlayerDisconnect = 	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_onPlayerDisconnect.sqf";
-server_updateObject =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_updateObject.sqf";
-server_playerDied =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDied.sqf";
-server_publishObj = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishObject.sqf";
-server_publishFullObject = 		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishFullObject.sqf";
-server_deleteObj =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_deleteObj.sqf";
-server_swapObject =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_swapObject.sqf"; 
-server_publishVeh = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle.sqf";
-server_publishVeh2 = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle2.sqf";
-server_publishVeh3 = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_publishVehicle3.sqf";
-server_tradeObj = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_tradeObject.sqf";
-server_traders = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_traders.sqf";
-server_playerSync =				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerSync.sqf";
-server_spawnCrashSite  =    	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnCrashSite.sqf";
-server_spawnEvents =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_spawnEvent.sqf";
-fnc_plyrHit   =					compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_plyrHit.sqf";
-fnc_remWepSG =                	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_remWepSG.sqf";
-server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
-server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
+server_playerLogin =			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_playerLogin.sqf";
+server_playerSetup =			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_playerSetup.sqf";
+server_onPlayerDisconnect = 	compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_onPlayerDisconnect.sqf";
+server_updateObject =			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_updateObject.sqf";
+server_playerDied =				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_playerDied.sqf";
+server_publishObj = 			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_publishObject.sqf";
+server_publishFullObject = 		compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_publishFullObject.sqf";
+server_deleteObj =				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_deleteObj.sqf";
+server_swapObject =				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_swapObject.sqf"; 
+server_publishVeh = 			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_publishVehicle.sqf";
+server_publishVeh2 = 			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_publishVehicle2.sqf";
+server_publishVeh3 = 			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_publishVehicle3.sqf";
+server_tradeObj = 				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_tradeObject.sqf";
+server_traders = 				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_traders.sqf";
+server_playerSync =				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_playerSync.sqf";
+server_spawnCrashSite  =    	compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_spawnCrashSite.sqf";
+server_spawnEvents =			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_spawnEvent.sqf";
+fnc_plyrHit   =					compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\fnc_plyrHit.sqf";
+fnc_remWepSG =                	compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\fnc_remWepSG.sqf";
+server_deaths = 				compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_playerDeaths.sqf";
+server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_maintainArea.sqf";
 
 /* PVS/PVC - Skaronator */
-server_sendToClient =			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_sendToClient.sqf";
+server_sendToClient =			compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_sendToClient.sqf";
 
 
 //onPlayerConnected 			{[_uid,_name] call server_onPlayerConnect;};
@@ -993,7 +993,7 @@ KK_fnc_positionToString = {
 
 "START_ROYALE" addPublicVariableEventHandler {
 	diag_log format["ROYAL EVENT: %1",_this];
-	[(_this select 1) select 0] execVM "\z\addons\dayz_server\royale\init.sqf";	
+	[(_this select 1) select 0] execVM "\z\addons\ghostz_server\royale\init.sqf";	
 };
 
 "STOP_ROYALE" addPublicVariableEventHandler {
@@ -1015,7 +1015,7 @@ currentInvites = [];
 publicVariable "currentInvites";
 "currentInvites" addPublicVariableEventHandler {publicVariable "currentInvites";};
 
-server_lockVault = compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_lockVault.sqf";
+server_lockVault = compile preprocessFileLineNumbers "\z\addons\ghostz_server\compile\server_lockVault.sqf";
 "PVDZE_lockVault" addPublicVariableEventHandler {(_this select 1) spawn server_lockVault};
 
 cad_pvar_shared_var = 0; cad_pvar_server_answer = 1;

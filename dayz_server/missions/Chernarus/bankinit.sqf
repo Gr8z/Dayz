@@ -1,5 +1,5 @@
 
-call compile preProcessFileLineNumbers  "\z\addons\dayz_server\missions\Chernarus\banks.sqf";
+call compile preProcessFileLineNumbers  "\z\addons\ghostz_server\missions\Chernarus\banks.sqf";
 
 "PVDZE_bank_Save" addPublicVariableEventHandler {
 _playerObj = ((_this select 1) select 0);

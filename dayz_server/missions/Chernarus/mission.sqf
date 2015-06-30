@@ -1,19 +1,19 @@
 if (isServer) then {
 
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\balota.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bankinit.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basebor.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basenovy.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\basedichina.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bor.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\bridge.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\hemp.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\MogilevkaBase.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\ne_airstrip.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\nw_airstrip.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\oilfieldsbase.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\skalistyrefuge.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Chernarus\debug.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\balota.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\bankinit.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\basebor.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\basenovy.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\basedichina.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\bor.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\bridge.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\hemp.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\MogilevkaBase.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\ne_airstrip.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\nw_airstrip.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\oilfieldsbase.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\skalistyrefuge.sqf";
+call compile preProcessFileLineNumbers "\z\addons\ghostz_server\missions\Chernarus\debug.sqf";
 };
 
 _vehicle_2 = objNull;

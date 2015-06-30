@@ -353,7 +353,7 @@ if (isServer && isNil "sm_done") then {
 					// total each vehicle
 					serverVehicleCounter set [count serverVehicleCounter,_type];
 				};
-				[_object] execVM "\z\addons\dayz_server\compile\Server_DeleteObjInsafezone.sqf";
+				[_object] execVM "\z\addons\ghostz_server\compile\Server_DeleteObjInsafezone.sqf";
 			};
 
 			//Monitor the object
@@ -468,7 +468,7 @@ if (isServer && isNil "sm_done") then {
 			private ["_id"];
 			sleep 200; //Sleep Lootcleanup, don't need directly cleanup on startup + fix some performance issues on serverstart
 			waitUntil {!isNil "server_spawnCleanAnimals"};
-			_id = [] execFSM "\z\addons\dayz_server\system\server_cleanup.fsm";
+			_id = [] execFSM "\z\addons\ghostz_server\system\server_cleanup.fsm";
 		};
 
 		// max number of spawn markers
@@ -492,7 +492,7 @@ if (isServer && isNil "sm_done") then {
 		publicVariable "PVDZE_Z_LoadMessage";
 		endLoadingScreen;
 	};
-	[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";
+	[] ExecVM "\z\addons\ghostz_server\DZMS\DZMSInit.sqf";
 	allowConnection = true;	
 	sm_done = true;
 	publicVariable "sm_done";
