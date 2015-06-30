@@ -247,7 +247,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item0
+		class Item10
 		{
 			position[]={18179.379,134.84067,2129.0427};
 			name="NeutralTraderCIty3";
