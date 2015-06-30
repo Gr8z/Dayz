@@ -1,4 +1,3 @@
-/*  infiSTAR.de .dll path */  /* REMOVED */
 /*  Key to open the menu  */ _OpenMenuKey = 0x3B;    /* google DIK_KeyCodes (0x3C is F2) */
 /*  LOW ADMIN HERE        */ _LAdmins = [
 										 "76561198122210030", // Pirate																		 
@@ -79,7 +78,7 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 /*  Use FileScan ?        */ _UFS =  true;	/* true or false */	/* spams the rpt but often finds hackers */
 /*  Use Anti Teleport?    */ _UAT =  true;	/* true or false */
 /*  Use cut-scene ?       */ _UCS =  true;	/* true or false */	/* dynamicText ~ often colored, animated or used in credits */
-/*  Use Damage Check ?    */ _UDC =  true;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
+/*  Use Damage Check ?    */ _UDC =  false;	/* true or false */	/* try to catch Hacks that change the damage value of weapons */
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
 /*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
@@ -95,20 +94,7 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 /*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */ 
 /* ********************************************************************************* */
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
-/*  If you want install custom scripts using dialog windows, you can add IDD numbers  */
-/*  from the custom script's desc.h file included through MPMIssions/description.ext  */
 _ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,666,667,65431,65432,65433,65434,65440,65441,65442];
-//	-1			Epoch Safe/Lockbox Keycode UI
-//	106		Inventory (Gear)
-//	2200		Blood Test
-//	6900,6901,6902,6903	New Player (select Gender and such things)
-//	420420	Epoch Trader
-//	41144		Epoch Door Keycode UI
-//	129		Diary
-//	666,667	Clay Car Radio
-//	4444		Radio Communication
-//	65431,65432,65433,65434,65440,65441,65442		R3F ARTY Lift/Tow/Transport.
-//	711194	Plot Management	(http://epochmod.com/forum/index.php?/topic/16166-release-plot-management/)
 _ALLOWED_Dialogs = _ALLOWED_Dialogs + [81000,88890,20001,20002,20003,20004,20005,20006,55510,55511,55514,55515,55516,55517,55518,55519,555120,118338,118339,711197,711195]; // adding some others from community addons
 
 /*  Player that have one of these items in their inventory will get punished!  */
@@ -221,10 +207,6 @@ _dayzActions =
 	
 	/*
 		"_UIM": Use Incognito Mode, makes it for the most part look like you don't run infiSTAR to the normal player.
-		But for that it disables for example:
-		Script Scan, reworked unconscious, Bad Keybinds, The debugmonitor,
-		Escape Menu will be default again, Chatfunctions and more
-		So it will make the server more unsecure! but look like it's a default one.
 	*/
 	_UIM = false;	/* true or false */
 	
