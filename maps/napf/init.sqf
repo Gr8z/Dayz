@@ -52,8 +52,8 @@ progressLoadingScreen 1.0;
 "filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
 
 if (isServer) then {
-	call compile preprocessFileLineNumbers "\z\addons\ghostz_server\missions\dynamic_vehicle.sqf";
-	execVM "\z\addons\ghostz_server\missions\Napf\mission.sqf";
+	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\dynamic_vehicle.sqf";
+	execVM "\z\addons\dayz_server\missions\Napf\mission.sqf";
 	diag_log text "APlotForLife";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 	"ctc_HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\humanitychange.sqf'};

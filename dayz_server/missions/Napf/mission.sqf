@@ -2,19 +2,19 @@
 
 if (isServer) then {
 
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\Lenzburg.sqf";
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\Emmen.sqf";
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\militaerneutral.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\schangen.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\ww.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\ew.sqf";    
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\hero.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\bandit.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\black.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\weed.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\bankinit.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\Chatzbach.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\ghostz_server\missions\Napf\debug.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Lenzburg.sqf";
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Emmen.sqf";
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\militaerneutral.sqf";  
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\schangen.sqf";  
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ww.sqf";  
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ew.sqf";    
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\hero.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bandit.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\black.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\weed.sqf";  
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bankinit.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";   
+  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\debug.sqf";   
      
   
   //#######################################################  Lenzburg Tradercity  ###########################################################

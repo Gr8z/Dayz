@@ -134,7 +134,7 @@ _object_damage = {
 _object_killed = {
 	private["_hitpoints","_array","_hit","_selection","_key","_damage"];
 	if(_object isKindOf "AllVehicles") then{
-		_object execVM "\z\addons\ghostz_server\compile\server_crashLoot.sqf";
+		_object execVM "\z\addons\dayz_server\compile\server_crashLoot.sqf";
 	}; 
 	_hitpoints = _object call vehicle_getHitpoints;
 	//_damage = damage _object;
