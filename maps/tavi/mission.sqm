@@ -171,7 +171,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=22;
+		items=23;
 		class Item0
 		{
 			position[]={17512.80,304.99,1485.19};
@@ -347,6 +347,12 @@ class Mission
 			text="Wholesaler";
 			type="mil_box";
 			colorName="ColorBlack";
+		};
+		class Item22
+		{
+			position[]={1312.91,0,7692.09};
+			name="respawn_west";
+			type="Empty";
 		};
 	};
 	class Sensors

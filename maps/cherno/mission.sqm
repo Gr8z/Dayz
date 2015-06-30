@@ -169,7 +169,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=16;
+		items=17;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -297,6 +297,12 @@ class Mission
 			text="Weed Farm";
 			type="mil_dot";
 			colorName="ColorOrange";
+		};
+		class Item16
+		{
+			position[]={64.971161,0, 1590.6635};
+			name="respawn_west";
+			type="Empty";
 		};
 	};
 	class Sensors

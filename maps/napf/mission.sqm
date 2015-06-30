@@ -170,7 +170,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=23;
+		items=13;
 		class Item0
 		{
 			position[]={10010.905,110.96082,10448.559};
@@ -179,71 +179,11 @@ class Mission
 		};
 		class Item1
 		{
-			position[]={10153.301,0.48597428,-4593.061};
+			position[]={2062.0693,0, 8281.7227};
 			name="respawn_west";
 			type="Empty";
 		};
 		class Item2
-		{
-			position[]={1511.1515,6.4048538,11479.399};
-			name="spawn0";
-			type="Empty";
-		};
-		class Item3
-		{
-			position[]={6946.2808,7.0185013,17384.557};
-			name="spawn1";
-			type="Empty";
-		};
-		class Item4
-		{
-			position[]={5410.916,7.2133398,16675.912};
-			name="spawn2";
-			type="Empty";
-		};
-		class Item5
-		{
-			position[]={4672.4092,8.506402,14940.254};
-			name="spawn3";
-			type="Empty";
-		};
-		class Item6
-		{
-			position[]={2719.9617,3.2610674,12226.175};
-			name="spawn4";
-			type="Empty";
-		};
-		class Item7
-		{
-			position[]={12231.441,2.585845,16319.117};
-			name="spawn5";
-			type="Empty";
-		};
-		class Item8
-		{
-			position[]={4104.0498,22.422367,13025.828};
-			name="spawn6";
-			type="Empty";
-		};
-		class Item9
-		{
-			position[]={1460.7332,0.55348521,10583.732};
-			name="spawn7";
-			type="Empty";
-		};
-		class Item10
-		{
-			position[]={10282.8,23.0424,18449.203};
-			name="spawn8";
-			type="Empty";
-		};
-		class Item11
-		{
-			position[]={12861.892,2.1743674,14849.523};
-			name="spawn9";
-			type="Empty";
-		};
-		class Item12
 		{
 			position[]={7841.8633, 0,8851.4551};
 			name="TraderCIty4";
@@ -251,7 +191,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item13
+		class Item3
 		{
 			position[]={8641.41,0,13388.6};
 			name="WeedFarm";
@@ -259,7 +199,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorOrange";
 		};
-		class Item14
+		class Item4
 		{
 			position[]={9165.1318,82.005791,5437.4268};
 			name="FriendlyTraderCity";
@@ -267,7 +207,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorGreen";
 		};
-		class Item15
+		class Item5
 		{
 			position[]={11066.576,232.00998,11799.943};
 			name="HeroVendor";
@@ -275,7 +215,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlue";
 		};
-		class Item16
+		class Item6
 		{
 			position[]={2025.4277,5.9860959,7801.5674};
 			name="West Wholesaler";
@@ -283,7 +223,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBrown";
 		};
-		class Item17
+		class Item7
 		{
 			position[]={16832.439,7.745224,5238.2793};
 			name="East Wholesaler and Boatsaler";
@@ -291,7 +231,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBrown";
 		};
-		class Item18
+		class Item8
 		{
 			position[]={12823.385,246.70692,5274.624};
 			name="BanditVendor";
@@ -299,7 +239,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorRed";
 		};
-		class Item19
+		class Item9
 		{
 			position[]={8990.2393,195.55144,7554.8857};
 			name="Black Market";
@@ -307,7 +247,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item20
+		class Item0
 		{
 			position[]={18179.379,134.84067,2129.0427};
 			name="NeutralTraderCIty3";
@@ -315,7 +255,7 @@ class Mission
 			type="mil_dot";
 			colorName="ColorBlack";
 		};
-		class Item21
+		class Item11
 		{
 			position[]={15520.298,5.3862243,13225.447};
 			name="NeutralTraderCIty2";
@@ -323,7 +263,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorBlack";
 		};
-		class Item22
+		class Item12
 		{
 			position[]={8246.7275,15.544708,15490.344};
 			name="NeutralTraderCity";
@@ -428,8 +368,8 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="black";
-			expCond="(player distance black) < 50;";
+			name="Boat2";
+			expCond="(player distance boat2) < 50;";
 			expActiv="[""Black Market"",true,""enter""] spawn player_traderCity;";
 			expDesactiv="[""Black Market"",true,""leave""] spawn player_traderCity;";
 			class Effects
