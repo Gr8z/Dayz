@@ -27,7 +27,7 @@ if (!isDedicated) then {
 			(format['%1\init.sqf',name player]),(format['%1\exec.sqf',name player]),(format['%1\script.sqf',name player])
 		];
 		_nopeListfi = [
-			'wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf',
+			'nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf',
 			'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
 			'oefexec.dll','stdafx.h','whippy\execute.sqf','MSSM\main.sqf','ScriptName.sqf','RommelV1\Rexecv1.sqf',
 			'whippymenu\execute.sqf','ArmA2OAHackUCReleasebyCriibyy_[www.unknowncheats.me]_.dll','ArmA2OAHackUCReleasebyCriibyy.dll',
@@ -113,6 +113,7 @@ if (!isDedicated) then {
 			'ArmA2OA_Extras\ben_ex.sqf'
 		]+_nopeListf;
 		_nopeListv = [
+			'wormBomb','wormBomb2','wormPos','wormEn',
 			'manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','jun',
 			'MonsterCheats_Admin_Options','B1g_B3nProEsp','MonsterCheats_ESP','freddiesmm','vehiclemarkershuehuehue','Freddies_1stepbuild','MonsterCheats_Menu','hippoWiveHiveServer','whippyv7',
 			'ANTIHACKKICK','lel','fnx3','vars','PSwap','toLower_new','BCast','thfile','tlmadminrq','infiSTARBLACK','name','carepkg','scrollAim','BlurExec','sbpc','CALLRE',
