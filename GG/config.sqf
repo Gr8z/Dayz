@@ -1,4 +1,4 @@
-admins = PV_NormalLevel_List+PV_SuperLevel_List;
+admins = ["76561198078201908","76561198002511087","76561198002511087"];
 DZE_crashLootConfig = [true,2,5,8,0];
 CurrencyName = "Coins";
 DZE_ATM = ["Infostand_2_EP1"];
