@@ -37,4 +37,3 @@ _victim setVariable["AttackedBy", _attacker, true];
 _victim setVariable["AttackedByName", (name _attacker), true];
 _victim setVariable["AttackedByWeapon", _weapon, true];
 _victim setVariable["AttackedFromDistance", _distance, true];
-_victim setVariable["LastHit", time, true];
