@@ -25,12 +25,6 @@ if (_killerName != "nil") then
 {
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
-	
-	if (_distance > 2000) then {
-		_distance = -1;
-	} else {
-		_distance = round _distance;
-	};
 	 
 	if (_victimName == _killerName) then
 	{
