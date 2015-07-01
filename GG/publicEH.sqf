@@ -84,6 +84,11 @@ if (!isDedicated) then {
 	"PVDZE_obj_Fire"		addPublicVariableEventHandler {nulexp=(_this select 1) spawn BIS_Effects_Burn};
 	"PVDZE_plr_FriendRQ"	addPublicVariableEventHandler {(_this select 1) call player_tagFriendlyMsg};
 
+	line0 = 0;
+	line1 = 0;
+	line2 = 0;
+	line3 = 0;
+	line4 = 0;
 	"PVDZ_Death_msg"		addPublicVariableEventHandler {
 		_id = (_this select 1);
 		_killerName = _id select 0;

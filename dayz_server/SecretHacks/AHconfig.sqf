@@ -53,8 +53,7 @@
 /* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
 _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 [
-	'Stinger','NVGoggles',
-	''
+	'Stinger','NVGoggles'
 ];
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
