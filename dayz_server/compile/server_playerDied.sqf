@@ -13,25 +13,21 @@ if (((count _this) >= 6) && {(typeName (_this select 5)) == "STRING"} && {(_this
 _victim = _newObject;
 _newObject setVariable ["bodyName", _victimName, true];
 
-systemChat "1";
-
 uiSleep 3;
-systemChat "2";
+
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
 _lastHit = _victim getVariable["LastHit",0];
-systemChat "3";
+
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
 if (_killerName != "nil") then
 {
-	systemChat "4";
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
 	 
 	if (_victimName == _killerName) then
 	{
-		systemChat "Suicide";
 		_message = format["%1 killed himself",_victimName];
 		_loc_message = format["PKILL: %1 killed himself", _victimName];
 	}
@@ -42,33 +38,26 @@ if (_killerName != "nil") then
 			_loc_message = format["PKILL: %1 (%5) was killed by %2 (%6) with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance, _playerID, _killerPlayerID];
 			_pic = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
 			_wepText = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
-			systemChat "5";
 			if (_pic == "") then {
-				systemChat "6";
 				_weapon = typeOf (vehicle _killer);
 				_pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
 				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
-				systemChat "7";
 			};
 		} else {
-		systemChat "7";
 			_killerPlayerID = getPlayerUID _killer;
 			_message = format["%1 was killed by %2 with weapon %3 from %4m",_victimName, _killerName, _weapon, _distance];
 			_loc_message = format["PKILL: %1 (%5) was killed by %2 (%6) with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance, _playerID, _killerPlayerID];
 			_pic = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
 			_wepText = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
-			systemChat "8";
 			if (_pic == "") then {
 				_weapon = typeOf (vehicle _killer);
 				_pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
 				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
-				systemChat "9";
 			};
 		};
-		systemChat "10";
+
 		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
-		publicVariable "PVDZ_Death_msg";\
-		systemChat "11";
+		publicVariable "PVDZ_Death_msg";
 	};
 
 	diag_log _loc_message;
