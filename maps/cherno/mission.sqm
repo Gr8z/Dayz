@@ -169,7 +169,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=17;
+		items=18;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -303,6 +303,14 @@ class Mission
 			position[]={64.971161,0, 1590.6635};
 			name="respawn_west";
 			type="Empty";
+		};
+		class Item17
+		{
+			position[]={7768.69,0,4499.63};
+			name="MogilivikaBase";
+			text="Mogilevka Base";
+			type="defend";
+			colorName="ColorRed";
 		};
 	};
 	class Sensors
