@@ -42,9 +42,9 @@ if (_killerName != "nil") then
             _pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
             _wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
         };
-        PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
-        publicVariable "PVDZ_Death_msg";
     };
+	PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
+    publicVariable "PVDZ_Death_msg";
 };
 
 if ((typeName _killer) != "STRING") then
