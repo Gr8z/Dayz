@@ -22,47 +22,34 @@ _killerName = _victim getVariable["AttackedByName", "nil"];
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
 if (_killerName != "nil") then
 {
-        _weapon = _victim getVariable["AttackedByWeapon", "nil"];
-        _distance = _victim getVariable["AttackedFromDistance", "nil"];
- 
-        if (_victimName == _killerName) then
-        {
-                _message = format["%1 killed himself",_victimName];
-                _loc_message = format["PKILL: %1 killed himself", _victimName];
-        }
-        else
-        {
-                _killerPlayerID = getPlayerUID _killer;
-                _message = format["%1 was killed by %2 with weapon %3 from %4m",_victimName, _killerName, _weapon, _distance];
-                _loc_message = format["PKILL: %1 (%5) was killed by %2 (%6) with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance, _playerID, _killerPlayerID];
-                _pic = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
-                _wepText = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
-                if (_pic == "") then {
-                        _weapon = typeOf (vehicle _killer);
-                        _pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
-                        _wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
-                };
-                PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
-                publicVariable "PVDZ_Death_msg";
+    _weapon = _victim getVariable["AttackedByWeapon", "nil"];
+    _distance = _victim getVariable["AttackedFromDistance", "nil"];
+
+    if (_victimName == _killerName) then
+    {
+        _message = format["%1 killed himself",_victimName];
+        _loc_message = format["PKILL: %1 killed himself", _victimName];
+    }
+    else
+    {
+        _killerPlayerID = getPlayerUID _killer;
+        _message = format["%1 was killed by %2 with weapon %3 from %4m",_victimName, _killerName, _weapon, _distance];
+        _loc_message = format["PKILL: %1 (%5) was killed by %2 (%6) with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance, _playerID, _killerPlayerID];
+        _pic = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
+        _wepText = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
+        if (_pic == "") then {
+            _weapon = typeOf (vehicle _killer);
+            _pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
+            _wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
         };
+        PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
+        publicVariable "PVDZ_Death_msg";
+    };
+};
 
+if ((typeName _killer) != "STRING") then
+{
 	diag_log _loc_message;
-
-	if(DZE_DeathMsgGlobal) then {
-		[nil, nil, rspawn, [_killer, _message], { (_this select 0) globalChat (_this select 1) }] call RE;
-	};
-	/* needs customRemoteMessage
-	if(DZE_DeathMsgGlobal) then {
-		customRemoteMessage = ['globalChat', _message, _killer];
-		publicVariable "customRemoteMessage";
-	};
-	*/
-	if(DZE_DeathMsgSide) then {
-		[nil, nil, rspawn, [_killer, _message], { (_this select 0) sideChat (_this select 1) }] call RE;
-	};
-	if(DZE_DeathMsgTitleText) then {
-		[nil,nil,"per",rTITLETEXT,_message,"PLAIN DOWN"] call RE;
-	};
 
 	// build array to store death messages to allow viewing at message board in trader citys.
 	_death_record = [
