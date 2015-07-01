@@ -192,6 +192,7 @@ Medic1 = [
 	"76561198166231771", // Wombat(OD-2015-04-28)
 	"76561198126348047", // [TF]Mr. Bandit (OD-2015-05-26) #9185
 	"76561198089649048", // gizzybear (OD-2015-06-17) #9529
+	"76561198185250361", // Gackelblaster (OD-2015-06-30) #9712 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
