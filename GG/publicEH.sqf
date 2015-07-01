@@ -84,11 +84,12 @@ if (!isDedicated) then {
 	"PVDZE_obj_Fire"		addPublicVariableEventHandler {nulexp=(_this select 1) spawn BIS_Effects_Burn};
 	"PVDZE_plr_FriendRQ"	addPublicVariableEventHandler {(_this select 1) call player_tagFriendlyMsg};
 
-	line0 = 0;
-	line1 = 0;
-	line2 = 0;
-	line3 = 0;
-	line4 = 0;
+	_line0 = 0;
+	_line1 = 0;
+	_line2 = 0;
+	_line3 = 0;
+	_line4 = 0;
+	_line5 = 0;
 	"PVDZ_Death_msg"		addPublicVariableEventHandler {
 		_id = (_this select 1);
 		_killerName = _id select 0;
@@ -96,27 +97,26 @@ if (!isDedicated) then {
 		_victimName = _id select 2;
 		_distance 	= _id select 3;
 		_weapon 	= _id select 4;
-		if (line4 == 1) then {
-			line0 = 1; lvl = 6000; safeOffset = 0;
-			line1 = 0; line2 = 0; line3 = 0; line4 = 0;
-			[] spawn { sleep 10; line0 = 0; };
-		} else { if (line4 == 1) then {
-			line5 = 1; lvl = 6005; safeOffset =0.82;
-			[] spawn { sleep 10; line5 = 0; };
-		} else { if (line3 == 1) then {
-			line4 = 1; lvl = 6004; safeOffset =0.68;
-			[] spawn { sleep 10; line4 = 0; };
-		} else { if (line2 == 1) then {
-			line3 = 1; lvl = 6003; safeOffset = 0.50;
-			[] spawn { sleep 10; line3 = 0; };
-		} else { if (line1 == 1) then {
-			line2 = 1; lvl = 6002; safeOffset = 0.36;
-			[] spawn { sleep 10; line2 = 0; };
-		} else { if (line0 == 1) then {
-			line1 = 1; lvl = 6001; safeOffset = 0.18;
-			[] spawn { sleep 10; line1 = 0; };
-		} else { line0 = 1; lvl = 6000; safeOffset = 0; [] spawn { sleep 10; line0 = 0; };};};};};};};
-		//Halv's Kill Messages
+		if (_line4 == 1) then {
+			_line0 = 1; lvl = 6000; safeOffset = 0;
+			_line1 = 0; _line2 = 0; _line3 = 0; _line4 = 0;
+			[] spawn { sleep 10; _line0 = 0; };
+		} else { if (_line4 == 1) then {
+			_line5 = 1; lvl = 6005; safeOffset =0.82;
+			[] spawn { sleep 10; _line5 = 0; };
+		} else { if (_line3 == 1) then {
+			_line4 = 1; lvl = 6004; safeOffset =0.68;
+			[] spawn { sleep 10; _line4 = 0; };
+		} else { if (_line2 == 1) then {
+			_line3 = 1; lvl = 6003; safeOffset = 0.50;
+			[] spawn { sleep 10; _line3 = 0; };
+		} else { if (_line1 == 1) then {
+			_line2 = 1; lvl = 6002; safeOffset = 0.36;
+			[] spawn { sleep 10; _line2 = 0; };
+		} else { if (_line0 == 1) then {
+			_line1 = 1; lvl = 6001; safeOffset = 0.18;
+			[] spawn { sleep 10; _line1 = 0; };
+		} else { _line0 = 1; lvl = 6000; safeOffset = 0; [] spawn { sleep 10; _line0 = 0; };};};};};};};
 		_dyntxt = format["
 		<t size='0.75'align='left'color='#5882FA'>%1</t>
 		<t size='0.5'align='left'>  Killed  </t>
