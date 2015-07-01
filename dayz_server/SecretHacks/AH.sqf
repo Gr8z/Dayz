@@ -5690,16 +5690,17 @@ PV_AdminMainCode = {
 		_puid = getPlayerUID player;
 		if(_puid in (PV_NormalLevel_List+PV_SuperLevel_List)) then
 		{
+			adminadd = adminadd + ["  Spawn 5 Zombies",{[5] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 10 Zombies",{[10] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Box (all items)",admincrateALL,"0","0","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 			if(MOD_EPOCH) then
 			{
-				adminadd = adminadd + ["  Spawn Epoch-Box",admincrateEpoch,"0","0","0","0",[]];
 				adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
 				adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
 				adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
 			};
 		};
 		call admin__FILL_MENUS;
@@ -5726,6 +5727,8 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["   +View Spawn Menu","SpawnMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View WeatherLord Menu","Weather","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View TimeLord Menu","AAATime","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + [(format["   -View Player Log: (%1)",round((count PlayerLogArray)/3)]),"uidLog","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + [(format["   -View Admin Log: (%1)",(count PV_writeAdmin_log_ARRAY)]),"WriteLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Surveillance Log: (%1)",((count PV_SurveillanceLog)-1)]),"SurveillanceLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Hacker Log: (%1)",((count PV_hackerL0og)-1)]),"hackerLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View TempBanned Log: (%1)",round((count PVAH_AHTMPBAN)/2)]),"tempbanned","0","0","1","0",[0,0.6,1,1]];
@@ -5734,6 +5737,8 @@ PV_AdminMainCode = {
 		{
 			adminadd = adminadd + ["   +View Main Menu","MainMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View Spawn Menu","SpawnMenu","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + [(format["   -View Player Log: (%1)",round((count PlayerLogArray)/3)]),"uidLog","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + [(format["   -View Admin Log: (%1)",(count PV_writeAdmin_log_ARRAY)]),"WriteLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Surveillance Log: (%1)",((count PV_SurveillanceLog)-1)]),"SurveillanceLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Hacker Log: (%1)",((count PV_hackerL0og)-1)]),"hackerLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View TempBanned Log: (%1)",round((count PVAH_AHTMPBAN)/2)]),"tempbanned","0","0","1","0",[0,0.6,1,1]];
@@ -8185,6 +8190,18 @@ PV_AdminMainCode = {
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
+	hatchetpackage =
+	{
+		PVAH_AdminReq = [9007,player];
+		publicVariableServer "PVAH_AdminReq";
+		
+		hint format["Event Hatchet Box Spawned!"];
+		cutText [format["Event Hatchet Box Spawned!"], "PLAIN DOWN"];
+		
+		_sl = format["%1 -Event Hatchet Box @%2",name player,mapGridPosition getPosATL player];
+		PVAH_WriteLogReq = [player,toArray _sl];
+		publicVariableServer 'PVAH_WriteLogReq';
+	};
 	adminESPicons =
 	{
 		if !(('ItemGPS' in items player) || ('ItemMap' in items player)) then
@@ -9384,7 +9401,7 @@ PV_AdminMainCode = {
 						};
 					};
 				};
-				_id = [_position,_agent] execFSM "\z\addons\dayz_code\system\zombie_agent.fsm";
+				_id = [_position,_agent] execFSM "GG\zombies\zombie_agent.fsm";
 			};
 		};
 		openMap [true, false];
@@ -13400,18 +13417,7 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemCopperBar','ItemCopperBar10oz','ItemBriefcase100oz','ItemBriefcase80oz','ItemFireBarrel_kit',
 				'ItemBriefcase60oz','ItemBriefcase40oz','ItemBriefcase20oz','ItemGunRackKit','ItemOilBarrel','ItemFuelBarrel',
 				'm240_nest_kit','ItemLockbox','metal_floor_kit','cinder_wall_kit','cinder_garage_kit','cinder_door_kit',
-				'ItemVault','ItemGenerator','Skin_Rocker2_DZ','30m_plot_kit','Skin_SurvivorW2_DZ','Skin_Functionary1_EP1_DZ',
-				'Skin_Haris_Press_EP1_DZ','Skin_Priest_DZ','Skin_SurvivorWpink_DZ','Skin_SurvivorWurban_DZ',
-				'Skin_SurvivorWcombat_DZ','Skin_SurvivorWdesert_DZ','Skin_Survivor2_DZ','fuel_pump_kit','ItemFuelPump',
-				'Skin_Rocker1_DZ','Skin_Rocker3_DZ','Skin_RU_Policeman_DZ','Skin_Pilot_EP1_DZ',
-				'Skin_Rocker4_DZ','Skin_Bandit1_DZ','Skin_Bandit2_DZ','Skin_GUE_Commander_DZ',
-				'Skin_GUE_Soldier_2_DZ','Skin_GUE_Soldier_CO_DZ','Skin_GUE_Soldier_Crew_DZ',
-				'Skin_GUE_Soldier_MG_DZ','Skin_GUE_Soldier_Sniper_DZ','Skin_Ins_Soldier_GL_DZ',
-				'Skin_TK_INS_Soldier_EP1_DZ','Skin_TK_INS_Warlord_EP1_DZ','Skin_BanditW1_DZ','park_bench_kit',
-				'Skin_BanditW2_DZ','Skin_CZ_Special_Forces_GL_DES_EP1_DZ','Skin_Drake_Light_DZ','PartPlankPack',
-				'Skin_Soldier_Sniper_PMC_DZ','Skin_FR_OHara_DZ','Skin_FR_Rodriguez_DZ','ItemSandbagExLarge',
-				'Skin_CZ_Soldier_Sniper_EP1_DZ','Skin_Graves_Light_DZ','Skin_Soldier_Bodyguard_AA12_PMC_DZ',
-				'Skin_Camo1_DZ','Skin_Rocket_DZ','Skin_Sniper1_DZ','Skin_Soldier1_DZ','Skin_Soldier_TL_PMC_DZ','wood_ramp_kit'];
+				'ItemVault','ItemGenerator','30m_plot_kit','wood_ramp_kit'];
 				{_b0x addWeaponCargoGlobal [_x, 20];} forEach ['ItemFishingPole','ItemSledge','ItemKeyKit','ItemToolbox','ItemEtool'];
 			};
 		};
@@ -13521,6 +13527,24 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemToolbox',
 				'ItemCrowbar',
 				'ItemEtool'
+				];
+			};
+		};
+		if(_option == 9007) then
+		{
+			_dir = getdir _playerObj;
+			_pos = getPos _playerObj;
+			_pos = [(_pos select 0)+2*sin(_dir),(_pos select 1)+2*cos(_dir),(_pos select 2)];
+			[_dir,_pos,_playerObj] spawn {
+				_dir = _this select 0;
+				_pos = _this select 1;
+				_b0x = 'USVehicleBox_EP1' createVehicle _pos;
+				clearWeaponCargoGlobal _b0x;
+				clearmagazinecargoGlobal _b0x;
+				_b0x setPosATL _pos;
+				{_b0x addWeaponCargoGlobal [_x, 35];} forEach
+				[
+				'ItemHatchet_DZE'
 				];
 			};
 		};
