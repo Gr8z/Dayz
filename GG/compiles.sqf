@@ -106,6 +106,7 @@ if (!isDedicated) then {
 	
 	player_onPause = compile preprocessFileLineNumbers "GG\player_onPause.sqf"; 
 	
+	yoloText = 						compile preprocessFileLineNumbers "ca\modules_e\functions\GUI\fn_dynamicText.sqf";
 	BIS_Effects_Burn = 				compile preprocessFile "\ca\Data\ParticleEffects\SCRIPTS\destruction\burn.sqf";
 	player_zombieCheck = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";	//Run on a players computer, checks if the player is near a zombie
 	player_zombieAttack = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieAttack.sqf";	//Run on a players computer, causes a nearby zombie to attack them

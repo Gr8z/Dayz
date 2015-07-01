@@ -92,24 +92,24 @@ if (!isDedicated) then {
 		_distance 	= _id select 3;
 		_weapon 	= _id select 4;
 		if (line4 == 1) then {
-		line0 = 1; lvl = 6000; safeOffset = 0;
-		line1 = 0; line2 = 0; line3 = 0; line4 = 0;
-		[] spawn { sleep 10; line0 = 0; };
+			line0 = 1; lvl = 6000; safeOffset = 0;
+			line1 = 0; line2 = 0; line3 = 0; line4 = 0;
+			[] spawn { sleep 10; line0 = 0; };
 		} else { if (line4 == 1) then {
-		line5 = 1; lvl = 6005; safeOffset =0.82;
-		[] spawn { sleep 10; line5 = 0; };
+			line5 = 1; lvl = 6005; safeOffset =0.82;
+			[] spawn { sleep 10; line5 = 0; };
 		} else { if (line3 == 1) then {
-		line4 = 1; lvl = 6004; safeOffset =0.68;
-		[] spawn { sleep 10; line4 = 0; };
+			line4 = 1; lvl = 6004; safeOffset =0.68;
+			[] spawn { sleep 10; line4 = 0; };
 		} else { if (line2 == 1) then {
-		line3 = 1; lvl = 6003; safeOffset = 0.50;
-		[] spawn { sleep 10; line3 = 0; };
+			line3 = 1; lvl = 6003; safeOffset = 0.50;
+			[] spawn { sleep 10; line3 = 0; };
 		} else { if (line1 == 1) then {
-		line2 = 1; lvl = 6002; safeOffset = 0.36;
-		[] spawn { sleep 10; line2 = 0; };
+			line2 = 1; lvl = 6002; safeOffset = 0.36;
+			[] spawn { sleep 10; line2 = 0; };
 		} else { if (line0 == 1) then {
-		line1 = 1; lvl = 6001; safeOffset = 0.18;
-		[] spawn { sleep 10; line1 = 0; };
+			line1 = 1; lvl = 6001; safeOffset = 0.18;
+			[] spawn { sleep 10; line1 = 0; };
 		} else { line0 = 1; lvl = 6000; safeOffset = 0; [] spawn { sleep 10; line0 = 0; };};};};};};};
 		//Halv's Kill Messages
 		_dyntxt = format["
