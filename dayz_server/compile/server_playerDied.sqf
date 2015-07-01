@@ -1,26 +1,23 @@
-private ["_characterID","_minutes","_newObject","_playerID","_infected","_victim","_victimName","_killer","_killerName","_weapon","_distance","_message","_loc_message","_key","_death_record","_pic","_wepText","_killerPlayerID","_playerName"];
+private ["_characterID","_minutes","_newObject","_playerID","_infected","_victim","_victimName","_killer","_killerName","_weapon","_distance","_message","_loc_message","_key","_death_record","_pic","_wepText","_killerPlayerID"];
 //[unit, weapon, muzzle, mode, ammo, magazine, projectile]
 _characterID = 	_this select 0;
 _minutes =		_this select 1;
 _newObject = 	_this select 2;
 _playerID = 	_this select 3;
 _infected =		_this select 4;
-_playerName =     name _newObject;
-
+if (((count _this) >= 6) && {(typeName (_this select 5)) == "STRING"} && {(_this select 5) != ""}) then {
+	_victimName =	_this select 5;
+} else {
+	_victimName =  if (alive _newObject) then {name _newObject;} else {"";};
+};
 _victim = _newObject;
 _newObject setVariable ["bodyName", _victimName, true];
-
-_victim = _this select 5;
-_victim removeAllEventHandlers "MPHit";
-_victim setVariable["processedDeath",time];
-_victim setVariable ["bodyName", _playerName, true];
-_victimName = _victim getVariable["bodyName", "nil"];
-_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 
 uiSleep 3;
 
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
+_lastHit = _victim getVariable["LastHit",0];
 
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
@@ -28,12 +25,6 @@ if (_killerName != "nil") then
 {
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
-	
-	if (_distance > 2000) then {
-		_distance = -1;
-	} else {
-		_distance = round _distance;
-	};
 	 
 	if (_victimName == _killerName) then
 	{
@@ -102,10 +93,10 @@ if (_killerName != "nil") then
 	_victim setVariable["AttackedByName", "nil", true];
 	_victim setVariable["AttackedByWeapon", "nil", true];
 	_victim setVariable["AttackedFromDistance", "nil", true];
+	_victim setVariable["LastHit", "nil", true];
 };
 
 _newObject setVariable["processedDeath",diag_tickTime];
-_newObject setVariable ["bodyName", _playerName, true];
 
 if (typeName _minutes == "STRING") then
 {
