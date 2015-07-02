@@ -160,6 +160,7 @@ call dayz_meleeMagazineCheck;
 };
 //reveal the same objects we do on login
 {player reveal _x} count (nearestObjects [getPosATL player, dayz_reveal, 50]);
+player switchCamera "external";
 
 _savedGroup = profileNamespace getVariable["savedGroup",[]];
 player setVariable ["savedGroup",_savedGroup,true];
