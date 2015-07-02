@@ -21,7 +21,10 @@ _charPos = 		getPosATL _character;
 _isInVehicle = 	vehicle _character != _character;
 _timeSince = 	0;
 _humanity =		0;
+<<<<<<< HEAD
 _inTransit             = _character getVariable ["inTransit",false];
+=======
+>>>>>>> parent of c91810b... Player Update After Skin Change
 
 //diag_log ("DW_DEBUG: (isnil _characterID): " + str(isnil "_characterID"));
 _name = if (alive _character) then { name _character; } else { "Dead Player"; };
@@ -35,10 +38,13 @@ if (isnil "_characterID") exitWith {
 
 if (_characterID == "0") exitWith {
 	diag_log ("ERROR: Cannot Sync Character " + (_name) + " as no characterID");
+<<<<<<< HEAD
 };
 
 if (_inTransit) exitWith {
     diag_log ("NOTICE: Cannot update " + (_name) + ", player is in transit");
+=======
+>>>>>>> parent of c91810b... Player Update After Skin Change
 };
 
 private["_debug","_distance"];
@@ -214,7 +220,11 @@ if (_characterID != "0") then {
 		_pos = _this select 0;
 		{
 			[_x, "gear"] call server_updateObject;
+<<<<<<< HEAD
 		} count nearestObjects [_pos, dayz_updateObjects, 10];
+=======
+		} count (nearestObjects [_charPos, dayz_updateObjects, 10]);
+>>>>>>> parent of c91810b... Player Update After Skin Change
 		//[_charPos] call server_updateNearbyObjects;
 
 		//Reset timer

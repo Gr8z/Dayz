@@ -647,7 +647,7 @@ class FSM
        "};" \n
        "" \n
        "dayz_playerName = name player;" \n
-       "[_model] call player_switchModel;" \n
+       "_model call player_switchModel;" \n
        "" \n
        "gear_done= true;" \n
        "player allowDamage false;" \n
