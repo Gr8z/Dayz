@@ -900,7 +900,7 @@ server_spawnCleanLoot = {
 			};
 		};
 		sleep 0.001;
-	} count _missionObjs;
+	} forEach _missionObjs;
 	if (_delQty > 0) then {
 		_qty = count _missionObjs;
 		diag_log (format["CLEANUP: Deleted %1 Loot Piles out of %2",_delQty,_qty]);
@@ -931,7 +931,7 @@ server_spawnCleanAnimals = {
 			};
 		};
 		sleep 0.001;
-	} count _missonAnimals;
+	} forEach _missonAnimals;
 	if (_delQtyAnimal > 0) then {
 		_qty = count _missonAnimals;
 		diag_log (format["CLEANUP: Deleted %1 Animals out of %2",_delQtyAnimal,_qty]);
