@@ -144,7 +144,7 @@ _countr = _countr + 1;
 } else { [] call _switchUnit; };
 [objNull, player, rSwitchMove,_currentAnim] call RE;
 player disableConversation true;
-player setVariable ["bodyName",dayz_playerName,true]; //Outcommit (Issue #991) - Also removed in DayZ Mod 1.8
+//player setVariable ["bodyName",dayz_playerName,true]; //Outcommit (Issue #991) - Also removed in DayZ Mod 1.8
 if (_tagSetting) then {
 DZE_ForceNameTags = true;
 };
