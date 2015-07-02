@@ -13,6 +13,8 @@ if (((count _this) >= 6) && {(typeName (_this select 5)) == "STRING"} && {(_this
 _victim = _newObject;
 _newObject setVariable ["bodyName", _victimName, true];
 
+uiSleep 3;
+
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
 _lastHit = _victim getVariable["LastHit",0];
@@ -44,12 +46,7 @@ if (_killerName != "nil") then
 	};
 		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
 		publicVariable "PVDZ_Death_msg";
-};
-
-uiSleep 3;
-
-if (_killerName != "nil") then
-{
+	};
 
 	diag_log _loc_message;
 
