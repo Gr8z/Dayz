@@ -45,6 +45,7 @@ player setPosATL dayz_spawnPos;
 
 //BackUp Player Object
 _oldUnit = player;
+_oldGroup = group player;
 _cId = player getVariable["CharacterID",0]; // or : _oldUnit getVariable["CharacterID",0];
 
 /**********************************/
@@ -116,7 +117,12 @@ _switchUnit = {
     addSwitchableUnit _newUnit;
     setPlayable _newUnit;
     selectPlayer _newUnit;
-        
+    
+	if ((count units _oldGroup > 1) && {!isNil "PVDZE_plr_LoginRecord"}) then {
+		[_newUnit] join _oldGroup;
+		if (count units _group < 1) then {deleteGroup _group;};
+	};
+	
     removeAllWeapons _oldUnit;
     {_oldUnit removeMagazine _x;} count  magazines _oldUnit;
     deleteVehicle _oldUnit;
