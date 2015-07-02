@@ -10,7 +10,7 @@ if(isNull(_object)) exitWith {diag_log format["Skipping Null Object: %1", _objec
 
 
 _type = _this select 1;
-_parachuteWest = ((typeOf _object == "ParachuteWest") || (typeOf _object == "ParachuteC"));
+_parachuteWest = (typeOf _object) in ["ParachuteWest","ParachuteC"];
 _isbuildable = (typeOf _object) in dayz_allowedObjects;
 _isNotOk = false;
 _firstTime = false;
@@ -18,15 +18,13 @@ _firstTime = false;
 _objectID =	_object getVariable ["ObjectID","0"];
 _uid = 		_object getVariable ["ObjectUID","0"];
 
-if ((typeName _objectID != "string") || (typeName _uid != "string")) then
-{ 
-    diag_log(format["Non-string Object: ID %1 UID %2", _objectID, _uid]); 
+if (typeName _objectID != "STRING" || typeName _uid != "STRING") then {
 
-
+    diag_log format ["Non-string Object: ID %1 UID %2", _objectID, _uid];
     _objectID = "0";
     _uid = "0";
 };
-if (!_parachuteWest && !(locked _object)) then {
+if (!_parachuteWest && !locked _object) then {
 	if (_objectID == "0" && _uid == "0") then {
 
 		_object_position = getPosATL _object;

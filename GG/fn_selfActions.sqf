@@ -945,7 +945,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 				// Database menu
 				_buyV = player addAction ["<t color='#0059FF'>Advanced Selling Menu</t>", "GG\advancedTrading\init.sqf",(_traderMenu select 0), 999, true, false, "",""];
 				s_player_parts set [count s_player_parts,_buyV];
-				_buy = player addAction ["Trader Menu", "\z\addons\dayz_code\actions\show_dialog.sqf",(_traderMenu select 0), 999, true, false, "",""];
+				_buy = player addAction ["Trader Menu", "GG\gold\show_dialog.sqf",(_traderMenu select 0), 999, true, false, "",""];
 				s_player_parts set [count s_player_parts,_buy];
 
 			};
