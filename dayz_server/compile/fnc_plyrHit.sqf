@@ -4,10 +4,6 @@ _attacker = _this select 1;
 _damage = _this select 2;
 _pvp = true;
 
-if (!isPlayer _victim) exitWith {};
-
-if (side _attacker == EAST) then { _pvp = false; };
-
 if ((owner _victim) == (owner _attacker)) then {
 	_attacker = _victim;
 	_pvp = false;

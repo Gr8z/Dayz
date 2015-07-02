@@ -15,7 +15,6 @@ _newObject setVariable ["bodyName", _victimName, true];
 
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
-_lastHit = _victim getVariable["LastHit",0];
 
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
@@ -31,6 +30,18 @@ if (_killerName != "nil") then
 	}
 	else
 	{
+		if (side _killer == EAST) then {	
+			_killerName = "AI";
+			_message = format["%1 was killed by AI with weapon %2 from %3m",_victimName, _weapon, _distance];
+			_loc_message = format["PKILL: %1 (%4) was killed by AI with weapon %2 from %3m", _victimName, _weapon, _distance, _playerID];
+			_pic = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'picture'));
+			_wepText = (getText (configFile >> 'cfgWeapons' >> _weapon >> 'displayName'));
+			if (_pic == "") then {
+				_weapon = typeOf (vehicle _killer);
+				_pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
+				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
+			};
+		} else {
 			_killerPlayerID = getPlayerUID _killer;
 			_message = format["%1 was killed by %2 with weapon %3 from %4m",_victimName, _killerName, _weapon, _distance];
 			_loc_message = format["PKILL: %1 (%5) was killed by %2 (%6) with weapon %3 from %4m", _victimName, _killerName, _weapon, _distance, _playerID, _killerPlayerID];
@@ -41,6 +52,7 @@ if (_killerName != "nil") then
 				_pic = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'picture'));
 				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
 			};
+		};
 	};
 		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
 		publicVariable "PVDZ_Death_msg";
@@ -84,7 +96,6 @@ if (_killerName != "nil") then
 	_victim setVariable["AttackedByName", "nil", true];
 	_victim setVariable["AttackedByWeapon", "nil", true];
 	_victim setVariable["AttackedFromDistance", "nil", true];
-	_victim setVariable["LastHit", "nil", true];
 };
 
 _newObject setVariable["processedDeath",diag_tickTime];
