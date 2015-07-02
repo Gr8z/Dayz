@@ -19,8 +19,7 @@ _lastHit = _victim getVariable["LastHit",0];
 
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
-if (_killerName != "nil") then
-{
+
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
 	 
@@ -44,7 +43,7 @@ if (_killerName != "nil") then
 	};
 		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
 		publicVariable "PVDZ_Death_msg";
-};
+
 
 uiSleep 3;
 
