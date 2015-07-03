@@ -227,6 +227,7 @@ Scout2 = [
 	"76561198066303734", // [BO7]FluffyBunnyFeet (OD-2015-06-29) #9669
 	"76561198185250361", // Gackelblaster (OD-2015-06-30) #9709 
 	"76561198149036987", // ShortBus	(OD-2015-07-03)  #9758
+	"76561197967394795", // Nikki Sixx	(OD-2015-07-02)  #9751
 	// Add UIDs above, don't forget the comma
 "0"
 ];
