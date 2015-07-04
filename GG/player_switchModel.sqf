@@ -144,7 +144,7 @@ _countr = _countr + 1;
 } else { [] call _switchUnit; };
 [objNull, player, rSwitchMove,_currentAnim] call RE;
 player disableConversation true;
-//player setVariable ["bodyName",dayz_playerName,true]; //Outcommit (Issue #991) - Also removed in DayZ Mod 1.8
+player switchCamera "external";
 if (_tagSetting) then {
 DZE_ForceNameTags = true;
 };
@@ -160,7 +160,7 @@ call dayz_meleeMagazineCheck;
 };
 //reveal the same objects we do on login
 {player reveal _x} count (nearestObjects [getPosATL player, dayz_reveal, 50]);
-player switchCamera "external";
+_newUnit addMPEventHandler ["MPHit", {_this spawn fnc_plyrHit;}];
 
 _savedGroup = profileNamespace getVariable["savedGroup",[]];
 player setVariable ["savedGroup",_savedGroup,true];
