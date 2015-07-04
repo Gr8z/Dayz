@@ -43,7 +43,7 @@ _SAdmins = [
 /*  HEADLESS ClIENT UIDs  */ _HEADLESS_CLIENT_UIDs = ["0","0","0"]; //do not have a , at the end.
 
 /*  Use Player White-list */ _UPW = false;	/* true or false */
-/*  WHITELIST UIDs HERE   */ _WHITELIST = ["0","0","0"]; //do not have a , at the end.
+/*  WHITELIST UIDs HERE   */ _WHITELIST = ["76561198153784743","0","0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = "GHOSTZ GAMERZ"; //do not use " in this text.
 /*  Bottom esc menu TXT   */ _LowerTop = "GHOSTZGAMERZ.COM"; //do not use " in this text.
