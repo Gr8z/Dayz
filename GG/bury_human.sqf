@@ -3,10 +3,16 @@ _corpse = _this select 3;
 _type = typeOf _corpse;
 _isBuried = _corpse getVariable["isBuried",false];
 _hasHarvested = _corpse getVariable["meatHarvested",false];
-_name = _corpse getVariable["bodyName","unknown"];
+_namec = _corpse getVariable["bodyName","unknown"];
+_namep = name player;
 _hasETool = "ItemEtool" in items player;
+_playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 10]) > 1;
 
+if (isNull cursorTarget || (player distance cursorTarget > 4)) exitWith { cutText ["Aim directly to the body!","PLAIN"]; };
 if (!_hasETool) exitWith {cutText ["You don't have an Etool", "PLAIN DOWN"];};
+if (_playerNear) exitWith { cutText ["Cannot do this while another player is nearby!","PLAIN"]; };
+
+DZE_ActionInProgress = true;
 
 player removeAction s_player_bury_human;
 s_player_bury_human = -1;
@@ -73,13 +79,19 @@ if (!_isBuried) then {
 
         //Permaloot
         _box setVariable ["permaLoot", true];
-
-        _deathMessage = format["Rest in Peace, %1...",_name];
-        cutText [_deathMessage, "PLAIN DOWN"];
-        [player,100] call player_humanityChange;
-        _id = [player,10,true,(getPosATL player)] spawn player_alertZombies;
-        player playMove "AmovPercMstpSlowWrflDnon_Salute";
+		
+		if (_namec == _namep) then {
+			cutText [format["Did you just bury yourself %1? Huh.. No humanity gained!",_namep],"PLAIN"];
+		} else {
+			_deathMessage = format["Rest in Peace, %1...",_namec];
+			cutText [_deathMessage, "PLAIN DOWN"];
+			[player,100] call player_humanityChange;
+			_id = [player,10,true,(getPosATL player)] spawn player_alertZombies;
+			player playMove "AmovPercMstpSlowWrflDnon_Salute";
+		};
     } else {
         cutText ["The poor bastards been eaten, there's not much left to bury", "PLAIN DOWN"];
     };
 };
+
+DZE_ActionInProgress = false;
