@@ -59,10 +59,7 @@ _SAdmins = [
 /*  Humanity Value added  */					_CUF_HUMANITY_REWARD = 25;	/* Amount of Humanity added when Killing A.I. */
 /* CLEAR ALL ITEMS ON AI DEATH */			_CUF_REMOVE_ALL_ITEMS_ON_DEATH = true;
 /* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
-_CUF_REMOVE_THESE_ITEMS_ON_DEATH =
-[
-	'Stinger','NVGoggles'
-];
+_CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
 /*  _timedif for _AHL     */ _TDI =    65;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
