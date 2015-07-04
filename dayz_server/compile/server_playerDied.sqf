@@ -23,7 +23,7 @@ if (_killerName != "nil") then
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
 	 
-	if (_victimName == _killerName) then
+	if ((owner _victim) == (owner _killer))
 	{
 		_message = format["%1 killed himself",_victimName];
 		_loc_message = format["PKILL: %1 killed himself", _victimName];
