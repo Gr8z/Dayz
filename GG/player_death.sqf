@@ -100,7 +100,7 @@ _body setVariable["combattimeout", 0, true];
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 1],  [1, 1, 1, 1]];"colorCorrections" ppEffectCommit 5;
 
 
-for  "_x" from 5 to 1 step -1 do {
+for  "_x" from 20 to 1 step -1 do {
 	titleText [format[localize "str_return_lobby", _x], "PLAIN DOWN", 1];
 	sleep 1;
 };
