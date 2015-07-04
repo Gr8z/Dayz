@@ -1,4 +1,5 @@
 DZE_CLICK_ACTIONS = [
+	// View Distances
     ["Binocular_Vector","View Distance:","systemChat('Change View Distance Locally. Click on one of the distance options');","true"],
     ["Binocular_Vector","400 Meters","setViewDistance 400; systemChat('ViewDistance: 400'); systemChat('Warning: Higher the view distance Lower the FPS');","true"],
 	["Binocular_Vector","600 Meters","setViewDistance 600; systemChat('ViewDistance: 600'); systemChat('Warning: Higher the view distance Lower the FPS');","true"],
@@ -19,16 +20,20 @@ DZE_CLICK_ACTIONS = [
     ["Binocular","3000 Meters","setViewDistance 3000; systemChat('ViewDistance: 3000'); systemChat('Warning: Higher the view distance Lower the FPS');","true"],
     ["Binocular","4000 Meters","setViewDistance 4000; systemChat('ViewDistance: 4000'); systemChat('Warning: Higher the view distance Lower the FPS');","true"],
     ["Binocular","5000 Meters","setViewDistance 5000; systemChat('ViewDistance: 5000'); systemChat('Warning: Higher the view distance Lower the FPS');","true"],
+	
+	// Color Filters
     ["NVGoggles","Color Filters:","systemChat('Change Color Filters Locally. Click on one of the filters');","true"],
-    ["NVGoggles","Color Bluff","execVM 'GG\menu\sky\16.sqf';","true"],
-    ["NVGoggles","Dark Draining","execVM 'GG\menu\sky\3.sqf';","true"],
-    ["NVGoggles","Sandy","execVM 'GG\menu\sky\4.sqf';","true"],
-    ["NVGoggles","Summer","execVM 'GG\menu\sky\5.sqf';","true"],
-    ["NVGoggles","Dog Vision","execVM 'GG\menu\sky\6.sqf';","true"],
-    ["NVGoggles","Tropical","execVM 'GG\menu\sky\7.sqf';","true"],
-    ["NVGoggles","Photo","execVM 'GG\menu\sky\8.sqf';","true"],
-    ["NVGoggles","WarZone","execVM 'GG\menu\sky\9.sqf';","true"],
-    ["NVGoggles","More...","[] execVM 'GG\menu\actionmenu_main.sqf';","true"],
+    ["NVGoggles","Normal","execVM 'GG\menu\sky\normal.sqf';","true"],
+    ["NVGoggles","Contrast","execVM 'GG\menu\sky\clear.sqf';","true"],
+    ["NVGoggles","Wasteland","execVM 'GG\menu\sky\wasteland.sqf';","true"],
+    ["NVGoggles","Color Buff","execVM 'GG\menu\sky\colorbuff.sqf';","true"],
+    ["NVGoggles","Summer","execVM 'GG\menu\sky\summer.sqf';","true"],
+    ["NVGoggles","Africa","execVM 'GG\menu\sky\africa.sqf';","true"],
+    ["NVGoggles","Tropical","execVM 'GG\menu\sky\tropical.sqf';","true"],
+    ["NVGoggles","Flashpoint","execVM 'GG\menu\sky\flashpoint.sqf';","true"],
+    ["NVGoggles","Dark Drain","execVM 'GG\menu\sky\darkdrain.sqf';","true"],
+	
+	// OTHERS
 	["ItemRadio","Group Management","execVM 'GG\group\loadGroupManagement.sqf';","true"],
 	["ItemToolbox","Open Action Menu","[] execVM 'GG\menu\actionmenu_main.sqf';","true"],
 	["ItemKnife","Harvest weed","execVM 'GG\weed\harvest.sqf';","true"],

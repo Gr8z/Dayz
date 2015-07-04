@@ -1,0 +1,2 @@
+colortheme ppEffectEnable false;
+ppEffectDestroy colortheme;

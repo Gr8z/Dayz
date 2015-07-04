@@ -52,32 +52,17 @@ ActionMenua =
 SkyMenu =
 [
 ["",true],
-        ["Color Bluff", [2],  "", -5, [["expression", format[_EXECscript2 ,"16.sqf"]]], "1", "1"],
-        ["Dark Draining", [4],  "", -5, [["expression", format[_EXECscript2 ,"3.sqf"]]], "1", "1"],
-        ["Sandy", [5],  "", -5, [["expression", format[_EXECscript2 ,"4.sqf"]]], "1", "1"],
-        ["Summer", [6],  "", -5, [["expression", format[_EXECscript2 ,"5.sqf"]]], "1", "1"],
-        ["Dog Vision", [7],  "", -5, [["expression", format[_EXECscript2 ,"6.sqf"]]], "1", "1"],
-        ["Tropical", [8],  "", -5, [["expression", format[_EXECscript2 ,"7.sqf"]]], "1", "1"],
-        ["Photo", [9],  "", -5, [["expression", format[_EXECscript2 ,"8.sqf"]]], "1", "1"],
-        ["WarZone", [10],  "", -5, [["expression", format[_EXECscript2 ,"9.sqf"]]], "1", "1"],
-            ["", [-1], "", -5, [["expression", ""]], "1", "0"],
-            ["Next page", [12], "#USER:SkyMenu2", -5, [["expression", ""]], "1", "1"],
-            ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
-];
-SkyMenu2 =
-[
-["",true],
-
-        ["Operation Flashpoint", [2],  "", -5, [["expression", format[_EXECscript2 ,"10.sqf"]]], "1", "1"],
-        ["Africa", [3],  "", -5, [["expression", format[_EXECscript2 ,"11.sqf"]]], "1", "1"],
-        ["Blue", [4],  "", -5, [["expression", format[_EXECscript2 ,"12.sqf"]]], "1", "1"],
-        ["Arma Mission Colours", [5],  "", -5, [["expression", format[_EXECscript2 ,"13.sqf"]]], "1", "1"],
-        ["Heavy Colour Correction", [6],  "", -5, [["expression", format[_EXECscript2 ,"14.sqf"]]], "1", "1"],
-        ["Zombie View", [7],  "", -5, [["expression", format[_EXECscript2 ,"15.sqf"]]], "1", "1"],
-        ["Wasteland", [8],  "", -5, [["expression", format[_EXECscript2 ,"2.sqf"]]], "1", "1"],
-        ["Clear Contrast", [9],  "", -5, [["expression", format[_EXECscript2 ,"1.sqf"]]], "1", "1"],
-            ["", [-1], "", -5, [["expression", ""]], "1", "0"],
-            ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
+        ["Normal", [11],  "", -5, [["expression", format[_EXECscript2 ,"normal.sqf"]]], "1", "1"],
+        ["Contrast", [2],  "", -5, [["expression", format[_EXECscript2 ,"clear.sqf"]]], "1", "1"],
+        ["Wasteland", [3],  "", -5, [["expression", format[_EXECscript2 ,"wasteland.sqf"]]], "1", "1"],
+        ["Color Buff", [4],  "", -5, [["expression", format[_EXECscript2 ,"colorbuff.sqf"]]], "1", "1"],
+        ["Summer", [5],  "", -5, [["expression", format[_EXECscript2 ,"summer.sqf"]]], "1", "1"],
+        ["Africa", [6],  "", -5, [["expression", format[_EXECscript2 ,"africa.sqf"]]], "1", "1"],
+        ["Tropical", [7],  "", -5, [["expression", format[_EXECscript2 ,"tropical.sqf"]]], "1", "1"],
+        ["Flashpoint", [8],  "", -5, [["expression", format[_EXECscript2 ,"flashpoint.sqf"]]], "1", "1"],
+        ["Dark Drain", [9],  "", -5, [["expression", format[_EXECscript2 ,"darkdrain.sqf"]]], "1", "1"],
+        ["", [-1], "", -5, [["expression", ""]], "1", "0"],
+			["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
 FogMenu =
 [
