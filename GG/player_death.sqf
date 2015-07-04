@@ -84,10 +84,6 @@ selectPlayer dayz_originalPlayer;
 _body removeWeapon "ItemMap";
 _body removeWeapon "ItemFlashlight";
 
-//_myGroup = group _body;
-//[_body] joinSilent dayz_firstGroup;
-//deleteGroup _myGroup;
-
 3 cutRsc ["default", "PLAIN",3];
 4 cutRsc ["default", "PLAIN",3];
 
