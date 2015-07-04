@@ -1,7 +1,9 @@
+// [_clickItem,_deployOffset,_packDistance,_damageLimit,_packAny,_cargo,_hive,_plot,_simulation,_deployables,_near,_parts],
+
 DZE_DEPLOYABLES_CONFIG = [
-    ["ItemToolbox",[0,5,1],5,0.9,false,false,false,false,false,true,true,["MMT_Civ"],[],["ItemToolbox"],"true"],
-	["ItemToolbox",[0,5,1],5,0.5,false,false,false,true,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
-	["ItemToolbox",[0,5,2],7,0.5,false,false,false,true,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"]
+    ["ItemToolbox",[0,5,1],5,0.9,false,false,true,false,false,true,true,["MMT_Civ"],[],["ItemToolbox"],"true"],
+	["ItemToolbox",[0,5,1],5,0.5,false,false,true,false,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
+	["ItemToolbox",[0,5,2],7,0.5,false,false,true,false,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"]
 ];
 
 //
