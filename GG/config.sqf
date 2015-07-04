@@ -28,6 +28,7 @@ DZE_LootSpawnTimer = 3;
 DZE_BackpackGuard = false; 
 DZE_requireplot = 1; 
 DZE_PlotPole = [45,120];
+DZE_checkNearbyRadius = 45;
 DZE_StaticConstructionCount = 1;
 DZE_ForceNameTags = true;
 DZE_R3F_WEIGHT = false;
