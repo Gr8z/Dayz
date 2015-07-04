@@ -52,9 +52,9 @@ if (_killerName != "nil") then
 				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
 			};
 		};
-	};
 		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
 		publicVariable "PVDZ_Death_msg";
+	};
 };
 
 uiSleep 3;
