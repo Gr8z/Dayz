@@ -4334,7 +4334,7 @@ publicVariable '"+_randvar28+"';
 								[player,'sick'] spawn player_death;
 								player setHit['Body',1];
 							};
-							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN']) then
+							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin']) then
 							{
 								(_display) closeDisplay 0;
 								[nil,player,rSAY,['babycry_1', 100]] call RE;
