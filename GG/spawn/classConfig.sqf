@@ -1,5 +1,5 @@
 #define VIP_ITEMS "ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemMorphine","ItemTunaCooked","ItemSodaPepsi" 
-#define VIP_TOOLS "Binocular_Vector","NVGoggles","ItemCompass","ItemHatchet","ItemKnife","Itemmatchbox","Itemetool","ItemWatch","ItemGPS","ItemCrowbar","ItemToolbox"
+#define VIP_TOOLS "Binocular_Vector","NVGoggles","ItemCompass","ItemHatchet_DZE","ItemKnife","Itemmatchbox","Itemetool","ItemWatch","ItemGPS","ItemCrowbar","ItemToolbox"
 
 _startBag = "DZ_ALICE_Pack_EP1";
 _startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_12Rnd_45cal_usp",3];
