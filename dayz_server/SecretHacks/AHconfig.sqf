@@ -20,6 +20,7 @@ _LAdmins = [
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
 	"76561198182408150",  // Pirate Admin
+	"76561198237597876",  // Fap
 	"76561198237560486",  // Rumple
 	"76561198137100220",  // Deadskin
 	"76561198182352055",  // Milton
