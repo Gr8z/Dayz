@@ -709,7 +709,7 @@ if (isNil "DZE_PlotOwnership") then {
 	DZE_PlotOwnership = false;
 };
 if (isNil "DZE_checkNearbyRadius") then {
-	DZE_checkNearbyRadius = 30;
+	DZE_checkNearbyRadius = 120;
 };
 
 // needed on server
