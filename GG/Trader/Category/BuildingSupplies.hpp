@@ -2,8 +2,8 @@
 class Category_678 { 
 class ItemSandbag { type = "trade_items"; buy[] = {400,"Coins"}; sell[] = {200,"Coins"}; }; 
 class ItemTankTrap { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
-class CinderBlocks { type = "trade_items"; buy[] = {900,"Coins"}; sell[] = {460,"Coins"}; }; 
-class MortarBucket { type = "trade_items"; buy[] = {900,"Coins"}; sell[] = {460,"Coins"}; }; 
+class CinderBlocks { type = "trade_items"; buy[] = {800,"Coins"}; sell[] = {460,"Coins"}; }; 
+class MortarBucket { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {460,"Coins"}; }; 
 class ItemTentOld { type = "trade_items"; buy[] = {40,"Coins"}; sell[] = {20,"Coins"}; }; 
 class ItemWire { type = "trade_items"; buy[] = {6,"Coins"}; sell[] = {3,"Coins"}; }; 
 class ItemPole { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
