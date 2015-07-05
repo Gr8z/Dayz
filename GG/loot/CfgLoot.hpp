@@ -969,9 +969,9 @@ NVweaps[] = {
 	backpacks[] = {
 		{"DZ_Patrol_Pack_EP1",0.49}
 		,{"DZ_Assault_Pack_EP1",0.35}
-		,{"DZ_ALICE_Pack_EP1",0.09}
-		,{"DZ_TK_Assault_Pack_EP1",0.06}
-		,{"DZ_CivilBackpack_EP1",0.01}
+		,{"DZ_ALICE_Pack_EP1",0.19}
+		,{"DZ_TK_Assault_Pack_EP1",0.16}
+		,{"DZ_CivilBackpack_EP1",0.11}
 	};
 	militarybackpacks[] = {
 		{"DZ_TerminalPack_EP1",0.30}
@@ -979,8 +979,8 @@ NVweaps[] = {
 		,{"DZ_TK_Assault_Pack_EP1",0.15}
 		,{"DZ_CompactPack_EP1",0.20}
 		,{"DZ_British_ACU",0.14}
-		,{"DZ_GunBag_EP1",0.05}
-		,{"DZ_Backpack_EP1",0.01}
+		,{"DZ_GunBag_EP1",0.15}
+		,{"DZ_Backpack_EP1",0.11}
 	};
 	militaryammo[] = {
 		{"2000Rnd_762x51_M134",0.02}
