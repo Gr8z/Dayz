@@ -76,6 +76,60 @@ if (isServer) then {
 
 //Client only
 if (!isDedicated) then {
+
+	line0 = 0;
+	line1 = 0;
+	line2 = 0;
+	line3 = 0;
+	line4 = 0;
+	"PVDZGG_Death_msg"		addPublicVariableEventHandler {
+		_id = (_this select 1);
+		_killerName = _id select 0;
+		_pic		= _id select 1;
+		_victimName = _id select 2;
+		_distance 	= _id select 3;
+		_weapon 	= _id select 4;
+		if (line4 == 1) then {
+			line0 = 1; lvl = 6000; safeOffset = 0;
+			line1 = 0; line2 = 0; line3 = 0; line4 = 0;
+			[] spawn { sleep 10; line0 = 0; };
+		} else { if (line4 == 1) then {
+			line5 = 1; lvl = 6005; safeOffset =0.82;
+			[] spawn { sleep 10; line5 = 0; };
+		} else { if (line3 == 1) then {
+			line4 = 1; lvl = 6004; safeOffset =0.68;
+			[] spawn { sleep 10; line4 = 0; };
+		} else { if (line2 == 1) then {
+			line3 = 1; lvl = 6003; safeOffset = 0.50;
+			[] spawn { sleep 10; line3 = 0; };
+		} else { if (line1 == 1) then {
+			line2 = 1; lvl = 6002; safeOffset = 0.36;
+			[] spawn { sleep 10; line2 = 0; };
+		} else { if (line0 == 1) then {
+			line1 = 1; lvl = 6001; safeOffset = 0.18;
+			[] spawn { sleep 10; line1 = 0; };
+		} else { line0 = 1; lvl = 6000; safeOffset = 0; [] spawn { sleep 10; line0 = 0; };};};};};};};
+		//Halv's Kill Messages
+		_dyntxt = format["
+		<t size='0.75'align='left'color='#5882FA'>%1</t>
+		<t size='0.5'align='left'>  Killed  </t>
+		<t size='0.75'align='left'color='#c70000'>%2</t><br/>
+		<t size='0.45'align='left'> With: </t>
+		<t size='0.5'align='left'color='#FFCC00'>%3</t>
+		<t size='0.45'align='left'> - Distance: </t>
+		<t size='0.5'align='left'color='#FFCC00'>%4 m</t><br/>
+		<img size='1.5'align='left' image='%5'/>
+		",
+		_killerName,
+		_victimName,
+		_weapon,
+		_distance,
+		_pic
+		];
+		[_dyntxt,safezoneX,(safezoneY + safeOffset),9,0,0,lvl] spawn GGText;
+		systemChat format ["%1 killed %2 with a %3 from %4 meters",_killerName,_victimName,_weapon,_distance];
+	};
+
 	"PVDZE_plr_SetDate"		addPublicVariableEventHandler {setDate (_this select 1)};
 	"PVDZE_plr_SetSaveTime"	addPublicVariableEventHandler {DZE_SaveTime = (_this select 1)};
 	"PVDZE_obj_RoadFlare"	addPublicVariableEventHandler {(_this select 1) spawn object_roadFlare};

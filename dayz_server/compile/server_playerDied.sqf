@@ -25,6 +25,12 @@ if (_killerName != "nil") then
 {
 	_weapon = _victim getVariable["AttackedByWeapon", "nil"];
 	_distance = _victim getVariable["AttackedFromDistance", "nil"];
+	
+	if (_distance > 9000) then {
+		_distance = 0;
+	} else {
+		_distance = round _distance;
+	};
 	 
 	if (_victimName == _killerName) then
 	{
@@ -56,8 +62,8 @@ if (_killerName != "nil") then
 				_wepText = (getText (configFile >> 'cfgVehicles' >> _weapon >> 'displayName'));
 			};
 		};
-		PVDZ_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
-		publicVariable "PVDZ_Death_msg";
+		PVDZGG_Death_msg = [_killerName, _pic, _victimName, _distance, _wepText, nil, nil];
+		publicVariable "PVDZGG_Death_msg";
 	};
 };
 
