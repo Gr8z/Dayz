@@ -1,4 +1,4 @@
-/*  Key to open the menu  */ _OpenMenuKey = 0x3B;    /* google DIK_KeyCodes (0x3C is F2) */
+/*  Key to open the menu  */ _OpenMenuKey = 0x3B;
 
 /*  MODERATORS	            */ 
 _LAdmins = [
@@ -15,6 +15,7 @@ _LAdmins = [
 	"76561198110162434", // Chemical Burn
 	"76561198128804731", // xtsis
 	"76561198166231771", // Wombat
+	"76561198183434467", // MeowMix
 "0"
 ]; 
 
@@ -26,7 +27,6 @@ _NAdmins = [
 	"76561198137100220",  // Deadskin
 	"76561198182352055",  // Milton
 	"76561197973172761",  // Milton
-	"76561198183434467",  // MeowMix
 	"76561198195305425",  // Shahzad
 "0"
 ]; 
