@@ -10,6 +10,7 @@ _LAdmins = [
 	"76561197970044945", // MrCheeseyman
 	"76561198080687547", // Darksnuggles
 	"76561198073669230", // Jack Black
+	"76561198106963366", // Sassy
 	"76561198054897830", // Akrantz
 	"76561198110162434", // Chemical Burn
 	"76561198128804731", // xtsis
@@ -32,7 +33,7 @@ _NAdmins = [
 
 /* HEAD ADMINS / OWNERS     */ 
 _SAdmins = [
-	"76561198078201908", // Gr8 > all the guys under me are amazing
+	"76561198078201908", // Gr8 > all the guys under me are skrubs
 	"76561198153784743", // Ghost
 	"76561198002511087", // TempSniper
 	"76561198021389971", // Thirdhero
