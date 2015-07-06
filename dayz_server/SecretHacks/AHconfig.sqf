@@ -137,7 +137,7 @@ _FORBIDDEN_Vehicles =
 	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC",
 	"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
 	"M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1",
-	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W"
+	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","A10","MQ9PredatorB_US_EP1","A10_US_EP1","F35B"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
