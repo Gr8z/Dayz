@@ -51,7 +51,6 @@ AllowedVehiclesList = [
 ["V3S_Refuel_TK_GUE_EP1_DZ",1],
 ["Mi17_Civilian_DZ",2],
 ["CYBP_Camel_us",2],
-["CYBP_Camel_rus",2],
 ["CYBP_Camel_civ",2],
 ["Mi17_DZ",2],
 ["UH1H_DZ",2],
