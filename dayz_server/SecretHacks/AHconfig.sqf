@@ -6,11 +6,9 @@ _LAdmins = [
 	"76561198080045762", // Deadskin	(Mod)								 
 	"76561198058099842", // Fap
 	"76561198162046909", // Shahzad
-	"76561198026665364", // ElvaX
 	"76561197970044945", // MrCheeseyman
 	"76561198080687547", // Darksnuggles
 	"76561198073669230", // Jack Black
-	"76561198106963366", // Sassy
 	"76561198054897830", // Akrantz
 	"76561198110162434", // Chemical Burn
 	"76561198128804731", // xtsis
@@ -137,7 +135,7 @@ _FORBIDDEN_Vehicles =
 	"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC",
 	"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
 	"M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1",
-	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","A10","MQ9PredatorB_US_EP1","A10_US_EP1","F35B",
+	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","A10","MQ9PredatorB_US_EP1","A10_US_EP1",
 	"CYBP_Camel_rus","Civcar","Civcarbu","civcarbl","Civcarre","Civcarge","Civcarwh","Civcarsl",
 	"CVPI_Patrol","CVPI_Trooper_Patrol","CVPI_TrooperSL_Patrol","CVPI_NYPD_Patrol","CVPI_HighwaySL_Patrol","CVPI_UnmarkedB_Patrol",
 	"CVPI_UnmarkedG_Patrol","CVPI_LAPD_Patrol","CVPI_UnmarkedW_Patrol","CVPI_LAPDSL_Patrol","CVPI_NYPDSL_Patrol","Copcar","Copcarhw","Copcarswat"
