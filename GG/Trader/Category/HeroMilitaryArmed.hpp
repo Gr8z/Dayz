@@ -12,6 +12,6 @@ class BRDM2_TK_GUE_EP1 {type = "trade_any_vehicle";buy[] = {126000,"Coins"};sell
 class BMP2_HQ_INS {type = "trade_any_vehicle";buy[] = {45000,"Coins"};sell[] = {24375,"Coins"};}; 
 class BTR90_HQ {type = "trade_any_vehicle";buy[] = {54000,"Coins"};sell[] = {28750,"Coins"};};
 class LAV25_HQ {type = "trade_any_vehicle";buy[] = {54000,"Coins"};sell[] = {28750,"Coins"};}; 
-class M113_TK_EP1 {type = "trade_any_vehicle";buy[] = {82000,"Coins"};sell[] = {28750,"Coins"};}; 
-class M113_UN_EP1 {type = "trade_any_vehicle";buy[] = {82000,"Coins"};sell[] = {28750,"Coins"};};  
+class M113_TK_EP1 {type = "trade_any_vehicle";buy[] = {38000,"Coins"};sell[] = {20000,"Coins"};}; 
+class M113_UN_EP1 {type = "trade_any_vehicle";buy[] = {38000,"Coins"};sell[] = {20000,"Coins"};};  
 };
