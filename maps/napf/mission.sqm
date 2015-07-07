@@ -324,8 +324,8 @@ class Mission
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="Boat2";
-			expCond="(player distance boat2) < 50;";
+			name="black";
+			expCond="(player distance black) < 50;";
 			expActiv="[""Black Market"",true,""enter""] spawn player_traderCity;";
 			expDesactiv="[""Black Market"",true,""leave""] spawn player_traderCity;";
 			class Effects
