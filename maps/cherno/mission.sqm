@@ -402,21 +402,6 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="debug";
-			expCond="(player distance debug) < 15;";
-			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
-			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
-			class Effects
-			{
-			};
-		};
-		class Item9
-		{
-			position[]={64.971161,0, 1590.6635};
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="debug";
 			expCond="(player distance debug) < 10;";
 			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
 			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
