@@ -16,7 +16,6 @@ _isPackingLocked = diag_tickTime - _lastPackTime < 10;
     [(getPlayerUID player) in DZE_DEPLOYABLE_ADMINS,                   "admin"],
     [!(call fnc_can_do),                                        format["You can't pack your %1 right now.",(_deployable call getDeployableDisplay)]],
     [(damage cursorTarget > (_deployable call getDamageLimit)), format["The %1 must be under %2 percent damaged to pack!",(_deployable call getDeployableDisplay),(_deployable call getDamageLimit) * 100]],      
-    [(cursorTarget == typeOf(vehicle player)), 					format["You can't pack your %1 with a player in it.",(_deployable call getDeployableDisplay)]],
     [_isPackingLocked,                                          format["Someone just tried to pack that %1! Try again in a few seconds.",(_deployable call getDeployableDisplay)]],
     [DZE_PACKING,                                                      "You are already packing something!"],
     [DZE_DEPLOYING,                                                    "You are already building something!"]
