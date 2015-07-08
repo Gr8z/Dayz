@@ -313,6 +313,7 @@ Scout3 = [
 	"76561198067252949", // billnye (od-2015-07-04) #9800
 	"76561197996947462", // Neogenex(OD-2015-07-02) #9745	
 	"76561198086478356", // DefConZulu(OD-2015-07-02) #9745	
+	"76561198083509902", // The Real White Fang(OD-2015-07-07) #9868	
 	// Add UIDs above, don't forget the comma
 "0"
 ];
