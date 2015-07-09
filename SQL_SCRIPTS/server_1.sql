@@ -10,7 +10,7 @@ WHERE Damage = 1;
 
 /* Delete plots and doors not being cleaned */
 DELETE FROM `object_data_1`
-WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 14 DAY)
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 11 DAY)
 AND `Classname` IN ('Plastic_Pole_EP1_DZ','CinderWallDoorSmallLocked_DZ','CinderWallDoorLocked_DZ','CinderWallSmallDoorway_DZ','CinderWallDoorway_DZ','Land_DZE_WoodDoorLocked','CinderWallDoor_DZ','CinderWallDoorSmall_DZ','Land_DZE_WoodDoor','Land_DZE_GarageWoodDoor','Land_DZE_GarageWoodDoorLocked','Land_DZE_LargeWoodDoorLocked','Land_DZE_LargeWoodDoor','WoodLargeWallDoor_DZ');
 
 /* Delete deployed mozies and bikes */
@@ -103,7 +103,7 @@ AND `Inventory` != '[]';
 /* Set Safe Combo to 0000 */
 UPDATE `object_data_1`
 SET `CharacterID` = 0
-WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 14 DAY)
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY)
 AND `CharacterID` > 0
 AND `Classname` = "VaultStorageLocked"
 AND `Inventory` <> '[]'
@@ -112,7 +112,7 @@ AND `Inventory` IS NOT NULL;
 /* Set Lock Box to RED 00 */
 UPDATE `object_data_1`
 SET `CharacterID` = 10000
-WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 14 DAY)
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY)
 AND `CharacterID` > 0
 AND `Classname` = "LockboxStorageLocked"
 AND `Inventory` <> '[]'
