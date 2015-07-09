@@ -159,6 +159,7 @@ Marksman3 = [
 	"76561198068039207", // Rizing-EXp 8/5/2015
 	"76561198063792194", // punkturtle(OD-2015-05-25)#9138
 	"76561198014832728", // Loverboy(OD-2015----3 Months) #-
+	"76561198107354770", // [NoVa] Caleb(OD-2015-07-08) #9893
 	// Add UIDs above, don't forget the comma
 "0"
 ];
