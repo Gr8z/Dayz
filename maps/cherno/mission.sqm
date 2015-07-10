@@ -77,6 +77,7 @@ class Mission
 		{
 			side="WEST";
 			class Vehicles
+			{
 				items=55;
 				#define PLRDEF position[]={57.8415,0.146154,1581.69};azimut=22.2124;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GHOSTZGAMERZ.com";
 				class Item0{id=0;PLRDEF};
