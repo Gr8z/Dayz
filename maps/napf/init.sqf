@@ -2,6 +2,7 @@ startLoadingScreen ["","RscDisplayLoadCustom"];
 cutText ["","BLACK OUT"];
 enableSaving [false, false];
 
+preload_done = false;
 dayZ_instance =	33;	
 dayzHiveRequest = [];
 initialized = false;
@@ -61,10 +62,23 @@ if (isServer) then {
 
 if (!isDedicated) then {
 	0 fadeSound 0;
-	waitUntil {!isNil "dayz_loadScreenMsg"};
+	
+	waitUntil {(!isNil "sm_done" && !isNil "dayz_loadScreenMsg")};
+	diag_log format["%1: Server done loading",servertime];
+	
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
+	
+	[] spawn {
+		uiSleep 45;
+		if(!preload_done) then {
+			dayz_loadScreenMsg = "Loading is taking longer than usual, please relog and try again.";
+			uiSleep 10;
+			endMission "END1";
+		};
+	};
+	
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
-	_playerMonitor = 	[] execVM "GG\player_monitor.sqf";	
+	_playerMonitor = 	[] execVM "GG\player_monitor.sqf";
 	[] execVM "GG\group\init.sqf";
 	[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
 	_nil = [] execVM "GG\remote.sqf";
@@ -73,7 +87,10 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\ggah.sqf";
 	execVM "GG\antimanualfire.sqf";
+	
+	preload_done = true;
 };
+
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\weed\farms.sqf";
