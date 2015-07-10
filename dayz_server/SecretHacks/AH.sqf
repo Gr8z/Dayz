@@ -5738,7 +5738,6 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["   +View Main Menu","MainMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View Spawn Menu","SpawnMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Player Log: (%1)",round((count PlayerLogArray)/3)]),"uidLog","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + [(format["   -View Admin Log: (%1)",(count PV_writeAdmin_log_ARRAY)]),"WriteLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Surveillance Log: (%1)",((count PV_SurveillanceLog)-1)]),"SurveillanceLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Hacker Log: (%1)",((count PV_hackerL0og)-1)]),"hackerLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View TempBanned Log: (%1)",round((count PVAH_AHTMPBAN)/2)]),"tempbanned","0","0","1","0",[0,0.6,1,1]];
@@ -10112,6 +10111,9 @@ PV_AdminMainCode = {
 				if(locked _ct) then
 				{
 					[nil,nil,nil,[_ct,"[ADMIN-TOOL]"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
+					_sl = format["%1 Unlocked %2",name player,_ct];
+					PVAH_WriteLogReq = [player,toArray _sl];
+					publicVariableServer 'PVAH_WriteLogReq';
 				}
 				else
 				{
@@ -10144,6 +10146,9 @@ PV_AdminMainCode = {
 				{
 					[nil,nil,nil,_ct] execVM "\z\addons\dayz_code\actions\lock_veh.sqf";
 					cutText ["[ADMIN-TOOL] used to lock vehicle.", "PLAIN"];
+					_sl = format["%1 locked %2",name player,_ct];
+					PVAH_WriteLogReq = [player,toArray _sl];
+					publicVariableServer 'PVAH_WriteLogReq';				
 				};
 			};
 			{_ct animate [_x,0];} forEach ["Open_hinge","Open_latch","Lights_1","Lights_2","Open_door","DoorR","LeftShutter","RightShutter"];
@@ -10229,6 +10234,9 @@ PV_AdminMainCode = {
 				};
 			};
 			{systemChat _x;diag_log _x;} forEach [_log1,_log2];
+			_sl = format["%1 Used Information Key on CharID - %2",name player,_charID];
+			PVAH_WriteLogReq = [player,toArray _sl];
+			publicVariableServer 'PVAH_WriteLogReq';
 		};
 	};
 	fnc_admin_fly =
