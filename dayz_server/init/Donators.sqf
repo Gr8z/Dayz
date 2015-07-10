@@ -334,7 +334,6 @@ Soldier1 = [
 "0"
 ];
 Soldier2 = [
-	 //PrincessLuna(OD-2015-05-29)#9219
 	"76561198097415737", //OtherAdam(OD-2015-06-04)#9343
 	// Add UIDs above, don't forget the comma
 "0"
