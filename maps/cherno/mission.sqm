@@ -77,13 +77,12 @@ class Mission
 		{
 			side="WEST";
 			class Vehicles
-			{
 				items=55;
-				#define PLRDEF position[]={64.971161,0,1590.6635};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";
+				#define PLRDEF position[]={57.8415,0.146154,1581.69};azimut=22.2124;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GHOSTZGAMERZ.com";
 				class Item0{id=0;PLRDEF};
 				class Item1{
 					position[]={64.971161,0,1590.6635};
-					azimut=0;
+					azimut=22.2124;
 					id=0;
 					side="WEST";
 					vehicle="Survivor1_DZ";
@@ -91,7 +90,8 @@ class Mission
 					leader=1;
 					rank="SERGEANT";
 					skill=0.6;
-					init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";				
+					init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";
+					description="www.GHOSTZGAMERZ.com";
 				};
 				class Item2{id=2;PLRDEF};class Item3{id=3;PLRDEF};class Item4{id=4;PLRDEF};class Item5{id=5;PLRDEF};class Item6{id=6;PLRDEF};class Item7{id=7;PLRDEF};class Item8{id=8;PLRDEF};class Item9{id=9;PLRDEF};class Item10{id=10;PLRDEF};
 				class Item11{id=11;PLRDEF};class Item12{id=12;PLRDEF};class Item13{id=13;PLRDEF};class Item14{id=14;PLRDEF};class Item15{id=15;PLRDEF};class Item16{id=16;PLRDEF};
