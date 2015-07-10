@@ -1,9 +1,57 @@
-// [_clickItem,_deployOffset,_packDistance,_damageLimit,_packAny,_cargo,_hive,_plot,_simulation,_deployables,_near,_parts],
+// [_clickItem,_deployOffset,_packDistance,_damageLimit,_packAny,_cargo,_ammo,_hive,_plot,_simulation,_road,_deployables,_near,_parts,_condition],
 
 DZE_DEPLOYABLES_CONFIG = [
-    ["ItemToolbox",[0,5,1],5,0.9,false,false,true,false,false,true,true,["MMT_Civ"],[],["ItemToolbox"],"true"],
-	["ItemToolbox",[0,5,1],5,0.5,false,false,true,false,false,true,true,["TT650_Civ"],[],["PartGeneric","PartEngine","PartWheel","PartWheel"],"true"],
-	["ItemToolbox",[0,5,2],7,0.5,false,false,true,false,false,true,true,["CSJ_GyroC"],[],["PartVRotor","PartEngine","PartFueltank"],"true"]
+    
+	// Mountain Bike
+	["ItemToolbox", // class name of the item to click on   
+	[0,5,1],		// [_side,_front,_up] array to offset the deployable when buiding  
+	5,				// how close does the packer need to be to pack the object? 
+	0.9,			// item can't be repacked if damage is > this. (-1 = no re-packing) 
+	false,			// can anyone repack the deployable?
+	false,			// clear the cargo of the deployable?   
+	true,			// should vehicle ammo be cleared?
+	false,			// write deployable to database?
+	false,			// require a plot from the owner to build the deployable?  
+	true,			// enable simulation (movement/damage) for the object? (true for cars)
+	true,			// enable road building for this object?
+	["MMT_Civ"],	// array of class names that can be deployed with this method
+	[],				// array of items required nearby to build
+	["ItemToolbox"],// array of parts required to build
+	"true"],
+	
+	// ATV
+	["ItemToolbox", // class name of the item to click on   
+	[0,5,1],		// [_side,_front,_up] array to offset the deployable when buiding  
+	5,				// how close does the packer need to be to pack the object? 
+	0.5,			// item can't be repacked if damage is > this. (-1 = no re-packing) 
+	false,			// can anyone repack the deployable?
+	false,			// clear the cargo of the deployable?   
+	true,			// should vehicle ammo be cleared?
+	false,			// write deployable to database?
+	false,			// require a plot from the owner to build the deployable?  
+	true,			// enable simulation (movement/damage) for the object? (true for cars)
+	true,			// enable road building for this object?
+	["ATV_CZ_EP1"],	// array of class names that can be deployed with this method
+	[],				// array of items required nearby to build
+	["PartGeneric","PartEngine","PartWheel","PartWheel"],// array of parts required to build
+	"true"],
+	
+	// Mozzie
+	["ItemToolbox", // class name of the item to click on   
+	[0,5,2],		// [_side,_front,_up] array to offset the deployable when buiding  
+	7,				// how close does the packer need to be to pack the object? 
+	0.5,			// item can't be repacked if damage is > this. (-1 = no re-packing) 
+	false,			// can anyone repack the deployable?
+	false,			// clear the cargo of the deployable?   
+	true,			// should vehicle ammo be cleared?
+	false,			// write deployable to database?
+	false,			// require a plot from the owner to build the deployable?  
+	true,			// enable simulation (movement/damage) for the object? (true for cars)
+	true,			// enable road building for this object?
+	["CSJ_GyroC"],	// array of class names that can be deployed with this method
+	[],				// array of items required nearby to build
+	["PartVRotor","PartEngine","PartFueltank"],// array of parts required to build
+	"true"]
 ];
 
 //
