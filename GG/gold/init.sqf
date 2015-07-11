@@ -80,8 +80,11 @@ GivePlayerAmount = {
 	_target = cursorTarget;
 	_wealth = player getVariable["cashMoney",0];
 	_twealth = _target getVariable["cashMoney",0];
-	_InTrd = _target getVariable["TrBsy",0];
 	_isMan = _target isKindOf "Man";
+	
+	if (_target getVariable ["tradingmoney", false]) exitWith {
+		cutText ["You can not give to someone who is already trading.", "PLAIN DOWN"];
+	};
 	if (_amount < 1 or _amount > _wealth) exitWith {
 		cutText ["You can not give more than you currently have.", "PLAIN DOWN"];
 	};
