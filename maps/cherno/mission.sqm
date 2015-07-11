@@ -277,6 +277,8 @@ class Mission
 		class Item0
 		{
 			position[]={4053.8501,364.76645,11668.645};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -292,6 +294,8 @@ class Mission
 		class Item1
 		{
 			position[]={11463.747,317.3078,11349.89};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -307,6 +311,8 @@ class Mission
 		class Item2
 		{
 			position[]={6344.8081,304.99023,7806.7598};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -323,6 +329,8 @@ class Mission
 		class Item3
 		{
 			position[]={12945.273,209.10101,12751.496};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -338,6 +346,8 @@ class Mission
 		class Item4
 		{
 			position[]={5066.8984,338.99176,9729.3574};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -353,6 +363,8 @@ class Mission
 		class Item5
 		{
 			position[]={1100.69,0,2844.99};
+			a=50;
+			b=50;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -368,6 +380,8 @@ class Mission
 		class Item6
 		{
 			position[]={13247.175,7.9455967,6076.4395};
+			a=50;
+			b=50;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -383,6 +397,8 @@ class Mission
 		class Item7
 		{
 			position[]={3445.0112,0,3804.1453};
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
@@ -398,6 +414,8 @@ class Mission
 		class Item8
 		{
 			position[]={64.971161,0, 1590.6635};
+			a=10;
+			b=10;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;

@@ -71,7 +71,7 @@ timer30 = [] spawn {
 		player removeAllEventHandlers "HandleDamage";
 		player removeEventHandler ["Fired", SafezoneFiredEvent2];
 		if (vehicle player != player) then {
-			player removeEventHandler ["Fired", SafezoneVehicleFiredEvent2];
+			player_veh removeAllEventHandlers 'Fired';
 		};
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
 		

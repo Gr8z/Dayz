@@ -5,7 +5,7 @@ _trigger_area = triggerArea _trigger;
 _angle = _trigger_area select 2;
 _radius = _trigger_area select 0;
 _distance = 10; // meters
-//_distance = 18; // meters
+
 _count = round((2 * 3.14592653589793 * _radius) / _distance);
 _step = 360/_count;
 
