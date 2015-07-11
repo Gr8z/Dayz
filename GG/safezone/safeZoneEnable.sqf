@@ -29,18 +29,6 @@ SafezoneFiredEvent = player addEventHandler ["Fired", {
 	NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 }];
 
-VehicleGodMode = [] spawn {
-    waitUntil { player != vehicle player };
-    theVehicle = vehicle player;
-    theVehicle removeAllEventHandlers "handleDamage";
-    theVehicle addEventHandler ["handleDamage", {false}];
-    theVehicle allowDamage false;
-    fnc_usec_damageVehicle ={};
-    vehicle_handleDamage ={};
-    vehicle_handleKilled ={};
-    hintSilent "Vehicle godmode ON";
-};
-
 SafezoneSkinChange = [] spawn {
 	_skin = typeOf player;
 	waitUntil {sleep 1; typeOf player != _skin};
