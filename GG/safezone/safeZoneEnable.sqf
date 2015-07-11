@@ -29,12 +29,26 @@ SafezoneFiredEvent = player addEventHandler ["Fired", {
 	NearestObject [_this select 0,_this select 4] setPos [0,0,0];
 }];
 
+VehicleGodMode = [] spawn {
+    waitUntil { player != vehicle player };
+    theVehicle = vehicle player;
+    theVehicle removeAllEventHandlers "handleDamage";
+    theVehicle addEventHandler ["handleDamage", {false}];
+    theVehicle allowDamage false;
+    fnc_usec_damageVehicle ={};
+    vehicle_handleDamage ={};
+    vehicle_handleKilled ={};
+    hintSilent "Vehicle godmode ON";
+};
+
 SafezoneSkinChange = [] spawn {
 	_skin = typeOf player;
 	waitUntil {sleep 1; typeOf player != _skin};
 	terminate SafezoneVehicleSpeedLimit;
 	terminate SafezoneZSHIELD;
 	terminate SafezoneTheft;
+	terminate SafezoneVechicles;
+	terminate SafezoneGuns;
 	call SafeZoneEnable;
 };
 
@@ -106,7 +120,12 @@ SafezoneVechicles = [] spawn {
 	while {true} do {
 		waitUntil {uiSleep 0.25; vehicle player != player};
 		player_veh = vehicle player;
-		player_veh_isAir = player_veh isKindOf "Air";
+		player_veh removeAllEventHandlers "handleDamage";
+		player_veh addEventHandler ["handleDamage", {false}];
+		player_veh allowDamage false;
+		fnc_usec_damageVehicle ={};
+		vehicle_handleDamage ={};
+		vehicle_handleKilled ={};
 		_player_driver = player == driver player_veh;
 		_veh_owner = player_veh getVariable ['owner', objNull];
 		if (isNull _veh_owner) then {

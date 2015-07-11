@@ -22,6 +22,16 @@ terminate SafezoneTheft;
 terminate SafezoneVechicles;
 terminate SafezoneGuns;
 
+if !(isNil player_veh) {
+	player_veh removeAllEventHandlers "handleDamage";
+	player_veh addEventHandler ["handleDamage", {_this select 2}];
+	player_veh allowDamage true;
+};
+
+fnc_usec_damageVehicle = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandlerVehicle.sqf";
+vehicle_handleDamage = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleDamage.sqf";
+vehicle_handleKilled = compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\vehicle_handleKilled.sqf";
+
 PVDZE_send = [player,'SafeZoneState',[0]];
 publicVariableServer 'PVDZE_send';
 
