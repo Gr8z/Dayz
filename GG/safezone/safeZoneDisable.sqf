@@ -22,7 +22,7 @@ terminate SafezoneTheft;
 terminate SafezoneVechicles;
 terminate SafezoneGuns;
 
-if !(isNil player_veh) {
+if !(isNil player_veh) then {
 	player_veh removeAllEventHandlers "handleDamage";
 	player_veh addEventHandler ["handleDamage", {_this select 2}];
 	player_veh allowDamage true;
