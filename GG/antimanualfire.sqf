@@ -4,5 +4,4 @@ while {alive player} do {
 		player action ["manualFireCancel", vehicle player];
 		cutText ["Manual fire for BMP HQ has been disabled. You must have a gunner!", "PLAIN DOWN"];
 	};
-	sleep 0.2;
 };

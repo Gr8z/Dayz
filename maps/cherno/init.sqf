@@ -85,7 +85,6 @@ if (!isDedicated) then {
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf";
 	execVM "GG\ggah.sqf";
-	execVM "GG\antimanualfire.sqf";
 	
 	preload_done = true;
 };
@@ -93,6 +92,7 @@ if (!isDedicated) then {
 execVM "GG\debug.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
+execVM "GG\antimanualfire.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
