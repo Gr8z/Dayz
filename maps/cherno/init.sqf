@@ -107,6 +107,8 @@ _pic = "GG\images\logo.paa";
     3090
 ] spawn bis_fnc_dynamicText;
 
+6 cutRsc ["EarPlugs", "PLAIN"];
+
 {
 _adminated = _x getVariable ["adminated",0];
 if( !isNil "_adminated" &&  _adminated != 0)then{
