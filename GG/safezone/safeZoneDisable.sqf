@@ -39,11 +39,6 @@ if (!isNil "timer30") then { terminate timer30; };
 
 player removeEventHandler ["Fired", SafezoneFiredEvent];
 
-if (vehicle player != player) then {
-	// Remove Blanks from Vehicles
-	player_veh removeEventHandler ["Fired", SafezoneVehicleFiredEvent];
-};
-
 timer30 = [] spawn {
 
 	SafezoneFiredEvent2 = player addEventHandler ["Fired", {
@@ -70,9 +65,6 @@ timer30 = [] spawn {
 		player allowDamage true;
 		player removeAllEventHandlers "HandleDamage";
 		player removeEventHandler ["Fired", SafezoneFiredEvent2];
-		if (vehicle player != player) then {
-			player_veh removeAllEventHandlers 'Fired';
-		};
 		player addEventhandler ["HandleDamage",{_this call fnc_usec_damageHandler;} ];
 		
 		taskHint ["PROTECTION DISABLED", [1,(68/255),(68/255),1], "taskFailed"];
