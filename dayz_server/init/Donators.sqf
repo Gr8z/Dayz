@@ -168,6 +168,7 @@ Marksman3 = [
 	"76561198014832728", // Loverboy(OD-2015----3 Months) #-
 	"76561198107354770", // [NoVa] Caleb(OD-2015-07-08) #9893
 	"76561198066231326", // Ace Ventura(OD-2015-07-04) #9797
+	"76561198085988742", // Avaleria(OD-2015-07-12) #9989 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
