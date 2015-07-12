@@ -8,5 +8,4 @@ class GNT_C185 { type = "trade_any_vehicle"; buy[] = {21600,"Coins"}; sell[] = {
 class GNT_C185R { type = "trade_any_vehicle"; buy[] = {21600,"Coins"}; sell[] = {2300,"Coins"}; }; 
 class GNT_C185C { type = "trade_any_vehicle"; buy[] = {21600,"Coins"}; sell[] = {2300,"Coins"}; }; 
 class CYBP_Camel_us { type = "trade_any_vehicle"; buy[] = {7200,"Coins"}; sell[] = {4600,"Coins"}; }; 
-class CYBP_Camel_rus { type = "trade_any_vehicle"; buy[] = {7200,"Coins"}; sell[] = {4600,"Coins"}; }; 
 class CYBP_Camel_civ { type = "trade_any_vehicle"; buy[] = {7200,"Coins"}; sell[] = {4600,"Coins"}; };  }; 
