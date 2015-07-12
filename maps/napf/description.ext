@@ -217,34 +217,56 @@ class DayZ_loadingScreen
 #include "GG\group\defines.hpp"
 class RscTitles
 {
-#include "GG\group\icons.hpp"
-#include "GG\hud\hud.hpp"
-#include "GG\hud\EPDHud.h"
-titles[] = {"DeathScr"};
-class DeathScr {
-  idd = -1;
-  movingEnable = 0;
-  duration = 10;
-  fadein = 2;
-  fadeout = 2;
-  name="DeathScr";
-  controls[]={"Picture"};
-  class Picture {
-    x = safezoneX; y = safezoneY; w = safezoneW; h = safezoneH;
-    text="GG\images\Death.paa";
-    sizeEx = -1;
-    type=0;
-    idc=-1;
-    style=48;
-    colorBackground[]={0,0,0,0};
-    colorText[]={1,1,1,1};
-    font="Bitstream";
-  };
+	#include "GG\group\icons.hpp"
+	#include "GG\hud\hud.hpp"
+	#include "GG\hud\EPDHud.h"
+
+	titles[] = {"DeathScr","EarPlugs"};
+	class DeathScr {
+	  idd = -1;
+	  movingEnable = 0;
+	  duration = 10;
+	  fadein = 0;
+	  fadeout = 0;
+	  name="DeathScr";
+	  controls[]={"Picture"};
+	  class Picture {
+		x = safezoneX; y = safezoneY; w = safezoneW; h = safezoneH;
+		text="GG\images\Death.paa";
+		sizeEx = -1;
+		type=0;
+		idc=-1;
+		style=48;
+		colorBackground[]={0,0,0,0};
+		colorText[]={1,1,1,1};
+		font="Bitstream";
+	  };
+	};
+	class EarPlugs {
+		idd = -1;
+		fadeout=0;
+		fadein=0;
+		onLoad = "uiNamespace setVariable ['EarPlugs', _this select 0]";
+		duration = 10e10;
+		name= "EarPlugs";
+		controlsBackground[] = {};
+		objects[] = {};
+		class controls {
+			class EarPlugs : RscStructuredText {
+				idc = 1;
+				size = 0.040;
+				text = "";
+				colorBackground[] = { 0,0,0,0 };
+				x = 0.05 * safezoneW + safezoneX;
+				y = 0 * safezoneH + safezoneY;
+				w = 0.2; 
+				h = 0.2;
+			};
+		};
+	};
 };
 
-};
 #include "GG\group\groupManagement.hpp"
-
 
 #include "GG\doorManagement\doorUnlock.hpp"
 #include "GG\doorManagement\doorManagement.hpp"

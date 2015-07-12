@@ -274,8 +274,6 @@ dayz_resetSelfActions = {
 	s_player_plot_boundary_on = -1;
 	s_player_plot_boundary_off = -1;
 	s_player_plot_take_ownership = -1;
-	s_player_put_earplugs_on = -1;
-    s_player_put_earplugs_off = -1;
 };
 call dayz_resetSelfActions;
 

@@ -81,19 +81,6 @@ if (DZE_HeliLift) then {
 		s_player_heli_detach = -1;
 	};
 };
-
-// Earplugs
-if (_inVehicle && (!Earplugs)) then {
-    if (s_player_put_earplugs_on < 0) then {
-        airvehicle = _vehicle;
-        s_player_put_earplugs_on = airvehicle addAction ["Earplugs on","GG\Earplugs\earplugs_on.sqf","",5,false,true];
-    };
-        } else {
-            if (!isNil "airvehicle") then {
-                airvehicle removeAction s_player_put_earplugs_on;
-                s_player_put_earplugs_on = -1;
-            };
-        };
     
 if (_inVehicle && (Earplugs)) then {
     if (s_player_put_earplugs_off < 0) then {
