@@ -25,7 +25,8 @@ ActionMenu =
 [
 	["",true],
 		["Action Menu >>", [], "#USER:ActionMenua", -5, [["expression", ""]], "1", "1"],
-		["Color Filters Menu>>", [], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
+		["Color Filters Menu >>", [], "#USER:SkyMenu", -5, [["expression", ""]], "1", "1"],
+		["Toggle Earplugs >>", [], "#USER:EarMenu", -5, [["expression", ""]], "1", "1"],
 		["Toggle Environmental sounds >>", [], "#USER:environment", -5, [["expression", ""]], "1", "1"],
 		["Toggle Grass >>", [], "#USER:grass", -5, [["expression", ""]], "1", "1"],
 		["Wardrobe Menu >>", [], "#USER:wardrobe", -5, [["expression", ""]], "1", "1"],
@@ -100,6 +101,13 @@ grass =
 	["",true],
 	["ON", [2],  "", -5, [["expression","setTerrainGrid 25; systemChat('Grass turned ON');"]], "1", "1"],
 	["OFF", [3],  "", -5, [["expression","setTerrainGrid 50; systemChat('Grass turned OFF');"]], "1", "1"]
+];
+
+EarMenu =
+[
+	["",true],
+	["ON", [2],  "", -5, [["expression","1 fadeSound 0.4;((uiNamespace getVariable 'EarPlugs') displayCtrl 1) ctrlSetStructuredText parseText ""<t size='4' align='left' valign='middle'><img image='GG\images\earplugs.paa' /></t>"";"]], "1", "1"],
+	["OFF", [3],  "", -5, [["expression","1 fadeSound 1;((uiNamespace getVariable 'EarPlugs') displayCtrl 1) ctrlSetStructuredText parseText '';"]], "1", "1"]
 ];
 
 environment =
