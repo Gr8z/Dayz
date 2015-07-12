@@ -35,6 +35,8 @@ SafezoneSkinChange = [] spawn {
 	terminate SafezoneVehicleSpeedLimit;
 	terminate SafezoneZSHIELD;
 	terminate SafezoneTheft;
+	terminate SafezoneVechicles;
+	terminate SafezoneGuns;
 	call SafeZoneEnable;
 };
 
@@ -105,8 +107,20 @@ SafezoneTheft = [] spawn {
 SafezoneVechicles = [] spawn {
 	while {true} do {
 		waitUntil {uiSleep 0.25; vehicle player != player};
+		
 		player_veh = vehicle player;
-		player_veh_isAir = player_veh isKindOf "Air";
+		player_veh removeAllEventHandlers "handleDamage";
+		player_veh addEventHandler ["handleDamage", {false}];
+		player_veh allowDamage false;
+		fnc_usec_damageVehicle ={};
+		vehicle_handleDamage ={};
+		vehicle_handleKilled ={};
+		
+		SafezoneVehicleFiredEvent = player_veh addEventHandler ["Fired", {
+			cutText ['You can not fire from a vehicle in a SafeZone!','WHITE IN'];
+			NearestObject [_this select 0,_this select 4] setPos [0,0,0];
+		}];
+		
 		_player_driver = player == driver player_veh;
 		_veh_owner = player_veh getVariable ['owner', objNull];
 		if (isNull _veh_owner) then {
