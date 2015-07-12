@@ -30,13 +30,13 @@ DELETE FROM `object_data_2`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
 AND `CharacterID` = '0'
 AND `Classname`
-NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG';
+NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG|warehouse';
 
 /* Delete all vehicles not touched in 7 days */
 DELETE FROM `object_data_2`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY)
 AND `Classname`
-NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG';
+NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG|warehouse';
 
 /* Delete empty storage objects */
 DELETE FROM `object_data_2`
@@ -69,7 +69,7 @@ SET `CharacterID` = 0
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 DAY)
 AND `CharacterID` > 0
 AND `Classname`
-NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG';
+NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG|warehouse';
 
 /* Fix inventory on maintain objects */
 UPDATE `object_data_2`
@@ -82,7 +82,12 @@ AND
 'TentStorageDomed','TentStorageDomed2','Sandbag1_DZ','Scaffolding_DZ','StickFence_DZ','StorageShed_DZ','WorkBench_DZ',
 'WoodCrate_DZ','WoodFloor_DZ','WoodFloorQuarter_DZ','WoodLargeWall_DZ','WoodLargeWallWin_DZ','WoodShack_DZ','WoodSmallWall_DZ',
 'WoodSmallWallThird_DZ','WoodSmallWallWin_DZ','Land_DZE_GarageWoodDoor','WoodFloorHalf_DZ','Fort_RazorWire','Land_DZE_LargeWoodDoorLocked',
-'WoodStairsRails_DZ','WoodLadder_DZ','WoodStairsSans_DZ','M240Nest_DZ','Land_DZE_WoodDoor'
+'WoodStairsRails_DZ','WoodLadder_DZ','WoodStairsSans_DZ','M240Nest_DZ','Land_DZE_WoodDoor',
+'Desk','FoldChair','FoldTable','SmallTable','Barrel1','Garbage_can','Hhedgehog_concrete','Land_CncBlock','Land_MBG_Garage_Single_A',
+'Land_MBG_Garage_Single_B','Land_MBG_Garage_Single_C','Land_MBG_Garage_Single_D','MAP_A_Castle_Bergfrit_dam','Land_A_Castle_Bergfrit_dam',
+'Land_sara_domek_zluty','MAP_sara_domek_zluty','Land_sara_hasic_zbroj','MAP_sara_hasic_zbroj','MBG_Warehouse_InEditor','MBG_Killhouse_1',
+'MBG_Killhouse_2','MBG_Killhouse_3','MBG_Killhouse_4','MBG_Killhouse_1_InEditor','MBG_Killhouse_2_InEditor','MBG_Killhouse_3_InEditor',
+'MBG_Killhouse_4_InEditor','MAP_stodola_old_open','Land_MBG_HeavyShelter','MAP_A_Pub_01','Land_A_Villa_EP1','MAP_A_Castle_Bastion','MAP_A_Castle_Stairs_A'
 );
 
 /* Set Damage on all other objects */
