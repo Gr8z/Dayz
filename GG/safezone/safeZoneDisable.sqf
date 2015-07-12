@@ -38,6 +38,7 @@ publicVariableServer 'PVDZE_send';
 if (!isNil "timer30") then { terminate timer30; };
 
 player removeEventHandler ["Fired", SafezoneFiredEvent];
+if (!isNil "SafezoneFiredEvent2") then { player removeEventHandler ["Fired", SafezoneFiredEvent2]; };
 
 timer30 = [] spawn {
 

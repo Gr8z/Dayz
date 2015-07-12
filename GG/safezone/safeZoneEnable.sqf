@@ -2,6 +2,7 @@ canbuild = false;
 inSafeZone = true;
 isInTraderCity = true;
 if (!isNil "timer30") then { terminate timer30; };
+if (!isNil "SafezoneFiredEvent2") then { terminate SafezoneFiredEvent2; };
 
 hintSilent parseText format ["
 	<t align='center' color='#37AAE1' shadow='2' size='1.75'>SAFEZONE</t><br/>
