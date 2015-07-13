@@ -221,7 +221,7 @@ if (_dikCode == 0x57) then {
 	};
 	GGEARPLUGS = !GGEARPLUGS;
 	if (GGEARPLUGS) then {
-		1 fadeSound 0.4;
+		1 fadeSound 0.2;
 		((uiNamespace getVariable "EarPlugs") displayCtrl 1) ctrlSetStructuredText parseText "<t size='4' align='left' valign='middle'><img image='GG\images\earplugs.paa' /></t>";
 	} else {
 		1 fadeSound 1;
