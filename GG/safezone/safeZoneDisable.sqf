@@ -47,14 +47,6 @@ timer30 = [] spawn {
 		nearestObject [_this select 0,_this select 4] setPos [0,0,0];
 	}];
 	
-	if (vehicle player != player) then {
-		// Add Blanks again to Vehicles
-		SafezoneVehicleFiredEvent2 = player_veh addEventHandler ["Fired", {
-			cutText ['Your vehicle weapon will activate within 30 seconds!','WHITE IN'];
-			nearestObject [_this select 0,_this select 4] setPos [0,0,0];
-		}];
-	};
-	
 	for "_x" from 1 to 30 do {
 		if (_x >= 2) then {cutText [format ["PROTECTION ENDING IN %1s", 31-_x], "PLAIN DOWN"];};
 		uiSleep 1;
