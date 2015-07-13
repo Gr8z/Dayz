@@ -5767,8 +5767,6 @@ PV_AdminMainCode = {
 
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Add 10,000 Coins (self)",adminaddmoney,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Remove All Coins (self)",adminremovemoney,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Fast Build",adminfastbuild,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Fast Upgrade",adminfastupgrade,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Easter Drops",admineasterdrops,"0","0","0","0",[]];
@@ -5858,6 +5856,76 @@ PV_AdminMainCode = {
 	admincleareventmarker = {
 		PVAH_AdminReq = [99998,player];
 		publicVariableServer "PVAH_AdminReq";
+	};
+	
+	fn_firework_display_local = {
+		[getPos player] call fn_firework_display;
+	};
+
+	fn_firework_display = {
+		for "_x" from 0 to 360 step 36 do {
+			_position = _this select 0;
+			_distance = 150;
+			_direction = _x;
+			_pos = [(_position select 0)+_distance*sin(_direction),(_position select 1)+_distance*cos(_direction),0];
+			uiSleep random 1;
+			_pos spawn {
+				uiSleep random 1;
+				[_this] spawn fn_firework_airburst;
+			};
+		};
+	};
+
+	fn_air_explosion = {
+		private ["_position", "_type", "_det", "_charge"];
+		_position = _this select 0;
+		_type = _this select 1;
+		_det = "Bomb" createVehicle [0,0,0];
+		_det setPos _position;
+		_position set [2, (_position select 2) + 0.3];
+		_charge = _type createVehicle _position;
+		_charge setPos _position;
+		uiSleep 1;
+		deleteVehicle _charge;
+		deleteVehicle _det;
+	};
+
+	fn_firework = {
+		private ["_position", "_flare", "_direction", "_distance", "_type", "_smoke", "_ball", "_charge", "_det"];
+		_position = _this select 0;
+		_type = _this select 1;
+		_ball = createVehicle ["Baseball", [0,0,0], [], 0, "CAN_COLLIDE"];
+		_smoke = createVehicle ["SmokeShellRed", [0,0,0], [], 0, "CAN_COLLIDE"];
+		_flare = createVehicle ["F_40mm_White", [0,0,0], [], 0, "CAN_COLLIDE"];
+		_smoke attachTo [_ball, [0,0,0]];
+		_flare attachTo [_ball, [0,0,0]];
+		_ball setPos _position;
+		uiSleep 4;
+		_ball setVelocity [5 - (random 10),5 - (random 10),50];
+		uiSleep 1;
+
+		uiSleep 2;
+		_position = getPos _ball;
+		deleteVehicle _ball;
+		deleteVehicle _smoke;
+		deleteVehicle _flare;
+		[_position, _type] spawn fn_air_explosion;
+		_position
+	};
+
+	fn_firework_airburst = {
+		private ["_position"];
+		_position = _this select 0;
+		_position = [_position, "HelicopterExploBig"] call fn_firework;
+		uiSleep random 1;
+		for "_x" from 0 to 5 do {
+			private ["_abposition"];
+			_abposition = [(_position select 0) + (20 - (random 40)), (_position select 1) + (20 - (random 40)), (_position select 2) + (20 - (random 40))];
+			_abposition spawn {
+				uiSleep random 1;
+				[_this, "HelicopterExploSmall"] spawn fn_air_explosion;
+			};
+		};
 	};
 	
 	admin_fillSpecificMenu =
