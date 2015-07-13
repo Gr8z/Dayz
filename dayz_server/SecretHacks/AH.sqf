@@ -5767,14 +5767,10 @@ PV_AdminMainCode = {
 
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Easter Drops",admineasterdrops,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Mass Message",adminggmassmsg,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Vehicle Colour",adminccgvehiclecolour,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Ubber Trader",adminubbertrader,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Fire Weapon In Trader",adminfireintrader,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Ground Fog",admingroundfog,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Smokey",fnc_attach_smoke,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Plot Pole Message",fnc_plotpole_msg,"0","0","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -5787,7 +5783,6 @@ PV_AdminMainCode = {
 
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Bullet Cam",{[] spawn adminbulletcamfnc;},"1","0","0","0",[]];
-		adminadd = adminadd + ["  Action Cam",{[] spawn fn_actioncamera;},"0","0","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		call admin__FILL_MENUS;
 	};
@@ -5933,6 +5928,92 @@ PV_AdminMainCode = {
 		ctrlSetText [101,""];
 		ctrlshow [1002,false];
 		buttonSetAction [1, "PVAH_AdminReq = [99997,player,toArray(ctrlText 101)]; publicVariableServer ""PVAH_AdminReq"";"];
+	};
+	
+	adminfireintrader = {
+		player removeEventHandler ["Fired", SafezoneFiredEvent];
+	};
+	
+	admingroundfog = {
+		PVAH_AdminReq = [99995,player];
+		publicVariableServer "PVAH_AdminReq";
+		_savelog = format["%1 toggled ground fog",name player];
+		PVAH_WriteLogReq = [player, _savelog];
+		publicVariableServer "PVAH_WriteLogReq";
+	};
+	
+	fnc_attach_smoke = {
+		private ["_s"];
+		_s = "SmokeShell" createVehicle [0,0,0];
+		_s attachTo [vehicle player,[0,0,0.7]]; 
+		_s = "SmokeShellBlue" createVehicle [0,0,0];
+		_s attachTo [vehicle player,[0,0,0.7]]; 
+		_s = "SmokeShellRed" createVehicle [0,0,0];
+		_s attachTo [vehicle player,[0,0,0.7]]; 
+	};
+	
+	fnc_set_ct_alight = {
+		cursorTarget setVehicleInit "[this,4,time,false,false] spawn BIS_Effects_Burn";
+		processInitCommands;
+		};
+
+	fnc_set_ct_alightself = {
+		(vehicle player) setVehicleInit "[this,4,time,false,false] spawn BIS_Effects_Burn";
+		processInitCommands;
+	};
+
+	fnc_gau8 = {
+		player addWeapon 'Gau8';
+		player addMagazine '1350Rnd_30mmAP_A10';
+	};
+
+	fnc_she11me = {
+		_pos = getPos player;
+		_shellObj = "ARTY_Sh_122_HE" createVehicle [0,0,0];
+		_shellObj setpos [(_pos select 0),(_pos select 1),20];	
+	};
+	
+	fnc_deforestation = {
+		{
+			if("" == typeOf _x) then {
+			if (alive _x) then {
+			_objName = _x call DZE_getModelName;
+			if (_objName in DZE_trees) then { 
+			_x setDamage 1;
+			};
+			};
+			};
+		} foreach nearestObjects [getPos player, [], 100];
+	};
+	
+	adminbulletcamfnc = {
+		if (isNil "AdminBulletCamActive") then {
+			AdminBulletCamActive = 0;
+		};
+		if (AdminBulletCamActive == 0) then {
+			hint "Bullet Cam On";
+			AdminBulletCamActive = 1;
+			AdminBulletCam = player addEventHandler ["Fired", {
+			_null = _this spawn {
+				_missile = _this select 6;
+				_cam = "camera" camCreate (position player); 
+				_cam cameraEffect ["External", "Back"];
+				waitUntil {
+					if (isNull _missile) exitWith {true};
+					_cam camSetTarget _missile;
+					_cam camSetRelPos [0,-3,0];
+					_cam camCommit 0;
+				};
+				uiSleep 1;
+				_cam cameraEffect ["Terminate", "Back"];
+				camDestroy _cam;
+			};
+			}];
+		} else {
+			hint "Bullet Cam Off";
+			AdminBulletCamActive = 0;
+			player removeEventHandler ["Fired", AdminBulletCam];
+		};
 	};
 	
 	admin_fillSpecificMenu =
@@ -13772,6 +13853,44 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				] spawn BIS_fnc_dynamicText;
 			}] call RE;
 		};
+		if (_option == 99995) then {
+			GGDoFog = {
+				DoFogEffect = true;
+				_pos = getposATL player;
+				_ps = '#particlesource' createVehicleLocal _pos;  
+				_ps setParticleParams [['\Ca\Data\ParticleEffects\Universal\universal.p3d', 16, 12, 13, 0], '', 'Billboard', 1, 10, [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0, [4], [[1, 1, 1, 0], [1, 1, 1, 0.04], [1, 1, 1, 0]], [1000], 1, 0, '', '', player];
+				_ps setParticleRandom [3, [40, 40, 0], [0, 0, 0], 2, 0.5, [0, 0, 0, 0.1], 0, 0];
+				_ps setParticleCircle [0.1, [0, 0, 0]];
+				_ps setDropInterval 0.004;
+
+				while {DoFogEffect} do {
+					waituntil {uiSleep 1; vehicle player == player};
+					_ps setposATL getposATL vehicle player;
+					uiSleep 1;
+				};
+				deleteVehicle _ps;
+			};
+			publicVariable 'GGDoFog';
+
+			if (isNil "GroundFogOn" or isNil "GroundFogSheep") then {
+				GroundFogOn = false;
+				GroundFogSheep = createAgent ['Sheep', [random 9000,random 9000,0], [], 0, 'FORM'];
+				GroundFogSheep removeAllEventHandlers 'handleDamage';
+				GroundFogSheep addEventHandler ['handleDamage', { false }];
+				GroundFogSheep allowDamage false;	
+			};
+
+			if (!GroundFogOn) then {
+				GroundFogOn = true;
+				GroundFogSheep setVehicleInit 'waitUntil { !isNil "GGDoFog" }; [] spawn GGDoFog;';
+				processInitCommands;
+			} else {
+				GroundFogOn = false;
+				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
+				processInitCommands;
+			};
+		};
+		
 	};
 	server_onPlayerConnect_infiSTAR =
 	{
