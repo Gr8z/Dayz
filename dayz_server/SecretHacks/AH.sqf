@@ -3826,12 +3826,6 @@ publicVariable '"+_randvar28+"';
 				if(_key == "+str _ODK+") then {[] spawn fnc_debugX0;};
 				if("+str _RCK+") then {
 					if(_key == "+str _OpenMenuKey+") then {['AdminMenu Key'] spawn "+_randvar4+";};
-					switch (_key) do {
-						case 0xC7 : {['Home - Known to start HackMenus'] spawn "+_randvar4+";};
-						case 0x3B : {['F1 - Known to start HackMenus'] spawn "+_randvar4+";};
-						case 0x3C : {['F2 - Known to start HackMenus'] spawn "+_randvar4+";};
-						default {};
-					};
 					if(_shift) then
 					{
 						if(_key == 0x19) then {['Shift + P to CombatLog'] spawn "+_randvar4+";call _fnc_punish_combatlog;};
