@@ -5752,6 +5752,49 @@ PV_AdminMainCode = {
 		};
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 	};
+	admin_ggFillMenu = {
+		disableSerialization;
+		inSub = false;
+		_ctrl = 2 call getControl;
+		lbclear _ctrl;
+		adminadd = [];
+		call admin_fillsubsss;
+
+		adminadd = adminadd + ["[GG] Gr8's Tools","","0","1","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Event Markers",admineventmarkers,"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Add 10,000 Coins (self)",adminaddmoney,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Remove All Coins (self)",adminremovemoney,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Fast Build",adminfastbuild,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Fast Upgrade",adminfastupgrade,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Easter Drops",admineasterdrops,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Mass Message",adminccgmassmsg,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Vehicle Colour",adminccgvehiclecolour,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Ubber Trader",adminubbertrader,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Fire Weapon In Trader",adminfireintrader,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Ground Fog",admingroundfog,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Smokey",fnc_attach_smoke,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Plot Pole Message",fnc_plotpole_msg,"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Set CT on fire",fnc_set_ct_alight,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Set self on fire",fnc_set_ct_alightself,"0","0","0","0",[]];
+		adminadd = adminadd + ["  GAU8",fnc_gau8,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Shell Me",fnc_she11me,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Deforest",fnc_deforestation,"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Bullet Cam",{[] spawn adminbulletcamfnc;},"1","0","0","0",[]];
+		adminadd = adminadd + ["  Action Cam",{[] spawn fn_actioncamera;},"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		call admin__FILL_MENUS;
+	};
 	admin_fillSpecificMenu =
 	{
 		inSub = false;
@@ -5824,7 +5867,8 @@ PV_AdminMainCode = {
 			if(_key == 0x44) then {call remove_spec_000;};
 			if(_key == 0x43) then {call admin_show;};
 		};
-		
+		adminadd = adminadd + ["  Gr8's Tools",admin_ggFillMenu,"0","0","0","0",[1,0,0,1]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Teleport Player To Me",admint2me,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
