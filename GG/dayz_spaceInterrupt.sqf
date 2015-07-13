@@ -215,7 +215,7 @@ if (_dikCode == 0xB8) then {
     [] execVM "GG\menu\actionmenu_main.sqf";
 };
 
-if (_dikCode == 0x57) then {
+if (_dikCode == 0x15) then {
 	if (isNil 'GGEARPLUGS') then {
 		GGEARPLUGS = false;
 	};
