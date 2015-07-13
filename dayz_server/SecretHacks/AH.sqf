@@ -3830,7 +3830,6 @@ publicVariable '"+_randvar28+"';
 						case 0xC7 : {['Home - Known to start HackMenus'] spawn "+_randvar4+";};
 						case 0x3B : {['F1 - Known to start HackMenus'] spawn "+_randvar4+";};
 						case 0x3C : {['F2 - Known to start HackMenus'] spawn "+_randvar4+";};
-						case 0x3D : {['F3 - Known to start HackMenus'] spawn "+_randvar4+";};
 						default {};
 					};
 					if(_shift) then
