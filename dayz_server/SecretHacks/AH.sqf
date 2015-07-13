@@ -5760,9 +5760,9 @@ PV_AdminMainCode = {
 		adminadd = [];
 		call admin_fillsubsss;
 
-		adminadd = adminadd + ["[GG] Gr8's Tools","","0","1","0","0",[]];
+		adminadd = adminadd + ["Gr8's Tools","","0","1","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Event Markers",admineventmarkers,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Event Markers (WIP)",admineventmarkers,"0","0","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -5774,8 +5774,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Set CT on fire",fnc_set_ct_alight,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Set self on fire",fnc_set_ct_alightself,"0","0","0","0",[]];
 		adminadd = adminadd + ["  GAU8",fnc_gau8,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Shell Me",fnc_she11me,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Deforest",fnc_deforestation,"0","0","0","0",[]];
@@ -5950,16 +5948,6 @@ PV_AdminMainCode = {
 		_s attachTo [vehicle player,[0,0,0.7]]; 
 		_s = "SmokeShellRed" createVehicle [0,0,0];
 		_s attachTo [vehicle player,[0,0,0.7]]; 
-	};
-	
-	fnc_set_ct_alight = {
-		cursorTarget setVehicleInit "[this,4,time,false,false] spawn BIS_Effects_Burn";
-		processInitCommands;
-		};
-
-	fnc_set_ct_alightself = {
-		(vehicle player) setVehicleInit "[this,4,time,false,false] spawn BIS_Effects_Burn";
-		processInitCommands;
 	};
 
 	fnc_gau8 = {
