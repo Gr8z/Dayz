@@ -5795,6 +5795,71 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		call admin__FILL_MENUS;
 	};
+	
+	admineventmarkers = {
+		disableSerialization;
+		inSub = false;
+		_ctrl = 2 call getControl;
+		lbclear _ctrl;
+		adminadd = [];
+		call admin_fillsubsss;
+
+		adminadd = adminadd + ["Event Markers","","0","1","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Add Marker",adminaddeventmarker,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Clear Markers",admincleareventmarker,"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		call admin__FILL_MENUS;
+	};
+
+	adminaddeventmarker = {
+		disableSerialization;
+		inSub = false;
+		_ctrl = 2 call getControl;
+		lbclear _ctrl;
+		adminadd = [];
+		call admin_fillsubsss;
+
+		adminadd = adminadd + ["Event Markers","","0","1","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Red", {GGEventMarkerColor = "ColorRed"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Blue",{GGEventMarkerColor = "ColorBlue"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Green",{GGEventMarkerColor = "ColorGreen"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Yellow",{GGEventMarkerColor = "ColorYellow"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Black",{GGEventMarkerColor = "ColorBlack"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["  White",{GGEventMarkerColor = "ColorWhite"; call adminaddeventmarkerset},"0","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		call admin__FILL_MENUS;
+	};
+
+	adminaddeventmarkerset = {
+		disableSerialization;
+		createDialog "RscDisplayPassword";
+		ctrlSetText [1001,"Marker Text"];
+		ctrlSetText [101,""];
+		ctrlshow [1002,false];
+		buttonSetAction [1, "GGEventMarkerText = toArray(ctrlText 101); call adminaddeventmarkermap;"];
+	};
+
+	adminaddeventmarkermap = {
+		disableSerialization;
+		openMap true;
+		onMapSingleClick "[_pos, _alt] call adminaddeventmarkersend;";
+	};
+
+	adminaddeventmarkersend = {
+		private ["_pos"];
+		openMap [false, false];
+		onMapSingleClick "";
+		PVAH_AdminReq = [99999,player,[(_this select 0), GGEventMarkerText, GGEventMarkerColor]];
+		publicVariableServer "PVAH_AdminReq";
+	};
+
+	admincleareventmarker = {
+		PVAH_AdminReq = [99998,player];
+		publicVariableServer "PVAH_AdminReq";
+	};
+	
 	admin_fillSpecificMenu =
 	{
 		inSub = false;
@@ -13607,6 +13672,17 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemHatchet_DZE'
 				];
 			};
+		};
+		if (_option == 99999) then
+		{
+			if (isNil "GGEventMarkers" or {typeName GGEventMarkers != "ARRAY"}) then { GGEventMarkers = []; };
+			GGEventMarkers = GGEventMarkers + [(_array select 2)];
+			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99998) then
+		{
+			GGEventMarkers = [];
+			publicVariable "GGEventMarkers";
 		};
 	};
 	server_onPlayerConnect_infiSTAR =
