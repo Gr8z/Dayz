@@ -5767,10 +5767,8 @@ PV_AdminMainCode = {
 
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Fast Build",adminfastbuild,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Fast Upgrade",adminfastupgrade,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Easter Drops",admineasterdrops,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Mass Message",adminccgmassmsg,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Mass Message",adminggmassmsg,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Vehicle Colour",adminccgvehiclecolour,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Ubber Trader",adminubbertrader,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Fire Weapon In Trader",adminfireintrader,"0","0","0","0",[]];
@@ -5928,367 +5926,13 @@ PV_AdminMainCode = {
 		};
 	};
 	
-	adminfastbuild = {
-	PVAH_WriteLogReq = [player, format["%1 - Activated fast build",name player]];
-	publicVariableServer "PVAH_WriteLogReq";
-	player_build = {
-	private ["_helperColor","_objectHelper","_objectHelperDir","_objectHelperPos","_canDo", "_pos", "_cnt","_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_needNear","_vehicle","_inVehicle","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap"];
-	if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
-	DZE_ActionInProgress = true;
-	if (isNil "snapProVariables") then {
-	if (isNil "DZE_snapExtraRange") then {
-	DZE_snapExtraRange = 0;
-	};
-	if (isNil "DZE_checkNearbyRadius") then {
-	DZE_checkNearbyRadius = 30;
-	};
-	s_player_toggleSnap = -1;
-	s_player_toggleSnapSelect = -1;
-	s_player_toggleSnapSelectPoint=[];
-	snapActions = -1;
-	snapGizmos = [];
-	snapGizmosNearby = [];
-	snapProVariables = true; 
-	};
-	_item =	_this;
-
-	_abort = false;
-	_reason = "";
-	_classname = 	getText (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "create");
-	_classnametmp = _classname;
-	_require =  getArray (configFile >> "cfgMagazines" >> _this >> "ItemActions" >> "Build" >> "require");
-	_text = 		getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
-	_ghost = getText (configFile >> "CfgVehicles" >> _classname >> "ghostpreview");
-	_lockable = 0;
-	if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
-	_lockable = getNumber(configFile >> "CfgVehicles" >> _classname >> "lockable");
-	};
-	_requireplot = DZE_requireplot;
-	if(isNumber (configFile >> "CfgVehicles" >> _classname >> "requireplot")) then {
-	_requireplot = getNumber(configFile >> "CfgVehicles" >> _classname >> "requireplot");
-	};
-	_isAllowedUnderGround = 1;
-	if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then {
-	_isAllowedUnderGround = getNumber(configFile >> "CfgVehicles" >> _classname >> "nounderground");
-	};
-	_isPole = (_classname == "Plastic_Pole_EP1_DZ");
-	_isLandFireDZ = (_classname == "Land_Fire_DZ");
-	_offset = 	getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
-	if((count _offset) <= 0) then {
-	_offset = [0,1.5,0];
-	};
-	_onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
-	_isWater = 		dayz_isSwimming;
-	_cancel = false;
-	_reason = "";
-	_canBuildOnPlot = false;
-	_vehicle = vehicle player;
-	_inVehicle = (_vehicle != player);
-	helperDetach = false; 
-	_canDo = (!r_drag_sqf and !r_player_unconscious);
-	DZE_Q = false;
-	DZE_Z = false;
-	DZE_Q_alt = false;
-	DZE_Z_alt = false;
-	DZE_Q_ctrl = false;
-	DZE_Z_ctrl = false;
-	DZE_5 = false;
-	DZE_4 = false;
-	DZE_6 = false;
-	DZE_F = false;
-	DZE_cancelBuilding = false;
-	call gear_ui_init;
-	closeDialog 1;
-	_item =	_this;
-	_location = [0,0,0];
-	_isOk = true;
-
-	_location1 = [player] call FNC_GetPos;
-	_dir = getDir player;
-
-	if (_ghost != "") then {
-	_classname = _ghost;
-	};
-	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-
-	_objectHelper = "Sign_sphere10cm_EP1" createVehicle _location;
-	_helperColor = "#(argb,8,8,3)color(0,0,0,0,ca)";
-	_objectHelper setobjecttexture [0,_helperColor];
-	_objectHelper attachTo [player,_offset];
-	_object attachTo [_objectHelper,[0,0,0]];
-	_position = [_objectHelper] call FNC_GetPos;
-	_objHDiff = 0;
-	if (isClass (missionConfigFile >> "SnapBuilding" >> _classname)) then {	
-	["","","",["Init",_object,_classname,_objectHelper]] spawn snap_build;
-	};
-	while {_isOk} do {
-	_zheightchanged = false;
-	_zheightdirection = "";
-	_rotate = false;
-	if (DZE_Q) then {
-	DZE_Q = false;
-	_zheightdirection = "up";
-	_zheightchanged = true;
-	};
-	if (DZE_Z) then {
-	DZE_Z = false;
-	_zheightdirection = "down";
-	_zheightchanged = true;
-	};
-	if (DZE_Q_alt) then {
-	DZE_Q_alt = false;
-	_zheightdirection = "up_alt";
-	_zheightchanged = true;
-	};
-	if (DZE_Z_alt) then {
-	DZE_Z_alt = false;
-	_zheightdirection = "down_alt";
-	_zheightchanged = true;
-	};
-	if (DZE_Q_ctrl) then {
-	DZE_Q_ctrl = false;
-	_zheightdirection = "up_ctrl";
-	_zheightchanged = true;
-	};
-	if (DZE_Z_ctrl) then {
-	DZE_Z_ctrl = false;
-	_zheightdirection = "down_ctrl";
-	_zheightchanged = true;
-	};
-	if (DZE_4) then {
-	_rotate = true;
-	DZE_4 = false;
-	_dir = -45;
-	};
-	if (DZE_6) then {
-	_rotate = true;
-	DZE_6 = false;
-	_dir = 45;
-	};
-	if (DZE_F and _canDo) then {	
-	if (helperDetach) then {
-	_objectHelperDir = getDir _objectHelper; 
-	_objectHelper attachTo [player];
-	_objectHelper setDir _objectHelperDir-(getDir player);
-	helperDetach = false;
-	} else {
-	_objectHelperDir = getDir _objectHelper;
-	detach _objectHelper;
-	[_objectHelper]	call FNC_GetSetPos;
-	_objectHelper setVelocity [0,0,0]; 
-	helperDetach = true;
-	};
-	DZE_F = false;
-	};
-	if(_rotate) then {
-	if (helperDetach) then {
-	_objectHelperDir = getDir _objectHelper;
-	_objectHelper setDir _objectHelperDir+_dir;
-	[_objectHelper]	call FNC_GetSetPos;
-	} else {
-	detach _objectHelper;
-	_objectHelperDir = getDir _objectHelper;
-	_objectHelper setDir _objectHelperDir+_dir;
-	[_objectHelper]	call FNC_GetSetPos;
-	_objectHelperDir = getDir _objectHelper;
-	_objectHelper attachTo [player];
-	_objectHelper setDir _objectHelperDir-(getDir player);		
-	};
-	};
-	if(_zheightchanged) then {
-	if (!helperDetach) then {
-	detach _objectHelper;
-	_objectHelperDir = getDir _objectHelper;
-	};
-	_position = [_objectHelper] call FNC_GetPos;
-	if(_zheightdirection == "up") then {
-	_position set [2,((_position select 2)+0.1)];
-	_objHDiff = _objHDiff + 0.1;
-	};
-	if(_zheightdirection == "down") then {
-	_position set [2,((_position select 2)-0.1)];
-	_objHDiff = _objHDiff - 0.1;
-	};
-	if(_zheightdirection == "up_alt") then {
-	_position set [2,((_position select 2)+1)];
-	_objHDiff = _objHDiff + 1;
-	};
-	if(_zheightdirection == "down_alt") then {
-	_position set [2,((_position select 2)-1)];
-	_objHDiff = _objHDiff - 1;
-	};
-	if(_zheightdirection == "up_ctrl") then {
-	_position set [2,((_position select 2)+0.01)];
-	_objHDiff = _objHDiff + 0.01;
-	};
-	if(_zheightdirection == "down_ctrl") then {
-	_position set [2,((_position select 2)-0.01)];
-	_objHDiff = _objHDiff - 0.01;
-	};
-	if((_isAllowedUnderGround == 0) && ((_position select 2) < 0)) then {
-	_position set [2,0];
-	};
-	if (surfaceIsWater _position) then {
-	_objectHelper setPosASL _position;
-	} else {
-	_objectHelper setPosATL _position;
-	};
-	if (!helperDetach) then {
-	_objectHelper attachTo [player];
-	_objectHelper setDir _objectHelperDir-(getDir player);
-	};
-	};
-	sleep 0.5;
-	_location2 = [player] call FNC_GetPos;
-	_objectHelperPos = [_objectHelper] call FNC_GetPos;
-	if(DZE_5) exitWith {
-	_isOk = false;
-	_position = [_object] call FNC_GetPos;
-	detach _object;
-	_dir = getDir _object;
-	deleteVehicle _object;
-	detach _objectHelper;
-	deleteVehicle _objectHelper;
-	};
-	if (DZE_cancelBuilding) exitWith {
-	_isOk = false;
-	_cancel = true;
-	_reason = "Cancelled building.";
-	detach _object;
-	deleteVehicle _object;
-	detach _objectHelper;
-	deleteVehicle _objectHelper;
-	};
-	};
-	if(!_cancel) then {
-	_classname = _classnametmp;
-
-	_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-	_tmpbuilt setdir _dir;
-
-	_location = _position;
-	if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then {
-	_location set [2,0];
-	};
-	if (surfaceIsWater _location) then {
-	_tmpbuilt setPosASL _location;
-	_location = ASLtoATL _location;
-	} else {
-	_tmpbuilt setPosATL _location;
-	};
-	cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
-	if (_isPole) then {
-	[] spawn player_plotPreview;
-	};
-	_tmpbuilt setVariable ["OEMPos",_location,true];
-	_tmpbuilt setVariable ["Vars", (["player", (getPlayerUID player), [[],[]]] call MC_kva_set), true];
-	if(_lockable > 1) then {
-	_combinationDisplay = "";
-	switch (_lockable) do {
-	case 2: { 
-	_combination_1 = (floor(random 3)) + 100; 
-	_combination_2 = floor(random 10);
-	_combination_3 = floor(random 10);
-	_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
-	dayz_combination = _combination;
-	if (_combination_1 == 100) then {
-	_combination_1_Display = "Red";
-	};
-	if (_combination_1 == 101) then {
-	_combination_1_Display = "Green";
-	};
-	if (_combination_1 == 102) then {
-	_combination_1_Display = "Blue";
-	};
-	_combinationDisplay = format["%1%2%3",_combination_1_Display,_combination_2,_combination_3];
-	};
-	case 3: { 
-	_combination_1 = floor(random 10);
-	_combination_2 = floor(random 10);
-	_combination_3 = floor(random 10);
-	_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
-	dayz_combination = _combination;
-	_combinationDisplay = _combination;
-	};
-	case 4: { 
-	_combination_1 = floor(random 10);
-	_combination_2 = floor(random 10);
-	_combination_3 = floor(random 10);
-	_combination_4 = floor(random 10);
-	_combination = format["%1%2%3%4",_combination_1,_combination_2,_combination_3,_combination_4];
-	dayz_combination = _combination;
-	_combinationDisplay = _combination;
-	};
-	};
-	_tmpbuilt setVariable ["CharacterID",_combination,true];
-	PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location],_classname];
-	publicVariableServer "PVDZE_obj_Publish";
-	cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5];
-	} else {
-	_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
-
-	if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
-	_tmpbuilt spawn player_fireMonitor;
-	} else {
-	PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
-	publicVariableServer "PVDZE_obj_Publish";
-	};
-	};
-	} else {
-	cutText [format[(localize "str_epoch_player_47"),_text,_reason], "PLAIN DOWN"];
-	};
-	DZE_ActionInProgress = false;
-	};
-	};
-	
-	adminfastupgrade = {
-		PVAH_WriteLogReq = [player, format["%1 - Activated fast upgrade",name player]];
-		publicVariableServer "PVAH_WriteLogReq";
-		player_upgrade = {
-		private ["_location","_dir","_classname","_missing","_text","_proceed","_num_removed","_object","_missingQty","_itemIn","_countIn","_qty","_removed","_removed_total","_tobe_removed_total","_objectID","_objectUID","_temp_removed_array","_textMissing","_newclassname","_requirements","_obj","_upgrade","_lockable","_combination_1","_combination_2","_combination_3","_combination","_objectCharacterID","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_distance","_needText","_findNearestPoles","_findNearestPole","_IsNearPlot"];
-		if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_52") , "PLAIN DOWN"]; };
-		DZE_ActionInProgress = true;
-		player removeAction s_player_upgrade_build;
-		s_player_upgrade_build = 1;
-		_obj = _this select 3;
-		_objectID 	= _obj getVariable ["ObjectID","0"];
-		_objectUID	= _obj getVariable ["ObjectUID","0"];
-		if(_objectID == "0" && _objectUID == "0") exitWith {DZE_ActionInProgress = false; s_player_upgrade_build = -1; cutText [(localize "str_epoch_player_50"), "PLAIN DOWN"];};
-		_classname = typeOf _obj;
-		_text = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
-		_upgrade = getArray (configFile >> "CfgVehicles" >> _classname >> "upgradeBuilding");
-		if ((count _upgrade) > 0) then {
-		_newclassname = _upgrade select 0;
-		_lockable = 0;
-		if(isNumber (configFile >> "CfgVehicles" >> _newclassname >> "lockable")) then {
-		_lockable = getNumber(configFile >> "CfgVehicles" >> _newclassname >> "lockable");
-		};
-		_location	= _obj getVariable["OEMPos",(getposATL _obj)];
-		_dir = getDir _obj;
-		_objectCharacterID 	= _obj getVariable ["CharacterID","0"];
-		_classname = _newclassname;
-		_object = createVehicle [_classname, [0,0,0], [], 0, "CAN_COLLIDE"];
-		_object setDir _dir;
-		_object setPosATL _location;
-		if (_lockable == 3) then {
-		_combination_1 = floor(random 10);
-		_combination_2 = floor(random 10);
-		_combination_3 = floor(random 10);
-		_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
-		_objectCharacterID = _combination;
-		cutText [format[(localize "str_epoch_player_158"),_combination,_text], "PLAIN DOWN", 5];
-		} else {
-		cutText [format[(localize "str_epoch_player_159"),_text], "PLAIN DOWN", 5];
-		};
-		PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location],_classname,_obj,player];
-		publicVariableServer "PVDZE_obj_Swap";
-		player reveal _object;
-		} else {
-		cutText [(localize "str_epoch_player_82"), "PLAIN DOWN"];
-		};
-		DZE_ActionInProgress = false;
-		s_player_upgrade_build = -1;
-		};
+	adminggmassmsg = {
+		disableSerialization;
+		createDialog "RscDisplayPassword";
+		ctrlSetText [1001,"Message:"];
+		ctrlSetText [101,""];
+		ctrlshow [1002,false];
+		buttonSetAction [1, "PVAH_AdminReq = [99997,player,toArray(ctrlText 101)]; publicVariableServer ""PVAH_AdminReq"";"];
 	};
 	
 	admin_fillSpecificMenu =
@@ -14114,6 +13758,19 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 		{
 			GGEventMarkers = [];
 			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99997) then
+		{
+			[nil, nil, rspawn, [_array select 2], {
+				_msg = _this select 0;
+				[
+					"<t color='#ffffff' align='left' size='0.66'><img image='GG\images\logo.paa' /><br />" + toString(_this select 0) + "</t>",
+					0.8,
+					0.6,
+					20,
+					2
+				] spawn BIS_fnc_dynamicText;
+			}] call RE;
 		};
 	};
 	server_onPlayerConnect_infiSTAR =
