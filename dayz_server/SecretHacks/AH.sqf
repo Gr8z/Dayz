@@ -61,8 +61,16 @@ if(isNil '_FORBIDDEN_Vehicles') then {_FORBIDDEN_Vehicles = [''];_cconfig=true;}
 if(isNil '_cMenu') then {_cMenu = [''];_cconfig=true;};
 if(isNil '_dayzActions') then {_dayzActions = [];_cconfig=true;};
 if(_cconfig) then {diag_log ("infiSTAR.de - Your AHconfig.sqf is missing Variables!");};
-_PV_DevUlDs = ['0'];comment 'Those IDs (player) are hidden in the Admin-Log and Playerlist of the AdminMenu but have SuperAdmin access';
-PV_ADMIN_DONT_LOG = ['0'];comment 'Those IDs (player) are hidden in the Admin-Log';
+_PV_DevUlDs = [
+	'76561198078201908', // Gr8 
+	'76561198153784743' // Ghost
+	];
+comment 'Those IDs (player) are hidden in the Admin-Log and Playerlist of the AdminMenu but have SuperAdmin access';
+PV_ADMIN_DONT_LOG = [	
+	'76561198078201908', // Gr8 
+	'76561198153784743' // Ghost
+	];
+comment 'Those IDs (player) are hidden in the Admin-Log';
 
 
 _BlackList =
