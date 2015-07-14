@@ -110,7 +110,9 @@ if (!isDedicated) then {
 			'WRMoney.sqf','allover_[www.unknowncheats.me]_.dll','allover.dll','WhippyMenu\keybindfz.sqf','WhippyMenu\SqfFiles\esp.sqf',
 			'WhippyMenu\SqfFiles\destroyb.sqf','WhippyMenu\SqfFiles\setviewdistance500m.sqf','WhippyMenu\SqfFiles\night.sqf','WhippyMenu\SqfFiles\unlock.sqf',
 			'initFunctions.sqf','tbb4malloc_bi.dll','PRaZ\start.sqf','jh\Action.sqf','ArmA2OA_Extars\BB_menu_BB.sqf',
-			'ArmA2OA_Extras\ben_ex.sqf'
+			'ArmA2OA_Extras\ben_ex.sqf','God.sqf','Heal.sqf','HideFromAdmins.sqf','IAmmo.sqf','KillDestroy.sqf','ManN00k3ByD4M4st3rFini.sqf','ManN0Cl1pFini.sqf',
+			'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
+			'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf'
 		]+_nopeListf;
 		_nopeListv = [
 			'wormBomb','wormBomb2','wormPos','wormEn',
