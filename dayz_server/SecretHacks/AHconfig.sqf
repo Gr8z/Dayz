@@ -139,7 +139,8 @@ _FORBIDDEN_Vehicles =
 	"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","A10","MQ9PredatorB_US_EP1","A10_US_EP1",
 	"CYBP_Camel_rus","Civcar","Civcarbu","civcarbl","Civcarre","Civcarge","Civcarwh","Civcarsl",
 	"CVPI_Patrol","CVPI_Trooper_Patrol","CVPI_TrooperSL_Patrol","CVPI_NYPD_Patrol","CVPI_HighwaySL_Patrol","CVPI_UnmarkedB_Patrol",
-	"CVPI_UnmarkedG_Patrol","CVPI_LAPD_Patrol","CVPI_UnmarkedW_Patrol","CVPI_LAPDSL_Patrol","CVPI_NYPDSL_Patrol","Copcar","Copcarhw","Copcarswat"
+	"CVPI_UnmarkedG_Patrol","CVPI_LAPD_Patrol","CVPI_UnmarkedW_Patrol","CVPI_LAPDSL_Patrol","CVPI_NYPDSL_Patrol","Copcar","Copcarhw","Copcarswat",
+	"M2StaticMG_US_EP1","DSHkM_Mini_TriPod","DSHKM_Gue","KORD_high","KORD","AGS_RU","MK19_TriPod","BAF_GMG_Tripod_D"
 ];
 
 /*  ALLOWED CMDMenus "_cMenu" are only used if you have "_BCM = false;" which I would not recommend.  */
