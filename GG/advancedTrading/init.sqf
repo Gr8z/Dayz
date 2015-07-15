@@ -546,14 +546,6 @@ if(isNil "Z_AdvancedTradingInit")then{
 	
 	};
 
-	/* ----------------------------------------------------------------------------
-	Examples:
-	   _result = [_backpack, ["SmokeShell","M16_AMMO"],["M16","M16","M240"]] call ZUPA_fnc_removeWeaponsAndMagazinesCargo; 
-	   _result == [[1,0,0,1,1,1,0],[1,0,0,1],[1,0]]; // 1 = success, 0 = fail ->( item was not in cargo)
-	   
-	Author:
-	   Zupa 2014-09-30
-	---------------------------------------------------------------------------- */
 	ZUPA_fnc_removeWeaponsAndMagazinesCargo = {
 		private ["_unit", "_items","_weaps","_normalItems","_normalWeaps", "_count", "_i", "_unit_allItems", "_unit_allItems_types", "_unit_allItems_count", "_item_type", "_item_count", "__returnVar"];
 		_unit = _this select 0;

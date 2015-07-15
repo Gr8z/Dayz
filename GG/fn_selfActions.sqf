@@ -546,9 +546,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	// Study Body
 	if (_player_studybody) then {
 		if (s_player_studybody < 0) then {
-		 // --------ZUPA - Check Wallet --------
 				s_player_studybody = player addAction [("<t color=""#68C5C9"">"+("Loot Coins") + "</t>"), "GG\gold\check_wallet.sqf",_cursorTarget, 0, false, true, "",""];
-			// ---- ZUPA END ---
 			};
 	} else {
 		player removeAction s_player_studybody;

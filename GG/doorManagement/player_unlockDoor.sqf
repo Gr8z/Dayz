@@ -1,4 +1,3 @@
-/* Zupa Door Management */
 private ["_display","_obj","_objectCharacterID"];
 
 if(!isNil "DZE_DYN_UnlockDoorInprogress") exitWith { cutText [(localize "str_epoch_player_21") , "PLAIN DOWN"]; };
