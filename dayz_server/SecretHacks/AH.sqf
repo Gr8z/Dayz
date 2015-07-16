@@ -614,10 +614,6 @@ call compile ("
 					if(!isNil 'IRCModule') then
 					{
 						call _fncPunish;
-					};
-					if(ctrlText 292908 != '') then
-					{
-						call _fncPunish;
 					};!isNil 'player'};
 					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 					[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
@@ -1657,7 +1653,7 @@ publicVariable '"+_randvar28+"';
 												[] spawn compile 'disableUserInput true;disableUserInput true;disableUserInput true;';
 												_gg = true;
 											};
-										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
+										} forEach [17,64,155,156,162,1001,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
 									};
 								};
 								if(lbSize 109 > 2) then
@@ -2341,7 +2337,7 @@ publicVariable '"+_randvar28+"';
 					_log = format['bad lbSize 109 - %1',lbSize 109];
 					[_name,_puid,'BAN',toArray (_log)] call "+_randvar37+";
 				};
-				_fbd = 'no';{if(!isNull (findDisplay _x)) exitWith {_fbd = str _x;};} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
+				_fbd = 'no';{if(!isNull (findDisplay _x)) exitWith {_fbd = str _x;};} forEach [17,64,155,156,162,1001,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
 				if(_fbd != 'no') then
 				{
 					[] spawn "+_randvar2+";
