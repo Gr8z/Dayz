@@ -4336,7 +4336,7 @@ publicVariable '"+_randvar28+"';
 								uiSleep 2;
 								systemChat 'SERVER: Asking For Help in SideChat Is forbidden';		
 								uiSleep 1;
-								systemChat 'SERVER: You get ahold of an admin, you must get in Teamspeak Support Channels';
+								systemChat 'SERVER: To get ahold of an admin, you must get in Teamspeak Support Channels';
 								uiSleep 1;
 								systemChat 'Teamspeak Server : TS.GHOSTZGAMERZ.COM';
 							};
