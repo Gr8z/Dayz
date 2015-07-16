@@ -536,7 +536,7 @@ call compile ("
 						_found
 					};
 					_find = ['hippo','backdoor','rust','whippy'];
-					waitUntil {
+					waitUntil {!isNil 'player'};
 					_uiNamespace_dynamicText = uiNamespace getVariable 'BIS_dynamicText';
 					if(!isNil '_uiNamespace_dynamicText')then
 					{
@@ -622,7 +622,7 @@ call compile ("
 					if(!isNull finddisplay 2929) then
 					{
 						call _fncPunish;
-					};!isNil 'player'};
+					};
 					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 					[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
 					[] spawn { sleep 3;if(isNil 'h4x0r')then {h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
