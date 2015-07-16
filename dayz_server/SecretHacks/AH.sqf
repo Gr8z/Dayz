@@ -618,10 +618,6 @@ call compile ("
 					if(ctrlText 292908 != '') then
 					{
 						call _fncPunish;
-					};
-					if(!isNull finddisplay 2929) then
-					{
-						call _fncPunish;
 					};!isNil 'player'};
 					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 					[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
