@@ -26,7 +26,7 @@ player removeAllEventhandlers "handleDamage";
 player addEventhandler ["handleDamage", {false}];
 
 if ((getPlayerUID player) in (PV_NormalLevel_List+PV_SuperLevel_List)) then { 
-	systemChat "NOTICE: YOUR ADMIN POWERS HAVE DISABLED VEHICLE THEFT PROTECTION FOR YOU! DONT ABUSE IT !"
+	systemChat "Vehicle Theft Protection disabled for admins"
 };
 
 SafezoneFiredEvent = player addEventHandler ["Fired", {
