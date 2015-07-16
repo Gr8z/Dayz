@@ -5755,7 +5755,7 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Mass Message",adminggmassmsg,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Fire Weapon In Trader",adminfireintrader,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Fire Weapon In Trader / During 30s",adminfireintrader,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Ground Fog",admingroundfog,"0","0","0","0",[]];
 		adminadd = adminadd + ["  Smokey",fnc_attach_smoke,"0","0","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -5917,6 +5917,7 @@ PV_AdminMainCode = {
 	
 	adminfireintrader = {
 		player removeEventHandler ["Fired", SafezoneFiredEvent];
+		player removeEventHandler ["Fired", SafezoneFiredEvent2];
 	};
 	
 	admingroundfog = {
