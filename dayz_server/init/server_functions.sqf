@@ -1022,3 +1022,5 @@ cad_pvar_shared_var = 0; cad_pvar_server_answer = 1;
 "cad_pvar_shared_var" addPublicVariableEventHandler {
 	owner (_this select 1) publicVariableClient "cad_pvar_server_answer";
 };
+
+#include "cleanup.sqf"
