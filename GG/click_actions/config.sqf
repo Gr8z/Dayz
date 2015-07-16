@@ -37,5 +37,6 @@ DZE_CLICK_ACTIONS = [
 	["ItemRadio","Group Management","execVM 'GG\group\loadGroupManagement.sqf';","true"],
 	["ItemToolbox","Open Action Menu","[] execVM 'GG\menu\actionmenu_main.sqf';","true"],
 	["ItemKnife","Harvest weed","execVM 'GG\weed\harvest.sqf';","true"],
-	["ItemGPS","Scan players (1000m)","execVM 'GG\player_nearMe.sqf';","true"]
+	["ItemGPS","Scan players (1000m)","execVM 'GG\player_nearMe.sqf';","true"],
+	["ItemMap","Call Air Drop","execVM 'GG\carepackage.sqf';","true"]
 ];
