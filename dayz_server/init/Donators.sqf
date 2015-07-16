@@ -368,6 +368,7 @@ Soldier3 = [
 	"76561198086059861", // amanoftomorrow(OD-2015-05-30) #9234
 	"76561198063792194", // PunkTurtle(OD-2015-06-01) #9282
 	"76561198236007414", // PunkTurtle(OD-2015-07-11) #9969
+	"76561198097943293", // II Isolation(OD-2015-07-16) #10085 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
