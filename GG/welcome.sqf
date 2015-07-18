@@ -54,5 +54,6 @@ _role11names = ["Press Right ALT to Open up a Great Menu","Activate it when you 
 	[_role7, _role7names],
 	[_role8, _role8names],
 	[_role9, _role9names],
-	[_role10, _role10names]			//make SURE the last one here does NOT have a , at the end
+	[_role10, _role10names],			
+	[_role11, _role11names]			//make SURE the last one here does NOT have a , at the end
 ];
