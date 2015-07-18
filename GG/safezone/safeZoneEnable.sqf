@@ -25,10 +25,6 @@ player allowDamage false;
 player removeAllEventhandlers "handleDamage";
 player addEventhandler ["handleDamage", {false}];
 
-if ((getPlayerUID player) in (PV_NormalLevel_List+PV_SuperLevel_List)) then { 
-	systemChat "Vehicle Theft Protection disabled for admins"
-};
-
 SafezoneFiredEvent = player addEventHandler ["Fired", {
 	cutText ['You can not fire in a SafeZone!','WHITE IN'];
 	NearestObject [_this select 0,_this select 4] setPos [0,0,0];
@@ -84,7 +80,7 @@ SafezoneTheft = [] spawn {
 		_countNear = count _near;
 		if (_countNear > 0) then {
 			_countNearFriends = {_x in _friends || _playerID in (_x getVariable ["friendlies",[]])} count _near;
-			if (_countNear > _countNearFriends && !isNull findDisplay 106 && !((getPlayerUID player) in (PV_NormalLevel_List+PV_SuperLevel_List))) then {
+			if (_countNear > _countNearFriends && !isNull findDisplay 106) then {
 				(findDisplay 106) closedisplay 0;
 				closeDialog 0;closeDialog 0;closeDialog 0;
 				cutText [format['%1, You are near another player, cannot access gear.',name player],'PLAIN'];
@@ -100,7 +96,7 @@ SafezoneTheft = [] spawn {
 			_owner = _x getVariable ['owner',objNull];
 			_owner in _friends || _playerID in (_owner getVariable ["friendlies",[]])
 		} count _near;
-		if (_countNear > _countNearMine && !isNull findDisplay 106 && !((getPlayerUID player) in (PV_NormalLevel_List+PV_SuperLevel_List))) then {
+		if (_countNear > _countNearMine && !isNull findDisplay 106) then {
 			(findDisplay 106) closedisplay 0;
 			closeDialog 0;closeDialog 0;closeDialog 0;
 			cutText [format["%1. You are near other player's vehicle, you cannot access gear",name player],"PLAIN"];
@@ -134,7 +130,7 @@ SafezoneVechicles = [] spawn {
 			_ownerGroup = units group _veh_owner;
 			_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
 			_playerID = player getVariable ["CharacterID","0"];
-			if !((player in _ownerGroup || _playerID in _ownerGroupTag) && !((getPlayerUID player) in (PV_NormalLevel_List+PV_SuperLevel_List))) then {
+			if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
 				cutText [format['%1, You are in a vehicle owned by another player',name player],'WHITE IN'];
 				player action ['getOut', player_veh];
 			};
