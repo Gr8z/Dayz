@@ -119,17 +119,19 @@ SafezoneVechicles = [] spawn {
 		
 		_player_driver = player == driver player_veh;
 		_veh_owner = player_veh getVariable ['owner', objNull];
+		_ownerGroup = units group _veh_owner;
+		_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
+		_playerID = player getVariable ["CharacterID","0"];
 		if (isNull _veh_owner) then {
 			if (_player_driver) then {
 				player_veh setVariable ['owner', player, true]; _veh_owner = player;
 			} else {
-				cutText [format['%1, This is an abondoned vehicle. Enter in the driver/pilot seat to claim this vehicle.',name player],'PLAIN'];
-				player action ['getOut', player_veh];
+				if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
+					cutText [format['%1, This is an abondoned vehicle. Enter in the driver/pilot seat to claim this vehicle.',name player],'PLAIN'];
+					player action ['getOut', player_veh];
+				};
 			};
 		} else {
-			_ownerGroup = units group _veh_owner;
-			_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
-			_playerID = player getVariable ["CharacterID","0"];
 			if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
 				cutText [format['%1, You are in a vehicle owned by another player',name player],'WHITE IN'];
 				player action ['getOut', player_veh];
