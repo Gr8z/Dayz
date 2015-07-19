@@ -376,6 +376,7 @@ Soldier3 = [
 	"76561198097943293", // II Isolation(OD-2015-07-16) #10085 
 	"76561198041667610", // HughJay_Nus- Free
 	"76561198058407594", // lucience(OD-2015-07-17) #10108
+	"76561198166231771", // Wombat(OD-2015-07-18) #10131
 	// Add UIDs above, don't forget the comma
 "0"
 ];
