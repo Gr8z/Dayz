@@ -105,6 +105,7 @@ Engineer3 = [
 	"76561198045062229", // JKard(OD-2015-07-09)#9924
 	"76561198058099842", // Fap Admin Loadout
 	"76561198070838770", // [KRT] Joseph(OD-2015-07-16)#10095
+	"76561198093077131", // (KRT) Bomstock(OD-2015-07-19)#10146
 	// Add UIDs above, don't forget the comma
 "0"
 ];
