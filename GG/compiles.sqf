@@ -144,7 +144,6 @@ if (!isDedicated) then {
 	player_getVehicle = 			compile preprocessFileLineNumbers "GG\garage\getvehicle.sqf";
 	player_storeVehicle = 			compile preprocessFileLineNumbers "GG\garage\player_storeVehicle.sqf";
 	vehicle_info = 					compile preprocessFileLineNumbers "GG\garage\vehicle_info.sqf";
-	player_build_custom	= 			compile preprocessFileLineNumbers "GG\garage\player_build_custom.sqf";
 	
 	player_fired =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";			//Runs when player fires. Alerts nearby Zeds depending on calibre && audial rating
 	player_harvest =				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_harvest.sqf";
@@ -222,6 +221,7 @@ if (!isDedicated) then {
 	player_goFishing =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_goFishing.sqf";
 
 		player_build =				compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Action\modular_build.sqf";
+		player_build_custom	= 		compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Action\player_build_custom.sqf";
 		fnc_SetPitchBankYaw =       compile preprocessFileLineNumbers "GG\BuildVectors\fnc_SetPitchBankYaw.sqf";
 		DZE_build_vector_file =     "GG\BuildVectors\build_vectors.sqf";
 		build_vectors =             compile preprocessFileLineNumbers DZE_build_vector_file;
