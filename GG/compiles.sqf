@@ -144,6 +144,7 @@ if (!isDedicated) then {
 	player_getVehicle = 			compile preprocessFileLineNumbers "GG\garage\getvehicle.sqf";
 	player_storeVehicle = 			compile preprocessFileLineNumbers "GG\garage\player_storeVehicle.sqf";
 	vehicle_info = 					compile preprocessFileLineNumbers "GG\garage\vehicle_info.sqf";
+	player_build_garage	= 			compile preprocessFileLineNumbers "GG\garage\player_build_garage.sqf";
 	
 	player_fired =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";			//Runs when player fires. Alerts nearby Zeds depending on calibre && audial rating
 	player_harvest =				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_harvest.sqf";

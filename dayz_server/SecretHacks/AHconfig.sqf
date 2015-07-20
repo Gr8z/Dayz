@@ -154,7 +154,7 @@ _cMenu =
 	"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu",
 	"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:DamiSpawn","#USER:VoteMenu",
 	"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass",
-	"BTC_Hud","PlotManagement","#USER:EarMenu"
+	"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu"
 ];
 
 /*  ALLOWED Actions "_dayzActions" are only used if you have "_CSA =  true;"  */

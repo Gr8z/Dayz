@@ -623,16 +623,11 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	};
 	
 	//Garage
-   	if(_typeOfCursorTarget in DZE_Garage && (player distance _cursorTarget < 5)) then {
-		if (s_garage_dialog2 < 0) then {
-			s_garage_dialog2 = player addAction ["Vehicle Garage", "GG\garage\vehicle_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
-		};
+	if (_typeOfCursorTarget in DZE_Garage) then {
 		if (s_garage_dialog < 0) then {
-			s_garage_dialog = player addAction ["Store Vehicle in Garage", "GG\garage\vehicle_store_list.sqf",_cursorTarget, 3, true, true, "", ""];
+			s_garage_dialog = player addAction ["Manage Garage","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
 		};
 	} else {
-		player removeAction s_garage_dialog2;
-		s_garage_dialog2 = -1;
 		player removeAction s_garage_dialog;
 		s_garage_dialog = -1;
 	};
@@ -1123,8 +1118,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	player removeAction s_player_towing;
 	s_player_towing = -1;
 	//Garage
-	player removeAction s_garage_dialog2;
-	s_garage_dialog2 = -1;
 	player removeAction s_garage_dialog;
 	s_garage_dialog = -1;
 	player removeAction s_player_fuelauto;

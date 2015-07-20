@@ -38,5 +38,9 @@ DZE_CLICK_ACTIONS = [
 	["ItemToolbox","Open Action Menu","[] execVM 'GG\menu\actionmenu_main.sqf';","true"],
 	["ItemKnife","Harvest weed","execVM 'GG\weed\harvest.sqf';","true"],
 	["ItemGPS","Scan players (1000m)","execVM 'GG\player_nearMe.sqf';","true"],
-	["ItemMap","Call Air Drop","execVM 'GG\carepackage.sqf';","true"]
+	["ItemMap","Call Air Drop","execVM 'GG\carepackage.sqf';","true"],
+	
+	// GARAGE
+	["ItemCitrine","Build Garage","['Land_MBG_Garage_Single_C','Vehicle Garage','ItemCitrine'] spawn player_build_garage;","true"],
+	["ItemAmethyst","Build Spawn Point","['HeliHCivil','Vehicle Garage Spawn Point','ItemAmethyst'] spawn player_build_garage;","true"]
 ];
