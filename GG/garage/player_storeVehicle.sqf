@@ -52,7 +52,7 @@ waitUntil {!isNil "PVDZE_queryGarageVehicleResult"};
 _vehicles = PVDZE_queryGarageVehicleResult;
 PVDZE_queryGarageVehicleResult = nil;
 
-GarageSlots = 3;
+if (getPlayerUID player in GarageDonor) then { GarageSlots = 6;} else {GarageSlots = 3; };
 
 if	(count _vehicles < GarageSlots) then
 {
@@ -81,5 +81,9 @@ if	(count _vehicles < GarageSlots) then
 
 	DZE_ActionInProgress = false;
 } else {
-	cutText ["You store anymore vehicles, your garage is full.", "PLAIN DOWN"];
+	if (getPlayerUID player in GarageDonor) then {
+		cutText ["You store more than 6 vehicles, your garage is full.", "PLAIN DOWN"];
+	} else {
+		cutText ["You store anymore vehicles, your garage is full. Donate to get a 6 slot capacity", "PLAIN DOWN"];
+	};	
 };
