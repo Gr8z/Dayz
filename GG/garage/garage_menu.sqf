@@ -1,4 +1,4 @@
-_info = "This is a Hived Vehicle Garage system. You can your vehicles here with or without gear. It will be saved virtually and will be accessible from all garages and vehicle traders accross the maps. You can also access these vehicles across all our servers."
+_info = "This is a Hived Vehicle Garage system. You can your vehicles here with or without gear. It will be saved virtually and will be accessible from all garages and vehicle traders accross the maps. You can also access these vehicles across all our servers.";
 
 GGgarageMenu =
 [
