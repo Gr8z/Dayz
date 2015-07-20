@@ -52,7 +52,9 @@ waitUntil {!isNil "PVDZE_queryGarageVehicleResult"};
 _vehicles = PVDZE_queryGarageVehicleResult;
 PVDZE_queryGarageVehicleResult = nil;
 
-if	(count _vehicles > 2) then
+GarageSlots = 3;
+
+if	(count _vehicles < GarageSlots) then
 {
 	DZE_ActionInProgress = true;
 	if(_charID != "0") then {
