@@ -91,7 +91,7 @@ if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText
 if(_IsNearPlot == 0) then {
 
 	// Allow building of plotpole or items not requiring a plot pole
-	if(!(_requireplot) || _isLandFireDZ) then {
+	if(_requireplot == 0 || _isLandFireDZ) then {
 		_canBuildOnPlot = true;
 	};
 
