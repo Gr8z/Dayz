@@ -8,7 +8,6 @@ ctrlShow[3803,false];
 ctrlShow[3830,false];
 waitUntil {!isNull (findDisplay 3800)};
 
-
 if(count _obj == 0) exitWith
 {
 	ctrlSetText[3811,"No Vehicles"];

@@ -41,27 +41,43 @@ _added = [player, Pricegear] call SC_fnc_removeCoins;
 Pricegear = nil;
 
 if(!_added) exitWith {cutText ["You don't have enough money.", "PLAIN DOWN"];};
-DZE_ActionInProgress = true;
-if(_charID != "0") then {
-[_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
+
+PVDZE_queryGarageVehicle = [player];
+publicVariableServer "PVDZE_queryGarageVehicle";
+
+cutText ["Requesting your garage Info....", "PLAIN DOWN"];
+
+waitUntil {!isNil "PVDZE_queryGarageVehicleResult"};
+
+_vehicles = PVDZE_queryGarageVehicleResult;
+PVDZE_queryGarageVehicleResult = nil;
+
+if(count _vehicles > 2) exitWith
+{
+	DZE_ActionInProgress = true;
+	if(_charID != "0") then {
+	[_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
+	};
+
+	_obj setvehiclelock "locked";
+
+	_vehName = getText(configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
+
+	PVDZE_storeVehicle = [_obj, _unit, _wogear];
+	publicVariableServer "PVDZE_storeVehicle";
+	waitUntil {!isNil "PVDZE_storeVehicleResult"};
+
+	PVDZE_obj_Delete = [_objectID,_objectUID,_unit];
+	publicVariableServer "PVDZE_obj_Delete";
+
+	deleteVehicle _obj;
+
+	PVDZE_storeVehicleResult = nil;
+	uiSleep 2;
+
+	cutText [""+_vehName+" stored in your Garage!", "PLAIN DOWN"];
+
+	DZE_ActionInProgress = false;
+} else {
+	cutText ["You store anymore vehicles, your garage is full.", "PLAIN DOWN"];
 };
-
-_obj setvehiclelock "locked";
-
-_vehName = getText(configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
-
-PVDZE_storeVehicle = [_obj, _unit, _wogear];
-publicVariableServer "PVDZE_storeVehicle";
-waitUntil {!isNil "PVDZE_storeVehicleResult"};
-
-PVDZE_obj_Delete = [_objectID,_objectUID,_unit];
-publicVariableServer "PVDZE_obj_Delete";
-
-deleteVehicle _obj;
-
-PVDZE_storeVehicleResult = nil;
-uiSleep 2;
-
-cutText [""+_vehName+" stored in your Garage!", "PLAIN DOWN"];
-
-DZE_ActionInProgress = false;
