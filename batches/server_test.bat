@@ -44,7 +44,7 @@ move C:\Dayz\maps\cherno\GG C:\Dayz\
 echo.
 echo Starting Dayz Server
 timeout 1
-start /REALTIME "arma2" /min "E:\A2Server\server_test.exe" "-port=2362" "-config=server_test\config.cfg" "-mod=@DayzOverwatch;@DayZ_Epoch;@server_test;" "-cfg=server_test\basic.cfg" "-profiles=server_test" "-name=server_test" "-malloc=tbb3malloc_bi"  -world=Chernarus -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
+start /REALTIME "arma2" /min "E:\A2Server\server_test.exe" "-port=2362" "-config=server_test\config.cfg" "-mod=@DayzOverwatch;@DayZ_Epoch;@server_test;@extDB" "-cfg=server_test\basic.cfg" "-profiles=server_test" "-name=server_test" "-malloc=tbb3malloc_bi"  -world=Chernarus -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
 echo.
 echo.
 cls

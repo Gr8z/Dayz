@@ -140,6 +140,11 @@ if (!isDedicated) then {
 	DoorAddFriend 		= compile preprocessFileLineNumbers "GG\doorManagement\doorAddFriend.sqf";
 	DoorRemoveFriend 	= compile preprocessFileLineNumbers "GG\doorManagement\doorRemoveFriend.sqf";
 	
+	//Garage
+	player_getVehicle = 			compile preprocessFileLineNumbers "GG\garage\getvehicle.sqf";
+	player_storeVehicle = 			compile preprocessFileLineNumbers "GG\garage\player_storeVehicle.sqf";
+	vehicle_info = 					compile preprocessFileLineNumbers "GG\garage\vehicle_info.sqf";
+	
 	player_fired =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";			//Runs when player fires. Alerts nearby Zeds depending on calibre && audial rating
 	player_harvest =				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_harvest.sqf";
 	player_packTent =				compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\player_packTent.sqf";

@@ -72,6 +72,10 @@ if (isServer) then {
 	"PVDZE_plr_DeathB"		addPublicVariableEventHandler {(_this select 1) spawn server_deaths};
 
 	"PVDZE_log_lockUnlock" addPublicVariableEventHandler {(_this select 1) spawn server_logUnlockLockEvent};
+	
+	"PVDZE_queryGarageVehicle" addPublicVariableEventHandler {(_this select 1) spawn server_queryGarageVehicle};
+	"PVDZE_spawnVehicle" addPublicVariableEventHandler {(_this select 1) spawn server_spawnVehicle};
+	"PVDZE_storeVehicle" addPublicVariableEventHandler {(_this select 1) spawn server_storeVehicle};
 };
 
 //Client only
