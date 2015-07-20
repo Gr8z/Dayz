@@ -282,6 +282,7 @@ dayz_resetSelfActions = {
 	s_player_bury_human = -1;
 	s_player_clothes = -1;
 	s_garage_dialog = -1;
+	s_player_managedoor = -1;
 };
 call dayz_resetSelfActions;
 
