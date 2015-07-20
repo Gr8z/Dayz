@@ -1,4 +1,3 @@
-// Developed by [GZA] David for German Zombie Apocalypse Servers (https://zombieapo.eu/)
 private["_obj","_control","_displayName","_class"];
 createDialog "vehicle_store_list";
 disableSerialization;

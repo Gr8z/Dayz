@@ -1,4 +1,3 @@
-// Developed by [GZA] David for German Zombie Apocalypse Servers (https://zombieapo.eu/)
 private["_control","_index","_vehicle","_class","_magazineslots","_weaponslots","_backpackslots","_magazineCount_raw","_weaponsCount_raw","_backpackCount_raw","_magazineCount","_weaponsCount","_backpackCount","_price","_pricemagazine","_priceweapons","_pricebackpack","_pricegear"];
 disableSerialization;
 _control = _this select 0;

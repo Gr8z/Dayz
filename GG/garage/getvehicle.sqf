@@ -1,4 +1,3 @@
-// Developed by [GZA] David for German Zombie Apocalypse Servers (https://zombieapo.eu/)
 private["_vehicle","_vehicleClass","_dir","_helipad","_location","_veh","_location","_veh","_result","_id","_inventory","_backpack","_fuel","_damage","_id"];
 if(lbCurSel 2802 == -1) exitWith {hint  "No Vehicle selected"};
 closeDialog 0;

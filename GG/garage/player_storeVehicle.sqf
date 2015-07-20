@@ -1,4 +1,3 @@
-// Developed by [GZA] David for German Zombie Apocalypse Servers (https://zombieapo.eu/)
 private["_unit","_obj","_wogear","_charID","_objectID","_keyavailable","_keyColor","_added","_objectUID","_key"];
 if(lbCurSel 3802 == -1) exitWith {hint  "No Vehicle selected"};
 _unit = player;
