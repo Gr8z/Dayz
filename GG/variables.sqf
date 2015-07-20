@@ -274,6 +274,14 @@ dayz_resetSelfActions = {
 	s_player_plot_boundary_on = -1;
 	s_player_plot_boundary_off = -1;
 	s_player_plot_take_ownership = -1;
+	s_givemoney_dialog = -1;
+	s_bank_dialog2 = -1;
+	s_player_special_backpack = -1;
+	s_clothes = -1;
+	s_player_claimkey = -1;
+	s_player_bury_human = -1;
+	s_player_clothes = -1;
+	s_garage_dialog = -1;
 };
 call dayz_resetSelfActions;
 

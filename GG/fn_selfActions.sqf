@@ -685,19 +685,6 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		{player removeAction _x} count s_player_combi;s_player_combi = [];
 		s_player_unlockvault = -1;
 	};
-/*	
-		//banking
-	
-	if(_typeOfCursorTarget in DZE_UnLockedStorage and (player distance _cursorTarget < 3)) then {
-		if (s_bank_dialog < 0) then {
-				s_bank_dialog = player addAction ["Online Banking", "GG\gold\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];	
-		};
-	} else {
-     	player removeAction s_bank_dialog;
-		s_bank_dialog = -1;
-	};
-	*/
-	// banking atm
 	
 	if(_typeOfCursorTarget in DZE_ATM  and (player distance _cursorTarget < 3)) then {		
 		if (s_bank_dialog2 < 0) then {
@@ -1124,11 +1111,8 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_player_fuelauto = -1;
 	player removeAction s_player_fuelauto2;
 	s_player_fuelauto2 = -1;
-
 	player removeAction s_givemoney_dialog;
 	s_givemoney_dialog = -1;
-	player removeAction s_bank_dialog;
-	s_bank_dialog = -1;
 	player removeAction s_bank_dialog2;
 	s_bank_dialog2 = -1;	
 	player removeAction s_player_packOBJ;
