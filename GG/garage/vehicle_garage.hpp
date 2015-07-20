@@ -30,7 +30,7 @@ class vehicle_garage
 		class Title : Life_RscTitle
 		{
 			idc = 2801;
-			text = "Garage";
+			text = "[GG] Overpoch Hive Garage";
 			x = 0.1;
 			y = 0.2;
 			w = 0.8;
@@ -119,7 +119,7 @@ class vehicle_garage
 		class MainHideText : Life_RscText
 		{
 			idc = 2811;
-			text = "Search for vehicles ...";
+			text = "Searching for vehicles ...";
 			sizeEx = 0.06;
 			x = 0.24; y = 0.5;
 			w = 0.6;
@@ -260,7 +260,7 @@ class vehicle_store_list
 		class MainHideText : Life_RscText
 		{
 			idc = 3811;
-			text = "Search for vehicles ...";
+			text = "Searching for vehicles ...";
 			sizeEx = 0.06;
 			x = 0.24; y = 0.5;
 			w = 0.6;
