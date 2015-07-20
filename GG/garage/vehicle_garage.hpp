@@ -88,6 +88,7 @@ class vehicle_garage
 			text = "";
 			sizeEx = 0.04;
 			colorBackground[] = {0.1,0.1,0.1,0.9};
+			soundSelect[] = {"",0.1,1};
 			onLBSelChanged = "";
 			
 			//Position & height
@@ -229,6 +230,7 @@ class vehicle_store_list
 			text = "";
 			sizeEx = 0.04;
 			colorBackground[] = {0.1,0.1,0.1,0.9};
+			soundSelect[] = {"",0.1,1};
 			onLBSelChanged = "_this call vehicle_info;";
 			
 			//Position & height
