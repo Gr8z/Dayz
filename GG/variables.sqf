@@ -748,8 +748,11 @@ dayz_allowedObjects = StaticVehicleArray + ["TentStorage","TentStorageDomed","Te
 "Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked",
 "CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ",
 "CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ","WoodRamp_DZ","GunRack_DZ","FireBarrel_DZ","WoodCrate_DZ","Scaffolding_DZ",
-"Land_Fort_Watchtower_EP1","MAP_Misc_WellPump","Land_pumpa","Land_Fire_barrel_burning","FireBarrel_DZ","Land_Campfire_burning","ASC_runway_BluelightB","ASC_runway_YellowlightB","HeliHCivil","Land_fortified_nest_big_EP1","Land_radar_EP1","Land_Ind_IlluminantTower","Land_vez","Land_A_Castle_Stairs_A","Sign_Checkpoint_US_EP1","Land_Ind_TankSmall2_EP1","Land_CncBlock_Stripes","ZavoraAnim","RampConcrete","WarfareBCamp","Land_Climbing_Obstacle","MAP_leseni2x","MAP_leseni4x","mbg_slum01_EO","mbg_slum02_EO","mbg_slum03h_EO" 
-,"Land_Misc_Cargo2E","Land_Misc_Cargo1C","Land_sara_hasic_zbroj","SearchLight_TK_EP1","Infostand_2_EP1"
+"Land_Fort_Watchtower_EP1","MAP_Misc_WellPump","Land_pumpa","Land_Fire_barrel_burning","FireBarrel_DZ","Land_Campfire_burning","ASC_runway_BluelightB","ASC_runway_YellowlightB",
+"HeliHCivil","Land_fortified_nest_big_EP1","Land_radar_EP1","Land_Ind_IlluminantTower","Land_vez","Land_A_Castle_Stairs_A","Sign_Checkpoint_US_EP1","Land_Ind_TankSmall2_EP1","Land_CncBlock_Stripes",
+"ZavoraAnim","RampConcrete","WarfareBCamp","Land_Climbing_Obstacle","MAP_leseni2x","MAP_leseni4x","mbg_slum01_EO","mbg_slum02_EO","mbg_slum03h_EO",
+"Land_Misc_Cargo2E","Land_Misc_Cargo1C","Land_sara_hasic_zbroj","SearchLight_TK_EP1","Infostand_2_EP1",
+"Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C"
 ];
 
 //#########################INDESTRUCTIBLE ITEMS#########################

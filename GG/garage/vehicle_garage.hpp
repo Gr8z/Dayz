@@ -232,7 +232,6 @@ class vehicle_store_list
 			colorBackground[] = {0.1,0.1,0.1,0.9};
 			soundSelect[] = {"",0.1,1};
 			onLBSelChanged = "_this call vehicle_info;";
-			
 			//Position & height
 			x = 0.11; y = 0.302;
 			w = 0.303; h = 0.49;

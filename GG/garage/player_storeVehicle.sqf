@@ -1,5 +1,6 @@
 private["_unit","_obj","_wogear","_charID","_objectID","_keyavailable","_keyColor","_added","_objectUID","_key"];
-if(lbCurSel 3802 == -1) exitWith {hint  "No Vehicle selected"};
+if (DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
+if	(lbCurSel 3802 == -1) exitWith {hint  "No Vehicle selected"};
 _unit = player;
 _obj = StoreVehicleList select (lbCurSel 3802);
 StoreVehicleList = nil;
@@ -11,11 +12,6 @@ closeDialog 0;
 _charID	= _obj getVariable ["CharacterID","0"];
 _objectID = _obj getVariable ["ObjectID","0"];
 _objectUID	= _obj getVariable ["ObjectUID","0"];
-
-if (_objectID == "1") exitWith {cutText ["Can not store mission vehicle.", "PLAIN DOWN"];}; // Check for mission vehicle WAI Script
-
-
-
 
 _keyavailable = false;
 _keyColor = ["ItemKeyYellow","ItemKeyBlue","ItemKeyRed","ItemKeyGreen","ItemKeyBlack"];
@@ -40,12 +36,14 @@ _added = [player, Pricegear] call SC_fnc_removeCoins;
 Pricegear = nil;
 
 if(!_added) exitWith {cutText ["You don't have enough money.", "PLAIN DOWN"];};
+DZE_ActionInProgress = true;
 if(_charID != "0") then {
 [_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
 };
 
 _obj setvehiclelock "locked";
 
+_vehName = getText(configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
 
 PVDZE_storeVehicle = [_obj, _unit, _wogear];
 publicVariableServer "PVDZE_storeVehicle";
@@ -57,5 +55,8 @@ publicVariableServer "PVDZE_obj_Delete";
 deleteVehicle _obj;
 
 PVDZE_storeVehicleResult = nil;
-sleep 2;
-cutText ["Stored Vehicle in Garage.", "PLAIN DOWN"];
+uiSleep 2;
+
+cutText [""+_vehName+" stored in your Garage!", "PLAIN DOWN"];
+
+DZE_ActionInProgress = false;
