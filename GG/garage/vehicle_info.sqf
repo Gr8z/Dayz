@@ -62,8 +62,6 @@ _pricegear = _pricebackpack + _priceweapons + _pricemagazine;
 Pricegear = _pricegear;
 
 
-
-
 ((findDisplay 3800) displayCtrl 3803) ctrlSetStructuredText parseText format[
 	   (" Price without gear:")+ " %1<br/>
 	" +("Price with gear:")+ " %2 coins<br/>

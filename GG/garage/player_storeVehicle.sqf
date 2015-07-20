@@ -58,5 +58,6 @@ PVDZE_storeVehicleResult = nil;
 uiSleep 2;
 
 cutText [""+_vehName+" stored in your Garage!", "PLAIN DOWN"];
+SystemChat "You can access stored vehicles from vehicle traders and Garage All over the map. You can also access this vehicle accross all GG Overpoch Servers."
 
 DZE_ActionInProgress = false;

@@ -89,33 +89,23 @@ _IsNearPlot = count (_findNearestPole);
 if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
 if(_IsNearPlot == 0) then {
-	// Allow building of plot
-	if(_requireplot == 0 || _isLandFireDZ) then {
+
+	// Allow building of plotpole or items not requiring a plot pole
+	if(!(_requireplot) || _isLandFireDZ) then {
 		_canBuildOnPlot = true;
 	};
+
 } else {
-	// check nearby plots ownership && then for friend status
+	// Since there are plot poles nearby we need to check ownership && friend status
+
+	// check nearest pole only
 	_nearestPole = _findNearestPole select 0;
 
-	// Find owner
-	_playerID = getPlayerUID player;
-	_ownerID = _nearestPole getVariable ["ownerPUID","0"];
-
-	// check if friendly to owner
-	if(_playerID == _ownerID) then {  //Keep ownership
-		// owner can build anything within his plot except other plots
-		if(!_isPole) then {
-			_canBuildOnPlot = true;
-		};
-	} else {
-		// disallow building plot
-		if(!_isPole) then {
-			_friendlies		= player getVariable ["friendlyTo",[]];
-			// check if friendly to owner
-			if(_ownerID in _friendlies) then {
-				_canBuildOnPlot = true;
-			};
-		};
+	_buildcheck = [player, _nearestPole] call FNC_check_owner;
+	_isowner = _buildcheck select 0;
+	_isfriendly = _buildcheck select 1;
+	if ((_isowner) || (_isfriendly)) then {
+		_canBuildOnPlot = true;
 	};
 };
 
