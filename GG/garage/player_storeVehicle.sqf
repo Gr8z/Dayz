@@ -7,7 +7,12 @@ StoreVehicleList = nil;
 _wogear = _this select 0;
 closeDialog 0;
 
+_debloyed = _obj getVariable["Deployed", false];
+if (_debloyed) exitWith { cutText ["You cannot store deployed vehicles!","PLAIN DOWN"]; };
 
+//Exploit fix
+_GGsold = _obj getVariable["GGsold", false];
+if (_GGsold) exitWith { cutText ["This vehicle is already sold","PLAIN DOWN"]; };
 
 _charID	= _obj getVariable ["CharacterID","0"];
 _objectID = _obj getVariable ["ObjectID","0"];
@@ -58,6 +63,5 @@ PVDZE_storeVehicleResult = nil;
 uiSleep 2;
 
 cutText [""+_vehName+" stored in your Garage!", "PLAIN DOWN"];
-SystemChat "You can access stored vehicles from vehicle traders and Garage All over the map. You can also access this vehicle accross all GG Overpoch Servers."
 
 DZE_ActionInProgress = false;
