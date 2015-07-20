@@ -52,11 +52,11 @@ waitUntil {!isNil "PVDZE_queryGarageVehicleResult"};
 _vehicles = PVDZE_queryGarageVehicleResult;
 PVDZE_queryGarageVehicleResult = nil;
 
-if(count _vehicles > 2) exitWith
+if	(count _vehicles > 2) then
 {
 	DZE_ActionInProgress = true;
 	if(_charID != "0") then {
-	[_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
+		[_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
 	};
 
 	_obj setvehiclelock "locked";

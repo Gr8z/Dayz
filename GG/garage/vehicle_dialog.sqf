@@ -14,7 +14,7 @@ PVDZE_queryGarageVehicleResult = nil;
 
 if(count _vehicles == 0) exitWith
 {
-	ctrlSetText[2811,"No Vehicle"];
+	ctrlSetText[2811,"No Vehicles Found"];
 
 };
 
