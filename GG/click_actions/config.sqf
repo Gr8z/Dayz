@@ -41,6 +41,6 @@ DZE_CLICK_ACTIONS = [
 	["ItemMap","Call Air Drop","execVM 'GG\carepackage.sqf';","true"],
 	
 	// GARAGE
-	["ItemCitrine","Build Garage","['Land_MBG_Garage_Single_D','Vehicle Garage','ItemCitrine'] spawn player_build_custom;","true"],
-	["ItemAmethyst","Build Spawn Point","['HeliHCivil','Vehicle Garage Spawn Point','ItemAmethyst'] spawn player_build_custom;","true"]
+	["ItemEtool","Build Garage","['Land_MBG_Garage_Single_D','Vehicle Garage','ItemBriefcase100oz'] spawn player_build_custom;","true"],
+	["ItemEtool","Build Spawn Point","['HeliHCivil','Vehicle Garage Spawn Point','ItemBriefcase100oz'] spawn player_build_custom;","true"]
 ];
