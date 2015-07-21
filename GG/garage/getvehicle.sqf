@@ -11,7 +11,7 @@ _vehicleName = getText(configFile >> "CfgVehicles" >> (_vehicle select 1) >> "di
 //Get Spawn Location
 _dir = round(random 360);
 _helipad = nearestObjects [player, ["HeliH","HeliHCivil","HeliHRescue","MAP_Heli_H_army","MAP_Heli_H_cross","Sr_border"], 70];
-if((count _helipad == 0) && (_vehicleClass == "Air")) exitWith {cutText ["You need to be near a vehicle to spawn air vehicles", "PLAIN DOWN"];};
+if((count _helipad == 0) && (_vehicleClass == "Air")) exitWith {cutText ["You need to be near a helipad to spawn air vehicles", "PLAIN DOWN"];};
 if(count _helipad > 0) then {
 _location = (getPosATL (_helipad select 0));
 } else {
