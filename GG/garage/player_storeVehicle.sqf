@@ -82,8 +82,8 @@ if	(count _vehicles < GarageSlots) then
 	DZE_ActionInProgress = false;
 } else {
 	if (getPlayerUID player in GarageDonor) then {
-		cutText ["You store more than 6 vehicles, your garage is full.", "PLAIN DOWN"];
+		cutText ["You cannot store more than 6 vehicles, your garage is full.", "PLAIN DOWN"];
 	} else {
-		cutText ["You store anymore vehicles, your garage is full. Donate to get a 6 slot capacity", "PLAIN DOWN"];
+		cutText ["You cannot store anymore vehicles, your garage is full. Donate to get a 6 slot capacity", "PLAIN DOWN"];
 	};	
 };
