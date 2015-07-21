@@ -23,7 +23,7 @@ DELETE FROM `player_login`;
 
 /* Delete Old Banks */
 DELETE FROM banking_data
-WHERE LastUpdated < NOW() - INTERVAL 20 DAY ;
+WHERE LastUpdated < NOW() - INTERVAL 30 DAY ;
 
 /* Delete untouched server spawned vehicles */
 DELETE FROM `object_data_2`
@@ -60,6 +60,13 @@ AND (Character_data.alive = 0);
 DELETE FROM Character_DATA 
 WHERE LastLogin < NOW() - INTERVAL 10 DAY;
 
+/* Delete Inactive Garage Vehicles */
+DELETE FROM garage 
+WHERE `Datestamp` < NOW() - INTERVAL 5 DAY;
+
+/* Delete Error Usernames from Alias */
+DELETE FROM player_alias 
+WHERE `PlayerName` IN ('Error');
 
 /* =================== UPDATES =================== */
 
