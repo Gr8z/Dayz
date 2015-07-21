@@ -1,7 +1,7 @@
 private["_separator1","_txt"];
 cutText ["HOLD LEFT-CLICK ON TEXT AND DRAG UP AND DOWN, PRESS ESCAPE TO CLEAR OR CONTINUE ON BOTTOM!", "PLAIN DOWN"];
 sleep 1;
-"Hints & Tips" hintC [
+"Virtual Garage Information" hintC [
 	"*This is a Hived Vehicle Garage system",
 	"*You can your vehicles here with or without gear.",
 	"*It will be saved virtually and will be accessible from all garages and vehicle traders accross the maps.",
