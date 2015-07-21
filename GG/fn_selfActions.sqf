@@ -625,7 +625,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	//Garage
 	if (_typeOfCursorTarget in DZE_Garage) then {
 		if (s_garage_dialog < 0) then {
-			s_garage_dialog = player addAction ["Manage Garage","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
+			s_garage_dialog = player addAction ["Garage Menu","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
 		};
 	} else {
 		player removeAction s_garage_dialog;
