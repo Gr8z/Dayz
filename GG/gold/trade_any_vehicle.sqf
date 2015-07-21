@@ -175,9 +175,8 @@ if (_qty >= _qty_in) then {
 
 						if(_okToSell) then {
 
-							//for "_x" from 1 to _qty_out do {
-							//	player addMagazine _part_out;
-							//};
+							//Exploit fix
+							_obj setVariable ["GGsold",true,true];
 							
 							_myMoney = player getVariable ["cashMoney",0];
 								_myMoney = _myMoney + _qty_out;

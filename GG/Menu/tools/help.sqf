@@ -9,5 +9,5 @@ sleep 1;
 															"*Deployed Bikes are destructable",
 															"*Get in Teamspeak Server for admin assistance = ts.ghostzgamerz.com",
 															"*We also have a chernarus& a Napf Server",
-															"*Go to http://ghostzgamerz.com/forum/threads/server-rules.201/ to read all the rules"
+															"*Go to ghostzgamerz.com to read all the rules"
 															];

@@ -577,6 +577,7 @@ if (_hasrequireditem) then {
 
                     _tmpbuilt setVariable ["CharacterID",_combination,true];
 					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
+					_tmpbuilt setVariable ["Deployed",true,true];
 
                     PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location],_classname];
                     publicVariableServer "PVDZE_obj_Publish";
@@ -587,6 +588,7 @@ if (_hasrequireditem) then {
                 } else {
                     //_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
 					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
+					_tmpbuilt setVariable ["Deployed",true,true];
                     //### BEGIN MODIFIED CODE: player deploy
                     // fire?
                     //if(_tmpbuilt isKindOf "Land_Fire_DZ") then {

@@ -509,11 +509,21 @@ class Life_RscListBox
 		color[] = {1,1,1,1};
 		autoScrollEnabled = 1;
 	};
+	class ScrollBar {
+		color[] = {1, 1, 1, 0.6};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 0.3};
+		thumb = "\ca\ui\data\igui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\igui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\igui_arrow_top_ca.paa";
+		border = "\ca\ui\data\igui_border_scroll_ca.paa";
+	};
 	soundPush[] = { "", 0, 1 };
 	soundEnter[] =	{ "", 0, 1 };
 	soundClick[] ={ "", 0, 1 };
 	soundEscape[] ={ "", 0, 1 };
 	sound[] ={ "", 0, 1 };
+	soundSelect[] = { "", 0, 1 };
 };
 
 class Life_RscEdit {

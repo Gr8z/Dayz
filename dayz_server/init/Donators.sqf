@@ -65,6 +65,13 @@ BuildDonor = [
 "0"
 ];
 
+GarageDonor = [
+	// BUILD LIMIT UPGRADE
+	"76561198078201908","76561198153784743","76561198002511087",
+	// Add UIDs above, don't forget the comma
+"0"
+];
+
 /////////// Engineer Class ///////
 Engineer1 = [
 	"76561198097415737", // Adam
@@ -436,3 +443,4 @@ publicVariable "vipListClasses";
 publicVariable "BankDonator";
 publicVariable "wardrobeDonor";
 publicVariable "BuildDonor";
+publicVariable "GarageDonor";

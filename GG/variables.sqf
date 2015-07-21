@@ -274,6 +274,15 @@ dayz_resetSelfActions = {
 	s_player_plot_boundary_on = -1;
 	s_player_plot_boundary_off = -1;
 	s_player_plot_take_ownership = -1;
+	s_givemoney_dialog = -1;
+	s_bank_dialog2 = -1;
+	s_player_special_backpack = -1;
+	s_clothes = -1;
+	s_player_claimkey = -1;
+	s_player_bury_human = -1;
+	s_player_clothes = -1;
+	s_garage_dialog = -1;
+	s_player_managedoor = -1;
 };
 call dayz_resetSelfActions;
 
@@ -748,8 +757,11 @@ dayz_allowedObjects = StaticVehicleArray + ["TentStorage","TentStorageDomed","Te
 "Land_DZE_LargeWoodDoor","Land_DZE_WoodDoor","Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked",
 "CinderWallHalf_DZ","CinderWall_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","CinderWallSmallDoorway_DZ",
 "CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","MetalFloor_DZ","WoodRamp_DZ","GunRack_DZ","FireBarrel_DZ","WoodCrate_DZ","Scaffolding_DZ",
-"Land_Fort_Watchtower_EP1","MAP_Misc_WellPump","Land_pumpa","Land_Fire_barrel_burning","FireBarrel_DZ","Land_Campfire_burning","ASC_runway_BluelightB","ASC_runway_YellowlightB","HeliHCivil","Land_fortified_nest_big_EP1","Land_radar_EP1","Land_Ind_IlluminantTower","Land_vez","Land_A_Castle_Stairs_A","Sign_Checkpoint_US_EP1","Land_Ind_TankSmall2_EP1","Land_CncBlock_Stripes","ZavoraAnim","RampConcrete","WarfareBCamp","Land_Climbing_Obstacle","MAP_leseni2x","MAP_leseni4x","mbg_slum01_EO","mbg_slum02_EO","mbg_slum03h_EO" 
-,"Land_Misc_Cargo2E","Land_Misc_Cargo1C","Land_sara_hasic_zbroj","SearchLight_TK_EP1","Infostand_2_EP1"
+"Land_Fort_Watchtower_EP1","MAP_Misc_WellPump","Land_pumpa","Land_Fire_barrel_burning","FireBarrel_DZ","Land_Campfire_burning","ASC_runway_BluelightB","ASC_runway_YellowlightB",
+"HeliHCivil","Land_fortified_nest_big_EP1","Land_radar_EP1","Land_Ind_IlluminantTower","Land_vez","Land_A_Castle_Stairs_A","Sign_Checkpoint_US_EP1","Land_Ind_TankSmall2_EP1","Land_CncBlock_Stripes",
+"ZavoraAnim","RampConcrete","WarfareBCamp","Land_Climbing_Obstacle","MAP_leseni2x","MAP_leseni4x","mbg_slum01_EO","mbg_slum02_EO","mbg_slum03h_EO",
+"Land_Misc_Cargo2E","Land_Misc_Cargo1C","Land_sara_hasic_zbroj","SearchLight_TK_EP1","Infostand_2_EP1",
+"Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C"
 ];
 
 //#########################INDESTRUCTIBLE ITEMS#########################
@@ -762,6 +774,8 @@ DZE_LockableStorage = ["VaultStorage","VaultStorageLocked","LockboxStorageLocked
 DZE_LockedStorage = ["VaultStorageLocked","LockboxStorageLocked"];
 DZE_UnLockedStorage = ["VaultStorage","LockboxStorage"];
 DZE_maintainClasses = ["Desk","FoldChair","FoldTable","SmallTable","Barrel1","Garbage_can","Hhedgehog_concrete","Land_CncBlock","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D","MAP_A_Castle_Bergfrit_dam","Land_A_Castle_Bergfrit_dam","Land_sara_domek_zluty","MAP_sara_domek_zluty","Land_sara_hasic_zbroj","MAP_sara_hasic_zbroj","MBG_Warehouse_InEditor","MBG_Killhouse_1","MBG_Killhouse_2","MBG_Killhouse_3","MBG_Killhouse_4","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","MAP_stodola_old_open","Land_MBG_HeavyShelter","MAP_A_Pub_01","Land_A_Villa_EP1","MAP_A_Castle_Bastion","MAP_A_Castle_Stairs_A","ModularItems","DZE_Housebase","LightPole_DZ","BuiltItems","Plastic_Pole_EP1_DZ","Fence_corrugated_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","StickFence_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","DeerStand_DZ","Scaffolding_DZ","FireBarrel_DZ"];
+
+DZE_Garage = ["Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Tanny_PMC","US_Delta_Force_AR_EP1","GUE_Soldier_1","UN_CDF_Soldier_Pilot_EP1","GUE_Soldier_2","CDF_Soldier_Crew","Profiteer1","RU_Damsel1","GUE_Commander","GUE_Woodlander3","Ins_Worker2","FR_Sapper","Soldier_AT_PMC","GUE_Soldier_3","RU_Woodlander4","Soldier_Sniper_PMC","GUE_Woodlander1"];
 
 DZE_DoorsLocked = ["Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallDoorLocked_DZ","CinderWallDoorSmallLocked_DZ"];
 
