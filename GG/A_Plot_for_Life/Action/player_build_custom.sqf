@@ -49,6 +49,7 @@ if (player getVariable["combattimeout", 0] >= time) exitWith {DZE_ActionInProgre
 _classname = _this select 0;;
 _name = _this select 1;
 _buildingpart = _this select 2;
+_hasbuildingpart = {_buildingpart == _x} count (magazines player);
 _charID = dayz_characterID;
 _playerUID = dayz_playerUID;
 _playerName = (name player);
@@ -84,6 +85,8 @@ _findNearestPole = [];
 } count _findNearestPoles;
 
 _IsNearPlot = count (_findNearestPole);
+
+if (_hasbuildingpart < 1) exitWith {DZE_ActionInProgress = false;cutText ["You are need a full briefcase to build.","PLAIN DOWN"]};
 
 // If item is plot pole && another one exists within 45m
 if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
