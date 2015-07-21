@@ -12,11 +12,13 @@ _customLoadout = [
 	"76561198166231771", //Womabat 
 	"76561198048573818", //The Yam Yam 
 	"76561198177890179", //12LetterName 
-	"7656119814499452", //MCBountyCraft 
+	"76561198144994529", //MCBountyCraft 
 	"76561198016348545", //Sonic 
 	"76561198014873677", //iceman 
 	"7656119807220394", //benji 
 	"76561198079744086", //Spectre  
+	"76561198073669230", //Jack Black  
+	"76561198133357220", //Logan Brown  
 "0"
 ];
 _customLoadouts = [
