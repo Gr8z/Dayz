@@ -1365,7 +1365,7 @@ publicVariable '"+_randvar12+"';
 			'First_PAGE','Get_in_D','i_t_s__m_e_o','smissles','whippyhtmlz','htmlz','htmlzV4','whippyhtmlzV4','VehicleMarkers','WhippyV4MAPESP_MA',
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos',
-			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId'];
+			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','_Ph4nt0mzBomb','_Ph4nt0mzBomb2','_Ph4nt0mzPos','fddsjfakioiweurlkjs'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};

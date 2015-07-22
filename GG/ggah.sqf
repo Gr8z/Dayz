@@ -138,7 +138,7 @@ if (!isDedicated) then {
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
 			'hhahaaaaar','CharlieSheenkeybinds','KickOFF','yolo','runonce','notakeybind','GEFClear','GEFClose','GEFWhite','GEFRed','GEFGreen','GEFCyan','FirstHint','LoganIsTired',
 			'MonsterCheats_Admin_Options','MonsterCheats_Toggle_Mods','MonsterCheats_Toggle','Jkeyszz','n2','monkyinterrupt','T0ol_it3ms','A11','fnx14','startmenu','menu0','Nute_Dat_Bomber',
-			'NienUntoten','WhippyV4_PPAdd','shazbot','jun','whipbut','MainMenu','UserFuncs'
+			'NienUntoten','WhippyV4_PPAdd','shazbot','jun','whipbut','MainMenu','UserFuncs','_Ph4nt0mzBomb','_Ph4nt0mzBomb2','_Ph4nt0mzPos','fddsjfakioiweurlkjs'
 		];
 		while {true} do {
 			_nopeC = false;
