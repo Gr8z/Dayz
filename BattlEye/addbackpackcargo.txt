@@ -1,2 +1,2 @@
 //new
-5 "" !"DZ_" !"CZ_VestPouch_EP1"
+5 "" !"DZ_" !"CZ_VestPouch_EP1" !"DSHKM_TK_GUE_BAG_EP1" !"M2StaticMG_US_Bag_EP1" !"KORD_UN_Bag_EP1" !"AGS_UN_Bag_EP1" !"MK19_TriPod_US_Bag_EP1" !"BAF_GMG_ACOG_minitripod_bag"
