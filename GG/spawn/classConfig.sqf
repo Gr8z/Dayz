@@ -24,7 +24,8 @@ _customLoadout = [
 	"76561198150676858", //SkrillexTheCat
 	"76561198097170727", //Heinrich Himmler 
 	"76561198015841525", //Nirdell 
-	"76561198177890179", //12LetterName
+	"76561198054897830", //Akrantz
+	"76561198072203944", //benji
 "0"
 ];
 _customLoadouts = [
