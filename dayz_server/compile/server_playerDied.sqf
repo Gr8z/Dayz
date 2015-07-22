@@ -5,16 +5,13 @@ _minutes =		_this select 1;
 _newObject = 	_this select 2;
 _playerID = 	_this select 3;
 _infected =		_this select 4;
+_playerName = 	name _newObject;
 
-if (((count _this) >= 6) && {(typeName (_this select 5)) == "STRING"} && {(_this select 5) != ""}) then {
-	_victimName =	_this select 5;
-} else {
-	_victimName =  if (alive _newObject) then {name _newObject;} else {"";};
-};
+_victim = _this select 2;
+_victim removeAllEventHandlers "MPHit";
+_victimName = _playerName;
 
-_victim = _newObject;
-_newObject setVariable ["bodyName", _victimName, true];
-_newObject setVariable ["bodyUID", _playerID, true];
+sleep 0.5;
 
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
@@ -77,12 +74,6 @@ if (_killerName != "nil") then
 	if(DZE_DeathMsgGlobal) then {
 		[nil, nil, rspawn, [_killer, _message], { (_this select 0) globalChat (_this select 1) }] call RE;
 	};
-	/* needs customRemoteMessage
-	if(DZE_DeathMsgGlobal) then {
-		customRemoteMessage = ['globalChat', _message, _killer];
-		publicVariable "customRemoteMessage";
-	};
-	*/
 	if(DZE_DeathMsgSide) then {
 		[nil, nil, rspawn, [_killer, _message], { (_this select 0) sideChat (_this select 1) }] call RE;
 	};
