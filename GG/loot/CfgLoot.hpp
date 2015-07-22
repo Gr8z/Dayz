@@ -129,8 +129,7 @@ ScarHighWeaps[] = {
 
 /* Done */
 SniperMedWeaps[] = {
-	{"vil_DRM_BASE",0.1}, 
-	{"DMR_SKN",0.3}, 
+	{"vil_DRM_BASE",0.1},  
 	{"RH_sc2acog",0.15}, 
 	{"RH_sc2sp",0.15}, 
 	{"FHQ_RSASS_TAN",0.1}, 
