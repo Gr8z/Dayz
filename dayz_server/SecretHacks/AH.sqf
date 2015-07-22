@@ -4372,7 +4372,6 @@ publicVariable '"+_randvar28+"';
 								_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
 								[player,'sick'] spawn player_death;
 								player setHit['Body',1];
-								_startTime = time;
 								
 							};
 							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin']) then
@@ -5684,7 +5683,7 @@ PV_AdminMainCode = {
 	admin_fillSpawnMenuFILL =
 	{
 		_puid = getPlayerUID player;
-		if(_puid in PV_SuperLevel_List) then
+		if(_puid in PV_SuperLevel_List)then
 		{
 			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Vehicle W/ Keys","Vehicleshive","0","0","1","0",[0,0.6,1,1]];
@@ -5710,7 +5709,7 @@ PV_AdminMainCode = {
 		};
 		if(_puid in PV_LowLevel_List) then
 		{
-			if(!isNil 'infiAllowedVehiclesList') then {ALL_VEHS_TO_SEARCH = infiAllowedVehiclesList;};
+			if(!isNil 'infiAllowedVehiclesList')then{ALL_VEHS_TO_SEARCH = infiAllowedVehiclesList;};
 			
 			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Player Morph","Skinz","0","0","1","0",[0,0.6,1,1]];
@@ -7764,7 +7763,7 @@ PV_AdminMainCode = {
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format[""Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_NormalLevel_List)then{
 				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
