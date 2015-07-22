@@ -69,14 +69,14 @@ timeout 2
 start /REALTIME "arma2" /min "E:\A2Server\server_2.exe" -port=2322 "-config=server_2\config.cfg" "-cfg=server_2\basic.cfg" "-profiles=server_2" -name=server_2 "-mod=@DayzOverwatch;@DayZ_Epoch;@Server_2;@extDB;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"  -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
 echo.
 echo Starting Bec
-timeout 2
+timeout 5
 :: start bec
 set becpath="E:\A2Server\BEC"
 cd /d %becpath%
 start "" "Bec_2.exe" -f server_2.cfg
 echo.
 echo Starting Blacklister
-timeout 2
+timeout 10
 :: start Blacklister
 set listerpath="E:\A2Server\MBcon\server_2"
 cd /d %listerpath%
