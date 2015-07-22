@@ -1,9 +1,15 @@
 @ECHO OFF
+timeout 2
 echo.
-echo Kill MBcon.exe
-set beckill="E:\A2Server\MBcon\server_1"
-cd /d %beckill%
+echo KILL server_1.exe
+set serverkill="E:\A2Server"
+cd /d %serverkill%
 taskkill /im server_1.exe
+echo.
+echo Kill Bec1.exe
+set beckill="E:\A2Server\BEC"
+cd /d %beckill%
+taskkill /im Bec_1.exe
 timeout 2
 echo
 :: UPDATING GITHUB REPOS
@@ -55,12 +61,19 @@ timeout 2
 :: start the server..
 start /REALTIME "arma2" /min "E:\A2Server\server_1.exe" "-port=3302" "-config=server_1\config.cfg" "-cfg=server_1\basic.cfg" "-profiles=server_1" "-name=server_1" "-mod=@Taviana;@DayzOverwatch;@DayZ_Epoch;@Server_1;@extDB;" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi" -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
 echo.
-echo Starting MBcon
+echo Starting Bec
 timeout 2
 :: start bec
-set becpath="E:\A2Server\MBcon\server_1"
+set becpath="E:\A2Server\BEC"
 cd /d %becpath%
-start "" "server_1.exe"
+start "" "Bec_1.exe" -f server_1.cfg
+echo.
+echo Starting Blacklister
+timeout 2
+:: start Blacklister
+set listerpath="E:\A2Server\Blacklister\server_1"
+cd /d %listerpath%
+start "" "Blacklister.exe"
 echo.
 cls
 @exit
