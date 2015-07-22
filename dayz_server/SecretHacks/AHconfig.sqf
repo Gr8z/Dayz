@@ -63,9 +63,13 @@ _SAdmins = [
 /* CLEAR ALL ITEMS ON AI DEATH */			_CUF_REMOVE_ALL_ITEMS_ON_DEATH = true;
 /* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
 _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
+[
+	'Stinger','NVGoggles',
+	''
+];
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
-/*  _timedif for _AHL     */ _TDI =    65;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
+/*  _timedif for _AHL     */ _TDI =    130;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
 
 /*  revert onEachFrame    */ _REF =  true;	/* true or false */
 /*  titleText & cutText   */ _TCT =  false;	/* true or false */	/* block titleText & cutText - some A.I. Missions and other mass message scripts needs this set to false */
@@ -243,3 +247,22 @@ _dayzActions =
 		When "_BHF =  true;" which it always should be in my opinion, then this will check if "_BHF" is persistent.
 	*/
 	_FRC =  true;	/* true or false */
+/*
+	custom Box content:
+	just an item like it is in the example with   'ItemMap'   will put the item once in the box.
+	if an array is used like the   ['ItemGPS',5]   example, well I assume you could guess what it will do.
+*/
+_SupportBox1Content =
+[
+	'ItemMap',['ItemGPS',5],'ItemWatch'
+];
+
+_SupportBox2Content =
+[
+	'ItemMap',['ItemGPS',5],'ItemWatch'
+];
+
+_SupportBox3Content =
+[
+	'ItemMap',['ItemGPS',5],'ItemWatch'
+];
