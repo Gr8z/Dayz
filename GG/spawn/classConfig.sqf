@@ -1,5 +1,6 @@
 #define VIP_ITEMS "ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemMorphine","ItemTunaCooked","ItemSodaPepsi" 
 #define VIP_TOOLS "Binocular_Vector","NVGoggles","ItemCompass","ItemHatchet_DZE","ItemKnife","Itemmatchbox","Itemetool","ItemWatch","ItemGPS","ItemCrowbar","ItemToolbox"
+#define ATV_PARTS "PartGeneric","PartEngine","PartWheel","PartWheel"
 
 _startBag = "DZ_ALICE_Pack_EP1";
 _startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_12Rnd_45cal_usp",3];
@@ -8,7 +9,7 @@ _customLoadout = [
 	"76561198078201908", //Gr8
 	"76561198153784743", //Ghost
 	"76561197971655623", //Robbie Digital
-	"765611981291136551", //LuckyMcHatchet
+	"76561198129136551", //LuckyMcHatchet
 	"76561198166231771", //Womabat 
 	"76561198048573818", //The Yam Yam 
 	"76561198177890179", //12LetterName 
@@ -19,28 +20,33 @@ _customLoadout = [
 	"76561198079744086", //Spectre  
 	"76561198073669230", //Jack Black  
 	"76561198133357220", //Logan Brown  
+	"76561198128804731", //xtsis
+	"76561198150676858", //SkrillexTheCat
+	"76561198097170727", //Heinrich Himmler 
+	"76561198015841525", //Nirdell 
+	"76561198177890179", //12LetterName
 "0"
 ];
 _customLoadouts = [
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
-	["KOTM Loadout!","USMC_LHD_Crew_Red","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,"Skin_GUE_Soldier_Sniper_DZ",VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	[]
 ];
 
