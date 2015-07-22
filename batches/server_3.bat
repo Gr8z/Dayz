@@ -12,6 +12,12 @@ cd /d %beckill%
 taskkill /im Bec_3.exe
 timeout 2
 echo.
+echo Kill MBcon
+set beckill="E:\A2Server\MBcon\server_3"
+cd /d %beckill%
+taskkill /im MBcon_3.exe
+timeout 2
+echo.
 :: UPDATING GITHUB REPOS
 echo Updating Git Branch Dayz
 "E:\A2Server\A2_Git_Sync.sh"
@@ -70,9 +76,9 @@ echo.
 echo Starting Blacklister
 timeout 2
 :: start Blacklister
-set listerpath="E:\A2Server\Blacklister\server_3"
+set listerpath="E:\A2Server\MBcon\server_3"
 cd /d %listerpath%
-start "" "Blacklister.exe"
+start "" "MBcon_3.exe"
 echo.
 cls
 @exit
