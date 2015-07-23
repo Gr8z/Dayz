@@ -85,7 +85,7 @@ if (!isDedicated) then {
 	execVM "GG\service_point\service_point.sqf";
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf";
-	execVM "GG\ggah.sqf";
+
 	
 	preload_done = true;
 };
