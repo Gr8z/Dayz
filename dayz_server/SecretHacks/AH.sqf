@@ -6385,6 +6385,7 @@ PV_AdminMainCode = {
 			if(_key == 0x16)then{call admin_generatekey;};
 			if(_key == 0x17)then{call admin_showid;};
 			if(_key == 0x44)then{call remove_spec_000;};
+			if(_key == 0x43) then {call admin_show;};
 		};
 		
 		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
