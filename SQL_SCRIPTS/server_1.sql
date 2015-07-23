@@ -32,6 +32,15 @@ AND `CharacterID` = '0'
 AND `Classname`
 NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG|warehouse|sara';
 
+/* Refresh untouched server spawned vehicles */
+DELETE FROM `object_data_1`
+WHERE `LastUpdated` < DATE_SUB(NOW(), INTERVAL 2 HOUR)
+AND `CharacterID` = 0
+AND(`Inventory` = '[]' OR `Inventory` = '[[[],[]],[[],[]],[[],[]]]');
+AND `Classname`
+NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest|killhouse|villa|castle|pub|shelter|stodola|garage|MBG|warehouse|sara';
+
+
 /* Delete all vehicles not touched in 7 days */
 DELETE FROM `object_data_1`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 7 DAY)
