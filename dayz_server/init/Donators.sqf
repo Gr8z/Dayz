@@ -356,6 +356,7 @@ Scout3 = [
 	"76561198097943293", // II Isolation(OD-2015-07-17) #10113 
 	"76561198062029510", // Recon (GG Designer)
 	"76561198071604625", // Alphaxdx(OD-2015-07-20) #10172  
+	"76561198096239295", // Joey(OD-2015-07-23) #10241  
 	// Add UIDs above, don't forget the comma
 "0"
 ];
