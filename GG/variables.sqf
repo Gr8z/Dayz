@@ -668,7 +668,7 @@ if(isNil "dayz_maxpos") then {
 	dayz_maxpos = 20000;
 };
 if(isNil "DZE_BuildingLimit") then {
-	if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 10;} else {DZE_BuildingLimit = 150; };
+	if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 };
 if(isNil "DZE_HumanityTargetDistance") then {
 	DZE_HumanityTargetDistance = 25;

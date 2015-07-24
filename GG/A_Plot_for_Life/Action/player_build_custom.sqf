@@ -8,8 +8,7 @@ if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , 
 DZE_ActionInProgress = true;
 
 // disallow building if too many objects are found within 30m
-if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 10;} else {DZE_BuildingLimit = 150; };
-if(_count >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, too many objects within 45m.", "PLAIN DOWN"];};
+//if((count ((getPosATL player) nearObjects ["All",30])) >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_41"), "PLAIN DOWN"];};
 
 _objects = nearestObjects [player, DZE_maintainClasses, (DZE_PlotPole select 0)];
 _count = count _objects;

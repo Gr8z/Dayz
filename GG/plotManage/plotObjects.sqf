@@ -5,7 +5,7 @@ _range = DZE_PlotPole select 0;
 _count = count(nearestObjects [cursorTarget,DZE_maintainClasses,_range]);
 
 _colour = "#ffffff";
-if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 10;} else {DZE_BuildingLimit = 150; };
+if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 if(_count / DZE_BuildingLimit * 100 < 40)then{
 _colour = "#00ff00"; 
 };
