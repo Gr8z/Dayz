@@ -1,7 +1,7 @@
 // disallow building if too many objects are found within 30m (by default)
 private ["_cnt","_pos"];
 
-if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
+if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 10;} else {DZE_BuildingLimit = 150; };
 _pos = [player] call FNC_GetPos;
 _cnt = count (nearestObjects [_pos, DZE_maintainClasses, DZE_checkNearbyRadius];); 
 if (_cnt >= DZE_BuildingLimit) exitWith { //end script if too many objects nearby
