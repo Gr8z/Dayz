@@ -1365,7 +1365,8 @@ publicVariable '"+_randvar12+"';
 			'First_PAGE','Get_in_D','i_t_s__m_e_o','smissles','whippyhtmlz','htmlz','htmlzV4','whippyhtmlzV4','VehicleMarkers','WhippyV4MAPESP_MA',
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos',
-			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','_Ph4nt0mzBomb','_Ph4nt0mzBomb2','_Ph4nt0mzPos','fddsjfakioiweurlkjs'];
+			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
+			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
@@ -3696,7 +3697,7 @@ publicVariable '"+_randvar28+"';
 					_m = [(format['%1\tele.sqf',_name]),(format['%1\DefaultMenu.sqf',_name]),(format['%1\initmenu.sqf',_name]),(format['%1\Startup.sqf',_name])];
 					_farray =
 					[
-						'nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll',
+						'nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','MahMenuV2\compile\FiniREV2.sqf',
 						'WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf',
 						'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
 						'oefexec.dll','stdafx.h','whippy\execute.sqf','MSSM\main.sqf','ScriptName.sqf','RommelV1\Rexecv1.sqf',
