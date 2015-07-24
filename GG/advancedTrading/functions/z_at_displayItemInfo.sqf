@@ -22,10 +22,9 @@ if (SingleCurrency) then {
 	_formattedText = format [
 		"<img image='%1'  size='3' align='center'/><br />" +
 		"<t color='#33BFFF'>Name: </t><t color='#ffffff'>%2</t><br />" +
-		"<t color='#33BFFF'>Class: </t><t color='#ffffff'>%3</t><br />" +
-		"<t color='#33BFFF'>Sell: </t><t color='#ffffff'>%5 %7</t><br />" +
-		"<t color='#33BFFF'>Buy: </t><t color='#ffffff'>%6 %7</t><br />"
-		, _picture, _display, _class, 'lazy', _sellPrice, _buyPrice, CurrencyName
+		"<t color='#33BFFF'>Sell: </t><t color='#ffffff'>%4 %6</t><br />" +
+		"<t color='#33BFFF'>Buy: </t><t color='#ffffff'>%5 %6</t><br />"
+		, _picture, _display, 'lazy', _sellPrice, _buyPrice, CurrencyName
 	];
 } else {
 	_picSell = getText (configFile >> 'CfgMagazines' >> _sellCurrency >> 'picture');

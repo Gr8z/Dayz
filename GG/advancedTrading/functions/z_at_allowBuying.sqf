@@ -258,7 +258,7 @@ if(_selection == 0) then{ //backpack
 
 if(_vehiclesToBuy != 0)then{
 	_return = false;
-	systemChat "You can NOT buy vehicles in this version";
+	systemChat "You can NOT buy vehicles yet with this menu, sorry";
 };
 
 _return

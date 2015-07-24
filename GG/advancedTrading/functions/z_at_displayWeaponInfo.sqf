@@ -41,7 +41,6 @@ if (SingleCurrency) then {
 	_formattedText = format [
 		"<img image='%1' size='3'  align='center' /><br />" +
 		"<t color='#33BFFF'>Name: </t><t color='#ffffff'>%2</t><br />" +
-		"<t color='#33BFFF'>Class: </t><t color='#ffffff'>%3</t><br />" +
 		"<t color='#33BFFF'>Sell: </t><t color='#ffffff'>%5 %7</t><br />" +
 		"<t color='#33BFFF'>Buy: </t><t color='#ffffff'>%6 %7</t><br />" +
 		"<t color='#33BFFF'>Mags: </t><br /><t color='#ffffff' size='0.5'>%4</t>"

@@ -33,7 +33,7 @@ class AdvancedTrading
     class RscText_AT2: ZSC_RscText
 		{
 			idc = -1;
-			text = "Advanced Trading";
+			text = "[GG] Overpoch Advanced Trading";
 			x = 0.20 * safezoneW + safezoneX;
 			y = 0.15 * safezoneH + safezoneY;
 			w = 0.60 * safezoneW;
@@ -281,7 +281,7 @@ class AdvancedTrading
 		class ZSC_RscButtonMenu_ATTFilter: AT_Zupa_BlueButton
 		{
 			idc = -1;
-			text = "Filter";
+			text = "Search";
       x = 0.21 * safezoneW + safezoneX;
 			y = 0.77 * safezoneH + safezoneY;
 			w = 0.13 * safezoneW;
