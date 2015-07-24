@@ -613,9 +613,9 @@ if (_hasrequireditem) then {
                         clearWeaponCargoGlobal _tmpbuilt;
                         clearMagazineCargoGlobal _tmpbuilt;
                     };
-                    if(_index call getDeployableClearAmmo) then {
-                        _tmpbuilt setVehicleAmmo 0;
-                    };
+
+                    _tmpbuilt setVehicleAmmo 0;
+
                     player reveal _tmpbuilt;
                     DZE_DEPLOYING_SUCCESSFUL = true;
                     //### END MODIFIED CODE: player deploy

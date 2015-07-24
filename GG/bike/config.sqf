@@ -38,7 +38,7 @@ DZE_DEPLOYABLES_CONFIG = [
 	
 	// Mozzie
 	["ItemToolbox", // class name of the item to click on   
-	[0,5,2],		// [_side,_front,_up] array to offset the deployable when buiding  
+	[0,6,2],		// [_side,_front,_up] array to offset the deployable when buiding  
 	7,				// how close does the packer need to be to pack the object? 
 	0.5,			// item can't be repacked if damage is > this. (-1 = no re-packing) 
 	false,			// can anyone repack the deployable?
