@@ -424,18 +424,6 @@ class AdvancedTrading
 			colorBackground[] =  {1,1,1,1};
 			color[] = {0,0,0,1};
 		};
-		class ZSC_RscButtonMenu_AT27: AT_Zupa_BlueButton
-		{
-			idc = 7436;
-			text = "Buy";
-			x = 0.46 * safezoneW + safezoneX;
-			y = 0.77 * safezoneH + safezoneY;
-			w = 0.13 * safezoneW;
-			onload = "ctrlShow [_this,false]";
-			onButtonClick = "call Z_BuyItems;";
-			colorBackground[] =  {1,1,1,1};
-			color[] = {0,0,0,1};
-		};
 		class ZSC_RscButtonMenu_AT28: AT_Zupa_BlueButton
 		{
 			idc = -1;
