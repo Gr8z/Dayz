@@ -544,10 +544,11 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
     };
 	
 	_bmoney = _cursorTarget getVariable['cashMoney',0];
+	_name = _cursorTarget getVariable ["bodyName","AI"];
 	// Study Body
 	if (_player_studybody) then {
 		if (s_player_studybody < 0) then {	
-				s_player_studybody = player addAction [format["Take %1 %2 from %3", _bmoney, CurrencyName,name player], "GG\gold\check_wallet.sqf",_cursorTarget, 1, false, true, "",""];
+				s_player_studybody = player addAction [format["Take %1 %2 from %3", _bmoney, CurrencyName,_name], "GG\gold\check_wallet.sqf",_cursorTarget, 1, false, true, "",""];
 			};
 	} else {
 		player removeAction s_player_studybody;
