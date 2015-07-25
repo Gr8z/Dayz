@@ -1366,7 +1366,7 @@ publicVariable '"+_randvar12+"';
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos',
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
-			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','alghjlhbjlhjl3kh5l4aju45ljhlahnh5','julySurvivor1'];
+			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
