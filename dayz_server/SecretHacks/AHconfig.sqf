@@ -1,9 +1,9 @@
 /*  Key to open the menu  */ _OpenMenuKey = 0x3B;
 
-/*  MODERATORS	            */
+/*  MODERATORS	            */ 
 _LAdmins = [
-	"76561198122210030", // Pirate
-	"76561198080045762", // Deadskin	(Mod)
+	"76561198122210030", // Pirate								
+	"76561198080045762", // Deadskin	(Mod)								 
 	"76561198058099842", // Fap
 	"76561198162046909", // Shahzad
 	"76561197970044945", // MrCheeseyman
@@ -16,9 +16,9 @@ _LAdmins = [
 	"76561198001066546", // MeowMix
 	"76561198144994529", // BountyCraft
 "0"
-];
+]; 
 
-/*  ADMINISTRATORS         */
+/*  ADMINISTRATORS         */ 
 _NAdmins = [
 	"76561198182408150",  // Pirate Admin
 	"76561198237597876",  // Fap
@@ -30,15 +30,14 @@ _NAdmins = [
 	"76561198240385148",  // Jack Black
 	"76561198238699674",  // Akrantz
 "0"
-];
+]; 
 
-/* HEAD ADMINS / OWNERS     */
+/* HEAD ADMINS / OWNERS     */ 
 _SAdmins = [
-	"76561198078201908", // Gr8 > all the guys under me are skrubs
+	"76561198078201908", // Gr8 > all the guys under me are skrubs- I Wish my Dick was bigger
 	"76561198153784743", // Ghost
 	"76561198002511087", // TempSniper
 	"76561198021389971", // Thirdhero
-	"76561198067579412", // Georgie (Developer)
 "0"
 ];
 
@@ -63,7 +62,7 @@ _SAdmins = [
 /*  EXPERIMENTAL CU FIX   */					_CUF = true;	/* true or false */	/* will transfer serverside units (including mission AI) to clientside */
 /*  Humanity Value added  */					_CUF_HUMANITY_REWARD = 25;	/* Amount of Humanity added when Killing A.I. */
 /* CLEAR ALL ITEMS ON AI DEATH */			_CUF_REMOVE_ALL_ITEMS_ON_DEATH = true;
-/* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */
+/* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
 _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 [
 	'Stinger','NVGoggles',
@@ -103,7 +102,7 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 /*  BLOCK ALL CMDMenus    */ _BCM = false;	/* true or false */	/* we don't need commandingMenus. so have this true. */
 /*  Check Actions ?       */ _CSA = false;	/* true or false */	/* this checks mousewheel actions */
 /*  Force Terrain Grid ?  */ _FTG =    25;	/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 */
-/*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */
+/*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */ 
 /* ********************************************************************************* */
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
 _ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,666,667,65431,65432,65433,65434,65440,65441,65442,2800,3800];
@@ -219,14 +218,14 @@ _dayzActions =
 	_URG = false;	// Antirefuel & AntiCargod		/* true or false */
 	_UIC = false;	//	Vehicle ID Check	/* true or false */
 	_UCL =  true;	// Use Anti Combat Log	/* true or false */
-
-
+	
+	
 	/*
 		"_UIM": Use Incognito Mode, makes it for the most part look like you don't run infiSTAR to the normal player.
 	*/
 	_UIM = false;	/* true or false */
-
-
+	
+	
 	/*
 		"_sUptime": Server Uptime in seconds!
 		Using this will show "Restart in: xh xxmin"
@@ -234,16 +233,16 @@ _dayzActions =
 		_sUptime = 0;
 	*/
 	_sUptime = 7201;
-
-
+	
+	
 	/*
 		"_UDN": Players can Vote if they want Day- or NighTime
 		!vote day,/vote day, vote day,
 		!vote night,/vote night, vote night
 	*/
 	_UDN =  true;	/* true or false */
-
-
+	
+	
 	/*
 		"_FRC": FNCRestored Check.
 		When "_BHF =  true;" which it always should be in my opinion, then this will check if "_BHF" is persistent.
