@@ -16,7 +16,6 @@ _customLoadout = [
 	"76561198144994529", //MCBountyCraft 
 	"76561198016348545", //Sonic 
 	"76561198014873677", //iceman 
-	"7656119807220394", //benji 
 	"76561198079744086", //Spectre  
 	"76561198073669230", //Jack Black  
 	"76561198133357220", //Logan Brown  
@@ -26,6 +25,7 @@ _customLoadout = [
 	"76561198015841525", //Nirdell 
 	"76561198054897830", //Akrantz
 	"76561198072203944", //benji
+	"76561198159475706", //Legolas
 "0"
 ];
 _customLoadouts = [
@@ -48,7 +48,7 @@ _customLoadouts = [
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
-	[]
+[]
 ];
 
 _presetClasses = [
