@@ -8,6 +8,9 @@ _body setVariable ["cashMoney", 0 , true];
 
 if (DZE_ActionInProgress) exitWith {};
 
+player removeAction s_player_studybody;
+s_player_studybody = -1;
+
 DZE_ActionInProgress=true;
 
 if(_hisMoney > 999999) exitWith { cutText ["You can not loot more then 999,999 gold coins at once.", "PLAIN DOWN"];DZE_ActionInProgress=false; };
