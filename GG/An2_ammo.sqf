@@ -1,13 +1,13 @@
 private["_ammo","_vehicle","_hasAmmo","_text","_weapon","_weaponname","_ammoname"];
-    
+
 _vehicle = _this select 0;
 _weapon = "PKT"; //vehicleweapon
-_ammo = "100Rnd_762x54_PK"; //weaponammo
+_ammo = "100Rnd_762x54_PKR"; //weaponammo
 _weaponname = _weapon; //cant read from config, coz there is no turret or what ever - so its hardcoded
 _ammoname = getText (configFile >> "cfgMagazines" >> _ammo >> "displayName");
 _text = [_ammoname,_weaponname];
 _hasAmmo = _ammo in magazines player;
-    
+
 if (_hasAmmo) exitWith {
     player removeMagazine _ammo;
     ["<t size='0.6'>3</t>",0,0.8,0.5,0,0,8] spawn BIS_fnc_dynamicText;
