@@ -543,10 +543,11 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
         s_player_bury_human = -1;
     };
 	
+	_bmoney = _cursorTarget getVariable['cashMoney',0];
 	// Study Body
 	if (_player_studybody) then {
-		if (s_player_studybody < 0) then {
-				s_player_studybody = player addAction [("<t color=""#68C5C9"">"+("Loot Coins") + "</t>"), "GG\gold\check_wallet.sqf",_cursorTarget, 0, false, true, "",""];
+		if (s_player_studybody < 0) then {	
+				s_player_studybody = player addAction [format["Take %1 %2 from %3", _bmoney, CurrencyName,name player], "GG\gold\check_wallet.sqf",_cursorTarget, 1, false, true, "",""];
 			};
 	} else {
 		player removeAction s_player_studybody;
