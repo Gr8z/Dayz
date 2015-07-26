@@ -1,114 +1,83 @@
 class GivePlayerDialog
 {
-	idd = -1;
+	idd = 420001;
 	movingenable = 0;
-	enableSimulation = true;
-	
-	class controlsBackground {
-		class Life_RscTitleBackground2:Life_RscText {
-			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", "(profilenamespace getvariable ['GUI_BCG_RGB_A',0.7])"};
-			idc = -1;
-			x = 0.35;
-			y = 0.2;
-			w = 0.3;
-			h = (1 / 25);
-		};
-		
-		class MainBackground2:Life_RscText {
-			colorBackground[] = {0, 0, 0, 0.7};
-			idc = -1;
-			x = 0.35;
-			y = 0.2 + (11 / 250);
-			w = 0.3;
-			h = 0.6 - (22 / 250);
-		};
-	};
-	
-	class Controls {
 
-		class CashTitle5 : Life_RscStructuredText
+	class Controls {
+		class RscTextT_1000: RscTextT
 		{
-			idc = 2710;
-			text = "You";
-			colorText[] = {0.8784,0.8471,0.651,1};
-			x = 0.39;
-			y = 0.26;
-			w = 0.3;
-			h = 0.2;
+			idc = -1;
+			x = 0.283646 * safezoneW + safezoneX;
+			y = 0.22492 * safezoneH + safezoneY;
+			w = 0.432709 * safezoneW;
+			h = 0.398866 * safezoneH;
+			colorBackground[] = {0,0,0,0.7};
 		};
-		
-		class RscTextT_10052 : RscTextT
+		class RscTextT_1001: RscTextT
+		{
+			idc = -1;
+			text = "Give Player";
+			x = 0.283646 * safezoneW + safezoneX;
+			y = 0.22492 * safezoneH + safezoneY;
+			w = 0.432709 * safezoneW;
+			h = 0.055016 * safezoneH;
+			colorBackground[] = {0,0,0,0.7};
+		};
+		class RscTextT_1002: RscTextT
+		{
+			idc = -1;
+			text = "Player";
+			x = 0.351256 * safezoneW + safezoneX;
+			y = 0.307444 * safezoneH + safezoneY;
+			w = 0.108177 * safezoneW;
+			h = 0.041262 * safezoneH;
+		};
+		class RscTextT_1006: RscTextT
+		{
+			idc = -1;
+			text = "Amount";
+			x = 0.37154 * safezoneW + safezoneX;
+			y = 0.417476 * safezoneH + safezoneY;
+			w = 0.0473275 * safezoneW;
+			h = 0.041262 * safezoneH;
+		};
+		class RscTextT_1004: RscTextT
 		{
 			idc = 14001;
 			text = "";
+			x = 0.351256 * safezoneW + safezoneX;
+			y = 0.348706 * safezoneH + safezoneY;
+			w = 0.108177 * safezoneW;
+			h = 0.041262 * safezoneH;
 			colorText[] = {1,1,1,1};
-			x = 0.39;
-			y = 0.27;
-			w = 0.6;
-			h = 0.2;
 		};
-		
-		class moneyEdit2 : Life_RscEdit {
-		
+		class RscEdit_1400: RscEdit
+		{
 			idc = 14000;
-			colorText[] = {0.8784,0.8471,0.651,1};
-			text = "1";
-			sizeEx = 0.030;
-			x = 0.4; y = 0.41;
-			w = 0.2; h = 0.03;
-		
+			x = 0.425628 * safezoneW + safezoneX;
+			y = 0.417476 * safezoneH + safezoneY;
+			w = 0.141983 * safezoneW;
+			h = 0.041262 * safezoneH;
 		};
-		
-		class Title2 : Life_RscTitle {
-			colorBackground[] = {0, 0, 0, 0};
-			idc = -1;
-			text = "Transfer Coins";
-			colorText[] = {1,1,1,1};
-			x = 0.35;
-			y = 0.2;
-			w = 0.6;
-			h = (1 / 25);
-		};
-		
-		
-		
-		class DepositButton2 : life_RscButtonMenu 
+		class RscShortcutButton_1700: RscShortcutButton
 		{
 			idc = -1;
-			text = "Give";
-			colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};
+			text = "Give Amount";
+			x = 0.351256 * safezoneW + safezoneX;
+			y = 0.486246 * safezoneH + safezoneY;
+			w = 0.0878939 * safezoneW;
+			h = 0.055016 * safezoneH;
 			onButtonClick = "[(ctrlText 14000)] spawn GivePlayerAmount; ((ctrlParent (_this select 0)) closeDisplay 9000);";
-			colorText[] = {0.8784,0.8471,0.651,1};
-			x = 0.432;
-			y = 0.512;
-			w = (6 / 40);
-			h = (1 / 25);
 		};
-		
-		class RscTextT_10005 : RscTextT
+		class RscShortcutButton_1702: RscShortcutButton
 		{
-			idc = 14003;
-			text = "";
-			colorText[] = {0.8784,0.8471,0.651,1};
-			x = 0.39;
-			y = 0.58;
-			w = 0.3;
-			h = 0.2;
-		};
-		
-		
-		
-		
-		class CloseButtonKey2 : Life_RscButtonMenu {
 			idc = -1;
 			text = "Close";
+			x = 0.466195 * safezoneW + safezoneX;
+			y = 0.555016 * safezoneH + safezoneY;
+			w = 0.0743718 * safezoneW;
+			h = 0.055016 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
-			x = 0.35;
-			y = 0.8 - (1 / 25);
-			w = (6.25 / 40);
-			h = (1 / 25);
 		};
 	};
-	
-	
 };
