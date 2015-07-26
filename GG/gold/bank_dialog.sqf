@@ -8,4 +8,5 @@ player setVariable ["tradingmoney", true, true];
 
 DZE_ActionInProgress = false;
 
-uiSleep 3;
+waitUntil {uiSleep 1; !dialog};
+player setVariable ["tradingmoney", false, true];
