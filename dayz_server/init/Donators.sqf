@@ -82,6 +82,7 @@ Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
 	"76561198179637007", // Toqq A.K.A MAVERICK(OD-2015-06-12)#9439
 	"76561198238016078", // Arizona(OD-2015-07-11)#9962
+	"76561198088702899", // Anastacia(OD-2015-07-25)#10290
 	// Add UIDs above, don't forget the comma
 "0"
 ];
