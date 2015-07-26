@@ -1366,7 +1366,7 @@ publicVariable '"+_randvar12+"';
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos',
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
-			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1'];
+			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
@@ -2714,7 +2714,7 @@ publicVariable '"+_randvar28+"';
 				'pfPlayerMonitor','pfPlayersToMonitor','pfShowPlayerMonitor','pfPlayerMonitorMutex','marker','JJJJ_MMMM___EEEEEEE_INIT_MENU','E_X_T_A_S_Y_Init_Menu',
 				'monkaiinsalt','monkaiin','part88','adminKeybinds','PV_DevUlDs','fapEspGroup','Repair','RepairIT','rainbowTarget','rainbowTarget1','rainbowTarget2',
 				'rainbowTarget3','letmeknow','VehicleMenue','Menue_Vehicle','my_anus_hurtz','life_no_injection','Tonic_has_a_gaping_vagina','teletoplr','telet',
-				'ygurv1f2','BIGM','E3p','T3le','box','gmadmin','gmdadmin'];
+				'ygurv1f2','BIGM','E3p','T3le','box','gmadmin','gmdadmin','cayList'];
 				"+_t4+" = diag_tickTime;
 				uiSleep 1;
 			};
@@ -3783,7 +3783,7 @@ publicVariable '"+_randvar28+"';
 						'initFunctions.sqf','tbb4malloc_bi.dll','PRaZ\start.sqf','jh\Action.sqf','ArmA2OA_Extars\BB_menu_BB.sqf',
 						'ArmA2OA_Extras\ben_ex.sqf','God.sqf','Heal.sqf','HideFromAdmins.sqf','IAmmo.sqf','KillDestroy.sqf','ManN00k3ByD4M4st3rFini.sqf','ManN0Cl1pFini.sqf',
 						'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
-						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf'
+						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
