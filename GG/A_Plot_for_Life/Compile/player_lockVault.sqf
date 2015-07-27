@@ -72,7 +72,7 @@ if(!isNull _obj) then {
 	_weapons = 		getWeaponCargo _obj;
 	_magazines = 	getMagazineCargo _obj;
 	_backpacks = 	getBackpackCargo _obj;
-	_safebank =		_obj getVariable["safebank","0"];
+	_safebank =		_obj getVariable["safeMoney","0"];
 	
 	// remove vault
 	_inventory = [getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj];
@@ -82,7 +82,7 @@ if(!isNull _obj) then {
 	_holder setVariable ["WeaponCargo", _weapons, true];
 	_holder setVariable ["MagazineCargo", _magazines, true];
 	_holder setVariable ["BackpackCargo", _backpacks, true];
-	_holder setVariable ["safebank", _safebank,true];
+	_holder setVariable ["safeMoney", _safebank,true];
 
 	PVDZE_lockVault = [_objectID,_objectUID,_holder,player,_inventory,(_inventoryCHK != str(_inventory))];
 	publicVariableServer "PVDZE_lockVault";
