@@ -4,7 +4,7 @@ echo.
 echo KILL server_test.exe
 set serverkill="E:\A2Server"
 cd /d %serverkill%
-taskkill /im server_test.exe
+taskkill /f /im server_test.exe
 echo.
 timeout 1
 echo.

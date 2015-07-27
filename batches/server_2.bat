@@ -4,18 +4,18 @@ echo.
 echo KILL server_2.exe
 set serverkill="E:\A2Server"
 cd /d %serverkill%
-taskkill /im server_2.exe
+taskkill /f /im server_2.exe
 echo.
 echo Kill Bec1.exe
 set beckill="E:\A2Server\BEC"
 cd /d %beckill%
-taskkill /im Bec_2.exe
+taskkill /f /im Bec_2.exe
 timeout 2
 echo.
 echo Kill MBcon
 set beckill="E:\A2Server\MBcon\server_2"
 cd /d %beckill%
-taskkill /im MBcon_2.exe
+taskkill /f /im MBcon_2.exe
 timeout 2
 echo.
 :: UPDATING GITHUB REPOS

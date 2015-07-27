@@ -7,7 +7,7 @@ echo.
 echo Kill Bec2.exe
 set beckill="E:\A2Server\BEC"
 cd /d %beckill%
-taskkill /im Bec_2.exe
+taskkill /f /im Bec_2.exe
 timeout 2
 echo
 echo Starting 5 Minute Bec
