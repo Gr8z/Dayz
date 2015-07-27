@@ -1,6 +1,7 @@
 BankDialogTransferAmount 		= 13000;
 BankDialogPlayerBalance 		= 13001;
 BankDialogBankBalance 			= 13002;
+BankDialogMaxAmount 			= 13003;
 
 SCTraderDialogCatList 			= 32000;
 SCTraderDialogItemList 			= 32001;
@@ -14,6 +15,8 @@ GivePlayerDialogPlayerBalance 	= 14001;
 BankDialogUpdateAmounts = {
 	ctrlSetText [BankDialogPlayerBalance, format["%1 %2", (player getVariable ['cashMoney', 0] call BIS_fnc_numberText), CurrencyName]];
 	ctrlSetText [BankDialogBankBalance, format["%1 %2", (player getVariable ['bankMoney', 0] call BIS_fnc_numberText), CurrencyName]];
+	if (getPlayerUID player in BankDonator) then {ctrlSetText [BankDialogMaxAmount, format["Max: %1 %2", [MaxDonatorBankMoney] call BIS_fnc_numberText, CurrencyName]];} else 
+	{ctrlSetText [BankDialogMaxAmount, format["Max: %1 %2", [MaxBankMoney] call BIS_fnc_numberText, CurrencyName]];};
 };
 
 GivePlayerDialogAmounts = {
