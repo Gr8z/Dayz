@@ -10,6 +10,7 @@ SCTraderDialogSellPrice 		= 32003;
 
 GivePlayerDialogTransferAmount 	= 14000;
 GivePlayerDialogPlayerBalance 	= 14001;
+GivePlayerDialogTargetBalance 	= 14002;
 
 
 BankDialogUpdateAmounts = {
@@ -21,6 +22,7 @@ BankDialogUpdateAmounts = {
 
 GivePlayerDialogAmounts = {
 	ctrlSetText [GivePlayerDialogPlayerBalance, format["%1 %2", (player getVariable ['cashMoney', 0] call BIS_fnc_numberText), CurrencyName]];
+	ctrlSetText [GivePlayerDialogTargetBalance, format["%1 %2", (cursorTarget getVariable ['cashMoney', 0] call BIS_fnc_numberText), CurrencyName]];
 	ctrlSetText [14003, format["%1", (name cursorTarget)]];
 };
 

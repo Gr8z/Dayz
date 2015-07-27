@@ -32,6 +32,15 @@ class GivePlayerDialog
 			w = 0.108177 * safezoneW;
 			h = 0.041262 * safezoneH;
 		};
+		class RscTextT_1003: RscTextT
+		{
+			idc = 14003;
+			text = "Target";
+			x = 0.533805 * safezoneW + safezoneX;
+			y = 0.307444 * safezoneH + safezoneY;
+			w = 0.108177 * safezoneW;
+			h = 0.041262 * safezoneH;
+		};
 		class RscTextT_1006: RscTextT
 		{
 			idc = -1;
@@ -46,6 +55,16 @@ class GivePlayerDialog
 			idc = 14001;
 			text = "";
 			x = 0.351256 * safezoneW + safezoneX;
+			y = 0.348706 * safezoneH + safezoneY;
+			w = 0.108177 * safezoneW;
+			h = 0.041262 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+		class RscTextT_1005: RscTextT
+		{
+			idc = 14002;
+			text = "";
+			x = 0.533805 * safezoneW + safezoneX;
 			y = 0.348706 * safezoneH + safezoneY;
 			w = 0.108177 * safezoneW;
 			h = 0.041262 * safezoneH;
