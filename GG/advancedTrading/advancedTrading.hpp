@@ -427,12 +427,12 @@ class AdvancedTrading
 		class ZSC_RscButtonMenu_AT27: AT_Zupa_BlueButton
 		{
 			idc = 7436;
-			text = "Buy";
+			text = "Buy (DISABLED)";
 			x = 0.46 * safezoneW + safezoneX;
 			y = 0.77 * safezoneH + safezoneY;
 			w = 0.13 * safezoneW;
 			onload = "ctrlShow [_this,false]";
-			onButtonClick = "call Z_BuyItems;";
+			onButtonClick = "";
 			colorBackground[] =  {1,1,1,1};
 			color[] = {0,0,0,1};
 		};
