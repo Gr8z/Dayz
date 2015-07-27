@@ -5,6 +5,7 @@ DZE_ATM = ["Infostand_2_EP1"];
 LimitOnBank = true;
 MaxBankMoney = 100000;
 MaxDonatorBankMoney = 500000;
+SafeMaxDeposit = 50000;
 AllowManualCode = false;
 HarderPenalty = true;
 MaxHeliCrashes= 10;

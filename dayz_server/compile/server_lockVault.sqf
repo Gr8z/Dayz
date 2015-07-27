@@ -14,6 +14,7 @@ if (_inventoryCHK) then {
 _holder setVariable ["WeaponCargo", _inventory select 0];
 _holder setVariable ["MagazineCargo", _inventory select 1];
 _holder setVariable ["BackpackCargo", _inventory select 2];
+_holder setVariable ["safeMoney",_inventory select 3];
 
 if (_objectID == "0") then {
 	_key = format["CHILD:309:%1:%2:",_objectUID,_inventory];

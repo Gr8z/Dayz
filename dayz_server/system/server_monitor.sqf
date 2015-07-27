@@ -264,6 +264,11 @@ if (isServer && isNil "sm_done") then {
 			};
 
 			if ((count _inventory > 0) && !(typeOf( _object) == "Plastic_Pole_EP1_DZ") && !(typeOf( _object) in  DZE_DoorsLocked)) then {
+				if( count (_inventory) > 3)then{
+					_object setVariable ["safeMoney", _inventory select 3, true];
+				}else{
+					_object setVariable ["safeMoney", 0, true];
+				};
 				if (_type in DZE_LockedStorage) then {
 					// Fill variables with loot
 					_object setVariable ["WeaponCargo", (_inventory select 0),true];

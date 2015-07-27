@@ -85,10 +85,10 @@ _object_position = {
 
 			if(_isNormal)then {
 				_inventory = [
-
 				getWeaponCargo _object,
 				getMagazineCargo _object,
-				getBackpackCargo _object
+				getBackpackCargo _object,
+				_object getVariable["safeMoney",0]
 				];
 			};
 
@@ -228,9 +228,10 @@ _object_vehicleKey = {
 
 	if(_isNormal)then {
 		_inventory = [
-		getWeaponCargo _object,
-		getMagazineCargo _object,
-		getBackpackCargo _object
+			getWeaponCargo _object,
+			getMagazineCargo _object,
+			getBackpackCargo _object,
+			_object getVariable["safeMoney",0]
 		];
 	};
 	
