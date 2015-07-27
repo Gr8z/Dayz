@@ -157,14 +157,14 @@ if(_enoughMoney) then {
 		if (!SingleCurrency) then {
 				_success = [player,_priceToBuy, _moneyInfo] call Z_payDefault;
 				if (_success) then {
-					systemChat format["Trade successfull, payed %1 worth of items.", _priceToBuy];
+					systemChat format["Trade successful, paid %1 worth of items.", _priceToBuy];
 				} else {
 					systemchat "DEBUG: Something went wrong in the pay process. Please report this issue.";
 				};
 		} else {
 				_success = [player,_priceToBuy] call SC_fnc_removeCoins;
 				if (_success) then {
-					systemChat format["Trade successfull, payed %1 %2.", _priceToBuy, CurrencyName];
+					systemChat format["Trade successful, paid %1 %2.", _priceToBuy, CurrencyName];
 				} else {
 					systemchat "DEBUG: Something went wrong in the pay process. Please report this issue.";
 				};
