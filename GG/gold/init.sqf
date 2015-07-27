@@ -133,7 +133,7 @@ SafeDialogDepositAmount = {
 		cutText ["You can not deposit more than you have.", "PLAIN DOWN"];
 	};
 
-	if( ((_safe + _amount ) >  SafeMaxDeposit) then{		
+	if ((_safe + _amount ) >  SafeMaxDeposit) then{		
 			cutText [format["You can only store a max of %1 %2 in this %3.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName,_displayName], "PLAIN DOWN"];
 	}else{	
 		player setVariable["cashMoney",(_wealth - _amount),true];
