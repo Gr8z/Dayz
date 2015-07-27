@@ -74,7 +74,7 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			_weapons = 		_obj getVariable["WeaponCargo",[]];
 			_magazines = 	_obj getVariable["MagazineCargo",[]];
 			_backpacks = 	_obj getVariable["BackpackCargo",[]];
-			_safebank =		_obj getVariable["safebank","0"];
+			_safebank =		_obj getVariable["safeMoney","0"];
 			player playActionNow "Medic";
 			sleep 1;
 			[player,"tentpack",0,false] call dayz_zombieSpeak;
@@ -94,7 +94,7 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			_holder setVariable["ObjectUID",_objectUID,true];
 			_holder setVariable ["OEMPos", _pos, true];
 			_holder setVariable ["ownerPUID", _ownerID , true];
-			_holder setVariable ["safebank", _safebank,true];
+			_holder setVariable ["safeMoney", _safebank,true];
 
 			if (count _weapons > 0) then {
 				//Add weapons

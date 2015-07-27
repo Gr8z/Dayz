@@ -88,7 +88,7 @@ _object_position = {
 				getWeaponCargo _object,
 				getMagazineCargo _object,
 				getBackpackCargo _object,
-				_object getVariable["safeBank",0]
+				_object getVariable["safeMoney",0]
 				];
 			};
 
@@ -231,7 +231,7 @@ _object_vehicleKey = {
 			getWeaponCargo _object,
 			getMagazineCargo _object,
 			getBackpackCargo _object,
-			_object getVariable["safeBank",0]
+			_object getVariable["safeMoney",0]
 		];
 	};
 	

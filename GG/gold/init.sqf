@@ -84,7 +84,7 @@ BankDialogDepositAmount = {
 
 SafeDialogUpdateAmounts = {
 	ctrlSetText [SafeDialogPlayerBalance, format["%1 %2", [(player getVariable ['cashMoney', 0])] call BIS_fnc_numberText, CurrencyName]];
-	ctrlSetText [SafeDialogBankBalance, format["%1 %2", [(TargetSafe getVariable ['safebank', 0])] call BIS_fnc_numberText, CurrencyName]];
+	ctrlSetText [SafeDialogBankBalance, format["%1 %2", [(TargetSafe getVariable ['safeMoney', 0])] call BIS_fnc_numberText, CurrencyName]];
 	ctrlSetText [SafeDialogMaxAmount, format["Max: %1 %2", [SafeMaxDeposit] call BIS_fnc_numberText, CurrencyName]];
 };
 
