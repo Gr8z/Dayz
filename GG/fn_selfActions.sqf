@@ -997,6 +997,17 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 			s_player_followdog = -1;
 		};
 	};
+	
+	if(_typeOfCursorTarget in DZE_UnLockedStorage) then {
+		if (s_safebank_dialog < 0) then {
+			TargetSafe = _cursorTarget;
+			diag_log format ["safebank: %1",TargetSafe];
+			s_safebank_dialog = player addAction ["Coins", "GG\gold\safe_bank.sqf",_cursorTarget];
+		};	
+	} else {
+		player removeAction s_safebank_dialog;
+		s_safebank_dialog = -1;
+	};
 
 } else {
 	//Engineering
@@ -1115,6 +1126,8 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_player_fuelauto2 = -1;
 	player removeAction s_givemoney_dialog;
 	s_givemoney_dialog = -1;
+	player removeAction s_safebank_dialog;
+	s_safebank_dialog = -1;
 	player removeAction s_bank_dialog2;
 	s_bank_dialog2 = -1;	
 	player removeAction s_player_packOBJ;

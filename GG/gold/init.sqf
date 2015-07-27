@@ -12,6 +12,9 @@ GivePlayerDialogTransferAmount 	= 14000;
 GivePlayerDialogPlayerBalance 	= 14001;
 GivePlayerDialogTargetBalance 	= 14002;
 
+SafeDialogPlayerBalance 		= 13021;
+SafeDialogBankBalance 			= 13022;
+SafeDialogMaxAmount 			= 13023;
 
 BankDialogUpdateAmounts = {
 	ctrlSetText [BankDialogPlayerBalance, format["%1 %2", (player getVariable ['cashMoney', 0] call BIS_fnc_numberText), CurrencyName]];
@@ -77,6 +80,71 @@ BankDialogDepositAmount = {
 	publicVariableServer "PVDZE_plr_Save";
 	PVDZE_bank_Save = [player];
 	publicVariableServer "PVDZE_bank_Save";
+};
+
+SafeDialogUpdateAmounts = {
+	ctrlSetText [SafeDialogPlayerBalance, format["%1 %2", [(player getVariable ['cashMoney', 0])] call BIS_fnc_numberText, CurrencyName]];
+	ctrlSetText [SafeDialogBankBalance, format["%1 %2", [(TargetSafe getVariable ['safebank', 0])] call BIS_fnc_numberText, CurrencyName]];
+	ctrlSetText [SafeDialogMaxAmount, format["Max: %1 %2", [SafeMaxDeposit] call BIS_fnc_numberText, CurrencyName]];
+};
+
+SafeDialogWithdrawAmount = {
+	private ["_amount","_safe","_wealth"];
+	
+	_amount = parseNumber (_this select 0);	
+	_safe = SafeStorage getVariable ["safeMoney", 0];
+	_wealth = player getVariable["cashMoney",0];
+	_vehicleType = typeOf SafeStorage; 
+	_displayName = getText  (configFile >> "CfgVehicles" >> _vehicleType >> "displayName");		
+	
+	if (!isNull SafeStorage) then {
+	
+	if (_amount < 1 or _amount > _safe) exitWith {
+		cutText [format["You can not withdraw more than is in the %1.",_displayName], "PLAIN DOWN"];
+	};
+
+	player setVariable["cashMoney",(_wealth + _amount),true];
+	SafeStorage setVariable["safeMoney",(_safe - _amount),true];
+
+	PVDZE_plr_Save = [player,(magazines player),true,true] ;
+	publicVariableServer "PVDZE_plr_Save";
+	
+	PVDZE_veh_Update = [SafeStorage,"gear"];
+	publicVariableServer "PVDZE_veh_Update";
+
+	cutText [format["You have withdrawn %1 %2 out of the %3", [_amount] call BIS_fnc_numberText, CurrencyName,_displayName], "PLAIN DOWN"];
+	
+	}else{
+		cutText ["Unable to access Coins. Please try again.", "PLAIN DOWN"];
+	};
+};
+
+SafeDialogDepositAmount = {
+	private ["_amount","_safe","_wealth"];	
+	_vehicleType = typeOf SafeStorage; 	
+	_maxCap = 0;	
+	_displayName = "Safe";
+
+	_amount = parseNumber (_this select 0);
+	_safe = SafeStorage getVariable ["safeMoney", 0];
+	_wealth = player getVariable["cashMoney",0];
+	
+	if (_amount < 1 or _amount > _wealth) exitWith {
+		cutText ["You can not deposit more than you have.", "PLAIN DOWN"];
+	};
+
+	if( ((_safe + _amount ) >  SafeMaxDeposit)) then{		
+			cutText [format["You can only store a max of %1 %2 in this %3.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName,_displayName], "PLAIN DOWN"];
+	}else{	
+		player setVariable["cashMoney",(_wealth - _amount),true];
+		SafeStorage setVariable["safeMoney",(_safe + _amount),true];
+		cutText [format["You have deposited %1 %2 in the %3.", [_amount] call BIS_fnc_numberText, CurrencyName,_displayName], "PLAIN DOWN"];
+	};
+	PVDZE_plr_Save = [player,(magazines player),true,true] ;
+	publicVariableServer "PVDZE_plr_Save";
+	
+	PVDZE_veh_Update = [SafeStorage,"gear"];
+	publicVariableServer "PVDZE_veh_Update";
 };
 
 GivePlayerAmount = {

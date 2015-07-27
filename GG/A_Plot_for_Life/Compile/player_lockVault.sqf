@@ -33,6 +33,7 @@ _characterID = _obj getVariable["CharacterID","0"];
 _objectID 	= _obj getVariable["ObjectID","0"];
 _objectUID	= _obj getVariable["ObjectUID","0"];
 _ownerID =  _obj getVariable["ownerPUID", "0"];
+_safebank =		_obj getVariable["safebank","0"];
 
 if (DZE_APlotforLife) then {
 	_playerUID = [player] call FNC_GetPlayerUID;
@@ -68,11 +69,12 @@ if(!isNull _obj) then {
 	_holder setVariable["ObjectUID",_objectUID,true];
 	_holder setVariable ["OEMPos", _pos, true];
 	_holder setVariable ["ownerPUID", _ownerID , true];
+	_holder setVariable ["safebank", _safebank,true];
 
 	_weapons = 		getWeaponCargo _obj;
 	_magazines = 	getMagazineCargo _obj;
 	_backpacks = 	getBackpackCargo _obj;
-
+	
 	// remove vault
 	_inventory = [getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj];
 	deleteVehicle _obj;
