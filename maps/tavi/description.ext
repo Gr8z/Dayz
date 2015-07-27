@@ -210,6 +210,7 @@ class DayZ_loadingScreen
 #include "GG\Menu\wardrobe\dialog\SkinGui.hpp"
 #include "GG\gold\common.hpp"
 #include "GG\gold\bank_dialog.hpp"
+#include "GG\gold\safe_dialog.hpp"
 #include "GG\gold\give_player_dialog.hpp"
 
 
