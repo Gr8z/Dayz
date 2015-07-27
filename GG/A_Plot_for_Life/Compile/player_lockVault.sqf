@@ -33,7 +33,6 @@ _characterID = _obj getVariable["CharacterID","0"];
 _objectID 	= _obj getVariable["ObjectID","0"];
 _objectUID	= _obj getVariable["ObjectUID","0"];
 _ownerID =  _obj getVariable["ownerPUID", "0"];
-_safebank =		_obj getVariable["safeMoney","0"];
 
 if (DZE_APlotforLife) then {
 	_playerUID = [player] call FNC_GetPlayerUID;
@@ -69,11 +68,11 @@ if(!isNull _obj) then {
 	_holder setVariable["ObjectUID",_objectUID,true];
 	_holder setVariable ["OEMPos", _pos, true];
 	_holder setVariable ["ownerPUID", _ownerID , true];
-	_holder setVariable ["safeMoney", _safebank,true];
 
 	_weapons = 		getWeaponCargo _obj;
 	_magazines = 	getMagazineCargo _obj;
 	_backpacks = 	getBackpackCargo _obj;
+	_safebank =		_obj getVariable["safebank","0"];
 	
 	// remove vault
 	_inventory = [getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj];
@@ -83,9 +82,11 @@ if(!isNull _obj) then {
 	_holder setVariable ["WeaponCargo", _weapons, true];
 	_holder setVariable ["MagazineCargo", _magazines, true];
 	_holder setVariable ["BackpackCargo", _backpacks, true];
+	_holder setVariable ["safebank", _safebank,true];
 
 	PVDZE_lockVault = [_objectID,_objectUID,_holder,player,_inventory,(_inventoryCHK != str(_inventory))];
 	publicVariableServer "PVDZE_lockVault";
+	
 	cutText [format[(localize "str_epoch_player_117"),_text], "PLAIN DOWN"];
 };
 s_player_lockvault = -1;

@@ -94,8 +94,7 @@ SafeDialogWithdrawAmount = {
 	_amount = parseNumber (_this select 0);	
 	_safe = SafeStorage getVariable ["safeMoney", 0];
 	_wealth = player getVariable["cashMoney",0];
-	_vehicleType = typeOf SafeStorage; 
-	_displayName = getText  (configFile >> "CfgVehicles" >> _vehicleType >> "displayName");		
+	_displayName = "Safe";		
 	
 	if (!isNull SafeStorage) then {
 	
@@ -121,9 +120,7 @@ SafeDialogWithdrawAmount = {
 
 SafeDialogDepositAmount = {
 	private ["_amount","_safe","_wealth"];	
-	_vehicleType = typeOf SafeStorage; 	
 	_maxCap = 0;	
-	_displayName = "Safe";
 
 	_amount = parseNumber (_this select 0);
 	_safe = SafeStorage getVariable ["safeMoney", 0];
@@ -134,11 +131,11 @@ SafeDialogDepositAmount = {
 	};
 
 	if ((_safe + _amount ) >  SafeMaxDeposit) then{		
-			cutText [format["You can only store a max of %1 %2 in this %3.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName,_displayName], "PLAIN DOWN"];
+			cutText [format["You can only store a max of %1 %2 in this Safe.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName], "PLAIN DOWN"];
 	}else{	
 		player setVariable["cashMoney",(_wealth - _amount),true];
 		SafeStorage setVariable["safeMoney",(_safe + _amount),true];
-		cutText [format["You have deposited %1 %2 in the %3.", [_amount] call BIS_fnc_numberText, CurrencyName,_displayName], "PLAIN DOWN"];
+		cutText [format["You have deposited %1 %2 in the Safe.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];
 	};
 	PVDZE_plr_Save = [player,(magazines player),true,true] ;
 	publicVariableServer "PVDZE_plr_Save";
