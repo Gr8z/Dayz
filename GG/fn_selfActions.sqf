@@ -1002,7 +1002,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 		if (s_safebank_dialog < 0) then {
 			TargetSafe = _cursorTarget;
 			diag_log format ["safebank: %1",TargetSafe];
-			s_safebank_dialog = player addAction ["Coins", "GG\gold\safe_bank.sqf",_cursorTarget];
+			s_safebank_dialog = player addAction ["Coins", "GG\gold\safe_dialog.sqf",_cursorTarget];
 		};	
 	} else {
 		player removeAction s_safebank_dialog;
