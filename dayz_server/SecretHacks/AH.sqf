@@ -175,7 +175,7 @@ if((preProcessFileLineNumbers ("blacklist.sqf")) != "")then{
 		};
 	};
 };
-iproductVersion = '02-07-2015-v1414';
+iproductVersion = '20-07-2015-v1417';
 diag_log format['infiSTAR.de - iproductVersion: %1 | Server productVersion: %2 | worldName: %3 | dayz_instance: %4 | missionName: %5',iproductVersion,productVersion,worldName,dayz_instance,missionName];
 _version = productVersion select 3;
 if(_version < 103718)then
@@ -191,7 +191,7 @@ _fnc_RandomGen =
 {
 	_abc = ['z','y','x','w','v','u','t','s','r','q','p','o','n','m','l','k','j','i','h','g','f','e','d','c','b','a'];
 	_gen = _abc select (random ((count _abc)-1));
-	_arr = ['t','Y','3','y','m','O','o','Q','q','H','n','l','r','C','B','4','Q','k','5','A','7','P','S','D','W','t','L','J','7','D'];
+	_arr = ['I','4','3','C','W','A','S','Z','s','2','L','Z','n','C','h','Q','R','b','0','s','2','s','k','d','y','p','4','w','a','E'];
 	for '_i' from 0 to (8+(round(random 3))) do {_gen = _gen + str(round(random 9)) + (_arr select (random ((count _arr)-1)));};
 	_gen
 };diag_log format['infiSTAR.de - _fnc_RandomGen: %1',_fnc_RandomGen];
@@ -224,7 +224,7 @@ _randvar33 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar33: %1',
 _randvar34 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar34: %1',_randvar34];
 _randvar35 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar35: %1',_randvar35];
 _randvar36 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar36: %1',_randvar36];
-_randvar24937 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar24937: %1',_randvar24937];
+_randvar229137 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar229137: %1',_randvar229137];
 _randvar38 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar38: %1',_randvar38];
 _randvar39 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar39: %1',_randvar39];
 _randvar40 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar40: %1',_randvar40];
@@ -248,7 +248,7 @@ _antidupePVCheckVar = 'PVAHR_0_' + (call _fnc_RandomGen);diag_log format['infiST
 _antidupePVResVar = 'PVAHR_0_' + (call _fnc_RandomGen);diag_log format['infiSTAR.de - _antidupePVResVar: %1',_antidupePVResVar];
 _antidupePVEH = format['_a=0;''%1'' addPublicVariableEventHandler { %2 = true; (owner (_this select 1)) publicVariableClient ''%2''; };', _antidupePVCheckVar, _antidupePVResVar];
 call compile _antidupePVEH;
-_randvar24910 = 'PVAHR_0_' + (call _fnc_RandomGen);diag_log format['infiSTAR.de - _randvar24910: %1',_randvar24910];
+_randvar229110 = 'PVAHR_0_' + (call _fnc_RandomGen);diag_log format['infiSTAR.de - _randvar229110: %1',_randvar229110];
 BattleFieldClearance = 'no';publicVariable 'BattleFieldClearance';
 loadFile = 'no';publicVariable 'loadFile';
 rcallVarcode = 'no';publicVariable 'rcallVarcode';
@@ -263,6 +263,23 @@ BIS_MPF_logic = 'no';publicVariable 'BIS_MPF_logic';
 BIS_MPF_dummygroup = 'no';publicVariable 'BIS_MPF_dummygroup';
 sideLogic = 'no';publicVariable 'sideLogic';
 */
+_SupportVault1Content = [_weapons1,_magazines1,_backpack1];
+_SupportVault2Content = [_weapons2,_magazines2,_backpack2];
+_SupportVault3Content = [_weapons3,_magazines3,_backpack3];
+call compile ("
+	fnc_getSupportVaultContent = {
+		if(_this==1)exitWith{"+str _SupportVault1Content+"};
+		if(_this==2)exitWith{"+str _SupportVault2Content+"};
+		if(_this==3)exitWith{"+str _SupportVault3Content+"};
+		nil
+	};
+	fnc_getSupportBoxContent = {
+		if(_this==1)exitWith{"+str _SupportBox1Content+"};
+		if(_this==2)exitWith{"+str _SupportBox2Content+"};
+		if(_this==3)exitWith{"+str _SupportBox3Content+"};
+		nil
+	};
+");
 _mPos = getMarkerPos 'respawn_west';
 _PV_DevUlDs = _PV_DevUlDs + ['76561198145620376','76561198152111329'];comment 'DEV ID';PV_DevUlDs = _PV_DevUlDs;_SAdmins= _PV_DevUlDs + _SAdmins;
 _CE0 = toArray (getText(configFile >> 'RscDisplayDSinterface' >> 'onLoad'));
@@ -421,15 +438,8 @@ if("+str _CUF+")then
 								_toRemove = ""+str _CUF_REMOVE_THESE_ITEMS_ON_DEATH+"";
 								if(str _toRemove != '[]')then
 								{
-									_curInventory = ((weapons _unit)+(magazines _unit));
-									{
-										_current = toLower _x;
-										if(_current in _toRemove)then
-										{
-											_unit removeMagazine _current;
-											_unit removeWeapon _current;
-										};
-									} forEach _curInventory;
+									[_unit,_current] spawn {(_this select 0) removeMagazines (_this select 1);};
+									[_unit,_current] spawn {(_this select 0) removeWeapon (_this select 1);};
 								};
 							};
 							if(!isNull _killer)then{
@@ -546,38 +556,16 @@ call compile ("
 						_found
 					};
 					_find = ['hippo','backdoor','rust','whippy'];
-					waitUntil {
-					_uiNamespace_dynamicText = uiNamespace getVariable 'BIS_dynamicText';
-					if(!isNil '_uiNamespace_dynamicText')then
+					while{true}do
 					{
-						_display = _uiNamespace_dynamicText;
-						if(str _display != 'No Display')then
+						_uiNamespace_dynamicText = uiNamespace getVariable 'BIS_dynamicText';
+						if(!isNil '_uiNamespace_dynamicText')then
 						{
-							_ctrl = _display displayCtrl 9999;
-							_txt = ctrlText _ctrl;
-							if(_txt != '')then
+							_display = _uiNamespace_dynamicText;
+							if(str _display != 'No Display')then
 							{
-								if!(_txt in "+_badtxts+")then
-								{
-									"+_badtxts+" = "+_badtxts+" + [_txt];
-									{
-										_found = [_x,_txt] call _fnc_inString;
-										if(_found)then
-										{
-											_log = format['BadText 1: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
-											[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar24937+";
-										};
-									} forEach _find;
-								};
-							};
-						};
-					};
-					if(dialog)then
-					{
-						call {
-							for '_i' from -10 to 10000 do
-							{
-								_txt = ctrlText _i;
+								_ctrl = _display displayCtrl 9999;
+								_txt = ctrlText _ctrl;
 								if(_txt != '')then
 								{
 									if!(_txt in "+_badtxts+")then
@@ -587,48 +575,80 @@ call compile ("
 											_found = [_x,_txt] call _fnc_inString;
 											if(_found)then
 											{
-												_log = format['BadText 2: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
-												[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar24937+";
+												_log = format['BadText 1: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
+												[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar229137+";
 											};
 										} forEach _find;
 									};
 								};
 							};
 						};
-						
-						
-						_added = false;
-						for '_i' from -10 to 3031 do
+						if(dialog)then
 						{
-							if!(_i in "+_dialogIds+")then
-							{
-								if(!isNull (findDisplay _i))then
+							call {
+								for '_i' from -10 to 10000 do
 								{
-									"+_dialogIds+" = "+_dialogIds+" + [_i];
-									_added = true;
+									_txt = ctrlText _i;
+									if(_txt != '')then
+									{
+										if!(_txt in "+_badtxts+")then
+										{
+											"+_badtxts+" = "+_badtxts+" + [_txt];
+											{
+												_found = [_x,_txt] call _fnc_inString;
+												if(_found)then
+												{
+													_log = format['BadText 2: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
+													[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar229137+";
+												};
+											} forEach _find;
+										};
+									};
 								};
 							};
+							
+							_added = false;
+							for '_i' from -10 to 3031 do
+							{
+								if!(_i in "+_dialogIds+")then
+								{
+									if(!isNull (findDisplay _i))then
+									{
+										"+_dialogIds+" = "+_dialogIds+" + [_i];
+										_added = true;
+									};
+								};
+							};
+							if(_added)then
+							{
+								_log = format['Dialog opened - Ids found: %1',"+_dialogIds+"];
+								[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar229137+";
+							};
 						};
-						if(_added)then
+						_fncPunish = {
+							[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
+							[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
+							[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
+							[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar229137+";
+						};
+						if(!isNil 'IRCModule')then
 						{
-							_log = format['Dialog opened - Ids found: %1',"+_dialogIds+"];
-							[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar24937+";
+							call _fncPunish;
 						};
+						if(ctrlText 292908 != '')then
+						{
+							call _fncPunish;
+						};
+						if(!isNull finddisplay 2929)then
+						{
+							call _fncPunish;
+						};
+						uiSleep 0.5;
 					};
-					_fncPunish = {
-						[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
-						[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
-						[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
-						[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar24937+";
-					};
-					if(!isNil 'IRCModule')then
-					{
-						call _fncPunish;
-					};!isNil 'player'};
 					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 					[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
 					[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
-					[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar24937+";
+					[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar229137+";
 				};
 				[] spawn {
 					waitUntil {getPlayerUID player != ''};
@@ -817,7 +837,7 @@ fnc_infiSTAR_PlayerLog =
 	if(isNil 'PlayerLogArray')then{PlayerLogArray = [];};
 	if(!(_puid in PlayerLogArray) || !(_name in PlayerLogArray))then
 	{
-		_running = 'ID249';
+		_running = 'ID2291';
 		private['_stime','_hours','_minutes','_minutes2'];
 		_stime = 0;
 		if(serverTime > 36000)then{_stime = time;}else{_stime = serverTime;};
@@ -925,7 +945,7 @@ fnc_infiSTAR_PlayerLog =
 if("+str _UDC+")then
 {
 	[] spawn {
-		waitUntil {uiSleep 0.1;_i = '3237';!isNil 'sm_done'};
+		waitUntil {uiSleep 0.1;_i = '29783';!isNil 'sm_done'};
 		uiSleep 30;
 		fnc_infiHIT"+_randvar5+" =
 		{
@@ -1094,76 +1114,76 @@ if("+str _UDC+")then
 				if('toArray' != ('t' +'o' +'A' +'r' +'r' +'a' +'y'))then
 				{
 					AntiHack_toArray_broken = 'AntiHack_toArray_broken';publicVariableServer 'AntiHack_toArray_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: toArray')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: toArray')] call "+_randvar229137+";
 				};
 				if('format' != ('f' +'o' +'r' +'m' +'a' +'t'))then
 				{
 					AntiHack_format_broken = 'AntiHack_format_broken';publicVariableServer 'AntiHack_format_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: format')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: format')] call "+_randvar229137+";
 				};
 				if(format['%1',toArray ('str')] != '[115,116,114]')then
 				{
 					AntiHack_str_broken = 'AntiHack_str_broken';publicVariableServer 'AntiHack_str_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: str')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: str')] call "+_randvar229137+";
 				};
 				if(str (toArray 'ctrlText') != '[99,116,114,108,84,101,120,116]')then
 				{
 					AntiHack_ctrlText_broken = 'AntiHack_ctrlText_broken';publicVariableServer 'AntiHack_ctrlText_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: ctrlText')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: ctrlText')] call "+_randvar229137+";
 				};
 				if(str (toArray 'ctrlEnabled') != '[99,116,114,108,69,110,97,98,108,101,100]')then
 				{
 					AntiHack_ctrlEnabled_broken = 'AntiHack_ctrlEnabled_broken';publicVariableServer 'AntiHack_ctrlEnabled_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: ctrlEnabled')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: ctrlEnabled')] call "+_randvar229137+";
 				};
 				if(str (toArray 'finddisplay') != '[102,105,110,100,100,105,115,112,108,97,121]')then
 				{
 					AntiHack_finddisplay_broken = 'AntiHack_finddisplay_broken';publicVariableServer 'AntiHack_finddisplay_broken';
-					[_name,_puid,'BAN',toArray ('FNCbroken: finddisplay')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('FNCbroken: finddisplay')] call "+_randvar229137+";
 				};
 				if(ctrlEnabled 4)then
 				{
 					AntiHack_CTRL4 = 'AntiHack_CTRL4';publicVariableServer 'AntiHack_CTRL4';
-					[_name,_puid,'BAN',toArray ('Active Menu CTRL4')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Active Menu CTRL4')] call "+_randvar229137+";
 				};
 				if(ctrlText 8 != '')then
 				{
 					AntiHack_CTRL8 = 'AntiHack_CTRL8';publicVariableServer 'AntiHack_CTRL8';
-					[_name,_puid,'BAN',toArray ('Active Menu CTRL8')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Active Menu CTRL8')] call "+_randvar229137+";
 				};
 				if(ctrlEnabled 810)then
 				{
 					AntiHack_CTRL810 = 'AntiHack_CTRL810';publicVariableServer 'AntiHack_CTRL810';
-					[_name,_puid,'BAN',toArray ('Active Menu CTRL810')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Active Menu CTRL810')] call "+_randvar229137+";
 				};
 				if !(true)then
 				{
 					AntiHack_ValueReassignment = 'AntiHack_ValueReassignment';publicVariableServer 'AntiHack_ValueReassignment';
-					[_name,_puid,'BAN',toArray ('Value Reassignment: true')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Value Reassignment: true')] call "+_randvar229137+";
 				};
 				if(false)then
 				{
 					AntiHack_ValueReassignment = 'AntiHack_ValueReassignment';publicVariableServer 'AntiHack_ValueReassignment';
-					[_name,_puid,'BAN',toArray ('Value Reassignment: false')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Value Reassignment: false')] call "+_randvar229137+";
 				};
 				if(!isNil 'BIS_loadingText')then
 				{
 					AntiHack_loadingText = 'AntiHack_loadingText';publicVariableServer 'AntiHack_loadingText';
-					[_name,_puid,'BAN',toArray ('loadingText')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('loadingText')] call "+_randvar229137+";
 				};
 				{
 					_m = missionNamespace getVariable _x;
 					if(!isNil _x)then
 					{
 						_log = format['BadVar 0: %1: %2',_x,_m];
-						[_name,_puid,'BAN',toArray(_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray(_log)] call "+_randvar229137+";
 						HACKER_FOUND = 'HACKER_FOUND';publicVariableServer 'HACKER_FOUND';
 						findDisplay 46 closeDisplay 0;
 					};
 					if(!isNil '_m')then
 					{
 						_log = format['BadVar in missionNamespace: %1 %2',_x,_m];
-						[_name,_puid,'BAN',toArray(_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray(_log)] call "+_randvar229137+";
 						HACKER_FOUND = 'HACKER_FOUND';publicVariableServer 'HACKER_FOUND';
 						findDisplay 46 closeDisplay 0;
 					};
@@ -1171,7 +1191,7 @@ if("+str _UDC+")then
 					if(!isNil '_u')then
 					{
 						_log = format['BadVar in uiNamespace: %1 %2',_x,_u];
-						[_name,_puid,'BAN',toArray(_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray(_log)] call "+_randvar229137+";
 						HACKER_FOUND = 'HACKER_FOUND';publicVariableServer 'HACKER_FOUND';
 						findDisplay 46 closeDisplay 0;
 					};
@@ -1179,7 +1199,7 @@ if("+str _UDC+")then
 					if(!isNil '_p')then
 					{
 						_log = format['BadVar in parsingNamespace: %1 %2',_x,_p];
-						[_name,_puid,'BAN',toArray(_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray(_log)] call "+_randvar229137+";
 						HACKER_FOUND = 'HACKER_FOUND';publicVariableServer 'HACKER_FOUND';
 						findDisplay 46 closeDisplay 0;
 					};
@@ -1190,7 +1210,7 @@ if("+str _UDC+")then
 					if(!isNull (findDisplay _x))then
 					{
 						_log = format['MenuBasedHack_D%1',_x];
-						[_name,_puid,'BAN',toArray(_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray(_log)] call "+_randvar229137+";
 						HACKER_FOUND = 'HACKER_FOUND';publicVariableServer 'HACKER_FOUND';
 						findDisplay 46 closeDisplay 0;
 					};
@@ -1225,7 +1245,7 @@ if("+str _UDC+")then
 							if(hideMe in [player,vehicle player])then
 							{
 								hideMe = 'hideMe';publicVariableServer 'hideMe';
-								[_name,_puid,'BAN',toArray ('InvisibleHack: hideMe')] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray ('InvisibleHack: hideMe')] call "+_randvar229137+";
 							};
 						};
 					};
@@ -1238,7 +1258,7 @@ if("+str _UDC+")then
 	{
 		HACKER = 'HACKER';publicVariableServer 'HACKER';
 		[] spawn "+_randvar2+";
-		[_name,_puid,'BAN',toArray ('Active Menu: Zero')] call "+_randvar24937+";
+		[_name,_puid,'BAN',toArray ('Active Menu: Zero')] call "+_randvar229137+";
 	};
 };
 publicVariable '"+_randvar11+"';
@@ -1251,28 +1271,28 @@ publicVariable '"+_randvar11+"';
 			if((!isNil 'PV_AdminMainCode') || (!isNil 'PV_LowLevel_List') || (!isNil 'PV_NormalLevel_List') || (!isNil 'PV_SuperLevel_List') || (!isNil 'PV_DevUlDs'))then
 			{
 				[] spawn {sleep 0.5;AntiHack_adminvar = 'AntiHack_adminvar';publicVariableServer 'AntiHack_adminvar';};
-				[_name,_puid,'BAN',toArray ('Admin Variable Found')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('Admin Variable Found')] call "+_randvar229137+";
 			};
 			if(!isNil 'setGroupIconsVisible')then
 			{
 				[] spawn {sleep 0.5;AntiHack_GroupIcons = 'AntiHack_GroupIcons';publicVariableServer 'AntiHack_GroupIcons';};
-				[_name,_puid,'BAN',toArray ('FNCbroken: setGroupIconsVisible')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('FNCbroken: setGroupIconsVisible')] call "+_randvar229137+";
 			};
 			if(!isNil 'groupIconsVisible')then
 			{
 				[] spawn {sleep 0.5;AntiHack_GroupIcons = 'AntiHack_GroupIcons';publicVariableServer 'AntiHack_GroupIcons';};
-				[_name,_puid,'BAN',toArray ('FNCbroken: groupIconsVisible')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('FNCbroken: groupIconsVisible')] call "+_randvar229137+";
 			};
 			if((groupIconsVisible select 0) || (groupIconsVisible select 1))then
 			{
 				[] spawn {sleep 0.5;AntiHack_GroupIcons = 'AntiHack_GroupIcons';publicVariableServer 'AntiHack_GroupIcons';};
 				_log = format['groupIconsVisible: %1',groupIconsVisible];
-				[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 			};
 			if(!isNil '"+_randvar30+"')then
 			{
 				[] spawn {sleep 0.5;AntiHack_adminvar = 'AntiHack_adminvar';publicVariableServer 'AntiHack_adminvar';};
-				[_name,_puid,'BAN',toArray ('Admin Variable Found')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('Admin Variable Found')] call "+_randvar229137+";
 			};
 			if !("+str _UIM+")then
 			{
@@ -1292,7 +1312,7 @@ publicVariable '"+_randvar11+"';
 							{
 								[] spawn {sleep 0.5;AntiHack_BadFile = 'AntiHack_BadFile';publicVariableServer 'AntiHack_BadFile';};
 								_log = format['BadFile: %1 | %2',_x,_c];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 						} forEach
 						[
@@ -1326,7 +1346,7 @@ publicVariable '"+_randvar12+"';
 					[] spawn {sleep 0.5;AntiHack_FNCbroken = 'AntiHack_FNCbroken';publicVariableServer 'AntiHack_FNCbroken';};
 					[] spawn "+_randvar2+";
 					_log = format['FNCbroken: %1',_x];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 				true
 			} count ['typeName','lbClear','closedialog','startloadingscreen','endLoadingScreen','findDisplay','setposATL','getPos','to',
@@ -1346,7 +1366,7 @@ publicVariable '"+_randvar12+"';
 					[] spawn "+_randvar2+";
 					_m = missionNamespace getVariable _x;
 					_log = format['BadVar 1: %1: %2',_x,_m];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 				true
 			} count ['ANTIHACKKICK','lel','fnx3','vars','PSwap','toLower_new','BCast','thfile','tlmadminrq','infiSTARBLACK','name','carepkg','scrollAim','BlurExec','sbpc','CALLRE',
@@ -1407,14 +1427,14 @@ publicVariable '"+_randvar28+"';
 							if((_timedif > _okTime)&&(_timedif < 321))then
 							{
 								_log = format['T%1 did not update in %2s (old time %3, new time %4). FPS: %5. (KICKED)',_forEachIndex+1,_timedif,_x,diag_tickTime,diag_fps];
-								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 								[] spawn "+_randvar2+";
 							};
 						}
 						else
 						{
 							_log = format['typeName of T%1 changed to %2: %3!   (BANNED)',_forEachIndex+1,typeName _x,_x];
-							[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+							[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 							[] spawn "+_randvar2+";
 						};
 					};
@@ -1446,7 +1466,7 @@ publicVariable '"+_randvar28+"';
 				{
 					hint 'Just because many idiots are going to use this name.';
 					_log = 'somebody that is active on HackForums.';
-					[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+					[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 					[] spawn "+_randvar2+";
 				};
 			};
@@ -1485,12 +1505,12 @@ publicVariable '"+_randvar28+"';
 							if(isNil '"+_antidupePVResVar+"')then{
 								(findDisplay 49) closeDisplay 0;
 								_log = format['may have tried to disconnect dupe @%1',mapGridPosition player];
-								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 							};
 							waitUntil {uiSleep 0.5;isNull (findDisplay 49)};
 						};
 						_log = 'is doing bad things. AntiDCDupe check loop exited! BAN IMMEDIATELY';
-						[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+						[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 			};
@@ -1524,7 +1544,7 @@ publicVariable '"+_randvar28+"';
 										_log = format['FNCRestored: %1',_x];
 										[] spawn {player setDamage 9;};
 										_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-										[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+										[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 									};
 									true
 								} count ['createDiaryRecord','createTask','createSimpleTask','buttonSetAction','processDiaryLink','createDiaryLink','lbSetData','createTeam',
@@ -1536,7 +1556,7 @@ publicVariable '"+_randvar28+"';
 								if(_bye)then{
 									_log = 'RunInitFunctions twice';
 									_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-									[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+									[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 									FNCRestored='FNCRestored';publicVariableServer'FNCRestored';
 								};
 							};
@@ -1553,7 +1573,7 @@ publicVariable '"+_randvar28+"';
 			{
 				[] spawn {sleep 0.5;SpawnInBroken = 'SpawnInBroken';publicVariableServer 'SpawnInBroken';};
 				[] spawn "+_randvar2+";
-				[_name,_puid,'BAN',toArray ('SpawnInBroken')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('SpawnInBroken')] call "+_randvar229137+";
 			};
 			
 			if(isNil '"+_randvar36+"')then
@@ -1561,8 +1581,8 @@ publicVariable '"+_randvar28+"';
 				_log = 'randVar36 is Nil';
 				_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 				_puid = getPlayerUID player;
-				"+_randvar24910+" = [_name,_puid,'BAN',toArray (_log)];
-				if(isNil '"+_randvar24910+"')exitWith {};
+				"+_randvar229110+" = [_name,_puid,'BAN',toArray (_log)];
+				if(isNil '"+_randvar229110+"')exitWith {};
 				"+_randvar36+" = true;
 			};
 			_t = 't';
@@ -1591,7 +1611,7 @@ publicVariable '"+_randvar28+"';
 						_log = format['BadCFG: %1 (BANNED)',_c];
 						_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 						_puid = getPlayerUID player;
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 						AntiHack_CFGCHANGED = 'AntiHack_CFGCHANGED';publicVariableServer 'AntiHack_CFGCHANGED';
 						(findDisplay 46) closeDisplay 0;
 					};
@@ -1644,7 +1664,7 @@ publicVariable '"+_randvar28+"';
 											[] spawn {sleep 1;FoundBadAdminReq = 'FoundBadAdminReq';publicVariableServer 'FoundBadAdminReq';};
 											_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 											_puid = getPlayerUID player;
-											[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+											[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 										}
 										else
 										{
@@ -1661,7 +1681,7 @@ publicVariable '"+_randvar28+"';
 													[] spawn {sleep 1;FoundBadAdminReq = 'FoundBadAdminReq';publicVariableServer 'FoundBadAdminReq';};
 													_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 													_puid = getPlayerUID player;
-													[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+													[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 												};
 											};
 										};
@@ -1686,7 +1706,7 @@ publicVariable '"+_randvar28+"';
 									systemchat _log;
 									_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 									_puid = getPlayerUID player;
-									[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+									[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 								};
 								sleep 1;
 								"+_t3+" = diag_tickTime;
@@ -2193,7 +2213,7 @@ publicVariable '"+_randvar28+"';
 			[] spawn "+_randvar2+";
 			_log2 = format['BadVersion: %1 (has to be a newer arma2oa beta - disconnected)',_version];
 			_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-			[_name,getPlayerUID player,'SLOG',toArray (_log2)] call "+_randvar24937+";
+			[_name,getPlayerUID player,'SLOG',toArray (_log2)] call "+_randvar229137+";
 		};
 	};
 	if !(_puid in "+str _allAdmins+")then
@@ -2207,7 +2227,7 @@ publicVariable '"+_randvar28+"';
 				if(isNil '"+_MenuChecksRunningx+"')then{
 					(findDisplay 46) closeDisplay 0;
 					_log = 'Menu Checks are broken!';
-					[_name,_puid,'SLOG',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'SLOG',toArray (_log)] call "+_randvar229137+";
 				};
 			};
 			uiNamespace setVariable ['RscDisplayRemoteMissions',nil];
@@ -2233,7 +2253,7 @@ publicVariable '"+_randvar28+"';
 				{
 					[] spawn "+_randvar2+";
 					_log = 'naughty little kid.. no chocolate for you! (Jay Menu detected)';
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 				
 				if("+str _RCK+")then
@@ -2296,23 +2316,23 @@ publicVariable '"+_randvar28+"';
 					{
 						_log = format['MenuBasedHack_RscDisplayRemoteMissions: %1',_cc1];
 						[] spawn "+_randvar2+";
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 				if(!isNull ((findDisplay 64) displayCtrl 101))then
 				{
 					[] spawn "+_randvar2+";
-					[_name,_puid,'BAN',toArray ('Active Menu: 64 ctrl 101')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Active Menu: 64 ctrl 101')] call "+_randvar229137+";
 				};
 				if(!isNull ((findDisplay 49) displayCtrl 0))then
 				{
 					[] spawn "+_randvar2+";
-					[_name,_puid,'BAN',toArray ('Active Menu: 49 ctrl 0')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('Active Menu: 49 ctrl 0')] call "+_randvar229137+";
 				};
 				if( (lbSelection  ((findDisplay 12) displayCtrl 1001)) select 0 == 1 && ((lbSize ((findDisplay 12) displayCtrl 1002)) > 2 ))then
 				{
 					[] spawn "+_randvar2+";
-					[_name,_puid,'BAN',toArray ('YOLO Menu')] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray ('YOLO Menu')] call "+_randvar229137+";
 				};
 				if(!isNull (findDisplay 420420))then
 				{
@@ -2347,21 +2367,21 @@ publicVariable '"+_randvar28+"';
 					{
 						[] spawn "+_randvar2+";
 						_log = 'MenuBasedHack_MenuBasedHack_RscDisplayConfigureControllers';
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 				if(lbSize 109 > 2)then
 				{
 					[] spawn "+_randvar2+";
 					_log = format['bad lbSize 109 - %1',lbSize 109];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 				_fbd = 'no';{if(!isNull (findDisplay _x)) exitWith {_fbd = str _x;};} forEach [17,64,155,156,162,1001,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
 				if(_fbd != 'no')then
 				{
 					[] spawn "+_randvar2+";
 					_log = format['Active Menu: %1',_fbd];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 				{if(!isNull (findDisplay _x))then{(findDisplay _x) closeDisplay 0;closeDialog 0;};} forEach [148];
 				uiSleep 0.01;
@@ -2401,7 +2421,7 @@ publicVariable '"+_randvar28+"';
 							closeDialog 0;
 							for '_close' from 0 to 25 do {uiSleep 0.1;closeDialog 0;};
 							_log = format['Gear Menu: %1',_txt];
-							[_name,_puid,'HLOG',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'HLOG',toArray (_log)] call "+_randvar229137+";
 						};
 						for '_y' from -10 to 8888 do
 						{
@@ -2471,7 +2491,7 @@ publicVariable '"+_randvar28+"';
 									{
 										_log = format['No Blood loss! %1',r_player_blood];
 										_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-										[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+										[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 										if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};
 										[LASTDAMAGESOURCE,'shotheavy'] spawn player_death;
 										player setHit['Body',1];
@@ -2495,7 +2515,7 @@ publicVariable '"+_randvar28+"';
 										{
 											_log = format['Blood should be %1 but is %2..',_tmp,r_player_blood];
 											_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-											[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+											[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 										};
 									};
 									DMG"+_randvar5+" = nil;
@@ -2551,7 +2571,7 @@ publicVariable '"+_randvar28+"';
 								_weapon = currentWeapon (vehicle _source);
 								_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
 								_log = format['Hit %1(%2) @%3 from %4 (%5m) with Weapon: %6 (%7 Damage) %8',_name,getPlayerUID player,getPosATL player,getPosATL _source,_dist,_weapon,_damage,_ammo];
-								[_sNAME,_sPUID,'HLOG',toArray (_log)] call "+_randvar24937+";
+								[_sNAME,_sPUID,'HLOG',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -2593,7 +2613,7 @@ publicVariable '"+_randvar28+"';
 								[] spawn "+_randvar2+";
 								_log = format['No Ammo Loss - Removed Current Magazine: %1 %2 %3 %4',_cwep,_cmag,_camm,_maxAmmo];
 								_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-								[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar24937+";
+								[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -2667,7 +2687,7 @@ publicVariable '"+_randvar28+"';
 						[] spawn "+_randvar2+";
 						_m = missionNamespace getVariable _x;
 						_log = format['BadVar 2: %1: %2',_x,_m];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 					true
 				} count ['adminlite','adminlitez','antihacklite','bp','inSub','scroll_m_init_star','markerCount','zombies','startmenu_star','LystoDone','MOD_EPOCH',
@@ -2747,7 +2767,7 @@ publicVariable '"+_randvar28+"';
 						{
 							_log = format['MouseMoving added EventHandler to Map!:   %1 should be %2',_lastidMouseMoving1251+1,_idMouseMoving1251];
 							[] spawn "+_randvar2+";
-							[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 				};
@@ -2756,12 +2776,12 @@ publicVariable '"+_randvar28+"';
 					if((ctrlEnabled ((uiNameSpace getVariable 'BIS_dynamicText') displayctrl 9999)) || (ctrlShown ((uiNameSpace getVariable 'BIS_dynamicText') displayctrl 9999)))then
 					{
 						[] spawn "+_randvar2+";
-						[_name,_puid,'BAN',toArray ('dynamicText CHECK 1')] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray ('dynamicText CHECK 1')] call "+_randvar229137+";
 					};
 					if(str(uiNameSpace getVariable 'BIS_dynamicText') != 'No Display')then
 					{
 						[] spawn "+_randvar2+";
-						[_name,_puid,'BAN',toArray ('dynamicText CHECK 2')] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray ('dynamicText CHECK 2')] call "+_randvar229137+";
 					};
 				};
 				if(!isNil 'dayz_temperatur')then
@@ -2774,7 +2794,7 @@ publicVariable '"+_randvar28+"';
 						{
 							[] spawn "+_randvar2+";
 							_log = format['dayz_temperatur: %1',dayz_temperatur];
-							[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 				};
@@ -2791,7 +2811,7 @@ publicVariable '"+_randvar28+"';
 							_control ctrlShow false;
 							[] spawn "+_randvar2+";
 							_log = format['BadContent:   id %1   txt %2',_ctrlID,_txt];
-							[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 				} forEach [1203,1204,1205,1206,1300,1301,1302,1303,1305,1306,1307];
@@ -2824,7 +2844,7 @@ publicVariable '"+_randvar28+"';
 						if(isNil 'player_zombieCheck')then
 						{
 							[] spawn "+_randvar2+";
-							[_name,_puid,'BAN',toArray ('zombieCheck broken')] call "+_randvar24937+";
+							[_name,_puid,'BAN',toArray ('zombieCheck broken')] call "+_randvar229137+";
 						}
 						else
 						{
@@ -2834,14 +2854,14 @@ publicVariable '"+_randvar28+"';
 								if(str player_zombieCheck != str _zombieCheck)then
 								{
 									[] spawn "+_randvar2+";
-									[_name,_puid,'HLOG_SKICK',toArray ('zombieCheck changed')] call "+_randvar24937+";
+									[_name,_puid,'HLOG_SKICK',toArray ('zombieCheck changed')] call "+_randvar229137+";
 								};
 							};
 						};
 						if(isNil 'player_zombieAttack')then
 						{
 							[] spawn "+_randvar2+";
-							[_name,_puid,'BAN',toArray ('zombieAttack broken')] call "+_randvar24937+";
+							[_name,_puid,'BAN',toArray ('zombieAttack broken')] call "+_randvar229137+";
 						}
 						else
 						{
@@ -2851,7 +2871,7 @@ publicVariable '"+_randvar28+"';
 								if(str player_zombieAttack != str _zombieAttack)then
 								{
 									[] spawn "+_randvar2+";
-									[_name,_puid,'HLOG_SKICK',toArray ('zombieAttack changed')] call "+_randvar24937+";
+									[_name,_puid,'HLOG_SKICK',toArray ('zombieAttack changed')] call "+_randvar229137+";
 								};
 							};
 						};
@@ -2868,7 +2888,7 @@ publicVariable '"+_randvar28+"';
 						[] spawn "+_randvar2+";
 						_nameAP = 'DEAD';if((alive _ap)&&(getPlayerUID _ap != ''))then{_nameAP = name _ap;};
 						_log = format['Trying to frame %1(%2)',_nameAP,_cUID];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 					if("+str _VTC+")then
 					{
@@ -2885,7 +2905,7 @@ publicVariable '"+_randvar28+"';
 							{
 								[] spawn "+_randvar2+";
 								_log = format['Purchase without Trader (C):   PlayerPos %1 %2 - VehiclePos %3 %4 - %5',mapGridPosition _pPos,_pPos,mapGridPosition _cPos,_cPos,PVDZE_veh_Publish2];
-								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -2907,7 +2927,7 @@ publicVariable '"+_randvar28+"';
 							deleteVehicle _x;
 							[] spawn "+_randvar2+";
 							_log = format['FunctionsManager found near player @%1 %2   (functionsmanager should be far away from all players..)',_pos,mapGridPosition _pos];
-							[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 					true
@@ -2928,33 +2948,32 @@ publicVariable '"+_randvar28+"';
 						_startRemove = _tempRemoveAction - 10;
 						_endRemove = _tempRemoveAction + 99;
 						
-						_dayzActionsStr = "+str _dayzActions+";
 						_dayzActions = [];
 						{
-							private ['_var'];
 							if(!isNil _x)then
 							{
-								_var = compile _x;
-								_y = call _var;
-								if(typeName _y == 'SCALAR')then
+								_var = missionNamespace getVariable _x;
+								if(typeName _var == 'SCALAR')then
 								{
-									if !(_y in _dayzActions)then
+									if!(_var in _dayzActions)then
 									{
-										_dayzActions set [count _dayzActions,_y];
+										_dayzActions set [count _dayzActions,_var];
+									};
+								}
+								else
+								{
+									if(typeName _var == 'ARRAY')then
+									{
+										{
+											if !(_x in _dayzActions)then
+											{
+												_dayzActions set [count _dayzActions,_x];
+											};
+										} forEach _var;
 									};
 								};
-								if(typeName _y == 'ARRAY')then
-								{
-									{
-										if !(_x in _dayzActions)then
-										{
-											_dayzActions set [count _dayzActions,_x];
-										};
-									} forEach _y;
-								};
-							}; 
-							true
-						} count _dayzActionsStr;
+							};
+						} forEach "+str _dayzActions+";
 						
 						for '_i' from _startRemove to _endRemove do
 						{
@@ -2993,7 +3012,7 @@ publicVariable '"+_randvar28+"';
 									};
 									_log = format['To many actions: %1 - (turn off action check if false positive)',_this select 0];
 									_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-									[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+									[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 									uiSleep 1.5;
 									ACTION"+_randvar5+" = nil;
 								};
@@ -3016,7 +3035,7 @@ publicVariable '"+_randvar28+"';
 						if(count _selected > 4)then
 						{
 							_log = format['BIS_MENU_GroupCommunication: %1',_selected select 4 select 0 select 1];
-							[_name,_puid,'SLOG',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'SLOG',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 					player removeWeapon 'ItemRadio';
@@ -3038,7 +3057,7 @@ publicVariable '"+_randvar28+"';
 							{
 								[] spawn "+_randvar2+";
 								_log = format['BadcommandingMenu: %1',_commandingMenu];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -3049,7 +3068,7 @@ publicVariable '"+_randvar28+"';
 							if(str playableUnits == '[]')then{
 								[] spawn "+_randvar2+";
 								_log = format['FNCbroken: playableUnits - %1',playableUnits];
-								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -3058,7 +3077,7 @@ publicVariable '"+_randvar28+"';
 							if(str allUnits == '[]')then{
 								[] spawn "+_randvar2+";
 								_log = format['FNCbroken: allUnits - %1',allUnits];
-								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -3071,12 +3090,12 @@ publicVariable '"+_randvar28+"';
 					if(!isNil 'playableUnits')then{
 						[] spawn "+_randvar2+";
 						_log = format['FNCbroken: playableUnits - %1',playableUnits];
-						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 					};
 					if(!isNil 'allUnits')then{
 						[] spawn "+_randvar2+";
 						_log = format['FNCbroken: allUnits - %1',allUnits];
-						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 				PV_hackerL0og = nil;PV_SurveillanceLog = nil;PV_writeAdmin_log_ARRAY = nil;
@@ -3224,7 +3243,7 @@ publicVariable '"+_randvar28+"';
 											[] spawn "+_randvar2+";
 											_log = format['Gear-Bot?: %1 - (%2 @%3) - %4-%5',_cntBOT,_type,_pos,_wepsBOT,_magsBOT];
 											_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-											[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+											[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 										};
 									};
 									if(!isNull _object)then
@@ -3234,7 +3253,7 @@ publicVariable '"+_randvar28+"';
 											[] spawn "+_randvar2+";
 											_log = format['dayz_firstGroup: %1',dayz_firstGroup];
 											_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-											[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+											[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 										};
 										_units = units dayz_firstGroup;
 										if(_object in _units)then
@@ -3282,7 +3301,7 @@ publicVariable '"+_randvar28+"';
 											_wpnT = _wpnsInObjT select _forEachIndex;
 											_log = format['WeaponHolder with %1 %2s looks suspicious',_x,_wpnT];
 											_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-											[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar24937+";
+											[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar229137+";
 										};
 									} forEach _wpnsInObjC;
 								};
@@ -3349,7 +3368,7 @@ publicVariable '"+_randvar28+"';
 												
 												_log = format['MaxCargo exceeded: %1 | %2 | @%3 %4 | %5 | %6',_type,_cntfnd,mapGridPosition _pos,_pos,_characterID,_infiSTAR];
 												_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-												[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar24937+";
+												[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar229137+";
 											}
 											else
 											{
@@ -3361,7 +3380,7 @@ publicVariable '"+_randvar28+"';
 													
 													_log = format['MaxCargo exceeded: %1 | %2 | @%3 %4 | %5 | %6',_type,_cntfnd,mapGridPosition _pos,_pos,_characterID,_infiSTAR];
 													_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-													[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar24937+";
+													[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar229137+";
 												};
 											};
 										};
@@ -3527,7 +3546,7 @@ publicVariable '"+_randvar28+"';
 							[] spawn "+_randvar2+";
 							_log = format['BadItem: %1',_x];
 							_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-							[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+							[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 				} forEach ("+str _ForbiddenItems+" + ['FakeWeapon','RocketPods','GyroGrenadeLauncher','FFARLauncher','FFARLauncher_12','Rifle','M16_base',
@@ -3568,14 +3587,14 @@ publicVariable '"+_randvar28+"';
 						[] spawn "+_randvar2+";
 						_log = 'onEachFrame injector detected';
 						_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-						[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 					if(time - "+_oneachframe+" > 20)then
 					{
 						[] spawn "+_randvar2+";
 						_log = format['onEachFrame injector detected - %1 (either lag spike on client or ESP Hack/Godmoe.. bad things..)',time - "+_oneachframe+"];
 						_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-						[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 					onEachFrame {"+_oneachframe+"=time;onMapSingleClick '';};
 				};
@@ -3640,7 +3659,7 @@ publicVariable '"+_randvar28+"';
 													[] spawn "+_randvar2+";
 													_log = format['Admin Teleport Variable highjacked! Type now: %1',typeName "+_AHpos+"];
 													_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-													[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+													[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 												};
 											};
 											if(str "+_AHpos+" != '[]')then
@@ -3648,7 +3667,7 @@ publicVariable '"+_randvar28+"';
 												_tmpAHpos = "+_AHpos+";_tmpAHpos resize 2;"+_AHpos+" = [];
 												_log = format['Admin %1 Teleport: %2(%3) to %4(%5)',_tmpAHpos,mapGridPosition _lastPos,_lastPos,mapGridPosition _curPos,_curPos];
 												_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-												[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar24937+";
+												[_name,getPlayerUID player,'HLOG',toArray (_log)] call "+_randvar229137+";
 											}
 											else
 											{
@@ -3664,7 +3683,7 @@ publicVariable '"+_randvar28+"';
 														[] spawn "+_randvar2+";
 														_log = format['Player Teleport: %1 to %2 (%3m) | %4 | %5 to %6',mapGridPosition _lastPos,mapGridPosition _curPos,_distance1,typeOf _curVeh,_lastPos,_curPos];
 														_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-														[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+														[_name,getPlayerUID player,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 													};
 													if(((_curVeh isKindOf 'ParachuteBase') || (_curVeh isKindOf 'BIS_Steerable_Parachute')) && ((floor (_curPos select 2)) > 35))then
 													{
@@ -3672,7 +3691,7 @@ publicVariable '"+_randvar28+"';
 														if(!isNull _curVeh)then{deleteVehicle _curVeh;};
 														_log = 'Player to fast with Parachute (Teleport?) put to Ground.';
 														_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-														[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar24937+";
+														[_name,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar229137+";
 													}
 													else
 													{
@@ -3803,7 +3822,7 @@ publicVariable '"+_randvar28+"';
 							{
 								[] spawn "+_randvar2+";
 								_log = format['BadFile: %1 - %2',_x,_f];
-								[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 							uiSleep 0.01;
 							true
@@ -3825,7 +3844,7 @@ publicVariable '"+_randvar28+"';
 			{
 				_log = format['BadKey: %1',_bkey];
 				_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-				[_name,getPlayerUID player,'SLOG_BK',toArray (_log)] call "+_randvar24937+";
+				[_name,getPlayerUID player,'SLOG_BK',toArray (_log)] call "+_randvar229137+";
 			};
 			uiSleep 3;
 			for '_stop' from 0 to 5 do {disableUserInput false;};
@@ -3918,7 +3937,7 @@ publicVariable '"+_randvar28+"';
 					{
 						[] spawn "+_randvar2+";
 						_log = format['Active Menu:   Trader Menu - not near a Trader! #1 - %1 @%2',_ltxt,getPosATL player];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 				
@@ -3930,7 +3949,7 @@ publicVariable '"+_randvar28+"';
 					{
 						[] spawn "+_randvar2+";
 						_log = format['AmmoCheck: %1',_cammo];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 				if("+str _URC+")then
@@ -3938,7 +3957,7 @@ publicVariable '"+_randvar28+"';
 					if(str(unitRecoilCoefficient player) != str(1))then
 					{
 						[] spawn "+_randvar2+";
-						[_name,_puid,'BAN',toArray ('NoRecoil')] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray ('NoRecoil')] call "+_randvar229137+";
 					};
 					vehicle player setUnitRecoilCoefficient 1;
 					player setUnitRecoilCoefficient 1;
@@ -3961,131 +3980,68 @@ publicVariable '"+_randvar28+"';
 				BIS_fnc_supplydrop = {};
 				BIS_fnc_spotter = {};
 				BIS_fnc_listPlayers = {};
-				if(isNil 'deathHandled')then{ deathHandled = true; } else { if(typeName deathHandled != 'BOOL')then{ deathHandled = true;YOLO = true; }; };
-				if(deathHandled)then
-				{
-					[] spawn {
-						uiSleep 35;
-						player setVariable['combattimeout',0, true];
-						(findDisplay 46) closeDisplay 0;
-					};
-				};
-				if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
-				_r_player_blood = r_player_blood;
-				if(_r_player_blood > 12750)then
-				{
-					if(_r_player_blood > 14500)then
-					{
-						r_player_blood = -500;
-						[] spawn "+_randvar2+";
-						
-						_log = format['To much Blood: %1 should be max 12000',_r_player_blood];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
-					}
-					else
-					{
-						r_player_blood = 12000;
-						_log = format['To much Blood: %1 should be max 12000',_r_player_blood];
-						[_name,_puid,'SLOG',toArray (_log)] call "+_randvar24937+";
-					};
-				};
-				if((deathHandled) && (r_player_blood > 0))then
-				{
-					r_player_blood = -500;
-					uiSleep 1;
-					if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
-					if(r_player_blood > 0)then
-					{
-						if(alive player)then
-						{
-							if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};
-							[LASTDAMAGESOURCE,'shotheavy'] spawn player_death;
-							player setHit['Body',1];
-						};
-						[] spawn "+_randvar2+";
-						[_name,_puid,'HLOG_SKICK',toArray ('Godmode')] call "+_randvar24937+";
-					};
-				};
-				if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
-				if((!deathHandled) && (r_player_blood < 0))then
-				{
-					if(alive player)then
-					{
-						if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};
-						[LASTDAMAGESOURCE,'shotheavy'] spawn player_death;
-						player setHit['Body',1];
-					};
-					player setHit['Body',1];
-				};
-				uiSleep 0.5;
-				_con = vehicle cameraOn;
-				_veh = vehicle player;
-				if(str _con != str _veh)then
-				{
-					if(typeName _con == 'OBJECT')then
-					{
-						if(str(_con) != '<NULL-object>')then
-						{
-							if(!isNull _con)then
-							{
-								if((_veh distance "+str _mPos+" > 250) && (_con distance "+str _mPos+" > 250) && (_con distance _veh > 150))then
-								{
-									if(str(vehicle cameraOn) != str(vehicle player))then
-									{
-										[] spawn "+_randvar2+";
-										_log = format['BadCamera: (%1) should be (%2), distance: %3m',_con,_veh,_con distance _veh];
-										[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
-									};
-								};
-							};
-						};
-					};
-				};
-			};
+ole,"1","0","0","0",[]];
 		};
-		if("+str _UIC+")then
+		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP Icons",adminESPicons,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP for FreeRoam Cam",admin_fnc_esp,"1","0","0","0",[]];
+		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Menu Layout Medium #1*old default",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Menu Layout Big",{Admin_Layout = 1;call admin_init;},"0","0","0","0",[]];
+		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
+		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
+		adminadd = adminadd + ["  God",admingod,"1","0","0","0",[]];
+		adminadd = adminadd + ["  Stealth / Invisible",admininvis,"1","0","0","0",[]];
+		if(MOD_EPOCH)then
 		{
-			[_puid,_name] spawn {
-				_puid = _this select 0;_name = _this select 1;
-				while{1 == 1}do
-				{
-					uiSleep 3;
-					_posP = getPos player;
-					{
-						if((!isNull _x) && (alive _x))then
-						{
-							if(str _x != str player)then
-							{
-								_type = typeOf _x;
-								_parachuteWest = ((_type == 'ParachuteWest') || (_type == 'ParachuteC'));
-								if(!_parachuteWest)then
-								{
-									_xID = _x getVariable['ObjectID','-3'];
-									_xUID = _x getVariable['ObjectUID','-3'];
-									if(_xID == '-3' && _xUID == '-3')then
-									{
-										[_name,_puid,_x] spawn {
-											private['_name','_puid','_obj','_xID','_xUID','_pos','_mgp','_log'];
-											_name = _this select 0;
-											_puid = _this select 1;
-											_obj = _this select 2;
-											if((!isNull _obj) && (alive _obj))then
-											{
-												uiSleep 30;
-												if((!isNull _obj) && (alive _obj))then
-												{
-													_xID = _obj getVariable['ObjectID','-3'];
-													_xUID = _obj getVariable['ObjectUID','-3'];
-													if(_xID == '-3' && _xUID == '-3')then
-													{
-														_pos = getPos _obj;
-														_mgp = mapGridPosition _pos;
-														_obj setDamage 5;
-														
-														_log = format['Vehicle with Invalid ID: %1 @%2 (waited 30 seconds..)',_type,_mgp];
-														[_name,_puid,'HLOG',toArray (_log)] call "+_randvar24937+";
-													};
-												};
+			adminadd = adminadd + ["  No Build Limit",adminNoBuildLimit,"1","0","0","0",[]];
+
+
+		};
+		adminadd = adminadd + ["  ZedShield",adminZedshld,"1","0","0","0",[]];
+		
+		
+		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
+		adminadd = adminadd + ["  Heal",adminheal,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Repair Vehicle",adminrepair,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Flip Near Vehicle",admin_flipvehicle,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Change Humanity",changeHumanity,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
+		adminadd = adminadd + ["  RemoveGear",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + ["  Kill",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + [" ","","0","1","0","0",[]];
+		adminadd = adminadd + ["  EpochDeathBoardLoad",adminPlayerDeaths,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Remove Plot-Poles (30m)",admin_removePlotPoles,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Remove Nets (30m)",admin_removeNets,"0","0","0","0",[]];
+		_fnc = "-Show Keybindings";
+		if(isNil 'adminshowbindingsmenu')then{_fnc = "+Show Keybindings";};
+		adminadd = adminadd + [_fnc,{if(isNil "adminshowbindingsmenu")then{adminshowbindingsmenu = true;}else{adminshowbindingsmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
+		if(!isNil "adminshowbindingsmenu")then
+		{
+			if(MOD_EPOCH)then
+			{
+				adminadd = adminadd + ["Epoch","","0","1","0","0",[]];
+				adminadd = adminadd + ["  1 - Open/Unlock Door/Vehicle CursorTarget","","0","1","0","0",[]];
+				adminadd = adminadd + ["  2 - Close/Lock Door/Vehicle CursorTarget","","0","1","0","0",[]];
+				adminadd = adminadd + ["  I - Show Lock Code CursorTarget","","0","1","0","0",[]];
+				adminadd = adminadd + ["  U - Generate Key CursorTarget","","0","1","0","0",[]];
+				adminadd = adminadd + ["  Insert - Save Building/Vehicle to Database/Hive","","0","1","0","0",[]];
+				adminadd = adminadd + ["  F4 - Base Copy/Paste/Destruction","","0","1","0","0",[]];
+			};
+			adminadd = adminadd + ["All Mods","","0","1","0","0",[]];
+			adminadd = adminadd + ["  4 - Fly Up","","0","1","0","0",[]];
+			adminadd = adminadd + ["  5 - TP LookingDirection","","0","1","0","0",[]];
+			adminadd = adminadd + ["  End - Toggle DebugMonitor","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Delete - Delete CursorTarget","","0","1","0","0",[]];
+			adminadd = adminadd + ["  F5 - Map Options","","0","1","0","0",[]];
+			adminadd = adminadd + ["  F9 - ShowGear","","0","1","0","
+												_log = format['Vehicle with Invalid ID: %1 @%2 (waited 30 seconds..)',_type,_mgp];
+												[_name,_puid,'HLOG',toArray (_log)] call "+_randvar229137+";
 											};
 										};
 									};
@@ -4233,7 +4189,7 @@ publicVariable '"+_randvar28+"';
 													};
 												};
 												_log = format['%1 DRIVING %2 WITH CHEAT REPAIRING | speed: %4km/h | damage: %3 | position: %5 (%6) | players in vehicle: %7',_name,_typeveh,_dampart,round _speed,_newpos,mapGridPosition _newpos,_nameppls];
-												[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+												[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 												[] spawn "+_randvar2+";
 											};
 										};
@@ -4255,7 +4211,7 @@ publicVariable '"+_randvar28+"';
 												{_x action ['eject',_vehnew];} forEach (crew _vehnew);
 												deleteVehicle _vehnew;
 												_log = format['AUTO REFUEL %10 IN MOVEMENT (x3) | speed: %2km/h | old position: %3 (%4) - new position: %5 (%6) | old fuel: %7 - new fuel: %8 | players in vehicle: %9',_name,round _speed,_oldpos,mapGridPosition _oldpos,_newpos,mapGridPosition _newpos,_oldfuel,_newfuel,_nameppls,_typeveh];
-												[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+												[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 												[] spawn "+_randvar2+";
 											};
 										};
@@ -4315,13 +4271,13 @@ publicVariable '"+_randvar28+"';
 				{
 					[] spawn "+_randvar2+";
 					_log = format['PlayerLogin: %1 != ARRAY      %2',typeName dayzPlayerLogin,time];
-					[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 				};
 			};
 			if(isNil 'dayz_characterID')then
 			{
 				[] spawn "+_randvar2+";
-				[_name,_puid,'HLOG_SKICK',toArray ('CharacterID is NIL')] call "+_randvar24937+";
+				[_name,_puid,'HLOG_SKICK',toArray ('CharacterID is NIL')] call "+_randvar229137+";
 			}
 			else
 			{
@@ -4329,7 +4285,7 @@ publicVariable '"+_randvar28+"';
 				{
 					[] spawn "+_randvar2+";
 					_log = format['typeName CharacterID is   %1 != STRING      %2',typeName dayz_characterID,time];
-					[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 				};
 			};
 			uiSleep 0.2;
@@ -4395,12 +4351,12 @@ publicVariable '"+_randvar28+"';
 							if(_txt in ['!vote day','/vote day','vote day','!day','/day','voteday','/voteday','!voteday']) then
 							{
 								(_display) closeDisplay 0;
-								[player,'DAY'] call "+_randvar24937+";
+								[player,'DAY'] call "+_randvar229137+";
 							};
 							if(_txt in ['!vote night','/vote night','vote night','!night','/night','votenight','/votenight','!votenight']) then
 							{
 								(_display) closeDisplay 0;
-								[player,'NIGHT'] call "+_randvar24937+";
+								[player,'NIGHT'] call "+_randvar229137+";
 							};
 						};
 						if(_txt in ['/m'])then
@@ -4414,7 +4370,7 @@ publicVariable '"+_randvar28+"';
 							};
 							(_display) closeDisplay 0;
 							_log = format['BadText: %1',_txt];
-							[_name,_puid,'HLOG',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'HLOG',toArray (_log)] call "+_randvar229137+";
 						};
 						if!(_puid in "+str _allAdmins+")then
 						{
@@ -4425,18 +4381,18 @@ publicVariable '"+_randvar28+"';
 							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll'])then
 							{
 								_log = format['BadText: %1',_txt];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 							
 							if(_txt in [format['.ban %1',toLower _name],format['.ban %1 true',toLower _name],format['.ban %1 true;',toLower _name]])then
 							{
 								_log = format['BadText: %1',_txt];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 							if(_txt in ['adminstart','admin_start'])then
 							{
 								_log = format['BadText: %1',_txt];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 							};
 						};
 					};
@@ -4478,7 +4434,7 @@ publicVariable '"+_randvar28+"';
 					{
 						if(_obj getVariable['infiUnconDone','-1'] == '1')then
 						{
-							_obj setVariable['infiUnconDone','0'];comment '249';
+							_obj setVariable['infiUnconDone','0'];comment '2291';
 						};
 					};
 				};
@@ -4595,7 +4551,7 @@ publicVariable '"+_randvar28+"';
 										{
 											[] spawn "+_randvar2+";
 											_log = format['remExField TitleText: %1',_athree];
-											[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+											[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 										};
 									};
 								};
@@ -4624,7 +4580,7 @@ publicVariable '"+_randvar28+"';
 							deleteBuildAnnounced = deleteBuildAnnounced + [_obj];
 							_pos = getPosATL _obj;
 							_log = format['Plot Pole removed @%1',mapGridPosition _pos];
-							[_name,_puid,'SLOG_PP',toArray (_log)] call "+_randvar24937+";
+							[_name,_puid,'SLOG_PP',toArray (_log)] call "+_randvar229137+";
 						};
 					};
 				};
@@ -4706,12 +4662,12 @@ publicVariable '"+_randvar28+"';
 			if((_puid != '') && !(_puid in "+str _allAdmins+") && (player in PlayableObjects))then
 			{
 				[] spawn "+_randvar2+";
-				[_name,_puid,'BAN',toArray ('InvisibleHack: Admin Invisibility')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('InvisibleHack: Admin Invisibility')] call "+_randvar229137+";
 			};
 			if(isNil 'iMPF_remoteExecutionServer')then
 			{
 				[] spawn "+_randvar2+";
-				[_name,_puid,'BAN',toArray ('remExServer isNil')] call "+_randvar24937+";
+				[_name,_puid,'BAN',toArray ('remExServer isNil')] call "+_randvar229137+";
 			}
 			else
 			{
@@ -4719,7 +4675,7 @@ publicVariable '"+_randvar28+"';
 				{
 					[] spawn "+_randvar2+";
 					_log = format['remExServer modified: %1',iMPF_remoteExecutionServer];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 			};
 			_vFc = player getVariable['"+_randvar32+"','OKAY'];
@@ -4786,7 +4742,7 @@ publicVariable '"+_randvar28+"';
 				{
 					[] spawn "+_randvar2+";
 					_log = format['BadSize: %1 - Plants and/or Clutter pbo(s) removed..!',_bad];
-					[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+					[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 				};
 			};
 		};
@@ -4821,7 +4777,7 @@ publicVariable '"+_randvar28+"';
 					if("+str _UCC+")then
 					{
 						[] spawn "+_randvar2+";
-						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar229137+";
 					};
 				};
 			};
@@ -5062,7 +5018,7 @@ publicVariable '"+_randvar28+"';
 	}
 	else
 	{
-		diag_log format['Successfully Loaded on Client ID249 (%1)',time];
+		diag_log format['Successfully Loaded on Client ID2291 (%1)',time];
 	};
 	"+_randvar27+" = true;
 	diag_log (format['infiSTAR.de - randvar1 created randvar27 (%1)',time]);
@@ -5261,7 +5217,7 @@ fnc_VoteTimeServer =
 		};
 	};
 };
-'"+_randvar24910+"' addPublicVariableEventHandler
+'"+_randvar229110+"' addPublicVariableEventHandler
 {
 	_this call "+_fnc_handlerandvar10+";
 	diag_log format['%1',_this];
@@ -5294,7 +5250,7 @@ _randvar19Local = {
 	{
 		[] spawn "+_randvar2+";
 		_log = format['dayz_playerUID   is not equal to   PlayerUID (%1/%2)',dayz_playerUID,_puid];
-		[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+		[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 	};
 	if !(_puid in "+str _allAdmins+")then
 	{
@@ -5318,7 +5274,7 @@ _randvar19Local = {
 		if(count _getvarID > 0)then
 		{
 			_log = format['Changed his CD-Key! %1 OLD-UIDs %2',count _getvarID,_getvarID];
-			[_name,_puid,'SLOG',toArray (_log)] call "+_randvar24937+";
+			[_name,_puid,'SLOG',toArray (_log)] call "+_randvar229137+";
 			
 			if(isNil 'PVAH_AHTMPBAN')then{PVAH_AHTMPBAN = [];} else {if(typeName PVAH_AHTMPBAN != 'ARRAY')then{PVAH_AHTMPBAN = [];};};
 			if(count PVAH_AHTMPBAN > 0)then
@@ -5328,7 +5284,7 @@ _randvar19Local = {
 					{
 						[] spawn "+_randvar2+";
 						_log = format['OLD-UID: %1 is BANNED | %2 OLD-UIDs %3',_x,count _getvarID,_getvarID];
-						[_name,_puid,'BAN',toArray (_log)] call "+_randvar24937+";
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
 					};
 				} forEach PVAH_AHTMPBAN;
 			};
@@ -5339,12 +5295,12 @@ _randvar19Local = {
 	if(_name in "+str _BlackList+")then
 	{
 		[] spawn "+_randvar2+";
-		[_name,_puid,'BAN',toArray ('NAME IS BLACKLISTED')] call "+_randvar24937+";
+		[_name,_puid,'BAN',toArray ('NAME IS BLACKLISTED')] call "+_randvar229137+";
 	};
 	if(_puid in "+str _BlackList+")then
 	{
 		[] spawn "+_randvar2+";
-		[_name,_puid,'BAN',toArray ('PUID IS BLACKLISTED')] call "+_randvar24937+";
+		[_name,_puid,'BAN',toArray ('PUID IS BLACKLISTED')] call "+_randvar229137+";
 	};
 	if(!isNil '"+_randvar26+"')exitWith
 	{
@@ -5352,7 +5308,7 @@ _randvar19Local = {
 		{
 			[] spawn "+_randvar2+";
 			_log = format['StoredPlayerUID   is not equal to   PlayerUID (%1/%2)',"+_randvar26+",_puid];
-			[_name,"+_randvar26+",'BAN',toArray (_log)] call "+_randvar24937+";
+			[_name,"+_randvar26+",'BAN',toArray (_log)] call "+_randvar229137+";
 		};
 	};
 	"+_randvar26+" = _puid;
@@ -5366,7 +5322,7 @@ _randvar19Local = {
 			{
 				[] spawn {sleep 0.5;AntiHack_NotRunningTHREE = 'AntiHack_NotRunningTHREE';publicVariableServer 'AntiHack_NotRunningTHREE';};
 				_log = format['RunCheck: _randvar27: %1, _randvar28: %2, _randvar21: %3, _randvar25: %4',(isNil '"+_randvar27+"'),(isNil '"+_randvar28+"'),(isNil '"+_randvar21+"'),(isNil '"+_randvar25+"')];
-				[_name,_puid,'SLOG',toArray (_log)] call "+_randvar24937+";
+				[_name,_puid,'SLOG',toArray (_log)] call "+_randvar229137+";
 				(findDisplay 46) closeDisplay 0;
 			};
 		};
@@ -5380,7 +5336,7 @@ _randvar19Local = {
 		{
 			_log = format['New Player: %1',dayzPlayerLogin];
 			_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-			[_name,getPlayerUID player,'SLOG_NP',toArray (_log)] call "+_randvar24937+";
+			[_name,getPlayerUID player,'SLOG_NP',toArray (_log)] call "+_randvar229137+";
 		};
 	};
 	if(!isNil 'dayzSetOvercast')then{drn_fnc_DynamicWeather_SetWeatherLocal = {};0 setOvercast dayzSetOvercast;};
@@ -5392,7 +5348,7 @@ _randvar19Local = {
 		if(38 in (toArray _name))then
 		{
 			[] spawn "+_randvar2+";
-			[_name,_puid,'HLOG',toArray ('& in name breaks BattleEye..')] call "+_randvar24937+";
+			[_name,_puid,'HLOG',toArray ('& in name breaks BattleEye..')] call "+_randvar229137+";
 		};
 		diag_log (format['infiSTAR.de - randvar1 started (%1)',time]);
 	};
@@ -5600,11 +5556,11 @@ publicVariable """+_randvar2+""";
 publicVariable """+_randvar0+""";
 _toserver =
 {
-	"+_randvar24910+" = _this;publicVariableServer'"+_randvar24910+"';
+	"+_randvar229110+" = _this;publicVariableServer'"+_randvar229110+"';
 };
-"+_randvar24937+" = _toserver;
+"+_randvar229137+" = _toserver;
 "+_randvar38+" = _toserver;
-publicVariable '"+_randvar24937+"';
+publicVariable '"+_randvar229137+"';
 publicVariable '"+_randvar38+"';
 
 _unit=createAgent['Rabbit',[3500,3500,0],[],0,'FORM'];
@@ -5625,7 +5581,7 @@ _unit setVehicleInit ""
 	if(!isNil'"+_randvar38+"')then
 	{
 		[] spawn {
-			waitUntil {if(isNil'"+_randvar24937+"')then{"+_randvar24937+"='';};if(isNil'"+_randvar38+"')then{"+_randvar38+"='';};str "+_randvar24937+" != str "+_randvar38+"};
+			waitUntil {if(isNil'"+_randvar229137+"')then{"+_randvar229137+"='';};if(isNil'"+_randvar38+"')then{"+_randvar38+"='';};str "+_randvar229137+" != str "+_randvar38+"};
 			[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 			[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
 			[] spawn {sleep 2; KickedFromAntiHack = 'KickedFromAntiHack';publicVariableServer 'KickedFromAntiHack'; };
@@ -5740,6 +5696,13 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  Spawn Support-Box2",{2 call supportbox},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Support-Box3",{3 call supportbox},"0","0","0","0",[]];
 			
+			if(MOD_EPOCH)then
+			{
+				adminadd = adminadd + ["","","0","1","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault1",{1 call supportVault},"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault2",{2 call supportVault},"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault3",{3 call supportVault},"0","0","0","0",[]];
+			};
 			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Box (all items)",admincrateALL,"0","0","0","0",[]];
 			if(MOD_EPOCH) then
@@ -8509,6 +8472,26 @@ PV_AdminMainCode = {
 		_log = format['Spawning Box %1 on the ground infront of you!',_select];
 		cutText [_log, 'PLAIN DOWN'];
 		hint _log;
+		PVAH_WriteLogReq = [player,toArray _log];
+		publicVariableServer 'PVAH_WriteLogReq';
+	};
+	supportVault =
+	{
+		_direction = getDir player;
+		_position = getPosATL player;
+		_position = [(_position select 0) + 2 * sin(_direction), (_position select 1) + 2 * cos(_direction), _position select 2];
+		_combination = format['%1%2%3%4',floor(random 9)+1,floor(random 9)+1,floor(random 9)+1,floor(random 9)+1];
+		
+		_log = format['combination: %1', _combination];
+		cutText [_log, 'PLAIN DOWN', 5];
+		systemChat _log;
+		
+		PVAH_AdminReq = [9000, player, _this, [_direction, _position], _combination];
+		publicVariableServer 'PVAH_AdminReq';
+		
+		[] spawn {sleep 3;{player reveal _x;} forEach (getpos player nearObjects ['All',50]);};
+		
+		_log = format['Vault with combination %1 spawned at %2', _combination, mapGridPosition _position];
 		PVAH_WriteLogReq = [player,toArray _log];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
@@ -12644,7 +12627,7 @@ PV_AdminMainCode = {
 diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 [] spawn {
 	fnc_infiSTAR_ServerkickNew = {
-		private['_clientUID','_clientName','_playerObj','_kickunit','_mgp'];
+		private['_clientUID','_clientName','_playerObj','_kickunit','_mgp','_reobj'];
 		_clientUID = _this select 0;_clientName = _this select 1;
 		
 		_playerObj = objNull;
@@ -12669,14 +12652,26 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 		_mgp = '---';
 		if(!isNull _playerObj)then
 		{
-			_reobj = (typeOf _playerObj) createUnit [[0,0,0], group _playerObj,''];
 			_mgp = mapGridPosition _playerObj;
-			[_playerObj,_reobj] spawn {
+			[_playerObj] spawn {
+				private['_playerObj','_reobj'];
 				_playerObj = _this select 0;
-				_reobj = _this select 1;
-				uiSleep 3;
-				if(!isNull _playerObj)then{_playerObj setDamage 5;};
-				deleteVehicle _reobj;
+				if(!isNil'_playerObj')then
+				{
+					if(!isNull _playerObj)then
+					{
+						_reobj = 'Goat' createUnit [[0,0,0], group _playerObj,''];
+						if(!isNil'_reobj')then
+						{
+							if(!isNull _reobj)then
+							{
+								uiSleep 3;
+								if(!isNull _playerObj)then{_playerObj setDamage 5;};
+								deleteVehicle _reobj;
+							};
+						};
+					};
+				};
 			};
 		};
 		_log = format["SERVER kicked %1(%2) @%3",_clientName,_clientUID,_mgp];
@@ -13845,101 +13840,74 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				];
 			};
 		};
-		if(_option == 9007) then
+		if(_option == 9000)then
 		{
-			_dir = getdir _playerObj;
-			_pos = getPos _playerObj;
-			_pos = [(_pos select 0)+2*sin(_dir),(_pos select 1)+2*cos(_dir),(_pos select 2)];
-			[_dir,_pos,_playerObj] spawn {
-				_dir = _this select 0;
-				_pos = _this select 1;
-				_b0x = 'USVehicleBox_EP1' createVehicle _pos;
-				clearWeaponCargoGlobal _b0x;
-				clearmagazinecargoGlobal _b0x;
-				_b0x setPosATL _pos;
-				{_b0x addWeaponCargoGlobal [_x, 35];} forEach
-				[
-				'ItemHatchet_DZE'
+			private ['_weapons', '_magazines', '_backpack', '_selected', '_worldspace', '_combination', '_inventory'];
+			_selected = _array select 2;
+			_worldspace = _array select 3;
+			_combination = _array select 4;
+			
+			_inventory = _selected call fnc_getSupportVaultContent;
+			if(isNil'_inventory')exitWith{diag_log format['<infiSTAR.de> PVAH_AdminReq %1: nil _inventory',_option]};
+			if(typeName _inventory != 'ARRAY')exitWith{diag_log format['<infiSTAR.de> PVAH_AdminReq %1: typeName _inventory != ARRAY -> %2',_option,typeName _inventory]};
+			if(count _inventory != 3)exitWith{diag_log format['<infiSTAR.de> PVAH_AdminReq %1: count _inventory != 3 -> %2',_option, count _inventory]};
+			
+			[_worldspace, _combination, _inventory, _playerObj] call {
+				private ['_worldspace', '_combination', '_inventory', '_player', '_uid', '_key', '_vault'];
+				_worldspace = _this select 0;
+				_combination = _this select 1;
+				_inventory = _this select 2;
+				_player = _this select 3;
+				
+				_uid = _worldspace call dayz_objectUID3;
+				
+				_key = format['CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:',
+					dayZ_instance,
+					'VaultStorageLocked',
+					0 ,
+					_combination,
+					_worldspace,
+					[],
+					[],
+					0,
+					_uid
 				];
-			};
-		};
-		if (_option == 99999) then
-		{
-			if (isNil "GGEventMarkers" or {typeName GGEventMarkers != "ARRAY"}) then { GGEventMarkers = []; };
-			GGEventMarkers = GGEventMarkers + [(_array select 2)];
-			publicVariable "GGEventMarkers";
-		};
-		if (_option == 99998) then
-		{
-			GGEventMarkers = [];
-			publicVariable "GGEventMarkers";
-		};
-		if (_option == 99997) then
-		{
-			[nil, nil, rspawn, [_array select 2], {
-				_msg = _this select 0;
-				[
-					"<t color='#ffffff' align='left' size='0.66'><img image='GG\images\logo.paa' /><br />" + toString(_this select 0) + "</t>",
-					0.8,
-					0.6,
-					20,
-					2
-				] spawn BIS_fnc_dynamicText;
-			}] call RE;
-		};
-		if (_option == 99995) then {
-			GGDoFog = {
-				DoFogEffect = true;
-				_pos = getposATL player;
-				_ps = '#particlesource' createVehicleLocal _pos;  
-				_ps setParticleParams [['\Ca\Data\ParticleEffects\Universal\universal.p3d', 16, 12, 13, 0], '', 'Billboard', 1, 10, [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0, [4], [[1, 1, 1, 0], [1, 1, 1, 0.04], [1, 1, 1, 0]], [1000], 1, 0, '', '', player];
-				_ps setParticleRandom [3, [40, 40, 0], [0, 0, 0], 2, 0.5, [0, 0, 0, 0.1], 0, 0];
-				_ps setParticleCircle [0.1, [0, 0, 0]];
-				_ps setDropInterval 0.004;
-
-				while {DoFogEffect} do {
-					waituntil {uiSleep 1; vehicle player == player};
-					_ps setposATL getposATL vehicle player;
-					uiSleep 1;
-				};
-				deleteVehicle _ps;
-			};
-			publicVariable 'GGDoFog';
-
-			if (isNil "GroundFogOn" or isNil "GroundFogSheep") then {
-				GroundFogOn = false;
-				GroundFogSheep = createAgent ['Sheep', [random 9000,random 9000,0], [], 0, 'FORM'];
-				GroundFogSheep removeAllEventHandlers 'handleDamage';
-				GroundFogSheep addEventHandler ['handleDamage', { false }];
-				GroundFogSheep allowDamage false;	
-			};
-
-			if (!GroundFogOn) then {
-				GroundFogOn = true;
-				GroundFogSheep setVehicleInit 'waitUntil { !isNil "GGDoFog" }; [] spawn GGDoFog;';
-				processInitCommands;
-			} else {
-				GroundFogOn = false;
-				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
-				processInitCommands;
+				_key call server_hiveWrite;
+				
+				_vault = createVehicle ['VaultStorageLocked', [0,0,0], [], 0, 'CAN_COLLIDE'];
+				_vault setDir (_worldspace select 0);
+				_vault setPosATL (_worldspace select 1);
+				
+				_vault setVariable ['lastUpdate',time];
+				_vault setVariable ['ObjectUID', _uid,true];
+				_vault setVariable ['OEMPos',(_worldspace select 1),true];
+				_vault setVariable ['CharacterID',_combination,true];
+				
+				_vault enableSimulation false;
+				
+				PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_vault];
+				
+				_vault setVariable ['WeaponCargo', _inventory select 0, true];
+				_vault setVariable ['MagazineCargo', _inventory select 1, true];
+				_vault setVariable ['BackpackCargo', _inventory select 2, true];
+				
+				_key = format['CHILD:309:%1:%2:',_uid,_inventory];
+				_key call server_hiveWrite;
 			};
 		};
 		if(_option == 9099)then
 		{
 			_playerObj = _array select 1;
-			_select = _array select 2;
+			_selected = _array select 2;
 			_pos = _array select 3;
 			
 			_b0x = 'Foodbox1' createVehicle _pos;
 			clearWeaponCargoGlobal _b0x;
 			clearmagazinecargoGlobal _b0x;
 			_b0x setPosATL _pos;
-			_arrayforcrate = [];
-			switch _select do {
-				case 1:{_arrayforcrate = "+str _SupportBox1Content+"};
-				case 2:{_arrayforcrate = "+str _SupportBox2Content+"};
-				case 3:{_arrayforcrate = "+str _SupportBox3Content+"};
-			};
+			_arrayforcrate = _selected call fnc_getSupportBoxContent;	
+			if(isNil'_arrayforcrate')exitWith{diag_log format['<infiSTAR.de> PVAH_AdminReq %1: nil _arrayforcrate',_option]};
+			
 			if(str _arrayforcrate == '[]')exitWith{};
 			{
 				if(typeName _x == 'ARRAY')then
@@ -14223,4 +14191,4 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 	};
 };
 BIS_Effects_Burn={};
-diag_log ('infiSTAR.de - AntiHack FULLY LOADED');
+diag_log ('infiSTAR.de - AntiHack FULLY LOADED'
