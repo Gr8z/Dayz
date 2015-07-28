@@ -14245,4 +14245,4 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 	};
 };
 BIS_Effects_Burn={};
-diag_log ('infiSTAR.de - AntiHack FULLY LOADED'
+diag_log ('infiSTAR.de - AntiHack FULLY LOADED');
