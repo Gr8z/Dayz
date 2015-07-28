@@ -3962,7 +3962,6 @@ publicVariable '"+_randvar28+"';
 					vehicle player setUnitRecoilCoefficient 1;
 					player setUnitRecoilCoefficient 1;
 				};
-				
 				BIS_fnc_spawnCrew = {};
 				BIS_fnc_spawnGroup = {};
 				BIS_fnc_help = {};
@@ -3980,66 +3979,121 @@ publicVariable '"+_randvar28+"';
 				BIS_fnc_supplydrop = {};
 				BIS_fnc_spotter = {};
 				BIS_fnc_listPlayers = {};
-ole,"1","0","0","0",[]];
-		};
-		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP Icons",adminESPicons,"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP for FreeRoam Cam",admin_fnc_esp,"1","0","0","0",[]];
-		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Medium #1*old default",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Big",{Admin_Layout = 1;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
-		adminadd = adminadd + ["  God",admingod,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Stealth / Invisible",admininvis,"1","0","0","0",[]];
-		if(MOD_EPOCH)then
-		{
-			adminadd = adminadd + ["  No Build Limit",adminNoBuildLimit,"1","0","0","0",[]];
-
-
-		};
-		adminadd = adminadd + ["  ZedShield",adminZedshld,"1","0","0","0",[]];
-		
-		
-		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Heal",adminheal,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Repair Vehicle",adminrepair,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Flip Near Vehicle",admin_flipvehicle,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Change Humanity",changeHumanity,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
-		adminadd = adminadd + ["  RemoveGear",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
-		adminadd = adminadd + ["  Kill",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
-		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
-		adminadd = adminadd + [" ","","0","1","0","0",[]];
-		adminadd = adminadd + ["  EpochDeathBoardLoad",adminPlayerDeaths,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Remove Plot-Poles (30m)",admin_removePlotPoles,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Remove Nets (30m)",admin_removeNets,"0","0","0","0",[]];
-		_fnc = "-Show Keybindings";
-		if(isNil 'adminshowbindingsmenu')then{_fnc = "+Show Keybindings";};
-		adminadd = adminadd + [_fnc,{if(isNil "adminshowbindingsmenu")then{adminshowbindingsmenu = true;}else{adminshowbindingsmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
-		if(!isNil "adminshowbindingsmenu")then
-		{
-			if(MOD_EPOCH)then
-			{
-				adminadd = adminadd + ["Epoch","","0","1","0","0",[]];
-				adminadd = adminadd + ["  1 - Open/Unlock Door/Vehicle CursorTarget","","0","1","0","0",[]];
-				adminadd = adminadd + ["  2 - Close/Lock Door/Vehicle CursorTarget","","0","1","0","0",[]];
-				adminadd = adminadd + ["  I - Show Lock Code CursorTarget","","0","1","0","0",[]];
-				adminadd = adminadd + ["  U - Generate Key CursorTarget","","0","1","0","0",[]];
-				adminadd = adminadd + ["  Insert - Save Building/Vehicle to Database/Hive","","0","1","0","0",[]];
-				adminadd = adminadd + ["  F4 - Base Copy/Paste/Destruction","","0","1","0","0",[]];
+				if(isNil 'deathHandled')then{ deathHandled = true; } else { if(typeName deathHandled != 'BOOL')then{ deathHandled = true;YOLO = true; }; };
+				if(deathHandled)then
+				{
+					[] spawn {
+						uiSleep 35;
+						player setVariable['combattimeout',0, true];
+						(findDisplay 46) closeDisplay 0;
+					};
+				};
+				if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
+				_r_player_blood = r_player_blood;
+				if(_r_player_blood > 12750)then
+				{
+					if(_r_player_blood > 14500)then
+					{
+						r_player_blood = -500;
+						[] spawn "+_randvar2+";
+						
+						_log = format['To much Blood: %1 should be max 12000',_r_player_blood];
+						[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
+					}
+					else
+					{
+						r_player_blood = 12000;
+						_log = format['To much Blood: %1 should be max 12000',_r_player_blood];
+						[_name,_puid,'SLOG',toArray (_log)] call "+_randvar229137+";
+					};
+				};
+				if((deathHandled) && (r_player_blood > 0))then
+				{
+					r_player_blood = -500;
+					uiSleep 1;
+					if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
+					if(r_player_blood > 0)then
+					{
+						if(alive player)then
+						{
+							if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};
+							[LASTDAMAGESOURCE,'shotheavy'] spawn player_death;
+							player setHit['Body',1];
+						};
+						[] spawn "+_randvar2+";
+						[_name,_puid,'HLOG_SKICK',toArray ('Godmode')] call "+_randvar229137+";
+					};
+				};
+				if(isNil 'r_player_blood')then{ r_player_blood = -500; } else { if(typeName r_player_blood != 'SCALAR')then{ r_player_blood = -500;YOLO = true; }; };
+				if((!deathHandled) && (r_player_blood < 0))then
+				{
+					if(alive player)then
+					{
+						if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};
+						[LASTDAMAGESOURCE,'shotheavy'] spawn player_death;
+						player setHit['Body',1];
+					};
+					player setHit['Body',1];
+				};
+				uiSleep 0.5;
+				_con = vehicle cameraOn;
+				_veh = vehicle player;
+				if(str _con != str _veh)then
+				{
+					if(typeName _con == 'OBJECT')then
+					{
+						if(str(_con) != '<NULL-object>')then
+						{
+							if(!isNull _con)then
+							{
+								if((_veh distance "+str _mPos+" > 250) && (_con distance "+str _mPos+" > 250) && (_con distance _veh > 150))then
+								{
+									if(str(vehicle cameraOn) != str(vehicle player))then
+									{
+										[] spawn "+_randvar2+";
+										_log = format['BadCamera: (%1) should be (%2), distance: %3m',_con,_veh,_con distance _veh];
+										[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
+									};
+								};
+							};
+						};
+					};
+				};
 			};
-			adminadd = adminadd + ["All Mods","","0","1","0","0",[]];
-			adminadd = adminadd + ["  4 - Fly Up","","0","1","0","0",[]];
-			adminadd = adminadd + ["  5 - TP LookingDirection","","0","1","0","0",[]];
-			adminadd = adminadd + ["  End - Toggle DebugMonitor","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Delete - Delete CursorTarget","","0","1","0","0",[]];
-			adminadd = adminadd + ["  F5 - Map Options","","0","1","0","0",[]];
-			adminadd = adminadd + ["  F9 - ShowGear","","0","1","0","
+		};
+		if("+str _UIC+")then
+		{
+			[_puid,_name] spawn {
+				_puid = _this select 0;_name = _this select 1;
+				while{1 == 1}do
+				{
+					uiSleep 3;
+					_posP = getPos player;
+					{
+						if((!isNull _x)&&{alive _x})then
+						{
+							if(str _x != str player)then
+							{
+								_type = typeOf _x;
+								_parachuteWest = ((_type == 'ParachuteWest') || (_type == 'ParachuteC'));
+								if(!_parachuteWest)then
+								{
+									_xID = _x getVariable['ObjectID','-3'];
+									_xUID = _x getVariable['ObjectUID','-3'];
+									if(_xID == '-3' && _xUID == '-3')then
+									{
+										_checkedTime = _x getVariable['ObjectIDCT',-1];
+										if(_checkedTime == -1)then
+										{
+											_x setVariable['ObjectIDCT',diag_tickTime];
+										}
+										else
+										{
+											if(diag_tickTime - _checkedTime > 30)then
+											{
+												_pos = getPos _x;
+												_mgp = mapGridPosition _pos;
+												_x setDamage 5;
 												_log = format['Vehicle with Invalid ID: %1 @%2 (waited 30 seconds..)',_type,_mgp];
 												[_name,_puid,'HLOG',toArray (_log)] call "+_randvar229137+";
 											};
