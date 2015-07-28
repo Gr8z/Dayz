@@ -87,7 +87,6 @@ Engineer1 = [
 "0"
 ];
 Engineer2 = [
-	"76561197998715478", // [G00N]Reach40sNuts(OD-2015-05-09) #8960
 	"76561198106639583", // Professor Twinkletoes(OD-2015-06-29) #8960
 	// Add UIDs above, don't forget the comma
 "0"
