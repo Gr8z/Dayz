@@ -16,6 +16,12 @@ echo Kill MBcon
 set beckill="E:\A2Server\MBcon\server_2"
 cd /d %beckill%
 taskkill /f /im MBcon_2.exe
+echo.
+timeout 2
+echo Kill MBcon Moniter
+set beckill="E:\A2Server\MBcon\server_2"
+cd /d %beckill%
+taskkill /f /im MBCon_2_moniter.cmd
 timeout 2
 echo.
 :: UPDATING GITHUB REPOS
@@ -80,7 +86,7 @@ timeout 10
 :: start Blacklister
 set listerpath="E:\A2Server\MBcon\server_2"
 cd /d %listerpath%
-start "" "MBcon_2.exe"
+start "" "MBcon_2_restart.cmd"
 echo.
 cls
 @exit
