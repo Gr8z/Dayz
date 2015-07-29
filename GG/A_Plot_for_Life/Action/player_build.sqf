@@ -397,12 +397,12 @@ if (_hasrequireditem) then {
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	
 	_posrad = [player] call FNC_GetPos;
-	_cntrad = count (nearestObjects [_posrad, GGtwohundredList, ServerIllegalRadius]);
+	_cntrad = count (nearestObjects [_posrad, GGNoBuildList, ServerIllegalRadius]);
 
  
 	if (_cntrad > 0) then {
 	_cancel = true;
-	_reason = format["- You are too close to a black listed building", ServerIllegalRadius];
+	_reason = format["- You are within %1 of a black listed building", ServerIllegalRadius];
 	};
 	
 	if ((DZE_BuildOnGround) && !(_requireplot)) then{

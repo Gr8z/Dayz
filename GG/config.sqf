@@ -55,7 +55,7 @@ MaxMineVeins = 10;
 
 ServerIllegalRadius = 200;
 
-GGtwohundredList = [
+GGNoBuildList = [
 	"Land_Mil_ControlTower",
 	"Land_SS_hangar",
 	"Land_Mil_Barracks_i",
