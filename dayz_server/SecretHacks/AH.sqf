@@ -8088,7 +8088,6 @@ PV_AdminMainCode = {
 		if(isNil 'AcamUsed')then
 		{
 			AcamUsed = true;
-			systemChat 'Instructions: community.bistudio.com/wiki/Camera.sqs';
 		};
 	};
 	admindump =
