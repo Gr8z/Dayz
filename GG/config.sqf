@@ -54,17 +54,6 @@ DZE_Surrender = true;
 MaxMineVeins = 10;
 
 GGNoBuildList = [
-	"Land_Mil_ControlTower",
-	"Land_SS_hangar",
-	"Land_Mil_Barracks_i",
-	"Land_Mil_Barracks",
-	"Land_budova4_in",
-	"Land_a_stationhouse",
-	"Land_A_GeneralStore_01",
-	"Land_A_Hospital",
-	"Land_fuelStation_army",
-	"Land_fuelstation",
-	"Land_Ind_FuelStation_Feed_EP1",
-	"Land_ibr_FuelStation_Feed",
-	"land_fuelStation_w"
+	"Sign_sphere100cm_EP1",
+	"Infostand_2_EP1"
 ];
