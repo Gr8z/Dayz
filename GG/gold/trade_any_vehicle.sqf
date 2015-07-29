@@ -112,8 +112,7 @@ if (_qty >= _qty_in) then {
 					
 					_removed = _qty - _newM; // 
 					
-						systemChat format ['Payed %1 %3. %2 incoming! Get in the driver/pilot Seat to claim the vehicle.',_removed,_part_out,CurrencyName];
-						systemChat "Unclaimed vehicles can be stolen or claimed by others";
+						systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out,CurrencyName];
 						
 						if(_removed == _qty_in) then {
 							_dir = round(random 360);

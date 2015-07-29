@@ -71,6 +71,7 @@ if (_object isKindOf "AN2_DZ") then {
 _object setVariable ["ObjectID", _oid, true];    
 _object setVariable ["lastUpdate",time];
 _object setVariable ["CharacterID", _characterID, true];
+_object setVariable ['owner', _activatingPlayer, true];
 
 if(DZE_TRADER_SPAWNMODE) then {
     _object attachTo [_object_para, [0,0,-1.6]];

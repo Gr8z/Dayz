@@ -176,6 +176,7 @@ _query1 = format["DELETE FROM garage WHERE ID='%1'",_id];
 	
 	_characterID = str(_characterID);
 	_object setVariable ["CharacterID", _characterID, true];
+	_object setVariable ['owner', _unit, true];
 
 		if(_characterID != "0" && !(_object isKindOf "Bicycle")) then {
 						_object setvehiclelock "locked";
