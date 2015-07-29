@@ -6,10 +6,12 @@ DZE_ActionInProgress = true;
 
 _range = DZE_PlotPole select 0;
 _count = count(nearestObjects [cursorTarget,DZE_maintainClasses,_range]);
+_cntrad = count (nearestObjects [cursorTarget, GGNoBuildList, 1000]);
 
 // disallow building if too many objects are found within 30m
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 if(_count >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, too many objects within 45m.", "PLAIN DOWN"];};
+if(_count >= 1) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, Building Restricted in this area", "PLAIN DOWN"];};
 
 _onLadder =		(getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;
 _isWater = 		dayz_isSwimming;
