@@ -635,14 +635,6 @@ call compile ("
 						{
 							call _fncPunish;
 						};
-						if(ctrlText 292908 != '')then
-						{
-							call _fncPunish;
-						};
-						if(!isNull finddisplay 2929)then
-						{
-							call _fncPunish;
-						};
 						uiSleep 0.5;
 					};
 					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
