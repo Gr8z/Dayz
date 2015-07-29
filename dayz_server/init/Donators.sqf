@@ -193,6 +193,7 @@ Marksman3 = [
 	"76561198066231326", // Ace Ventura(OD-2015-07-04) #9797
 	"76561198085988742", // Avaleria(OD-2015-07-12) #9989 
 	"76561197970362912", // bob(OD-2015-07-28) #10363  
+	"76561198054897830", // AKrantz MOD
 	// Add UIDs above, don't forget the comma
 "0"
 ];
