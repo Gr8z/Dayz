@@ -129,6 +129,7 @@ Marksman1 = [
 	"76561198090783137", // pickle
 	"76561198153784743", // Ghost
 	"76561198082919247", // John Wayne (OD-2015-07-08) #9884
+	"76561198068391152", // Nonna (OD-2015-07-28) #10370 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
