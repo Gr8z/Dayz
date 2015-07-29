@@ -81,20 +81,6 @@ if (DZE_HeliLift) then {
 		s_player_heli_detach = -1;
 	};
 };
-    
-if (_inVehicle && (Earplugs)) then {
-    if (s_player_put_earplugs_off < 0) then {
-        airvehicle = _vehicle;
-        s_player_put_earplugs_off = airvehicle addAction ["Earplugs off","GG\Earplugs\earplugs_off.sqf","",5,false,true];
-    };
-        } else {
-            if (!isNil "airvehicle") then {
-                airvehicle removeAction s_player_put_earplugs_off;
-                s_player_put_earplugs_off = -1;
-
-            };
-
-        };
 
 if(DZE_HaloJump) then {
 	if(_inVehicle && (_vehicle isKindOf "Air") && ((([_vehicle] call FNC_getPos) select 2) > 400)) then {
