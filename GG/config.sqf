@@ -53,8 +53,6 @@ DZE_ForceNameTagsInTrader = true;
 DZE_Surrender = true;
 MaxMineVeins = 10;
 
-ServerIllegalRadius = 200;
-
 GGNoBuildList = [
 	"Land_Mil_ControlTower",
 	"Land_SS_hangar",

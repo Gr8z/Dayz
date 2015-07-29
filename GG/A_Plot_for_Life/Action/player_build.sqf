@@ -1,5 +1,5 @@
 
-private ["_range","_count","_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_needNear","_vehicle","_inVehicle","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap","_playerID", "_playerUID","_ownerID","_buildcheck","_isowner","_isfriendly","_maxBuildDistance","_vector","_buildOffset","_vUp","_posrad","_cntrad"];
+private ["_range","_count","_location","_dir","_classname","_item","_hasrequireditem","_missing","_hastoolweapon","_cancel","_reason","_started","_finished","_animState","_isMedic","_dis","_sfx","_hasbuilditem","_tmpbuilt","_onLadder","_isWater","_require","_text","_offset","_IsNearPlot","_isOk","_location1","_location2","_counter","_limit","_proceed","_num_removed","_position","_object","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_findNearestPoles","_findNearestPole","_distance","_classnametmp","_ghost","_isPole","_needText","_lockable","_zheightchanged","_rotate","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_combinationDisplay","_zheightdirection","_abort","_isNear","_need","_needNear","_vehicle","_inVehicle","_requireplot","_objHDiff","_isLandFireDZ","_isTankTrap","_playerID", "_playerUID","_ownerID","_buildcheck","_isowner","_isfriendly","_maxBuildDistance","_vector","_buildOffset","_vUp"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -396,13 +396,9 @@ if (_hasrequireditem) then {
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 	
-	_posrad = [player] call FNC_GetPos;
-	_cntrad = count (nearestObjects [_posrad, GGNoBuildList, ServerIllegalRadius]);
-
- 
-	if (_cntrad > 0) then {
-	_cancel = true;
-	_reason = format["- You are within %1 of a black listed building", ServerIllegalRadius];
+	if ({typeOf _x in GGNoBuildList} count nearestObjects[player, GGNoBuildList, 200] > 0) then {
+		_cancel = true;
+		_reason = "- You are within 200m of a black listed building";
 	};
 	
 	if ((DZE_BuildOnGround) && !(_requireplot)) then{
