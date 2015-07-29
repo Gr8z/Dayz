@@ -13826,6 +13826,7 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				_b0x addMagazineCargoGlobal ['ItemWoodLadder', 2];
 				_b0x addMagazineCargoGlobal ['ItemWoodStairs', 3];
 				_b0x addMagazineCargoGlobal ['metal_floor_kit', 8];
+				_b0x addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 1];
 				{_b0x addWeaponCargoGlobal [_x, 1];} forEach
 				[
 				'ItemToolbox',
@@ -13885,6 +13886,7 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemSledgeHandle',
 				'storage_shed_kit'
 				];
+				_b0x addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 2];
 				{_b0x addWeaponCargoGlobal [_x, 2];} forEach
 				[
 				'ItemToolbox',
