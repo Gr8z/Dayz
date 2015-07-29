@@ -405,13 +405,6 @@ if (_hasrequireditem) then {
 
 	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
-	
-	_posrad = [player] call FNC_GetPos;
-	_cntrad = count (nearestObjects [_posrad, GGNoBuildList, 1000]);
-	if (_cntrad > 0) then {
-		_cancel = true;
-		_reason = format["- Cannot build %1 near safezones.", 1000];
-	};
 		
 	if ((DZE_BuildOnGround) && !(_requireplot)) then{
 		_toohigh = false;
