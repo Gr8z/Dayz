@@ -55,5 +55,6 @@ MaxMineVeins = 10;
 
 GGNoBuildList = [
 	"Sign_sphere100cm_EP1",
-	"Infostand_2_EP1"
+	"Infostand_2_EP1",
+	"Fiberplant"
 ];

@@ -234,6 +234,8 @@ if (_hasrequireditem) then {
 		_zheightchanged = false;
 		_zheightdirection = "";
 		_rotate = false;
+		_posrad = [player] call FNC_GetPos;
+		_cntrad = count (nearestObjects [_posrad, GGNoBuildList, 1000]);
 
 		if (DZE_Q) then {
 			DZE_Q = false;
@@ -383,6 +385,14 @@ if (_hasrequireditem) then {
 			_isOk = false;
 			_cancel = true;
 			_reason = "Cancelled building.";
+			detach _object;
+			deleteVehicle _object;
+		};
+		
+		if (_cntrad > 0) exitWith {
+			_isOk = false;
+			_cancel = true;
+			_reason = "Area Restricted.";
 			detach _object;
 			deleteVehicle _object;
 		};
