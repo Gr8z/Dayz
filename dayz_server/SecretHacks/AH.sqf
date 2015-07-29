@@ -4425,7 +4425,7 @@ publicVariable '"+_randvar28+"';
 							_shorterArray resize 6;
 							_shorterTxt = toString _shorterArray;
 							_shorterTxt = toLower _shorterTxt;
-							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll'])then
+							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke'])then
 							{
 								_log = format['BadText: %1',_txt];
 								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
