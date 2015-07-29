@@ -11,6 +11,8 @@ _missing = "";
 _hasrequireditem = true;
 _reason = "ok";
 _passArray = [];
+_posrad = [player] call FNC_GetPos;
+_cntrad = count (nearestObjects [_posrad, GGNoBuildList, 1000]);
 
 {
 	_hastoolweapon = _x in weapons player; //check each required item against weapons array on player
@@ -40,5 +42,13 @@ if (_checkTools) then { //passed argument
 		_passArray
 	};
 };
+
+if (_cntrad > 0) exitWith {
+	DZE_ActionInProgress = false;
+	cutText ["You Are Building Near a Resricted Area.", "PLAIN DOWN"];
+	_reason = "Rescricted Area";
+	_passArray
+};
+
 _passArray //[bool,string]
 
