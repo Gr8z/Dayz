@@ -33,8 +33,8 @@ _NAdmins = [
 
 /* HEAD ADMINS / OWNERS     */ 
 _SAdmins = [
-	"76561198078201908", // Gr8 > all the guys under me are skrubs- I Wish my Dick was bigger
-	"76561198153784743", // Ghost
+	"76561198078201908", // Gr8 > all the guys under me are skrubs
+	"76561198153784743", // Ghost >  I Wish my Dick was bigger
 	"76561198002511087", // TempSniper
 	"76561198021389971", // Thirdhero
 	"76561197973172761",  // Milton
