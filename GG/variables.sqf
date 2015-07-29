@@ -1020,8 +1020,8 @@ if(!isDedicated) then {
 	DZE_InRadiationZone = false;
 
 	DZE_SaveTime = 30;
-	//earplugs init
-	Earplugs = false;
+	
+	GGEARPLUGS = false;
 };
 
 //Model Variables
