@@ -5,8 +5,9 @@ if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , 
 DZE_ActionInProgress = true;
 
 _range = DZE_PlotPole select 0;
+_posrad = [player] call FNC_GetPos;
 _count = count(nearestObjects [cursorTarget,DZE_maintainClasses,_range]);
-_cntrad = count (nearestObjects [cursorTarget, GGNoBuildList, 1000]);
+_cntrad = count (nearestObjects [_posrad, GGNoBuildList, 1000]);
 
 // disallow building if too many objects are found within 30m
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
@@ -396,7 +397,7 @@ if (_hasrequireditem) then {
 	};
 
 	// No building in trader zones
-	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
+	if(!canbuild) then { _cancel = true; _reason = "Cannot build in Safezones."; };
 		
 	if ((DZE_BuildOnGround) && !(_requireplot)) then{
 		_toohigh = false;
