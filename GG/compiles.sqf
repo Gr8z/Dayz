@@ -802,7 +802,7 @@ if (!isDedicated) then {
 		if (isServer) then {
 			_trigger spawn SafeZoneCreate;
 		} else {
-			_trigger setTriggerStatements ["(vehicle player) in thisList", "call SafeZoneEnable", "call SafeZoneDisable"];
+			_trigger setTriggerStatements ["('Air' countType thislist  > 0) && count (thislist unitsBelowHeight 1) > 0", "call SafeZoneEnable", "call SafeZoneDisable"];
 			_marker = createMarkerLocal [format["Safezone%1", _name], _pos];
 			_marker setMarkerShapeLocal "ELLIPSE";
 			_marker setMarkerTypeLocal "Empty";
