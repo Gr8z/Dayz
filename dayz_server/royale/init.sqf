@@ -210,7 +210,7 @@ if(royale_vehicle == _player) then {
 						[_diff] spawn {
 							for "_i" from 1 to (_this select 0) do {
 								[objNull,royale_marker,rSAY,"Royale_One_Down",25] call RE;
-								sleep 3;
+								uiSleep 3;
 							};
 						};
 
@@ -245,12 +245,12 @@ if(royale_vehicle == _player) then {
 						RemoteMessage = ["dynamic_text",[royale_name,format["We got a winner! Congratulations to %1 for being a beast!",(name _winner)]]];
 						publicVariable "RemoteMessage";
 
-						sleep 5;
+						uiSleep 5;
 
 						RemoteMessage = ["private",[getPlayerUID _winner,format["You have 10 minutes to loot, after that the area becomes public again and you will get teleported to %3, move to the center if you want a early teleport",(name _winner),royale_name,(winner_location select 0)]]];
 						publicVariable "RemoteMessage";
 
-						sleep 600;
+						uiSleep 600;
 
 						if(ROYALE_RUNNING) then {
 
@@ -272,7 +272,7 @@ if(royale_vehicle == _player) then {
 
 				};
 			};
-			sleep 2;
+			uiSleep 2;
 		};
 
 	};
@@ -319,7 +319,7 @@ if(royale_vehicle == _player) then {
 				};
 			};
 
-			sleep 5;
+			uiSleep 5;
 		};
 	};
 
@@ -362,7 +362,7 @@ if(royale_vehicle == _player) then {
 
 		for "_i" from 1 to 4 do {
 			private["_new_rad"];
-			sleep (_resize_time - 60);
+			uiSleep (_resize_time - 60);
 			if(!isNil "ROYALE_FINISHED") exitWith {};
 			_new_rad = (current_radius - _radius_min);
 			_new_pos = [_new_pos,0,_radius_min,0,0,2000,0] call BIS_fnc_findSafePos;
@@ -385,7 +385,7 @@ if(royale_vehicle == _player) then {
 			RemoteMessage = ["dynamic_text",[royale_name,"Your map has been updated, you have one minute to move to the new area!"]];
 			publicVariable "RemoteMessage";
 			
-			sleep 60;
+			uiSleep 60;
 
 			deleteMarker royale_temp_marker;
 			deleteMarker royale_marker;
@@ -425,7 +425,7 @@ if(royale_vehicle == _player) then {
 		royale_total_contenders = count royale_contenders;
 
 		while {_notnear} do {
-			sleep 1;
+			uiSleep 1;
 			_pos = getPos royale_vehicle;
 			_pos set[2,0];
 
@@ -435,14 +435,14 @@ if(royale_vehicle == _player) then {
 		};
 
 		royale_vehicle setVehicleLock "UNLOCKED";
-		sleep .5;
+		uiSleep .5;
 
 		{
 			private["_tmpu","_do"];
 			_do = format["if(getPlayerUID player == '%1') then {
 				[] spawn {
 					player action['eject',(vehicle player)];
-					sleep 1;
+					uiSleep 1;
 					player spawn BIS_fnc_halo;
 					player setvelocity[0,96,0];
 					player setdir 0;
@@ -504,17 +504,17 @@ if(royale_vehicle == _player) then {
 		RemoteMessage = ["dynamic_text",[royale_name,format["Welcome to %1",royale_name]]];
 		publicVariable "RemoteMessage";
 
-		sleep 15;
+		uiSleep 15;
 
 		RemoteMessage = ["dynamic_text",[royale_name,format["We've got a total of %1 players",royale_total_contenders]]];
 		publicVariable "RemoteMessage";
 
-		sleep 15;
+		uiSleep 15;
 
 		RemoteMessage = ["dynamic_text",[royale_name,format["No leaving or coming back! There can be only one winner."]]];
 		publicVariable "RemoteMessage";
 
-		sleep 15;
+		uiSleep 15;
 
 		RemoteMessage = ["dynamic_text",[royale_name,format["Good luck everyone! Let the games begin.",royale_total_contenders]]];
 		publicVariable "RemoteMessage";
