@@ -102,7 +102,7 @@ execVM "GG\antimanualfire.sqf";
 
 _pic = "GG\images\logo.paa";
 [
-    '<img align=''left'' size=''2.0'' shadow=''0'' image='+(str(_pic))+' /><br><t size='1' font=''Bitstream'' align=''Center''  color=''#38AAE1''>www.GHOSTZGAMERZ.com</t>',
+    '<img align=''left'' size=''2.0'' shadow=''0'' image='+(str(_pic))+' /><br><t size=''1'' font=''Bitstream'' align=''Center''  color=''#38AAE1''>www.GHOSTZGAMERZ.com</t>',
     safeZoneX+0.027,
     safeZoneY+safeZoneH-0.2,
     99999,
