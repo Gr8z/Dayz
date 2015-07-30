@@ -42,7 +42,7 @@ if(royale_vehicle == _player) then {
 		_crate setVariable["permaLoot",true];
 
 		_num_weapons = _this select 1;
-		_weapons_array = ai_wep_random call BIS_fnc_selectRandom;;
+		_weapons_array = ai_wep_random call BIS_fnc_selectRandom;
 
 		_num_items = _this select 2;
 		_item_array = crate_items_medical;
