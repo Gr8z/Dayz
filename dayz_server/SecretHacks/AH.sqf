@@ -258,11 +258,18 @@ saveStatus = 'no';publicVariable 'saveStatus';
 loadStatus = 'no';publicVariable 'loadStatus';
 saveVar = 'no';publicVariable 'saveVar';
 createTeam = 'no';publicVariable 'createTeam';
-/*
-BIS_MPF_logic = 'no';publicVariable 'BIS_MPF_logic';
-BIS_MPF_dummygroup = 'no';publicVariable 'BIS_MPF_dummygroup';
-sideLogic = 'no';publicVariable 'sideLogic';
-*/
+
+_weapons1 = ['ItemToolbox','ItemEtool','ItemEtool'];
+_magazines1 = ['ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox','ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'];
+_backpack1 = [];
+_weapons2 = ['ItemToolbox','ItemCrowbar','ItemEtool'];
+_magazines2 = 	['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 10]['CinderBlocks', 30],['cinder_garage_kit', 2],['ItemTankTrap', 6],
+				['ItemPole', 6],['ItemComboLock', 2],['ItemWoodLadder', 2],['ItemWoodStairs', 3],['metal_floor_kit', 8]];
+_backpack2 = ['DZ_LargeGunBag_EP1'];
+_weapons3 = [['ItemToolbox',2],['ItemCrowbar',2],['ItemEtool',2]];
+_magazines3 = ['30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 15]['CinderBlocks', 50],['cinder_garage_kit', 4],['ItemComboLock', 4],['ItemWoodLadder', 4],['ItemPole', 12],['ItemTankTrap', 12],['ItemWoodStairs', 6],['metal_floor_kit', 15],['ItemVault', 2],['ItemSledgeHead', 2],['ItemSledgeHandle', 2],['storage_shed_kit', 2]];
+_backpack3 = ['DZ_LargeGunBag_EP1'];
+
 _SupportVault1Content = [_weapons1,_magazines1,_backpack1];
 _SupportVault2Content = [_weapons2,_magazines2,_backpack2];
 _SupportVault3Content = [_weapons3,_magazines3,_backpack3];
@@ -5741,29 +5748,22 @@ PV_AdminMainCode = {
 		{
 			adminadd = adminadd + ["  Spawn 5 Zombies",{[5] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 10 Zombies",{[10] call adminCallZeds;},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];
-			
-			adminadd = adminadd + ["  Spawn Support-Box1",{1 call supportbox},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Support-Box2",{2 call supportbox},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Support-Box3",{3 call supportbox},"0","0","0","0",[]];
-			
-			if(MOD_EPOCH)then
-			{
-				adminadd = adminadd + ["","","0","1","0","0",[]];
-				adminadd = adminadd + ["  Spawn Support-Vault1",{1 call supportVault},"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Support-Vault2",{2 call supportVault},"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Support-Vault3",{3 call supportVault},"0","0","0","0",[]];
-			};
+			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];	
+			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Starter Building Safe",{1 call supportVault},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
+			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Medium Building Safe",{2 call supportVault},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
+			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Pro Building Safe",{3 call supportVault},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
+			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Box (all items)",admincrateALL,"0","0","0","0",[]];
-			if(MOD_EPOCH) then
-			{
-				adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
-				adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
-			};
+			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
 		};
 		call admin__FILL_MENUS;
 	};
