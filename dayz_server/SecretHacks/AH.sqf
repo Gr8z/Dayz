@@ -263,7 +263,7 @@ _weapons1 =		['ItemToolbox','ItemEtool','ItemEtool'];
 _magazines1 =	['ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox','ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'];
 _backpack1 = 	[];
 _weapons2 = 	['ItemToolbox','ItemCrowbar','ItemEtool'];
-_magazines2 = 	[['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 10],['CinderBlocks', 30],['cinder_garage_kit', 2],['ItemTankTrap', 6],
+_magazines2 = 	['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 10],['CinderBlocks', 30],['cinder_garage_kit', 2],['ItemTankTrap', 6],
 				['ItemPole', 6],['ItemComboLock', 2],['ItemWoodLadder', 2],['ItemWoodStairs', 3],['metal_floor_kit', 8]];
 _backpack2 = 	['DZ_LargeGunBag_EP1'];
 _weapons3 = 	[['ItemToolbox',2],['ItemCrowbar',2],['ItemEtool',2]];
