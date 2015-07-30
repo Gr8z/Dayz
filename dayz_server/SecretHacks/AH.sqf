@@ -259,23 +259,21 @@ loadStatus = 'no';publicVariable 'loadStatus';
 saveVar = 'no';publicVariable 'saveVar';
 createTeam = 'no';publicVariable 'createTeam';
 
-_SupportVault1Content = [
-'ItemToolbox','ItemEtool','ItemEtool','ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox',
-'ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'
-];
+_weapons1 =		['ItemToolbox','ItemEtool','ItemEtool'];
+_magazines1 =	['ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox','ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'];
+_backpack1 = 	[];
+_weapons2 = 	['ItemToolbox','ItemCrowbar','ItemEtool'];
+_magazines2 = 	[['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 10]['CinderBlocks', 30],['cinder_garage_kit', 2],['ItemTankTrap', 6],
+				['ItemPole', 6],['ItemComboLock', 2],['ItemWoodLadder', 2],['ItemWoodStairs', 3],['metal_floor_kit', 8]];
+_backpack2 = 	['DZ_LargeGunBag_EP1'];
+_weapons3 = 	[['ItemToolbox',2],['ItemCrowbar',2],['ItemEtool',2]];
+_magazines3 = 	['30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 15]['CinderBlocks', 50],['cinder_garage_kit', 4],['ItemComboLock', 4],['ItemWoodLadder', 4],['ItemPole', 12],['ItemTankTrap', 12],['ItemWoodStairs', 6],
+				['metal_floor_kit', 15],['ItemVault', 2],['ItemSledgeHead', 2],['ItemSledgeHandle', 2],['storage_shed_kit', 2]];
+_backpack3 = 	['DZ_LargeGunBag_EP1'];
 
-_SupportVault2Content = [
-'ItemToolbox','ItemCrowbar','ItemEtool','ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit',
-'workbench_kit',['cinder_wall_kit',15],['MortarBucket', 10]['CinderBlocks', 30],['cinder_garage_kit', 2],['ItemTankTrap', 6],
-['ItemPole', 6],['ItemComboLock', 2],['ItemWoodLadder', 2],['ItemWoodStairs', 3],['metal_floor_kit', 8],'DZ_LargeGunBag_EP1'
-];
-
-_SupportVault3Content = [
-['ItemToolbox',2],['ItemCrowbar',2],['ItemEtool',2],'30m_plot_kit','workbench_kit',['cinder_wall_kit',15],['MortarBucket', 15],
-['CinderBlocks', 50],['cinder_garage_kit', 4],['ItemComboLock', 4],['ItemWoodLadder', 4],['ItemPole', 12],['ItemTankTrap', 12],
-['ItemWoodStairs', 6],['metal_floor_kit', 15],['ItemVault', 2],['ItemSledgeHead', 2],['ItemSledgeHandle', 2],['storage_shed_kit', 2],'DZ_LargeGunBag_EP1'
-];
-
+_SupportVault1Content = [_weapons1,_magazines1,_backpack1];
+_SupportVault2Content = [_weapons2,_magazines2,_backpack2];
+_SupportVault3Content = [_weapons3,_magazines3,_backpack3];
 call compile ("
 	fnc_getSupportVaultContent = {
 		if(_this==1)exitWith{"+str _SupportVault1Content+"};
