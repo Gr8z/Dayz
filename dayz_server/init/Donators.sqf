@@ -370,6 +370,7 @@ Scout3 = [
 	"76561197970362912", // bob(OD-2015-07-28) #10366  
 	"76561197960444004", // WhiteLightning(OD-2015-07-28) #10368  
 	"76561198036438380", // Rumple Admin Loadout
+	"76561197960413208", // Nick (OD-2015-07-29) #10402
 	// Add UIDs above, don't forget the comma
 "0"
 ];
