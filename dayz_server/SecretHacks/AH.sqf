@@ -1,4 +1,4 @@
-/* ********************************02-07-2015-v1414********************************* */
+/* ********************************02-07-2015-v1417********************************* */
 comment 'Antihack & AdminTools - Christian Lorenzen - www.infiSTAR.de - License: (CC)';
 private['_dstring','_cconfig','_OpenMenuKey','_LAdmins','_NAdmins','_SAdmins','_BLOCKED','_TopOfESC','_LowerTop','_LowerBottom','_EscColor',
 '_BottomDebug','_UPW','_ODK','_DMS','_DMW','_MEH','_VON','_BHF','_UVC','_UZC','_UVW','_VTC','_UIC','_UCL','_UIM','_UCC','_UFS',
@@ -1382,7 +1382,7 @@ publicVariable '"+_randvar12+"';
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos','wormRound',
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
 			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
-			'bombtrgt','n00k3','3sp','t3l3all','t3p3'];
+			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
@@ -4426,7 +4426,10 @@ publicVariable '"+_randvar28+"';
 							_shorterArray resize 6;
 							_shorterTxt = toString _shorterArray;
 							_shorterTxt = toLower _shorterTxt;
-							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p'])then
+							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
+							'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
+							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt'
+							])then
 							{
 								_log = format['BadText: %1',_txt];
 								[_name,_puid,'BAN',toArray (_log)] call "+_randvar229137+";
