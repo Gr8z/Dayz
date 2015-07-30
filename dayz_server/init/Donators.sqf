@@ -371,6 +371,7 @@ Scout3 = [
 	"76561197960444004", // WhiteLightning(OD-2015-07-28) #10368  
 	"76561198036438380", // Rumple Admin Loadout
 	"76561197960413208", // Nick (OD-2015-07-29) #10402
+	"76561198096239295", // Shiny (OD-2015-07-29) #10409
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -381,7 +382,6 @@ Soldier1 = [
 	"76561198014873677", // IceMan(OD-2015-05-21)#9098
 	"76561198119636927", // Gimme De_ravioli(EXP-2015-08-12)#9992 
 	"76561198198899415", // [SBS] Mr.c On Pc (OD-2015-07-15) #10044
-	"76561198096239295", // Joey (OD-2015-07-15) #10035
 	// Add UIDs above, don't forget the comma
 "0"
 ];
