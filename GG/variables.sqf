@@ -565,7 +565,7 @@ DZE_HeliAllowToTow = [
 	"350z_pink_DZ",
 	"350z_white_DZ",
 	"350z_yellow_DZ",
-	"350z_cream_DZ",
+	"350z_cream_DZ"
 ];
 
 //Initialize Zombie Variables
