@@ -229,7 +229,7 @@ if (!isDedicated) then {
 		player_build_create =		compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Action\player_build_create.sqf";
 		player_build_controls =		compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Action\player_build_controls.sqf";
 		player_build_publish =		compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Action\player_build_publish.sqf";
-		DZE_snap_build_file = 		"GG\Snap_Pro\snap_build.sqf"
+		DZE_snap_build_file = 		"GG\Snap_Pro\snap_build.sqf";
 		snap_build = 				compile preprocessFileLineNumbers DZE_snap_build_file;
 	
 	FNC_check_owner =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\fn_check_owner.sqf";
