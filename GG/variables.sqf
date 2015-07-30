@@ -168,7 +168,6 @@ canbuild = true;
 dayZ_partClasses = [
 	"PartFueltank",
 	"PartWheel",
-	//"PartGeneric",	//No need to add, it is default for everything
 	"PartEngine"
 ];
 dayZ_explosiveParts = [
@@ -178,7 +177,7 @@ dayZ_explosiveParts = [
 //Survival Variables
 SleepFood =				2160; //minutes (48 hours)
 SleepWater =			1440; //minutes (24 hours)
-SleepTemperatur	= 		90 / 100;	//Firs Value = Minutes untill Player reaches the coldest Point at night (without other effects! night factor expected to be -1)			//TeeChange
+SleepTemperatur	= 		90 / 100;	//Firs Value = Minutes untill Player reaches the coldest Point at night (without other effects! night factor expected to be -1)
 
 //Server Variables
 allowConnection = 		false;
@@ -391,7 +390,7 @@ USEC_MinorWounds 	= [
 ];
 USEC_woundPoint	= [
 	["Pelvis","aimpoint"],
-	["aimpoint"], //,"RightShoulder","LeftShoulder"
+	["aimpoint"],
 	["lelbow","relbow"],
 	["RightFoot","LeftFoot"],
 	["neck","pilot"]
@@ -567,21 +566,6 @@ DZE_HeliAllowToTow = [
 	"350z_white_DZ",
 	"350z_yellow_DZ",
 	"350z_cream_DZ",
-	// overwatch CIV
-	"Civcar",
-	"Civcarbu",
-	"civcarbl",
-	"Civcarre",
-	"Civcarge",
-	"Civcarwh",
-	"Civcarsl",
-	"Civcar_DZ",
-	"civcarbl_DZ",
-	"Civcarbu_DZ",
-	"Civcarge_DZ",
-	"Civcarre_DZ",
-	"Civcarsl_DZ",
-	"Civcarwh_DZ"
 ];
 
 //Initialize Zombie Variables
@@ -861,10 +845,10 @@ if(!isDedicated) then {
 
 
 	//temperature variables
-	dayz_temperatur       =     25;        //Default 36
-	dayz_temperaturnormal =     25;        //Default 36
-	dayz_temperaturmax    =     40;        //Default 42
-	dayz_temperaturmin    =     10;        //Default 27
+	dayz_temperatur       =     25;  
+	dayz_temperaturnormal =     25;   
+	dayz_temperaturmax    =     40;
+	dayz_temperaturmin    =     10;
 
 	//player special variables
 	dayZ_lastPlayerUpdate = 0;
@@ -908,7 +892,7 @@ if(!isDedicated) then {
 	dayz_swarmSpawnZombies = 0;
 //Max local
 		if (isNil "dayz_maxNearByZombies") then {
-		dayz_maxNearByZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
+		dayz_maxNearByZombies = 60; 
 //Current total
 	};
 	dayz_currentGlobalZombies = 0;
@@ -923,21 +907,16 @@ if(!isDedicated) then {
 	if (isNil "dayz_lootDelay") then {
 		dayz_lootDelay =		3;
 	};
-//Current NearBy
+
 	dayz_CurrentNearByZombies = 0;
-//Max NearBy
-	dayz_maxNearByZombies = 60; // max quantity of Z controlled by local gameclient, used by player_spawnCheck. Below this limit we can spawn Z
-//Current total
+	dayz_maxNearByZombies = 60;
 	dayz_currentGlobalZombies = 0;
-//Max global zeds.
 	dayz_maxGlobalZeds = 3000;
 	dayz_spawnDelay =		120;
 	dayz_spawnWait =		-120;
 	dayz_lootDelay =		3;
 	dayz_lootWait =			-300;
-	//used to count global zeds around players
 	dayz_CurrentZombies = 0;
-	//Used to limit overall zed counts
 	dayz_tickTimeOffset = 0;
 	dayz_currentWeaponHolders = 0;
 	dayz_maxMaxWeaponHolders = 80;

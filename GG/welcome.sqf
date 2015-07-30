@@ -24,7 +24,9 @@ _role9names = ["Donations gets you cool perks","Check out ghostzgamerz.com for m
 _role10 = "Claim Vehicle";
 _role10names = ["Get 10oz Gold and Keymakers Kit","Scroll on a unlocked vehicle to claim"];
 _role11 = "Action Menu";
-_role11names = ["Press Right ALT to Open up a Great Menu","Activate it when you need it"];
+_role11names = ["Press Right ALT to Open up a Menu","Activate it when you need it"];
+_role12 = "Virtual Garage";
+_role13names = ["Store your vehicle free of charge at a Vehicle Trader","You can deploy it with an etool"];
 
 {
 	sleep 2;
@@ -37,8 +39,8 @@ _role11names = ["Press Right ALT to Open up a Great Menu","Activate it when you 
 	_onScreenTime + (((count _memberNames) - 1) * 0.5);
 	[
 		_finalText,
-		[safezoneX + safezoneW - 0.8,0.50],	//DEFAULT: 0.5,0.35
-		[safezoneY + safezoneH - 0.8,0.7], 	//DEFAULT: 0.8,0.7
+		[safezoneX + safezoneW - 0.8,0.50],
+		[safezoneY + safezoneH - 0.8,0.7],
 		_onScreenTime,
 		0.5
 	] spawn BIS_fnc_dynamicText;
