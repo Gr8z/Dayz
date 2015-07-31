@@ -2,7 +2,6 @@ private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item
  
 _spawnChance =  0.70; // Percentage chance of event happening
 _markerRadius = 350; // Radius the loot can spawn and used for the marker
-_debug = false; // Puts a marker exactly were the loot spawns
  
 _loot_box = "USVehicleBox";
 _loot_lists = [
@@ -54,7 +53,7 @@ _loot_lists = [
 _loot = _loot_lists call BIS_fnc_selectRandom;
  
 _loot_amount = 75;
-_wait_time = 900; 
+_wait_time = 300; 
  
 // Dont mess with theses unless u know what yours doing
 _start_time = time;
@@ -70,7 +69,7 @@ diag_log("Event already running");
  
 // Random chance of event happening
 _spawnRoll = random 1;
-if (_spawnRoll > _spawnChance and !_debug) exitWith {};
+if (_spawnRoll > _spawnChance) exitWith {};
  
 // Random location
 _position = DZMSStatLocs call BIS_fnc_selectRandom;
@@ -84,14 +83,6 @@ _event_marker setMarkerAlpha 0.5;
 _event_marker setMarkerSize [(_markerRadius + 50), (_markerRadius + 50)];
  
 _loot_pos = [_position,0,(_markerRadius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
- 
-if (_debug) then {
-_debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
-_debug_marker setMarkerShape "ICON";
-_debug_marker setMarkerType "mil_dot";
-_debug_marker setMarkerColor "ColorGreen";
-_debug_marker setMarkerAlpha 1;
-};
  
 diag_log(format["Creating ammo box at %1", _loot_pos]);
  
@@ -128,9 +119,16 @@ while {_eventOn} do {
 	if(count _nrObjs >0) then {
 		{
 			if(isPlayer _x)then{
-				_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Ikea Truck Cargo Has been found by a survivor !</t>"];
+				_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Ikea Truck Cargo Has been found by %1 !</t>",name _x];
 				customRemoteMessage = ['hint', _hint];
 				publicVariable "customRemoteMessage";
+				
+				_debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
+				_debug_marker setMarkerShape "ICON";
+				_debug_marker setMarkerType "mil_dot";
+				_debug_marker setMarkerColor "ColorGreen";
+				_debug_marker setMarkerAlpha 1;
+
 				_eventOn = false;
 			};
 		}forEach _nrObjs;
@@ -138,13 +136,13 @@ while {_eventOn} do {
 	uiSleep 12;
 };
 
+EPOCH_EVENT_RUNNING = false;
+deleteMarker _event_marker;
+
 // Wait
 sleep _wait_time;
  
 // Clean up
-EPOCH_EVENT_RUNNING = false;
 deleteVehicle _loot_box;
-deleteMarker _event_marker;
-if (_debug) then {
-	deleteMarker _debug_marker;
-};
+deleteVehicle _clutter;
+deleteMarker _debug_marker;
