@@ -126,7 +126,7 @@ sleep 1;
 (({isPlayer _x && _x distance _loot_box <= 5} count playableUnits > 0));
 };
 
-_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Special Millitary Cargo Has been found by %1 !</t>",name _x];
+_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Special Millitary Cargo Has been captured!</t>"];
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 
