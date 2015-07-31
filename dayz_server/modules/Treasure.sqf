@@ -52,7 +52,7 @@ _position = DZMSStatLocs call BIS_fnc_selectRandom;
 diag_log(format["Spawning loot event at %1", _position]);
  
 _markerRadius = 200;
-_markershape = "RECTANGLE";
+_markershape = "ELLIPSE";
 _markercolor = "ColorYellow";
 _missiontype = 0;
 _refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
