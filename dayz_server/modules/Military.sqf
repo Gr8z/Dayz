@@ -1,7 +1,6 @@
 private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint"];
  
 _spawnChance =  0.50; // Percentage chance of event happening
-_markerRadius = 350; // Radius the loot can spawn and used for the marker
  
 _loot_box = "RUVehicleBox";
 _loot_lists = [
@@ -86,12 +85,11 @@ _position = DZMSStatLocs call BIS_fnc_selectRandom;
  
 diag_log(format["Spawning loot event at %1", _position]);
  
-
-_event_marker = createMarker [ format ["loot_event_marker_%1", _start_time], _position];
-_event_marker setMarkerShape "ELLIPSE";
-_event_marker setMarkerColor "ColorRed";
-_event_marker setMarkerAlpha 0.5;
-_event_marker setMarkerSize [(_markerRadius + 50), (_markerRadius + 50)];
+_markerRadius = 350;
+_markershape = "ELLIPSE";
+_markercolor = "ColorRed";
+_missiontype = 0;
+_refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
  
 _loot_pos = [_position,0,(_markerRadius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
 
@@ -148,6 +146,7 @@ while {_eventOn} do {
 };
 
 EPOCH_EVENT_RUNNING = false;
+sleep 30;
 deleteMarker _event_marker;
 
 // Wait
