@@ -29,7 +29,6 @@ EpochEvents = [
 	["any","any","any","any",30,"abandonedvault"],
 	["any","any","any","any",0,"crash_spawner"],
 	["any","any","any","any",40,"supply_drop"],
-	["any","any","any","any",5,"Building"],
 	["any","any","any","any",10,"Military"],
 	["any","any","any","any",20,"Construction"],
 	["any","any","any","any",30,"Treasure"],
