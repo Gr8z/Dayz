@@ -473,7 +473,7 @@ spawn_mineveins = {
 
 	if (isDedicated) then {
 		
-		_position = [getMarkerPos "center",0,(HeliCrashArea*0.75),10,0,2000,0] call BIS_fnc_findSafePos;
+		_position = [getMarkerPos "center",0,200,10,0,2000,0] call BIS_fnc_findSafePos;
 
 		if ((count _position) == 2) then {
 			
