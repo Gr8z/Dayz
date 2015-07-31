@@ -1390,7 +1390,7 @@ publicVariable '"+_randvar12+"';
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','NienUntoten','WhippyV4_PPAdd','shazbot','jun','wormBomb','wormBomb2','wormPos','wormRound',
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
 			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
-			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek'];
+			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
@@ -5755,12 +5755,13 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Medium Building Safe",{2 call supportVault},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Pro Building Safe",{3 call supportVault},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
-			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
+			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
+			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
 			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
