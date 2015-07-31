@@ -45,6 +45,8 @@ diag_log("Event already running");
 // Random chance of event happening
 _spawnRoll = random 1;
 if (_spawnRoll > _spawnChance) exitWith {};
+
+EPOCH_EVENT_RUNNING = true;
  
 // Random location
 _position = DZMSStatLocs call BIS_fnc_selectRandom;

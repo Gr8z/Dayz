@@ -42,12 +42,14 @@ diag_log("Event already running");
 // Random chance of event happening
 _spawnRoll = random 1;
 if (_spawnRoll > _spawnChance) exitWith {};
+
+EPOCH_EVENT_RUNNING = true;
  
 // Random location
 _position = DZMSStatLocs call BIS_fnc_selectRandom;
  
 diag_log(format["Spawning loot event at %1", _position]);
- 
+
 _markerRadius = 350;
 _markershape = "ELLIPSE";
 _markercolor = "ColorGreen";
