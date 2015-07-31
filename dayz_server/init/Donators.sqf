@@ -265,6 +265,7 @@ Scout1 = [
 	"76561198116744264", // [TF] The Fallen Wookie (OD-2015-07-20) #10166
 	"76561198090671803", // chris johnson (OD-2015-07-26) #10303
 	"76561198173719147", // Johns Gaming (OD-2015-07-27) #10326 
+	"76561198064776788", // 50 Shades Of Tortor (OD-2015-07-31) #10458  
 	// Add UIDs above, don't forget the comma
 "0"
 ];
