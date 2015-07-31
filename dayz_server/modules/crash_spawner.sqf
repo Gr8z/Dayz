@@ -26,7 +26,7 @@ if(_spawnRoll <= _spawnChance) then {
 		_needsrelocated
 	}
 	do {
-		_position = [getMarkerPos _spawnMarker,0,_spawnRadius,10,0,2000,0] call BIS_fnc_findSafePos;
+		_position = DZMSStatLocs call BIS_fnc_selectRandom
 		_istoomany = _position nearObjects["AllVehicles",10];
 		if((count _istoomany) == 0) then {
 			_needsrelocated = false;

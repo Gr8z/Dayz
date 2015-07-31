@@ -62,8 +62,6 @@ _wait_time = 900;
  
 // Dont mess with theses unless u know what yours doing
 _start_time = time;
-_spawnRadius = 5000;
-_spawnMarker = 'center';
  
 if (isNil "EPOCH_EVENT_RUNNING") then {
 EPOCH_EVENT_RUNNING = false;
@@ -79,7 +77,7 @@ _spawnRoll = random 1;
 if (_spawnRoll > _spawnChance and !_debug) exitWith {};
  
 // Random location
-_position = [getMarkerPos _spawnMarker,0,_spawnRadius,10,0,2000,0] call BIS_fnc_findSafePos;
+_position = DZMSStatLocs call BIS_fnc_selectRandom
  
 diag_log(format["Spawning loot event at %1", _position]);
  
