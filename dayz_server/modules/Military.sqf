@@ -120,30 +120,21 @@ publicVariable "customRemoteMessage";
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
-private["_eventOn","_nrObjs"];
-_eventOn = true;
-_nrObjs = [];
-while {_eventOn} do {
-	_nrObjs = nearestObjects [_loot_box, ["All"], 7];
-	if(count _nrObjs >0) then {
-		{
-			if(isPlayer _x)then{
-				_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Special Millitary Cargo Has been found by %1 !</t>",name _x];
-				customRemoteMessage = ['hint', _hint];
-				publicVariable "customRemoteMessage";
-				
-				_debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
-				_debug_marker setMarkerShape "ICON";
-				_debug_marker setMarkerType "mil_dot";
-				_debug_marker setMarkerColor "ColorRed";
-				_debug_marker setMarkerAlpha 1;
-				
-				_eventOn = false;
-			};
-		}forEach _nrObjs;
-	};
-	uiSleep 12;
+//Wait until player is Near.
+waitUntil{
+sleep 1;
+(({isPlayer _x && _x distance _loot_box <= 5} count playableUnits > 0));
 };
+
+_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Special Millitary Cargo Has been found by %1 !</t>",name _x];
+customRemoteMessage = ['hint', _hint];
+publicVariable "customRemoteMessage";
+
+_debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
+_debug_marker setMarkerShape "ICON";
+_debug_marker setMarkerType "mil_dot";
+_debug_marker setMarkerColor "ColorRed";
+_debug_marker setMarkerAlpha 1;
 
 EPOCH_EVENT_RUNNING = false;
 sleep 30;
