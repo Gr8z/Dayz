@@ -13893,6 +13893,85 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				];
 			};
 		};
+		if(_option == 9007) then
+		{
+			_dir = getdir _playerObj;
+			_pos = getPos _playerObj;
+			_pos = [(_pos select 0)+2*sin(_dir),(_pos select 1)+2*cos(_dir),(_pos select 2)];
+			[_dir,_pos,_playerObj] spawn {
+				_dir = _this select 0;
+				_pos = _this select 1;
+				_b0x = 'USVehicleBox_EP1' createVehicle _pos;
+				clearWeaponCargoGlobal _b0x;
+				clearmagazinecargoGlobal _b0x;
+				_b0x setPosATL _pos;
+				{_b0x addWeaponCargoGlobal [_x, 35];} forEach
+				[
+				'ItemHatchet_DZE'
+				];
+			};
+		};
+		if (_option == 99999) then
+		{
+			if (isNil "GGEventMarkers" or {typeName GGEventMarkers != "ARRAY"}) then { GGEventMarkers = []; };
+			GGEventMarkers = GGEventMarkers + [(_array select 2)];
+			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99998) then
+		{
+			GGEventMarkers = [];
+			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99997) then
+		{
+			[nil, nil, rspawn, [_array select 2], {
+				_msg = _this select 0;
+				[
+					"<t color='#ffffff' align='left' size='0.66'><img image='GG\images\logo.paa' /><br />" + toString(_this select 0) + "</t>",
+					0.8,
+					0.6,
+					20,
+					2
+				] spawn BIS_fnc_dynamicText;
+			}] call RE;
+		};
+		if (_option == 99995) then {
+			GGDoFog = {
+				DoFogEffect = true;
+				_pos = getposATL player;
+				_ps = '#particlesource' createVehicleLocal _pos;  
+				_ps setParticleParams [['\Ca\Data\ParticleEffects\Universal\universal.p3d', 16, 12, 13, 0], '', 'Billboard', 1, 10, [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0, [4], [[1, 1, 1, 0], [1, 1, 1, 0.04], [1, 1, 1, 0]], [1000], 1, 0, '', '', player];
+				_ps setParticleRandom [3, [40, 40, 0], [0, 0, 0], 2, 0.5, [0, 0, 0, 0.1], 0, 0];
+				_ps setParticleCircle [0.1, [0, 0, 0]];
+				_ps setDropInterval 0.004;
+
+				while {DoFogEffect} do {
+					waituntil {uiSleep 1; vehicle player == player};
+					_ps setposATL getposATL vehicle player;
+					uiSleep 1;
+				};
+				deleteVehicle _ps;
+			};
+			publicVariable 'GGDoFog';
+
+			if (isNil "GroundFogOn" or isNil "GroundFogSheep") then {
+				GroundFogOn = false;
+				GroundFogSheep = createAgent ['Sheep', [random 9000,random 9000,0], [], 0, 'FORM'];
+				GroundFogSheep removeAllEventHandlers 'handleDamage';
+				GroundFogSheep addEventHandler ['handleDamage', { false }];
+				GroundFogSheep allowDamage false;	
+			};
+
+			if (!GroundFogOn) then {
+				GroundFogOn = true;
+				GroundFogSheep setVehicleInit 'waitUntil { !isNil "GGDoFog" }; [] spawn GGDoFog;';
+				processInitCommands;
+			} else {
+				GroundFogOn = false;
+				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
+				processInitCommands;
+			};
+		};
 		if(_option == 9000)then
 		{
 			private ['_weapons', '_magazines', '_backpack', '_selected', '_worldspace', '_combination', '_inventory'];
