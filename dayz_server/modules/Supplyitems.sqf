@@ -81,7 +81,7 @@ _spawnRoll = random 1;
 if (_spawnRoll > _spawnChance and !_debug) exitWith {};
  
 // Random location
-_position = DZMSStatLocs call BIS_fnc_selectRandom
+_position = DZMSStatLocs call BIS_fnc_selectRandom;
  
 diag_log(format["Spawning loot event at %1", _position]);
  
