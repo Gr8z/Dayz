@@ -49,7 +49,7 @@ while {1 == 1} do {
 	// Percentage roll
 	if (_spawnRoll <= _spawnChance) then {
 
-		_position = DZMSStatLocs call BIS_fnc_selectRandom;
+		_position = [getMarkerPos _spawnMarker,0,_spawnRadius,10,0,2000,0] call BIS_fnc_findSafePos;
 
 		diag_log(format["CRASHSPAWNER: Spawning '%1' with loot table '%2' NOW! (%3) at: %4", _crashName, _lootTable, time, str(_position)]);
 
