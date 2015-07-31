@@ -1,7 +1,5 @@
 private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint"];
  
-_spawnChance =  0.50; // Percentage chance of event happening
-
 _loot_box = "GuerillaCacheBox";
 _loot_lists = [
 [
@@ -41,10 +39,6 @@ EPOCH_EVENT_RUNNING = false;
 if (EPOCH_EVENT_RUNNING) exitWith {
 diag_log("Event already running");
 };
- 
-// Random chance of event happening
-_spawnRoll = random 1;
-if (_spawnRoll > _spawnChance) exitWith {};
 
 EPOCH_EVENT_RUNNING = true;
  
