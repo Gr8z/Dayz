@@ -118,9 +118,6 @@ _hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.7
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 
-// Send center message to users 
-//[nil,nil,rTitleText,"Ikea Truck lost its Cargo, Check your Map for the Location!", "PLAIN",10] call RE;
-
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
 // Wait

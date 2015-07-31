@@ -126,9 +126,6 @@ _hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.7
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 
-// Send center message to users 
-//[nil,nil,rTitleText,"UN Agency drops life-saving supplies for Survivors, Check your Map for the Location!", "PLAIN",10] call RE;
-
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
 // Wait
