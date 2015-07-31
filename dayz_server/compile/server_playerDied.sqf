@@ -16,6 +16,9 @@ sleep 0.5;
 _killer = _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
 
+_newObject setVariable ["bodyName", _victimName, true];
+_newObject setVariable ["bodyUID", _playerID, true];
+
 // when a zombie kills a player _killer, _killerName && _weapon will be "nil"
 // we can use this to determine a zombie kill && send a customized message for that. right now no killmsg means it was a zombie.
 if (_killerName != "nil") then
