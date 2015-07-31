@@ -9993,11 +9993,15 @@ PV_AdminMainCode = {
 	};
 	Events_CALL =
 	{    
+		EventName = _this select 0;
 		DO_THIS = {
-			PVDZE_spawnEvent = [_this select 0];
+			PVDZE_spawnEvent = [EventName];
 			publicVariableServer "PVDZE_spawnEvent";    
 		};
 		call DO_THIS;
+		_sl = format['%1 Spawned %2 Mission',name player,EventName];
+		PVAH_WriteLogReq = [player,toArray _sl];
+		publicVariableServer 'PVAH_WriteLogReq';
 	};
 	royale =
 	{
