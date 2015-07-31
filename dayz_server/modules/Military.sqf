@@ -33,6 +33,10 @@ _loot_lists = [
 ["10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107"]
 ],
 [
+["USSR_cheytacM200"],
+["USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408","USSR_5Rnd_408"]
+],
+[
 ["BAF_AS50_scoped"],
 ["10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107","10Rnd_127x99_m107"]
 ],
