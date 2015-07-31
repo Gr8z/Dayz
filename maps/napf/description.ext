@@ -15,7 +15,7 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "GG\DupingFix.sqf";
-loadScreen = "GG.jpg";
+loadScreen = "GG\images\GG.jpg";
 
 class Header
 {
