@@ -285,6 +285,7 @@ dayz_resetSelfActions = {
 	s_safebank_dialog = -1;
 	s_player_plotpole_dialog = -1;
 	s_player_changeKey = -1;
+	s_player_packOBJ = -1;
 };
 call dayz_resetSelfActions;
 
