@@ -297,7 +297,7 @@ if (true) then
   _this = createVehicle ["WarfareBunkerSign", [71.474258, 1589.5548, 0.57002473], [], 0, "CAN_COLLIDE"];
   _vehicle_243 = _this;
   _this setDir 79.330956;
-  _this setVehicleInit "this setObjectTexture [0, ""GG.jpg""]";
+  _this setVehicleInit "this setObjectTexture [0, ""GG\images\GG.jpg""]";
   _this setPos [71.474258, 1589.5548, 0.57002473];
 };
 
