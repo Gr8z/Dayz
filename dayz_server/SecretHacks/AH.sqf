@@ -5750,7 +5750,7 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  Spawn 5 Zombies",{[5] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 10 Zombies",{[10] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];	
-			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Starter Building Safe",{1 call supportVault},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
@@ -5759,12 +5759,14 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Pro Building Safe",{3 call supportVault},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
-			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
-			adminadd = adminadd + ["","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Construction Mission",{["Construction"] call Events_CALL;},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Treasure Mission",{["Treasure"] call Events_CALL;},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Millitary Mission",{["Military"] call Events_CALL;},"0","0","0","0",[]];		
 		};
 		call admin__FILL_MENUS;
 	};
@@ -9709,7 +9711,7 @@ PV_AdminMainCode = {
 			_position = _this;
 			for "_i" from 1 to NumOfZed do
 			{
-				_unitTypes = 	[]+ getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+				_unitTypes = 	[]+ getArray (missionConfigFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
 				_agent = 	objNull;
 				_type = _unitTypes call BIS_fnc_selectRandom;
 				_radius = 40;
@@ -9720,8 +9722,8 @@ PV_AdminMainCode = {
 				_rnd = random 1;
 				if(_rnd > 0.3)then
 				{
-					_lootType = getText (configFile >> "CfgVehicles" >> _type >> "zombieLoot");
-					_lootTypeCfg = getArray (configFile >> "CfgLoot" >> _lootType);
+					_lootType = getText (missionConfigFile >> "CfgVehicles" >> _type >> "zombieLoot");
+					_lootTypeCfg = getArray (missionConfigFile >> "CfgLoot" >> _lootType);
 					_array = [];
 					{
 						_array set [count _array, _x select 0];
@@ -9733,7 +9735,7 @@ PV_AdminMainCode = {
 						_loot = _array select (_weights select (floor(random (count _weights))));
 						if(!isNil "_array")then
 						{
-							_loot_count =	getNumber(configFile >> "CfgMagazines" >> _loot >> "count");
+							_loot_count =	getNumber(missionConfigFile >> "CfgMagazines" >> _loot >> "count");
 							if(_loot_count>1)then
 							{
 								_agent addMagazine [_loot, ceil(random _loot_count)];
@@ -9988,6 +9990,14 @@ PV_AdminMainCode = {
 		_sl = format['%1 - %2',name player,_log];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
+	};
+	Events_CALL =
+	{    
+		DO_THIS = {
+			PVDZE_spawnEvent = [_this select 0];
+			publicVariableServer "PVDZE_spawnEvent";    
+		};
+		call DO_THIS;
 	};
 	royale =
 	{
