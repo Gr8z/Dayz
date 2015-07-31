@@ -24,6 +24,7 @@ fnc_plyrHit   =					compile preprocessFileLineNumbers "\z\addons\dayz_server\com
 fnc_remWepSG =                	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\fnc_remWepSG.sqf";
 server_deaths = 				compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_playerDeaths.sqf";
 server_maintainArea = 			compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_maintainArea.sqf";
+server_adminspawnEvent = 		compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\server_adminspawnEvent.sqf";
 
 server_queryGarageVehicle = 	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\garage\server_queryGarageVehicle.sqf";
 server_spawnVehicle = 	compile preprocessFileLineNumbers "\z\addons\dayz_server\compile\garage\server_spawnVehicle.sqf";
@@ -472,7 +473,7 @@ spawn_mineveins = {
 
 	if (isDedicated) then {
 		
-		_position = [getMarkerPos "center",0,(HeliCrashArea*0.75),10,0,2000,0] call BIS_fnc_findSafePos;
+		_position = [getMarkerPos "center",0,200,10,0,2000,0] call BIS_fnc_findSafePos;
 
 		if ((count _position) == 2) then {
 			
@@ -1000,6 +1001,7 @@ KK_fnc_positionToString = {
 	]
 };
 
+"PVDZE_spawnEvent" addPublicVariableEventHandler {(_this select 1) spawn server_adminspawnEvent};
 
 "START_ROYALE" addPublicVariableEventHandler {
 	diag_log format["ROYAL EVENT: %1",_this];

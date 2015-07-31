@@ -5750,7 +5750,7 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  Spawn 5 Zombies",{[5] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 10 Zombies",{[10] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];	
-			adminadd = adminadd + ["","","0","1","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Starter Building Safe",{1 call supportVault},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
@@ -5764,6 +5764,10 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
+			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+			adminadd = adminadd + ["  Spawn Construction Mission",{["Construction"] call Events_CALL;},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Treasure Mission",{["Treasure"] call Events_CALL;},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Millitary Mission",{["Military"] call Events_CALL;},"0","0","0","0",[]];		
 		};
 		call admin__FILL_MENUS;
 	};
@@ -9708,7 +9712,7 @@ PV_AdminMainCode = {
 			_position = _this;
 			for "_i" from 1 to NumOfZed do
 			{
-				_unitTypes = 	[]+ getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+				_unitTypes = 	[]+ getArray (missionConfigFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
 				_agent = 	objNull;
 				_type = _unitTypes call BIS_fnc_selectRandom;
 				_radius = 40;
@@ -9719,8 +9723,8 @@ PV_AdminMainCode = {
 				_rnd = random 1;
 				if(_rnd > 0.3)then
 				{
-					_lootType = getText (configFile >> "CfgVehicles" >> _type >> "zombieLoot");
-					_lootTypeCfg = getArray (configFile >> "CfgLoot" >> _lootType);
+					_lootType = getText (missionConfigFile >> "CfgVehicles" >> _type >> "zombieLoot");
+					_lootTypeCfg = getArray (missionConfigFile >> "CfgLoot" >> _lootType);
 					_array = [];
 					{
 						_array set [count _array, _x select 0];
@@ -9732,7 +9736,7 @@ PV_AdminMainCode = {
 						_loot = _array select (_weights select (floor(random (count _weights))));
 						if(!isNil "_array")then
 						{
-							_loot_count =	getNumber(configFile >> "CfgMagazines" >> _loot >> "count");
+							_loot_count =	getNumber(missionConfigFile >> "CfgMagazines" >> _loot >> "count");
 							if(_loot_count>1)then
 							{
 								_agent addMagazine [_loot, ceil(random _loot_count)];
@@ -9985,6 +9989,18 @@ PV_AdminMainCode = {
 		hint _log;
 		cutText [_log, 'PLAIN'];
 		_sl = format['%1 - %2',name player,_log];
+		PVAH_WriteLogReq = [player,toArray _sl];
+		publicVariableServer 'PVAH_WriteLogReq';
+	};
+	Events_CALL =
+	{    
+		EventName = _this select 0;
+		DO_THIS = {
+			PVDZE_spawnEvent = [EventName];
+			publicVariableServer "PVDZE_spawnEvent";    
+		};
+		call DO_THIS;
+		_sl = format['%1 Spawned %2 Mission',name player,EventName];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
@@ -13890,6 +13906,85 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemCrowbar',
 				'ItemEtool'
 				];
+			};
+		};
+		if(_option == 9007) then
+		{
+			_dir = getdir _playerObj;
+			_pos = getPos _playerObj;
+			_pos = [(_pos select 0)+2*sin(_dir),(_pos select 1)+2*cos(_dir),(_pos select 2)];
+			[_dir,_pos,_playerObj] spawn {
+				_dir = _this select 0;
+				_pos = _this select 1;
+				_b0x = 'USVehicleBox_EP1' createVehicle _pos;
+				clearWeaponCargoGlobal _b0x;
+				clearmagazinecargoGlobal _b0x;
+				_b0x setPosATL _pos;
+				{_b0x addWeaponCargoGlobal [_x, 35];} forEach
+				[
+				'ItemHatchet_DZE'
+				];
+			};
+		};
+		if (_option == 99999) then
+		{
+			if (isNil "GGEventMarkers" or {typeName GGEventMarkers != "ARRAY"}) then { GGEventMarkers = []; };
+			GGEventMarkers = GGEventMarkers + [(_array select 2)];
+			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99998) then
+		{
+			GGEventMarkers = [];
+			publicVariable "GGEventMarkers";
+		};
+		if (_option == 99997) then
+		{
+			[nil, nil, rspawn, [_array select 2], {
+				_msg = _this select 0;
+				[
+					"<t color='#ffffff' align='left' size='0.66'><img image='GG\images\logo.paa' /><br />" + toString(_this select 0) + "</t>",
+					0.8,
+					0.6,
+					20,
+					2
+				] spawn BIS_fnc_dynamicText;
+			}] call RE;
+		};
+		if (_option == 99995) then {
+			GGDoFog = {
+				DoFogEffect = true;
+				_pos = getposATL player;
+				_ps = '#particlesource' createVehicleLocal _pos;  
+				_ps setParticleParams [['\Ca\Data\ParticleEffects\Universal\universal.p3d', 16, 12, 13, 0], '', 'Billboard', 1, 10, [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0, [4], [[1, 1, 1, 0], [1, 1, 1, 0.04], [1, 1, 1, 0]], [1000], 1, 0, '', '', player];
+				_ps setParticleRandom [3, [40, 40, 0], [0, 0, 0], 2, 0.5, [0, 0, 0, 0.1], 0, 0];
+				_ps setParticleCircle [0.1, [0, 0, 0]];
+				_ps setDropInterval 0.004;
+
+				while {DoFogEffect} do {
+					waituntil {uiSleep 1; vehicle player == player};
+					_ps setposATL getposATL vehicle player;
+					uiSleep 1;
+				};
+				deleteVehicle _ps;
+			};
+			publicVariable 'GGDoFog';
+
+			if (isNil "GroundFogOn" or isNil "GroundFogSheep") then {
+				GroundFogOn = false;
+				GroundFogSheep = createAgent ['Sheep', [random 9000,random 9000,0], [], 0, 'FORM'];
+				GroundFogSheep removeAllEventHandlers 'handleDamage';
+				GroundFogSheep addEventHandler ['handleDamage', { false }];
+				GroundFogSheep allowDamage false;	
+			};
+
+			if (!GroundFogOn) then {
+				GroundFogOn = true;
+				GroundFogSheep setVehicleInit 'waitUntil { !isNil "GGDoFog" }; [] spawn GGDoFog;';
+				processInitCommands;
+			} else {
+				GroundFogOn = false;
+				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
+				processInitCommands;
 			};
 		};
 		if(_option == 9000)then

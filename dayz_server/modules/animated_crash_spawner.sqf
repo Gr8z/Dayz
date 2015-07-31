@@ -108,7 +108,7 @@ if(_spawnRoll <= _spawnChance) then
 
 	[nil,nil,rTitleText,format["A %1 is in distress! Watch for it and go to the crash site to secure the loot!",_porh],"PLAIN",10] call RE;
 
-	_position = [getMarkerPos _spawnMarker,0,_spawnRadius,10,0,2000,0] call BIS_fnc_findSafePos;
+	_position = DZMSStatLocs call BIS_fnc_selectRandom;
 
 	diag_log(format["CRASHSPAWNER: %1 started flying from %2 to %3 NOW!(TIME:%4||LT:%5)",_crashName, str(_heliStart),str(_position),round(time),_lootTable]);
 

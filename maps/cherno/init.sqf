@@ -14,11 +14,6 @@ enableSentences false;
 
 call compile preprocessFileLineNumbers"GG\config.sqf";
 
-spawnArea= 1500; 
-dayz_minpos= -1; 
-dayz_maxpos	= 16000;
-dayz_MapArea = 14000;
-
 GGSafezones = [
 	[zonestary, 100, "Stary"],
 	[zonebash, 100, "Bash"],
@@ -33,8 +28,11 @@ GGSafezones = [
 EpochEvents = [
 	["any","any","any","any",30,"abandonedvault"],
 	["any","any","any","any",0,"crash_spawner"],
-	["any","any","any","any",40,"supply_drop"]
-];
+	["any","any","any","any",40,"supply_drop"],
+	["any","any","any","any",10,"Military"],
+	["any","any","any","any",20,"Construction"],
+	["any","any","any","any",30,"Treasure"],
+	["any","any","any","any",50,"Construction"]];
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
 progressLoadingScreen 0.1;
@@ -84,7 +82,7 @@ if (!isDedicated) then {
 	execVM "GG\service_point\service_point.sqf";
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	execVM "GG\hud\playerHud.sqf";
-
+	execVM "GG\MapMarkerTitling.sqf";
 	
 	preload_done = true;
 };
