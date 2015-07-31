@@ -32,7 +32,6 @@ EpochEvents = [
 	["any","any","any","any",10,"Military"],
 	["any","any","any","any",20,"Construction"],
 	["any","any","any","any",30,"Treasure"],
-	["any","any","any","any",40,"Supplyitems"],
 	["any","any","any","any",50,"Construction"]];
 
 call compile preprocessFileLineNumbers "GG\variables.sqf";
