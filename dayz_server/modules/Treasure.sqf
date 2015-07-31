@@ -57,7 +57,7 @@ _markerRadius = 350;
 _markershape = "ELLIPSE";
 _markercolor = "ColorYellow";
 _missiontype = 0;
-_refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
+_refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype,_start_time] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
  
 _loot_pos = [_position,0,(_markerRadius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
  
