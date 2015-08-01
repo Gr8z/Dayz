@@ -3,7 +3,6 @@ private ["_iItem","_iClass","_iPos","_radius","_item","_itemTypes","_index","_we
 
 _iItem = 	_this select 0;
 _iClass = 	_this select 1;
-//diag_log format["DEBUG spawn loot class: %1", _iClass];
 _iPos =		_this select 2;
 _radius =	_this select 3;
 
@@ -45,7 +44,6 @@ switch (_iClass) do
 				} else {
 					_item addWeaponCargoGlobal [_canType,1];
 					_mags = [] + getArray (configFile >> "cfgWeapons" >> _canType >> "magazines");
-					diag_log format["P2DEBUG spawn_loot_small: Weapon: %1", _canType];
 					if ((count _mags) > 0) then{
 
 						for "_x" from 1 to (round(random 3) + 1) do {
@@ -70,11 +68,8 @@ switch (_iClass) do
 					};
 
 					_item addWeaponCargoGlobal [_canType,1];
-
-					diag_log format["P2DEBUG spawn_loot_small: defaultClass: wep %1", _canType];
 				} else {
 					_item addMagazineCargoGlobal [_canType,1];
-					diag_log format["P2DEBUG spawn_loot_small: defaultClass: mag %1", _canType];
 
 				};
 
@@ -101,7 +96,6 @@ switch (_iClass) do
 		_canType = _itemTypes select _index;
 		[_iItem] call checkWepBpslot;
 		_item addMagazineCargoGlobal [_canType,1];
-		diag_log format["P2DEBUG spawn_loot_small: single: %1", (_canType)];
 	};
 	case "cfglootweapon":
 	{
@@ -116,8 +110,6 @@ switch (_iClass) do
 		_index = dayzE_CLSBase find _iItem;
 		_weights = dayzE_CLSChances select _index;
 		_cntWeights = count _weights;
-	
-		//diag_log("_itemTypes small:" + str(_itemTypes));
 
 	    _index = floor(random _cntWeights);
 		_index = _weights select _index;
@@ -126,7 +118,6 @@ switch (_iClass) do
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 		_item addWeaponCargoGlobal [_iItem,1];
-		diag_log format["P2DEBUG spawn_loot_small: cfglootweapon: %1", (_iItem)];
 		
 	};
 	case "weapon":
@@ -134,7 +125,6 @@ switch (_iClass) do
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 		_item addWeaponCargoGlobal [_iItem,1];
-		diag_log format["P2DEBUG spawn_loot_small: weapon: %1", (_iItem)];
 	};
 	case "magazine":
 	{
@@ -142,22 +132,18 @@ switch (_iClass) do
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 		_item addMagazineCargoGlobal [_iItem,1];
-		diag_log format["P2DEBUG spawn_loot_small: magazine: %1", (_iItem)];
 	};
 	
 	case "weaponnomags":
 	{
-		diag_log format["P2DEBUG spawn_loot_small: weaponnomags: %1", (_iItem)];
 		//do nothing for now
 	};
 	case "backpack":
 	{
-		diag_log format["P2DEBUG spawn_loot_small: backpack: %1", (_iItem)];
 		//do nothing for now
 	};
 	case "object":
 	{
-		diag_log format["P2DEBUG spawn_loot_small: object: %1", (_iItem)];
 		//do nothing for now
 	};
 };

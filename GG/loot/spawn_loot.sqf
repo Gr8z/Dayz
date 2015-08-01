@@ -9,7 +9,7 @@ _item = objNull;
 
 _iPosZ = _iPos select 2;
 if((isNil "_iPosZ") || {( _iPosZ < 0)}) then { _iPos = [_iPos select 0,_iPos select 1,0]; };
-if (isNil "_iClass") exitWith {diag_log "_iClass isNil, exiting loot spawn!";};
+if (isNil "_iClass") exitWith {};
 switch (_iClass) do {
 	default {
 		_itemTypes = [];
@@ -33,7 +33,6 @@ switch (_iClass) do {
 				_tQty = round(random 1) + 1;
 				if (_canType in _uniq) then {
 					if (({_x in _uniq} count magazines _item) == 0) then { _tQty = 1; } else { _tQty = 0;};
-					if (_tQty == 0) then {diag_log(format["%1 Prevent any duplicate member %2 from family %3",__FILE__, _canType, _uniq]);};
 				};
 				if (_tQty > 0) then {
 					if (!(_canType in _uniq)) then {
