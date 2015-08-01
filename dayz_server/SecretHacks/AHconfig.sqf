@@ -313,12 +313,12 @@ _SupportBox3Content =
 */
 //	Support-Vault1
 _weapons1 = [
-	['ItemToolbox','ItemEtool','ItemEtool'],
-	[1,1,1]
+	[],
+	[]
 ];
 _magazines1 = [
-	['ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox','ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'],
-	[1,1,1,1,1,1,1,1,1,1,1]
+	['30m_plot_kit', 'ItemComboLock'],
+	[2,5]
 ];
 _backpack1 = [
 	[],
@@ -328,29 +328,29 @@ _backpack1 = [
 
 //	Support-Vault2
 _weapons2 = [
-	['ItemToolbox','ItemCrowbar','ItemEtool'],
-	[1,1,1]
+	[],
+	[]
 ];
 _magazines2 = [
-	['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit','cinder_wall_kit','MortarBucket','CinderBlocks','cinder_garage_kit','ItemTankTrap','ItemPole','ItemComboLock','ItemWoodLadder','ItemWoodStairs','metal_floor_kit'],
-	[1,1,1,1,1,1,15,10,30,2,6,6,2,3,8]
+	['30m_plot_kit', 'ItemComboLock'],
+	[1,3]
 ];
 _backpack2 = [
-	['DZ_LargeGunBag_EP1'],
-	[1]
+	[],
+	[]
 ];
 
 
 //	Support-Vault3
 _weapons3 = [
-	['ItemToolbox','ItemCrowbar','ItemEtool'],
-	[2,2,2]
+	[],
+	[]
 ];
 _magazines3 = [
-	['30m_plot_kit','workbench_kit','cinder_wall_kit','MortarBucket','CinderBlocks','cinder_garage_kit','ItemComboLock','ItemWoodLadder','ItemPole','ItemTankTrap','ItemWoodStairs','metal_floor_kit','ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit'],
-	[1,1,15,15,50,4,4,4,12,12,6,15,2,2,2,2]
+	['30m_plot_kit', 'ItemComboLock'],
+	[5,6]
 ];
 _backpack3 = [
-	['DZ_LargeGunBag_EP1'],
-	[1]
+	[],
+	[]
 ];
