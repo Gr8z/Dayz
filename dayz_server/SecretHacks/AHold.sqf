@@ -51,10 +51,12 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["   +Spawn Backpacks","BackPacksz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Player Morph","Skinz","0","0","1","0",[0,0.6,1,1]];
 		};
-		if(_puid in PV_NormalLevel_List)then
+		if(_puid in PV_NormalLevel_List) then
 		{
 			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Vehicle W/ Keys","Vehicleshive","0","0","1","0",[0,0.6,1,1]];
+
+
 			adminadd = adminadd + ["   +Spawn Buildings","Buildings","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Weapons & Items","Weaponz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Magazines","Magzz","0","0","1","0",[0,0.6,1,1]];
@@ -62,7 +64,7 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["   +Spawn Backpacks","BackPacksz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Player Morph","Skinz","0","0","1","0",[0,0.6,1,1]];
 		};
-		if(_puid in PV_LowLevel_List)then
+		if(_puid in PV_LowLevel_List) then
 		{
 			if(!isNil 'infiAllowedVehiclesList')then{ALL_VEHS_TO_SEARCH = infiAllowedVehiclesList;};
 			
@@ -448,31 +450,6 @@ PV_AdminMainCode = {
 		call admin__FILL_MENUS;
 	};
 	admin_update_ctrl2 = {disableSerialization;call admin_filllist;};
-	fnc_startOnEachFrameESP = {
-		switch _this do
-		{
-			case 0 : {
-				if("  Grim ESP" in admin_toggled)then
-				{
-					admin_toggled=admin_toggled-["  Grim ESP"];
-					call fnc_bruno_esp;
-				};
-				admin_toggled=admin_toggled+["  ESP for FreeRoam Cam"];
-				call admin_fnc_esp;
-			};
-			case 1 : {
-				if("  ESP for FreeRoam Cam" in admin_toggled)then
-				{
-					admin_toggled=admin_toggled-["  ESP for FreeRoam Cam"];
-					call admin_fnc_esp;
-				};
-				admin_toggled=admin_toggled+["  Grim ESP"];
-				call fnc_bruno_esp;
-			};
-			default {};
-		};
-		call admin_init;
-	};
 	SuperAdmin_MENU =
 	{
 		AllowSpectating = true;
@@ -508,9 +485,8 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Toggle TP Direction Keybind",admin_tpdirection_on,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
 		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
-		adminadd = adminadd + ["  NEW ESP",{1 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP for FreeRoam Cam",{0 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP Icons (don't work with groups)",adminESPicons,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP for FreeRoam Cam",admin_fnc_esp,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP Icons",adminESPicons,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
 		_fnc = "-Markers";
 		if(isNil 'adminshowmarkermenu')then{_fnc = "+Markers";};
@@ -673,7 +649,7 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Suit UP",adminskinning,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
+		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Toggle TP Direction Keybind",admin_tpdirection_on,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
@@ -692,9 +668,8 @@ PV_AdminMainCode = {
 		};
 		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
-		adminadd = adminadd + ["  NEW ESP",{1 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP for FreeRoam Cam",{0 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP Icons (don't work with groups)",adminESPicons,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP Icons",adminESPicons,"1","0","0","0",[]];
+		adminadd = adminadd + ["  ESP for FreeRoam Cam",admin_fnc_esp,"1","0","0","0",[]];
 		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #1*old default",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
@@ -721,6 +696,10 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  RemoveGear",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  Kill",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
+		adminadd = adminadd + [" ","","0","1","0","0",[]];
+		adminadd = adminadd + ["  EpochDeathBoardLoad",adminPlayerDeaths,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Remove Plot-Poles (30m)",admin_removePlotPoles,"0","0","0","0",[]];
+		adminadd = adminadd + ["  Remove Nets (30m)",admin_removeNets,"0","0","0","0",[]];
 		_fnc = "-Show Keybindings";
 		if(isNil 'adminshowbindingsmenu')then{_fnc = "+Show Keybindings";};
 		adminadd = adminadd + [_fnc,{if(isNil "adminshowbindingsmenu")then{adminshowbindingsmenu = true;}else{adminshowbindingsmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
@@ -769,7 +748,7 @@ PV_AdminMainCode = {
 			if(_key == 0x43) then {call admin_show;};
 		};
 		
-adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -796,7 +775,8 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #1*old default",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Big",{Admin_Layout = 1;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];		
+		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
+		
 		_fnc = "-Show Keybindings";
 		if(isNil 'adminshowbindingsmenu')then{_fnc = "+Show Keybindings";};
 		adminadd = adminadd + [_fnc,{if(isNil "adminshowbindingsmenu")then{adminshowbindingsmenu = true;}else{adminshowbindingsmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
@@ -882,7 +862,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				};
 			};
 			_toggle = (lbtext [2, (lbCurSel 2)]);
-			if!(_toggle in admin_toggled)then
+			if !(_toggle in admin_toggled)then
 			{
 				lbSetColor [2, _toggle, [0, 1, 0, 1]];
 				admin_toggled = admin_toggled + [_toggle];
@@ -1368,8 +1348,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				} forEach _devsOn;
 			};
 		};
-		{_sorted = _sorted - [_x];} forEach _devsOn;
-		
 		
 		if(getPlayerUID player in PV_SuperLevel_List)then
 		{
@@ -2271,13 +2249,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_NormalLevel_List)then{
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_SuperLevel_List)then{
-				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -2424,8 +2402,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{
 			if(name _x == _name)then
 			{
-				moveOut _x;
-				unassignVehicle _x;
 				_x action ["eject", (vehicle _x)];
 				
 				hint format["%1 ejected", _name];
@@ -2879,12 +2855,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 	};
 	supportbox =
 	{
+		_select = _this select 0;
 		_pos = (vehicle player) modelToWorld [0,3,0];
 		
-		PVAH_AdminReq = [9099,player,_this,_pos];
+		PVAH_AdminReq = [9099,player,_select,_pos];
 		publicVariableServer "PVAH_AdminReq";
 		
-		_log = format['Spawning Box %1 on the ground infront of you!',_this];
+		_log = format['Spawning Box %1 on the ground infront of you!',_select];
 		cutText [_log, 'PLAIN DOWN'];
 		hint _log;
 		PVAH_WriteLogReq = [player,toArray _log];
@@ -3002,46 +2979,47 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		};
 		{clearGroupIcons group _x;} forEach playableUnits;
 	};
-	admin_fnc_esp = {
-		fnc_espSHOW = {
-			disableSerialization;
-			{_x ctrlShow false;_x ctrlEnable false;} forEach TESTarr;
-			_camPos = positionCameraToWorld [0,0,0];
+	fnc_espSHOW = {
+		disableSerialization;
+		{_x ctrlShow false;_x ctrlEnable false;} forEach TESTarr;
+		_camPos = positionCameraToWorld [0,0,0];
+		{
+			if(visibleMap)exitWith{};
+			_veh = vehicle _x;
+			_pos = ASLtoATL eyepos _x;
+			_dist = _camPos distance _pos;
+			_pos2D = worldToScreen _pos;
+			if(count _pos2D != 0)then
 			{
-				if(visibleMap)exitWith{};
-				_veh = vehicle _x;
-				_pos = ASLtoATL eyepos _x;
-				_dist = _camPos distance _pos;
-				_pos2D = worldToScreen _pos;
-				if(count _pos2D != 0)then
+				_dist = round _dist;
+				_text = format['<t size=''0.45'' color=''#0B80FF''>%1 (%2m)</t>',name _x,_dist];
+				if(_x != _veh)then
 				{
-					_dist = round _dist;
-					_text = format['<t size=''0.45'' color=''#0B80FF''>%1 (%2m)</t>',name _x,_dist];
-					if(_x != _veh)then
+					_crewnames = '';
 					{
-						_crewnames = '';
+						_namex = name _x;
+						if(_crewnames == '')then
 						{
-							_namex = name _x;
-							if(_crewnames == '')then
-							{
-								_crewnames = format['%1',_namex];
-							}
-							else
-							{
-								_crewnames = format['%1, %2',_crewnames,_namex];
-							};
-						} forEach (crew _veh);
-						_text = format['<t size=''0.45'' color=''#FF5926''>%1 (%2m) %3</t>',_crewnames,_dist,typeOf _veh];
-					};
-					_ctrl = TESTarr select _forEachIndex;
-					_ctrl ctrlEnable true;_ctrl ctrlShow true;
-					_ctrl ctrlSetStructuredText (parseText _text);
-					_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1)-0.05, safezoneW, safezoneH];
-					_ctrl ctrlSetFade (_dist/fnc_esp_distance)+.2;
-					_ctrl ctrlCommit 0;
+							_crewnames = format['%1',_namex];
+						}
+						else
+						{
+							_crewnames = format['%1, %2',_crewnames,_namex];
+						};
+					} forEach (crew _veh);
+					_text = format['<t size=''0.45'' color=''#FF5926''>%1 (%2m) %3</t>',_crewnames,_dist,typeOf _veh];
 				};
-			} forEach ESP_UNIT_ARR;
-		};
+				_ctrl = TESTarr select _forEachIndex;
+				_ctrl ctrlEnable true;_ctrl ctrlShow true;
+				_ctrl ctrlSetStructuredText (parseText _text);
+				_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1)-0.05, safezoneW, safezoneH];
+				_ctrl ctrlSetFade (_dist/fnc_esp_distance)+.2;
+				_ctrl ctrlCommit 0;
+			};
+		} forEach ESP_UNIT_ARR;
+	};
+	#include "dzgmAdminESPicons.sqf"
+	admin_fnc_esp = {
 		disableSerialization;
 		if(isNil'TESTarr')then
 		{
@@ -3086,89 +3064,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			cutText ['ESP OFF', 'PLAIN DOWN'];
 		};
 		{_x ctrlShow false;_x ctrlEnable false;} forEach TESTarr;
-	};
-	fnc_bruno_esp = {
-		_renderer_init = {
-			allAdminSMGT = (PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List);
-			last_render = 2500;
-			onEachFrame
-			{
-				disableSerialization;
-				private ["_renderTargets","_ctrl","_pos","_pos2D","_text","_weapon","_renderer_recourse","_unit"];
-				_renderTargets = playableUnits - [cameraOn];
-				_renderer_recourse = 2500;
-				{
-					if(visibleMap)exitWith{};
-					_unit = _x;
-					if((isPlayer _unit) && !(isNull _unit) && ((_unit distance cameraOn) < 1500))then
-					{
-						_renderer_recourse cutRsc ['rscDynamicText', 'PLAIN'];
-						_ctrl = ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999);
-						_ctrl ctrlShow true; _ctrl ctrlEnable true; _ctrl ctrlSetFade 0;
-						_pos = getPosATL _unit;
-						_pos = [_pos select 0, _pos select 1, (_pos select 2) + 2];
-						_pos2D = worldToScreen _pos;
-						_color = 
-						if(getPlayerUID _unit in allAdminSMGT)then
-						{
-							"#0cff00"
-						}
-						else
-						{
-							if (vehicle _unit == _unit) then {
-								"#ff0000"
-							}
-							else
-							{
-								"#2E64FE"
-							};
-						};
-						_name = if(vehicle _unit == _unit)then
-						{
-							format ["%1 (%2)",name _unit,primaryWeapon _unit]
-						}else{
-							format ["%1 (%2)",name _unit,typeOf (vehicle _unit)]
-						};
-						if(count _pos2D > 0)then
-						{					
-							_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1), safezoneW, safezoneH];
-							_text = parseText format ['<t size=''0.3'' color=''%1''> %2 <br/>%3m</t>',_color,_name , round (cameraOn distance _unit)];
-							_ctrl ctrlSetStructuredText _text;
-							_ctrl ctrlCommit 0;
-						};
-						_renderer_recourse = _renderer_recourse + 1;
-					};
-				}
-				forEach _renderTargets;
-				if(_renderer_recourse < last_render)then
-				{
-					for "_i" from _renderer_recourse to last_render do {
-						_i cutText ["", "PLAIN"];
-					};
-				};
-				last_render = _renderer_recourse;
-			};
-		};
-		if(isNil "RENDER_ESP")then{RENDER_ESP = false;};
-		if!(RENDER_ESP)then
-		{
-			call _renderer_init;
-			RENDER_ESP = true;
-			systemChat "ESP ON!";
-		}
-		else
-		{
-			RENDER_ESP = false;
-			systemChat "ESP OFF!";
-			disableSerialization;
-			_ctrl = ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999);
-			_ctrl ctrlShow false; _ctrl ctrlEnable false;
-			for "_i" from 2500 to 3000 do 
-			{
-				_i cutText ["", "PLAIN"];
-			};
-			onEachFrame {};
-		};
 	};
 	fnc_MapIcons_infiSTAR = {
 		if(isNil "show_buildables_epoch")then{show_buildables_epoch = false;};
@@ -6210,7 +6105,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		adminSaveNOW = {
 			if(!isNull SAVE_THIS)then
 			{
-				systemChat format["%1  saved at [%2,%3]",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
+				systemChat format[" %1  saved at [%2,%3]",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
 				PVAH_AdminReq = [26,player,SAVE_THIS];
 				publicVariableServer "PVAH_AdminReq";
 			};
@@ -6245,7 +6140,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		adminDeleteNOW = {
 			if(!isNull DELETE_THIS)then
 			{
-				systemChat format["%1  DELETED",typeOf DELETE_THIS];
+				systemChat format[" %1  DELETED",typeOf DELETE_THIS];
 				PVAH_AdminReq = [-2,player,DELETE_THIS];
 				publicVariableServer "PVAH_AdminReq";
 			};
@@ -6895,12 +6790,12 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			private ['_needle','_haystack','_needleLen','_hay','_found'];
 			_needle = _this select 0;
 			if(isNil'_needle')exitWith{};
-			if(typeName _needle != 'STRING')then{_needle = str _needle;};
+			if(typeName _needle != 'STRING')exitWith{};
 			if(_needle == '')exitWith{};
 			
 			_haystack = _this select 1;
 			if(isNil'_haystack')exitWith{};
-			if(typeName _haystack != 'STRING')then{_haystack = str _haystack;};
+			if(typeName _haystack != 'STRING')exitWith{};
 			if(_haystack == '')exitWith{};
 			_haystack = toArray _haystack;
 			
