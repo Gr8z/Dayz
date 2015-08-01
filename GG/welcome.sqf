@@ -26,7 +26,11 @@ _role10names = ["Get 10oz Gold and Keymakers Kit","Scroll on a unlocked vehicle 
 _role11 = "Action Menu";
 _role11names = ["Press Right ALT to Open up a Menu","Activate it when you need it"];
 _role12 = "Virtual Garage";
-_role13names = ["Store your vehicle free of charge at a Vehicle Trader","You can deploy it with an etool"];
+_role12names = ["Store your vehicle free of charge at a Vehicle Trader","You can deploy it with an etool"];
+_role13 = "Earplugs";
+_role13names = ["Activate Your Earplugs by pressing Y","It will soften the volume and disable environment noise."];
+_role14 = "Twitter";
+_role14names = ["Follow us @GhostzGamerz","Mention us and we will retweet"];
 
 {
 	sleep 2;
@@ -57,5 +61,8 @@ _role13names = ["Store your vehicle free of charge at a Vehicle Trader","You can
 	[_role8, _role8names],
 	[_role9, _role9names],
 	[_role10, _role10names],			
-	[_role11, _role11names]			//make SURE the last one here does NOT have a , at the end
+	[_role11, _role11names],
+	[_role12, _role12names],
+	[_role13, _role13names],
+	[_role14, _role14names]	//make SURE the last one here does NOT have a , at the end
 ];
