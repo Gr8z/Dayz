@@ -11,7 +11,7 @@ _objHDiff = 0;
 _isOk = true;
 _cancel = false;
 _reason = "";
-_dir = getDir player; //required to pass direction when building
+_dir = getDir player;
 helperDetach = false;
 _canDo = (!r_drag_sqf and !r_player_unconscious);
 _position = [_objectHelper] call FNC_GetPos;
@@ -91,7 +91,7 @@ while {_isOk} do {
 			DZE_memDir = getDir _objectHelper;
 			[_objectHelper,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
 			_objectHelper setPosATL _objectHelperPos;
-			_objectHelper setVelocity [0,0,0]; //fix sliding glitch
+			_objectHelper setVelocity [0,0,0];
 			helperDetach = true;
 		};
 		DZE_F = false;
@@ -222,4 +222,4 @@ while {_isOk} do {
 
 
 _passArray = [_cancel,_reason,_position,_dir,_vector];
-_passArray //[bool,string,array,int,array]
+_passArray

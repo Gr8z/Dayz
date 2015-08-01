@@ -1,13 +1,8 @@
-/*
-	DayZ Base Building
-	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_objects","_count","_onLadder","_isWater","_cancel","_reason","_canBuildOnPlot","_vehicle","_inVehicle","_houselevel","_classname","_name","_buildingpart","_charID","_playerUID","_playerName","_abort","_classnametmp","_requireplot","_isAllowedUnderGround","_offset","_isPole","_isLandFireDZ","_distance","_needText","_findNearestPoles","_findNearestPole","_IsNearPlot","_nearestPole","_playerID","_ownerID","_friendlies","_message","_require","_missing","_hasrequireditem","_hastoolweapon","_location","_isOk","_location1","_dir","_object","_position","_objHDiff","_zheightchanged","_zheightdirection","_rotate","_location2","_tmpbuilt","_limit","_proceed","_counter","_dis","_sfx","_started","_finished","_animState","_isMedic","_activatingPlayer"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_40") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
-// disallow building if too many objects are found within 30m
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 if(_count >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, too many objects within 45m.", "PLAIN DOWN"];};
 
@@ -56,7 +51,6 @@ _playerUID = dayz_playerUID;
 _playerName = (name player);
 
 
-// Need Near Requirements
 _abort = false;
 _reason = "";
 
@@ -75,7 +69,6 @@ if(_isPole) then {
 	_distance = DZE_PlotPole select 1;
 };
 
-// check for near plot
 _findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
 _findNearestPole = [];
 
@@ -89,20 +82,16 @@ _IsNearPlot = count (_findNearestPole);
 
 if (_hasbuildingpart < 1) exitWith {DZE_ActionInProgress = false;cutText ["You are need a full briefcase to build.","PLAIN DOWN"]};
 
-// If item is plot pole && another one exists within 45m
 if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
 if(_IsNearPlot == 0) then {
 
-	// Allow building of plotpole or items not requiring a plot pole
 	if(_requireplot == 0 || _isLandFireDZ) then {
 		_canBuildOnPlot = true;
 	};
 
 } else {
-	// Since there are plot poles nearby we need to check ownership && friend status
 
-	// check nearest pole only
 	_nearestPole = _findNearestPole select 0;
 
 	_buildcheck = [player, _nearestPole] call FNC_check_owner;
@@ -113,7 +102,6 @@ if(_IsNearPlot == 0) then {
 	};
 };
 
-// _message
 if (!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
 
 
@@ -121,7 +109,6 @@ if (true) then {
 	_location = [0,0,0];
 	_isOk = true;
 
-	// get inital players position
 	_location1 = getPosATL player;
 	_dir = getDir player;
 
@@ -181,7 +168,6 @@ if (true) then {
 		if(_rotate) then {
 			_object setDir _dir;
 			_object setPosATL _position;
-			//diag_log format["DEBUG Rotate BUILDING POS: %1", _position];
 		};
 
 		if(_zheightchanged) then {
@@ -224,8 +210,6 @@ if (true) then {
 
 			_object setPosATL _position;
 
-			//diag_log format["DEBUG Change BUILDING POS: %1", _position];
-
 			_object attachTo [player];
 
 		};
@@ -239,7 +223,6 @@ if (true) then {
 			detach _object;
 			_dir = getDir _object;
 			_position = getPosATL _object;
-			//diag_log format["DEBUG BUILDING POS: %1", _position];
 			deleteVehicle _object;
 		};
 
@@ -276,24 +259,20 @@ if (true) then {
 		};
 	};
 
-	//No building on roads unless toggled
 	if (!DZE_BuildOnRoads) then {
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 
-	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in a city."; };
 
 	if(!_cancel) then {
 
 		_classname = _classnametmp;
 
-		// Start Build
 		_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 
 		_tmpbuilt setDir _dir;
 
-		// Get position based on object
 		_location = _position;
 
 		if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then {

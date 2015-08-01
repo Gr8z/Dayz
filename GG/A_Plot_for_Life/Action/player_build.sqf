@@ -9,7 +9,6 @@ _posrad = [player] call FNC_GetPos;
 _count = count(nearestObjects [cursorTarget,DZE_maintainClasses,_range]);
 _cntrad = count (nearestObjects [_posrad, GGNoBuildList, 1000]);
 
-// disallow building if too many objects are found within 30m
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 if(_count >= DZE_BuildingLimit) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, too many objects within 45m.", "PLAIN DOWN"];};
 if(_cntrad > 0) exitWith {DZE_ActionInProgress = false; cutText ["Cannot build, Building Restricted in this area", "PLAIN DOWN"];};
@@ -61,7 +60,6 @@ if (player getVariable["combattimeout", 0] >= time) exitWith {DZE_ActionInProgre
 
 _item =	_this;
 
-// Need Near Requirements
 _abort = false;
 _reason = "";
 
@@ -143,7 +141,6 @@ if(_isPole) then {
 	_distance = DZE_PlotPole select 1;
 };
 
-// check for near plot
 _findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
 _findNearestPole = [];
 
@@ -155,20 +152,16 @@ _findNearestPole = [];
 
 _IsNearPlot = count (_findNearestPole);
 
-// If item is plot pole && another one exists within 45m
 if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText ["Cannot build plot pole within 120m of an existing plot", "PLAIN DOWN"]; };
 
 if(_IsNearPlot == 0) then {
 
-	// Allow building of plotpole or items not requiring a plot pole
 	if(!(_requireplot) || _isLandFireDZ) then {
 		_canBuildOnPlot = true;
 	};
 
 } else {
-	// Since there are plot poles nearby we need to check ownership && friend status
 
-	// check nearest pole only
 	_nearestPole = _findNearestPole select 0;
 
 	_buildcheck = [player, _nearestPole] call FNC_check_owner;
@@ -179,7 +172,6 @@ if(_IsNearPlot == 0) then {
 	};
 };
 
-// _message
 if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "STR_EPOCH_PLAYER_135"),_needText,_distance] , "PLAIN DOWN"]; };
 
 _missing = "";
@@ -198,7 +190,6 @@ if (_hasrequireditem) then {
 	_location = [0,0,0];
 	_isOk = true;
 
-	// get initial players position & set max build range origin.
 	if ((DZE_BuildInPlotRadius) && (_requireplot)) then{
 		_location1 = [_nearestPole] call FNC_GetPos;
 		_maxBuildDistance = _Distance / 2;
@@ -213,7 +204,6 @@ if (_hasrequireditem) then {
 	
 	_dir = getDir player;
 
-	// if ghost preview available use that instead
 	if (_ghost != "") then {
 		_classname = _ghost;
 	};
@@ -336,8 +326,6 @@ if (_hasrequireditem) then {
 
 			_object setPosATL _position;
 
-			//diag_log format["DEBUG Change BUILDING POS: %1", _position];
-
 			_object attachTo [player];
 			
 			[_object,[DZE_memForBack,DZE_memLeftRight,DZE_memDir]] call fnc_SetPitchBankYaw;
@@ -354,7 +342,6 @@ if (_hasrequireditem) then {
 			_dir = getDir _object;
 			_vector = [(vectorDir _object),(vectorUp _object)];	
 			_position = getPosATL _object;
-			//diag_log format["DEBUG BUILDING POS: %1", _position];
 			deleteVehicle _object;
 		};
 
@@ -390,13 +377,11 @@ if (_hasrequireditem) then {
 			deleteVehicle _object;
 		};
 	};
-
-	//No building on roads unless toggled
+	
 	if (!DZE_BuildOnRoads) then {
 		if (isOnRoad _position) then { _cancel = true; _reason = "Cannot build on a road."; };
 	};
 
-	// No building in trader zones
 	if(!canbuild) then { _cancel = true; _reason = "Cannot build in Safezones."; };
 		
 	if ((DZE_BuildOnGround) && !(_requireplot)) then{
@@ -419,12 +404,10 @@ if (_hasrequireditem) then {
 
 		_classname = _classnametmp;
 
-		// Start Build
 		_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 
 		_tmpbuilt setdir _dir;
 
-		// Get position based on object
 		_location = _position;
 
 		if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then {
@@ -592,7 +575,6 @@ if (_hasrequireditem) then {
 					_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
 					_tmpbuilt setVariable ["ownerPUID",_playerID,true];
 					
-					// fire?
 					if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
 						_tmpbuilt spawn player_fireMonitor;
 					} else {
