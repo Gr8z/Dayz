@@ -42,8 +42,8 @@ PV_AdminMainCode = {
 		_puid = getPlayerUID player;
 		if(_puid in PV_SuperLevel_List)then
 		{
-			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + ["   +Spawn Vehicle W/ Keys","Vehicleshive","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + ["   +Spawn Vehicle","Vehicles","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + ["   +Spawn Vehicle HIVE","Vehicleshive","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Buildings","Buildings","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Weapons & Items","Weaponz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Magazines","Magzz","0","0","1","0",[0,0.6,1,1]];
@@ -53,9 +53,9 @@ PV_AdminMainCode = {
 		};
 		if(_puid in PV_NormalLevel_List)then
 		{
-			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + ["   +Spawn Vehicle W/ Keys","Vehicleshive","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + ["   +Spawn Buildings","Buildings","0","0","1","0",[0,0.6,1,1]];
+			if(!isNil 'infiAllowedVehiclesList')then{ALL_VEHS_TO_SEARCH = infiAllowedVehiclesList;};
+			
+			adminadd = adminadd + ["   +Spawn Vehicle","Vehicles","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Weapons & Items","Weaponz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Magazines","Magzz","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Weapons & Magazines","WeaponzMagzz","0","0","1","0",[0,0.6,1,1]];
@@ -66,7 +66,6 @@ PV_AdminMainCode = {
 		{
 			if(!isNil 'infiAllowedVehiclesList')then{ALL_VEHS_TO_SEARCH = infiAllowedVehiclesList;};
 			
-			adminadd = adminadd + ["   +Spawn Vehicle TEMP","Vehicles","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +Spawn Player Morph","Skinz","0","0","1","0",[0,0.6,1,1]];
 		};
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
@@ -83,27 +82,31 @@ PV_AdminMainCode = {
 		_puid = getPlayerUID player;
 		if(_puid in (PV_NormalLevel_List+PV_SuperLevel_List))then
 		{
-			adminadd = adminadd + ["  Spawn 5 Zombies",{[5] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["  Spawn 10 Zombies",{[10] call adminCallZeds;},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];	
-			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Starter Building Safe",{1 call supportVault},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Starter Building Box",supplypackage1,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn 50 Zombies",{[50] call adminCallZeds;},"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Medium Building Safe",{2 call supportVault},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Medium Building Box",supplypackage2,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Support-Box1",{1 call supportbox},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Support-Box2",{2 call supportbox},"0","0","0","0",[]];
+			adminadd = adminadd + ["  Spawn Support-Box3",{3 call supportbox},"0","0","0","0",[]];
+			if(MOD_EPOCH)then
+			{
+				adminadd = adminadd + ["","","0","1","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault1",{1 call supportVault},"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault2",{2 call supportVault},"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Support-Vault3",{3 call supportVault},"0","0","0","0",[]];
+			};
 			adminadd = adminadd + ["","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Pro Building Safe",{3 call supportVault},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Donor Pro Building Box",supplypackage3,"0","0","0","0",[]];
 			adminadd = adminadd + ["","","0","1","0","0",[]];
 			adminadd = adminadd + ["  Spawn Box",admincrate,"0","0","0","0",[]];
-			adminadd = adminadd + ["","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Hatchet Box",hatchetpackage,"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Admin Building Box",admincrateEpoch,"0","0","0","0",[]];
-			adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-			adminadd = adminadd + ["  Spawn Construction Mission",{["Construction"] call Events_CALL;},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Treasure Mission",{["Treasure"] call Events_CALL;},"0","0","0","0",[]];
-			adminadd = adminadd + ["  Spawn Millitary Mission",{["Military"] call Events_CALL;},"0","0","0","0",[]];		
+			adminadd = adminadd + ["  Spawn Box (all items)",admincrateALL,"0","0","0","0",[]];
+			if(MOD_EPOCH)then
+			{
+				adminadd = adminadd + ["  Spawn Epoch-Box",admincrateEpoch,"0","0","0","0",[]];
+				adminadd = adminadd + ["","","0","1","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Supply Package (Small)",supplypackage1,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Supply Package (Medium)",supplypackage2,"0","0","0","0",[]];
+				adminadd = adminadd + ["  Spawn Donor Supply Package (Large)",supplypackage3,"0","0","0","0",[]];
+			};
 		};
 		call admin__FILL_MENUS;
 	};
@@ -129,8 +132,6 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["   +View Spawn Menu","SpawnMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View WeatherLord Menu","Weather","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View TimeLord Menu","AAATime","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + [(format["   -View Player Log: (%1)",round((count PlayerLogArray)/3)]),"uidLog","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + [(format["   -View Admin Log: (%1)",(count PV_writeAdmin_log_ARRAY)]),"WriteLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Surveillance Log: (%1)",((count PV_SurveillanceLog)-1)]),"SurveillanceLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Hacker Log: (%1)",((count PV_hackerL0og)-1)]),"hackerLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View TempBanned Log: (%1)",round((count PVAH_AHTMPBAN)/2)]),"tempbanned","0","0","1","0",[0,0.6,1,1]];
@@ -139,264 +140,13 @@ PV_AdminMainCode = {
 		{
 			adminadd = adminadd + ["   +View Main Menu","MainMenu","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + ["   +View Spawn Menu","SpawnMenu","0","0","1","0",[0,0.6,1,1]];
-			adminadd = adminadd + [(format["   -View Player Log: (%1)",round((count PlayerLogArray)/3)]),"uidLog","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + ["   +View WeatherLord Menu","Weather","0","0","1","0",[0,0.6,1,1]];
+			adminadd = adminadd + ["   +View TimeLord Menu","AAATime","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Surveillance Log: (%1)",((count PV_SurveillanceLog)-1)]),"SurveillanceLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View Hacker Log: (%1)",((count PV_hackerL0og)-1)]),"hackerLog","0","0","1","0",[0,0.6,1,1]];
 			adminadd = adminadd + [(format["   -View TempBanned Log: (%1)",round((count PVAH_AHTMPBAN)/2)]),"tempbanned","0","0","1","0",[0,0.6,1,1]];
 		};
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-	};
-	admin_ggFillMenu = {
-		disableSerialization;
-		inSub = false;
-		_ctrl = 2 call getControl;
-		lbclear _ctrl;
-		adminadd = [];
-		call admin_fillsubsss;
-
-		adminadd = adminadd + ["Gr8's Tools","","0","1","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Event Markers (WIP)",admineventmarkers,"0","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Fireworks",fn_firework_display_local,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Mass Message",adminggmassmsg,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Fire Weapon In Trader / During 30s",adminfireintrader,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Ground Fog",admingroundfog,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Smokey",fnc_attach_smoke,"0","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  GAU8",fnc_gau8,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Shell Me",fnc_she11me,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Deforest",fnc_deforestation,"0","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Bullet Cam",{[] spawn adminbulletcamfnc;},"1","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		call admin__FILL_MENUS;
-	};
-	
-	admineventmarkers = {
-		disableSerialization;
-		inSub = false;
-		_ctrl = 2 call getControl;
-		lbclear _ctrl;
-		adminadd = [];
-		call admin_fillsubsss;
-
-		adminadd = adminadd + ["Event Markers","","0","1","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Add Marker",adminaddeventmarker,"0","0","0","0",[]];
-		adminadd = adminadd + ["  Clear Markers",admincleareventmarker,"0","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		call admin__FILL_MENUS;
-	};
-
-	adminaddeventmarker = {
-		disableSerialization;
-		inSub = false;
-		_ctrl = 2 call getControl;
-		lbclear _ctrl;
-		adminadd = [];
-		call admin_fillsubsss;
-
-		adminadd = adminadd + ["Event Markers","","0","1","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Red", {GGEventMarkerColor = "ColorRed"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Blue",{GGEventMarkerColor = "ColorBlue"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Green",{GGEventMarkerColor = "ColorGreen"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Yellow",{GGEventMarkerColor = "ColorYellow"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Black",{GGEventMarkerColor = "ColorBlack"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["  White",{GGEventMarkerColor = "ColorWhite"; call adminaddeventmarkerset},"0","0","0","0",[]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		call admin__FILL_MENUS;
-	};
-
-	adminaddeventmarkerset = {
-		disableSerialization;
-		createDialog "RscDisplayPassword";
-		ctrlSetText [1001,"Marker Text"];
-		ctrlSetText [101,""];
-		ctrlshow [1002,false];
-		buttonSetAction [1, "GGEventMarkerText = toArray(ctrlText 101); call adminaddeventmarkermap;"];
-	};
-
-	adminaddeventmarkermap = {
-		disableSerialization;
-		openMap true;
-		onMapSingleClick "[_pos, _alt] call adminaddeventmarkersend;";
-	};
-
-	adminaddeventmarkersend = {
-		private ["_pos"];
-		openMap [false, false];
-		onMapSingleClick "";
-		PVAH_AdminReq = [99999,player,[(_this select 0), GGEventMarkerText, GGEventMarkerColor]];
-		publicVariableServer "PVAH_AdminReq";
-	};
-
-	admincleareventmarker = {
-		PVAH_AdminReq = [99998,player];
-		publicVariableServer "PVAH_AdminReq";
-	};
-	
-	fn_firework_display_local = {
-		[getPos player] call fn_firework_display;
-	};
-
-	fn_firework_display = {
-		for "_x" from 0 to 360 step 36 do {
-			_position = _this select 0;
-			_distance = 150;
-			_direction = _x;
-			_pos = [(_position select 0)+_distance*sin(_direction),(_position select 1)+_distance*cos(_direction),0];
-			uiSleep random 1;
-			_pos spawn {
-				uiSleep random 1;
-				[_this] spawn fn_firework_airburst;
-			};
-		};
-	};
-
-	fn_air_explosion = {
-		private ["_position", "_type", "_det", "_charge"];
-		_position = _this select 0;
-		_type = _this select 1;
-		_det = "Bomb" createVehicle [0,0,0];
-		_det setPos _position;
-		_position set [2, (_position select 2) + 0.3];
-		_charge = _type createVehicle _position;
-		_charge setPos _position;
-		uiSleep 1;
-		deleteVehicle _charge;
-		deleteVehicle _det;
-	};
-
-	fn_firework = {
-		private ["_position", "_flare", "_direction", "_distance", "_type", "_smoke", "_ball", "_charge", "_det"];
-		_position = _this select 0;
-		_type = _this select 1;
-		_ball = createVehicle ["Baseball", [0,0,0], [], 0, "CAN_COLLIDE"];
-		_smoke = createVehicle ["SmokeShellRed", [0,0,0], [], 0, "CAN_COLLIDE"];
-		_flare = createVehicle ["F_40mm_White", [0,0,0], [], 0, "CAN_COLLIDE"];
-		_smoke attachTo [_ball, [0,0,0]];
-		_flare attachTo [_ball, [0,0,0]];
-		_ball setPos _position;
-		uiSleep 4;
-		_ball setVelocity [5 - (random 10),5 - (random 10),50];
-		uiSleep 1;
-
-		uiSleep 2;
-		_position = getPos _ball;
-		deleteVehicle _ball;
-		deleteVehicle _smoke;
-		deleteVehicle _flare;
-		[_position, _type] spawn fn_air_explosion;
-		_position
-	};
-
-	fn_firework_airburst = {
-		private ["_position"];
-		_position = _this select 0;
-		_position = [_position, "HelicopterExploBig"] call fn_firework;
-		uiSleep random 1;
-		for "_x" from 0 to 5 do {
-			private ["_abposition"];
-			_abposition = [(_position select 0) + (20 - (random 40)), (_position select 1) + (20 - (random 40)), (_position select 2) + (20 - (random 40))];
-			_abposition spawn {
-				uiSleep random 1;
-				[_this, "HelicopterExploSmall"] spawn fn_air_explosion;
-			};
-		};
-	};
-	
-	adminggmassmsg = {
-		disableSerialization;
-		createDialog "RscDisplayPassword";
-		ctrlSetText [1001,"Message:"];
-		ctrlSetText [101,""];
-		ctrlshow [1002,false];
-		buttonSetAction [1, "PVAH_AdminReq = [99997,player,toArray(ctrlText 101)]; publicVariableServer ""PVAH_AdminReq"";"];
-	};
-	
-	adminfireintrader = {
-		player removeEventHandler ["Fired", SafezoneFiredEvent];
-		player removeEventHandler ["Fired", SafezoneFiredEvent2];
-	};
-	
-	admingroundfog = {
-		PVAH_AdminReq = [99995,player];
-		publicVariableServer "PVAH_AdminReq";
-		_savelog = format["%1 toggled ground fog",name player];
-		PVAH_WriteLogReq = [player, _savelog];
-		publicVariableServer "PVAH_WriteLogReq";
-	};
-	
-	fnc_attach_smoke = {
-		private ["_s"];
-		_s = "SmokeShell" createVehicle [0,0,0];
-		_s attachTo [vehicle player,[0,0,0.7]]; 
-		_s = "SmokeShellBlue" createVehicle [0,0,0];
-		_s attachTo [vehicle player,[0,0,0.7]]; 
-		_s = "SmokeShellRed" createVehicle [0,0,0];
-		_s attachTo [vehicle player,[0,0,0.7]]; 
-	};
-
-	fnc_gau8 = {
-		player addWeapon 'Gau8';
-		player addMagazine '1350Rnd_30mmAP_A10';
-	};
-
-	fnc_she11me = {
-		_pos = getPos player;
-		_shellObj = "ARTY_Sh_122_HE" createVehicle [0,0,0];
-		_shellObj setpos [(_pos select 0),(_pos select 1),20];	
-	};
-	
-	fnc_deforestation = {
-		{
-			if("" == typeOf _x) then {
-			if (alive _x) then {
-			_objName = _x call DZE_getModelName;
-			if (_objName in DZE_trees) then { 
-			_x setDamage 1;
-			};
-			};
-			};
-		} foreach nearestObjects [getPos player, [], 100];
-	};
-	
-	adminbulletcamfnc = {
-		if (isNil "AdminBulletCamActive") then {
-			AdminBulletCamActive = 0;
-		};
-		if (AdminBulletCamActive == 0) then {
-			hint "Bullet Cam On";
-			AdminBulletCamActive = 1;
-			AdminBulletCam = player addEventHandler ["Fired", {
-			_null = _this spawn {
-				_missile = _this select 6;
-				_cam = "camera" camCreate (position player); 
-				_cam cameraEffect ["External", "Back"];
-				waitUntil {
-					if (isNull _missile) exitWith {true};
-					_cam camSetTarget _missile;
-					_cam camSetRelPos [0,-3,0];
-					_cam camCommit 0;
-				};
-				uiSleep 1;
-				_cam cameraEffect ["Terminate", "Back"];
-				camDestroy _cam;
-			};
-			}];
-		} else {
-			hint "Bullet Cam Off";
-			AdminBulletCamActive = 0;
-			player removeEventHandler ["Fired", AdminBulletCam];
-		};
 	};
 	admin_fillSpecificMenu =
 	{
@@ -410,9 +160,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Suit UP",adminskinning,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Ban",adminBanPerm,"0","0","0","1",[0.9,0,0,1]];
 		adminadd = adminadd + ["  TempBan",adminbanTemp,"0","0","0","1",[0.9,0,0,1]];
 		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
@@ -422,8 +169,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Change Humanity",changeHumanity,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +10000 Coins",admingivecoins,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Take -10000 Coins",admintakecoins,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Give Ammo",admin_give_ammo,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Clone",adminCloneTarget,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Un-Freeze",adminUnFreeze,"0","0","0","1",[0,0.8,1,1]];
@@ -495,20 +240,16 @@ PV_AdminMainCode = {
 			if(_key == 0x44)then{call remove_spec_000;};
 			if(_key == 0x43)then{call admin_show;};
 		};
-		adminadd = adminadd + ["  Gr8's Tools",admin_ggFillMenu,"0","0","0","0",[1,0,0,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
+		
 		adminadd = adminadd + ["  Teleport Player To Me",admint2me,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Suit UP",adminskinning,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Toggle TP Direction Keybind",admin_tpdirection_on,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
 		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
-		adminadd = adminadd + ["  NEW ESP",{1 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
+		adminadd = adminadd + ["  Grim ESP",{1 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
 		adminadd = adminadd + ["  ESP for FreeRoam Cam",{0 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
 		adminadd = adminadd + ["  ESP Icons (don't work with groups)",adminESPicons,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
@@ -597,7 +338,6 @@ PV_AdminMainCode = {
 		adminadd = adminadd + [_fnc,{if(isNil "adminshowmanagementmenu")then{adminshowmanagementmenu = true;}else{adminshowmanagementmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
 		if(!isNil "adminshowmanagementmenu")then
 		{
-			adminadd = adminadd + ["  Start/Stop Battle Royale",royale,"1","0","0","0",[]];
 			adminadd = adminadd + ["  Mass Message",adminmsg,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Mass Message Colored",adminmsg2,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Clear Ban List",adminClearBan,"0","0","0","0",[]];
@@ -669,11 +409,7 @@ PV_AdminMainCode = {
 		
 		adminadd = adminadd + ["  Teleport Player To Me",admint2me,"0","0","0","1",[]];
 		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[]];
-		adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Suit UP",adminskinning,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Activate [ALT+LeftmouseButton] Map to TP",adminaltteleport,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Toggle TP Direction Keybind",admin_tpdirection_on,"1","0","0","0",[]];
 		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
@@ -688,12 +424,9 @@ PV_AdminMainCode = {
 		{
 			adminadd = adminadd + ["  Map VEINE Markers",adminVEINE,"1","0","0","0",[]];
 			adminadd = adminadd + ["  Map VAULT Markers",adminVAULT,"1","0","0","0",[]];
-			adminadd = adminadd + ["  Map PlotPole Markers",adminPlotPole,"1","0","0","0",[]];
 		};
 		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
-		adminadd = adminadd + ["  NEW ESP",{1 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
-		adminadd = adminadd + ["  ESP for FreeRoam Cam",{0 call fnc_startOnEachFrameESP},"1","0","0","0",[]];
 		adminadd = adminadd + ["  ESP Icons (don't work with groups)",adminESPicons,"1","0","0","0",[]];
 		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
@@ -702,10 +435,11 @@ PV_AdminMainCode = {
 		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
 		adminadd = adminadd + ["  God",admingod,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Stealth / Invisible",admininvis,"1","0","0","0",[]];
 		if(MOD_EPOCH)then
 		{
 			adminadd = adminadd + ["  No Build Limit",adminNoBuildLimit,"1","0","0","0",[]];
+			adminadd = adminadd + ["  No OverBurdened",adminob,"1","0","0","0",[]];
+			adminadd = adminadd + ["  1 Step Building",admin1build,"1","0","0","0",[]];
 		};
 		adminadd = adminadd + ["  ZedShield",adminZedshld,"1","0","0","0",[]];
 		
@@ -766,37 +500,29 @@ PV_AdminMainCode = {
 			if(_key == 0x16)then{call admin_generatekey;};
 			if(_key == 0x17)then{call admin_showid;};
 			if(_key == 0x44)then{call remove_spec_000;};
-			if(_key == 0x43) then {call admin_show;};
 		};
 		
-adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0","0","1",[0,0.8,1,1]];
+		adminadd = adminadd + ["  Teleport Player To Me",admint2me,"0","0","0","1",[]];
+		adminadd = adminadd + ["  Teleport To Player",admintele,"0","0","0","1",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Currency Menu",currencymenu,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
-		adminadd = adminadd + ["Markers","","0","1","0","0",[]];
-		adminadd = adminadd + ["  Map (unlocked) Vehicle Markers",adminmarkveh_U,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map (locked) Vehicle Markers",adminmarkveh_L,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map Corpse Markers",adminDEAD,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map Wreck Markers",adminwreck,"1","0","0","0",[]];
-		adminadd = adminadd + ["  Map Tent Markers",admintent,"1","0","0","0",[]];
 		adminadd = adminadd + ["Misc","","0","1","0","0",[]];
+		if(MOD_EPOCH)then
+		{
+			adminadd = adminadd + ["  No OverBurdened",adminob,"1","0","0","0",[]];
+			adminadd = adminadd + ["  1 Step Building",admin1build,"1","0","0","0",[]];
+		};
 		adminadd = adminadd + ["Targeted Friendly","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Heal",adminheal,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +2500 Humanity",adminHumanityPlus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give -2500 Humanity",adminHumanityMinus,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Give +10000 Coins",admingivecoins,"0","0","0","1",[0,0.8,1,1]];
-		adminadd = adminadd + ["  Take -10000 Coins",admintakecoins,"0","0","0","1",[0,0.8,1,1]];
 		adminadd = adminadd + ["Targeted EVIL","","0","1","0","0",[]];
-		adminadd = adminadd + ["  RemoveGear",adminremovegear,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["  Kill",adminkill,"0","0","0","1",[0.99,0.8,0.8,1]];
-		adminadd = adminadd + ["  Kick",adminkick,"0","0","0","1",[0.99,0.8,0.8,1]];
 		adminadd = adminadd + ["==============================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Disable Announcements",admin_show_announcements,"1","0","0","0",[]];
 		adminadd = adminadd + ["Change Layout","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #2",{Admin_Layout = 3;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Medium #1*old default",{Admin_Layout = 0;call admin_init;},"0","0","0","0",[]];
 		adminadd = adminadd + ["  Menu Layout Big",{Admin_Layout = 1;call admin_init;},"0","0","0","0",[]];
-		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];		
+		adminadd = adminadd + ["  Menu Layout Center",{Admin_Layout = 2;call admin_init;},"0","0","0","0",[]];
+		
 		_fnc = "-Show Keybindings";
 		if(isNil 'adminshowbindingsmenu')then{_fnc = "+Show Keybindings";};
 		adminadd = adminadd + [_fnc,{if(isNil "adminshowbindingsmenu")then{adminshowbindingsmenu = true;}else{adminshowbindingsmenu = nil;};call admin_update_ctrl2;},"0","0","0","0",[0,0.6,1,1]];
@@ -1376,7 +1102,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_csa = {getPlayerUID _x in PV_SuperLevel_List} count _sorted;
 			if(_csa > 0)then
 			{
-				_ctrl lbAdd "      HeadAdmin";
+				_ctrl lbAdd "      SuperAdmin";
 				_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 				_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 				{
@@ -1408,7 +1134,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		_cna = {getPlayerUID _x in PV_NormalLevel_List} count _sorted;
 		if(_cna > 0)then
 		{
-			_ctrl lbAdd "      Admin";
+			_ctrl lbAdd "      NormalAdmin";
 			_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 			_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 			{
@@ -1439,7 +1165,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		_cla = {getPlayerUID _x in PV_LowLevel_List} count _sorted;
 		if(_cla > 0)then
 		{
-			_ctrl lbAdd "      Moderator";
+			_ctrl lbAdd "      LowAdmin";
 			_ctrl lbSetData [(lbsize _ctrl)-1, "1"];
 			_ctrl lbSetColor [(lbsize _ctrl)-1, [0,0.6,1,1]];
 			{
@@ -1577,7 +1303,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- NORMAL SPAWN","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		adminadd = adminadd + ["Air","","0","1","0","0",[]];
 		{
 			if(_x isKindOf "Air")then
@@ -1613,7 +1339,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- HIVE SPAWN","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		adminadd = adminadd + ["Air","","0","1","0","0",[]];
 		{
 			if(_x isKindOf "Air")then
@@ -1694,7 +1420,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		if(isNil 'wepsnMagsarr')then
 		{
 			wepsnMagsarr = [];
@@ -1739,7 +1465,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_WEPS_TO_SEARCH;
@@ -1758,7 +1484,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_MAGS_TO_SEARCH;
@@ -2144,13 +1870,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_NormalLevel_List)then{
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_SuperLevel_List)then{
-				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlSetForegroundColor [0,0,0,0];
 			_ctrl ctrlCommit 0;
@@ -2189,13 +1915,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_NormalLevel_List)then{
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_SuperLevel_List)then{
-				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -2230,13 +1956,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_NormalLevel_List)then{
-				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			if(getPlayerUID player in PV_SuperLevel_List)then{
-				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  02-07-2015-v1414",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -2271,13 +1997,13 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_ctrl ctrlSetPosition [safezoneX, safezoneY, safeZoneW, 0.02];
 			_ctrl ctrlSetText "No Admin";
 			if(getPlayerUID player in PV_LowLevel_List)then{
-				_ctrl ctrlSetText format["Moderator Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
-			};
-			if(getPlayerUID player in PV_NormalLevel_List)then{
 				_ctrl ctrlSetText format["Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
+			if(getPlayerUID player in PV_NormalLevel_List)then{
+				_ctrl ctrlSetText format["Higher Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
+			};
 			if(getPlayerUID player in PV_SuperLevel_List)then{
-				_ctrl ctrlSetText format["Head Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
+				_ctrl ctrlSetText format["Super Admin Menu  ---  PLAYER: %1  ---  SERVER UP FOR: %2h %3min"+ADMINHASH+"  ---  25-07-2015-v1418",count playableUnits,_hours,_minutes2];
 			};
 			_ctrl ctrlCommit 0;
 			
@@ -2451,6 +2177,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		if(isNil 'AcamUsed')then
 		{
 			AcamUsed = true;
+			systemChat 'Instructions: community.bistudio.com/wiki/Camera.sqs';
 		};
 	};
 	admindump =
@@ -2833,10 +2560,10 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		PVAH_AdminReq = [9004,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Starter Building Box Spawned!"];
-		cutText [format["Starter Supply Package Spawned!"], "PLAIN DOWN"];
+		hint format["Small Supply Package Spawned!"];
+		cutText [format["Small Supply Package Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - Starter Building Box @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - SMALL SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};	
@@ -2845,10 +2572,10 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		PVAH_AdminReq = [9005,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Medium Building Box Spawned!"];
-		cutText [format["Medium Building Box Spawned!"], "PLAIN DOWN"];
+		hint format["Medium Supply Package Spawned!"];
+		cutText [format["Medium Supply Package Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - Medium Building Box @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - MEDIUM SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};	
@@ -2857,23 +2584,10 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		PVAH_AdminReq = [9006,player];
 		publicVariableServer "PVAH_AdminReq";
 		
-		hint format["Pro Building Box Spawned!"];
-		cutText [format["Pro Building Box Spawned!"], "PLAIN DOWN"];
+		hint format["Large Supply Package Spawned!"];
+		cutText [format["Large Supply Package Spawned!"], "PLAIN DOWN"];
 		
-		_sl = format["%1 - Pro Building Box @%2",name player,mapGridPosition getPosATL player];
-		PVAH_WriteLogReq = [player,toArray _sl];
-		publicVariableServer 'PVAH_WriteLogReq';
-	};
-	hatchetpackage =
-	{
-		PVAH_AdminReq = [9007,player];
-		publicVariableServer "PVAH_AdminReq";
-		
-		hint format["Event Hatchet Box Spawned!"];
-
-		cutText [format["Event Hatchet Box Spawned!"], "PLAIN DOWN"];
-		
-		_sl = format["%1 -Event Hatchet Box @%2",name player,mapGridPosition getPosATL player];
+		_sl = format["%1 - LARGE SUPPLY PACKAGE @%2",name player,mapGridPosition getPosATL player];
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
@@ -4155,7 +3869,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			_position = _this;
 			for "_i" from 1 to NumOfZed do
 			{
-				_unitTypes = 	[]+ getArray (missionConfigFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
+				_unitTypes = 	[]+ getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
 				_agent = 	objNull;
 				_type = _unitTypes call BIS_fnc_selectRandom;
 				_radius = 40;
@@ -4166,8 +3880,8 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				_rnd = random 1;
 				if(_rnd > 0.3)then
 				{
-					_lootType = getText (missionConfigFile >> "CfgVehicles" >> _type >> "zombieLoot");
-					_lootTypeCfg = getArray (missionConfigFile >> "CfgLoot" >> _lootType);
+					_lootType = getText (configFile >> "CfgVehicles" >> _type >> "zombieLoot");
+					_lootTypeCfg = getArray (configFile >> "CfgLoot" >> _lootType);
 					_array = [];
 					{
 						_array set [count _array, _x select 0];
@@ -4179,7 +3893,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 						_loot = _array select (_weights select (floor(random (count _weights))));
 						if(!isNil "_array")then
 						{
-							_loot_count =	getNumber(missionConfigFile >> "CfgMagazines" >> _loot >> "count");
+							_loot_count =	getNumber(configFile >> "CfgMagazines" >> _loot >> "count");
 							if(_loot_count>1)then
 							{
 								_agent addMagazine [_loot, ceil(random _loot_count)];
@@ -4191,7 +3905,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 						};
 					};
 				};
-				_id = [_position,_agent] execFSM "GG\zombies\zombie_agent.fsm";
+				_id = [_position,_agent] execFSM "\z\addons\dayz_code\system\zombie_agent.fsm";
 			};
 		};
 		openMap [true, false];
@@ -4435,44 +4149,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		PVAH_WriteLogReq = [player,toArray _sl];
 		publicVariableServer 'PVAH_WriteLogReq';
 	};
-	Events_CALL =
-	{    
-		EventName = _this select 0;
-		DO_THIS = {
-			PVDZE_spawnEvent = [EventName];
-			publicVariableServer "PVDZE_spawnEvent";    
-		};
-		call DO_THIS;
-		_sl = format['%1 Spawned %2 Mission',name player,EventName];
-		PVAH_WriteLogReq = [player,toArray _sl];
-		publicVariableServer 'PVAH_WriteLogReq';
-	};
-	royale =
-	{
-		_log = '';
-		if(isNil 'ryl') then {ryl = true;} else {ryl = !ryl};
-		if(ryl) then
-		{
-			START_ROYALE = [player,true];
-			publicVariableServer "START_ROYALE";
-
-			systemChat format['Royale is starting'];
-			_log = 'Royale started';
-		}
-		else
-		{
-			STOP_ROYALE = true;
-			publicVariableServer "STOP_ROYALE";
-
-			systemChat 'Royale has ended';
-			_log = 'Royale ended';
-		};
-		hint _log;
-		cutText[_log, 'PLAIN'];
-		_sl = format['%1 - %2',name player,_log];
-		PVAH_WriteLogReq = [player,toArray _sl];
-		publicVariableServer 'PVAH_WriteLogReq';
-	};
 	admin_noplot =
 	{
 		_log = '';
@@ -4552,50 +4228,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				_sl = format['%1 minus 2500 Humanity to %2',name player,_this select 0];
 				PVAH_WriteLogReq = [player,toArray _sl];
 				publicVariableServer 'PVAH_WriteLogReq';
-			};
-		} forEach playableUnits;
-	};
-	admingivecoins = 
-	{
-		private ["_wealth","_removecoins"];
-		{
-			if (name _x == _this select 0) then
-			{
-				_wealth = _x getVariable["cashMoney",0];
-				_x setVariable["cashMoney",_wealth + 10000, true];
-				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
-				publicVariableServer "PVDZE_plr_Save";
-				hint format ["Gave %1 1000 Coins!",_this select 0];
-				
-				_sl = format["%1 gave 1000 coins to %2",name player,_this select 0];
-				PVAH_WriteLogReq = [player,_sl];
-				publicVariableServer "PVAH_WriteLogReq";
-			};
-		} forEach playableUnits;
-	};
-	admintakecoins = 
-	{
-		private ["_wealth","_removecoins","_newwealth"];
-		{
-			if (name _x == _this select 0) then
-			{
-				_wealth = _x getVariable["cashMoney",0];
-				_removecoins = 10000;
-				if (_wealth <= 10000) then { 
-					_removecoins = _wealth; 
-				} else { 
-					_removecoins = 10000; 
-				};
-				_newwealth = _wealth-_removecoins;
-				if (_newwealth <= 0) then { _newwealth = 0; };
-				_x setVariable["cashMoney",_newwealth, true];
-				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
-				publicVariableServer "PVDZE_plr_Save";	
-				hint format ["Take %1 coins from %2!",_removecoins, _this select 0];
-				
-				_sl = format["%1 took %2 coins from %3",name player,_removecoins,_this select 0];
-				PVAH_WriteLogReq = [player,_sl];
-				publicVariableServer "PVAH_WriteLogReq";
 			};
 		} forEach playableUnits;
 	};
@@ -4913,10 +4545,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			{
 				if(locked _ct)then
 				{
-					[nil,nil,nil,[_ct,"[ADMIN-TOOL]"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
-					_sl = format["%1 Unlocked %2",name player,_ct];
-					PVAH_WriteLogReq = [player,toArray _sl];
-					publicVariableServer 'PVAH_WriteLogReq';
+					[nil,nil,nil,[_ct,"[infiSTAR.de ADMIN-TOOL]"]] execVM "\z\addons\dayz_code\actions\unlock_veh.sqf";
 				}
 				else
 				{
@@ -4948,10 +4577,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				else
 				{
 					[nil,nil,nil,_ct] execVM "\z\addons\dayz_code\actions\lock_veh.sqf";
-					cutText ["[ADMIN-TOOL] used to lock vehicle.", "PLAIN"];
-					_sl = format["%1 locked %2",name player,_ct];
-					PVAH_WriteLogReq = [player,toArray _sl];
-					publicVariableServer 'PVAH_WriteLogReq';	
+					cutText ["[infiSTAR.de ADMIN-TOOL] used to lock vehicle.", "PLAIN"];
 				};
 			};
 			{_ct animate [_x,0];} forEach ["Open_hinge","Open_latch","Lights_1","Lights_2","Open_door","DoorR","LeftShutter","RightShutter"];
@@ -5037,9 +4663,6 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				};
 			};
 			{systemChat _x;diag_log _x;} forEach [_log1,_log2];
-			_sl = format["%1 Used Information Key on CharID - %2",name player,_charID];
-			PVAH_WriteLogReq = [player,toArray _sl];
-			publicVariableServer 'PVAH_WriteLogReq';
 		};
 	};
 	fnc_admin_fly =
@@ -5343,7 +4966,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				_log = format['%1 (%2) @%3 SPD %4',name _unit,getPlayerUID _unit,mapGridPosition _veh,abs(speed _veh)];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log+'</t>',safezoneX+0.2,safezoneY+0.405,0.3,0,0,3033] spawn bis_fnc_dynamicText;
 				
-				_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['CashMoney',0]),(_unit getVariable['bankMoney',0])];
+				_log2 = format['Blood: %1  Humanity: %2',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0])];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log2+'</t>',safezoneX+0.2,safezoneY+0.435,0.3,0,0,3034] spawn bis_fnc_dynamicText;
 				
 				_cwep = '';
@@ -5732,7 +5355,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		call admin_fillsubsss;
 		call admin_fillSpawnMenuFILL;
 		adminadd = adminadd + ["--- Buildings","","0","0","0","0",[0,0.8,1,1]];
-		adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+		adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 		{
 			adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 		} forEach ALL_OBJ_TO_SEARCH;
@@ -6059,24 +5682,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				publicVariableServer 'PVAH_WriteLogReq';
 			};
 		} forEach playableUnits;
-	};
-	currencymenu =
-	{
-		[] execVM "GG\currency\currency.sqf";
-		[] execVM "GG\currency\currency_functions.sqf";
-	};
-	
-	adminskinning = {
-		
-		_model = "INS_Worker2_DZ";
-		[dayz_playerUID,dayz_characterID,_model] spawn player_humanityMorph;
-	
-		sleep 5;
-		PVOZ_adminSkin  =  [player , "GG\images\admin.jpg" ];
-		publicVariable "PVOZ_adminSkin";
-		player setObjectTexture [0, "GG\images\admin.jpg"];
-		player setVariable["adminated",1,true];
-	};
+	};	
 	adminbanTemp =
 	{
 		{
@@ -6210,7 +5816,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		adminSaveNOW = {
 			if(!isNull SAVE_THIS)then
 			{
-				systemChat format["%1  saved at [%2,%3]",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
+				systemChat format["<infiSTAR.de>:  %1  saved at [%2,%3]",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
 				PVAH_AdminReq = [26,player,SAVE_THIS];
 				publicVariableServer "PVAH_AdminReq";
 			};
@@ -6219,7 +5825,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{
 			SAVE_THIS = nil;
 			SAVE_THIS = _obj;
-			systemChat format["save  %1  at [%2,%3]?",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
+			systemChat format["<infiSTAR.de>: save  %1  at [%2,%3]?",typeOf SAVE_THIS,getDir SAVE_THIS,getPosATL SAVE_THIS];
 			adminSaveX = 
 			[
 				["",true],
@@ -6245,7 +5851,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		adminDeleteNOW = {
 			if(!isNull DELETE_THIS)then
 			{
-				systemChat format["%1  DELETED",typeOf DELETE_THIS];
+				systemChat format["<infiSTAR.de>:  %1  DELETED",typeOf DELETE_THIS];
 				PVAH_AdminReq = [-2,player,DELETE_THIS];
 				publicVariableServer "PVAH_AdminReq";
 			};
@@ -6254,7 +5860,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{
 			DELETE_THIS = nil;
 			DELETE_THIS = _delete;
-			systemChat format["DELETE  %1  ?",typeOf DELETE_THIS];
+			systemChat format["<infiSTAR.de>: DELETE  %1  ?",typeOf DELETE_THIS];
 			showcommandingMenu "#USER:adminDeleteX";
 		};
 	};
@@ -6812,7 +6418,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weaponmags'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 				_mags = getArray (configFile >> 'CfgWeapons' >> _x >> 'magazines');
@@ -6830,7 +6436,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['weapon'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -6844,7 +6450,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Ammo Current Wep",format[_ammo],"0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['magazine'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -6857,7 +6463,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- NORMAL SPAWN","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSNV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -6870,7 +6476,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- HIVE SPAWN","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminSHV'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;
@@ -6882,7 +6488,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 			call admin_fillsubsss;
 			call admin_fillSpawnMenuFILL;
 			adminadd = adminadd + ["--- Buildings","","0","0","0","0",[0,0.8,1,1]];
-			adminadd = adminadd + ["  START SEARCH  (type in chat what you want to search first)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
+			adminadd = adminadd + ["  START SEARCH  (type in chat - searching stops when chat is closed)","['adminBuildings'] spawn fnc_infiSTAR_search","0","0","0","0",[0,0.8,1,1]];
 			{
 				adminadd = adminadd + [_x,format[_spwx,_x],"0","0","0","0",[]];
 			} forEach _foundarray;

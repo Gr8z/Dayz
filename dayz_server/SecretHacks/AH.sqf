@@ -1,4 +1,17 @@
+/*
+	File: AH.sqf
+	Author: Chris(tian) "infiSTAR" Lorenzen
+	Contact: infiSTAR23@gmail.com
+	
+	Description:
+	Arma AntiHack & AdminTools - infiSTAR.de
+*/
+/* ********************************************************************************* */
+/* *********************************www.infiSTAR.de********************************* */
+/* *******************Developed by infiSTAR (infiSTAR23@gmail.com)****************** */
+/* **************infiSTAR Copyright®© 2011 - 2015 All rights reserved.************** */
 /* ********************************29-07-2015-v1419********************************* */
+/* ********************************************************************************* */
 comment 'Antihack & AdminTools - Christian Lorenzen - www.infiSTAR.de - License: (CC)';
 private['_dstring','_cconfig','_OpenMenuKey','_LAdmins','_NAdmins','_SAdmins','_BLOCKED','_TopOfESC','_LowerTop','_LowerBottom','_EscColor',
 '_BottomDebug','_UPW','_ODK','_DMS','_DMW','_MEH','_VON','_BHF','_UVC','_UZC','_UVW','_VTC','_UIC','_UCL','_UIM','_UCC','_UFS',
@@ -61,16 +74,9 @@ if(isNil '_FORBIDDEN_Vehicles')then{_FORBIDDEN_Vehicles = [''];_cconfig=true;};
 if(isNil '_cMenu')then{_cMenu = [''];_cconfig=true;};
 if(isNil '_dayzActions')then{_dayzActions = [];_cconfig=true;};
 if(_cconfig)then{diag_log ("infiSTAR.de - Your AHconfig.sqf is missing Variables!");};
-_PV_DevUlDs = [
-	'76561198078201908', // Gr8 
-	'76561198153784743' // Ghost
-	];
-comment 'Those IDs (player) are hidden in the Admin-Log and Playerlist of the AdminMenu but have SuperAdmin access';
-PV_ADMIN_DONT_LOG = [	
-	'76561198078201908', // Gr8 
-	'76561198153784743' // Ghost
-	];
-comment 'Those IDs (player) are hidden in the Admin-Log';
+_PV_DevUlDs = ['0'];comment 'Those IDs (player) are hidden in the Admin-Log and Playerlist of the AdminMenu but have SuperAdmin access';
+PV_ADMIN_DONT_LOG = ['0'];comment 'Those IDs (player) are hidden in the Admin-Log';
+
 
 _BlackList =
 [
@@ -601,6 +607,14 @@ _AHstring = "
 							[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar198737+";
 						};
 						if(!isNil 'IRCModule')then
+						{
+							call _fncPunish;
+						};
+						if(ctrlText 292908 != '')then
+						{
+							call _fncPunish;
+						};
+						if(!isNull finddisplay 2929)then
 						{
 							call _fncPunish;
 						};
@@ -1363,7 +1377,7 @@ publicVariable '"+_randvar12+"';
 			'adadawer24_1337','fsdddInfectLOL','W_O_O_K_I_E_ANTI_ANTI_HAX','W_O_O_K_I_E_Car_RE','kW_O_O_K_I_E_Go_Fast','epchDeleted','lystobindkeys','lystoKeypress',
 			'toggle_1','shiftMenu','dbClicked','b_loop','re_loop','v_bowen','bowen','melee_startAttack','asdasdasd','antihax2','PV_AdminMenuCode','AdminLoadOK',
 			'AdminLoadOKAY','PV_TMPBAN','T_o_g_g_l_e_BB','fixMenu','PV_AdminMenuCodee','AdminPlayer','PVAH_AdminRequestVariable','epochBackpack','JME_Red',
-			'JME_MENU_Sub','JME_menu_title','JME_Sub','JME_OPTIONS','god','heal','fatguybeingchasedbyalion','night','day','infammo','nvg','thermal',
+			'JME_MENU_Sub','JME_menu_title','JME_Sub','JME_OPTIONS','god','heal','grass','fatguybeingchasedbyalion','night','day','infammo','nvg','thermal',
 			'Keybinds','fredtargetkill','loopfredtpyoutome','epochTp','AdminLst','BB_Pr0_Esp','BBProEsp','epochMapMP','CALLRESVR','lazy_ILHA_is_lazy',
 			'trap','boomgoats','morphme','morph','blfor','blfor2','blfor3','rdfor','rdfor2','rdfor3','napa','civ','runonce','keybindz','BB_Menu_Fnc',
 			'mod_select','scrollmenu','ly5t1c','JJMMEE_Swagger','Bobsp','Speed_Hack_cus','pList_star_peter_cus','RGB','onKeyPress','neo_throwing','n912',
@@ -1373,11 +1387,7 @@ publicVariable '"+_randvar12+"';
 			'nec2','GetinPassenger','iaimon','func_execOnServer','jayRE','Fanatic_InfiPass','keybindings_xxx','zeus_star','B1g_B3n_target','viname','BB_nofatigue',
 			'First_PAGE','Get_in_D','i_t_s__m_e_o','smissles','whippyhtmlz','htmlz','htmlzV4','whippyhtmlzV4','VehicleMarkers','WhippyV4MAPESP_MA',
 			'alsonotakeybind','Jay_g0d_M0de','MCheats_Clip_F','I_love_rustler_and_jet','inf3MMO','JayT3L3Eclick','JayT3L3Click','espOn3','togESP4',
-			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','selectedPlayer','Lmenu1',
-			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
-			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
-			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP','trentview','trentview2','tr3ntlvl','tr3nS'
-			];
+			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','selectedPlayer','Lmenu1'];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
 		};
@@ -1515,13 +1525,13 @@ publicVariable '"+_randvar28+"';
 							_puid = _this select 0;
 							_mytime = 0;while{1 == 1}do {_mytime = _mytime + 1;if(_mytime >= 20)exitWith {};if((!isNil 'dayz_animalCheck') || (!isNil 'dayz_medicalH') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_gui'))exitWith {};uiSleep 1;};
 							allGroups=[];setVehicleInit='no';processInitCommands='no';
-							createDiaryRecord='no';createTask='no';createSimpleTask='no';buttonSetAction='no';processDiaryLink='no';createDiaryLink='no';
-							createTeam='no';exec='no';addGroupIcon='no';setGroupIconParams='no';addWeaponCargo='no';addMagazineCargo='no';setVehicleAmmoDef='no';
+							lbsetpicture='no';createDiaryRecord='no';createTask='no';createSimpleTask='no';buttonSetAction='no';processDiaryLink='no';createDiaryLink='no';
+							lbSetData='no';createTeam='no';exec='no';addGroupIcon='no';setGroupIconParams='no';addWeaponCargo='no';addMagazineCargo='no';setVehicleAmmoDef='no';
 							setWeaponReloadingTime='no';addMPEventHandler='no';createVehicleLocal='no';inputAction='no';setWaypointStatements='no';addWaypoint='no';
 							loadFile='no';rcallVarcode='no';saveStatus='no';loadStatus='no';saveVar='no';drawIcon='no';setMarkerType='no';setMarkerShape='no';setMarkerSize='no';
-							markerText='no';setMarkerAlpha='no';setMarkerBrush='no';setMarkerColor='no';setMarkerDir='no';setMarkerPos='no';
-							createMarker='no';setMarkerDirLocal='no';setMarkerAlphaLocal='no';setMarkerPosLocal='no';setMarkerBrushLocal='no';setMarkerSizeLocal='no';
-							setMarkerShapeLocal='no';
+							markerText='no';setMarkerAlpha='no';setMarkerBrush='no';setMarkerColor='no';setMarkerDir='no';setMarkerPos='no';setMarkerTypeLocal='no';setMarkerColorLocal='no';
+							createMarker='no';setMarkerDirLocal='no';setMarkerAlphaLocal='no';setMarkerPosLocal='no';setMarkerTextLocal='no';setMarkerBrushLocal='no';setMarkerSizeLocal='no';
+							setMarkerShapeLocal='no';createMarkerLocal='no';
 							if("+str _FRC+")then{
 								uiSleep 1;
 								_bye = false;
@@ -1535,12 +1545,12 @@ publicVariable '"+_randvar28+"';
 										[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar198737+";
 									};
 									true
-								} count ['createDiaryRecord','createTask','createSimpleTask','buttonSetAction','processDiaryLink','createDiaryLink','lbSetData','createTeam',
+								} count ['lbsetpicture','createDiaryRecord','createTask','createSimpleTask','buttonSetAction','processDiaryLink','createDiaryLink','lbSetData','createTeam',
 								'exec','addGroupIcon','setGroupIconParams','addWeaponCargo','addMagazineCargo','setVehicleAmmoDef','setWeaponReloadingTime','addMPEventHandler','createVehicleLocal',
 								'inputAction','setWaypointStatements','addWaypoint','setMarkerBrushLocal','loadFile','rcallVarcode','saveStatus','loadStatus','saveVar','drawIcon','setMarkerText',
 								'setMarkerType','markerText','setMarkerAlpha','setMarkerBrush','setMarkerColor','setMarkerDir','setMarkerPos','setMarkerShape','setMarkerSize','createMarker',
-								'setMarkerDirLocal','setMarkerAlphaLocal','setMarkerPosLocal','setMarkerSizeLocal','setMarkerShapeLocal',
-								'setVehicleInit','processInitCommands'];
+								'setMarkerDirLocal','setMarkerAlphaLocal','setMarkerPosLocal','setMarkerTextLocal','setMarkerTypeLocal','setMarkerColorLocal','setMarkerSizeLocal','setMarkerShapeLocal',
+								'createMarkerLocal','setVehicleInit','processInitCommands'];
 								if(_bye)then{
 									_log = 'RunInitFunctions twice';
 									_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
@@ -1684,7 +1694,7 @@ publicVariable '"+_randvar28+"';
 												[] spawn compile 'disableUserInput true;disableUserInput true;disableUserInput true;';
 												_gg = true;
 											};
-										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
+										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110];
 									};
 								};
 								if(lbSize 109 > 2)then
@@ -2648,7 +2658,7 @@ publicVariable '"+_randvar28+"';
 					};
 				};
 			};
-			_death = compile preprocessFileLineNumbers 'GG\player_death.sqf';
+			_death = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf';
 			while{1 == 1}do
 			{
 				player_death = _death;
@@ -2669,6 +2679,13 @@ publicVariable '"+_randvar28+"';
 				player addEventHandler ['Respawn', {_id = [] spawn player_death}];
 				player removeAllEventHandlers 'Killed';
 				player addEventHandler ['Killed', {if(isNil 'LASTDAMAGESOURCE')then{LASTDAMAGESOURCE = player;} else {if(isNull LASTDAMAGESOURCE)then{LASTDAMAGESOURCE = player;};};_id = [LASTDAMAGESOURCE,'shotheavy'] spawn player_death}];
+				player removeAllEventHandlers 'Fired';
+				player addEventHandler ['Fired', {
+					_this call player_fired;
+					_this call infi_fired"+_randvar5+";
+					if(isNil 'inSafeZone')then{ inSafeZone = false; } else { if(typeName inSafeZone != 'BOOL')then{ inSafeZone = false;YOLO = true; }; };
+					if(inSafeZone)then{deleteVehicle (nearestObject [_this select 0,_this select 4]);};
+				}];
 				uiSleep 0.5;
 			};
 		};
@@ -2735,7 +2752,7 @@ publicVariable '"+_randvar28+"';
 				'pfPlayerMonitor','pfPlayersToMonitor','pfShowPlayerMonitor','pfPlayerMonitorMutex','marker','JJJJ_MMMM___EEEEEEE_INIT_MENU','E_X_T_A_S_Y_Init_Menu',
 				'monkaiinsalt','monkaiin','part88','adminKeybinds','PV_DevUlDs','fapEspGroup','Repair','RepairIT','rainbowTarget','rainbowTarget1','rainbowTarget2',
 				'rainbowTarget3','letmeknow','VehicleMenue','Menue_Vehicle','my_anus_hurtz','life_no_injection','Tonic_has_a_gaping_vagina','teletoplr','telet',
-				'ygurv1f2','BIGM','E3p','T3le','box','gmadmin','gmdadmin','cayList','Z333nnnnnnnn','sladinovkroi'];
+				'ygurv1f2','BIGM','E3p','T3le','box','gmadmin','gmdadmin'];
 				"+_t4+" = diag_tickTime;
 				uiSleep 1;
 			};
@@ -3769,7 +3786,6 @@ publicVariable '"+_randvar28+"';
 					_m = [(format['%1\tele.sqf',_name]),(format['%1\DefaultMenu.sqf',_name]),(format['%1\initmenu.sqf',_name]),(format['%1\Startup.sqf',_name])];
 					_farray =
 					[
-						'nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','MahMenuV2\compile\FiniREV2.sqf',
 						'xoia24rfadfhw2\alishcahc.sqf','001.sqf',
 						'WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf','l33tH4x0or\L33TMenu.sqf','run.sqf',
 						'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
@@ -3854,10 +3870,7 @@ publicVariable '"+_randvar28+"';
 						'WRMoney.sqf','allover_[www.unknowncheats.me]_.dll','allover.dll','WhippyMenu\keybindfz.sqf','WhippyMenu\SqfFiles\esp.sqf',
 						'WhippyMenu\SqfFiles\destroyb.sqf','WhippyMenu\SqfFiles\setviewdistance500m.sqf','WhippyMenu\SqfFiles\night.sqf','WhippyMenu\SqfFiles\unlock.sqf',
 						'initFunctions.sqf','tbb4malloc_bi.dll','PRaZ\start.sqf','jh\Action.sqf','ArmA2OA_Extars\BB_menu_BB.sqf',
-						'ArmA2OA_Extras\ben_ex.sqf','ArmA2OA_Extras\ben_ex.sqf','God.sqf','Heal.sqf','HideFromAdmins.sqf','IAmmo.sqf','KillDestroy.sqf','ManN00k3ByD4M4st3rFini.sqf','ManN0Cl1pFini.sqf',
-						'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
-						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf',
-						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf'
+						'ArmA2OA_Extras\ben_ex.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
@@ -3887,7 +3900,7 @@ publicVariable '"+_randvar28+"';
 		"+_randvar4+" = {
 			_bkey = _this select 0;
 			
-			_log = format['You have pressed a forbidden Key! (%1)',_bkey];
+			_log = format['<infiSTAR.de>: You have pressed a forbidden Key! (%1)',_bkey];
 			cutText [_log,'WHITE IN'];
 			hint _log;
 			systemchat _log;
@@ -3962,7 +3975,7 @@ publicVariable '"+_randvar28+"';
 							};
 							if((!isNull findDisplay 55) && (_chID in [0,1]))then
 							{
-								_msg = 'NO VOICE ON SIDE!';
+								_msg = '<infiSTAR.de>: NO VOICE ON SIDE/GLOBAL!';
 								hint _msg;
 								1 cutText [format ['%1',_msg],'PLAIN DOWN'];
 								systemchat _msg;
@@ -4020,6 +4033,7 @@ publicVariable '"+_randvar28+"';
 					vehicle player setUnitRecoilCoefficient 1;
 					player setUnitRecoilCoefficient 1;
 				};
+				setTerrainGrid _FTG;
 				BIS_fnc_spawnCrew = {};
 				BIS_fnc_spawnGroup = {};
 				BIS_fnc_help = {};
@@ -4037,6 +4051,7 @@ publicVariable '"+_randvar28+"';
 				BIS_fnc_supplydrop = {};
 				BIS_fnc_spotter = {};
 				BIS_fnc_listPlayers = {};
+				bis_fnc_customGPSvideo = {};
 				if(isNil 'deathHandled')then{ deathHandled = true; } else { if(typeName deathHandled != 'BOOL')then{ deathHandled = true;YOLO = true; }; };
 				if(deathHandled)then
 				{
@@ -4438,38 +4453,92 @@ publicVariable '"+_randvar28+"';
 										[objNull, player, rswitchMove,''] call RE;
 										player playActionNow 'stop';
 									};
+									if(_txt in ['pushup','/pushup'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_exercisePushup'] call RE;
+									};
+									if(_txt in ['handstand','/handstand'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle70chozeniPoRukou'] call RE;
+									};
+									if(_txt in ['boxing','/boxing'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle68boxing'] call RE;
+									};
+									if(_txt in ['karate','/karate','fighter','/fighter'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_exerciseKata'] call RE;
+									};
+									if(_txt in ['boogie','/boogie'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingDuoIvan'] call RE;
+									};                             
+									if(_txt in ['dance','/dance'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingStefan'] call RE;
+									};
+									if(_txt in ['clubbing','/clubbing'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'ActsPercMstpSnonWnonDnon_DancingDuoStefan'] call RE;
+									};
+									if(_txt in ['excercise','/excercise'])then
+									{
+										(_display) closeDisplay 0;
+										[objNull, player, rplayMove,'AmovPercMstpSnonWnonDnon_idle69drepy'] call RE;
+									};
 								};
 							};
 							if(_txt in ['/killme','killme','/suicide','suicide'])then
 							{
-								_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
-								[player,'sick'] spawn player_death;
-								player setHit['Body',1];
+								_waitTime = 180;
+								if(time > _startTime + _waitTime)then
+								{
+									_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
+									[player,'sick'] spawn player_death;
+									player setHit['Body',1];
+									_startTime = time;
+								}
+								else
+								{
+									_chat ctrlSetText format['You have to wait %1s',ceil((_startTime + _waitTime) - time)];
+								};
 							};
-							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin']) then
+							if(_txt in ['/cry','cry','!cry'])then
 							{
 								(_display) closeDisplay 0;
 								[nil,player,rSAY,['babycry_1', 100]] call RE;
-								uiSleep 2;
-								systemChat 'SERVER: Asking For Help in SideChat Is forbidden';		
-								uiSleep 1;
-								systemChat 'SERVER: To get ahold of an admin, you must get in Teamspeak Support Channels';
-								uiSleep 1;
-								systemChat 'Teamspeak Server : TS.GHOSTZGAMERZ.COM';
 							};
 						};
 						if("+str _UDN+")then
 						{
-							if(_txt in ['!vote day','/vote day','vote day','!day','/day','voteday','/voteday','!voteday']) then
+							if(_txt in ['!vote day','/vote day','vote day','!day','/day'])then
 							{
 								(_display) closeDisplay 0;
 								[player,'DAY'] call "+_randvar198737+";
 							};
-							if(_txt in ['!vote night','/vote night','vote night','!night','/night','votenight','/votenight','!votenight']) then
+							if(_txt in ['!vote night','/vote night','vote night','!night','/night'])then
 							{
 								(_display) closeDisplay 0;
 								[player,'NIGHT'] call "+_randvar198737+";
 							};
+						};
+						if(_txt in ['!help','/help','help'])then
+						{
+							(_display) closeDisplay 0;
+							systemChat 'infiSTAR.de ChatCommands:';
+							systemChat '/stop, stop, /pushup, pushup, /handstand, handstand, /boxing, boxing,';
+							systemChat '/karate, karate, /fighter, fighter, /boogie, boogie,';
+							systemChat '/dance, dance, /clubbing, clubbing, /excercise, excercise,';
+							if("+str _UDN+")then{systemChat '!vote day,/vote day, vote day,!vote night,/vote night, vote night';};
+							systemChat '/killme, killme, /suicide, suicide';
+							systemChat '/cry, cry, !cry';
 						};
 						if(_txt in ['/m'])then
 						{
@@ -4490,10 +4559,7 @@ publicVariable '"+_randvar28+"';
 							_shorterArray resize 6;
 							_shorterTxt = toString _shorterArray;
 							_shorterTxt = toLower _shorterTxt;
-							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
-							'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt'
-							])then
+							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll'])then
 							{
 								_log = format['BadText: %1',_txt];
 								[_name,_puid,'BAN',toArray (_log)] call "+_randvar198737+";
@@ -4518,6 +4584,25 @@ publicVariable '"+_randvar28+"';
 					if(isNil 'deathHandled')then{ deathHandled = true; } else { if(typeName deathHandled != 'BOOL')then{ deathHandled = true;YOLO = true; }; };
 					
 					_obj = player;
+					if(isNil 'inSafeZone')then{ inSafeZone = false; } else { if(typeName inSafeZone != 'BOOL')then{ inSafeZone = false;YOLO = true; }; };
+					if(inSafeZone)then
+					{
+						if(r_player_unconscious)then
+						{
+							player setVariable ['NORRN_unconscious',false,true];
+							player setVariable ['unconsciousTime',0,true];
+							player setVariable ['USEC_isCardiac',false,true];
+							r_player_unconscious = false;
+							r_player_cardiac = false;
+							r_player_handler1 = false;
+							disableUserInput false;
+							if(vehicle player == player)then{
+								[objNull,player,rSwitchMove,'AinjPpneMstpSnonWnonDnon'] call RE;
+								player switchMove 'AinjPpneMstpSnonWnonDnon';
+								player playMoveNow 'AmovPpneMstpSnonWnonDnon_healed';
+							};
+						};
+					};
 					if((r_player_unconscious) && (!deathHandled))then
 					{
 						if(_obj getVariable['infiUnconDone','0'] == '0')then
@@ -4531,7 +4616,7 @@ publicVariable '"+_randvar28+"';
 								_steps = 1 / _mytime;	
 								for '_i' from 0 to _mytime do
 								{
-									_txt = format['You are unconscious - %1s',_mytime - _i];
+									_txt = format['infiSTAR.de unconscious: %1s',_mytime - _i];
 									startLoadingScreen [_txt,'DayZ_loadingScreen'];
 									progressLoadingScreen (_steps*_i);
 									uiSleep 1;
@@ -4592,7 +4677,7 @@ publicVariable '"+_randvar28+"';
 					if((canStand player) || (deathHandled))then
 					{
 						_btnRespawn ctrlEnable false;
-						_btnRespawn ctrlSetText 'GHOSTZ GAMERZ';
+						_btnRespawn ctrlSetText 'by infiSTAR.de';
 					}
 					else
 					{
@@ -4836,7 +4921,7 @@ publicVariable '"+_randvar28+"';
 			{
 				_array =
 				[
-					'prunus','picea','fallentree','phragmites','acer','amygdalusn',
+					'grass','prunus','picea','fallentree','phragmites','acer','amygdalusn',
 					'Brush','fiberplant','amygdalusc','boulder','Land_Farm_Cowshed_a','Land_Farm_Cowshed_b',
 					'Land_Farm_Cowshed_c','Land_HouseV_1L2','Land_HouseV2_02_Interier','Land_Church_02',
 					'Land_HouseV2_03B','Land_HouseV2_01B','Land_HouseV2_04_interier','c_grasstall'
@@ -5129,7 +5214,8 @@ publicVariable '"+_randvar28+"';
 	};
 	if !("+str _UIM+")then
 	{
-		systemChat 'Welcome to [GG] Ghostz Gamerz Overpoch Server hive';
+		systemChat '<infiSTAR.de>: Successfully Loaded In.';
+		if("+str _DMS+")then{systemChat '<infiSTAR.de>: -END- key toggles the debugmonitor';};
 		diag_log format['infiSTAR.de - 29-07-2015-v1419 - Successfully Loaded on Client ID1987 (%1)',time];
 	}
 	else
@@ -5165,7 +5251,7 @@ fnc_VoteTimeServer =
 			{
 				_cntday = 0;
 				_cntnight = 0;
-				if((_cntVoted / _cntAll) > 0.5)then
+				if((_cntVoted / _cntAll) > 0.7)then
 				{
 					_oUIDs = [];
 					{
@@ -5220,7 +5306,7 @@ fnc_VoteTimeServer =
 	}
 	else
 	{
-		_txt = format['Wait %1s more until next vote can be done!',round((TimeVoteCooldown + LastVoteGoneThrough) - time)];
+		_txt = format['Wait %1s more until next daytime vote can be done!',round((TimeVoteCooldown + LastVoteGoneThrough) - time)];
 		fnc_show_colorAdminMsg = [_txt,'#0B6121'];
 		publicVariable 'fnc_show_colorAdminMsg';
 	};
@@ -5511,13 +5597,13 @@ _randvar19Local = {
 					hint _show;
 					hint _show;
 					hint _show;
-					_show2 = format['%1',(_this select 1)];
+					_show2 = format['<infiSTAR.de>: %1',(_this select 1)];
 					systemChat _show2;
 				};
 			};
 			'"+_randvar13+"NEWPLAYER' addPublicVariableEventHandler
 			{
-				if(admin_announce)then{systemChat format['New Player: %1',(_this select 1)];};
+				if(admin_announce)then{systemChat format['<infiSTAR.de - New Player>: %1',(_this select 1)];};
 			};
 			[] spawn {
 				r_player_timeout = 0;
@@ -6834,7 +6920,18 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemCopperBar','ItemCopperBar10oz','ItemBriefcase100oz','ItemBriefcase80oz','ItemFireBarrel_kit',
 				'ItemBriefcase60oz','ItemBriefcase40oz','ItemBriefcase20oz','ItemGunRackKit','ItemOilBarrel','ItemFuelBarrel',
 				'm240_nest_kit','ItemLockbox','metal_floor_kit','cinder_wall_kit','cinder_garage_kit','cinder_door_kit',
-				'ItemVault','ItemGenerator','30m_plot_kit','wood_ramp_kit'];
+				'ItemVault','ItemGenerator','Skin_Rocker2_DZ','30m_plot_kit','Skin_SurvivorW2_DZ','Skin_Functionary1_EP1_DZ',
+				'Skin_Haris_Press_EP1_DZ','Skin_Priest_DZ','Skin_SurvivorWpink_DZ','Skin_SurvivorWurban_DZ',
+				'Skin_SurvivorWcombat_DZ','Skin_SurvivorWdesert_DZ','Skin_Survivor2_DZ','fuel_pump_kit','ItemFuelPump',
+				'Skin_Rocker1_DZ','Skin_Rocker3_DZ','Skin_RU_Policeman_DZ','Skin_Pilot_EP1_DZ',
+				'Skin_Rocker4_DZ','Skin_Bandit1_DZ','Skin_Bandit2_DZ','Skin_GUE_Commander_DZ',
+				'Skin_GUE_Soldier_2_DZ','Skin_GUE_Soldier_CO_DZ','Skin_GUE_Soldier_Crew_DZ',
+				'Skin_GUE_Soldier_MG_DZ','Skin_GUE_Soldier_Sniper_DZ','Skin_Ins_Soldier_GL_DZ',
+				'Skin_TK_INS_Soldier_EP1_DZ','Skin_TK_INS_Warlord_EP1_DZ','Skin_BanditW1_DZ','park_bench_kit',
+				'Skin_BanditW2_DZ','Skin_CZ_Special_Forces_GL_DES_EP1_DZ','Skin_Drake_Light_DZ','PartPlankPack',
+				'Skin_Soldier_Sniper_PMC_DZ','Skin_FR_OHara_DZ','Skin_FR_Rodriguez_DZ','ItemSandbagExLarge',
+				'Skin_CZ_Soldier_Sniper_EP1_DZ','Skin_Graves_Light_DZ','Skin_Soldier_Bodyguard_AA12_PMC_DZ',
+				'Skin_Camo1_DZ','Skin_Rocket_DZ','Skin_Sniper1_DZ','Skin_Soldier1_DZ','Skin_Soldier_TL_PMC_DZ','wood_ramp_kit'];
 				{_b0x addWeaponCargoGlobal [_x, 20];} forEach ['ItemFishingPole','ItemSledge','ItemKeyKit','ItemToolbox','ItemEtool'];
 			};
 		};
@@ -6880,7 +6977,6 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				_b0x addMagazineCargoGlobal ['ItemWoodLadder', 2];
 				_b0x addMagazineCargoGlobal ['ItemWoodStairs', 3];
 				_b0x addMagazineCargoGlobal ['metal_floor_kit', 8];
-				_b0x addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 1];
 				{_b0x addWeaponCargoGlobal [_x, 1];} forEach
 				[
 				'ItemToolbox',
@@ -6940,92 +7036,12 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				'ItemSledgeHandle',
 				'storage_shed_kit'
 				];
-				_b0x addBackpackCargoGlobal ["DZ_LargeGunBag_EP1", 2];
 				{_b0x addWeaponCargoGlobal [_x, 2];} forEach
 				[
 				'ItemToolbox',
 				'ItemCrowbar',
 				'ItemEtool'
 				];
-			};
-		};
-		if(_option == 9007) then
-		{
-			_dir = getdir _playerObj;
-			_pos = getPos _playerObj;
-			_pos = [(_pos select 0)+2*sin(_dir),(_pos select 1)+2*cos(_dir),(_pos select 2)];
-			[_dir,_pos,_playerObj] spawn {
-				_dir = _this select 0;
-				_pos = _this select 1;
-				_b0x = 'USVehicleBox_EP1' createVehicle _pos;
-				clearWeaponCargoGlobal _b0x;
-				clearmagazinecargoGlobal _b0x;
-				_b0x setPosATL _pos;
-				{_b0x addWeaponCargoGlobal [_x, 35];} forEach
-				[
-				'ItemHatchet_DZE'
-				];
-			};
-		};
-		if (_option == 99999) then
-		{
-			if (isNil "GGEventMarkers" or {typeName GGEventMarkers != "ARRAY"}) then { GGEventMarkers = []; };
-			GGEventMarkers = GGEventMarkers + [(_array select 2)];
-			publicVariable "GGEventMarkers";
-		};
-		if (_option == 99998) then
-		{
-			GGEventMarkers = [];
-			publicVariable "GGEventMarkers";
-		};
-		if (_option == 99997) then
-		{
-			[nil, nil, rspawn, [_array select 2], {
-				_msg = _this select 0;
-				[
-					"<t color='#ffffff' align='left' size='0.66'><img image='GG\images\logo.paa' /><br />" + toString(_this select 0) + "</t>",
-					0.8,
-					0.6,
-					20,
-					2
-				] spawn BIS_fnc_dynamicText;
-			}] call RE;
-		};
-		if (_option == 99995) then {
-			GGDoFog = {
-				DoFogEffect = true;
-				_pos = getposATL player;
-				_ps = '#particlesource' createVehicleLocal _pos;  
-				_ps setParticleParams [['\Ca\Data\ParticleEffects\Universal\universal.p3d', 16, 12, 13, 0], '', 'Billboard', 1, 10, [0, 0, -6], [0, 0, 0], 1, 1.275, 1, 0, [4], [[1, 1, 1, 0], [1, 1, 1, 0.04], [1, 1, 1, 0]], [1000], 1, 0, '', '', player];
-				_ps setParticleRandom [3, [40, 40, 0], [0, 0, 0], 2, 0.5, [0, 0, 0, 0.1], 0, 0];
-				_ps setParticleCircle [0.1, [0, 0, 0]];
-				_ps setDropInterval 0.004;
-
-				while {DoFogEffect} do {
-					waituntil {uiSleep 1; vehicle player == player};
-					_ps setposATL getposATL vehicle player;
-					uiSleep 1;
-				};
-				deleteVehicle _ps;
-			};
-			publicVariable 'GGDoFog';
-
-			if (isNil "GroundFogOn" or isNil "GroundFogSheep") then {
-				GroundFogOn = false;
-				GroundFogSheep = createAgent ['Sheep', [random 9000,random 9000,0], [], 0, 'FORM'];
-				GroundFogSheep removeAllEventHandlers 'handleDamage';
-				GroundFogSheep addEventHandler ['handleDamage', { false }];
-				GroundFogSheep allowDamage false;	
-			};
-
-			if (!GroundFogOn) then {
-				GroundFogOn = true;
-				GroundFogSheep setVehicleInit 'waitUntil { !isNil "GGDoFog" }; [] spawn GGDoFog;';
-				processInitCommands;
-			} else {
-				GroundFogOn = false;
-				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
-				processInitCommands;
 			};
 		};
 		if(_option == 9000)then
@@ -7093,6 +7109,7 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 			clearWeaponCargoGlobal _b0x;
 			clearmagazinecargoGlobal _b0x;
 			_b0x setPosATL _pos;
+			
 			_arrayforcrate = _selected call fnc_getSupportBoxContent;
 			if(isNil'_arrayforcrate')exitWith{diag_log format['<infiSTAR.de> PVAH_AdminReq %1: nil _arrayforcrate',_option]};
 			
@@ -7380,3 +7397,9 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 };
 BIS_Effects_Burn={};
 diag_log ('infiSTAR.de - AntiHack FULLY LOADED');
+/* ********************************************************************************* */
+/* *********************************www.infiSTAR.de********************************* */
+/* *******************Developed by infiSTAR (infiSTAR23@gmail.com)****************** */
+/* **************infiSTAR Copyright®© 2011 - 2015 All rights reserved.************** */
+/* ********************************************************************************* */
+/* ****DayZAntiHack.com***DayZAntiHack.de***ArmaAntiHack.com***Arma3AntiHack.com**** */
