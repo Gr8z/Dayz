@@ -33,7 +33,6 @@ _go = dayzPlayerLogin2 select 2;
 	#include "class.sqf"
 	};
 	#include "spawn.sqf"
-	#include "halo.sqf"
 	#include "startSpawn.sqf"
 	
 	{_x hideObject false;_x allowDamage true;player reveal _x;} count _nearFinal;
