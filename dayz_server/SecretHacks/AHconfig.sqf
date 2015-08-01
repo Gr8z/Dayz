@@ -61,15 +61,39 @@ _SAdmins = [
 /*  DebugMonitor Action   */ _DMW = false;	/* true or false */	/* "Debug" option on mousewheel */
 /*  Mod EPOCH ?           */ _MEH =  true;	/* true or false */
 /* ********************************************************************************* */
-/*  EXPERIMENTAL CU FIX   */					_CUF = true;	/* true or false */	/* will transfer serverside units (including mission AI) to clientside */
-/*  Humanity Value added  */					_CUF_HUMANITY_REWARD = 25;	/* Amount of Humanity added when Killing A.I. */
+/*  EXPERIMENTAL CU FIX   */					_CUF = false;	/* true or false */	/* will transfer serverside units (including mission AI) to clientside */
+/*  Humanity Value added  */					_CUF_HUMANITY_REWARD = 250;	/* Amount of Humanity added when Killing A.I. */
 /* CLEAR ALL ITEMS ON AI DEATH */			_CUF_REMOVE_ALL_ITEMS_ON_DEATH = true;
 /* _CUF_REMOVE_THESE_ITEMS_ON_DEATH -> CLEAR JUST THESE ITEMS ON AI DEATH */ 
-_CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
+_CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 [
 	'Stinger','NVGoggles',
 	''
 ];
+
+
+
+/*
+	Your server is getting attacked by local explosions? well on scriptbase we can not do much against that besides blocking the damage from it.
+	below you will find an array of damage sources from what the damage will be blocked
+*/
+_blockDamageFrom = [
+	'',	// This might also block fall damage, however since hackers create Bombs using "createVehicleLocal" it sometimes results in us seeing it on our client as '' nothing.
+	'SmallSecondary',	// also happens when a vehicle explodes
+	'HelicopterExploSmall','HelicopterExploBig',
+	'PipeBomb','TimeBomb',
+	'Mine','MineE',
+	'GrenadeHand','GrenadeHand_stone','grenadecore',
+	'B_30mm_HE','B_30mm_AP',
+	'R_57mm_HE','M_9M311_AA',
+	'M_AT2_AT','G_30mm_HE','M_AT5_AT','M_AT6_AT','M_AT9_AT','M_AT13_AT','B_23mm_AA','Bo_GBU12_LGB','Bo_FAB_250','G_Camel_HE','M_Ch29_AT','Sh_122_HE','Sh_125_SABOT','Sh_125_HE','R_Hydra_HE',
+	'B_30mmA10_AP','B_25mm_HE','R_GRAD','B_23mm_APHE','M_Hellfire_AT','M_Igla_AA','B_145x115_AP','Sh_105_HE','B_20mm_AA','B_20mm_AP','B_30x113mm_M789_HEDP','Sh_120_SABOT','Sh_120_HE',
+	'M_Maverick_AT','G_40mm_HE','Bo_Mk82','R_MLRS','M_R73_AA','R_80mm_HE','R_S8T_AT','M_Sidewinder_AA','M_Sidewinder_AA_F35','R_PG9_AT','R_OG9_HE','M_Stinger_AA','M_TOW_AT','M_TOW2_AT',
+	'M_Vikhr_AT','B_127x108_APHE','Sh_85_AP','Sh_85_HE','ARTY_Sh_122_HE','ARTY_Sh_122_WP','ARTY_Sh_105_HE','ARTY_Sh_105_WP','ARTY_Sh_81_HE','ARTY_Sh_81_WP','ARTY_Sh_82_HE','ARTY_Sh_82_WP',
+	'ARTY_R_227mm_HE_Rocket','ARTY_R_120mm_HE_Rocket'
+];
+
+
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
 /*  _timedif for _AHL     */ _TDI =    130;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
@@ -78,6 +102,7 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 /*  titleText & cutText   */ _TCT =  false;	/* true or false */	/* block titleText & cutText - some A.I. Missions and other mass message scripts needs this set to false */
 /*  unitRecoil checks     */ _URC =  true;	/* true or false */	/* checks unitRecoilCoefficient and resets default unitRecoilCoefficient */
 /*  Log Bad Keys pressed  */ _LBK = false;	/* true or false */	/* will be logged to surveillancelog.. can become huge spam I would have it disabled */
+/*  Punish Forbidden Keys */ _PBK =  false;	/* true or false */	/* will freeze the user on BadKey click for ~3 seconds! */
 /*  Forbid VON Sidechat   */ _VON =  true;	/* true or false */	/* talking on sidechat will put out a warning and kick if continue */
 /*  Use Chat Functions    */ _UCF =  true;	/* true or false */	/* Enables Chatfunctions like /dance */
 
@@ -95,13 +120,15 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 
 /*  Remove "itemsAdded"   */ _RAI =  false;	/* true or false */	/* might remove items from a custom crafting system.. */
 /*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
-/*  Max Cargo Count ?     */ _MCC =  650;
+/*  Max Cargo Count ?     */ _MCC =  3000;
 
 /*  MouseMoving EH check  */ _MOH =  true;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
+/*  check MapSingleClick  */ _OMC =  true;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
 /*  Remove Keybinds ?     */ _RCK =  true;	/* true or false */	/* Removes custom Keybinds and sets back the default ones */
-/*  Check CMDMenus ?      */ _CCM = true;	/* true or false */	/* only disable this if you know what you are doing. */
-/*  BLOCK ALL CMDMenus    */ _BCM = false;	/* true or false */	/* we don't need commandingMenus. so have this true. */
+/*  Check Keybinds ?      */ _CKD =  true;	/* true or false */	/* checks for additional keybinds.. */
+/*  Check CMDMenus ?      */ _CCM =  true;	/* true or false */	/* only disable this if you know what you are doing. I strongly recommend to use this! */
+/*  BLOCK ALL CMDMenus    */ _BCM =  true;	/* true or false */	/* we don't need commandingMenus. so have this true as well. */
 /*  Check Actions ?       */ _CSA = false;	/* true or false */	/* this checks mousewheel actions */
 /*  Force Terrain Grid ?  */ _FTG =    25;	/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 */
 /*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */ 
@@ -109,7 +136,6 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =[];
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
 _ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,666,667,65431,65432,65433,65434,65440,65441,65442,2800,3800,420000,420001];
 _ALLOWED_Dialogs = _ALLOWED_Dialogs + [81000,88890,20001,20002,20003,20004,20005,20006,55510,55511,55514,55515,55516,55517,55518,55519,555120,118338,118339,711197,711195]; // adding some others from community addons
-
 /*  Player that have one of these items in their inventory will get punished!  */
 _ForbiddenItems =
 [
@@ -210,9 +236,11 @@ _dayzActions =
 	"s_player_lockunlock","s_vehicle_lockunlock","s_player_toggleSnap","s_player_toggleSnapSelect","s_player_toggleSnapSelectPoint",
 	"s_player_evacCall","s_player_makeEvacChopper","s_player_clearEvacChopper",
 	"s_player_deploybike2","s_player_deploymoped","s_player_deploymoped2","s_player_deploymozzie","s_player_deploymozzie2",
-	"s_player249_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
+	"s_player1987_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
 	"s_player_setVectorsBack","s_player_setVectorsLeft","s_player_setVectorsRight","s_player_setVectors1","s_player_setVectors5","s_player_setVectors45",
-	"s_player_setVectors90","s_player_paint","DoorManagement","Entercode"
+	"s_player_setVectors90","s_player_paint","DoorManagement","Entercode","s_player_packtentinfected","s_player_debugCheck","s_player_destorytent",
+	"s_player_attach_bomb","s_player_upgradestroage","s_player_Drinkfromhands","s_player_lockhouse","s_player_unlockhouse","s_player_openGate",
+	"s_player_CloseGate","s_player_breakinhouse","s_player_setCode"
 ];
 /* ********************************************************************************* */
 	//	NEW (EXPERIMENTAL):
@@ -224,6 +252,10 @@ _dayzActions =
 	
 	/*
 		"_UIM": Use Incognito Mode, makes it for the most part look like you don't run infiSTAR to the normal player.
+		But for that it disables for example:
+		Script Scan, reworked unconscious, Bad Keybinds, The debugmonitor,
+		Escape Menu will be default again, Chatfunctions and more
+		So it will make the server more unsecure! but look like it's a default one.
 	*/
 	_UIM = false;	/* true or false */
 	
@@ -250,6 +282,10 @@ _dayzActions =
 		When "_BHF =  true;" which it always should be in my opinion, then this will check if "_BHF" is persistent.
 	*/
 	_FRC =  true;	/* true or false */
+	
+	
+	
+	
 /*
 	custom Box content:
 	just an item like it is in the example with   'ItemMap'   will put the item once in the box.
@@ -257,15 +293,64 @@ _dayzActions =
 */
 _SupportBox1Content =
 [
-	'ItemMap',['ItemGPS',5],'ItemWatch'
+	'ItemMap',['ItemGPS',3],'ItemWatch'
 ];
 
 _SupportBox2Content =
 [
-	'ItemMap',['ItemGPS',5],'ItemWatch'
+	'ItemMap',['ItemGPS',2],'ItemWatch'
 ];
 
 _SupportBox3Content =
 [
-	'ItemMap',['ItemGPS',5],'ItemWatch'
+	'ItemMap',['ItemGPS',7],'ItemWatch'
+];
+
+
+
+/*
+	custom Vault content (EPOCH ONLY), make sure to insert the Items in the right places :)
+*/
+//	Support-Vault1
+_weapons1 = [
+	['ItemToolbox','ItemEtool','ItemEtool'],
+	[1,1,1]
+];
+_magazines1 = [
+	['ItemWoodWallLg','ItemWoodFloorQuarter','ItemWoodStairs','ItemWoodWallWithDoorLgLocked','ItemWoodWallGarageDoorLocked','ItemLockBox','ItemVault','ItemSledgeHead','ItemSledgeHandle','30m_plot_kit','workbench_kit'],
+	[1,1,1,1,1,1,1,1,1,1,1]
+];
+_backpack1 = [
+	[],
+	[]
+];
+
+
+//	Support-Vault2
+_weapons2 = [
+	['ItemToolbox','ItemCrowbar','ItemEtool'],
+	[1,1,1]
+];
+_magazines2 = [
+	['ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit','30m_plot_kit','workbench_kit','cinder_wall_kit','MortarBucket','CinderBlocks','cinder_garage_kit','ItemTankTrap','ItemPole','ItemComboLock','ItemWoodLadder','ItemWoodStairs','metal_floor_kit'],
+	[1,1,1,1,1,1,15,10,30,2,6,6,2,3,8]
+];
+_backpack2 = [
+	['DZ_LargeGunBag_EP1'],
+	[1]
+];
+
+
+//	Support-Vault3
+_weapons3 = [
+	['ItemToolbox','ItemCrowbar','ItemEtool'],
+	[2,2,2]
+];
+_magazines3 = [
+	['30m_plot_kit','workbench_kit','cinder_wall_kit','MortarBucket','CinderBlocks','cinder_garage_kit','ItemComboLock','ItemWoodLadder','ItemPole','ItemTankTrap','ItemWoodStairs','metal_floor_kit','ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit'],
+	[1,1,15,15,50,4,4,4,12,12,6,15,2,2,2,2]
+];
+_backpack3 = [
+	['DZ_LargeGunBag_EP1'],
+	[1]
 ];
