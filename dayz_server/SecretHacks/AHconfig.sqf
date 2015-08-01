@@ -39,7 +39,7 @@ _SAdmins = [
 	"76561198002511087", // TempSniper
 	"76561198021389971", // Thirdhero
 	"76561197973172761",  // Milton
-	"76561198115492831",  //BigEgg
+	//"76561198115492831",  //BigEgg
 "0"
 ];
 
@@ -70,8 +70,6 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 	'Stinger','NVGoggles',
 	''
 ];
-
-
 
 /*
 	Your server is getting attacked by local explosions? well on scriptbase we can not do much against that besides blocking the damage from it.
@@ -125,10 +123,10 @@ _blockDamageFrom = [
 /*  MouseMoving EH check  */ _MOH =  true;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
 /*  check MapSingleClick  */ _OMC =  true;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
-/*  Remove Keybinds ?     */ _RCK =  true;	/* true or false */	/* Removes custom Keybinds and sets back the default ones */
-/*  Check Keybinds ?      */ _CKD =  true;	/* true or false */	/* checks for additional keybinds.. */
+/*  Remove Keybinds ?     */ _RCK =  false;	/* true or false */	/* Removes custom Keybinds and sets back the default ones */
+/*  Check Keybinds ?      */ _CKD =  false;	/* true or false */	/* checks for additional keybinds.. */
 /*  Check CMDMenus ?      */ _CCM =  true;	/* true or false */	/* only disable this if you know what you are doing. I strongly recommend to use this! */
-/*  BLOCK ALL CMDMenus    */ _BCM =  true;	/* true or false */	/* we don't need commandingMenus. so have this true as well. */
+/*  BLOCK ALL CMDMenus    */ _BCM =  false;	/* true or false */	/* we don't need commandingMenus. so have this true as well. */
 /*  Check Actions ?       */ _CSA = false;	/* true or false */	/* this checks mousewheel actions */
 /*  Force Terrain Grid ?  */ _FTG =    25;	/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 */
 /*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */ 
