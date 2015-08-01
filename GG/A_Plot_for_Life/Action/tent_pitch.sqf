@@ -1,5 +1,4 @@
 private ["_location","_isOk","_pondPos","_isPond","_dir","_dis","_sfx","_classname","_object","_playerPos","_item","_hastentitem","_building","_config","_text","_objectsPond","_playerUID"];
-//check if can pitch here
 call gear_ui_init;
 _playerPos = 	getPosATL player;
 _item = _this;
@@ -17,18 +16,13 @@ if (DZE_APlotforLife) then {
 	_OwnerUID = dayz_characterID;
 };
 
-//_isOk = true;
-
-//diag_log ("Pitch Tent: " + str(_isok) );
 
 _config = configFile >> "CfgMagazines" >> _item;
 _text = getText (_config >> "displayName");
 
 if (!_hastentitem) exitWith {cutText [format[(localize "str_player_31"),_text,"pitch"] , "PLAIN DOWN"]};
 
-//blocked
 if (["concrete",dayz_surfaceType] call fnc_inString) then { _isOk = true; diag_log ("surface concrete"); };
-//Block Tents in pounds
 _objectsPond = 		nearestObjects [_playerPos, [], 10];
 	{
 		_isPond = ["pond",str(_x),false] call fnc_inString;
@@ -40,19 +34,15 @@ _objectsPond = 		nearestObjects [_playerPos, [], 10];
 		};
 	} count _objectsPond;
 
-//diag_log ("Pitch Tent: " + str(_isok) );
-
 if (!_isOk) then {
-	//remove tentbag
 	player removeMagazine _item;
 	_dir = round(direction player);	
 	if ((getPlayerUID player) in admins) exitWith {	
 				_isOk = false;	
 				_proceed = true;	
-				systemChat "Admin Fast Build Mode"; // SystemChat If Wanted
+				systemChat "Admin Fast Build Mode";
 	};
 	[1,1] call dayz_HungerThirst;
-	//wait a bit
 	player playActionNow "Medic";
 	sleep 1;
 	
@@ -64,7 +54,6 @@ if (!_isOk) then {
 	_classname = 	getText (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Pitch" >> "create");
 
 	sleep 5;
-	//place tent (local)
 	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 	_object setdir _dir;
 	_object setpos _location;
@@ -74,7 +63,6 @@ if (!_isOk) then {
 	_object setVariable ["CharacterID",dayz_characterID,true];
 	_object setVariable ["ownerPUID",_OwnerUID,true];
 
-	//["PVDZE_obj_Publish",[dayz_characterID,_tent,[_dir,_location],_classname]] call callRpcProcedure;
 	PVDZE_obj_Publish = [dayz_characterID,_object,[_dir,_location, _playerUID],_classname];
 	publicVariableServer "PVDZE_obj_Publish";
 	

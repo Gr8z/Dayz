@@ -1,8 +1,3 @@
-/*
-	DayZ Lock Safe
-	Usage: [_obj] spawn player_unlockVault;
-	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_playerNear","_playerID","_claimedBy","_unlockedClass","_text","_nul","_objType","_characterID","_playerUID","_vector"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_21") , "PLAIN DOWN"]; };
@@ -22,7 +17,6 @@ if (!(_objType in DZE_LockedStorage)) exitWith {
 _playerNear = _obj call dze_isnearest_player;
 if(_playerNear) exitWith { DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_20") , "PLAIN DOWN"];  };
 
-// Silently exit if object no longer exists || alive
 if(isNull _obj || !(alive _obj)) exitWith { DZE_ActionInProgress = false; };
 
 _unlockedClass = getText (configFile >> "CfgVehicles" >> _objType >> "unlockedClass");
@@ -41,16 +35,12 @@ if (DZE_APlotforLife) then {
 
 if (_alreadyPacking == 1) exitWith {DZE_ActionInProgress = false; cutText [format[(localize "str_epoch_player_124"),_text], "PLAIN DOWN"]};
 
-// Prompt user for password if _ownerID != _playerUID
 if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 
-	// Check if any players are nearby if not allow player to claim item.
 	_playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]) > 1;
 	_playerID = [player] call FNC_GetPlayerUID;
-	
-	// Only allow if not already claimed.
+
 	if (_claimedBy == "0" || !_playerNear) then {
-		// Since item was not claimed proceed with claiming it.
 		_obj setVariable["claimed",_playerID,true];
 	};
 	
@@ -81,7 +71,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			sleep 5;
 
 			_holder = createVehicle [_unlockedClass,_pos,[], 0, "CAN_COLLIDE"];
-			// Remove locked vault
 			deleteVehicle _obj;
 			_holder setdir _dir;
 			_holder setVariable["memDir",_dir,true];
@@ -97,7 +86,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			_holder setVariable ["safeMoney", _safebank,true];
 
 			if (count _weapons > 0) then {
-				//Add weapons
 				_objWpnTypes = 	_weapons select 0;
 				_objWpnQty = 	_weapons select 1;
 				_countr = 0;
@@ -108,7 +96,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			};
 	
 			if (count _magazines > 0) then {
-				//Add Magazines
 				_objWpnTypes = _magazines select 0;
 				_objWpnQty = _magazines select 1;
 				_countr = 0;
@@ -122,7 +109,6 @@ if ((_characterID == dayz_combination) || (_ownerID == _playerUID)) then {
 			};
 
 			if (count _backpacks > 0) then {
-				//Add Backpacks
 				_objWpnTypes = _backpacks select 0;
 				_objWpnQty = _backpacks select 1;
 				_countr = 0;

@@ -1,9 +1,8 @@
 if(!DZE_ActionInProgress) exitWith {};
-//disallow building if required items (defined in config) are not found nearby
 private ["_abort","_reason","_distance","_needNear","_isNear","_pos"];
 
-_abort = false; //do not abort by default
-_reason = ""; // define to avoid RPT errors
+_abort = false;
+_reason = "";
 _needNear = getArray (configFile >> "CfgMagazines" >> DZE_buildItem >> "ItemActions" >> "Build" >> "neednearby");
 _pos = [player] call FNC_GetPos;
 {

@@ -1,7 +1,3 @@
-/*
-	DayZ Base Building Upgrades
-	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_location","_dir","_classname","_missing","_text","_proceed","_num_removed","_object","_missingQty","_itemIn","_countIn","_qty","_removed","_removed_total","_tobe_removed_total","_objectID","_objectUID","_temp_removed_array","_textMissing","_newclassname","_requirements","_obj","_upgrade","_lockable","_combination_1","_combination_2","_combination_3","_combination","_objectCharacterID","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_distance","_needText","_findNearestPoles","_findNearestPole","_IsNearPlot","_playerUID","_vector"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_52") , "PLAIN DOWN"]; };
@@ -14,7 +10,6 @@ s_player_upgrade_build = 1;
 _distance = 30;
 _needText = localize "str_epoch_player_246";
 
-// check for near plot
 _findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
 _findNearestPole = [];
 
@@ -32,10 +27,8 @@ if(_IsNearPlot == 0) then {
 	_canBuildOnPlot = true;
 } else {
 	
-	// check nearby plots ownership && then for friend status
 	_nearestPole = _findNearestPole select 0;
 
-	// Find owner 
 	_ownerID = _nearestPole getVariable["ownerPUID","0"];
 	
 	if (DZE_APlotforLife) then {
@@ -44,9 +37,6 @@ if(_IsNearPlot == 0) then {
 		_playerUID = dayz_characterID;
 	};
 
-	// diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
-
-	// check if friendly to owner
 	if(_playerUID == _ownerID) then {
 		_canBuildOnPlot = true;		
 	} else {
@@ -57,34 +47,26 @@ if(_IsNearPlot == 0) then {
 			  _fuid  =  _fuid  + [_friendUID];
 		} forEach _friendlies;
 		_builder  = getPlayerUID player;
-		// check if friendly to owner
 		if(_builder in _fuid) then {
 			_canBuildOnPlot = true;
 		};  
 	};
 };
 
-// exit if not allowed due to plot pole
 if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "str_epoch_player_157"),_needText,_distance] , "PLAIN DOWN"]; };
 
-// get cursortarget from addaction
 _obj = _this select 3;
 
-// Find objectID
 _objectID 	= _obj getVariable ["ObjectID","0"];
 
-// Find objectUID
 _objectUID	= _obj getVariable ["ObjectUID","0"];
 
 if(_objectID == "0" && _objectUID == "0") exitWith {DZE_ActionInProgress = false; s_player_upgrade_build = -1; cutText [(localize "str_epoch_player_50"), "PLAIN DOWN"];};
 
-// Get classname
 _classname = typeOf _obj;
 
-// Find display name
 _text = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
 
-// Find next upgrade
 _upgrade = getArray (configFile >> "CfgVehicles" >> _classname >> "upgradeBuilding");
 
 if ((count _upgrade) > 0) then {
@@ -123,7 +105,6 @@ if ((count _upgrade) > 0) then {
 			_removed = 0;
 			_itemIn = _x select 0;
 			_countIn = _x select 1;
-			// diag_log format["Recipe Finish: %1 %2", _itemIn,_countIn];
 			_tobe_removed_total = _tobe_removed_total + _countIn;
 
 			{					
@@ -140,38 +121,28 @@ if ((count _upgrade) > 0) then {
 
 		} forEach _requirements;
 
-		// all parts removed proceed
 		if (_tobe_removed_total == _removed_total) then {
 			
-			// Get position
 			_location	= _obj getVariable["OEMPos",(getposATL _obj)];
 
-			// Get direction
 			_dir = getDir _obj;
 			
-			// Get vector
 			_vector = [(vectorDir _obj),(vectorUp _obj)];	
 
-			// Current charID
 			_objectCharacterID 	= _obj getVariable ["CharacterID","0"];
 			_ownerID = _obj getVariable["ownerPUID","0"];
 
 			_classname = _newclassname;
 			
-			// Create new object 
 			_object = createVehicle [_classname, [0,0,0], [], 0, "CAN_COLLIDE"];
 
-			// Set direction
 			_object setDir _dir;
 			_object setVariable["memDir",_dir,true];
 			
-			// Set vector
 			_object setVectorDirAndUp _vector;
 
-			// Set location
 			_object setPosATL _location;
 
-			// Set Owner.
 			_object setVariable ["ownerPUID",_ownerID,true];
 
 			if (_lockable == 3) then {

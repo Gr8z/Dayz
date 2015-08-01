@@ -1,5 +1,3 @@
-// Check Ownership by RimBlock (http://epochmod.com/forum/index.php?/user/12612-rimblock/)
-
 private ["_player","_object","_playerUID","_ownerUID","_ObjectOwner","_owner","_friendlies","_friendly","_return"];
 
 _player = _this select 0;

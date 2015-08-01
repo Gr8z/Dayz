@@ -1,6 +1,5 @@
 private ["_passArray","_cancel","_position","_reason","_classnametmp","_classname","_tmpbuilt","_dir","_location","_text","_limit","_isOk","_proceed","_counter","_dis","_sfx","_started","_finished","_animState","_isMedic","_num_removed","_lockable","_combinationDisplay","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_playerUID","_OwnerUID","_vector","_buildOffset","_vUp"];
 
-//defines
 _cancel = _this select 0;
 _position = _this select 1;
 _classnametmp = _this select 2;
@@ -27,7 +26,6 @@ _proceed = false;
 _counter = 0;
 _location = [0,0,0];
 
-//No building on roads unless toggled
 if (!DZE_BuildOnRoads) then {
 	if (isOnRoad _position) then {
 		_cancel = true;
@@ -35,7 +33,6 @@ if (!DZE_BuildOnRoads) then {
 	};
 };
 
-// No building in trader zones
 if(!canbuild) then {
 	_cancel = true;
 	_reason = "Cannot build in a city.";
@@ -45,17 +42,15 @@ if(!_cancel) then {
 
 	_classname = _classnametmp;
 
-	// Start Build
-	_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"]; //create actual object that will be published to database
+	_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 
-	_tmpbuilt setdir _dir; //set direction inherited from passed args from control
+	_tmpbuilt setdir _dir;
 	_tmpbuilt setVariable["memDir",_dir,true];
 	
-	// Get position based on object
 	_location = _position;
 
-	if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then { //check Z axis if not allowed to build underground
-		_location set [2,0]; //reset Z axis to zero (above terrain)
+	if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then {
+		_location set [2,0];
 	};
 
 	_tmpbuilt setVectorDirAndUp _vector;
@@ -74,16 +69,16 @@ if(!_cancel) then {
 	
 	if (surfaceIsWater _location) then {
 		_tmpbuilt setPosASL _location;
-		_location = ASLtoATL _location; //Database uses ATL
+		_location = ASLtoATL _location;
 	} else {
 		_tmpbuilt setPosATL _location;
 	};
 
 	cutText [format[(localize "str_epoch_player_138"),_text], "PLAIN DOWN"];
 
-	_limit = 3; //times it takes to build by default
+	_limit = 3;
 
-	if (DZE_StaticConstructionCount > 0) then { //if count is manually overridden inside init.sqf, use that instead, else use limits configured in config files
+	if (DZE_StaticConstructionCount > 0) then {
 		_limit = DZE_StaticConstructionCount;
 	}
 	else {
@@ -92,12 +87,11 @@ if(!_cancel) then {
 		};
 	};
 
-	while {_isOk} do { //publish phase
+	while {_isOk} do {
 
 		[10,10] call dayz_HungerThirst;
-		player playActionNow "Medic"; //animation
-		
-		//alert zombies
+		player playActionNow "Medic";
+
 		_dis=20;
 		_sfx = "repair";
 		[player,_sfx,0,false,_dis] call dayz_zombieSpeak;
@@ -108,7 +102,7 @@ if(!_cancel) then {
 		_started = false;
 		_finished = false;
 
-		while {r_doLoop} do { //while player is not interrupted, go trough animations
+		while {r_doLoop} do {
 			_animState = animationState player;
 			_isMedic = ["medic",_animState] call fnc_inString;
 			if (_isMedic) then {
@@ -129,18 +123,18 @@ if(!_cancel) then {
 		r_doLoop = false;
 
 
-		if(!_finished) exitWith { //exit if interrupted
+		if(!_finished) exitWith {
 			_isOk = false;
 			_proceed = false;
 		};
 
-		if(_finished) then { //if animation finished, add to build count
+		if(_finished) then {
 			_counter = _counter + 1;
 		};
 
-		cutText [format[(localize "str_epoch_player_139"),_text, _counter,_limit], "PLAIN DOWN"]; //report how many steps are done out of total limit
+		cutText [format[(localize "str_epoch_player_139"),_text, _counter,_limit], "PLAIN DOWN"];
 
-		if(_counter == _limit) exitWith { //if all steps done proceed with next step, otherwise cancel publish
+		if(_counter == _limit) exitWith {
 			_isOk = false;
 			_proceed = true;
 		};
@@ -149,21 +143,21 @@ if(!_cancel) then {
 
 	if (_proceed) then {
 
-		_num_removed = ([player,DZE_buildItem] call BIS_fnc_invRemove); //remove item's magazine from inventory
+		_num_removed = ([player,DZE_buildItem] call BIS_fnc_invRemove);
 		if(_num_removed == 1) then {
 
 			cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 
-			_tmpbuilt setVariable ["OEMPos",_location,true]; //store original location as a variable
+			_tmpbuilt setVariable ["OEMPos",_location,true];
 
-			if(_lockable > 1) then { //if item has code lock on it
+			if(_lockable > 1) then {
 
-				_combinationDisplay = ""; //define new display
+				_combinationDisplay = "";
 
-				switch (_lockable) do { //generate random combinations depending on item type
+				switch (_lockable) do {
 
-					case 2: { // 2 lockbox
-						_combination_1 = (floor(random 3)) + 100; // 100=red,101=green,102=blue
+					case 2: {
+						_combination_1 = (floor(random 3)) + 100;
 						_combination_2 = floor(random 10);
 						_combination_3 = floor(random 10);
 						_combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
@@ -180,7 +174,7 @@ if(!_cancel) then {
 						_combinationDisplay = format["%1%2%3",_combination_1_Display,_combination_2,_combination_3];
 					};
 
-					case 3: { // 3 combolock
+					case 3: {
 						_combination_1 = floor(random 10);
 						_combination_2 = floor(random 10);
 						_combination_3 = floor(random 10);
@@ -189,7 +183,7 @@ if(!_cancel) then {
 						_combinationDisplay = _combination;
 					};
 
-					case 4: { // 4 safe
+					case 4: {
 						_combination_1 = floor(random 10);
 						_combination_2 = floor(random 10);
 						_combination_3 = floor(random 10);
@@ -203,19 +197,17 @@ if(!_cancel) then {
 				_tmpbuilt setVariable ["CharacterID",_combination,true];
 				_tmpbuilt setVariable ["ownerPUID",_OwnerUID,true];
 				
-				//call publish precompiled function with given args and send public variable to server to save item to database
 				PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location,_playerUID,_vector],_classname];
 				publicVariableServer "PVDZE_obj_Publish";
 
 				cutText [format[(localize "str_epoch_player_140"),_combinationDisplay,_text], "PLAIN DOWN", 5]; //display new combination
 
 
-			} else { //if not lockable item
+			} else {
 				_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
 				_tmpbuilt setVariable ["ownerPUID",_OwnerUID,true];
 
-				// fire?
-				if(_tmpbuilt isKindOf "Land_Fire_DZ") then { //if campfire, then spawn, but do not publish to database
+				if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
 					_tmpbuilt spawn player_fireMonitor;
 				} else {
 					
@@ -223,12 +215,12 @@ if(!_cancel) then {
 					publicVariableServer "PVDZE_obj_Publish";
 				};
 			};
-		} else { //if magazine was not removed, cancel publish
+		} else {
 			deleteVehicle _tmpbuilt;
 			cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 		};
 
-	} else { //if player was interrupted, cancel publish and stop build animations
+	} else {
 		r_interrupt = false;
 		if (vehicle player == player) then {
 			[objNull, player, rSwitchMove,""] call RE;
@@ -240,8 +232,8 @@ if(!_cancel) then {
 		cutText [(localize "str_epoch_player_46") , "PLAIN DOWN"];
 	};
 
-} else { //cancel build if passed _cancel arg was true or building on roads/trader city
+} else {
 	cutText [format[(localize "str_epoch_player_47"),_text,_reason], "PLAIN DOWN"];
 };
 
-DZE_ActionInProgress = false; //in any case always finish last function with this to "reset" everything.
+DZE_ActionInProgress = false;

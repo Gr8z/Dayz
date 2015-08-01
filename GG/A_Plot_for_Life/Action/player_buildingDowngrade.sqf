@@ -1,7 +1,3 @@
-/*
-	DayZ Base Building Upgrades
-	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_location","_dir","_classname","_text","_object","_objectID","_objectUID","_newclassname","_refund","_obj","_upgrade","_objectCharacterID","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_distance","_needText","_findNearestPoles","_findNearestPole","_IsNearPlot","_i","_invResult","_itemOut","_countOut","_abortInvAdd","_addedItems","_playerUID","_vector"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_48") , "PLAIN DOWN"]; };
@@ -19,7 +15,6 @@ if (DZE_APlotforLife) then {
 	_playerUID = dayz_characterID;
 };
 
-// check for near plot
 _findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
 _findNearestPole = [];
 
@@ -37,15 +32,10 @@ if(_IsNearPlot == 0) then {
 	_canBuildOnPlot = true;
 } else {
 
-	// check nearby plots ownership && then for friend status
 	_nearestPole = _findNearestPole select 0;
 
-	// Find owner
 	_ownerID = _nearestPole getVariable["ownerPUID","0"];
 
-	// diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID];
-
-	// check if friendly to owner
 	if(_playerUID == _ownerID) then {
 		_canBuildOnPlot = true;
 	} else {
@@ -56,40 +46,31 @@ if(_IsNearPlot == 0) then {
 			  _fuid  =  _fuid  + [_friendUID];
 		} forEach _friendlies;
 		_builder  = getPlayerUID player;
-		// check if friendly to owner
 		if(_builder in _fuid) then {
 			_canBuildOnPlot = true;
 		}; 
 	};
 };
 
-// exit if not allowed due to plot pole
 if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[(localize "str_epoch_player_141"),_needText,_distance] , "PLAIN DOWN"]; };
 
-// get cursortarget from addaction
 _obj = _this select 3;
 
-// Current charID
 _objectCharacterID 	= _obj getVariable ["CharacterID","0"];
 _ownerID = _obj getVariable["ownerPUID","0"];
 
 if(DZE_Lock_Door != _objectCharacterID) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_49") , "PLAIN DOWN"]; };
 
-// Find objectID
 _objectID 	= _obj getVariable ["ObjectID","0"];
 
-// Find objectUID
 _objectUID	= _obj getVariable ["ObjectUID","0"];
 
 if(_objectID == "0" && _objectUID == "0") exitWith {DZE_ActionInProgress = false; s_player_upgrade_build = -1; cutText [(localize "str_epoch_player_50"), "PLAIN DOWN"];};
 
-// Get classname
 _classname = typeOf _obj;
 
-// Find display name
 _text = getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
 
-// Find next upgrade
 _upgrade = getArray (configFile >> "CfgVehicles" >> _classname >> "downgradeBuilding");
 
 if ((count _upgrade) > 0) then {
@@ -125,19 +106,14 @@ if ((count _upgrade) > 0) then {
 
 	} count _refund;
 
-	// all parts added proceed
 	if(_i != 0) then {
 
-		// Get position
 		_location	= _obj getVariable["OEMPos",(getposATL _obj)];
 
-		// Get direction
 		_dir = getDir _obj;
 		
-		// Get vector
 		_vector = [(vectorDir _obj),(vectorUp _obj)];
 		
-		// Reset the character ID on locked doors before they inherit the newclassname
 		if (_classname in DZE_DoorsLocked) then {
 			_obj setVariable ["CharacterID",dayz_characterID,true];
 			_objectCharacterID = dayz_characterID;
@@ -145,23 +121,16 @@ if ((count _upgrade) > 0) then {
 
 		_classname = _newclassname;
 
-		// Create new object
 		_object = createVehicle [_classname, [0,0,0], [], 0, "CAN_COLLIDE"];
 
-		// Set direction
 		_object setDir _dir;
 		_object setVariable["memDir",_dir,true];
 		
-		// Set vector
 		_object setVectorDirAndUp _vector;
 		
-		// Set location
 		_object setPosATL _location;
 
-		// Set Owner.
 		_object setVariable ["ownerPUID",_ownerID,true];
-
-		//diag_log format["Player_buildingdowngrade: [newclassname: %1] [_ownerID: %2] [_objectCharacterID: %2]",_newclassname, _ownerID, _objectCharacterID];
 
 		cutText [format[(localize "str_epoch_player_142"),_text], "PLAIN DOWN", 5];
 

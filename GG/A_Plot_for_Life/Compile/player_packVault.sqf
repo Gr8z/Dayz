@@ -1,6 +1,3 @@
-/*
-[_obj] spawn player_packVault;
-*/
 private ["_activatingPlayer","_obj","_ownerID","_objectID","_objectUID","_alreadyPacking","_location1","_location2","_dir","_pos","_bag","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_packedClass","_text","_playerNear","_playerUID","_combination"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_15") , "PLAIN DOWN"]; };
@@ -13,8 +10,6 @@ _obj = _this;
 _packedClass = getText (configFile >> "CfgVehicles" >> (typeOf _obj) >> "packedClass");
 _text = 		getText (configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
 
-
-// Silently exit if object no longer exists
 if(isNull _obj || !(alive _obj)) exitWith { DZE_ActionInProgress = false; };
 
 _playerNear = _obj call dze_isnearest_player;
@@ -71,29 +66,22 @@ if(!isNull _obj && alive _obj) then {
 	_magazines = 	getMagazineCargo _obj;
 	_backpacks = 	getBackpackCargo _obj;
 	
-	// Remove from database
 	PVDZE_obj_Delete = [_objectID,_objectUID,_activatingPlayer];
 	publicVariableServer "PVDZE_obj_Delete";
 	
-	// Set down vault "take" item
 	_bag = createVehicle [_packedClass,_pos,[], 0, "CAN_COLLIDE"];
 	
-	// Delete original
 	deleteVehicle _obj;
 
 	_bag setdir _dir;
 	_bag setposATL _pos;
 	player reveal _bag;
-
-	// Empty weapon holder 
 	_holder = _bag;
-	
-	// add seed item
+
 	_itemOut = getText(configFile >> "CfgVehicles" >> _packedClass >> "seedItem");
 	_countOut = 1;
 	_holder addMagazineCargoGlobal[_itemOut, _countOut];
 	
-	//Add weapons
 	_objWpnTypes = 	_weapons select 0;
 	_objWpnQty = 	_weapons select 1;
 	_countr = 0;
@@ -102,7 +90,6 @@ if(!isNull _obj && alive _obj) then {
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
-	//Add Magazines
 	_objWpnTypes = _magazines select 0;
 	_objWpnQty = _magazines select 1;
 	_countr = 0;
@@ -111,7 +98,6 @@ if(!isNull _obj && alive _obj) then {
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 
-	//Add Backpacks
 	_objWpnTypes = _backpacks select 0;
 	_objWpnQty = _backpacks select 1;
 	_countr = 0;

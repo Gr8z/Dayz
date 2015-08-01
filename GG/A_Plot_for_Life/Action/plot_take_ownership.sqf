@@ -5,8 +5,6 @@ _plotpole = nearestobject [(vehicle player),"Plastic_Pole_EP1_DZ"];
 
 _playerUID = [player] call FNC_GetPlayerUID;
 
-// Check is owner of the plot pole.
-
 _isowner = [player, _plotpole] call FNC_check_owner;
 _itemsExist = false;
 

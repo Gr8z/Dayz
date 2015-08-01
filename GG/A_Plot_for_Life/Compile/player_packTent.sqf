@@ -1,6 +1,4 @@
-/*
-[_obj] spawn player_packTent;
-*/
+
 private ["_activatingPlayer","_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_object","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_dis","_sfx","_classname","_location","_playerUID"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_13") , "PLAIN DOWN"]; };
@@ -56,8 +54,6 @@ if(!isNull _obj && alive _obj) then {
 		_location set [2,0];
 	};
 
-	//place tent (local)
-	//_bag = createVehicle ["WeaponHolder_ItemTent",_pos,[], 0, "CAN_COLLIDE"];
 	_object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 	_object setdir _dir;
 	_object setposATL _pos;
@@ -77,8 +73,7 @@ if(!isNull _obj && alive _obj) then {
 		PVDZE_obj_Delete = [_objectID,_objectUID,_activatingPlayer];
 		publicVariableServer "PVDZE_obj_Delete";
 	};
-	
-	//Add weapons
+
 	_objWpnTypes = 	_weapons select 0;
 	_objWpnQty = 	_weapons select 1;
 	_countr = 0;
@@ -87,7 +82,6 @@ if(!isNull _obj && alive _obj) then {
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
-	//Add Magazines
 	_objWpnTypes = _magazines select 0;
 	_objWpnQty = _magazines select 1;
 	_countr = 0;
@@ -96,7 +90,6 @@ if(!isNull _obj && alive _obj) then {
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 
-	//Add Backpacks
 	_objWpnTypes = _backpacks select 0;
 	_objWpnQty = _backpacks select 1;
 	_countr = 0;

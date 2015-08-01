@@ -1,8 +1,3 @@
-/*
-	DayZ Lock Safe
-	Usage: [_obj] spawn player_unlockVault;
-	Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_alreadyPacking","_lockedClass","_text","_playerNear","_characterID","_PlayerUID","_vector","_inventoryCHK","_inventory"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_10") , "PLAIN DOWN"]; };
@@ -17,7 +12,6 @@ _objType = typeOf _obj;
 _lockedClass = getText (configFile >> "CfgVehicles" >> _objType >> "lockedClass");
 _text = 		getText (configFile >> "CfgVehicles" >> _objType >> "displayName");
 
-// Silently exit if object no longer exists
 if(isNull _obj) exitWith { DZE_ActionInProgress = false; };
 _inventoryCHK = str([getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj]);
 [1,1] call dayz_HungerThirst;
@@ -55,7 +49,6 @@ if(!isNull _obj) then {
 	PVDZE_log_lockUnlock = [player, _obj,true];
 	publicVariableServer "PVDZE_log_lockUnlock";
 
-	//place vault
 	_holder = createVehicle [_lockedClass,_pos,[], 0, "CAN_COLLIDE"];
 	_holder setdir _dir;
 	_holder setVariable["memDir",_dir,true];
@@ -74,11 +67,9 @@ if(!isNull _obj) then {
 	_backpacks = 	getBackpackCargo _obj;
 	_safebank =		_obj getVariable["safeMoney","0"];
 	
-	// remove vault
 	_inventory = [getWeaponCargo _obj, getMagazineCargo _obj, getBackpackCargo _obj,_safebank];
 	deleteVehicle _obj;
 
-	// Fill variables with loot
 	_holder setVariable ["WeaponCargo", _weapons, true];
 	_holder setVariable ["MagazineCargo", _magazines, true];
 	_holder setVariable ["BackpackCargo", _backpacks, true];

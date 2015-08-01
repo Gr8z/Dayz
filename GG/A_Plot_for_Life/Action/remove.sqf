@@ -1,7 +1,3 @@
-/*
-delete object from db with extra waiting by [VB]AWOL
-parameters: _obj
-*/
 private ["_activatingPlayer","_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPoles","_findNearestPole","_IsNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable","_objOwnerID","_isOwnerOfObj","_preventRefund","_ipos","_item","_radius","_isWreckBuilding","_nameVehicle","_isModular","_playerUID"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_88") , "PLAIN DOWN"]; };
@@ -72,10 +68,8 @@ if(_IsNearPlot >= 1) then {
 
 	_nearestPole = _findNearestPole select 0;
 
-	// Find owner
 	_ownerID = _nearestPole getVariable["ownerPUID","0"];
 
-	// check if friendly to owner
 	if(_playerUID != _ownerID) then {
 		_friendlies = _nearestPole getVariable ["plotfriends",[]];
 		_fuid  = [];
@@ -84,7 +78,6 @@ if(_IsNearPlot >= 1) then {
 			  _fuid  =  _fuid  + [_friendUID];
 		} forEach _friendlies;
 		_builder  = getPlayerUID player;
-		// check if friendly to owner
 		if(!(_ownerID in _fuid)) then {
 			_limit = round(_limit*2);
 		};
@@ -96,20 +89,16 @@ _nameVehicle = getText(configFile >> "CfgVehicles" >> _objType >> "displayName")
 cutText [format[(localize "str_epoch_player_162"),_nameVehicle], "PLAIN DOWN"];
 
 if (_isModular) then {
-     //allow previous cutText to show, then show this if modular.
      cutText [(localize "STR_EPOCH_ACTIONS_21"), "PLAIN DOWN"];
 };
 
-// Alert zombies once.
 [player,50,true,(getPosATL player)] spawn player_alertZombies;
 
 _brokenTool = false;
 
-// Start de-construction loop
 _counter = 0;
 while {_isOk} do {
 
-	// if object no longer exits this should return true.
 	if(isNull(_obj)) exitWith {
 		_isOk = false;
 		_proceed = false;
@@ -152,7 +141,6 @@ while {_isOk} do {
 
 	if(_finished) then {
 		_counter = _counter + 1;
-		// 10% chance to break a required tool each pass
 		if((_isDestructable || _isRemovable) && !_isOwnerOfObj) then {
 			if((random 10) <= 1) then {
 				_brokenTool = true;
@@ -184,10 +172,8 @@ if(_brokenTool) then {
 	};
 };
 
-// Remove only if player waited
 if (_proceed) then {
 
-	// Double check that object is not null
 	if(!isNull(_obj)) then {
 
 		_ipos = getPosATL _obj;
@@ -205,7 +191,6 @@ if (_proceed) then {
 
 		_selectedRemoveOutput = [];
 		if(_isWreck) then {
-			// Find one random part to give back
 			_refundpart = ["PartEngine","PartGeneric","PartFueltank","PartWheel","PartGlass","ItemJerrycan"] call BIS_fnc_selectRandom;
 			_selectedRemoveOutput set [count _selectedRemoveOutput,[_refundpart,1]];
 		} else {
@@ -236,7 +221,6 @@ if (_proceed) then {
 			};
 		};
 
-		// give refund items
 		if((count _selectedRemoveOutput) > 0 && !_preventRefund) then {
 			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 			{
