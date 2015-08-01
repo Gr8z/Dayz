@@ -57,6 +57,8 @@ _loot_lists = [
 ];
 _loot = _loot_lists call BIS_fnc_selectRandom;
  
+waitUntil {!isNil "DZMSStatLocs"}; 
+ 
 _loot_amount = 75;
 _wait_time = 300; 
  
