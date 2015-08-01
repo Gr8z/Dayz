@@ -3,12 +3,6 @@ private ["_veh","_location","_isOk","_part_out","_part_in","_qty_out","_qty_in",
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
-// Test cannot lock while another player is nearby
-//_playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 12]) > 1;
-//if(_playerNear) exitWith { DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_104") , "PLAIN DOWN"];  };
-
-// [part_out,part_in, qty_out, qty_in, loc];
-
 _activatingPlayer = player;
 
 _part_out = (_this select 3) select 0;
@@ -22,7 +16,6 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	//_qty = {_x == _part_in} count magazines player;
 	_qty = player getVariable ["cashMoney",0]; // get your money variable	
 } else {
 	_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
@@ -54,7 +47,6 @@ if (_qty >= _qty_in) then {
 
 		// Double check for items
 		if(_buy_o_sell == "buy") then {
-			//_qty = {_x == _part_in} count magazines player;
 			_qty = player getVariable ["cashMoney",0]; // get your money variable	
 		} else {
 			_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
@@ -63,17 +55,12 @@ if (_qty >= _qty_in) then {
 
 		if (_qty >= _qty_in) then {
 
-			//["PVDZE_obj_Trade",[_activatingPlayer,_traderID,_bos]] call callRpcProcedure;
 			if (isNil "_obj") then { _obj = "Unknown Vehicle" };
 			if (isNil "inTraderCity") then { inTraderCity = "Unknown Trader City" };
 			PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_obj,inTraderCity];
 			publicVariableServer  "PVDZE_obj_Trade";
 	
-			//diag_log format["DEBUG Starting to wait for answer: %1", PVDZE_obj_Trade];
-
 			waitUntil {!isNil "dayzTradeResult"};
-
-			//diag_log format["DEBUG Complete Trade: %1", dayzTradeResult];
 
 			if(dayzTradeResult == "PASS") then {
 
@@ -94,19 +81,12 @@ if (_qty >= _qty_in) then {
 					_isOk = [player,_config] call BIS_fnc_invAdd;
 					waitUntil {!isNil "_isOk"};
 					if (_isOk and _isKeyOK) then {
-					
-						//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
-						
-						_qtychange = _qty - _qty_in;
+					_qtychange = _qty - _qty_in;
 					player setVariable ["cashMoney", _qtychange , true];
 					_newM = player getVariable ["cashMoney",0];
-					//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
-					
-					_removed = _qty - _newM; // 
-					
-						systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out, CurrencyName];
-						
-						
+					_removed = _qty - _newM; // 					
+					systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out, CurrencyName];
+									
 						if(_removed == _qty_in) then {
 							_dir = round(random 360);
 
@@ -122,7 +102,7 @@ if (_qty >= _qty_in) then {
 
 							_location = (getPosATL _veh);
 					
-							//["PVDZE_veh_Publish",[_veh,[_dir,_location],_part_out,false,_keySelected]] call callRpcProcedure;
+							
 							PVDZE_veh_Publish2 = [_veh,[_dir,_location],_part_out,false,_keySelected,_activatingPlayer];
 							publicVariableServer  "PVDZE_veh_Publish2";
 
@@ -177,7 +157,7 @@ if (_qty >= _qty_in) then {
 } else {
 	_needed =  _qty_in - _qty;
 	if(_buy_o_sell == "buy") then {
-		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"]; // edited so it says, You need 5000 coins or you need 1 engine.
+		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"]; 
 	} else {
 		cutText [format[(localize "str_epoch_player_185"),_textPartIn] , "PLAIN DOWN"];
 	};

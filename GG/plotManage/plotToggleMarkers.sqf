@@ -1,10 +1,8 @@
-//Zero Remorse, big thanks to their scripter for this!
 private ["_speed","_density","_model","_thePlot","_center","_radius","_angle","_count","_axis","_obj","_idx","_a","_b"];
 //-----------------------------------------------------------------------------------------
 _speed = 4;			// multiplier for speed of sphere rotation/wobble
 _density = 3;		// density of markers per ring
 _model = "Sign_sphere100cm_EP1";	// marker model to use on rings
-// Possible ones to use ::	Sign_sphere10cm_EP1  Sign_sphere25cm_EP1  Sign_sphere100cm_EP1 
 //-----------------------------------------------------------------------------------------
 //
 _thePlot = (nearestObjects [player, ["Plastic_Pole_EP1_DZ"],15]) select 0;
@@ -74,8 +72,4 @@ if ((isNil "PP_Marks") && (!_obj)) then {
 		//----------------------------------------------------------------------------
 		_angle = _angle + (360/_count);
 	};
-	//--------------------------------------------------------------------------------
-	//--------------------------------------------------------------------------------
 };
-//------------------------------------------------------------------------------------
-//------------------------------------------------------------------------------------

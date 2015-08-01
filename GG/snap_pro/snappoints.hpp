@@ -1,8 +1,3 @@
-/*
-Created by Raymix
-*/
-
-
 class SnapBuilding {
 	//Barriers whitelist
 	class Barrier {

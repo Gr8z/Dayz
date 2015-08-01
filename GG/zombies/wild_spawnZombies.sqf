@@ -15,8 +15,6 @@ _agent = 	objNull;
 
 _type = _unitTypes call BIS_fnc_selectRandom;
 
-//Create the Group && populate it
-//diag_log ("Spawned: " + _type);
 _radius = 40;
 _method = "NONE";
 
@@ -25,8 +23,6 @@ _position = [_player,120,200,10,0,0,0] call BIS_fnc_findSafePos;
 _agent = createAgent [_type, _position, [], _radius, _method];
 
 if (_doLoiter) then {
-	//_agent setPosATL _position;
-	//_agent setVariable ["doLoiter",true,true];
 	_agent setDir round(random 180);
 };
 

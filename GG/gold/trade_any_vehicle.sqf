@@ -3,12 +3,6 @@ private ["_veh","_location","_isOk","_part_out","_part_in","_qty_out","_qty_in",
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
-// Test cannot lock while another player is nearby
-//_playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 12]) > 1;
-//if(_playerNear) exitWith { DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_104") , "PLAIN DOWN"];  };
-
-// [part_out,part_in, qty_out, qty_in, loc];
-
 _activatingPlayer = player;
 
 _part_out = (_this select 3) select 0;
@@ -71,7 +65,7 @@ if (_qty >= _qty_in) then {
 
 		if (_qty >= _qty_in) then {
 
-			//["PVDZE_obj_Trade",[_activatingPlayer,_traderID,_bos]] call callRpcProcedure;
+			
 			if (isNil "_obj") then { _obj = "Unknown Vehicle" };
 			if (isNil "inTraderCity") then { inTraderCity = "Unknown Trader City" };
 			PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_obj,inTraderCity];
@@ -128,8 +122,6 @@ if (_qty >= _qty_in) then {
 							_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
 
 							_location = (getPosATL _veh);
-
-							//["PVDZE_veh_Publish",[_veh,[_dir,_location],_part_out,false,_keySelected]] call callRpcProcedure;
 							PVDZE_veh_Publish2 = [_veh,[_dir,_location],_part_out,false,_keySelected,_activatingPlayer];
 							publicVariableServer  "PVDZE_veh_Publish2";
 						
@@ -213,7 +205,7 @@ if (_qty >= _qty_in) then {
 } else {
 	_needed =  _qty_in - _qty;
 	if(_buy_o_sell == "buy") then {
-		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"]; // edited so it says, You need 5000 coins or you need 1 engine.
+		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"];
 	} else {
 		cutText [format[(localize "str_epoch_player_185"),_textPartIn] , "PLAIN DOWN"];
 	};	

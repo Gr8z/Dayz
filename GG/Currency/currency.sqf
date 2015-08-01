@@ -1,7 +1,4 @@
-/*
-	Zupa's Single Currency manipulation addon by Rocu
-	Add/remove currency to player's inventory/bank
-*/
+
 private ["_dialog"];
 _sc_lmax = 10; 
 sc_snext = false; 
@@ -24,7 +21,6 @@ sc_pselect = "";
 } forEach (entities "LandVehicle" + entities "Air" + entities "Ship");
 
 currencyTarget = "";
-//currencyTarget = player; // For debug purposes, applies only to self
 
 sc_menu =
 {
@@ -66,7 +62,6 @@ if (sc_pselect != "exit") then
 		};
 	} forEach entities "CAManBase";
 	
-	//if (currencyTarget == "") then {
 		{
 			if ((count crew _x) > 0) then {
 				{
@@ -76,11 +71,7 @@ if (sc_pselect != "exit") then
 				} forEach crew _x;
 			};
 		} forEach (entities "LandVehicle" + entities "Air" + entities "Ship");
-	//};
-	
-	//Uncomment for debugging purposes
-	//titleText[format["Fetching data for player: %1", currencyTarget],"PLAIN DOWN"];titleFadeOut 2;
-	
+
 	Sleep 0.2;
 	_dialog = createdialog "CurrencyPlayerDialog";
 	call CurrencyDialogFetchData;

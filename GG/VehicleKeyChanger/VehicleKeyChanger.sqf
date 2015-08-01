@@ -1,12 +1,3 @@
-/***********************************/ 	
-/* Vehicle Key Changer v1.5.4      */
-/* Written by OtterNas3            */
-/* January, 11, 2014               */
-/* Last update: 26/10/2014         */
-/* Advanced by hellraver           */
-/***********************************/
-
-
 /* Setup the private variables */
 private ["_magazinesPlayer","_max","_j","_actionArray","_targetVehicle","_targetVehicleID","_targetVehicleUID","_temp_keys","_ownerID","_temp_keysDisplayName","_carKeyName","_targetVehicleKey","_typeOfTargetVehicle","_targetVehiclePos","_targetVehicleDir","_carName","_changeNamePrice","_claimNamePrice","_keyName","_keyID","_changeKeyPrice","_claimKeyPrice","_keyNumber","_keySelected","_keyIsAdded","_keyIsOK","_dis","_sfx","_animState","_started","_finished","_isMedic","_loop"];
 
@@ -323,10 +314,3 @@ s_player_changeKey = -1;
 player removeAction s_player_claimKey;
 s_player_claimKey = -1;
 s_player_openMenu = 0;
-
-/**************************************/
-/* That's it, hope you enjoy this Mod */
-/*                                    */
-/* Yours sincerly,                    */
-/* Otter                              */
-/**************************************/

@@ -6,16 +6,7 @@ private ["_veh","_location","_part_out","_part_in","_qty_out","_qty_in","_qty","
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
-// Test cannot lock while another player is nearby
-//_playerNear = {isPlayer _x} count (player nearEntities ["CAManBase", 12]) > 1;
-//if(_playerNear) exitWith { DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_104") , "PLAIN DOWN"];  };
-
-// [part_out,part_in, qty_out, qty_in, loc];
-
 _activatingPlayer = player;
-// http://puu.sh/6lbnL.jpg buy
-
-// http://puu.sh/6lbpE.jpg sell
 
 _part_out = (_this select 3) select 0; //  Foodnutmix -------------------------ItemCopperBar (classname)
 _part_in = (_this select 3) select 1; // CopperBar-----------------------------Foodnutmix (classname)
@@ -25,9 +16,7 @@ _buy_o_sell = (_this select 3) select 4; // buy -------------------------------s
 _textPartIn = (_this select 3) select 5; // Coins text-------------------------Trail Mix (name
 _textPartOut = (_this select 3) select 6; // Trail mix ( show name of item)----Coins
 _traderID = (_this select 3) select 7; // 5868 klenn food----------------------5868
-_bos = 0; // ??
-
-//systemChat format ['_part_out = %1 , _part_in = %2 ,_qty_out = %3 , _qty_in =  %4,_buy_o_sell = $5,_textPartIn = %6, _textPartOut = %7, _qty = %8 , ',_part_out,_part_in,_qty_out,_qty_in,_buy_o_sell,_textPartIn,_textPartOut];
+_bos = 0;
 
 if(_buy_o_sell == "buy") then {
 	//_qty = {_x == _part_in} count magazines player;	
@@ -73,17 +62,13 @@ if (_qty >= _qty_in) then {
 
 		if (_qty >= _qty_in) then {
 
-			//["PVDZE_obj_Trade",[_activatingPlayer,_traderID,_bos]] call callRpcProcedure;
+			
 			if (isNil "_obj") then { _obj = "Unknown Vehicle" };
 			if (isNil "inTraderCity") then { inTraderCity = "Unknown Trader City" };
 			PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_obj,inTraderCity];
 			publicVariableServer  "PVDZE_obj_Trade";
-	
-			//diag_log format["DEBUG Starting to wait for answer: %1", PVDZE_obj_Trade];
 
 			waitUntil {!isNil "dayzTradeResult"};
-
-			//diag_log format["DEBUG Complete Trade: %1", dayzTradeResult];
 
 			if(dayzTradeResult == "PASS") then {
 
@@ -97,7 +82,6 @@ if (_qty >= _qty_in) then {
 					player setVariable ["extra_coins", _verschil , true];
 					player setVariable ["cashMoney", _qtychange , true];	
 					_newM = player getVariable ["cashMoney",0];
-					//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 					
 					_removed = _qty - _newM; // 
 					
@@ -120,7 +104,6 @@ if (_qty >= _qty_in) then {
 
 						_location = (getPosATL _veh);
 
-						//["PVDZE_veh_Publish",[_veh,[_dir,_location],_part_out,false,_keySelected]] call callRpcProcedure;
 						PVDZE_veh_Publish2 = [_veh,[_dir,_location],_part_out,true,dayz_characterID,_activatingPlayer];
 						publicVariableServer  "PVDZE_veh_Publish2";
 
@@ -163,10 +146,6 @@ if (_qty >= _qty_in) then {
 						if(_okToSell) then {
 
 							if(!isNull _obj and alive _obj) then {
-							
-								//for "_x" from 1 to _qty_out do {
-								//	player addMagazine _part_out;
-								//};
 								
 								_myMoney = player getVariable ["cashMoney",0];							
 								_myMoney = _myMoney + _qty_out;								

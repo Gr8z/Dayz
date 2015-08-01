@@ -12,11 +12,9 @@ _dragee setVariable ["NORRN_unit_dragged", true, true];
 _unit playActionNow "grabDrag";
 sleep 2;
 
-//unconscious unit assumes dragging posture
-//public EH 
-//["norrnRaDrag",_dragee] call broadcastRpcCallAll;
-	norrnRaDrag = [_dragee];
-	publicVariable "norrnRaDrag";
+
+norrnRaDrag = [_dragee];
+publicVariable "norrnRaDrag";
 _dragee attachto [_unit,[0.1, 1.01, 0]];
 sleep 0.02;
 

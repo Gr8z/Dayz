@@ -8,9 +8,9 @@ _wallTypes = nearestObjects [player, ["ModularItems","BuiltItems","Land_DZE_Wood
 if (count _wallTypes > 0) then {
 		_wall = [_wallTypes, player] call BIS_fnc_nearestPosition;
 		if ((vehicle player) distance _wall < 10) then {
-				cutText [format[">>>Anti-Glitch script<<< (Admin notified) Cant drop a player near an epoch building."], "PLAIN DOWN"];
+				cutText [format["Cant drop a player near an epoch building."], "PLAIN DOWN"];
 				titleFadeOut 2;
-				diag_log format[">>>Anti-Glitch script<<< Player: %1 tried to drop Player: %2 near an epoch building", player, _dragee];
+				diag_log format["Player: %1 tried to drop Player: %2 near an epoch building", player, _dragee];
 				allowDropPlayer = false;
 				sleep 1;
 		};

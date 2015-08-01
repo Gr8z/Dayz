@@ -1,11 +1,3 @@
-	
-
-    /*
-            Script by HALV
-            Create Weed fields (or other objects) in random locations, amount and "random preset" amount of objects,
-            objects are placed "Labyrinth Style" around the middle object
-    */
-     
     _useLocalMarkers = false;
      
     if (isServer)then{
@@ -15,7 +7,6 @@
             if(isNil "dayz_MapArea")then{dayz_MapArea = 7000};
             _WorldName = toLower format ["%1", worldName];
      
-    //settings
             //how many will spawn farms, note that farms can spawn "on top" of eachother (min 1, default 6)
             _farms = 6;
             //min farms (min 1, default 2)

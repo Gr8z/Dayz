@@ -1,6 +1,5 @@
 private ["_oldskin"];
 
-// by Boyd
 if(not local player) exitWith{};
 #include "dialog\definitions.sqf"
 disableSerialization;

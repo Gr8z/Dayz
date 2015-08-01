@@ -1,8 +1,3 @@
-/*-----------------------------------*/
-// by Raymix						//
-// July 10 2014					   //
-/*--------------------------------*/
-
 private ["_object","_objectSnapGizmo","_objColorActive","_objColorInactive","_classname","_whitelist","_points","_radius","_cfg","_cnt","_pos","_findWhitelisted","_nearbyObject","_posNearby","_selectedAction","_newPos","_pointsNearby","_onWater","_waterBase"];
 //Args
 snapActionState = _this select 3 select 0;
@@ -165,11 +160,6 @@ fnc_snapDistanceCheck = {
 };
 
 fnc_initSnapTutorial = {
-/*
-	Shows help dialog for player ONCE per log in, explaining controls.
-	Add snapTutorial = false; to your init.sqf to disable this tutorial completely.
-	You can also add this bool to the end of this function to only show tutorial once per player login (not recommended)
-*/
 	private ["_bldTxtSwitch","_bldTxtEnable","_bldTxtClrO","_bldTxtClrW","_bldTxtClrR","_bldTxtClrG","_bldTxtSz","_bldTxtSzT","_bldTxtShdw","_bldTxtAlgnL","_bldTxtUndrln","_bldTxtBold","_bldTxtFinal","_bldTxtStringTitle","_bldTxtStringSD","_bldTxtStringSE","_bldTxtStringSA","_bldTxtStringSM","_bldTxtStringPG","_bldTxtStringAPG","_bldTxtStringCPG","_bldTxtStringQE","_bldTxtStringQEF","_bldTxtStringFD","_bldTxtStringFS"];
 		if (isNil "snapTutorial") then { 
 			_bldTxtSwitch = _this select 0;

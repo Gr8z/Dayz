@@ -86,7 +86,7 @@ if(_okSkin) then {
 				r_interrupt = false;
 				player switchMove "";
 				player playActionNow "stop";
-				cutText [format["You have interrupted taking clothes!"], "PLAIN DOWN"]; //display text at bottom center of screen on interrupt
+				cutText [format["You have interrupted taking clothes!"], "PLAIN DOWN"];
 			};
 		};
 	} else {

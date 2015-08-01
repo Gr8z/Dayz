@@ -38,8 +38,6 @@ TWSWeaps
 LauncherWeaps
 */
 
-//removed excess acrs for balancing
-//todo: balance
 ACRLowWeaps[] = {
 {"RH_acraim",0.50}, 
 {"RH_acreotech",0.50}, 
@@ -72,8 +70,6 @@ ACRLowWeaps[] = {
 {"FHQ_ACR_SNW_IRN_SD",0.50} 
 };
 
-//removed excess acrs for balancing
-//todo: rebalance
 ACRHighWeaps[] = {
 {"RH_acracog",0.50}, 
 {"RH_acrbaim",0.50}, 
@@ -105,7 +101,7 @@ ACRHighWeaps[] = {
 };
 
 
-/* Done */
+
 ScarLowWeaps[] = {
 	{"SCAR_L_CQC",0.3},             
 	{"SCAR_H_CQC_CCO",0.13},       
@@ -117,7 +113,7 @@ ScarLowWeaps[] = {
 };
 
 
-/* Done */
+
 ScarHighWeaps[] = {
 	{"SCAR_H_CQC_CCO_SD",0.55}, 
 	{"SCAR_L_STD_EGLM_RCO",0.13}, 
@@ -127,7 +123,7 @@ ScarHighWeaps[] = {
 };
 
 
-/* Done */
+
 SniperMedWeaps[] = {
 	{"vil_DRM_BASE",0.1},  
 	{"RH_sc2acog",0.15}, 
@@ -211,7 +207,7 @@ HK416Weaps[] = {
 };
 
 
-	/* Done */
+	
 	HK417Weaps[] = {
 		{"RH_hk417",0.19}, 
 		{"vil_HK417s",0.16},
@@ -293,7 +289,7 @@ G36Weaps[] = {
 {"vil_HK416_IS",0.50} 
 };
 
-	/* Done */
+	
 	PistolTopWeaps[] = {
 		{"RH_deagle",	0.05}, 
 		{"RH_Deaglem",	0.04}, 
@@ -308,7 +304,7 @@ G36Weaps[] = {
 	};
 
 
-	/* Done */
+	
 	SVDWeaps[] = {
 		{"vil_SV_98",0.14},  
 		{"vil_SV_98_69",0.07}, 
@@ -324,7 +320,7 @@ G36Weaps[] = {
 		{"vil_SVU",0.02} 
 	};
 
-	/* Done */
+	
 	PistolMilWeaps[] = {
 		{"glock17_EP1",	0.07}, 
 		{"RH_g18",		0.05}, 
@@ -383,7 +379,7 @@ PistolsLow[] = {
 };
 
 
-/* Done */
+
 SubWeaps[] = {
 	{"vil_uzimini",0.06}, 
 	{"vil_uzi_c",0.03}, 
@@ -523,7 +519,7 @@ AKLowWeaps[] = {
 {"vil_AeK_23",0.50} 
 };
 
-/* Done */
+
 AKHighWeaps[] = {
 	{"vil_AKMS",0.09}, 
 	{"vil_AKs_74_u",0.09}, 
@@ -543,7 +539,7 @@ AKHighWeaps[] = {
 };
 
 
-/* Done */
+
 LMGWeaps[] = {
 	{"vil_Galil",0.07},  
 	{"vil_Galil_arm",0.06},  
@@ -571,7 +567,7 @@ LMGWeaps[] = {
 	{"M249_m145_EP1_DZE",0.01} 
 };
 
-/* Done */
+
 L85Weaps[] = {
 	{"BAF_L85A2_RIS_Holo",0.27},  
 	{"BAF_L86A2_ACOG",0.13},      
@@ -582,7 +578,7 @@ L85Weaps[] = {
 	{"BAF_L85A2_UGL_ACOG",0.10}  
 };
 
-/* Done */
+
 M4Weaps[] = {
 	{"M16A2",0.1}, 
 	{"M4A1",0.1},  
@@ -606,7 +602,7 @@ M4Weaps[] = {
 	{"M4SPR",0.01} 
 };
 
-/* Done */
+
 M8Weaps[] = {
     {"m8_compact",0.20}, 
     {"m8_compact_pmc",0.17}, 
@@ -618,7 +614,7 @@ M8Weaps[] = {
 };
 
 
-/* Done */
+
 HMGWeaps[] = {
 	{"vil_zastava_m84",0.07}, 
 	{"skavil_M60",0.07}, 
@@ -640,7 +636,7 @@ HMGWeaps[] = {
 };
 
 
-/* Done */
+
 ShotgunWeaps[] = {
 	{"Winchester1866",0.30}, 
 	{"Crossbow_DZ",0.25},    
@@ -651,7 +647,7 @@ ShotgunWeaps[] = {
 	{"Saiga12K",0.05} 
 };
 
-/* Done */
+
 MeleeWeaps[] = {
 	{"MeleeHatchet_DZE",0.35}, 
 	{"MeleeMachete",0.25},  
@@ -659,7 +655,7 @@ MeleeWeaps[] = {
 	{"MeleeFishingPole",0.14}
 };
 
-/* Done */
+
 RocketWeaps[] = {
     {"Vil_RPO_A",0.004}, 
     {"M136",0.004},		
@@ -673,7 +669,7 @@ RocketWeaps[] = {
 };
 
 
-/* Done */
+
 UltraWeaps[] = {
 	{"revolver_gold_EP1",0.28},
 	{"RH_Deagleg",0.2},
@@ -682,7 +678,7 @@ UltraWeaps[] = {
 	{"AKS_GOLD",0.27}
 };
 
-/* Done */
+
 SniperTopWeaps[] = {
 	{"KSVK_DZE",0.25}, 
 	{"FHQ_XM2010_DESERT", 0.16}, 
@@ -697,14 +693,14 @@ SniperTopWeaps[] = {
 };
 
 
-/* Done */
+
 LauncherWeaps[] = {
 	{"M32_EP1",0.05}, 
 	{"M79_EP1",0.6},  
 	{"Mk13_EP1",0.35} 
 };
 
-/* Done */
+
 TWSWeaps[] = {
 	{"AKS_74_GOSHAWK",0.22}, 
 	{"BAF_L85A2_RIS_CWS",0.17}, 

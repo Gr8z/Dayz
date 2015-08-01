@@ -1,5 +1,4 @@
 private ["_part_out","_part_in","_qty_out","_qty_in","_qty","_buy_o_sell","_traderID","_bos","_needed","_activatingPlayer","_textPartIn","_textPartOut","_started","_finished","_animState","_isMedic","_removed"];
-// [part_out,part_in, qty_out, qty_in,"buy"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -70,12 +69,9 @@ if (_qty >= _qty_in) then {
 	
 			waitUntil {!isNil "dayzTradeResult"};
 
-			//diag_log format["DEBUG Complete Trade: %1", dayzTradeResult];
-
 			if(dayzTradeResult == "PASS") then {
 
 					if(_buy_o_sell == "buy") then {
-							//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 				_qtychange = _qty - _qty_in;
 				player setVariable ["cashMoney", _qtychange , true];	
 				_newM = player getVariable ["cashMoney",0];
@@ -89,15 +85,9 @@ if (_qty >= _qty_in) then {
 					cutText [format[(localize "str_epoch_player_186"),_qty_in,_textPartIn,_qty_out,_textPartOut], "PLAIN DOWN"];
 				};
 						} else {
-							
-										//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
-
 				_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 				 							
 				if(_removed == _qty_in) then {
-					//for "_x" from 1 to _qty_out do {
-						//player addWeapon _part_out;
-					//};
 					_myMoney = player getVariable ["cashMoney",0];
 								_myMoney = _myMoney + _qty_out;
 								player setVariable ["cashMoney", _myMoney , true];	

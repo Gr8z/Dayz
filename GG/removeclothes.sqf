@@ -1,4 +1,3 @@
-// By Zabn 2014
 private["_isEpoch","_itemNew","_onLadder","_skin","_body","_okSkin","_clothesTaken","_itemNewName","_result","_animState","_takeClothesUsageTime","_started","_finished","_takeClothesUseTime"];
 
 if (!isNil "DZE_ActionInProgress") then { // check if this is dayz epoch

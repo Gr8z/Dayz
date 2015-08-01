@@ -15,7 +15,7 @@ _hasRadio = false;
 _hasWatch = false;
 _hasMap = false;
 _UID = (getPlayerUID player);
-/********************* Buy Skin ********************/
+
 if (str _unittype == str _unittype)then{
 
 	if(DZE_ActionInProgress) exitWith { cutText ["Skin Change is in progress, please wait","PLAIN DOWN"]; };

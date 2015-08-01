@@ -13,7 +13,6 @@ _timeOut = 0;
 _timeMax = diag_tickTime+10;
 dayz_lastCheckBit = time;
 		
-// if(r_player_dead) exitWith {_btnAbort ctrlEnable true;};
 if(r_fracture_legs && !r_player_dead) then {_btnRespawn ctrlEnable true;};
 		
 //force gear save
@@ -28,7 +27,6 @@ while {!isNull _display} do {
 	switch true do {
 		case (!r_player_dead && player getVariable["combattimeout", 0] >= time) : {
 			_btnAbort ctrlEnable false;
-			//cutText ["Cannot Abort while in combat!", "PLAIN DOWN"];
 			cutText [localize "str_abort_playerincombat", "PLAIN DOWN"];
 			_sleep = 1;
 		};

@@ -546,7 +546,7 @@ if (!isDedicated) then {
 	// recent murders menu code
 	call compile preprocessFileLineNumbers "GG\player_murderMenu.sqf";
 
-	Zupa_LoadingMessage = ["Loading up [GG] Ghostz Gamerz"];	// innitial message before the server ever sends a message to the client.
+	Zupa_LoadingMessage = ["Loading up [GG] Ghostz Gamerz"];
 	"PVDZE_Z_LoadMessage" addPublicVariableEventHandler {Zupa_LoadingMessage = _this select 1;};
 
      [] spawn {

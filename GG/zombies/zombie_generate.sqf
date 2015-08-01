@@ -26,15 +26,15 @@ _cantSee = {
 				_isok = false;
 			}
 			else {
-				_eye = eyePos _x; // ASL
+				_eye = eyePos _x;
 				_ed = eyeDirection _x;
 				_ed = (_ed select 0) atan2 (_ed select 1);
 				_deg = [_xasl, _zPos] call BIS_fnc_dirTo;
 				_deg = (_deg - _ed + 720) % 360;
 				if (_deg > 180) then { _deg = _deg - 360; };
-				if ((abs(_deg) < _fov) && {( // in right angle sector?
-						(!(terrainIntersectASL [_zPos, _eye]) // no terrain between?
-						&& {(!(lineIntersects [_zPos, _eye]))}) // && no object between?
+				if ((abs(_deg) < _fov) && {(
+						(!(terrainIntersectASL [_zPos, _eye])
+						&& {(!(lineIntersects [_zPos, _eye]))})
 					)}) then {
 					_isok = false;
 				};
@@ -50,9 +50,7 @@ if ((dayz_spawnZombies < _maxControlledZombies) && (dayz_CurrentNearByZombies < 
 	if ([_position, dayz_cantseefov, 10, dayz_cantseeDist] call _cantSee) then {
 		//Check if anyone close
 		_tooClose = {isPlayer _x} count (_position nearEntities ["CAManBase",30]) > 0;
-		if (_tooClose) exitwith {
-			// diag_log ("Zombie_Generate: was too close to player.");
-		};
+		if (_tooClose) exitwith {};
 
 		//Add zeds if unitTypes equals 0
 		if (count _unitTypes == 0) then {

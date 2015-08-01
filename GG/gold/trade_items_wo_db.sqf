@@ -1,10 +1,7 @@
 private ["_part_out","_part_in","_qty_out","_qty_in","_textPartIn","_textPartOut","_qty","_needed","_started","_finished","_animState","_isMedic","_abort","_removed","_tradeCounter","_total_trades","_humanityGain","_humanity","_money"];
-// [part_out,part_in, qty_out, qty_in,];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
-
-//_activatingPlayer = getPlayerUID player;
 
 _part_out = (_this select 3) select 0;
 _part_in = (_this select 3) select 1;
@@ -13,15 +10,7 @@ _qty_in = (_this select 3) select 3;  //  buy price for u
 _buy_o_sell = (_this select 3) select 4;
 _textPartIn = (_this select 3) select 5;
 _textPartOut = (_this select 3) select 6;
-//_traderID = (_this select 3) select 7;
-
-//_qty = {_x == _part_in} count magazines player;  // jouw oud geld
-
-_qty = player getVariable ["cashMoney",0]; // jouw nieuw geld
-
-
-
-
+_qty = player getVariable ["cashMoney",0];
 
 // find total number of possible trades
 _total_trades = floor (_qty / _qty_in);

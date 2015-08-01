@@ -46,10 +46,8 @@ _newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
 _newUnit setPosATL _position;
 _newUnit setDir _dir;
 [_newUnit] joinSilent createGroup WEST;
-//Soul start: SC Edit >>> readding variables used by single currency mod.
 _newUnit setVariable ["cashMoney",_cashMoney,true];
 _newUnit setVariable ["bankMoney",_bankMoney];
-//Soul end: SC Edit
 //Clear New Character
 {_newUnit removeMagazine _x;} count magazines _newUnit;
 removeAllWeapons _newUnit;
@@ -151,7 +149,7 @@ DZE_ForceNameTags = true;
 _playerUID = getPlayerUID player;
 _playerObjName = format["PVDZE_player%1",_playerUID];
 call compile format["%1 = player;",_playerObjName];
-publicVariableServer _playerObjName; //Outcommit in DayZ 1.8 No clue for what this is - Skaronator
+publicVariableServer _playerObjName;
 //melee check
 _wpnType = primaryWeapon player;
 _ismelee = (gettext (configFile >> "CfgWeapons" >> _wpnType >> "melee"));

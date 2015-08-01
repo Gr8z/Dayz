@@ -1,5 +1,3 @@
-// Vehicle Service Point (Repair) by Axe Cop
-
 private ["_vehicle","_args","_servicePoint","_costs","_repairTime","_type","_name","_hitpoints","_allRepaired","_textMissing"];
 
 _vehicle = _this select 0;
@@ -10,7 +8,6 @@ _servicePoint = _args select 0;
 _costs = _args select 1;
 _repairTime = _args select 2;
 
-//if !([_costs] call player_checkAndRemoveItems) exitWith {};
 if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
 	_repair_cost = _costs select 1;
 	cutText [format["You need %1 %2",_repair_cost,CurrencyName] , "PLAIN DOWN"];

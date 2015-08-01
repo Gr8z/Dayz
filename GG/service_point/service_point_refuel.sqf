@@ -1,5 +1,3 @@
-// Vehicle Service Point (Refuel) by Axe Cop
-
 private ["_vehicle","_args","_servicePoint","_costs","_updateInterval","_amount","_type","_name","_textMissing"];
 
 _vehicle = _this select 0;
@@ -11,7 +9,6 @@ _costs = _args select 1;
 _updateInterval = _args select 2;
 _amount = _args select 3;
 
-//if !([_costs] call player_checkAndRemoveItems) exitWith {};
 if !([ player,_costs select 1] call SC_fnc_removeCoins) then {
         _repair_cost = _costs select 1;     
         cutText [format["You need %1 %2",_repair_cost,CurrencyName] , "PLAIN DOWN"];

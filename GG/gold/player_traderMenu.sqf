@@ -58,10 +58,10 @@ TraderDialogLoadItemList = {
 	_item_list = [];
 	{
 		private ["_header", "_item", "_name", "_type", "_textPart", "_qty", "_buy", "_bqty", "_bname", "_btype", "_btextCurrency", "_sell", "_sqty", "_sname", "_stype", "_stextCurrency", "_order", "_order", "_afile", "_File", "_count", "_bag", "_bagclass", "_index", "_image"];
-		_header = _x select 0; // "TRD"   example 3
-		_item = _x select 1; // ex ['G36A_camo",3]
-		_name = _item select 0; // g36
-		_type = _item select 1; // 3
+		_header = _x select 0;
+		_item = _x select 1; 
+		_name = _item select 0;
+		_type = _item select 1; 
 		
 	
 		switch (true) do {
@@ -82,10 +82,10 @@ TraderDialogLoadItemList = {
 		_qty = _x select 2; // 251
 
 		// Buy Data from array
-		_buy = _x select 3; // [6,"Itemgoldbar",1]
-		_bqty = _buy select 0; // 6
-		_bname = _buy select 1; //ItemGoldbar
-		_btype = _buy select 2; // 1
+		_buy = _x select 3;
+		_bqty = _buy select 0; 
+		_bname = _buy select 1; 
+		_btype = _buy select 2; 
 		
 			switch(true)do{ 
 			case (_btype == 1): { 
@@ -100,12 +100,12 @@ TraderDialogLoadItemList = {
 		}; 
 
 		// Display Name of buy item
-		_btextCurrency = CurrencyName ; //getText(configFile >> _btype >> _bname >> "displayName");
+		_btextCurrency = CurrencyName ;
 
-		_sell = _x select 4; // [3,"Itemgoldbar",1],
-		_sqty = _sell select 0; //3
-		_sname = _sell select 1; // Itemgoldbar
-		_stype = _sell select 2; // 1
+		_sell = _x select 4;
+		_sqty = _sell select 0;
+		_sname = _sell select 1;
+		_stype = _sell select 2;
 		
 
 		switch(true)do{ 
@@ -120,7 +120,7 @@ TraderDialogLoadItemList = {
 			}; 
 		}; 
 		// Display Name of sell item
-		_stextCurrency = CurrencyName;	//getText(configFile >> _stype >> _sname >> "displayName");
+		_stextCurrency = CurrencyName;
 
 		// Menu sort order
 		_order = _x select 5; //
@@ -188,11 +188,6 @@ TraderDialogLoadItemList = {
 			}else{
 				_index = lbAdd [TraderDialogItemList, format["%1 (%2)", _textPart, _name, _crew, _capacity]]; // original one
 			};	
-		
-		
-		
-		
-
 		if (_count > 0) then {
 			lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]];
 		};
@@ -237,34 +232,14 @@ TraderDialogBuy = {
 	_index = _this select 0;
 	if (_index < 0) exitWith {
 		cutText [(localize "str_epoch_player_6"), "PLAIN DOWN"];
-	};
-		
-	_item = TraderItemList select _index;
-	
-		
-		
-	if( 0 > 1 )then{ // _item select 9 == "GG\gold\trade_items.sqf"
-	
-			
-	
+	};	
+	_item = TraderItemList select _index;					
+	if( 0 > 1 )then{ 		
 	_data = [_item select 0, _item select 1, _item select 2, _item select 8];
-	
 	_data execVM "GG\gold\trade_items_buy.sqf";
-	
-		
-	
 	}else{
-	
-		
-	
 	_data = [_item select 0, _item select 3, 1, _item select 2, "buy", _item select 4, _item select 1, _item select 8];
-	
-			
-	
 	[0, player, '', _data] execVM (_item select 9);
-	
-		
-	
 	};
 	TraderItemList = [];
 };
@@ -277,27 +252,12 @@ TraderDialogSell = {
 	};
 	_item = TraderItemList select _index;
 	
-	if( 0 > 1 )then{ // _item select 9 == "GG\gold\trade_items.sqf"
-	
-			
-	
+	if( 0 > 1 )then{ 
 	_data = [_item select 0, _item select 1, _item select 5, _item select 8];
-
-	
 	_data execVM "GG\gold\trade_items_sell.sqf";
-	
-		
-	
 	}else{
-	
-		
 	_data = [_item select 6, _item select 0, _item select 5, 1, "sell", _item select 1, _item select 7, _item select 8];
-	
-		
-
 	[0, player, '', _data] execVM (_item select 9);
-	
-
 	};
 	TraderItemList = [];
 };

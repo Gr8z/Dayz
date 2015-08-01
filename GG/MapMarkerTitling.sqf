@@ -1,18 +1,3 @@
-// =============================================================================
-// | GG_MapMarker.sqf [1.0]                                                |
-// | Script adds player name to the created map marker                         |
-// | by Prodavec, thanks to Gunter Severloh, PvPscene, Gr8, Maca               |
-// =============================================================================
-
-// ====================================
-// | INCLUDES                         |
-// ====================================
-
-// ====================================
-// | DEFINITIONS                      |
-// ====================================
-//#define     MMT_DEBUG
-
 #define     MMT_DIK_ESC                 1
 #define     MMT_DIK_ENTER               28
 #define     MMT_DIK_KPENTER             156
@@ -22,17 +7,6 @@
 #define     MMT_CONTROL_MAP             51
 #define     MMT_CONTROL_MARKER          101
 
-// ====================================
-// | PRE-INIT                         |
-// ====================================
-
-// ====================================
-// | VARIABLES                        |
-// ====================================
-
-// ====================================
-// | FUNCTIONS                        |
-// ====================================
 fnc_marker_keyUp_EH = {
     private ["_handled", "_display", "_dikCode", "_control", "_text"];
     _display = _this select 0;
@@ -89,8 +63,5 @@ fnc_map_mouseButtonDblClick_EH = {
     true;
 };
 
-// ====================================
-// | MAIN                             |
-// ====================================
 waitUntil {sleep 0.1; !isNull (findDisplay MMT_DISPLAY_MAP)};
 ((findDisplay MMT_DISPLAY_MAP) displayCtrl MMT_CONTROL_MAP) ctrlAddEventHandler ["mouseButtonDblClick", "call fnc_map_mouseButtonDblClick_EH"];

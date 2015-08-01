@@ -1,7 +1,3 @@
-/*
-	Zupa's Single Currency manipulation addon by Rocu
-	Add/remove currency to player's inventory/bank
-*/
 CurrencyDialogFetchData = {
 	_currency_targetName = name currencyTarget;
 	_currency_targetCash = currencyTarget getVariable ['cashMoney', 0] call BIS_fnc_numberText;

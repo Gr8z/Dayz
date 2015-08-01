@@ -147,36 +147,12 @@ class RscButton
 	access = 0;
 
 	type = 1;
-
-
-
-
-
 	text = "";
 	colorText[] = {1,1,1,1};
 	colorDisabled[] = {1,1,1,0.25};
 	colorBackground[] = {0.45,0.45,0.45,1};
 	colorBackgroundDisabled[] = {0,0,0,0.5};
 	colorBackgroundActive[] = {0.75,0.75,0.75,1};
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 	colorFocused[] = {0.75,0.75,0.75,1};
 	colorShadow[] = {0,0,0,0};
 	colorBorder[] = {0,0,0,1};
@@ -192,26 +168,11 @@ class RscButton
 	shadow = 2;
 	font = "Zeppelin32";
 	sizeEx = 0.03921;
-
-
-
 	offsetX = 0.003;
 	offsetY = 0.003;
 	offsetPressedX = 0.002;
 	offsetPressedY = 0.002;
-
-
 	borderSize = 0;
-
-
-
-
-
-
-
-
-
-
 };
 
 
@@ -232,15 +193,10 @@ class RscFrame
 	idc = -1;
 	style = 64;
 	shadow = 2;
-
-
 	colorBackground[] = {0,0,0,0};
 	colorText[] = {1,1,1,1};
 	font = "Zeppelin32";
-
 	sizeEx = 0.02;
-
-
 	text = "";
 };
 
@@ -286,20 +242,7 @@ class RscBackground
 	colorText[] = {1,1,1,1};
 	font = "Zeppelin32";
 	sizeEx = 0.02;
-
-
-
-
 	text = "";
-	
-
-
-
-
-
-
-
-
 };
 
 class HW_RscBackground {
@@ -547,28 +490,14 @@ class RscCombo
 	access = 0;
 	type = 4;
 	style = 0;
-
-
-
-
 	colorSelect[] = {0,0,0,1};
 	colorText[] = {1,1,1,1};
-
 	colorBackground[] = {0,0,0,1};
 	colorScrollbar[] = {1,0,0,1};
 	soundSelect[] = {"",0.1,1};
 	soundExpand[] = {"",0.1,1};
 	soundCollapse[] = {"",0.1,1};
-
-
-
-
-
 	maxHistoryDelay = 1;
-
-
-
-
 	class ScrollBar
 	{
 		color[] = {1,1,1,1};

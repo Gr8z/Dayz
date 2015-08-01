@@ -1,10 +1,8 @@
-//Hitpoint and Damage fix by SchwEde aka shinySonic
 private ["_part","_cancel","_color","_percent","_string","_handle","_damage","_cmpt","_vehicle","_hitpoints"];
  
 _vehicle = _this select 3;
  
 {dayz_myCursorTarget removeAction _x} count s_player_repairActions;s_player_repairActions = [];
-// dayz_myCursorTarget = _vehicle;
  
 _hitpoints = _vehicle call vehicle_getHitpoints; 
 
@@ -29,7 +27,6 @@ _hitpoints = ["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGl
     _damage = [_vehicle,_x] call object_getHit;
     _part = "PartGeneric";
  
-    //change "HitPart" to " - Part" rather than complicated string replace
     _cmpt = toArray (_x);
     _cmpt set [0,20];
     _cmpt set [1,toArray ("-") select 0];
@@ -41,7 +38,7 @@ _hitpoints = ["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGl
     };
     
     if(["HRotor",_x,false] call fnc_inString) then {
-        _part = "PartVRotor"; //yes you need PartVRotor to fix HRotor LOL
+        _part = "PartVRotor";
     };
  
     if(["Fuel",_x,false] call fnc_inString) then {
@@ -67,7 +64,7 @@ _hitpoints = ["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGl
             if (_damage >= 0.75) then {_color = "color='#ff0000'";}; //red
  
             _percent = round(_damage*100);
-            _string = format["<t %2>Remove%1 (%3 %4)</t>",_cmpt,_color,_percent,"%"]; //Remove - Part
+            _string = format["<t %2>Remove%1 (%3 %4)</t>",_cmpt,_color,_percent,"%"];
             _handle = dayz_myCursorTarget addAction [_string, "\z\addons\dayz_code\actions\salvage.sqf",[_vehicle,_part,_x], 0, false, true, "",""];
             s_player_repairActions set [count s_player_repairActions,_handle];
         

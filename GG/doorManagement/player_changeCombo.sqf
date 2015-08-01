@@ -1,7 +1,3 @@
-/*
-	Change UI image 
-		Made for DayZ Epoch please ask permission to use/edit/distrubute email vbawol@veteranbastards.com.
-*/
 private ["_result","_control","_directon","_name","_PubVar","_display"];
 
 _control = _this select 0;

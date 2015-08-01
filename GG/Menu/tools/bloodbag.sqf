@@ -1,15 +1,3 @@
-//////////////////////////////////////////////////////////////////////////////////////////////
-// Script writen by Krixes																	//
-//    Infection chance and some comments added by Player2									//
-//    Combat check added by istealth														//
-//																							//
-//	Version 1.4																				//
-//																							//
-// Change Log:																			    //
-// 1: Added bloodbag use timer																//
-// 2: Added a timer for the amount of time before player can use self bloodbag again		//
-//////////////////////////////////////////////////////////////////////////////////////////////
-
 private ["_bloodAmount","_humanityBool","_infectionChance","_humanityNegBool","_humanityNegAmount","_humanityAmount","_infectedLifeLost","_infectedLifeBool","_lastBloodbag","_bloodbagLastUsedTime","_bloodbagTime","_bloodbagUseTime","_bloodbagUsageTime","_incombat","_timeout","_hasBagItem","_needsBlood"];
 
 
@@ -32,14 +20,6 @@ _humanityAmount = 50; // Amount of humanity to give player if _humanityBool is t
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 // Config End-------------------------------------------------------------------------------------------------------------------------//
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
-
-///////////////////////////////////////////////////////////////////////////////
-// Everything below need not be modified unless you know what you are doing! //
-///////////////////////////////////////////////////////////////////////////////
 
 _bloodbagTime = time - lastBloodbag; // Variable used for easy reference in determining the self bloodbag cooldown
 _bloodbagUsageTime = time;
