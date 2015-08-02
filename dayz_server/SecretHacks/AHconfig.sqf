@@ -16,6 +16,7 @@ _LAdmins = [
 	"76561198037365948", // Devvo
 	"76561198126348047", // Mr. Bandit
 	"76561198054897830", // AKrantz MOD
+	"76561198048573818", // YamYam
 "0"
 ]; 
 
@@ -94,7 +95,7 @@ _blockDamageFrom = [
 
 
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
-/*  _timedif for _AHL     */ _TDI =    130;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
+/*  _timedif for _AHL     */ _TDI =    300;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
 
 /*  revert onEachFrame    */ _REF =  true;	/* true or false */
 /*  titleText & cutText   */ _TCT =  false;	/* true or false */	/* block titleText & cutText - some A.I. Missions and other mass message scripts needs this set to false */
