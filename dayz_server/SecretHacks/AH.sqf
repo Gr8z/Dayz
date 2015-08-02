@@ -3962,7 +3962,7 @@ publicVariable '"+_randvar28+"';
 							};
 							if((!isNull findDisplay 55) && (_chID in [0,1]))then
 							{
-								_msg = 'NO VOICE ON SIDE!';
+								_msg = 'WARNING ! NO VOICE ON SIDE! OR YOU WILL BE KILLED';
 								hint _msg;
 								1 cutText [format ['%1',_msg],'PLAIN DOWN'];
 								systemchat _msg;
