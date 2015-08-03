@@ -1378,7 +1378,7 @@ publicVariable '"+_randvar12+"';
 			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
 			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP','trentview','trentview2','tr3ntlvl','tr3nS','Zen4ddammo','Zenbandit','BOccgcash',
 			'PRaZ_Toggle_Mods','PRaZ_Toggle','PRaZ_Admin_Options','PRaZ_Cheats_Menu','FUCK_ME_keybinds','FUCK_ME_ladida','sendtxxt','TPH_Toggle_Mods','InsSpamMsg','Lando_Godmode','lan_Menu','leetCCGCash','JunEpoch',
-			'sosjfosjdfojsdfijojx','selectedUnitZ1','healME','B1g_B3nProEsp','MonsterCheats_FNC_ESP_distance'
+			'sosjfosjdfojsdfijojx','selectedUnitZ1','healME','B1g_B3nProEsp','MonsterCheats_FNC_ESP_distance','lando3sp'
 			];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
@@ -3860,7 +3860,7 @@ publicVariable '"+_randvar28+"';
 						'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
 						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf',
 						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf','TPH\menu.sqf','gp.sqf','TPH\start.sqf','myscript.sqf','l33tH4x0or\Run.sqf','execl33t.sqf','l33tKey.sqf',
-						'briefcases.sqf','whippyv4\executev4.sqf'
+						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
