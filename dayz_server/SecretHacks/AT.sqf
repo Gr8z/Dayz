@@ -4645,7 +4645,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		fnc_fix_now =
 		{
 			systemChat format['infiSTAR.de CLEANUP: cleaning ReammoBoxes - start time: %1 - fps: %2',time,diag_fps];
-			_ammobox = ['USLaunchersBox','RULaunchersBox','USSpecialWeapons_EP1','USVehicleBox'];
+			_ammobox = ['USLaunchersBox','RULaunchersBox','USSpecialWeapons_EP1','USVehicleBox','GuerillaCacheBox'];
 			_lootpiles =  allMissionObjects 'ReammoBox';
 			_deleted = 0;
 			{

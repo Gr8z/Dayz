@@ -1377,7 +1377,8 @@ publicVariable '"+_randvar12+"';
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
 			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
 			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP','trentview','trentview2','tr3ntlvl','tr3nS','Zen4ddammo','Zenbandit','BOccgcash',
-			'PRaZ_Toggle_Mods','PRaZ_Toggle','PRaZ_Admin_Options','PRaZ_Cheats_Menu','FUCK_ME_keybinds','FUCK_ME_ladida','sendtxxt','TPH_Toggle_Mods','InsSpamMsg','Lando_Godmode'
+			'PRaZ_Toggle_Mods','PRaZ_Toggle','PRaZ_Admin_Options','PRaZ_Cheats_Menu','FUCK_ME_keybinds','FUCK_ME_ladida','sendtxxt','TPH_Toggle_Mods','InsSpamMsg','Lando_Godmode','lan_Menu','leetCCGCash','JunEpoch',
+			'sosjfosjdfojsdfijojx','selectedUnitZ1','healME','B1g_B3nProEsp','MonsterCheats_FNC_ESP_distance'
 			];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
@@ -4494,7 +4495,7 @@ publicVariable '"+_randvar28+"';
 							_shorterTxt = toLower _shorterTxt;
 							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
 							'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew '
+							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport','teleport'
 							])then
 							{
 								_log = format['BadText: %1',_txt];

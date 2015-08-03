@@ -1,10 +1,10 @@
 //new
 5 "compile"
 5 "loadFile"
-5 "call"
+5 "call" !="doorfriends"
 5 "mission"
 5 "enable"
-5 "spawn"
+5 "spawn" !="btnRespawn"
 5 "format"
 5 "parse"
 5 "terminate"
