@@ -1,4 +1,4 @@
-#define GET_TEXT disableSerialization;_text=lbText[8888,(lbCurSel 8888)];{if(_text==(_x select 0))then{_spawn=_x;};}forEach _spawnPoints+vipListBases;
+#define GET_TEXT disableSerialization;_text=lbText[8888,(lbCurSel 8888)];{if(_text==(_x select 0))then{_spawn=_x;};}forEach _spawnPoints+_vipListBases;
 #define GROUP_POS _leader=leader(group player);_grid=getPosATL _leader;if(surfaceIsWater _grid)then{_grid=getPosASL _leader;};
 #define PLOT_POS _plot=(uiNamespace getVariable "myPlotPos")select 0;_grid=getPosATL _plot;if(surfaceIsWater _grid)then{_grid=getPosASL _plot;};
 #define UNLCK_PIC _lb lbSetPicture[_index,"\ca\ui\data\objective_complete_ca.paa"];
@@ -67,9 +67,9 @@ spawnFill = {
 	} forEach _spawnPoints;
 	if ((count units group player > 1) && {_spawnNearGroup} && {_blockGroup < 1}) then {_index = _lb lbAdd "Near MyGroup";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
 	if ((_blockPlot < 1) && {count (uiNamespace getVariable "myPlotPos") > 0}) then {_index = _lb lbAdd "Near MyPlot";_lb lbSetColor [_index,[1,.7,.4,1]];UNLCK_PIC};
-	if (_puid in vipListBase) then {
-		{if (_puid == _x) then {_index = _forEachIndex;};} forEach vipListBase;
-		_base = vipListBases select _index;
+	if (_puid in _vipListBase) then {
+		{if (_puid == _x) then {_index = _forEachIndex;};} forEach _vipListBase;
+		_base = _vipListBases select _index;
 		_index = _lb lbAdd (_base select 0);
 		_lb lbSetColor [_index,[0,1,0,.8]];
 		UNLCK_PIC
