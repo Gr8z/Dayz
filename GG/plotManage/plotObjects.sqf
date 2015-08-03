@@ -2,7 +2,7 @@ private ["_newWealth","_missing","_missingQty","_proceed","_itemIn","_countIn","
 disableSerialization;
 
 _range = DZE_PlotPole select 0;
-_count = count(nearestObjects [cursorTarget,DZE_maintainClasses,_range]);
+_count = count(nearestObjects [player,DZE_maintainClasses,_range]);
 
 _colour = "#ffffff";
 if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
