@@ -138,7 +138,7 @@ BuildDonor = [
 ];
 
 GarageDonor = [
-	// BUILD LIMIT UPGRADE
+	// Garage Limit Upgrade
 	"76561198078201908","76561198153784743","76561198002511087","76561198079744086","76561198120326558","76561198075299408",
 	// Add UIDs above, don't forget the comma
 "0"
