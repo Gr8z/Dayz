@@ -1,6 +1,6 @@
 private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint"];
 
-_loot_box = "GuerillaCacheBox";
+_loot_box = "USVehicleBox";
 //Random Loot List
 _loot_lists = [
 [
