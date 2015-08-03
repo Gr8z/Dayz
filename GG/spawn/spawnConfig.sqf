@@ -119,12 +119,12 @@ case "chernarus":{
 
 };
 
-_customBase = [
+_vipListBase = [
 	"0",
 	"0",
 	"0"
 ];
-_customBases = [ // Do not use a z (height) higher than _autoOpenHeight in haloConfig.sqf if using halo
+_vipListBases = [ // Do not use a z (height) higher than _autoOpenHeight in haloConfig.sqf if using halo
 	["0",[2324,15365,0]],
 	[],
 	[]
