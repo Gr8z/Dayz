@@ -827,7 +827,7 @@ server_spawncleanDead = {
 			} else {
 				if (_x isKindOf "CAManBase") then {
 					_deathTime = _x getVariable ["processedDeath", diag_tickTime];
-					if (diag_tickTime - _deathTime > 900) then {
+					if (diag_tickTime - _deathTime > 600) then {
 						_x call dayz_perform_purge_player;
 						sleep 0.025;
 						_delQtyP = _delQtyP + 1;
