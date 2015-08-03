@@ -77,8 +77,6 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 	below you will find an array of damage sources from what the damage will be blocked
 */
 _blockDamageFrom = [
-	'',	// This might also block fall damage, however since hackers create Bombs using "createVehicleLocal" it sometimes results in us seeing it on our client as '' nothing.
-	'SmallSecondary',	// also happens when a vehicle explodes
 	'HelicopterExploSmall','HelicopterExploBig',
 	'PipeBomb','TimeBomb',
 	'Mine','MineE',
