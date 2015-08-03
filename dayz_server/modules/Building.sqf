@@ -1,27 +1,23 @@
 private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint"];
 
-_loot_box = "GuerillaCacheBox";
+_loot_box = "USVehicleBox";
 //Random Loot List
 _loot_lists = [
 [
-["AKS_GOLD"],
-["30Rnd_762x39_AK47","30Rnd_762x39_AK47","30Rnd_762x39_AK47","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz","ItemSilverBar10oz"]
+["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar","ItemHotwireKit"], 
+["MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole"]
 ],
 [
-["revolver_gold_EP1"],
-["6Rnd_45ACP","6Rnd_45ACP","6Rnd_45ACP","ItemGoldBar10oz","ItemGoldBar10oz","ItemGoldBar10oz","ItemGoldBar10oz","ItemGoldBar10oz","ItemGoldBar10oz","ItemGoldBar10oz"]
+["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar"], 
+["CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole"]
 ],
 [
-["AKS_GOLD"],
-["30Rnd_762x39_AK47","30Rnd_762x39_AK47","30Rnd_762x39_AK47","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar","ItemGoldBar"]
+["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar","ItemSledge"], 
+["cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit","metal_floor_kit"]
 ],
 [
-["revolver_gold_EP1"],
-["6Rnd_45ACP","6Rnd_45ACP","6Rnd_45ACP","ItemBriefcase100oz"]
-],
-[
-["AKS_GOLD"],
-["30Rnd_762x39_AK47","30Rnd_762x39_AK47","30Rnd_762x39_AK47","ItemGoldBar","ItemCopperBar","ItemGoldBar10oz","ItemSilverBar10oz","ItemTinBar","ItemSilverBar","ItemGoldBar","ItemCopperBar","ItemGoldBar10oz","ItemSilverBar10oz","ItemTinBar","ItemSilverBar"]
+["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar","itemEtool"], 
+["15Rnd_9x19_M9SD","workbench_kit","ItemWoodStairs","ItemWoodStairs","ItemWoodStairs","wood_shack_kit","wood_shack_kit","wood_shack_kit","deer_stand_kit","deer_stand_kit","ItemWoodLadder","ItemWoodLadder","desert_net_kit","desert_net_kit","ItemWoodLadder","ItemWoodLadder","desert_net_kit","forest_net_kit","forest_net_kit","forest_net_kit","desert_net_kit","desert_net_kit","ItemSandbagLarge","ItemSandbagLarge","Itemvault","Itemvault"]
 ]
 ];
 _loot = _loot_lists call BIS_fnc_selectRandom;
@@ -53,7 +49,7 @@ diag_log(format["Spawning loot event at %1", _position]);
 
 _markerRadius = 350;
 _markershape = "ELLIPSE";
-_markercolor = "ColorYellow";
+_markercolor = "ColorOrange";
 _missiontype = 0;
 _refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype,_start_time] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
  
@@ -80,7 +76,7 @@ _loot_box addMagazineCargoGlobal [_x,1];
 } forEach (_loot select 1);
  
 // Send Top Right message to users , requires Remote message script
-_hint = parseText format["<t align='center' color='#FFFF66' shadow='2' size='1.75'>Treasure Crate</t><br/><t align='center' color='#ffffff'>Bandits or Pirates? We found their treasure, Check your Map for the Location!</t>"];
+_hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.75'>Building Crate</t><br/><t align='center' color='#ffffff'>Home Depo Truck lost its cargo! Check your map for the location!</t>"];
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 
@@ -92,14 +88,14 @@ sleep 1;
 (({isPlayer _x && _x distance _loot_box <= 5} count playableUnits > 0));
 };
 
-_hint = parseText format["<t align='center' color='#FFFF66' shadow='2' size='1.75'>Treasure Crate</t><br/><t align='center' color='#ffffff'>Treasure has been captured!</t>"];
+_hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.75'>Building Crate</t><br/><t align='center' color='#ffffff'>The lost cargo has been recovered!</t>"];
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 
 _debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
 _debug_marker setMarkerShape "ICON";
 _debug_marker setMarkerType "mil_dot";
-_debug_marker setMarkerColor "ColorYellow";
+_debug_marker setMarkerColor "ColorOrange";
 _debug_marker setMarkerAlpha 1;
 
 EPOCH_EVENT_RUNNING = false;

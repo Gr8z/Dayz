@@ -1,6 +1,7 @@
 private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker", "_loot_pos", "_debug_marker","_loot_box", "_hint"];
- 
-_loot_box = "RUVehicleBox";
+
+_loot_box = "USVehicleBox";
+//Random Loot List
 _loot_lists = [
 [
 ["G36a","G36C","G36_C_SD_eotech","G36K","MP5A5","MP5SD"],
@@ -76,12 +77,12 @@ diag_log("Event already running");
  
 
 EPOCH_EVENT_RUNNING = true;
-
+ 
 // Random location
 _position = DZMSStatLocs call BIS_fnc_selectRandom;
  
 diag_log(format["Spawning loot event at %1", _position]);
- 
+
 _markerRadius = 350;
 _markershape = "ELLIPSE";
 _markercolor = "ColorRed";
@@ -89,7 +90,7 @@ _missiontype = 0;
 _refreshmarker = [_position,_markerRadius,_markershape,_markercolor,_missiontype,_start_time] execVM "\z\addons\dayz_server\modules\refreshmarker.sqf";
  
 _loot_pos = [_position,0,(_markerRadius - 100),10,0,2000,0] call BIS_fnc_findSafePos;
-
+ 
 diag_log(format["Creating ammo box at %1", _loot_pos]);
  
 // Create ammo box
