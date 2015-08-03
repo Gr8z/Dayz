@@ -36,18 +36,20 @@ diag_log format["LOGOUT IN VEHICLE: %1 at location %2", _playerName,(getPosATL _
 };
 
 if ((_timeout - time) > 0) then {
-
-	_playerObj setVariable["NORRN_unconscious",true, true];
-	_playerObj setVariable["unconsciousTime",300,true];
-	
-	diag_log format["COMBAT LOGGED: %1 (%2) at location %3", _playerName,_timeout,(getPosATL _playerObj)];
-	//diag_log format["SET UNCONCIOUSNESS: %1", _playerName];
-	
-	// Message whole server when player combat logs
-	_message = format["PLAYER COMBAT LOGGED: %1",_playerName];
-	[nil, nil, rTitleText, _message, "PLAIN"] call RE;
 		
-};
+		_playerObj setVariable["USEC_BloodQty",3000]; // blood level
+		_playerObj setVariable["NORRN_unconscious",true, true]; // set unconcscious
+		_playerObj setVariable["unconsciousTime",15,true]; // unconcscious time
+		_playerObj setVariable["USEC_injured",true]; // bleeding
+		#ifdef DZE_SERVER_DEBUG
+		diag_log format["COMBAT LOGGED: %1 (%2)", _playerName,_timeout];
+		#endif
+
+		// Message whole server when player combat logs
+		_hint = parseText format["<t align='center' color='#FF0000' shadow='2' size='1.75'>PLAYER COMBAT LOGGED</t><br/><t align='center' color='#ffffff'>%1 possibly just combat logged and has had their blood set to 3000, they're now bleeding and unconscious for 15 seconds when they reconnect.</t>",_playerName];
+		customRemoteMessage = ['hint', _hint];
+		publicVariable "customRemoteMessage";
+		};
 diag_log format["DISCONNECT: %1 (%2) Object: %3, _characterID: %4 at loc %5", _playerName,_playerUID,_playerObj,_characterID, (getPosATL _playerObj)];
 
 
