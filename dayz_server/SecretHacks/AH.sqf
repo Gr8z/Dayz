@@ -747,7 +747,7 @@ fnc_infiSTAR_PlayerLog =
 				'76561198078172204','76561198055471095','76561197960467080','76561198118209085',
 				'76561198011490662','76561198022405783','76561198027331216','76561198114242869',
 				'76561198162162807','76561198237695830','76561198042948243','76561198057310735',
-				'76561198187861275',
+				'76561198187861275','76561198041841141'
 				'0'
 				];
 				if(_puid in (_young_boys_that_like_to_copy_paste+_people_that_have_been_caught_for_hacking_or_other_bad_things))then
@@ -1376,7 +1376,8 @@ publicVariable '"+_randvar12+"';
 			'NienUntoten','WhippyV4_PPAdd','shazbot','l33tMapESPLunsear','selectedPlayer','Lmenu1',
 			'wormEn','manatee_craft_menu','manatee_craft_menu_wea','manatee_craft_menu_sur','manatee_craft_menu_ind','BTC_liftHudId','Ph4nt0mzBomb','Ph4nt0mzBomb2','Ph4nt0mzPos','fddsjfakioiweurlkjs',
 			'JunV1_Menu','FinisFuncs','FiniBomb','FiniBomb2','FiniPos','mahso1337_koask9fi9038402984092','FiniClick','FiniEn','FiniBtmsg','atext_star_xa','julySurvivor1','ph4nt0','Z333nnnnnnnn','Z3endo','p33rs00n',
-			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP','trentview','trentview2','tr3ntlvl','tr3nS','Zen4ddammo','Zenbandit'
+			'bombtrgt','n00k3','3sp','t3l3all','t3p3','haxx0rlek','tr3ntHudSize','tr3nHudDist','tr3nHudCp','tr3nHudCv','t123nt3SP','trentview','trentview2','tr3ntlvl','tr3nS','Zen4ddammo','Zenbandit','BOccgcash',
+			'PRaZ_Toggle_Mods','PRaZ_Toggle','PRaZ_Admin_Options','PRaZ_Cheats_Menu','FUCK_ME_keybinds','FUCK_ME_ladida','sendtxxt','TPH_Toggle_Mods','InsSpamMsg','Lando_Godmode'
 			];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
@@ -3857,7 +3858,8 @@ publicVariable '"+_randvar28+"';
 						'ArmA2OA_Extras\ben_ex.sqf','ArmA2OA_Extras\ben_ex.sqf','God.sqf','Heal.sqf','HideFromAdmins.sqf','IAmmo.sqf','KillDestroy.sqf','ManN00k3ByD4M4st3rFini.sqf','ManN0Cl1pFini.sqf',
 						'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
 						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf',
-						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf'
+						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf','TPH\menu.sqf','gp.sqf','TPH\start.sqf','myscript.sqf','l33tH4x0or\Run.sqf','execl33t.sqf','l33tKey.sqf',
+						'briefcases.sqf','whippyv4\executev4.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
@@ -4492,7 +4494,7 @@ publicVariable '"+_randvar28+"';
 							_shorterTxt = toLower _shorterTxt;
 							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
 							'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt'
+							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew '
 							])then
 							{
 								_log = format['BadText: %1',_txt];
