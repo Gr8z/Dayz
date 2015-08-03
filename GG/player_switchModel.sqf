@@ -101,6 +101,7 @@ if ((count units _oldGroup > 1) && {!isNil "PVDZE_plr_LoginRecord"}) then {
 removeAllWeapons _oldUnit;
 {_oldUnit removeMagazine _x;} count magazines _oldUnit;
 deleteVehicle _oldUnit;
+if (count units _oldGroup < 1) then {deleteGroup _oldGroup;};
 if(_currentWpn != "") then {_newUnit selectWeapon _currentWpn;};
 };
 //Add && Fill BackPack
