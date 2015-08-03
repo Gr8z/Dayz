@@ -154,7 +154,7 @@ PV_AdminMainCode = {
 		adminadd = [];
 		call admin_fillsubsss;
 
-		adminadd = adminadd + ["Ghost's Cock Rubbing Devices","","0","1","0","0",[]];
+		adminadd = adminadd + ["Gr8's Tools","","0","1","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Event Markers (WIP)",admineventmarkers,"0","0","0","0",[]];
 		adminadd = adminadd + ["============================================================","","0","1","0","0",[]];
