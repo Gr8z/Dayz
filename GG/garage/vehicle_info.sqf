@@ -23,39 +23,39 @@ _price = "Free";
 _pricemagazine = 0;
 switch true do {
 	case (_magazineCount == 0):  {_pricemagazine = 0};
-	case (_magazineCount <= 10):  {_pricemagazine = 5000};
-	case (_magazineCount <= 20):  {_pricemagazine = 10000};
-	case (_magazineCount <= 35):  {_pricemagazine = 17500};
-	case (_magazineCount <= 50):  {_pricemagazine = 25000};
-	case (_magazineCount <= 75):  {_pricemagazine = 37500};
-	case (_magazineCount <= 100): {_pricemagazine = 50000};
-	case (_magazineCount <= 125): {_pricemagazine = 62500};
-	case (_magazineCount <= 150): {_pricemagazine = 75000};
-	case (_magazineCount <= 175): {_pricemagazine = 87500};
-	case (_magazineCount <= 200): {_pricemagazine = 100000};
-	case (_magazineCount >= 201): {_pricemagazine = 200000};
+	case (_magazineCount <= 10):  {_pricemagazine = 500};
+	case (_magazineCount <= 20):  {_pricemagazine = 1000};
+	case (_magazineCount <= 35):  {_pricemagazine = 1750};
+	case (_magazineCount <= 50):  {_pricemagazine = 2500};
+	case (_magazineCount <= 75):  {_pricemagazine = 3750};
+	case (_magazineCount <= 100): {_pricemagazine = 5000};
+	case (_magazineCount <= 125): {_pricemagazine = 6250};
+	case (_magazineCount <= 150): {_pricemagazine = 7500};
+	case (_magazineCount <= 175): {_pricemagazine = 8750};
+	case (_magazineCount <= 200): {_pricemagazine = 10000};
+	case (_magazineCount >= 201): {_pricemagazine = 20000};
 };
 
 _priceweapons = 0;
 switch true do {
 	case (_weaponsCount == 0):  {_priceweapons = 0};
-	case (_weaponsCount <= 1):  {_priceweapons = 1000};
-	case (_weaponsCount <= 5):  {_priceweapons = 5000};
-	case (_weaponsCount <= 10):  {_priceweapons = 10000};
-	case (_weaponsCount <= 15):  {_priceweapons = 15000};
-	case (_weaponsCount <= 20):  {_priceweapons = 20000};
-	case (_weaponsCount >= 21):  {_priceweapons = 50000};
+	case (_weaponsCount <= 1):  {_priceweapons = 100};
+	case (_weaponsCount <= 5):  {_priceweapons = 500};
+	case (_weaponsCount <= 10):  {_priceweapons = 1000};
+	case (_weaponsCount <= 15):  {_priceweapons = 1500};
+	case (_weaponsCount <= 20):  {_priceweapons = 2000};
+	case (_weaponsCount >= 21):  {_priceweapons = 5000};
 };
 
 _pricebackpack = 0;
 switch true do {
 	case (_backpackCount == 0):  {_pricebackpack = 0};	
-	case (_backpackCount == 1):  {_pricebackpack = 5000};
-	case (_backpackCount <= 4):  {_pricebackpack = 20000};
-	case (_backpackCount <= 8):  {_pricebackpack = 40000};
-	case (_backpackCount <= 10):  {_pricebackpack = 50000};
-	case (_backpackCount <= 15):  {_pricebackpack = 75000};
-	case (_backpackCount <= 16):  {_pricebackpack = 100000};
+	case (_backpackCount == 1):  {_pricebackpack = 500};
+	case (_backpackCount <= 4):  {_pricebackpack = 2000};
+	case (_backpackCount <= 8):  {_pricebackpack = 4000};
+	case (_backpackCount <= 10):  {_pricebackpack = 5000};
+	case (_backpackCount <= 15):  {_pricebackpack = 7500};
+	case (_backpackCount <= 16):  {_pricebackpack = 10000};
 };
 
 _pricegear = _pricebackpack + _priceweapons + _pricemagazine;
