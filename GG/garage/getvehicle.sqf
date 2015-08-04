@@ -1,4 +1,4 @@
-private["_vehicle","_vehicleClass","_vehicleName","_dir","_helipad","_location","_veh","_location","_veh","_result","_id","_inventory","_backpack","_fuel","_damage","_id","_isOk","_isKeyOK"];
+private["_vehicle","_vehicleClass","_vehicleName","_dir","_helipad","_location","_veh","_location","_veh","_result","_id","_inventory","_backpack","_fuel","_damage","_id","_isOk","_isKeyOK","_config"];
 
 if(DZE_ActionInProgress) exitWith { cutText ["Action already in progress." , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -30,16 +30,6 @@ if(PVDZE_spawnVehicleResult != "0") then {
 	}
 	else
 	{
-		_isKeyOK = 	isClass(configFile >> "CfgWeapons" >> _result);
-		_config = _result;
-		_isOk = [player,_config] call BIS_fnc_invAdd;
-		waitUntil {!isNil "_isOk"};
-		if (!_isOk or !_isKeyOK) exitwith {
-			cutText ["You do not have enough room on your toolbelt.", "PLAIN DOWN"];
-			PVDZE_spawnVehicleResult = nil;
-			PVDZE_queryGarageVehicleResult = nil;
-			DZE_ActionInProgress = false;
-		};
 		player addweapon _result;
 		cutText [format["Key [%1] added to your inventory!",_result], "PLAIN"];	
 	};
