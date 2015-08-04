@@ -76,7 +76,7 @@ _loot_box addMagazineCargoGlobal [_x,1];
 } forEach (_loot select 1);
  
 // Send Top Right message to users , requires Remote message script
-_hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.75'>Building Crate</t><br/><t align='center' color='#ffffff'>Home Depo Truck lost its cargo! Check your map for the location!</t>"];
+_hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.75'>Building Crate</t><br/><t align='center' color='#ffffff'>Home Depot Truck lost its cargo! Check your map for the location!</t>"];
 customRemoteMessage = ['hint', _hint];
 publicVariable "customRemoteMessage";
 

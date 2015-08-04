@@ -5127,7 +5127,7 @@ publicVariable '"+_randvar28+"';
 		if !("+str _UIM+")then
 		{
 			uiSleep 5;
-			['AntiHack &','AdminTools by','infiSTAR.de'] spawn BIS_fnc_infoText;
+			['Server information:','www.GhostzGamerz.com','TS.GHOSTZGAMERZ.COM'] spawn BIS_fnc_infoText;
 		};
 	};
 	if !("+str _UIM+")then
