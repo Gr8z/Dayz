@@ -1,17 +1,16 @@
-
 _onScreenTime = 6; 		
 
 waitUntil {!isNil "dayz_animalCheck"}; 
 sleep 5;
-_role1 = "Welcome To";
+_role1 = "Welcome To:";
 _role1names = ["[GG] Ghostz Gamerz","Dayz Overpoch"];
 _role2 = "Group Management";
 _role2names = ["Group with your friends", "Press Right Shift to Use"];
-_role3 = "Build Bike";
-_role3names = ["Build a indestructible Bike","Right click on Toolbox"];
+_role3 = "Deploy a Bike!";
+_role3names = ["Right click on toolbox to open deployable menu"];
 _role4 = "Free Builders Kit";			
 _role4names = ["Get a Builders Kit", "By Signing up on the forums","Posting 30 posts","More info on TS"];
-_role5 = "Free 10k Coins";
+_role5 = "10k Free Coins!";
 _role5names = ["Get 10,000 coins from admins", "To receive them, Join Our Teamspeak Server","ts.ghostzgamerz.com"];
 _role6 = "Weed Farming";
 _role6names = ["Use Hunting knife to harvest weed","Weed Farm is marked on the map"];
@@ -36,8 +35,8 @@ _role14names = ["Follow us @GhostzGamerz","Mention us and we will retweet"];
 	sleep 2;
 	_memberFunction = _x select 0;
 	_memberNames = _x select 1;
-	_finalText = format ["<t size='0.40' color='#f2cb0b' align='right'>%1<br /></t>", _memberFunction];
-	_finalText = _finalText + "<t size='0.70' color='#FFFFFF' align='right'>";
+	_finalText = format ["<t size='0.70' color='#013ADF' align='right'>%1<br /></t>", _memberFunction];
+	_finalText = _finalText + "<t size='0.60' color='#848484' align='right'>";
 	{_finalText = _finalText + format ["%1<br />", _x]} forEach _memberNames;
 	_finalText = _finalText + "</t>";
 	_onScreenTime + (((count _memberNames) - 1) * 0.5);
