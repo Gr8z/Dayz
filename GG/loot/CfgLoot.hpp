@@ -688,8 +688,7 @@ SniperTopWeaps[] = {
 	{"FHQ_XM2010_SD_DESERT",0.04}, 
 	{"FHQ_MSR_SD_DESERT",0.04}, 
 	{"USSR_cheytacM200",0.04}, 
-	{"USSR_cheytacM200_sd",0.03}, 
-	{"BAF_AS50_scoped_DZ",0.01} 
+	{"USSR_cheytacM200_sd",0.03}
 };
 
 
