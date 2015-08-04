@@ -27,7 +27,7 @@ if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou
 _Radar = ["GG\sounds\GPS.ogv",1.04] spawn bis_fnc_customGPSvideo;
 
 for "_x" from 1 to 10 do {
-	if (_x >= 2) then {cutText [format ["SCANING IN PROGRESS...", 11-_x], "PLAIN DOWN"];};
+	if (_x >= 2) then {taskHint ["SCANNING..", [0,1,0,1], 'taskDone'];};
 	uiSleep 1;
 };
 
