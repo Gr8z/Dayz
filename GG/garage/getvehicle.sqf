@@ -10,6 +10,25 @@ _vehicle = (call compile format["%1",_vehicle]);
 _vehicleClass = getText(configFile >> "CfgVehicles" >> (_vehicle select 1) >> "vehicleClass");
 _vehicleName = getText(configFile >> "CfgVehicles" >> (_vehicle select 1) >> "displayName");
 
+
+//Get Spawn Location
+_dir = round(random 360);
+_helipad = nearestObjects [player, ["HeliH","HeliHCivil","HeliHRescue","MAP_Heli_H_army","MAP_Heli_H_cross","Sr_border"], 70];
+if((count _helipad == 0) && (_vehicleClass == "Air")) exitWith {DZE_ActionInProgress = true;cutText ["You need to be near a helipad to spawn air vehicles", "PLAIN DOWN"];};
+if(count _helipad > 0) then {
+	_location = (getPosATL (_helipad select 0));
+} else {
+	_location = [(position player),0,20,1,0,2000,0] call BIS_fnc_findSafePos;
+};
+
+_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
+_location = (getPosATL _veh);
+
+
+PVDZE_spawnVehicle = [_veh, [_dir,_location], player,  (_vehicle select 0)]; // _vehicle select 0 = id
+publicVariableServer "PVDZE_spawnVehicle";
+
+
 waitUntil {!isNil "PVDZE_spawnVehicleResult"};
 
 if(PVDZE_spawnVehicleResult != "0") then {
@@ -44,23 +63,6 @@ if(PVDZE_spawnVehicleResult != "0") then {
 		cutText [format["Key [%1] added to your inventory!",_result], "PLAIN"];	
 	};
 };
-
-//Get Spawn Location
-_dir = round(random 360);
-_helipad = nearestObjects [player, ["HeliH","HeliHCivil","HeliHRescue","MAP_Heli_H_army","MAP_Heli_H_cross","Sr_border"], 70];
-if((count _helipad == 0) && (_vehicleClass == "Air")) exitWith {DZE_ActionInProgress = true;cutText ["You need to be near a helipad to spawn air vehicles", "PLAIN DOWN"];};
-if(count _helipad > 0) then {
-	_location = (getPosATL (_helipad select 0));
-} else {
-	_location = [(position player),0,20,1,0,2000,0] call BIS_fnc_findSafePos;
-};
-
-_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
-_location = (getPosATL _veh);
-
-
-PVDZE_spawnVehicle = [_veh, [_dir,_location], player,  (_vehicle select 0)]; // _vehicle select 0 = id
-publicVariableServer "PVDZE_spawnVehicle";
 
 PVDZE_spawnVehicleResult = nil;
 PVDZE_queryGarageVehicleResult = nil;
