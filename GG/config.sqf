@@ -187,6 +187,7 @@ Engineer3 = [
 	"76561198142587826", // Dan [LP](OD-2015-07-29) #10398   
 	"76561198057673967", // GamingRagePig (OD-2015-07-31) #10453    
 	"76561198047603207", // DutchForLux (OD-2015-08-01) #10467     
+	"76561198034470577", // ShortBus_Toasty (OD-2015-08-03) #10523     
 	// Add UIDs above, don't forget the comma
 "0"
 ];
