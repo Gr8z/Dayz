@@ -27,7 +27,7 @@ if (dayz_combat == 1) exitwith { DZE_ActionInProgress = false; cutText ["\n\nYou
 _Radar = ["GG\sounds\GPS.ogv",1.04] spawn bis_fnc_customGPSvideo;
 
 for "_x" from 1 to 10 do {
-	if (_x >= 2) then {taskHint ["SCANNING..", [0,1,0,1], 'taskDone'];};
+	if (_x >= 2) then {cutText [format ["SCANING IN PROGRESS...", 11-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
 
@@ -37,8 +37,8 @@ _playercount = (({isPlayer _x} count (getPos vehicle player nearEntities [['AllV
 
 uiSleep 3;
 
-if (_playercount == 0) then {taskHint ["NO PLAYERS DETECTED IN YOUR AREA", [1,0,0.1,1], 'taskFailed'];};
-if (_playercount == 1) then {taskHint ["THERE IS ANOTHER PERSON IN YOUR AREA", [0,1,0,1], 'taskDone'];};
-if (_playercount > 1) then {taskHint [format["There are %1 players in your area!",_playercount], [(51/255),(181/255),(229/255),1], "taskDone"];
+if (_playercount == 0) then {cutText ["GPS : No players detected near you..", "PLAIN DOWN"];};
+if (_playercount == 1) then {cutText ["GPS: There is one other player in your area.", "PLAIN DOWN"];};
+if (_playercount > 1) then {cutText [format["GPS: There are %1 players in your area!",_playercount], "PLAIN DOWN"];};
 
 DZE_ActionInProgress = false;
