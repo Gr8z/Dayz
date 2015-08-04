@@ -38,6 +38,7 @@ _SAdmins = [
 	"76561198078201908", // Gr8 > I have a tiny Penis
 	"76561198153784743", // Ghost >  My Cock Is so moist
 	"76561198002511087", // TempSniper
+	"76561198137100220",  // Deadskin
 	"76561198021389971", // Thirdhero
 	"76561197973172761",  // Milton
 	"76561198115492831",  //BigEgg
