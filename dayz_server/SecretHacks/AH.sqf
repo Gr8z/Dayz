@@ -2650,7 +2650,7 @@ publicVariable '"+_randvar28+"';
 					};
 				};
 			};
-			_death = compile preprocessFileLineNumbers 'GG\player_death.sqf';
+			_death = compile preprocessFileLineNumbers 'GG\compile\player_death.sqf';
 			while{1 == 1}do
 			{
 				player_death = _death;
