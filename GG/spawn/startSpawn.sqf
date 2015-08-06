@@ -19,7 +19,7 @@ player hideObject false;
 enableEnvironment true;
 0 fadeSound 1;
 cutText ["","BLACK IN"];
-execVM "GG\welcome.sqf";
+execVM "GG\spawn\welcome.sqf";
 if (!isNil "_haloDrop") then {
 	while {(getPos player) select 2 > _autoOpenHeight} do {
 		player allowDamage false;
