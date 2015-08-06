@@ -12,8 +12,7 @@ player setVariable ["BIS_noCoreConversations", true];
 enableRadio true;
 enableSentences false;
 
-call compile preprocessFileLineNumbers"GG\init\config.sqf";
-call compile preprocessFileLineNumbers"GG\donators\donators.sqf";
+call compile preprocessFileLineNumbers"GG\config.sqf";
 
 spawnArea= 1500; 
 dayz_minpos = -1; 
@@ -43,13 +42,13 @@ EpochEvents = [
 	["any","any","any","any",50,"SupplyItems"],
 	["any","any","any","any",55,"Treasure"]];
 
-call compile preprocessFileLineNumbers "GG\init\variables.sqf";
+call compile preprocessFileLineNumbers "GG\variables.sqf";
 progressLoadingScreen 0.1;
-call compile preprocessFileLineNumbers "GG\init\publicEH.sqf";
+call compile preprocessFileLineNumbers "GG\publicEH.sqf";
 progressLoadingScreen 0.2;
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\medical\setup_functions_med.sqf";
 progressLoadingScreen 0.4;
-call compile preprocessFileLineNumbers "GG\init\compiles.sqf";
+call compile preprocessFileLineNumbers "GG\compiles.sqf";
 call compile preprocessFileLineNumbers "GG\bike\init.sqf";
 progressLoadingScreen 0.5;
 call compile preprocessFileLineNumbers "traders.sqf";
@@ -84,19 +83,13 @@ if (!isDedicated) then {
 	};
 	
 	_id = player addEventHandler ["Respawn", {_id = [] spawn player_death;}];
-	_playerMonitor = 	[] execVM "GG\compile\player_monitor.sqf";
-	//Group Management
+	_playerMonitor = 	[] execVM "GG\player_monitor.sqf";
 	[] execVM "GG\group\init.sqf";
 	[false,12] execVM "\z\addons\dayz_code\compile\local_lights_init.sqf";
-	//Remote Messages
 	_nil = [] execVM "GG\remote.sqf";
-	//Service Points
 	execVM "GG\service_point\service_point.sqf";
-	//Key changer
 	_nil = [] execVM "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
-	//Player Hud
 	execVM "GG\hud\playerHud.sqf";
-	//Map Marker Titling
 	execVM "GG\MapMarkerTitling.sqf";
 	
 	preload_done = true;
