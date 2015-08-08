@@ -45,7 +45,7 @@ _cntrad3 = count (nearestObjects [_posrad, GGNoBuildList3, ServerIllegalRadius3]
 
 if (_cntrad > 0) then {
 	_cancel = true;
-	_reason = format["- You are Within %1m of a Blacklisted Building", ServerIllegalRadius];
+	_reason = format["- You are Within %1m of a Trader or Static Weed Farm", ServerIllegalRadius];
 	};
 
 if (_cntrad2 > 0) then {
