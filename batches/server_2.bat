@@ -13,15 +13,8 @@ taskkill /f /im Bec_2.exe
 timeout 2
 echo.
 echo Kill MBcon
-set MBconkill="E:\A2Server\MBcon\server_2"
-cd /d %MBconkill%
-taskkill /f /im MBcon_2.exe
-echo.
-timeout 2
-echo Kill MBcon Moniter
-set MBconMkill="E:\A2Server\MBcon\server_2"
-cd /d %MBconMkill%
-taskkill /f /im MBCon_2_moniter.cmd
+taskkill /f /im cmd.exe /fi "WINDOWTITLE eq MBCon_2_moniter.cmd"
+taskkill /f /im conhost.exe /fi "WINDOWTITLE eq MBCon_2_moniter.cmd"
 timeout 2
 echo.
 :: UPDATING GITHUB REPOS

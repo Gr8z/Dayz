@@ -13,13 +13,8 @@ taskkill /f /im Bec_3.exe
 timeout 2
 echo.
 echo Kill MBcon
-set MBconkill="E:\A2Server\MBcon\server_3"
-cd /d %MBconkill%
-taskkill /f /im MBcon_3.exe
-echo.
-timeout 2
-echo Kill MBcon Moniter
-set MBconMkill="E:\A2Server\MBcon\server_3"
+taskkill /f /im cmd.exe /fi "WINDOWTITLE eq MBCon_3_moniter.cmd"
+taskkill /f /im conhost.exe /fi "WINDOWTITLE eq MBCon_3_moniter.cmd"
 cd /d %MBconMkill%
 taskkill /f /im MBCon_3_moniter.cmd
 timeout 2
