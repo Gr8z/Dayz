@@ -53,8 +53,32 @@ DZE_ForceNameTagsInTrader = true;
 DZE_Surrender = true;
 MaxMineVeins = 10;
 
+ServerIllegalRadius = 1000;
+ServerIllegalRadius2 = 500;
+ServerIllegalRadius3 = 200;
+
 GGNoBuildList = [
-	"Sign_sphere100cm_EP1",
-	"Infostand_2_EP1",
-	"Fiberplant"
+"Infostand_2_EP1",
+"HeliHEmpty"
+];
+
+GGNoBuildList2 = [
+"Land_SS_hangar",
+"Land_Mil_Barracks_i",
+"Land_Mil_Barracks",
+"Land_budova4_in",
+"Land_Mil_ControlTower",
+"Land_Hangar_2"
+];
+
+GGNoBuildList3 = [
+"Land_a_stationhouse",
+"Land_A_GeneralStore_01",
+"Land_A_Hospital",
+"Land_A_FuelStation_Feed",
+"Land_fuelStation_army",
+"Land_fuelstation",
+"Land_Ind_FuelStation_Feed_EP1",
+"Land_ibr_FuelStation_Feed",
+"land_fuelStation_w"
 ];
