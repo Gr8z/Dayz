@@ -53,8 +53,9 @@ DZE_ForceNameTagsInTrader = true;
 DZE_Surrender = true;
 MaxMineVeins = 10;
 
+ServerIllegalRadius = 200;
+
 GGNoBuildList = [
-	"Sign_sphere100cm_EP1",
-	"Infostand_2_EP1",
-	"Fiberplant"
+	"Land_Mil_Barracks",
+	"Land_Mil_Barracks_i"
 ];

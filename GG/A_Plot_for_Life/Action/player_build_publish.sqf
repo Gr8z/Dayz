@@ -1,4 +1,4 @@
-private ["_passArray","_cancel","_position","_reason","_classnametmp","_classname","_tmpbuilt","_dir","_location","_text","_limit","_isOk","_proceed","_counter","_dis","_sfx","_started","_finished","_animState","_isMedic","_num_removed","_lockable","_combinationDisplay","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_playerUID","_OwnerUID","_vector","_buildOffset","_vUp"];
+private ["_passArray","_cancel","_position","_reason","_classnametmp","_classname","_tmpbuilt","_dir","_location","_text","_limit","_isOk","_proceed","_counter","_dis","_sfx","_started","_finished","_animState","_isMedic","_num_removed","_lockable","_combinationDisplay","_combination_1","_combination_2","_combination_3","_combination_4","_combination","_combination_1_Display","_playerUID","_OwnerUID","_vector","_buildOffset","_vUp","_posrad","_cntrad"];
 
 _cancel = _this select 0;
 _position = _this select 1;
@@ -37,6 +37,14 @@ if(!canbuild) then {
 	_cancel = true;
 	_reason = "Cannot build in a city.";
 };
+
+_posrad = [player] call FNC_GetPos;
+_cntrad = count (nearestObjects [_posrad, GGNoBuildList, ServerIllegalRadius]);
+
+if (_cntrad > 0) then {
+	_cancel = true;
+	_reason = format["- You are Within %1m of a Blacklisted Building", ServerIllegalRadius];
+	};
 
 if(!_cancel) then {
 
