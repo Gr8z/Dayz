@@ -30,6 +30,8 @@ _role13 = "Earplugs";
 _role13names = ["Activate Your Earplugs by pressing Y","It will soften the volume and disable environment noise."];
 _role14 = "Twitter";
 _role14names = ["Follow us @GhostzGamerz","Mention us and we will retweet"];
+_role15 = "Debug Monitor";
+_role15names = ["Press insert to toggle the debug monitor","It will fade away after a few seconds"];
 
 {
 	sleep 2;
@@ -63,5 +65,6 @@ _role14names = ["Follow us @GhostzGamerz","Mention us and we will retweet"];
 	[_role11, _role11names],
 	[_role12, _role12names],
 	[_role13, _role13names],
-	[_role14, _role14names]	//make SURE the last one here does NOT have a , at the end
+	[_role14, _role14names],
+	[_role15, _role15names] //make SURE the last one here does NOT have a , at the end
 ];

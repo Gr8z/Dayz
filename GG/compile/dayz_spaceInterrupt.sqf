@@ -125,6 +125,9 @@ if (_dikCode in (actionKeys "GetOver")) then {
 	};
 };
 
+if (_dikCode == 210) then {
+		_nill = execvm "GG\actions\playerstats.sqf";
+};
 
 if (_dikCode in actionKeys "ForceCommandingMode") then {_handled = true};
 if (_dikCode in actionKeys "PushToTalk" && (diag_tickTime - dayz_lastCheckBit > 10)) then {
@@ -145,7 +148,7 @@ if (_dikCode in actionKeys "Chat" && (diag_tickTime - dayz_lastCheckBit > 10)) t
 };
 if (_dikCode in actionKeys "User20" && (diag_tickTime - dayz_lastCheckBit > 5)) then {
 	dayz_lastCheckBit = diag_tickTime;
-	_nill = execvm "GG\playerstats.sqf";
+	_nill = execvm "GG\actions\playerstats.sqf";
 };
 
 // numpad 8 0x48 now pgup 0xC9 1

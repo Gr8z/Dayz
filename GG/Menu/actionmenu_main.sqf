@@ -7,6 +7,7 @@ _pathtoPack = "GG\deployables\";
 _pathtoclothing = "GG\menu\wardrobe\";
 _pathtoGroup = "GG\group\";
 _pathtoAirDrop = "GG\";
+_pathtoPlayerStats = "GG\actions\";
 
 _EXECscript1 = 'player execVM "'+_pathtoscripts+'%1"';
 _EXECscript2 = 'player execVM "'+_pathtocolors+'%1"';
@@ -20,6 +21,7 @@ _EXECscript10 = '[] spawn %1;';
 _EXECscript11 = 'player execVM "'+_pathtoclothing+'%1"';
 _EXECscript12 = 'player execVM "'+_pathtoGroup+'%1"';
 _EXECscript13 = 'player execVM "'+_pathtoAirDrop+'%1"';
+_EXECscript14 = 'player execVM "'+_pathtoPlayerStats+'%1"';
 
 ActionMenu =
 [
@@ -32,6 +34,7 @@ ActionMenu =
 		["Wardrobe Menu >>", [], "#USER:wardrobe", -5, [["expression", ""]], "1", "1"],
 		["View Distance (Fog) Menu >>", [], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
 		["Group  Menu >>", [], "", -5, [["expression", format[_EXECscript12,"loadGroupManagement.sqf"]]], "1", "1"],
+		["Toggle Debug Monitor >>", [], "", -5, [["expression", format[_EXECscript14,"playerstats.sqf"]]], "1", "1"],
             ["", [], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
