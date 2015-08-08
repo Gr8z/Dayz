@@ -68,7 +68,6 @@ GGNoBuildList2 = [
 "Land_Mil_Barracks",
 "Land_budova4_in",
 "Land_Mil_ControlTower",
-"Land_Hangar_2"
 ];
 
 GGNoBuildList3 = [
