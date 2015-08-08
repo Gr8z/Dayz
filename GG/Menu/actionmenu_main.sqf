@@ -34,7 +34,7 @@ ActionMenu =
 		["Wardrobe Menu >>", [], "#USER:wardrobe", -5, [["expression", ""]], "1", "1"],
 		["View Distance (Fog) Menu >>", [], "#USER:FogMenu", -5, [["expression", ""]], "1", "1"],
 		["Group  Menu >>", [], "", -5, [["expression", format[_EXECscript12,"loadGroupManagement.sqf"]]], "1", "1"],
-		["Toggle Debug Monitor >>", [], "", -5, [["expression", format[_EXECscript14,"playerstats.sqf"]]], "1", "1"],
+		["Toggle Debug Monitor", [], "", -5, [["expression", format[_EXECscript14,"playerstats.sqf"]]], "1", "1"],
             ["", [], "", -5, [["expression", ""]], "1", "0"],
             ["Exit", [13], "", -3, [["expression", ""]], "1", "1"]
 ];
