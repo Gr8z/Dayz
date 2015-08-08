@@ -1002,6 +1002,14 @@
       _vehicle_122 = _this;
       _this setPos [9417.0713, 11494.37, 0];
     };
+	
+	_vehicle_123 = objNull;
+    if (true) then
+    {
+      _this = createVehicle ["HeliHEmpty", [9434.4658, 11516.03, 0], [], 0, "CAN_COLLIDE"];
+      _vehicle_123 = _this;
+      _this setPos [9434.4658, 11516.03, 0];
+    };
      
     };
 
