@@ -60,7 +60,6 @@ ServerIllegalRadius3 = 200;
 GGNoBuildList = [
 "Infostand_2_EP1",
 "HeliHEmpty",
-"Sign_sphere100cm_EP1"
 ];
 
 GGNoBuildList2 = [
