@@ -59,7 +59,7 @@ ServerIllegalRadius3 = 200;
 
 GGNoBuildList = [
 "Infostand_2_EP1",
-"HeliHEmpty",
+"HeliHEmpty"
 ];
 
 GGNoBuildList2 = [
@@ -67,7 +67,7 @@ GGNoBuildList2 = [
 "Land_Mil_Barracks_i",
 "Land_Mil_Barracks",
 "Land_budova4_in",
-"Land_Mil_ControlTower",
+"Land_Mil_ControlTower"
 ];
 
 GGNoBuildList3 = [
