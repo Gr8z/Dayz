@@ -3860,7 +3860,7 @@ publicVariable '"+_randvar28+"';
 						'ManPlus5kHumFini.sqf','ManScrollL1t3Fini.sqf','Minus5kHumanitySelf','MM.sqf','MSM.sqf','N00K3.sqf','Noclip.sqf','Plus5kHumanitySelf.sqf','ShieldZ.sqf.sqf',
 						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf',
 						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf','TPH\menu.sqf','gp.sqf','TPH\start.sqf','myscript.sqf','l33tH4x0or\Run.sqf','execl33t.sqf','l33tKey.sqf',
-						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf','l33tMoney.sqf'
+						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf','l33tMoney.sqf','ArtyomV1\AtomicMenu.sqf','screen.sqf','ajmenu.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
