@@ -346,7 +346,7 @@ _weapons3 = [
 ];
 _magazines3 = [
 	['30m_plot_kit','workbench_kit','cinder_wall_kit','MortarBucket','CinderBlocks','cinder_garage_kit','ItemComboLock','ItemWoodLadder','ItemPole','ItemTankTrap','ItemWoodStairs','metal_floor_kit','ItemVault','ItemSledgeHead','ItemSledgeHandle','storage_shed_kit'],
-	[1,					1,				15,					15,			50,				4,					4,				4,				12,			12,				6,				15,				2,			2,					2,				2]
+	[1,					1,				25,					15,			50,				4,					4,				4,				12,			12,				6,				15,				2,			2,					2,				2]
 ];
 _backpack3 = [
 	['DZ_LargeGunBag_EP1'],
