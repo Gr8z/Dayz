@@ -350,6 +350,7 @@ Soldier3 = [
 	"76561198166231771", // Wombat(EXP-2015-08-19) #10131
 	"76561197998715478", // [G00N]Reach40sNuts(EXP-08-10) #10131
 	"76561198062672069", // [Pizza [LP](OD-08-05-2015) #10578
+	"76561198058099842", // Fap Admin Loadout
 	// Add UIDs above, don't forget the comma
 "0"
 ];
