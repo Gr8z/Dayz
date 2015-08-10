@@ -2,7 +2,7 @@ private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item
 
 _loot_box = "USVehicleBox";
 
-_giveWep = ["BAF_AS50_scoped","M107","RPG7V","DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1"] call BIS_fnc_selectRandom;
+_giveWep = ["BAF_AS50_scoped","RPG7V","DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1"] call BIS_fnc_selectRandom;
 _possibleMags = getArray (configfile >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags select 0;
 
