@@ -126,22 +126,27 @@ SafeDialogDepositAmount = {
 	_safe = SafeStorage getVariable ["safeMoney", 0];
 	_wealth = player getVariable["cashMoney",0];
 	
-	if (_amount < 1 or _amount > _wealth) exitWith {
-		cutText ["You can not deposit more than you have.", "PLAIN DOWN"];
-	};
-
-	if ((_safe + _amount ) >  SafeMaxDeposit) then{		
-			cutText [format["You can only store a max of %1 %2 in this Safe.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName], "PLAIN DOWN"];
-	}else{	
-		player setVariable["cashMoney",(_wealth - _amount),true];
-		SafeStorage setVariable["safeMoney",(_safe + _amount),true];
-		cutText [format["You have deposited %1 %2 in the Safe.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];
-	};
-	PVDZE_plr_Save = [player,(magazines player),true,true] ;
-	publicVariableServer "PVDZE_plr_Save";
+	if (!isNull SafeStorage) then {
 	
-	PVDZE_veh_Update = [SafeStorage,"gear"];
-	publicVariableServer "PVDZE_veh_Update";
+		if (_amount < 1 or _amount > _wealth) exitWith {
+			cutText ["You can not deposit more than you have.", "PLAIN DOWN"];
+		};
+
+		if ((_safe + _amount ) >  SafeMaxDeposit) then{
+				cutText [format["You can only store a max of %1 %2 in this Safe.", [SafeMaxDeposit] call BIS_fnc_numberText,CurrencyName], "PLAIN DOWN"];
+		}else{	
+			player setVariable["cashMoney",(_wealth - _amount),true];
+			SafeStorage setVariable["safeMoney",(_safe + _amount),true];
+			cutText [format["You have deposited %1 %2 in the Safe.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];
+		};
+		PVDZE_plr_Save = [player,(magazines player),true,true] ;
+		publicVariableServer "PVDZE_plr_Save";
+		
+		PVDZE_veh_Update = [SafeStorage,"gear"];
+		publicVariableServer "PVDZE_veh_Update";
+	}else{
+		cutText ["Unable to access Coins. Please try again.", "PLAIN DOWN"];
+	};
 };
 
 GivePlayerAmount = {
