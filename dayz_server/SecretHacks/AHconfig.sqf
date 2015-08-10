@@ -137,7 +137,7 @@ _ALLOWED_Dialogs = _ALLOWED_Dialogs + [81000,88890,20001,20002,20003,20004,20005
 /*  Player that have one of these items in their inventory will get punished!  */
 _ForbiddenItems =
 [
-	"ItemMap_Debug","5Rnd_127x99_AS50","ItemCore","BAF_AS50_TWS"
+	"ItemMap_Debug","5Rnd_127x99_AS50","ItemCore","BAF_AS50_TWS","PMC_AS50_TWS_Large","PMC_AS50_scoped_Large"
 ];
 
 /*  If "_UVC =  true;" and "_UVW =  true;" this will delete all vehicles that are not in "_ALLOWED_Vehicles"  */
