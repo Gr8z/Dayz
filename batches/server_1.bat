@@ -11,11 +11,6 @@ set beckill="E:\A2Server\BEC"
 cd /d %beckill%
 taskkill /f /im Bec_1.exe
 timeout 2
-echo.
-echo Kill MBcon
-taskkill /f /im cmd.exe /fi "WINDOWTITLE eq MBCon_1_moniter.cmd"
-taskkill /f /im conhost.exe /fi "WINDOWTITLE eq MBCon_1_moniter.cmd"
-timeout 2
 echo
 :: UPDATING GITHUB REPOS
 echo Updating Git Branch Dayz
@@ -72,13 +67,5 @@ timeout 5
 set becpath="E:\A2Server\BEC"
 cd /d %becpath%
 start "" "Bec_1.exe" -f server_1.cfg
-echo.
-echo Starting Blacklister
-timeout 10
-:: start Blacklister
-set listerpath="E:\A2Server\MBcon\server_1"
-cd /d %listerpath%
-start "" "MBcon_1_restart.cmd"
-echo.
 cls
 @exit
