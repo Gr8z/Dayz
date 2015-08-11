@@ -20,18 +20,13 @@ echo.
 echo Deleting Old Pbos
 del "E:\A2Server\MPMissions\DayZ_GG.Chernarus.pbo"
 del "E:\A2Server\@Server_2\addons\*.pbo"
-timeout 2
-:: start Maintainance
-set logpath="C:\Dayz\SQL_SCRIPTS"
-cd /d %logpath%
-start server_2.bat
 echo.
 echo Starting Log Rotator
 timeout 2
 :: start Log Log Rotator
 set logpath="E:\A2Server\server_2"
 cd /d %logpath%
-start rotate_logs.bat
+start /min rotate_logs.bat
 echo.
 echo.
 timeout 2
@@ -68,6 +63,19 @@ timeout 5
 set becpath="E:\A2Server\BEC"
 cd /d %becpath%
 start "" "Bec_2.exe" -f server_2.cfg
+echo.
+timeout 2
+:: start Maintainance
+set Maintainancepath="C:\Dayz\SQL_SCRIPTS"
+cd /d %Maintainancepath%
+start /min server_3.bat
+echo.
+echo Starting MBCon
+timeout 2
+:: start MBCon
+set MBconpath="E:\A2Server\MBcon\server_2"
+cd /d %MBconpath%
+start MBcon_2.exe
 echo.
 cls
 @exit

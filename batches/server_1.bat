@@ -10,7 +10,13 @@ echo Kill Bec1.exe
 set beckill="E:\A2Server\BEC"
 cd /d %beckill%
 taskkill /f /im Bec_1.exe
+echo.
+echo Starting Log Rotator
 timeout 2
+:: start Log Log Rotator
+set logpath="E:\A2Server\server_1"
+cd /d %logpath%
+start rotate_logs.bat
 echo
 :: UPDATING GITHUB REPOS
 echo Updating Git Branch Dayz
@@ -20,19 +26,6 @@ echo.
 echo Deleting Old Pbos
 del "E:\A2Server\MPMissions\DayZ_GG.Tavi.pbo"
 del "E:\A2Server\@Server_1\addons\*.pbo"
-timeout 2
-:: start Maintainance
-set logpath="C:\Dayz\SQL_SCRIPTS"
-cd /d %logpath%
-start server_1.bat
-echo.
-echo Starting Log Rotator
-timeout 2
-:: start Log Log Rotator
-set logpath="E:\A2Server\server_1"
-cd /d %logpath%
-start rotate_logs.bat
-echo.
 echo.
 timeout 2
 echo.
@@ -67,5 +60,18 @@ timeout 5
 set becpath="E:\A2Server\BEC"
 cd /d %becpath%
 start "" "Bec_1.exe" -f server_1.cfg
+timeout 2
+:: start Maintainance
+set Maintainancepath="C:\Dayz\SQL_SCRIPTS"
+cd /d %Maintainancepath%
+start /min server_1.bat
+echo.
+echo Starting MBCon
+timeout 2
+:: start MBCon
+set MBconpath="E:\A2Server\MBcon\server_1"
+cd /d %MBconpath%
+start MBcon_1.exe
+echo.
 cls
 @exit
