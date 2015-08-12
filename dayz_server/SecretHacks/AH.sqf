@@ -6903,9 +6903,9 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				[
 				'metal_floor_kit'
 				];
+				_b0x addMagazineCargoGlobal ['ItemVault', 3];
 				{_b0x addMagazineCargoGlobal [_x, 2];} forEach
 				[
-				'ItemVault',
 				'ItemSledgeHead',
 				'ItemSledgeHandle',
 				'storage_shed_kit'
