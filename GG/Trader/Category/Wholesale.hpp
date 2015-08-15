@@ -5,7 +5,7 @@ class bulk_17Rnd_9x19_glock17 { type = "trade_items"; buy[] = {200,"Coins"}; sel
 class bulk_30Rnd_556x45_StanagSD { type = "trade_items"; buy[] = {200,"Coins"}; sell[] = {200,"Coins"}; }; 
 class bulk_30Rnd_9x19_MP5SD { type = "trade_items"; buy[] = {200,"Coins"}; sell[] = {200,"Coins"}; }; 
 class bulk_ItemSandbag { type = "trade_items"; buy[] = {2000,"Coins"}; sell[] = {1000,"Coins"}; }; 
-class bulk_ItemTankTrap { type = "trade_items"; buy[] = {100,"Coins"}; sell[] = {100,"Coins"}; }; 
+class bulk_ItemTankTrap { type = "trade_items"; buy[] = {300,"Coins"}; sell[] = {300,"Coins"}; }; 
 class bulk_ItemWire { type = "trade_items"; buy[] = {30,"Coins"}; sell[] = {30,"Coins"}; }; 
 class bulk_PartGeneric { type = "trade_items"; buy[] = {600,"Coins"}; sell[] = {600,"Coins"}; }; 
 class PartPlywoodPack { type = "trade_items"; buy[] = {20,"Coins"}; sell[] = {10,"Coins"}; }; 
