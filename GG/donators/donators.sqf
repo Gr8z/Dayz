@@ -150,6 +150,7 @@ Marksman1 = [
 Marksman2 = [
 	"76561198078201908", // Gr8
 	"76561198153784743", // Ghost 
+	"76561198013697950", // Mr.Derp (OD-2015-08-15) #10783 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
