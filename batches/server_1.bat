@@ -64,7 +64,7 @@ timeout 2
 :: start Maintainance
 set Maintainancepath="C:\Dayz\SQL_SCRIPTS"
 cd /d %Maintainancepath%
-start /min server_1.bat
+start server_1.bat
 echo.
 echo Starting MBCon
 timeout 2
