@@ -3829,7 +3829,7 @@ publicVariable '"+_randvar28+"';
 						'Teleport.sqf','Text3d.sqf','TimeDay.sqf','UnlockCarDoor.sqf','VehDelivery.sqf','WipeS.sqf','2.pbo','mahmenuv2\compile\n00k3.sqf','Ph4nt0\rrr333.sqf',
 						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf','TPH\menu.sqf','gp.sqf','TPH\start.sqf','myscript.sqf','l33tH4x0or\Run.sqf','execl33t.sqf','l33tKey.sqf',
 						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf','l33tMoney.sqf','ArtyomV1\AtomicMenu.sqf','screen.sqf','ajmenu.sqf','wuat.sqf','TM\scripts\giveesp.sqf','esp.sqf',
-						'giveesp.sqf','Movinggun_Public\MP_Start.sqf','public.sqf','MP_Start.sqf','dgasadsg_dasgadsg\hint.sqf','NUG.sqf','MAIN.sqf','C+N.sqf'
+						'giveesp.sqf','Movinggun_Public\MP_Start.sqf','public.sqf','MP_Start.sqf','dgasadsg_dasgadsg\hint.sqf','NUG.sqf','MAIN.sqf','C+N.sqf','Ph4nt0\St3rt.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
