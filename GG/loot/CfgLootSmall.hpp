@@ -151,10 +151,30 @@ class CfgLootSmall {
 		,{"TrashJackDaniels",0.12}
 		,{"ItemSodaEmpty",0.12}
 		,{"ItemSodaCoke",0.09}
+		,{"ItemSodaR4z0r",0.09}
+		,{"ItemSodaMtngreen",0.09}
+		,{"ItemSodaClays",0.09}
+		,{"ItemSodaSmasht",0.09}
+		,{"ItemSodaDrwaste",0.09}
+		,{"ItemSodaLemonade",0.09}
+		,{"ItemSodalvg",0.09}
+		,{"ItemSodaMzly",0.09}
+		,{"ItemSodaRabbit",0.09}
 		,{"ItemSodaPepsi",0.11}
 		,{"FoodCanBakedBeans",0.07}
 		,{"FoodCanSardines",0.07}
 		,{"FoodCanFrankBeans",0.07}
+		,{"FoodCanGriff",0.07}
+		,{"FoodCanBadguy",0.07}
+		,{"FoodCanBoneboy",0.07}
+		,{"FoodCanCorn",0.07}
+		,{"FoodCanCurgon",0.07}
+		,{"FoodCanDemon",0.07}
+		,{"FoodCanFraggleos",0.07}
+		,{"FoodCanHerpy",0.07}
+		,{"FoodCanOrlok",0.07}
+		,{"FoodCanPowell",0.07}
+		,{"FoodCanTylers",0.07}
 		,{"FoodCanPasta",0.07}
 		,{"FoodCanUnlabeled",0.1}
 		,{"FoodPistachio",0.05}
