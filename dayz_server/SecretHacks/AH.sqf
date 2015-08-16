@@ -3745,7 +3745,7 @@ publicVariable '"+_randvar28+"';
 						'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
 						'oefexec.dll','stdafx.h','whippy\execute.sqf','MSSM\main.sqf','ScriptName.sqf','RommelV1\Rexecv1.sqf',
 						'whippymenu\execute.sqf','ArmA2OAHackUCReleasebyCriibyy_[www.unknowncheats.me]_.dll','ArmA2OAHackUCReleasebyCriibyy.dll',
-						'Mystic.sqf','debug_console','Xenos.exe','Xenos64.exe','hoen\sttart.sqf','hoen\compile\re.sqf',
+						'Mystic.sqf','debug_console','Xenos.exe','Xenos64.exe','hoen\sttart.sqf','hoen\compile\re.sqf','hoen\compile\add.sqf',
 						'freddiesexternalmenu\freddies_active.sqf','freddiesexternalmenuv8\freddies_active.sqf','Menu_Scripts\menu\menu_generate.sqf',
 						'infiSTAR_[www.unknowncheats.me]_.dll','Missions\infiSTAR_[www.unknowncheats.me]_.dll','Deluxe_97\Deluxe.sqf',
 						'Expansion\infiSTAR_[www.unknowncheats.me]_.dll','dll\infiSTAR_[www.unknowncheats.me]_.dll',
