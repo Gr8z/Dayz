@@ -344,6 +344,7 @@ Soldier1 = [
 Soldier2 = [
 	"76561198097415737", //OtherAdam(OD-2015-06-04)#9343
 	"76561197985830303", //Kramaro(OD-2015-07-12)#9999
+	"76561198079210499", //ErickGCast(OD-2015-08-16)#10825 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
