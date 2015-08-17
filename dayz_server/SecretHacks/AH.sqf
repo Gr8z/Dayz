@@ -4462,7 +4462,7 @@ publicVariable '"+_randvar28+"';
 							_shorterArray resize 6;
 							_shorterTxt = toString _shorterArray;
 							_shorterTxt = toLower _shorterTxt;
-							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/p','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
+							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll','/pnuke','/nuke','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
 							'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
 							'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport','teleport'
 							])then
