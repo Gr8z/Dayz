@@ -52,6 +52,7 @@ DZE_AllowForceSave = true;
 DZE_ForceNameTagsInTrader = true;
 DZE_Surrender = true;
 MaxMineVeins = 10;
+DZE_FriendlySaving = false;
 
 ServerIllegalRadius = 1000;
 ServerIllegalRadius2 = 500;
