@@ -136,7 +136,8 @@ Engineer3 = [
 	"76561198207906147", // -Dill4n- (Paedro) (OD-2015-08-03) #10525     
 	"76561198119421077", // Meerk (OD-2015-08-08) #10637      
 	"76561198001181027", // Hooblah (OD-2015-08-11) #10714     
-	"7656119800752018", // Christoffer (OD-2015-08-16) #10831      
+	//"7656119800752018", // Christoffer (OD-2015-08-16) #10831 ** Needs correct UID missing one digit.
+	"76561198016123968", // ReveR (OD-2015-08-18) #10862
 	// Add UIDs above, don't forget the comma
 "0"
 ];
