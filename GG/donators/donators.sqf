@@ -360,6 +360,7 @@ Soldier3 = [
 	"76561198058099842", // Fap Admin Loadout
 	"76561198144972779", // outlawthree (OD-2015-08-13) #10761
 	"76561198098148891", // moody (OD-2015-08-20) #10937 
+	"76561198135611591", // SSF turnip (OD-2015-08-21) #10930  
 	// Add UIDs above, don't forget the comma
 "0"
 ];
