@@ -683,9 +683,6 @@ dayz_recordLogin = {
 	_key call server_hiveWrite;
 };
 
-#include "Donators.sqf"
-
-
 dayz_perform_purge = {
 	if(!isNull(_this)) then {
 		_group = group _this;
