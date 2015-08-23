@@ -4191,7 +4191,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 						};
 					};
 				};
-				_id = [_position,_agent] execFSM "GG\zombies\zombie_agent.fsm";
+				_id = [_position,_agent] execFSM "\z\addons\dayz_code\system\zombie_agent.fsm";
 			};
 		};
 		openMap [true, false];
