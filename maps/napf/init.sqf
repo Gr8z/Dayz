@@ -43,6 +43,7 @@ EpochEvents = [
 	["any","any","any","any",50,"SupplyItems"],
 	["any","any","any","any",55,"Treasure"]];
 
+call compile preprocessFileLineNumbers '\marmadebug\init\fn_init.sqf';
 call compile preprocessFileLineNumbers "GG\init\variables.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\init\publicEH.sqf";
