@@ -709,7 +709,8 @@ LOG_CFG_CANLIFT=[
 	"UH60M_EP1_DZE",
 	"Mi17_CDF",
 	"MH60S_DZE",
-	"Mi17_Ins"
+	"Mi17_Ins",
+	"UH60M_MEV_EP1"
 ];
 
 
