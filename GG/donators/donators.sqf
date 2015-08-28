@@ -286,6 +286,7 @@ Scout2 = [
 	"76561198170028527", // [DMM]Lt.Michael Murphy (OD-2015-08-25) #11032   
 	"76561198064781943", // IR Sir.Handgun (OD-2015-08-25) #11028   
 	"76561198124203897", // Gambino (OD-2015-08-27) #11079   
+	"76561197999607873", // JonEarnz (OD-2015-08-27) #11074   
 	// Add UIDs above, don't forget the comma
 "0"
 ];
