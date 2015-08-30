@@ -336,6 +336,7 @@ Scout3 = [
 	"76561197988539602", // Zemathar (OD-2015-02-08) #7890  
 	"76561198081807778", // =Dn= Tree Shot (OD-2015-08-21) #10945   
     "76561197985442849", // EpicStatius (OD-2015-08-22) #10981 
+    "76561198133624067", // Death2You (EXP-2015-09-30) 
     "76561198051261026", // AxeHan-San 
 	
 	// Add UIDs above, don't forget the comma
