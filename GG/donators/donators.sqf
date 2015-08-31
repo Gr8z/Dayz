@@ -338,6 +338,7 @@ Scout3 = [
     "76561197985442849", // EpicStatius (OD-2015-08-22) #10981 
     "76561198133624067", // Death2You (EXP-2015-09-30) 
     "76561198051261026", // AxeHan-San 
+    "76561198041053208", // NRP (OD-2015-08-31)#11177 
 	
 	// Add UIDs above, don't forget the comma
 "0"
