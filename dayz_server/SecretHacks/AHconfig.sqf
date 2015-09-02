@@ -4,7 +4,6 @@
 _LAdmins = [
 	"76561198122210030", // Pirate								
 	"76561198080045762", // Deadskin	(Mod)								 
-	"76561198058099842", // Fap
 	"76561198162046909", // Shahzad
 	"76561197970044945", // MrCheeseyman
 	"76561198073669230", // Jack Black
@@ -23,7 +22,6 @@ _LAdmins = [
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
 	"76561198182408150",  // Pirate Admin
-	"76561198237597876",  // Fap
 	"76561198195305425",  // Shahzad
 	"76561198240385148",  // Jack Black
 	"76561198183434467",  // MeowMix Admin
