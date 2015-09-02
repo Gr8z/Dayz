@@ -47,6 +47,8 @@ publicVariableServer "PVDZE_queryGarageVehicle";
 
 cutText ["Requesting your garage Info....", "PLAIN DOWN"];
 
+_obj setvehiclelock "locked";
+
 waitUntil {!isNil "PVDZE_queryGarageVehicleResult"};
 
 _vehicles = PVDZE_queryGarageVehicleResult;
@@ -61,7 +63,7 @@ if	(count _vehicles < GarageSlots) then
 		[_unit,_key] call BIS_fnc_invRemove; cutText ["Key removed!", "PLAIN DOWN"];
 	};
 
-	_obj setvehiclelock "locked";
+	
 
 	_vehName = getText(configFile >> "CfgVehicles" >> (typeOf _obj) >> "displayName");
 
