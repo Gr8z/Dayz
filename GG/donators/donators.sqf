@@ -141,6 +141,7 @@ Engineer3 = [
 	"76561198007520188", // Christoffer (OD-2015-08-16) #10831 ** Needs correct UID missing one digit.
 	"76561198016123968", // ReveR (OD-2015-08-18) #10862
 	"76561198014893626", // =OSK= Ace of Spades (OD-2015-09-05) #11287
+	"76561198046530759", // Jayah (OD-2015-09-05) #11306
 	// Add UIDs above, don't forget the comma
 "0"
 ];
