@@ -396,6 +396,8 @@ Soldier3 = [
     "76561198085512191", // Death2You (OD-2015-09-02) #11253 	
     "76561198145689266", // Super-Six-Four-Charlie (OD-2015-09-04) #11279  	
     "76561198067142335", // Snake (OD-2015-09-05) #11330  	
+    "76561198067566966", // [DHA] SnipernoSniping (OD-2015-09-06) #11356   	
+    "76561198035286268", // [DHA] YODA JEDI MASTER (OD-2015-09-06) #11354    	
 	// Add UIDs above, don't forget the comma
 "0"
 ];
