@@ -139,6 +139,7 @@ Engineer3 = [
 	"76561198001181027", // Hooblah (OD-2015-08-11) #10714     
 	"76561198007520188", // Christoffer (OD-2015-08-16) #10831 ** Needs correct UID missing one digit.
 	"76561198016123968", // ReveR (OD-2015-08-18) #10862
+	"76561197998971259", // Hamp (EXP-2015-09-19) #10862
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -380,6 +381,7 @@ Soldier3 = [
 	"76561198033022119", // [OTS] Squirtle (EXP-2015-09-25)  
     "76561198133624067", // Death2You (EXP-2015-09-31) 	
     "76561198085512191", // Death2You (OD-2015-09-02) #11253 	
+    "76561198145689266", // Super-Six-Four-Charlie (OD-2015-09-04) #11279  	
 	// Add UIDs above, don't forget the comma
 "0"
 ];
