@@ -231,6 +231,10 @@ _randvar40 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar40: %1',
 _randvar41 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _randvar41: %1',_randvar41];
 _clickOnMapTimer = call _fnc_RandomGen;diag_log format['infiSTAR.de - _clickOnMapTimer: %1',_clickOnMapTimer];
 _clickOnMapCaught = call _fnc_RandomGen;diag_log format['infiSTAR.de - _clickOnMapCaught: %1',_clickOnMapCaught];
+_t1 = call _fnc_RandomGen;diag_log format['infiSTAR.de _t1: %1',_t1];
+_t2 = call _fnc_RandomGen;diag_log format['infiSTAR.de _t2: %1',_t2];
+_t3 = call _fnc_RandomGen;diag_log format['infiSTAR.de _t3: %1',_t3];
+_t4 = call _fnc_RandomGen;diag_log format['infiSTAR.de _t4: %1',_t4];
 _fnc_handlerandvar10 = call _fnc_RandomGen;diag_log format['infiSTAR.de - _fnc_handlerandvar10: %1',_fnc_handlerandvar10];
 _remark = call _fnc_RandomGen;diag_log format['infiSTAR.de - _remark: %1',_remark];
 _AHpos = call _fnc_RandomGen;diag_log format['infiSTAR.de - _AHpos: %1',_AHpos];
@@ -1414,11 +1418,64 @@ publicVariable '"+_randvar28+"';
 	"+_randvar36+" = true;
 	_goodguys = "+str _allAdmins+";
 	_zero = ""
+		if(isNil'"+_randvar41+"')then{"+_t1+" = nil;"+_t2+" = nil;"+_t3+" = nil;"+_t4+" = nil;"+_randvar41+"='1';};
 		if(!isServer)then
 		{
 			{if!(isNil _x)then{BRKNFNC = 'BRKNFNC';publicVariable 'BRKNFNC';};} forEach ['time','diag_tickTime'];
+			if((time > 120)&&(diag_tickTime > 120))then
+			{
+				{
+					if(!isNil '_x')then
+					{
+						if(typeName _x == 'SCALAR')then
+						{
+							_ttime = call {
+								if(_forEachIndex==0)exitWith{30};
+								if(_forEachIndex==1)exitWith{30};
+								60
+							};
+							_okTime = call {
+								if(diag_fps < 2)exitWith{_ttime+10;};
+								if(diag_fps < 20)exitWith{_ttime+5};
+								_ttime
+							};
+							_timedif = diag_tickTime - _x;
+							if((_timedif > _okTime)&&(_timedif < 321))then
+							{
+								_log = format['T%1 did not update in %2s (old time %3, new time %4). FPS: %5. (KICKED)',_forEachIndex+1,_timedif,_x,diag_tickTime,diag_fps];
+								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar280337+";
+								(findDisplay 46)closeDisplay 0;
+							};
+						}
+						else
+						{
+							_log = format['typeName of T%1 changed to %2: %3!   (BANNED)',_forEachIndex+1,typeName _x,_x];
+							[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar280337+";
+							[] spawn "+_randvar2+";
+						};
+					};
+				} forEach ["+_t1+","+_t2+","+_t3+","+_t4+"];
+			};
 			allGroups=[];setVehicleInit='no';processInitCommands='no';
 			[] spawn "+_randvar19+";
+			if(isNil '"+_randvar33+"')then
+			{
+				"+_t1+" = diag_tickTime;
+				"+_randvar33+" = true;
+				[] spawn {
+					while{1 == 1}do
+					{
+						if((isNil 'bis_fnc_infotext') || (isNil 'bis_fnc_findsafepos') || (isNil 'bis_fnc_dirto') || (isNil 'bis_fnc_dynamictext') || (isNil 'bis_fnc_invremove'))then
+						{
+							BIS_fnc_init = nil;
+							call compile preprocessFileLineNumbers 'ca\Modules\Functions\init.sqf';
+						};
+						uiSleep 0.5;
+						"+_t1+" = diag_tickTime;
+						if(isNil '"+_randvar33+"')exitWith {"+_t1+" = nil;[] spawn {uiSleep 1;"+_t1+" = nil;};};
+					};
+				};
+			};
 			if(alive player)then
 			{
 				if(name player == 'DEAD')then
