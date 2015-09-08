@@ -1442,9 +1442,6 @@ publicVariable '"+_randvar28+"';
 							_timedif = diag_tickTime - _x;
 							if((_timedif > _okTime)&&(_timedif < 321))then
 							{
-								_log = format['T%1 did not update in %2s (old time %3, new time %4). FPS: %5. (KICKED)',_forEachIndex+1,_timedif,_x,diag_tickTime,diag_fps];
-								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar280337+";
-								(findDisplay 46)closeDisplay 0;
 							};
 						}
 						else
