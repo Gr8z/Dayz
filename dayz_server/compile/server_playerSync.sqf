@@ -39,7 +39,7 @@ if (_characterID == "0") exitWith {
 private["_debug","_distance"];
 _debug = getMarkerpos "respawn_west";
 _distance = _debug distance _charPos;
-if (_distance < 2000) exitWith {};
+if (_distance < 50) exitWith {};
 
 //Check for server initiated updates
 _isNewMed =		_character getVariable["medForceUpdate",false];		//Med Update is forced when a player receives some kind of med incident
