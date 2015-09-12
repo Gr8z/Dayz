@@ -1403,7 +1403,7 @@ publicVariable '"+_randvar12+"';
 			'sosjfosjdfojsdfijojx','selectedUnitZ1','healME','B1g_B3nProEsp','MonsterCheats_FNC_ESP_distance','lando3sp','Guard','WhippyV4_E','BTC_SganciaActionId','hacks','pic','Decrypt','MP_ESP_Var1esp','MP_ESP_Var2HudCv',
 			'MP_ESP_Var2HudCp','DecryptMe','FUCK_ME_ANUS_FINGER_BANG','validation_Requested_rheethtehathe','Paradoge_g0d_m0de','Paradoge_Unl1m_4mm0','Paradoge_Add_Current_Mag','Paradoge_t3l3_MAP','I_Love_Shit_heads',
 			'Nuggetz_c4sh_v4r','life_no_injection','SpawnWeapons','ImmaFuggingL33tFini_FillMainMenu','finizE_S_P','DarkLightClick','DarkLight_esp','xocjoxjoijssss','togESP4','loadMes','VehiAdM','Caylonator_jewkiller',
-			'C_A_Y_L_O_F_U_K_Y_O_U','wallhax2_infiShit_230fskadas','wallhax2_str_230fj2903r2','ZendoRepair','P4nt0n4t0r_Ph4nt0'
+			'C_A_Y_L_O_F_U_K_Y_O_U','wallhax2_infiShit_230fskadas','wallhax2_str_230fj2903r2','ZendoRepair','P4nt0n4t0r_Ph4nt0','scode','gdmode2on','strExecCode'
 			];
 			uiSleep 0.5;
 			"+_t2+" = diag_tickTime;
@@ -3882,8 +3882,8 @@ publicVariable '"+_randvar28+"';
 						'Gr8iSgAy\Grt333.sqf','rrr333.sqf','Grt333.sqf','rr333.sqf','rr33.sqf','TPH\menu.sqf','gp.sqf','TPH\start.sqf','myscript.sqf','l33tH4x0or\Run.sqf','execl33t.sqf','l33tKey.sqf',
 						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf','l33tMoney.sqf','ArtyomV1\AtomicMenu.sqf','screen.sqf','ajmenu.sqf','wuat.sqf','TM\scripts\giveesp.sqf','esp.sqf',
 						'giveesp.sqf','Movinggun_Public\MP_Start.sqf','public.sqf','MP_Start.sqf','dgasadsg_dasgadsg\hint.sqf','NUG.sqf','MAIN.sqf','C+N.sqf','Ph4nt0\St3rt.sqf','MahMenuV3\run.sqf','MahMenuV4\run.sqf',
-						'DMR.sqf','MahMenuV2\compile\ESP.sqf','DarkLight\Stt3rtt.sqf','DarkLight\rrr333.sqf','TBM\Run.sqf','TBM\compile\re.sqf','C1\compile\re.sqf','MSSM\seinahax.sqf',
-						'Ph4nt0\ph4nt0sh131d.sqf'
+						'DMR.sqf','MahMenuV2\compile\ESP.sqf','DarkLight\Stt3rtt.sqf','DarkLight\rrr333.sqf','TBM\Run.sqf','TBM\compile\re.sqf','C1\compile\re.sqf','MSSM\seinahax.sqf','hello.sqf',
+						'Ph4nt0\ph4nt0sh131d.sqf','Templates_Settings.ini'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
