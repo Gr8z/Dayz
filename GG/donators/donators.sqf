@@ -226,7 +226,8 @@ Medic3 = [
 	"76561198078688286", // Parker (OD-2015-08-12)#10713 
 	"76561198129223033", // PaulTheCanadian (OD-2015-08-22)#10965  
 //	"76561198052352146", // Dion aka Red Baron (OD-2015-09-06)#11335  > NO PAYMENT ?
-	"76561198129223033", // Beercules [FG] (OD-2015-09-06)#11406
+	"76561198158550520", // Beercules [FG] (OD-2015-09-06)#11406
+	
 	// Add UIDs above, don't forget the comma
 "0"
 ];
