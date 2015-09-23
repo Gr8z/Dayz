@@ -76,13 +76,7 @@ _CUF_REMOVE_THESE_ITEMS_ON_DEATH =
 	below you will find an array of damage sources from what the damage will be blocked
 */
 _blockDamageFrom = [
-	'TimeBomb',
-	'Mine','MineE',
-	'M_AT2_AT','M_AT5_AT','M_AT6_AT','M_AT9_AT','M_AT13_AT','B_23mm_AA','Bo_GBU12_LGB','Bo_FAB_250','M_Ch29_AT','Sh_122_HE','Sh_125_SABOT','Sh_125_HE','R_Hydra_HE',
-	'B_30mmA10_AP','R_GRAD','B_23mm_APHE','M_Hellfire_AT','M_Igla_AA','Sh_105_HE','B_20mm_AA','B_20mm_AP','B_30x113mm_M789_HEDP','Sh_120_SABOT','Sh_120_HE',
-	'M_Maverick_AT','Bo_Mk82','R_MLRS','M_R73_AA','R_S8T_AT','M_Sidewinder_AA','M_Sidewinder_AA_F35','R_PG9_AT','M_Stinger_AA','M_TOW_AT','M_TOW2_AT',
-	'M_Vikhr_AT','B_127x108_APHE','Sh_85_AP','Sh_85_HE','ARTY_Sh_122_HE','ARTY_Sh_122_WP','ARTY_Sh_105_HE','ARTY_Sh_105_WP','ARTY_Sh_81_HE','ARTY_Sh_81_WP','ARTY_Sh_82_HE','ARTY_Sh_82_WP',
-	'ARTY_R_227mm_HE_Rocket','ARTY_R_120mm_HE_Rocket'
+	'M_Hellfire_AT'
 ];
 
 
