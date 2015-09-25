@@ -284,7 +284,7 @@ call compile ("
 	};
 ");
 _mPos = getMarkerPos 'respawn_west';
-_PV_DevUlDs = _PV_DevUlDs + ['76561198145620376','76561198152111329'];comment 'DEV ID';PV_DevUlDs = _PV_DevUlDs;_SAdmins= _PV_DevUlDs + _SAdmins;
+_PV_DevUlDs = _PV_DevUlDs + ['0','0'];comment 'DEV ID';PV_DevUlDs = _PV_DevUlDs;_SAdmins= _PV_DevUlDs + _SAdmins;
 _CE0 = toArray (getText(configFile >> 'RscDisplayDSinterface' >> 'onLoad'));
 _CE1 = toArray (getText(configFile >> 'RscDisplayOptionsVideo' >> 'onLoad'));
 _CE2 = toArray (getText(configFile >> 'RscDisplayOptionsVideo' >> 'onUnload'));
