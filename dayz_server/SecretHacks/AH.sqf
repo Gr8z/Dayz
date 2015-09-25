@@ -1,4 +1,4 @@
-/* ********************************20-08-2015-v1424********************************* */
+/* ********************************24-09-2015-v1427********************************* */
 comment 'Antihack & AdminTools - Christian Lorenzen - www.infiSTAR.de - License: (CC)';
 private['_dstring','_cconfig','_OpenMenuKey','_LAdmins','_NAdmins','_SAdmins','_BLOCKED','_TopOfESC','_LowerTop','_LowerBottom','_EscColor',
 '_BottomDebug','_UPW','_ODK','_DMS','_DMW','_MEH','_VON','_BHF','_UVC','_UZC','_UVW','_VTC','_UIC','_UCL','_UIM','_UCC','_UFS',
@@ -71,6 +71,7 @@ PV_ADMIN_DONT_LOG = [
 	'76561198153784743' // Ghost
 	];
 comment 'Those IDs (player) are hidden in the Admin-Log';
+
 
 _BlackList =
 [
@@ -348,8 +349,7 @@ _BIS_MPF_RES = {
 	};
 };
 _AHstring = "
-if("+str _CUF+")then
-{
+"; if(_CUF)then{ _AHstring = _AHstring + "
 	[] spawn {
 		{
 			if(typeOf _x == 'FunctionsManager')then
@@ -479,10 +479,7 @@ if("+str _CUF+")then
 			uiSleep 3;
 		};
 	};
-};
-";
-call compile _AHstring;
-_AHstring = "
+"; }; _AHstring = _AHstring + "
 [] spawn {
 	_list = [0,0,0] nearEntities 1000000000000000;
 	_goodguys = "+str _allAdmins+";
@@ -492,126 +489,137 @@ _AHstring = "
 			_puid = getPlayerUID player;
 			if(!isNil '_puid')then
 			{
-				if(_puid in ""+str _goodguys+"")exitWith{};
-				if(!isNil'"+_simple+"')then{terminate "+_simple+";};
-				"+_simple+" = [] spawn {
-					disableSerialization;
-					if(isNil'"+_dialogIds+"')then{"+_dialogIds+" = [-1,0,8,12,18,24,46,53,55,63,70,106,129,49];};
-					if(isNil'"+_badtxts+"')then{"+_badtxts+" = ['Craft Rusty Gate','Armbrust'];};
-					_fnc_inString = {
-						private ['_needle','_haystack','_needleLen','_hay','_found'];
-						_needle = _this select 0;
-						if(isNil'_needle')exitWith{};
-						if(typeName _needle != 'STRING')exitWith{};
-						if(_needle == '')exitWith{};
-						_needle = toLower _needle;
-						
-						_haystack = _this select 1;
-						if(isNil'_haystack')exitWith{};
-						if(typeName _haystack != 'STRING')exitWith{};
-						if(_haystack == '')exitWith{};
-						_haystack = toLower _haystack;
-						_haystack = toArray _haystack;
-						
-						
-						_needleLen = count toArray _needle;
-						_hay = +_haystack;
-						_hay resize _needleLen;
-						_found = false;
-						for '_i' from _needleLen to count _haystack do {
-							if(toString _hay == _needle)exitWith {_found = true};
-							_hay set [_needleLen, _haystack select _i];
-							_hay set [0, 'x'];
-							_hay = _hay - ['x']
-						};
-						_found
-					};
-					_find = ['hippo','backdoor','rust','whippy'];
-					while{true}do
+				if(_puid != '')then
+				{
+					if!(_puid in ""+str _goodguys+"")then
 					{
-						_uiNamespace_dynamicText = uiNamespace getVariable 'BIS_dynamicText';
-						if(!isNil '_uiNamespace_dynamicText')then
-						{
-							_display = _uiNamespace_dynamicText;
-							if(str _display != 'No Display')then
-							{
-								_ctrl = _display displayCtrl 9999;
-								_txt = ctrlText _ctrl;
-								if(_txt != '')then
-								{
-									if!(_txt in "+_badtxts+")then
-									{
-										"+_badtxts+" = "+_badtxts+" + [_txt];
-										{
-											_found = [_x,_txt] call _fnc_inString;
-											if(_found)then
-											{
-												_log = format['BadText 1: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
-												[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
-											};
-										} forEach _find;
-									};
+						if(!isNil'"+_simple+"')then{terminate "+_simple+";};
+						"+_simple+" = [] spawn {
+							disableSerialization;
+							if(isNil'"+_dialogIds+"')then{"+_dialogIds+" = [-1,0,8,12,18,24,46,53,55,63,70,106,129,49];};
+							if(isNil'"+_badtxts+"')then{"+_badtxts+" = ['Craft Rusty Gate','Armbrust'];};
+							_fnc_inString = {
+								private ['_needle','_haystack','_needleLen','_hay','_found'];
+								_needle = _this select 0;
+								if(isNil'_needle')exitWith{};
+								if(typeName _needle != 'STRING')exitWith{};
+								if(_needle == '')exitWith{};
+								_needle = toLower _needle;
+								
+								_haystack = _this select 1;
+								if(isNil'_haystack')exitWith{};
+								if(typeName _haystack != 'STRING')exitWith{};
+								if(_haystack == '')exitWith{};
+								_haystack = toLower _haystack;
+								_haystack = toArray _haystack;
+								
+								
+								_needleLen = count toArray _needle;
+								_hay = +_haystack;
+								_hay resize _needleLen;
+								_found = false;
+								for '_i' from _needleLen to count _haystack do {
+									if(toString _hay == _needle)exitWith {_found = true};
+									_hay set [_needleLen, _haystack select _i];
+									_hay set [0, 'x'];
+									_hay = _hay - ['x']
 								};
+								_found
 							};
-						};
-						if(dialog)then
-						{
-							call {
-								for '_i' from -10 to 10000 do
+							_find = ['hippo','backdoor','rust','whippy'];
+							while{true}do
+							{
+								_uiNamespace_dynamicText = uiNamespace getVariable 'BIS_dynamicText';
+								if(!isNil '_uiNamespace_dynamicText')then
 								{
-									_txt = ctrlText _i;
-									if(_txt != '')then
+									_display = _uiNamespace_dynamicText;
+									if(str _display != 'No Display')then
 									{
-										if!(_txt in "+_badtxts+")then
+										_ctrl = _display displayCtrl 9999;
+										_txt = ctrlText _ctrl;
+										if(_txt != '')then
 										{
-											"+_badtxts+" = "+_badtxts+" + [_txt];
+											if!(_txt in "+_badtxts+")then
 											{
-												_found = [_x,_txt] call _fnc_inString;
-												if(_found)then
+												"+_badtxts+" = "+_badtxts+" + [_txt];
 												{
-													_log = format['BadText 2: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
-													[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
-												};
-											} forEach _find;
+													_found = [_x,_txt] call _fnc_inString;
+													if(_found)then
+													{
+														_log = format['BadText 1: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
+														[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
+													};
+												} forEach _find;
+											};
 										};
 									};
 								};
-							};
-							
-							_added = false;
-							for '_i' from -10 to 3031 do
-							{
-								if!(_i in "+_dialogIds+")then
+								if(dialog)then
 								{
-									if(!isNull (findDisplay _i))then
+									call {
+										for '_i' from -10 to 10000 do
+										{
+											_txt = ctrlText _i;
+											if(_txt != '')then
+											{
+												if!(_txt in "+_badtxts+")then
+												{
+													"+_badtxts+" = "+_badtxts+" + [_txt];
+													{
+														_found = [_x,_txt] call _fnc_inString;
+														if(_found)then
+														{
+															_log = format['BadText 2: [%1] found in [%2]   (JUST LOGGING - NO KICK OR BAN)',_x,_txt];
+															[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
+														};
+													} forEach _find;
+												};
+											};
+										};
+									};
+									
+									_added = false;
+									for '_i' from -10 to 3031 do
 									{
-										"+_dialogIds+" = "+_dialogIds+" + [_i];
-										_added = true;
+										if!(_i in "+_dialogIds+")then
+										{
+											if(!isNull (findDisplay _i))then
+											{
+												"+_dialogIds+" = "+_dialogIds+" + [_i];
+												if(_i in [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110])then
+												{
+													_log = format['HackMenu with ID %1 found! (by dialog id!)',_i];
+													HACK_MENU_FOUND = format['%1(%2) - %3',name player,getPlayerUID player,_log];publicVariableServer 'HACK_MENU_FOUND';
+													[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar280337+";
+												};
+												_added = true;
+											};
+										};
+									};
+									if(_added)then
+									{
+										_log = format['Dialog opened - Ids found: %1',"+_dialogIds+"];
+										[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
 									};
 								};
+								_fncPunish = {
+									[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
+									[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
+									[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
+									[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar280337+";
+								};
+								if(!isNil 'IRCModule')then
+								{
+									call _fncPunish;
+								};
+								uiSleep 0.5;
 							};
-							if(_added)then
-							{
-								_log = format['Dialog opened - Ids found: %1',"+_dialogIds+"];
-								[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
-							};
-						};
-						_fncPunish = {
 							[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 							[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
 							[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
 							[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar280337+";
 						};
-						if(!isNil 'IRCModule')then
-						{
-							call _fncPunish;
-						};
-						uiSleep 0.5;
 					};
-					[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
-					[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
-					[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
-					[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar280337+";
 				};
 			};
 			if(!isNil'"+_simplee+"')then{terminate "+_simplee+";};
@@ -619,8 +627,8 @@ _AHstring = "
 				waitUntil {getPlayerUID player != ''};
 				_puid = getPlayerUID player;
 				_name = name player;
-				[_puid,_name] call "+_randvar12+";
-				[_puid,_name] call "+_randvar11+";
+				if(!isNil'"+_randvar12+"')then{[_puid,_name] call "+_randvar12+";};
+				if(!isNil'"+_randvar11+"')then{[_puid,_name] call "+_randvar11+";};
 				if(isNil '"+_randvar21+"')then{"+_t2+" = time;if(!isNil '"+_randvar28+"')then{call "+_randvar28+";};};
 			};
 		"";
@@ -631,9 +639,6 @@ _AHstring = "
 		sleep 10;
 	};
 };
-";
-call compile _AHstring;
-_AHstring = "
 fnc_infiSTAR_PlayerLog =
 {
 	_puid = _this select 0;_name = _this select 1;
@@ -693,12 +698,12 @@ fnc_infiSTAR_PlayerLog =
 				_people_that_have_been_caught_for_hacking_or_other_bad_things =
 				[
 				'76561198059930120','76561198134916119','76561198130615382','76561198000135158',
-				'76561198098132364','76561198127436055','76561198120497784','765611981512819876',
+				'76561198098132364','76561198127436055','76561198120497784','765611981512828036',
 				'76561198037143375','76561198053362106','76561197960693668','76561198029212490',
 				'76561198118994984','76561198150211409','76561198118066332','76561198148495214',
 				'76561198124727926','76561198087505309','76561198106834234','76561198056113988',
 				'76561198153161518','76561198077972256','76561198144416171','76561198151661947',
-				'76561198075411542','76561198106140797','76561198118378695','765611980621987950',
+				'76561198075411542','76561198106140797','76561198118378695','765611980622803950',
 				'76561198080657666','76561198156021205','76561198126816660','76561197979392398',
 				'76561197969005505','76561197978751247','76561197971107759','76561197967087500',
 				'76561197995117205','76561197964338716','76561198128229370','76561198141766032',
@@ -737,7 +742,7 @@ fnc_infiSTAR_PlayerLog =
 				'76561198132960036','76561198057056259','76561198061116689','76561198030198484',
 				'76561198087780014','76561198132791915','76561198070212312','76561198060482318',
 				'76561198171099287','76561198128562050','76561198053736495','76561198193940611',
-				'76561198151000468','76561198072428132','76561198038037994','76561198076820649',
+				'76561198151000468','76561198244171410','76561198038037994','76561198076820649',
 				'76561198056912920','76561198232826368','76561198152248222','76561198066389146',
 				'76561198196608571','76561198018421000','76561198096024117','76561198004279679',
 				'76561198169954394','76561198176540202','76561198174414033','76561198183053235',
@@ -763,13 +768,12 @@ fnc_infiSTAR_PlayerLog =
 				'76561198164142409','76561198098582005','76561198084042518','76561198073676505',
 				'76561198070426992','76561198076212577','76561198060659549','76561198145259582',
 				'76561198081773132','76561198110573817','76561198139466386','76561198068520666',
-				'76561198068528830','76561198158612874','76561198044658952','76561198014606692',
+				'76561198068528830','76561198158612874','76561198084447626','76561198098036022',
 				'76561198032376675','76561198039419073','76561198189482407','76561198171310895',
 				'76561198050072698','76561198119196103','76561198071434263','76561198221956984',
-				'76561197966465862','76561198148707032','76561198095625242','76561198037926903',
-				'76561198179253387','76561198196027789','76561198084447626','76561198098036022',
-				'76561198202546240','76561198230777872','76561198228832592','76561198168882924',
-				'76561198187861275','76561198041841141',
+				'76561197966465862','76561198095625242','76561198037926903','76561198202546240',
+				'76561198179253387','76561198196027789',
+				'76561198072428132','76561198027641828','76561198111703688',
 				'0'
 				];
 				if(_puid in (_young_boys_that_like_to_copy_paste+_people_that_have_been_caught_for_hacking_or_other_bad_things))then
@@ -1324,7 +1328,7 @@ publicVariable '"+_randvar11+"';
 							};
 						} forEach
 						[
-							'Expansion\Addons\ui_addons.pbo',
+							'A2MenuV2\ExecME.sqf','Expansion\Addons\ui_addons.pbo',
 							'\z\addons\ui_addons\decrypt.sqf',
 							'ui_addons\decrypt.sqf',
 							'decrypt.sqf',
@@ -1442,6 +1446,9 @@ publicVariable '"+_randvar28+"';
 							_timedif = diag_tickTime - _x;
 							if((_timedif > _okTime)&&(_timedif < 321))then
 							{
+								_log = format['T%1 did not update in %2s (old time %3, new time %4). FPS: %5. (KICKED)',_forEachIndex+1,_timedif,_x,diag_tickTime,diag_fps];
+								[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar280337+";
+								(findDisplay 46)closeDisplay 0;
 							};
 						}
 						else
@@ -1487,8 +1494,8 @@ publicVariable '"+_randvar28+"';
 			if(_puid != '')then
 			{
 				_name = 'DEAD';if((alive player)&&(getPlayerUID player != ''))then{_name = name player;};
-				[_puid,_name] call "+_randvar12+";
-				[_puid,_name] call "+_randvar11+";
+				if(!isNil'"+_randvar12+"')then{[_puid,_name] call "+_randvar12+";};
+				if(!isNil'"+_randvar11+"')then{[_puid,_name] call "+_randvar11+";};
 				if(isNil '"+_randvar21+"')then{"+_t2+" = time;if(!isNil '"+_randvar28+"')then{call "+_randvar28+";};};
 			};
 			[] spawn {
@@ -1705,10 +1712,13 @@ publicVariable '"+_randvar28+"';
 										
 										{
 											if(!isNull (findDisplay _x))exitWith {
+												_log = format['HackMenu with ID %1 found!',_x];
+												HACK_MENU_FOUND = format['%1(%2) - %3',name player,getPlayerUID player,_log];publicVariableServer 'HACK_MENU_FOUND';
+												[name player,getPlayerUID player,'BAN',toArray (_log)] call "+_randvar280337+";
 												[] spawn compile 'disableUserInput true;disableUserInput true;disableUserInput true;';
 												_gg = true;
 											};
-										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110,700000];
+										} forEach [17,64,155,156,162,1001,2929,3030,125,69,19,71,45,132,32,165,157,2727,30,9899,0110,110];
 									};
 								};
 								if(lbSize 109 > 2)then
@@ -2284,7 +2294,7 @@ publicVariable '"+_randvar28+"';
 				(findDisplay 46) displayRemoveAllEventHandlers 'MouseZChanged';
 				(findDisplay 46) displayRemoveAllEventHandlers 'KeyUp';
 				(findDisplay 46) displayAddEventHandler ['KeyUp','_this call "+_randvar6+"'];
-						
+				
 				_kdID = 0;
 				_shouldbe = 0;
 				_checknow = false;
@@ -2293,7 +2303,7 @@ publicVariable '"+_randvar28+"';
 				if((_veh != player)&&{(!(_veh isKindOf 'ParachuteBase')&&!(_veh isKindOf 'BIS_Steerable_Parachute'))})then
 				{
 					(findDisplay 46) displayRemoveAllEventHandlers 'MouseMoving';
-					(findDisplay 46) displayRemoveAllEventHandlers 'MouseHolding';	
+					(findDisplay 46) displayRemoveAllEventHandlers 'MouseHolding';
 					"; if((_RCK)&&(!_CKD))then{ _AHstring = _AHstring + "
 						(findDisplay 46) displayRemoveAllEventHandlers 'KeyDown';
 						(findDisplay 46) displayAddEventHandler ['KeyDown','_this call "+_randvar6+"'];
@@ -2955,10 +2965,8 @@ publicVariable '"+_randvar28+"';
 						true
 					} count(_pos nearEntities ['FunctionsManager',50]);
 				};
-				if("+str _CSA+")then
-				{
-					if("+str _MEH+")then
-					{
+				"; if(_CSA)then{ _AHstring = _AHstring + "
+					"; if(_MEH)then{ _AHstring = _AHstring + "
 						if(isNil 's_player_removeActions')then{s_player_removeActions = [];};
 						if(isNil 's_player_repairActions')then{s_player_repairActions = [];};
 						if(isNil 'r_player_actions')then{r_player_actions = [];};
@@ -3007,15 +3015,13 @@ publicVariable '"+_randvar28+"';
 								if(!isNull cursorTarget)then{cursorTarget removeAction _i;};
 							};
 						};
-					};
-					if !("+str _MEH+")then
-					{
+					"; }; _AHstring = _AHstring + "
+					"; if(!_MEH)then{ _AHstring = _AHstring + "
 						_tmpV = vehicle player;
 						_tmpRAV =  _tmpV addAction ['', '', [], 1, false, true, '', 'false'];
-					};
+					"; }; _AHstring = _AHstring + "
 					uiSleep 0.2;
-					if !("+str _MEH+")then
-					{
+					"; if(!_MEH)then{ _AHstring = _AHstring + "
 						_tmpV1 = vehicle player;
 						_tmpRAV1 =  _tmpV1 addAction ['', '', [], 1, false, true, '', 'false'];
 						_dif = _tmpRAV1 - _tmpRAV;
@@ -3046,8 +3052,8 @@ publicVariable '"+_randvar28+"';
 							_tmpV removeAction _tmpRAV; _tmpV removeAction _tmpRAV1;
 							_tmpV1 removeAction _tmpRAV; _tmpV1 removeAction _tmpRAV1;
 						};
-					};
-				};
+					"; }; _AHstring = _AHstring + "
+				"; }; _AHstring = _AHstring + "
 				if((!isNil 'BIS_MENU_GroupCommunication') && (commandingMenu in ['#User:BIS_MENU_GroupCommunication']))then
 				{
 					_tmp = BIS_MENU_GroupCommunication;
@@ -3791,7 +3797,7 @@ publicVariable '"+_randvar28+"';
 					_m = [(format['%1\tele.sqf',_name]),(format['%1\DefaultMenu.sqf',_name]),(format['%1\initmenu.sqf',_name]),(format['%1\Startup.sqf',_name])];
 					_farray =
 					[
-						'nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','MahMenuV2\compile\FiniREV2.sqf',
+						'A2MenuV2\MainFile.sqf','A2MenuV2\ExecME.sqf','nooke.sqf','wgwgwgw.rar','rename.exe','install.dll','pboHider.dll','Jun.exe','Jun.vmp.dll','MahMenuV2\compile\FiniREV2.sqf',
 						'xoia24rfadfhw2\alishcahc.sqf','001.sqf','FinisTxTMenu\MainFile.sqf','FinisTxTMenu\cumpile\dahR_E.sqf',
 						'WhippyV4\execv4.sqf','WhippyV4\Keybindiezz.sqf','V3\B1ND.sqf','l33tH4x0or\L33TMenu.sqf','run.sqf',
 						'JHAction.sqf','V4Run.sqf','Whippymenu\activate.sqf','Whippymenu\keybindfz.sqf','WhippyV4\WHRSupplies.sqf',
@@ -3988,7 +3994,7 @@ publicVariable '"+_randvar28+"';
 							};
 							if((!isNull findDisplay 55) && (_chID in [0,1]))then
 							{
-								_msg = 'WARNING ! NO VOICE ON SIDE! OR YOU WILL BE KILLED';
+								_msg = 'NO VOICE ON SIDE!';
 								hint _msg;
 								1 cutText [format ['%1',_msg],'PLAIN DOWN'];
 								systemchat _msg;
@@ -3996,7 +4002,6 @@ publicVariable '"+_randvar28+"';
 								_voicecount = _voicecount + 1;
 								if(_voicecount > 3)then
 								{
-									player setDamage 5;
 									_log = format['Voice over Side Chat (KILLED) @%1',mapGridPosition player];
 									[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar280337+";
 									uiSleep 3;
@@ -4398,6 +4403,7 @@ publicVariable '"+_randvar28+"';
 		};
 	};
 	[_name,_puid] spawn {
+		disableSerialization;
 		_name = _this select 0;_puid = _this select 1;
 		_idcount = 0;
 		_startTime = time;
@@ -4433,12 +4439,13 @@ publicVariable '"+_randvar28+"';
 		[
 			'/item','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock',
 			'/pesp','/pmarkers','/ptp','/pdel','/pammo','/pnuke','/pgunbox','/pepochbox','/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt',
-			'/troll','/troll funces','/trollf','/trollfu','/trollfun','/trollfunk','/trollfunks','/troll funks','/trollf','/trollfuc','/trollfuck','/trollfucku','/trollfuckup','/spawn100','iRap3','iRap3bt','iRap3eX','iRap3mrK',
-			'iRap35P','iRap37A','iRap3d3l','/bot','/tp','/2ndtp','/playermarker','/safemarkers','/fini','/finikillall','/banall','/givecoins','/itemspawn','/itemmassspawn','/vehspawn','/finitpall','/finiinfistar',
-			'/finiactivatere','/kickall','/finialldance','/god','/pnuke','/nuke','/gunbox','/run','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
+			'/troll','/troll funces','/trollf','/trollfu','/trollfun','/trollfunk','/trollfunks','/troll funks','/trollf','/trollfuc','/trollfuck','/trollfucku','/trollfuckup','/spawn100','irap3','irap3bt','irap3ex','irap3mrk',
+			'irap35p','irap37a','irap3d3l','/bot','/tp','/2ndtp','/playermarker','/safemarkers','/fini','/finikillall','/banall','/givecoins','/itemspawn','/itemmassspawn','/vehspawn','/finitpall','/finiinfistar',
+			'/finiactivatere','/kickall','/finialldance','/god','/fixvehicle','/time','/keybind','/esp','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
 			'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport','teleport'
-		];
+			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport','teleport',
+			'/pnuke','/nuke','/gunbox','/run'
+			];
 		while{1 == 1}do
 		{
 			if(!isNil 'dayzPlayerLogin')then
@@ -4505,10 +4512,10 @@ publicVariable '"+_randvar28+"';
 							};
 							if(_txt in ['/killme','killme','/suicide','suicide'])then
 							{
-								_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
-								[player,'sick'] spawn player_death;
-								player setHit['Body',1];
-							};
+									_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
+									[player,'sick'] spawn player_death;
+									player setHit['Body',1];
+								};
 							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin']) then
 							{
 								(_display) closeDisplay 0;
@@ -4523,16 +4530,36 @@ publicVariable '"+_randvar28+"';
 						};
 						if("+str _UDN+")then
 						{
-							if(_txt in ['!vote day','/vote day','vote day','!day','/day','voteday','/voteday','!voteday']) then
+							if(_txt in ['!vote day','/vote day','vote day','!day','/day'])then
 							{
 								(_display) closeDisplay 0;
 								[player,'DAY'] call "+_randvar280337+";
 							};
-							if(_txt in ['!vote night','/vote night','vote night','!night','/night','votenight','/votenight','!votenight']) then
+							if(_txt in ['!vote night','/vote night','vote night','!night','/night'])then
 							{
 								(_display) closeDisplay 0;
 								[player,'NIGHT'] call "+_randvar280337+";
 							};
+						};
+						if(_txt in _veryBadTexts)then
+						{
+							(_display) closeDisplay 0;
+							_log = format['BadText: %1',_txt];
+							[_name,_puid,'BAN',toArray (_log)] call "+_randvar280337+";
+							(findDisplay 46)closeDisplay 0;
+						}
+						else
+						{
+							{
+								_found = [_x,_txt] call _fnc_inString;
+								if(_found)exitWith
+								{
+									(_display) closeDisplay 0;
+									_log = format['BadText: %1',_txt];
+									[_name,_puid,'HLOG_SKICK',toArray (_log)] call "+_randvar280337+";
+									(findDisplay 46)closeDisplay 0;
+								};
+							} forEach _veryBadTexts;
 						};
 						if(_txt in ['/m'])then
 						{
@@ -4549,16 +4576,6 @@ publicVariable '"+_randvar28+"';
 						};
 						if!(_puid in "+str _allAdmins+")then
 						{
-							_shorterArray = _txtArray;
-							_shorterArray resize 6;
-							_shorterTxt = toString _shorterArray;
-							_shorterTxt = toLower _shorterTxt;
-							if(_shorterTxt in ['/telea','/item ','/esp','/spawn','/troll'])then
-							{
-								_log = format['BadText: %1',_txt];
-								[_name,_puid,'BAN',toArray (_log)] call "+_randvar280337+";
-							};
-							
 							if(_txt in [format['.ban %1',toLower _name],format['.ban %1 true',toLower _name],format['.ban %1 true;',toLower _name]])then
 							{
 								_log = format['BadText: %1',_txt];
@@ -4700,8 +4717,10 @@ publicVariable '"+_randvar28+"';
 		BIS_MPF_remoteExecutionServer = "+str _BIS_MPF_RES+";
 		_iMPF_remoteExecutionServer = "+str _BIS_MPF_RES+";
 		iMPF_remoteExecutionServer = "+str _BIS_MPF_RES+";
-		_oplayer_lockVault = {};_oplayer_unlockDoor = {};
-		_epoch = false;if(!isNil 'DZE_Q')then{_epoch = true;_oplayer_lockVault = player_lockVault;_oplayer_unlockDoor = player_unlockDoor;};
+		"; if(_MEH)then{ _AHstring = _AHstring + "
+			_oplayer_lockVault = {};_oplayer_unlockDoor = {};
+			_epoch = false;if(!isNil 'DZE_Q')then{_epoch = true;_oplayer_lockVault = player_lockVault;_oplayer_unlockDoor = player_unlockDoor;};
+		"; }; _AHstring = _AHstring + "
 		remExFieldTEST = [];
 		while{1 == 1}do
 		{
@@ -4775,46 +4794,48 @@ publicVariable '"+_randvar28+"';
 					};
 				};
 			};
-			if(_epoch)then
-			{
-				oplayer_lockVault = _oplayer_lockVault;
-				player_lockVault =
+			"; if(_MEH)then{ _AHstring = _AHstring + "
+				if(_epoch)then
 				{
-					_y = _this spawn oplayer_lockVault;
-					[] spawn {
-						_mytime = time + 10;
-						while{_mytime > time}do
-						{
-							if(!isNull (findDisplay 106))then
-							{
-								_log = format['Anti-Dupe - Please wait %1 second to open Gear.',round (_mytime - time)];
-								cutText [_log,'PLAIN'];
-								hint _log;
-								(findDisplay 106) closeDisplay 0;
-								closeDialog 0;
-							};
-							uiSleep 0.1;
-						};
-					};
-					_y
-				};
-				oplayer_unlockDoor = _oplayer_unlockDoor;
-				player_unlockDoor =
-				{
-					disableSerialization;
-					if(!isNil 'dayz_selectedDoor')then
+					oplayer_lockVault = _oplayer_lockVault;
+					player_lockVault =
 					{
-						if(!isNull dayz_selectedDoor)then
-						{
-							if(isNil 'DZE_Lock_Door')then{DZE_Lock_Door = 'NOTHING ENTERED';};
-							_CharacterID = dayz_selectedDoor getVariable['CharacterID','0'];
-							PVDZE_log_lockUnlock = [player,dayz_selectedDoor,false,DZE_Lock_Door,_CharacterID];
-							publicVariableServer 'PVDZE_log_lockUnlock';
+						_y = _this spawn oplayer_lockVault;
+						[] spawn {
+							_mytime = time + 10;
+							while{_mytime > time}do
+							{
+								if(!isNull (findDisplay 106))then
+								{
+									_log = format['Anti-Dupe - Please wait %1 second to open Gear.',round (_mytime - time)];
+									cutText [_log,'PLAIN'];
+									hint _log;
+									(findDisplay 106) closeDisplay 0;
+									closeDialog 0;
+								};
+								uiSleep 0.1;
+							};
 						};
+						_y
 					};
-					call oplayer_unlockDoor;
+					oplayer_unlockDoor = _oplayer_unlockDoor;
+					player_unlockDoor =
+					{
+						disableSerialization;
+						if(!isNil 'dayz_selectedDoor')then
+						{
+							if(!isNull dayz_selectedDoor)then
+							{
+								if(isNil 'DZE_Lock_Door')then{DZE_Lock_Door = 'NOTHING ENTERED';};
+								_CharacterID = dayz_selectedDoor getVariable['CharacterID','0'];
+								PVDZE_log_lockUnlock = [player,dayz_selectedDoor,false,DZE_Lock_Door,_CharacterID];
+								publicVariableServer 'PVDZE_log_lockUnlock';
+							};
+						};
+						call oplayer_unlockDoor;
+					};
 				};
-			};
+			"; }; _AHstring = _AHstring + "
 			if(isNil 'PlayableVehicles')then{PlayableVehicles = [];};
 			if(isNil 'PlayableObjects')then{PlayableObjects = [];};
 			{
@@ -5205,7 +5226,7 @@ publicVariable '"+_randvar28+"';
 	if !("+str _UIM+")then
 	{
 		systemChat 'Welcome to [GG] Ghostz Gamerz Overpoch Server hive';
-		diag_log format['infiSTAR.de - 20-08-2015-v1424 - Successfully Loaded on Client ID2803 (%1)',time];
+		diag_log format['infiSTAR.de - 24-09-2015-v1427 - Successfully Loaded on Client ID2803 (%1)',time];
 	}
 	else
 	{
@@ -5695,8 +5716,7 @@ publicVariable """+_randvar1+""";
 "+_randvar39+" = _randvar19Local;
 publicVariable """+_randvar19+""";
 publicVariable """+_randvar39+""";
-if("+str _MEH+")then
-{
+"; if(_MEH)then{ _AHstring = _AHstring + "
 	[] spawn {
 		waitUntil {!isNil 'sm_done'};
 		uiSleep 5;
@@ -5731,10 +5751,7 @@ if("+str _MEH+")then
 			};
 		};
 	};
-};
-";
-call compile _AHstring;
-_AHstring = "
+"; }; _AHstring = _AHstring + "
 _kickfnc = {
 	[] spawn {sleep 0.6; for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
 	[] spawn {sleep 0.5; _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
@@ -7096,7 +7113,7 @@ diag_log ("infiSTAR.de - ADDING PublicVariableEventHandlers");
 				GroundFogSheep setVehicleInit 'DoFogEffect = false;';
 				processInitCommands;
 			};
-		};
+		};		
 		if(_option == 9000)then
 		{
 			private ['_weapons', '_magazines', '_backpack', '_selected', '_worldspace', '_combination', '_inventory'];

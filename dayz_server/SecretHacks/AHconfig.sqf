@@ -1,4 +1,3 @@
-/*  Key to open the menu  */ _OpenMenuKey = 0x3B;
 
 /*  MODERATORS	            */ 
 _LAdmins = [
@@ -33,8 +32,8 @@ _NAdmins = [
 
 /* HEAD ADMINS / OWNERS     */ 
 _SAdmins = [
-	"76561198078201908", // Gr8 > I have a tiny Penis
-	"76561198153784743", // Ghost >  My Cock Is so moist
+	"76561198078201908", // Gr8 
+	"76561198153784743", // Ghost
 	"76561198002511087", // TempSniper
 	"76561198137100220",  // Deadskin
 	"76561198021389971", // Thirdhero
@@ -45,11 +44,10 @@ _SAdmins = [
 
 /*  BANNED UIDs HERE      */ _BLOCKED = ["76561198238192548","76561198131504087","76561198097713170","76561198078593363","76561198124879011","76561198170547145","76561198067166357","76561198130911159","7656119817330326","0","76561198181853602","76561198119127262","76561198068094642",
 										 "76561198204818956","76561198165211039","76561198074110583","76561198098254345","76561198054619746","76561198061552644","76561198068243806","76561198164444108","76561198165496777",
-										 "76561198160602020","76561198018065224","76561198202739900","76561198005408564","76561198149036987"]; //do not have a , at the end.
-/*  HEADLESS ClIENT UIDs  */ _HEADLESS_CLIENT_UIDs = ["0","0","0"]; //do not have a , at the end.
+										 "76561198160602020","76561198018065224","76561198202739900","76561198005408564","76561198149036987"]; //do not have a , at the end./*  HEADLESS ClIENT UIDs  */ _HEADLESS_CLIENT_UIDs = ["0","0","0"]; //do not have a , at the end.
 
 /*  Use Player White-list */ _UPW = false;	/* true or false */
-/*  WHITELIST UIDs HERE   */ _WHITELIST = ["76561198153784743","0","0"]; //do not have a , at the end.
+/*  WHITELIST UIDs HERE   */ _WHITELIST = ["0","0","0"]; //do not have a , at the end.
 /* ********************************************************************************* */
 /*  Top esc menu TXT      */ _TopOfESC = "GHOSTZ GAMERZ"; //do not use " in this text.
 /*  Bottom esc menu TXT   */ _LowerTop = "GHOSTZGAMERZ.COM"; //do not use " in this text.
@@ -80,9 +78,8 @@ _blockDamageFrom = [
 ];
 
 
-
 /*  Use Loaded Check(s)   */ _AHL = false;	/* true or false */	/* "AH NOT LOADED ON PLAYER" */
-/*  _timedif for _AHL     */ _TDI =    300;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
+/*  _timedif for _AHL     */ _TDI =    130;	/*   45 - 300   */	/* only used if "_AHL = true;" -> takes longer to detect if the AH is loaded on a player or not. */
 
 /*  revert onEachFrame    */ _REF =  true;	/* true or false */
 /*  titleText & cutText   */ _TCT =  false;	/* true or false */	/* block titleText & cutText - some A.I. Missions and other mass message scripts needs this set to false */
@@ -108,7 +105,7 @@ _blockDamageFrom = [
 /*  HACKED BOX Check ?    */ _CHB =  false;	/* true or false */	/* custom crates might be deleted if "Max Cargo Count" is to low */
 /*  Max Cargo Count ?     */ _MCC =  3000;
 
-/*  MouseMoving EH check  */ _MOH =  true;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
+/*  MouseMoving EH check  */ _MOH =  false;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
 /*  check MapSingleClick  */ _OMC =  true;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
 /*  Remove Keybinds ?     */ _RCK =  false;	/* true or false */	/* Removes custom Keybinds and sets back the default ones */
@@ -117,11 +114,12 @@ _blockDamageFrom = [
 /*  BLOCK ALL CMDMenus    */ _BCM =  false;	/* true or false */	/* we don't need commandingMenus. so have this true as well. */
 /*  Check Actions ?       */ _CSA = false;	/* true or false */	/* this checks mousewheel actions */
 /*  Force Terrain Grid ?  */ _FTG =    25;	/* 50, 25, 12.5  */	/* if set to 50 grass will be very low for better client FPS.. default is 25 */
-/*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */ 
+/*  Use Clutter check ?   */ _UBC =  false;	/* true or false */	/* BadSize: %1 - Plants and/or Clutter pbo(s) removed..! */
+/*  Log Epoch Maintain    */ _LEM =  true;	/* true or false */
 /* ********************************************************************************* */
 /*  ALLOWED Custom Dialogs "_ALLOWED_Dialogs" are only used if you have "_CUD =  true;"  */
 _ALLOWED_Dialogs = [-1,106,2200,6900,6901,6902,6903,420420,41144,711194,666,667,65431,65432,65433,65434,65440,65441,65442,2800,3800,420000,420001];
-_ALLOWED_Dialogs = _ALLOWED_Dialogs + [81000,88890,20001,20002,20003,20004,20005,20006,55510,55511,55514,55515,55516,55517,55518,55519,555120,118338,118339,711197,711195]; // adding some others from community addons
+_ALLOWED_Dialogs = _ALLOWED_Dialogs + [81000,88890,20001,20002,20003,20004,20005,20006,55510,55511,55514,55515,55516,55517,55518,55519,555120,118338,118339,711197,711195]; // adding som
 /*  Player that have one of these items in their inventory will get punished!  */
 _ForbiddenItems =
 [
@@ -222,7 +220,7 @@ _dayzActions =
 	"s_player_lockunlock","s_vehicle_lockunlock","s_player_toggleSnap","s_player_toggleSnapSelect","s_player_toggleSnapSelectPoint",
 	"s_player_evacCall","s_player_makeEvacChopper","s_player_clearEvacChopper",
 	"s_player_deploybike2","s_player_deploymoped","s_player_deploymoped2","s_player_deploymozzie","s_player_deploymozzie2",
-	"s_player1987_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
+	"s_player2803_copyToKey","SP_refuel_action","SP_repair_action","SP_rearm_actions","s_player_setVectorsReset","s_player_setVectorsForward",
 	"s_player_setVectorsBack","s_player_setVectorsLeft","s_player_setVectorsRight","s_player_setVectors1","s_player_setVectors5","s_player_setVectors45",
 	"s_player_setVectors90","s_player_paint","DoorManagement","Entercode","s_player_packtentinfected","s_player_debugCheck","s_player_destorytent",
 	"s_player_attach_bomb","s_player_upgradestroage","s_player_Drinkfromhands","s_player_lockhouse","s_player_unlockhouse","s_player_openGate",
@@ -268,9 +266,6 @@ _dayzActions =
 		When "_BHF =  true;" which it always should be in my opinion, then this will check if "_BHF" is persistent.
 	*/
 	_FRC =  true;	/* true or false */
-	
-	
-	
 	
 /*
 	custom Box content:
