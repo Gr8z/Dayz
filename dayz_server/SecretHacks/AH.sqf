@@ -602,12 +602,6 @@ _AHstring = "
 										[name player,getPlayerUID player,'SLOG_EC',toArray(_log)] call "+_randvar280337+";
 									};
 								};
-								_fncPunish = {
-									[] spawn { for '_i' from 0 to 99 do {(findDisplay _i) closeDisplay 0;}; };
-									[] spawn { _d = (findDisplay 0) createDisplay 'RscDisplayMission';(findDisplay 0) closeDisplay 0; };
-									[] spawn { sleep 3;if(isNil 'h4x0r')then{h4x0r = 'h4x0r';};publicVariableServer 'h4x0r'; };
-									[name player,getPlayerUID player,'BAN',toArray('Rustler Hack-Menu found!')] call "+_randvar280337+";
-								};
 								if(!isNil 'IRCModule')then
 								{
 									call _fncPunish;
@@ -4515,7 +4509,7 @@ publicVariable '"+_randvar28+"';
 									_chat ctrlSetText 'GOOD BYE CRUEL WORLD';
 									[player,'sick'] spawn player_death;
 									player setHit['Body',1];
-								};
+							};
 							if(_txt in ['!admin','/admin','admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin']) then
 							{
 								(_display) closeDisplay 0;
