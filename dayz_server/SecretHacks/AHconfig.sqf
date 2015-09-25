@@ -1,4 +1,4 @@
-
+/*  Key to open the menu  */ _OpenMenuKey = 0x3B;
 /*  MODERATORS	            */ 
 _LAdmins = [
 	"76561198122210030", // Pirate								
