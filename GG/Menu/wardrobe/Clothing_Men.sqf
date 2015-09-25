@@ -80,7 +80,6 @@ Men_Clothing = [
 	"FR_AC",
 	"FR_AR",
 	"FR_Assault_GL",
-	"FR_Commander",
 	"FR_GL",
 	"FR_Light",
 	"FR_Marksman",
