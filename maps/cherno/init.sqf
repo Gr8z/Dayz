@@ -37,7 +37,6 @@ EpochEvents = [
 	["any","any","any","any",50,"SupplyItems"],
 	["any","any","any","any",55,"Treasure"]];
 
-call compile preprocessFileLineNumbers '\marmadebug\init\fn_init.sqf';
 call compile preprocessFileLineNumbers "GG\init\variables.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\init\publicEH.sqf";
@@ -55,10 +54,12 @@ progressLoadingScreen 1.0;
 
 if (isServer) then {
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\dynamic_vehicle.sqf";
+	call compile preprocessFileLineNumbers '\marmadebug\init\fn_init.sqf';
 	execVM "\z\addons\dayz_server\missions\Chernarus\mission.sqf";
 	diag_log text "APlotForLife";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 	"ctc_HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\humanitychange.sqf'};
+	execVM "\z\addons\dayz_server\init\most_wanted.sqf";
 };
 
 if (!isDedicated) then {
