@@ -117,7 +117,8 @@ GarageDonor = [
 Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
 	"76561198034597536", // [Dr.]Dr.Malpractice(EXp-2015-10-4)#11295
-	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-10-12)#11485 
+	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-10-12)#11485
+	"76561198179637007", // ruthlessalex98(OD-2015-09-27)#11826 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
