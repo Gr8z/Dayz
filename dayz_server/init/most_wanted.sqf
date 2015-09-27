@@ -99,7 +99,50 @@ _WorldName = toLower format ["%1", worldName];
 _safezonesRad = 160;
 
 //ADMINS STEAM ID (TO PREVENT THE SCRIPT TO SELECT ADMINS AS FUGITIVE)
-_admins = PV_LowLevel_List+PV_NormalLevel_List+PV_SuperLevel_List+PV_DevUlDs;
+_LAdmins = [
+	"76561198122210030", // Pirate								
+	"76561198080045762", // Deadskin	(Mod)								 
+	"76561198162046909", // Shahzad
+	"76561197970044945", // MrCheeseyman
+	"76561198073669230", // Jack Black
+	"76561198110162434", // Chemical Burn
+	"76561198128804731", // xtsis
+	"76561198166231771", // Wombat
+	"76561198001066546", // MeowMix
+	"76561198144994529", // BountyCraft
+	"76561198037365948", // Devvo
+	"76561198126348047", // Mr. Bandit
+	"76561198129049369", // Zatley
+	"76561198227881216", // Local User
+	"76561198067566966", // SniperNoSniping
+"0"
+]; 
+
+/*  ADMINISTRATORS         */ 
+_NAdmins = [
+	"76561198182408150",  // Pirate Admin
+	"76561198195305425",  // Shahzad
+	"76561198240385148",  // Jack Black
+	"76561198183434467",  // MeowMix Admin
+	"76561198203698253",  // xtsis
+	"76561198242337504",  // MrCheeseyman
+	"76561198244936152",  // BountyCraft
+"0"
+]; 
+
+/* HEAD ADMINS / OWNERS     */ 
+_SAdmins = [
+	"76561198078201908", // Gr8 
+	"76561198153784743", // Ghost
+	"76561198002511087", // TempSniper
+	"76561198137100220",  // Deadskin
+	"76561198021389971", // Thirdhero
+	"76561197973172761",  // Milton
+	"76561198115492831",  //BigEgg
+"0"
+];
+
+_admins = _SAdmins+_NAdmins+_LAdmins;
 
 //=====================
 // FUNCTIONS ==========
