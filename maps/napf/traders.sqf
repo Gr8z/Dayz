@@ -10,7 +10,7 @@ serverTraders = ["RU_Doctor","RU_Housewife3","Villager1","RU_Policeman","RU_Prof
 "RUS_Soldier2","Drake_Light","GUE_Woodlander3","Soldier_GL_PMC",
 "GUE_Villager3","CIV_EuroWoman01_EP1","Dr_Annie_Baker_EP1","RUS_Commander",
 "Damsel5","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","Ins_Soldier_AR",
-"Ins_Lopotev","Ins_Worker2","Ins_Woodlander3","Dr_Hladik_EP1","pook_Doc_Bell47","Ins_Woodlander2"];
+"Ins_Lopotev","Ins_Worker2","Ins_Woodlander3","Dr_Hladik_EP1","pook_Doc_Bell47","Ins_Woodlander2","FR_Commander"];
 
 //######################################################################## Militär Neutral ######################################################################################
 
@@ -304,6 +304,12 @@ menu_Ins_Woodlander2 = [
 // Medical Supplies 3
 menu_pook_Doc_Bell47 = [
 	[["Chem-lites/Flares",542],["Medical Supplies",541],["Smoke Grenades",543]],
+	[],
+	"neutral"
+];
+// Traveling Trader
+menu_FR_Commander = [
+	[["Ammunition",1000],["Building Supplies",1001],["Vehicles",1002],["Weapons",1003],["Metals",700]],
 	[],
 	"neutral"
 ];

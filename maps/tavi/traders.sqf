@@ -24,7 +24,8 @@ serverTraders = [
 "RU_Farmwife5",
 "GUE_Woodlander1",
 "RU_Worker1",
-"GUE_Soldier_2"];
+"GUE_Soldier_2",
+"FR_Commander"];
 
 /*---------------------------------------------------------------------------
 			HERO VENDORS
@@ -191,6 +192,13 @@ menu_GUE_Soldier_2 = [
 //WEST BRIDGE
 menu_Reynolds_PMC = [
 	[["Wholesale",675]],
+	[],
+	"neutral"
+];
+
+// Traveling Trader
+menu_FR_Commander = [
+	[["Ammunition",1000],["Building Supplies",1001],["Vehicles",1002],["Weapons",1003],["Metals",700]],
 	[],
 	"neutral"
 ];
