@@ -68,8 +68,4 @@ class CfgTraderCategory {
 	#include "Category\TrucksUnarmed.hpp"
 	#include "Category\UpgradedVehs.hpp"
 	#include "Category\ChainSaw.hpp"
-	#include "Category\TAmmunition.hpp"
-	#include "Category\TWeapons.hpp"
-	#include "Category\TVehicles.hpp"
-	#include "Category\TBuildingSupplies.hpp"
 };
