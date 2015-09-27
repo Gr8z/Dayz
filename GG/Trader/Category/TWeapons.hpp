@@ -1,4 +1,4 @@
-class Category_1003 {
+class Category_4003 {
 class FHQ_ACR_WDL_TWS_SD 		{ type = "trade_weapons"; buy[] = 		{5400,"Coins"}; 	sell[] = {920,"Coins"}; }; 
 class FHQ_ACR_WDL_TWS 			{ type = "trade_weapons"; buy[] = 		{2700,"Coins"}; 	sell[] = {575,"Coins"}; }; 
 class FHQ_ACR_BLK_TWS_SD 		{ type = "trade_weapons"; buy[] = 		{6400,"Coins"}; 	sell[] = {920,"Coins"}; }; 

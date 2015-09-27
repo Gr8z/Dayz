@@ -206,7 +206,7 @@ menu_Damsel3 = [
 ];
 // Traveling Trader
 menu_FR_Commander = [
-	[["Ammunition",1000],["Building Supplies",1001],["Vehicles",1002],["Weapons",1003],["Metals",700]],
+	[["Ammunition",4000],["Building Supplies",4001],["Vehicles",4002],["Weapons",4003],["Metals",700]],
 	[],
 	"neutral"
 ];

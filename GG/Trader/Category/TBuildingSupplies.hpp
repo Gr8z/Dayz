@@ -1,4 +1,4 @@
-class Category_1001 { 
+class Category_4001 { 
 class ItemSandbag 				{ type = "trade_items"; 	buy[] = {400,"Coins"}; 		sell[] = {200,"Coins"}; }; 
 class ItemTankTrap 				{ type = "trade_items"; 	buy[] = {20,"Coins"}; 		sell[] = {10,"Coins"}; }; 
 class CinderBlocks 				{ type = "trade_items"; 	buy[] = {800,"Coins"}; 		sell[] = {460,"Coins"}; }; 

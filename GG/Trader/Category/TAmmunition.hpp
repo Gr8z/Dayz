@@ -1,4 +1,4 @@
-class Category_1000 {
+class Category_4000 {
 class USSR_5Rnd_408 					{type = "trade_items"; 			buy[] = {1200,"Coins"}; 		sell[] = {1000,"Coins"};}; 
 class FHQ_rem_30Rnd_680x43_ACR 			{type = "trade_items";			buy[] = {100,"Coins"};			sell[] = {50,"Coins"};}; 
 class FHQ_rem_30Rnd_680x43_ACR_SD 		{type = "trade_items";			buy[] = {200,"Coins"};			sell[] = {50,"Coins"};}; 
