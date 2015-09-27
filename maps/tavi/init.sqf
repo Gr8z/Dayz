@@ -67,6 +67,7 @@ if (isServer) then {
 	diag_log text "APlotForLife";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 	"ctc_HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\humanitychange.sqf'};
+	execVM "\z\addons\dayz_server\init\most_wanted.sqf";
 };
 
 if (!isDedicated) then {
