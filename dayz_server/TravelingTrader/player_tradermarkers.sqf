@@ -1,17 +1,3 @@
-/*
-Epoch Dynamic Traders my maca134
-http://www.epochservers.com
-
-Add
-execVM "player_tradermarkers.sqf";
-to init.sqf in the mission, inside the 
-
-if (!isDedicated) then {
-	...code...
-	execVM "player_tradermarkers.sqf";
-};
-
-*/
 private ["_i"];
 _i = 0;
 waitUntil { sleep 1; !isNil "PV_TraderMarkers" };
