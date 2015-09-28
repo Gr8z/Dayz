@@ -74,7 +74,8 @@ GGNoBuildList = [
 "GUE_Soldier_Crew",
 "GUE_Villager4",
 "FR_Sykes",
-"GUE_Soldier_CO"
+"GUE_Soldier_CO",
+"HouseWife3"
 ];
 
 GGNoBuildList2 = [
