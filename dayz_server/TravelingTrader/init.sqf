@@ -51,6 +51,3 @@ waitUntil { sleep 1; !isNil "sm_done" };
 	};
 	true
 } count _trader_config;
-
-PV_TraderMarkers = _markers;
-publicVariable "PV_TraderMarkers";
