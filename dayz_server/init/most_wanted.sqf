@@ -39,11 +39,10 @@ _fugitiveRewards = [
 	[1/12,"",{{deleteVehicle _x;} forEach donn_seeSmoke;}]
 ];
 
-_WorldName = toLower format ["%1", worldName];
-	switch (_WorldName)do {
+_safezones = switch (toLower worldName) do {
 //NAPF
 		case "napf":{
-			_safezones = [
+			[
 			//position
 			[8246.3184,15485.867,0],
 			[15506.952,13229.368,0],
@@ -58,7 +57,7 @@ _WorldName = toLower format ["%1", worldName];
 		};
 //chernarus
 		case "chernarus":{
-			_safezones = [
+			[
 			//position
 			[6325.6772,7807.7412,0],
 			[4063.4226,11664.19,0],
@@ -72,7 +71,7 @@ _WorldName = toLower format ["%1", worldName];
 		};
 //tavi
 		case "tavi":{
-			_safezones = [
+			[
 			//position
 			[11698.81,15210.121,0],
 			[15309.663,9278.4912,0],
@@ -89,14 +88,14 @@ _WorldName = toLower format ["%1", worldName];
 		};
 //default
 		default{
-			_safezones = [
+			[
 			//position
 			[0,0,0]
 			];
 		};
 	};
 
-_safezonesRad = 160;
+_safezonesRad = 200;
 
 //ADMINS STEAM ID (TO PREVENT THE SCRIPT TO SELECT ADMINS AS FUGITIVE)
 _LAdmins = [
