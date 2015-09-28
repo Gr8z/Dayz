@@ -276,7 +276,6 @@ Scout1 = [
 	"76561198064776788", // 50 Shades Of Tortor (OD-2015-09-15)#11570
 	"76561198120396093", // connor (EXP-2015-10-18)#11694 
 	"76561198071449944", // Sgt. NoName (OD-2015-09-24)#11785 
-	"76561198144994529", // BountyCraft ADMIN
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -399,6 +398,7 @@ Scout3 = [
 	"76561198204043325", // EweN (Exp-2015-10-16)#11617 
 	"76561198094845724", // Mats (OD-2015-09-22) #11739 
 	"76561198130561905", // Luis (OD-2015-09-27) #11829
+	"76561198144994529", // BountyCraft ADMIN
 	// Add UIDs above, don't forget the comma
 "0"
 ];
