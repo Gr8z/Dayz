@@ -4,7 +4,7 @@ DT_fnc_ObjectsMapper = compile preprocessFileLineNumbers "\z\addons\dayz_server\
 DT_fnc_CreateTrader = compile preprocessFileLineNumbers "\z\addons\dayz_server\TravelingTrader\createTrader.sqf";
 
 _trader_config = [
-	[1,"traveling.sqf","Traveling Trader","ColorBlue"]
+	[1,"traveling.sqf"]
 ]; 
 
 _markers = [];
