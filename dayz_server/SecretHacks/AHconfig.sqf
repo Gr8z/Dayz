@@ -1,12 +1,12 @@
 /*  Key to open the menu  */ _OpenMenuKey = 0x3B;
 /*  MODERATORS	            */ 
 _LAdmins = [
-	"76561198122210030", // Pirate								
+//	"76561198122210030", // Pirate								
 	"76561198080045762", // Deadskin	(Mod)								 
-	"76561198162046909", // Shahzad
+//	"76561198162046909", // Shahzad
 	"76561197970044945", // MrCheeseyman
 	"76561198073669230", // Jack Black
-	"76561198110162434", // Chemical Burn
+//	"76561198110162434", // Chemical Burn
 	"76561198128804731", // xtsis
 	"76561198166231771", // Wombat
 	"76561198001066546", // MeowMix
@@ -21,8 +21,8 @@ _LAdmins = [
 
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
-	"76561198182408150",  // Pirate Admin
-	"76561198195305425",  // Shahzad
+//	"76561198182408150",  // Pirate Admin
+//	"76561198195305425",  // Shahzad
 	"76561198240385148",  // Jack Black
 	"76561198183434467",  // MeowMix Admin
 	"76561198203698253",  // xtsis
@@ -40,6 +40,7 @@ _SAdmins = [
 	"76561198021389971", // Thirdhero
 	"76561197973172761",  // Milton
 	"76561198115492831",  //BigEgg
+	"76561198195305425", //Shahzad
 "0"
 ];
 
