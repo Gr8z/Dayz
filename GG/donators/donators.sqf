@@ -155,7 +155,6 @@ Engineer3 = [
 	"76561197970044945", // Prince Charming (OD-2015-09-16) #11634 
 	"76561197997825752", // A.Gutierrez (OD-2015-09-21) #11744  
 	"76561198224373004", // zombie AKA Goose (EXP-2015-10-25) #11799  
-	"76561198000024485", // adrian (OD-2015-10-28) #11837 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
