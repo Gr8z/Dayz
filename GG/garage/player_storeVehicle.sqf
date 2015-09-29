@@ -14,6 +14,8 @@ if (_debloyed) exitWith { cutText ["You cannot store deployed vehicles!","PLAIN 
 _GGsold = _obj getVariable["GGsold", false];
 if (_GGsold) exitWith { cutText ["This vehicle is already sold","PLAIN DOWN"]; };
 
+if !(local _obj and !isNull _obj and alive _obj) exitWith { cutText ["\n\nFailed, you must get into drivers seat first.","PLAIN DOWN"]; };
+
 _charID	= _obj getVariable ["CharacterID","0"];
 _objectID = _obj getVariable ["ObjectID","0"];
 _objectUID	= _obj getVariable ["ObjectUID","0"];
