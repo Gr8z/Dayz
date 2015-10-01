@@ -196,7 +196,7 @@ while {true} do {
 		_sleepB = 0; 
 		_sleepC = 0;
 		_sleepD = 0;
-		_txt = ((name _fugitive)+" have a price on his head, kill hin to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
+		_txt = ((name _fugitive)+" have a price on his head, kill him to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
 		_timeInPlot = 0;
 		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin} do {
 			if (_sleepA >= _sleepAMark) then {
@@ -225,7 +225,7 @@ while {true} do {
 					_code = _fugitiveRewards select _slepBIndex select 2;
 					_fugitive call _code;
 				} else {
-					_txt = _txt + "Time Reward! No reward... the fugitive is in a plot pole.";
+					_txt = _txt + "Time Reward! No reward... the fugitive is near a plot pole.";
 				};
 				_sleepB = 0;
 				_slepBIndex = _slepBIndex + 1;
@@ -276,11 +276,11 @@ while {true} do {
 					_holder addMagazineCargoGlobal ["ItemBriefCase100oz",4];
 					_fugitive reveal [_holder,4];
 				} else {
-					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you was too much near plot poles or safezones.\nNo pain no gain. No reward."),"PLAIN",10] call RE;
+					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near plot poles or safezones.\nNo pain no gain. No reward."),"PLAIN",10] call RE;
 				};
 				diag_log "[MOSTWA] Ending! Fugitive Win!";
 			} else {
-				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nMark is on map fo 45 seconds..."),"PLAIN",10] call RE;
+				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nMark is on map for 45 seconds..."),"PLAIN",10] call RE;
 				createMarker ["DONN_FUGITIVE",position _fugitive];
 				"DONN_FUGITIVE" setMarkerColor "ColorRed";
 				"DONN_FUGITIVE" setMarkerShape "ELLIPSE";
