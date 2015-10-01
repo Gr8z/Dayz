@@ -1,7 +1,3 @@
-/*
-_item spawn player_wearClothes;
-Added Female skin changes - DayZ Epoch - vbawol
-*/
 private ["_item","_onLadder","_hasclothesitem","_config","_text","_myModel","_itemNew","_currentSex","_newSex","_model","_playerNear"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_83") , "PLAIN DOWN"] };
@@ -28,19 +24,13 @@ if ("CSGAS" in (magazines player)) exitWith { DZE_ActionInProgress = false; cutT
 _myModel = (typeOf player);
 _itemNew = "Skin_" + _myModel;
 
-//diag_log ("Debug Clothes: model In: " + str(_itemNew) + " Out: " + str(_item));
-
 if ( (isClass(_config >> _itemNew)) ) then {
 	if ( (isClass(_config >> _item)) ) then {
-		// Current sex of player skin
 		
 		_currentSex = getText (configFile >> "CfgSurvival" >> "Skins" >> _itemNew >> "sex");
-		// Sex of new skin
 		_newSex = getText (configFile >> "CfgSurvival" >> "Skins" >> _item >> "sex");
-		//diag_log ("Debug Clothes: sex In: " + str(_currentSex) + " Out: " + str(_newSex));
 
 		if(_currentSex == _newSex) then {
-			// Get model name from config
 			_model = getText (configFile >> "CfgSurvival" >> "Skins" >> _item >> "playerModel");
 			if (_model != _myModel) then {
 				if(([player,_item] call BIS_fnc_invRemove) == 1) then {
