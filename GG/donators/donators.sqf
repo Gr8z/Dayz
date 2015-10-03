@@ -175,6 +175,7 @@ Marksman2 = [
 	"76561198153784743", // Ghost 
 	"76561198013697950", // Mr.Derp (OD-2015-08-15) #10783 
 	"76561198199121063", // Swiftscope (OD-2015-08-23) #11006  
+	"76561198025751324", // Round Metal Box (OD-2015-10-03) #11913  
 	// Add UIDs above, don't forget the comma
 "0"
 ];
