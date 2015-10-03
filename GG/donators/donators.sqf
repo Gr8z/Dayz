@@ -118,6 +118,7 @@ Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
 	"76561198034597536", // [Dr.]Dr.Malpractice(EXp-2015-10-4)#11295
 	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-10-12)#11485 
+	"76561198067566966", // [DHA] SnipernoSniping (OD-2015-09-30) #11869  
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -197,7 +198,6 @@ Marksman3 = [
 	"76561198059147613", // aEli (OD-2015-09-17) #11688   
 	"76561197996085437", // Chris (OD-2015-09-19) #11718   
 	"76561198094845724", // Mats (OD-2015-09-22) #11739 
-	"76561198067566966", // [DHA] SnipernoSniping (OD-2015-09-30) #11869 
 	"76561198147961836", // CoRe*10pounds (OD-2015-10-02) #11890 
 	// Add UIDs above, don't forget the comma
 "0"
