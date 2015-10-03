@@ -338,6 +338,7 @@ Scout2 = [
 	"76561198069027489", // BDC | Kang(OD-2015-09-22)#11764        
 	"76561198128699872", // Keyser Soze Kills(OD-2015-09-23)#11774        
 	"76561198036004541", // Shadow Agent Demen(OD-2015-09-28)#11853         
+	"76561198000317839", // Moon(OD-2015-10-03)#11899         
 	// Add UIDs above, don't forget the comma
 "0"
 ];
