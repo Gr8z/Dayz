@@ -218,8 +218,5 @@ while {_isOk} do {
 		deleteVehicle _objectHelper;
 	};
 };
-
-
-
 _passArray = [_cancel,_reason,_position,_dir,_vector];
 _passArray

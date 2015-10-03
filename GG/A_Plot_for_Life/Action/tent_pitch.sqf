@@ -70,4 +70,3 @@ if (!_isOk) then {
 } else {
 	cutText [localize "str_fail_tent_pitch", "PLAIN DOWN"];
 };
-
