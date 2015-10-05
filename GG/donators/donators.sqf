@@ -442,7 +442,7 @@ Soldier2 = [
 ];
 Soldier3 = [
 	"76561198078201908", // Gr8
-	"76561198153784743", // Ghost
+	"76561198153784743", // Ghost - Owes thirdhero $10
 	"76561198084864687", // Porch Monkey
 	"76561198002511087", // TempSniper
 	"76561198121350963", // BoJangles
@@ -478,7 +478,7 @@ Soldier3 = [
 	"76561198078726531", // [TFT]Trinity (OD-2015-09-15)#11776          
 	"76561198022449895", // Matt Downs (OD-2015-09-24)#11790    
 	"76561198084284008", // Broseidon (OD-2015-10-04)#11938     
-	"76561198115492831", // BigEgg- This guy is gay and has a small penis
+	"76561198115492831", // BigEgg - Best Coder Ever
 	// Add UIDs above, don't forget the comma
 "0"
 ];
