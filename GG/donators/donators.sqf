@@ -477,7 +477,8 @@ Soldier3 = [
 	"76561198020480005", // Grimm (EXP-2015-10-18)#11700          
 	"76561198078726531", // [TFT]Trinity (OD-2015-09-15)#11776          
 	"76561198022449895", // Matt Downs (OD-2015-09-24)#11790    
-	"76561198115492831", // BigEgg
+	"76561198084284008", // Broseidon (OD-2015-10-04)#11938     
+	"76561198115492831", // BigEgg- This guy is gay and has a small penis
 	// Add UIDs above, don't forget the comma
 "0"
 ];
