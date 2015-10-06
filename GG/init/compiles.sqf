@@ -236,7 +236,7 @@ if (!isDedicated) then {
 	
 	FNC_check_owner =			compile preprocessFileLineNumbers "GG\A_Plot_for_Life\Compile\fn_check_owner.sqf";
 	
-	player_wearClothes =	compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_wearClothes.sqf";
+	player_wearClothes =		compile preprocessFileLineNumbers "GG\compile\player_wearClothes.sqf";
 	object_pickup = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\object_pickup.sqf";
 	player_flipvehicle = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_flipvehicle.sqf";
 	player_sleep = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_sleep.sqf";

@@ -179,6 +179,5 @@ if ((count _upgrade) > 0) then {
 } else {
 	cutText [(localize "str_epoch_player_82"), "PLAIN DOWN"];
 };
-
 DZE_ActionInProgress = false;
 s_player_upgrade_build = -1;

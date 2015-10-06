@@ -397,5 +397,4 @@ if (true) then {
 		cutText [format[(localize "str_epoch_player_47"),_name,_reason], "PLAIN DOWN"];
 	};
 };
-
 DZE_ActionInProgress = false;

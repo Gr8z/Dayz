@@ -30,7 +30,6 @@ _isOk = true;
 _proceed = false;
 _objType = typeOf _obj;
 
-// Chance to break tools
 _isDestructable = _obj isKindOf "BuiltItems";
 _isWreck = _objType in DZE_isWreck;
 _isRemovable = _objType in DZE_isRemovable;
