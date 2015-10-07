@@ -481,6 +481,7 @@ Soldier3 = [
 	"76561198078726531", // [TFT]Trinity (OD-2015-09-15)#11776          
 	"76561198022449895", // Matt Downs (OD-2015-09-24)#11790    
 	"76561198084284008", // Broseidon (OD-2015-10-04)#11938     
+	"76561197961275063", // trials (OD-2015-10-06)#11957      
 	"76561198115492831", // BigEgg - Best Coder Ever
 	// Add UIDs above, don't forget the comma
 "0"
