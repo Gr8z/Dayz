@@ -689,6 +689,8 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  Map VEINE Markers",adminVEINE,"1","0","0","0",[]];
 			adminadd = adminadd + ["  Map VAULT Markers",adminVAULT,"1","0","0","0",[]];
 			adminadd = adminadd + ["  Map PlotPole Markers",adminPlotPole,"1","0","0","0",[]];
+			adminadd = adminadd + ["  Remove Plot-Poles (30m)",admin_removePlotPoles,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Remove Nets (30m)",admin_removeNets,"0","0","0","0",[]];
 		};
 		adminadd = adminadd + ["Icons","","0","1","0","0",[]];
 		adminadd = adminadd + ["  Map Icons",fnc_MapIcons_infiSTAR,"1","0","0","0",[]];
