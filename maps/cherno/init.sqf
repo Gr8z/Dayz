@@ -15,6 +15,11 @@ enableSentences false;
 call compile preprocessFileLineNumbers"GG\init\config.sqf";
 call compile preprocessFileLineNumbers"GG\donators\donators.sqf";
 
+spawnArea= 1500;
+dayz_minpos = -1; 
+dayz_maxpos = 16000;
+dayz_MapArea = 14000;
+
 GGSafezones = [
 	[zonestary, 100, "Stary"],
 	[zonebash, 100, "Bash"],
