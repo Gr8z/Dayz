@@ -167,7 +167,6 @@ Engineer3 = [
 // Marksman Class  /////////
 Marksman1 = [
 	"76561198153784743", // Ghost
-	"76561198129049369", // Zatley mod 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
@@ -404,6 +403,7 @@ Scout3 = [
 	"76561198115492831", // BigEgg
 	"76561198073669230", // jackblack
 	"76561198195305425", // shaz
+	"76561198129049369", // Zatley admin
 	// Add UIDs above, don't forget the comma
 "0"
 ];
