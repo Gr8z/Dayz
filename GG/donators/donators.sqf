@@ -168,7 +168,6 @@ Engineer3 = [
 // Marksman Class  /////////
 Marksman1 = [
 	"76561198153784743", // Ghost
-	"76561198082919247", // John Wayne (EXp-2015-10-08) #9884
 	"76561198129049369", // Zatley mod 
 	// Add UIDs above, don't forget the comma
 "0"
