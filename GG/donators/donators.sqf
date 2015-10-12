@@ -121,7 +121,6 @@ GarageDonor = [
 Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
 	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-11-12)#12048 
-	"76561198067566966", // [DHA] SnipernoSniping (OD-2015-09-30) #11869
 	"76561198123603250", // Heisenberg (OD-2015-06-06)#11964
 	"76561198120151646", // Chris (EXP-2015-11-06)#11962 
 	// Add UIDs above, don't forget the comma
@@ -200,6 +199,7 @@ Marksman3 = [
 	"76561198094845724", // Mats (OD-2015-09-22) #11739 
 	"76561198147961836", // CoRe*10pounds (OD-2015-10-02) #11890 
 	"76561198115492831", // BigEgg
+	"76561198067566966", // Sniper admin
 	"76561198076654806", // Pervitin (OD-2015-10-10) #12015
 	// Add UIDs above, don't forget the comma
 "0"
