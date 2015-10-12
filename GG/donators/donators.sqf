@@ -161,6 +161,7 @@ Engineer3 = [
 	"76561197970044945", // Prince Charming (OD-2015-09-16) #11634 
 	"76561197997825752", // A.Gutierrez (OD-2015-09-21) #11744  
 	"76561198224373004", // zombie AKA Goose (EXP-2015-10-25) #11799  
+	"76561198179637007", // Toqq A.K.A MAVERICK (OD-2015-10-12) #12048  
 	"76561198115492831", // BigEgg
 	// Add UIDs above, don't forget the comma
 "0"
