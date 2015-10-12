@@ -120,8 +120,8 @@ GarageDonor = [
 /////////// Engineer Class ///////
 Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
-	"76561198034597536", // [Dr.]Dr.Malpractice(EXp-2015-10-4)#11295
-	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-10-12)#11485 
+	"76561198034597536", // [Dr.]Dr.Malpractice(EXP-2015-10-4)#11295
+	"76561198179637007", // Toqq A.K.A MAVERICK(EXP-2015-11-12)#12048 
 	"76561198067566966", // [DHA] SnipernoSniping (OD-2015-09-30) #11869
 	"76561198123603250", // Heisenberg (OD-2015-06-06)#11964
 	"76561198120151646", // Chris (EXP-2015-11-06)#11962 
@@ -160,8 +160,7 @@ Engineer3 = [
 	"76561198161443982", // Major (OD-2015-09-07) #11549
 	"76561197970044945", // Prince Charming (OD-2015-09-16) #11634 
 	"76561197997825752", // A.Gutierrez (OD-2015-09-21) #11744  
-	"76561198224373004", // zombie AKA Goose (EXP-2015-10-25) #11799  
-	"76561198179637007", // Toqq A.K.A MAVERICK (OD-2015-10-12) #12048  
+	"76561198224373004", // zombie AKA Goose (EXP-2015-10-25) #11799    
 	"76561198115492831", // BigEgg
 	// Add UIDs above, don't forget the comma
 "0"
@@ -297,8 +296,8 @@ Scout1 = [
 	"76561198083509902", // TheWhiteFang (OD-2015-10-09)#12003
 	"76561198173972913", // john (OD-2015-10-15)#12012
 	"76561197979925873", // A White Cop (OD-2015-10-12)#12054
-	"76561198095510691", // Socks and Sandals (OD-2015-10-12)#12051
-	// Add UIDs above, don't forget the comma
+	"76561198095510691", // Socks and Sandals (EXP-2015-11-12)#12051S
+	// Add UIDs above, don't forget the commaS
 "0"
 ];
 Scout2 = [
@@ -361,7 +360,7 @@ Scout2 = [
 	"76561198085366898", // ANGeR(OD-2015-10-03)#11907
 	"76561198050173438", // wafflytaco(OD-2015-10-06)#11975
 	"76561198012690013", // Stranger_Ranger(OD-2015-10-09)#11997
-	"76561198161111038", // Konulele(OD-2015-10-12)#12038
+	"76561198161111038", // Konulele(OD-2015-10-11)#12038
 	// Add UIDs above, don't forget the comma
 "0"
 ];
