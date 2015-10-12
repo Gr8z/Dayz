@@ -425,7 +425,6 @@ Soldier1 = [
 Soldier2 = [
 	"76561198097415737", //OtherAdam(OD-2015-06-04)#9343
 	//"76561198079210499", //ErickGCast(OD-2015-08-16)#10825 payskip Sep 16 2015 
-	"76561198000492721", //Huckey (EXp-2015-09-22)#10948  
 	"76561198201789651", //FaseCity (EXP-2015-10-8)#11381
 	"76561198120619027", // BDC | Hedge (OD-2015-09-21)#11742
 	// Add UIDs above, don't forget the comma
