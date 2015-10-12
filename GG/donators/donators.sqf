@@ -169,7 +169,6 @@ Engineer3 = [
 Marksman1 = [
 	"76561198153784743", // Ghost
 	"76561198082919247", // John Wayne (EXp-2015-10-08) #9884
-	"76561198064776788", // 50 Shades of Tortor (exp-2015-10-05) #11325 
 	"76561198129049369", // Zatley mod 
 	// Add UIDs above, don't forget the comma
 "0"
