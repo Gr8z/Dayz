@@ -410,6 +410,7 @@ Scout3 = [
 	"76561198073669230", // jackblack
 	"76561198195305425", // shaz
 	"76561198129049369", // Zatley admin
+	"76561198126348047", // MR.Bandit admin
 	"76561198166231771", // Wombat admin
 	// Add UIDs above, don't forget the comma
 "0"
