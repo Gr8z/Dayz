@@ -463,13 +463,10 @@ Soldier3 = [
 	"76561197961275063", // trials (OD-2015-10-06)#11957      
 	"76561197987606926", // Dime (OD-2015-10-06)#11980       
 	"76561198034827033", // Zack (OD-2015-10-10)#12018       
-<<<<<<< HEAD
 	"76561198115492831", // BigEgg - Fatty
 	"76561197970044945", // Cheesey - admin loadout
-=======
 	"76561198068695714", // Ghost_IX (OD-2015-10-12)#12063       
 	"76561198115492831", // BigEgg - Best Coder Ever
->>>>>>> origin/Master
 	// Add UIDs above, don't forget the comma
 "0"
 ];
