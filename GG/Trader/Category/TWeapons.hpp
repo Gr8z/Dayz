@@ -18,7 +18,7 @@ class KSVK_DZE 					{ type = "trade_weapons"; buy[] = 		{19000,"Coins"}; 	sell[]
 class DMR 						{ type = "trade_weapons"; buy[] = 		{900,"Coins"}; 	sell[] = {856,"Coins"}; };
 class DMR_DZ 					{ type = "trade_weapons"; buy[] = 		{900,"Coins"}; 	sell[] = {856,"Coins"}; };
 class DMR_SKN 					{ type = "trade_weapons"; buy[] = 		{900,"Coins"}; 	sell[] = {865,"Coins"}; };
-class Javelin					{ type = "trade_weapons"; buy[] = 		{211500,"Coins"}; 	sell[] = {60000,"Coins"}; };
-class Stinger	 				{ type = "trade_weapons"; buy[] = 		{203125,"Coins"}; 	sell[] = {60000,"Coins"}; };
-class RPG18	 					{ type = "trade_weapons"; buy[] = 		{183750,"Coins"}; 	sell[] = {60000,"Coins"}; };
+class Javelin					{ type = "trade_weapons"; buy[] = 		{211500,"Coins"}; 	sell[] = {10000,"Coins"}; };
+class Stinger	 				{ type = "trade_weapons"; buy[] = 		{203125,"Coins"}; 	sell[] = {10000,"Coins"}; };
+class RPG18	 					{ type = "trade_weapons"; buy[] = 		{183750,"Coins"}; 	sell[] = {10000,"Coins"}; };
 };
