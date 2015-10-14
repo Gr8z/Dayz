@@ -12,6 +12,7 @@ _coinsRepairArmed = 1000;
 _coinsRefuelAir = 60;
 _coinsRefuelVehicles = 20;
  
+_coinsRearmSPG = 20000;
 _coinsRearmSUV = 2000;
 _coinsRearmAir = 2000;
 _coinsRearmVehicles = 1000;
@@ -70,6 +71,7 @@ _rearm_costs = [
 		["LAV25_HQ",[CurrencyName,_coinsRearmSUV]], 
 		["M113_TK_EP1",[CurrencyName,_coinsRearmSUV]], 
 		["M113_UN_EP1",[CurrencyName,_coinsRearmSUV]],
+		["UAZ_SPG9_INS",[CurrencyName,_coinsRearmSPG]],
         ["Air",[CurrencyName,_coinsRearmAir]],
         ["AllVehicles",[CurrencyName,_coinsRearmVehicles]]
 		
