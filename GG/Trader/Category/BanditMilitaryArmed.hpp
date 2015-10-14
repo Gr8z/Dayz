@@ -2,7 +2,6 @@
 class Category_569 { 
 class HMMWV_M998A2_SOV_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {27000,"Coins"};sell[] = {4600,"Coins"};}; 
 class HMMWV_M1151_M2_CZ_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {25400,"Coins"};sell[] = {5750,"Coins"};};
-class HMMWV_m998_crows_M2_DES_EP1 {type = "trade_any_vehicle";buy[] = {180000,"Coins"};sell[] = {43000,"Coins"};}; 
 class BTR40_MG_TK_GUE_EP1 {type = "trade_any_vehicle";buy[] = {22500,"Coins"};sell[] = {8625,"Coins"};}; 
 class LandRover_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {3400,"Coins"};sell[] = {1725,"Coins"};}; 
 class UAZ_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {5400,"Coins"};sell[] = {1725,"Coins"};}; 
