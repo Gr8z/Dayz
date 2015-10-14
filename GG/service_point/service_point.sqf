@@ -12,7 +12,7 @@ _coinsRepairArmed = 1000;
 _coinsRefuelAir = 60;
 _coinsRefuelVehicles = 20;
  
-_coinsRearmSPG = 20000;
+_coinsRearmSPG = 50000;
 _coinsRearmSUV = 2000;
 _coinsRearmAir = 2000;
 _coinsRearmVehicles = 1000;
