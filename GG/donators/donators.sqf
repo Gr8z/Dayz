@@ -161,6 +161,7 @@ Engineer3 = [
 	"76561198224373004", // zombie AKA Goose (EXP-2015-10-25) #11799    
 	"76561198110162434", // Chemical Burn (OD-2015-10-13) #12084   
 	"76561198161443982", // Major (OD-2015-10-14) #12093   
+	"76561198067566966", // Sniper admin
 	"76561198115492831", // BigEgg
 	// Add UIDs above, don't forget the comma
 "0"
@@ -205,7 +206,6 @@ Marksman3 = [
 	"76561198094845724", // Mats (OD-2015-09-22) #11739 
 	"76561198147961836", // CoRe*10pounds (OD-2015-10-02) #11890 
 	"76561198115492831", // BigEgg
-	"76561198067566966", // Sniper admin
 	"76561198076654806", // Pervitin (OD-2015-10-10) #12015
 	// Add UIDs above, don't forget the comma
 "0"
