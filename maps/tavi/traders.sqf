@@ -198,7 +198,7 @@ menu_Reynolds_PMC = [
 
 // Traveling Trader
 menu_FR_Commander = [
-	[["Ammunition",4000],["Building Supplies",4001],["Vehicles",4002],["Weapons",4003]],
+	[["Ammunition",4000],["Building Supplies",4001],["Explosives",4004],["Vehicles",4002],["Weapons",4003]],
 	[],
 	"neutral"
 ];

@@ -19,4 +19,12 @@ class cinder_wall_kit			{ type = "trade_items"; 	buy[] = {1250,"Coins"}; 	sell[]
 class metal_floor_kit			{ type = "trade_items"; 	buy[] = {3500,"Coins"}; 	sell[] = {1150,"Coins"}; };
 class m240_nest_kit				{ type = "trade_items"; 	buy[] = {5000,"Coins"}; 	sell[] = {2250,"Coins"}; };
 class storage_shed_kit			{ type = "trade_items"; 	buy[] = {950,"Coins"}; 		sell[] = {400,"Coins"}; };
+class ItemFireBarrel_kit		{ type = "trade_items"; 	buy[] = {300,"Coins"}; 		sell[] = {150,"Coins"}; };
+class cinder_door_kit			{ type = "trade_items"; 	buy[] = {3250,"Coins"}; 	sell[] = {825,"Coins"}; };
+class cinder_garage_kit			{ type = "trade_items"; 	buy[] = {3750,"Coins"}; 	sell[] = {850,"Coins"}; };
+class sandbag_nest_kit			{ type = "trade_items"; 	buy[] = {950,"Coins"}; 		sell[] = {400,"Coins"}; };
+class ItemWoodFloor				{ type = "trade_items"; 	buy[] = {1000,"Coins"}; 	sell[] = {550,"Coins"}; };
+class ItemWoodFloorHalf			{ type = "trade_items"; 	buy[] = {500,"Coins"}; 		sell[] = {250,"Coins"}; };
+class ItemWoodFloorQuarter		{ type = "trade_items"; 	buy[] = {250,"Coins"}; 		sell[] = {100,"Coins"}; };
+class wood_ramp_kit				{ type = "trade_items"; 	buy[] = {900,"Coins"}; 		sell[] = {450,"Coins"}; };
 }; 

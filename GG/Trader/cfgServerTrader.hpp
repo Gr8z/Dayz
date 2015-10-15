@@ -72,4 +72,5 @@ class CfgTraderCategory {
 	#include "Category\TVehicles.hpp"
 	#include "Category\TBuildingSupplies.hpp"
 	#include "Category\TWeapons.hpp"
+	#include "Category\TExplosives.hpp"
 };
