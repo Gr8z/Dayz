@@ -4,6 +4,7 @@ class UAZ_SPG9_INS 						{type = "trade_any_vehicle";		buy[] = {175000,"Coins"};
 class HMMWV_M998A2_SOV_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {19000,"Coins"};sell[] = {4600,"Coins"};}; 
 class HMMWV_M1151_M2_CZ_DES_EP1_DZE {type = "trade_any_vehicle";buy[] = {21350,"Coins"};sell[] = {5750,"Coins"};};
 class BTR40_MG_TK_GUE_EP1 {type = "trade_any_vehicle";buy[] = {18000,"Coins"};sell[] = {8625,"Coins"};}; 
+class BTR60_TK_EP1 {type = "trade_any_vehicle";buy[] = {300000,"Coins"};sell[] = {55000,"Coins"};}; 
 class LandRover_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {2300,"Coins"};sell[] = {1725,"Coins"};}; 
 class UAZ_MG_TK_EP1_DZE {type = "trade_any_vehicle";buy[] = {3200,"Coins"};sell[] = {1725,"Coins"};}; 
 class BAF_Jackal2_L2A1_W {type = "trade_any_vehicle";buy[] = {21000,"Coins"};sell[] = {11500,"Coins"};};
