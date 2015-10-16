@@ -16,6 +16,7 @@ _LAdmins = [
 	"76561198227881216", // Local User
 	"76561198067566966", // SniperNoSniping
 	"76561197960289679", // TangoWhiskey
+	"76561198042335279", // Dean Winchester
 "0"
 ]; 
 
