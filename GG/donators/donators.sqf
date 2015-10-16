@@ -174,6 +174,7 @@ Engineer3 = [
 Marksman1 = [
 	"76561198153784743", // Ghost
 	"76561198069476883", // Aydenbruh (OD-2015-10-14) #12104
+	"76561198209647124", // Alex (OD-2015-10-15) #12138
 	// Add UIDs above, don't forget the comma
 "0"
 ];
