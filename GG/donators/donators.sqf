@@ -440,7 +440,7 @@ Soldier2 = [
 ];
 Soldier3 = [
 	"76561198078201908", // Gr8
-	"76561198153784743", // Ghost - HAS A MASSIVE COCK!
+	"76561198153784743", // Ghost - HAS A MASSIVE COCK!- Bullshit 
 	"76561198195305425", // Shaz
 	"76561198084864687", // Porch Monkey
 	"76561198002511087", // TempSniper
@@ -473,10 +473,9 @@ Soldier3 = [
 	"76561197961275063", // trials (OD-2015-10-06)#11957      
 	"76561197987606926", // Dime (OD-2015-10-06)#11980       
 	"76561198034827033", // Zack (OD-2015-10-10)#12018
-	"76561197970044945", // Cheesey - admin loadout
 	"76561198068695714", // Ghost_IX (OD-2015-10-12)#12063       
 	"76561197960289679", // TangoWhiskey (OD-2015-10-15)#12129       
-	"76561198115492831", // BigEgg - Tiny Penis boy
+	"76561198115492831", // BigEgg - Tiny Penis boy-True
 	// Add UIDs above, don't forget the comma
 "0"
 ];
