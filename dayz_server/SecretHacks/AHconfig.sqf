@@ -15,6 +15,7 @@ _LAdmins = [
 	"76561198067566966", // SniperNoSniping
 	"76561197960289679", // TangoWhiskey
 	"76561198042335279", // Dean Winchester
+	"76561198086239163", // ThatEstonian
 "0"
 ]; 
 
