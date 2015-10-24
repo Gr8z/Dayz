@@ -1,6 +1,6 @@
 disableSerialization;
 
-Z_traderData = (_this select 3); // gets the trader data ( e.g menu_Functionary1 )
+Z_traderData = (_this select 3);
 
 if( isNil "Z_traderData" || count (Z_traderData) == 0)exitWith{
 	cutText [format["There went something wrong selecting the trader."], "PLAIN DOWN"];
@@ -13,7 +13,6 @@ if(isNil "Z_AdvancedTradingInit")then{
 	#include "config.sqf";
 	#include "functions\defines.sqf";
 
-	/* Configs that needs to be defined but not changed in config file */
 	Z_Selling = true;
 	Z_SellingFrom = 2;
 	Z_vehicle = objNull;
@@ -25,13 +24,11 @@ if(isNil "Z_AdvancedTradingInit")then{
 	Z_BuyingArray = [];
 
 	if( isNil 'CurrencyName' && SingleCurrency )then{
-		CurrencyName = 'Coins'; // fallback
+		CurrencyName = 'Coins';
 	};
 	if (!SingleCurrency) then {
 		CurrencyName = '';
 	};
-
-	/* end script config */
 
 	KK_fnc_inString =							compile preprocessFileLineNumbers (AT_FolderLocation + "\functions\KK_fnc_inString.sqf");
 	ZUPA_fnc_removeWeaponsAndMagazinesCargo = 	compile preprocessFileLineNumbers (AT_FolderLocation + "\functions\zupa_fnc_removeWeaponsAndMagazinesCargo.sqf");

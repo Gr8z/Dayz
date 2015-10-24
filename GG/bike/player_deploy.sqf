@@ -38,16 +38,12 @@ if (_onLadder) exitWith {DZE_ActionInProgress = false; cutText [localize "str_pl
 
 _item = _this;
 
-// Need Near Requirements
 _abort = false;
 _reason = "";
 
-//### BEGIN MODIFIED CODE: player_deploy
-//_needNear =     getArray (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "neednearby");
 private["_index"];
 _index = _this call getDeployableIndex;
 _needNear = _index call getDeployableNeedNearBy;
-//### END MODIFIED CODE: player_deploy
 
 {
     switch(_x) do{
@@ -86,19 +82,11 @@ if(_abort) exitWith {
     cutText [format[(localize "str_epoch_player_135"),_reason,_distance], "PLAIN DOWN"];
     DZE_ActionInProgress = false;
 };
-
-//### BEGIN MODIFIED CODE: player_deploy
-//_classname =    getText (configFile >> "CfgMagazines" >> _item >> "ItemActions" >> "Build" >> "create");
-//_classnametmp = _classname;
-//_require =  getArray (configFile >> "cfgMagazines" >> _this >> "ItemActions" >> "Build" >> "require");
-//_text =         getText (configFile >> "CfgVehicles" >> _classname >> "displayName");
-//_ghost = getText (configFile >> "CfgVehicles" >> _classname >> "ghostpreview");
 _classname      = _index call getDeployableClass;
 _classnametmp   = _classname;
 _require        = [];
 _text           = _index call getDeployableDisplay;
 _ghost          = "";
-//### END MODIFIED CODE: player_deploy
 
 _lockable = 0;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "lockable")) then {
@@ -109,9 +97,7 @@ _requireplot = 1;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "requireplot")) then {
     _requireplot = getNumber(configFile >> "CfgVehicles" >> _classname >> "requireplot");
 };
-//### BEGIN MODIFIED CODE: player_deploy
 if(_index call getDeployableRequirePlot) then {_requireplot = 1;} else {_requireplot = 0;};
-//### END MODIFIED CODE: player_deploy
 
 _isAllowedUnderGround = 1;
 if(isNumber (configFile >> "CfgVehicles" >> _classname >> "nounderground")) then {
@@ -122,10 +108,7 @@ _offset =   getArray (configFile >> "CfgVehicles" >> _classname >> "offset");
 if((count _offset) <= 0) then {
     _offset = [0,1.5,0];
 };
-//### BEGIN MODIFIED CODE: player_deploy
 _offset = _index call getDeployableDistanceOffset;
-//### END MODIFIED CODE: player_deploy
-
 _isPole = (_classname == "Plastic_Pole_EP1_DZ");
 _isLandFireDZ = (_classname == "Land_Fire_DZ");
 
@@ -135,8 +118,6 @@ _needText = localize "str_epoch_player_246";
 if(_isPole) then {
     _distance = DZE_PlotPole select 1;
 };
-
-// check for near plot
 _findNearestPoles = nearestObjects [(vehicle player), ["Plastic_Pole_EP1_DZ"], _distance];
 _findNearestPole = [];
 
@@ -147,14 +128,10 @@ _findNearestPole = [];
 } count _findNearestPoles;
 
 _IsNearPlot = count (_findNearestPole);
-
-// If item is plot pole && another one exists within 45m
 if(_isPole && _IsNearPlot > 0) exitWith {  DZE_ActionInProgress = false; cutText [(localize "str_epoch_player_44") , "PLAIN DOWN"]; };
 
 private["_exitWith"];
 if(_IsNearPlot == 0) then {
-
-    // Allow building of plot
     if(_requireplot == 0 || _isLandFireDZ) then {
         _canBuildOnPlot = true;
     } else {
@@ -162,19 +139,13 @@ if(_IsNearPlot == 0) then {
     };
 
 } else {
-    // Since there are plots nearby we check for ownership && then for friend status
-
-    // check nearby plots ownership && then for friend status
     _nearestPole = _findNearestPole select 0;
 
-    // Find owner
     _ownerID = _nearestPole getVariable ["ownerPUID","0"];
 
     diag_log format["DEBUG BUILDING: %1 = %2", dayz_characterID, _ownerID,_playerUID];
 
-    // check if friendly to owner
-    if(_playerUID == _ownerID) then {  //Keep ownership
-        // owner can build anything within his plot except other plots
+    if(_playerUID == _ownerID) then {
         if(!_isPole) then {
             _canBuildOnPlot = true;
         } else {
@@ -182,7 +153,6 @@ if(_IsNearPlot == 0) then {
         };
 
     } else {
-        // disallow building plot
 			_friendlies = _nearestPole getVariable ["plotfriends",[]];
 			_fuid  = [];
 			{
@@ -190,14 +160,12 @@ if(_IsNearPlot == 0) then {
 				  _fuid  =  _fuid  + [_friendUID];
 			} forEach _friendlies;
 			_builder  = getPlayerUID player;
-			// check if friendly to owner
 			if(_builder in _fuid) then {
 				_canBuildOnPlot = true;
 			}; 
 		};
 };
 
-// _message
 if(!_canBuildOnPlot) exitWith {  DZE_ActionInProgress = false; cutText [format[_exitWith,_needText,_distance] , "PLAIN DOWN"]; };
 
 _missing = "";
@@ -207,17 +175,11 @@ _hasrequireditem = true;
 	_hasBackpack = _x == typeOf (unitBackpack player);
     if(!_hastoolweapon && !_hasBackpack) exitWith { _hasrequireditem = false; _missing = getText (configFile >> "cfgWeapons" >> _x >> "displayName"); };
 } count _require;
-//### BEGIN MODIFIED CODE player_deploy
     _hastoolweapon = (_index call getDeployableKitClass) in ((weapons player) + (magazines player) + [typeOf (unitBackpack player)]);
     if(!_hastoolweapon) then { _hasrequireditem = false; _missing = (_index call getDeployableKitDisplay); };
-//### END MODIFIED CODE: player_deploy
 
-//### BEGIN MODIFIED CODE player_deploy
-//_hasbuilditem = _this in magazines player;
-//if (!_hasbuilditem) exitWith {DZE_ActionInProgress = false; cutText [format[(localize "str_player_31"),_text,"build"] , "PLAIN DOWN"]; };
 _hasbuilditem = [player,_index] call getHasDeployableParts;
 if (!_hasbuilditem) exitWith {DZE_ActionInProgress = false; cutText [format[(localize "str_player_31"),str (_index call getDeployableParts),"build"] , "PLAIN DOWN"]; };
-//### END MODIFIED CODE: player_deploy
 
 if (!_hasrequireditem) exitWith {DZE_ActionInProgress = false; cutText [format[(localize "str_epoch_player_137"),_missing] , "PLAIN DOWN"]; };
 if (_hasrequireditem) then {
@@ -225,28 +187,19 @@ if (_hasrequireditem) then {
     _dir = getdir player;
     _location = getPos player;
     _location = [(_location select 0)+8*sin(_dir),(_location select 1)+8*cos(_dir),0]; 
-    //maybe adjust the hight? [x,y,z(0)]
     
     _isOk = true;
 
-    // get inital players position
     _location1 = getPosATL player;
-    //_dir = getDir player;
-
-    // if ghost preview available use that instead
     if (_ghost != "") then {
         _classname = _ghost;
     };
 
     _object = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-    //### BEGIN MODIFIED CODE player_deploy
     _object setVariable["ObjectUID","1",true];
 
     _object attachTo [player,_offset];
-    
-    //_dir = 0;
     _object setDir _dir;
-    //### END MODIFIED CODE: player_deploy
 
     _position = getPosATL _object;
 
@@ -293,24 +246,17 @@ if (_hasrequireditem) then {
         if (DZE_4) then {
             _rotate = true;
             DZE_4 = false;
-            //###BEGIN MODIFIED CODE: player deploy
-            //_dir = 0;
             _dir = _dir + 30;
-            //###END MODIFIED CODE: player deploy
         };
         if (DZE_6) then {
             _rotate = true;
             DZE_6 = false;
-            //###BEGIN MODIFIED CODE: player deploy
-            //_dir = 180;
             _dir = _dir - 30;
-            //###END MODIFIED CODE: player deploy
         };
 
         if(_rotate) then {
             _object setDir _dir;
             _object setPosATL _position;
-            //diag_log format["DEBUG Rotate BUILDING POS: %1", _position];
         };
 
         if(_zheightchanged) then {
@@ -345,23 +291,15 @@ if (_hasrequireditem) then {
                 _objHDiff = _objHDiff - 0.01;
             };
 
-            //###BEGIN MODIFIED CODE: player deploy
-            //_object setDir (getDir _object);
-            //###END MODIFIED CODE: player deploy
-
             if((_isAllowedUnderGround == 0) && ((_position select 2) < 0)) then {
                 _position set [2,0];
             };
 
             _object setPosATL _position;
 
-            //diag_log format["DEBUG Change BUILDING POS: %1", _position];
-
             _object attachTo [player];
 
-            //### BEGIN MODIFIED CODE player_deploy
             _object setDir _dir;
-            //### END MODIFIED CODE: player_deploy
 
         };
 
@@ -374,7 +312,6 @@ if (_hasrequireditem) then {
             detach _object;
             _dir = getDir _object;
             _position = getPosATL _object;
-            //diag_log format["DEBUG BUILDING POS: %1", _position];
             _object setPos[0,0,0];
             hideObject _object;
             deleteVehicle _object;
@@ -410,40 +347,24 @@ if (_hasrequireditem) then {
             deleteVehicle _object;
         };
     };
-
-    //### END MODIFIED CODE: road building
-    //No building on roads unless toggled
-    //if (!DZE_BuildOnRoads) then {
     if (!(_index call getDeployableBuildOnRoad)) then {
-    //### END MODIFIED CODE: road building
         if (isOnRoad [_position select 0, _position select 1, 0]) then { _cancel = true; _reason = "Cannot build on a road."; };
     };
 
     if(!_cancel) then {
 
         _classname = _classnametmp;
-
-        // Start Build
         _tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
-	
-		//#########################INDESTRUCTIBLE ITEMS#########################
 		if ((typeOf _tmpbuilt) in indestructible) then {
 			_tmpbuilt addEventHandler ["HandleDamage", {false}];
 			_tmpbuilt enableSimulation false;
 		};
-		//######################################################################
-	
-	
-        //### BEGIN MODIFIED CODE: player deploy
         if (!(_index call getDeployableSimulation)) then {
             _tmpbuilt enableSimulation false;
         };
         _tmpbuilt setVariable ["ObjectUID", "1", true];
-        //### END MODIFIED CODE: player deploy
 
         _tmpbuilt setdir _dir;
-
-        // Get position based on object
         _location = _position;
 
         if((_isAllowedUnderGround == 0) && ((_location select 2) < 0)) then {
@@ -506,12 +427,9 @@ if (_hasrequireditem) then {
 
         if (_proceed) then {
 
-            //###BEGIN MODIFIED CODE
-            //_num_removed = ([player,_item] call BIS_fnc_invRemove);
-            //if(_num_removed == 1) then {
+
             if([player,_index] call getHasDeployableParts) then {
                 [player,_index] call removeDeployableParts;
-            //###BEGIN MODIFIED CODE
 
                 cutText [format[localize "str_build_01",_text], "PLAIN DOWN"];
 
@@ -527,8 +445,8 @@ if (_hasrequireditem) then {
 
                     switch (_lockable) do {
 
-                        case 2: { // 2 lockbox
-                            _combination_1 = (floor(random 3)) + 100; // 100=red,101=green,102=blue
+                        case 2: {
+                            _combination_1 = (floor(random 3)) + 100;
                             _combination_2 = floor(random 10);
                             _combination_3 = floor(random 10);
                             _combination = format["%1%2%3",_combination_1,_combination_2,_combination_3];
@@ -545,7 +463,7 @@ if (_hasrequireditem) then {
                             _combinationDisplay = format["%1%2%3",_combination_1_Display,_combination_2,_combination_3];
                         };
 
-                        case 3: { // 3 combolock
+                        case 3: {
                             _combination_1 = floor(random 10);
                             _combination_2 = floor(random 10);
                             _combination_3 = floor(random 10);
@@ -554,7 +472,7 @@ if (_hasrequireditem) then {
                             _combinationDisplay = _combination;
                         };
 
-                        case 4: { // 4 safe
+                        case 4: {
                             _combination_1 = floor(random 10);
                             _combination_2 = floor(random 10);
                             _combination_3 = floor(random 10);
@@ -576,17 +494,8 @@ if (_hasrequireditem) then {
 
 
                 } else {
-                    //_tmpbuilt setVariable ["CharacterID",dayz_characterID,true];
 					_tmpbuilt setVariable ["ownerPUID",_playerUID,true];
 					_tmpbuilt setVariable ["Deployed",true,true];
-                    //### BEGIN MODIFIED CODE: player deploy
-                    // fire?
-                    //if(_tmpbuilt isKindOf "Land_Fire_DZ") then {
-                    //    _tmpbuilt spawn player_fireMonitor;
-                    //} else {
-                    //    PVDZE_obj_Publish = [dayz_characterID,_tmpbuilt,[_dir,_location],_classname];
-                    //    publicVariableServer "PVDZE_obj_Publish";
-                    //};
                     if (_index call getPermanent) then {
                         _tmpbuilt call fnc_set_temp_deployable_id;
                         if(_index call getDeployableSimulation) then {
@@ -608,7 +517,6 @@ if (_hasrequireditem) then {
 
                     player reveal _tmpbuilt;
                     DZE_DEPLOYING_SUCCESSFUL = true;
-                    //### END MODIFIED CODE: player deploy
                 };
             } else {
                 _tmpbuilt setPos[0,0,0];

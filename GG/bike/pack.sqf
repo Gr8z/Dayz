@@ -1,13 +1,11 @@
 private["_isPackingLocked","_lastPackTime","_exitWith","_deployable","_cursorTarget"];
 
-// set up all these variables
 _exitWith = "nil";
 _deployable = (_this select 3) select 0;
 _cursorTarget = (_this select 3) select 1;
 _lastPackTime = _cursorTarget getVariable["lastPackTime",diag_tickTime - 11];
 _isPackingLocked = diag_tickTime - _lastPackTime < 10;
 
-// check these conditions to make sure it's okay to start packing, if it's not, we'll get a message back
 {
     if(_x select 0) exitWith {
         _exitWith = (_x select 1);
@@ -22,16 +20,13 @@ _isPackingLocked = diag_tickTime - _lastPackTime < 10;
     [DZE_DEPLOYING,                                                    "You are already building something!"]
 ];
 
-// if we got an error message, show it and leave the script
 if(_exitWith != "nil" && _exitWith != "admin") exitWith {
     taskHint [_exitWith, DZE_COLOR_DANGER, "taskFailed"];
 };
 
-// now we're packing it, also make the whole server knows we're packing it, so nobody else can
 _cursorTarget setVariable["lastPackTime",diag_tickTime,true];
 DZE_PACKING = true;
 
-// give the stuff back and delete the vehicle
 {
     if(isClass(configFile >> "CfgWeapons" >> _x)) then {
         player addWeapon _x;
@@ -52,5 +47,4 @@ player removeAction (_deployable call getActionId);
 [_deployable,-1] call setActionId;
 DZE_PACKING = false;
 
-// congrats!
 taskHint [format["You packed %1 back into your %2.",(_deployable call getDeployableDisplay),(_deployable call getDeployableKitDisplay)], DZE_COLOR_PRIMARY, "taskDone"];

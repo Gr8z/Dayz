@@ -4,7 +4,7 @@ private["_selection","_returnArray","_allowedMags","_allowedWeapons","_allowedBa
 
 _selection = _this select 0;
 _returnArray = [0,0,0];
-if(_selection == 2) then{ //gear
+if(_selection == 2) then{
 	_allowedMags = 20 - count(magazines player);
 	_allowedWeapons = 14 - count(weapons player);
 
@@ -26,7 +26,7 @@ if(_selection == 2) then{ //gear
 	_allowedBackpacks = 1 - _backpackAmount;
 	_returnArray = [_allowedMags, _allowedWeapons, _allowedBackpacks];
 };
-if(_selection == 1) then{ //vehicle
+if(_selection == 1) then{
 	_allowedMags = 0;
 	_allowedWeapons = 0;
 	_allowedBackpacks = 0;
@@ -70,7 +70,7 @@ if(_selection == 1) then{ //vehicle
 	};
 	_returnArray = [_allowedMags - _vehicleMagazines, _allowedWeapons - _vehicleWeapons, _allowedBackpacks - _vehicleBackpacks];
 };
-if(_selection == 0) then{ //backpack
+if(_selection == 0) then{
 	_allowedWeapons = 0;
 	_allowedMags = 0;
 	_allowedBackpacks = 0;

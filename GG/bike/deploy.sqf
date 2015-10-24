@@ -2,14 +2,12 @@ private["_exitWith","_position","_display","_object","_handle"];
 
 _exitWith = "nil";
 
-// close the gear display when player starts to deploy
 disableSerialization;
 _display = findDisplay 106;
 if(!(isNull _display)) then {
     _display closeDisplay 0;
 };
 
-// check these conditions to make sure it's okay to start deploying, if it's not, we'll get a message back
 {
     if(_x select 0) exitWith {
         _exitWith = (_x select 1);
@@ -22,27 +20,22 @@ if(!(isNull _display)) then {
     [DZE_PACKING,                                             "You are already packing something!"]
 ];
 
-// if we got an error message, show it and leave the script
 if(_exitWith != "nil" && _exitWith != "admin") exitWith {
     taskHint [_exitWith, DZE_COLOR_DANGER, "taskFailed"];
 };
 
-// now we're deploying!
 DZE_DEPLOYING = true;
 DZE_DEPLOYING_SUCCESSFUL = false;
 _handle = (_this call getDeployableClass) spawn player_deploy;
 waitUntil{scriptDone _handle;};
 
 DZE_DEPLOYING = false;
-// if we got an error message, show it and leave the script
 if(!DZE_DEPLOYING_SUCCESSFUL) then {
     taskHint ["Deploying Failed!", DZE_COLOR_DANGER, "taskFailed"];
 } else {
-    // congrats!
     taskHint [format["You've built a %1!",(_this call getDeployableDisplay)], DZE_COLOR_PRIMARY, "taskDone"];
 
     sleep 10;
-    // notify of despawn if it's not a permanent vehicle
     if (!(_this call getPermanent)) then { 
         cutText ["Warning: Deployed Vehicles DO NOT SAVE after server restart!", "PLAIN DOWN"]; 
     } else {

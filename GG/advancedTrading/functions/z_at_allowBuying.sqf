@@ -14,7 +14,7 @@ _primaryToBuy = _this select 5;
 _vehiclesToBuy = _this select 6;
 
 
-if(_selection == 2) then{ //gear
+if(_selection == 2) then{
 	_allowedMags = 20 - count(magazines player);
 
 	_currentPrimarys = 0;
@@ -78,7 +78,7 @@ if(_selection == 2) then{ //gear
 	};
 
 };
-if(_selection == 1) then{ //vehicle
+if(_selection == 1) then{
 	_allowedMags = 0;
 	_allowedWeapons = 0;
 	_allowedBackpacks = 0;
@@ -152,7 +152,7 @@ if(_selection == 1) then{ //vehicle
 		_return = true;
 	};
 };
-if(_selection == 0) then{ //backpack
+if(_selection == 0) then{
 	_allowedWeapons = 0;
 	_allowedMags = 0;
 	_allowedBackpacks = 0;

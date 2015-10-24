@@ -1,4 +1,3 @@
-// this function checks if play is on ladder/passed out/being drug
 fnc_can_do = {
     private["_onLadder"];
     _onLadder = (getNumber (configFile >> "CfgMovesMaleSdr" >> "States" >> (animationState player) >> "onLadder")) == 1;

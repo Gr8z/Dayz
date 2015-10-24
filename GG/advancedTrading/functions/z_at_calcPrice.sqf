@@ -1,8 +1,3 @@
-/**
-*	call Z_calcPrice
-*
-*	Calculate the total price for single currency.
-**/
 private ["_sellPrice","_ctrltext"];
 #include "defines.sqf";
 

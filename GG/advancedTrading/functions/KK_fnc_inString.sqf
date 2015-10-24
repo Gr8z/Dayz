@@ -1,19 +1,3 @@
-/*
-* Author: Killzone_Kid
-*
-* Description:
-* Find a string within a string (case insensitive)
-*
-* Parameter(s):
-* _this select 0: <string> string to be found
-* _this select 1: <string> string to search in
-*
-* Returns:
-* Boolean (true when string is found)
-*
-* How to use:
-* _found = ["needle", "Needle in Haystack"] call KK_fnc_inString;
-*/
 private ["_needle","_haystack","_needleLen","_hay","_found"];
 _needle = [_this, 0, "", [""]] call BIS_fnc_param;
 _haystack = toArray ([_this, 1, "", [""]] call BIS_fnc_param);

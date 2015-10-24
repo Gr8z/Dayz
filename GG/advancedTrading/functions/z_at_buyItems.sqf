@@ -23,7 +23,7 @@ if (SingleCurrency) then {
 				if('PistolCore' in _parentClasses)then {
 					_sidearmToBuy = _sidearmToBuy + (_x select 9);
 				} else {
-					_primaryToBuy = _primaryToBuy + (_x select 9); // _ammount
+					_primaryToBuy = _primaryToBuy + (_x select 9);
 				};
 			};
 			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2));
@@ -34,11 +34,11 @@ if (SingleCurrency) then {
 		};
 		if( _x select 1 == "trade_backpacks")then{
 			_backpacksToBuy = _backpacksToBuy + (_x select 9) ;
-			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2)); // _price * _amount
+			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2));
 		};
 		if( _x select 1 == "trade_any_vehicle")then{
 			_vehiclesToBuy = _vehiclesToBuy + (_x select 9) ;
-			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2)); // _price * _amount
+			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2));
 		};
 	} count Z_BuyingArray;
 } else {
@@ -55,7 +55,7 @@ if (SingleCurrency) then {
 					_primaryToBuy = _primaryToBuy + (_x select 9);
 				};
 			};
-			_priceToBuy	= _priceToBuy + ((_x select 11)*(_x select 2)*(_x select 9)); // _worth * _price * _amount
+			_priceToBuy	= _priceToBuy + ((_x select 11)*(_x select 2)*(_x select 9));
 		};
 		if( _x select 1 == "trade_items")then{
 			_magazinesToBuy = _magazinesToBuy + (_x select 9) ;
@@ -97,7 +97,7 @@ if(_enoughMoney) then {
 
 	closeDialog 2;
 
-		if(Z_SellingFrom == 0) then { //backpack
+		if(Z_SellingFrom == 0) then {
 		_backpack = unitBackpack player;
 		systemChat format["Adding %1 items in backpack",count (Z_BuyingArray)];
 			{
@@ -112,7 +112,7 @@ if(_enoughMoney) then {
 			} count Z_BuyingArray;
 		};
 
-		if(Z_SellingFrom == 1)then{ //vehicle
+		if(Z_SellingFrom == 1)then{
 			{
 				systemChat format["Adding %1 items in %2",count (Z_BuyingArray), typeOf Z_vehicle];
 				if( _x select 1 == "trade_weapons")then{
@@ -130,7 +130,7 @@ if(_enoughMoney) then {
 			} count Z_BuyingArray;
 		};
 
-		if(Z_SellingFrom == 2)then{ //gear
+		if(Z_SellingFrom == 2)then{
 			systemChat format["Adding %1 items in gear",count (Z_BuyingArray)];
 			{
 				if( _x select 1 == "trade_weapons") then {

@@ -1,4 +1,3 @@
-// included compiles
 call compile preprocessFileLineNumbers "GG\bike\config.sqf";
 call compile preprocessFileLineNumbers "GG\bike\wrapper.sqf";
 call compile preprocessFileLineNumbers "GG\bike\functions.sqf";
@@ -10,7 +9,6 @@ diag_log text format["BIKE: loading version %1 ...",DZE_DEPLOYABLE_VERSION];
 
 player_deploy = compile preprocessFileLineNumbers "GG\bike\player_deploy.sqf";
 
-// inflate deployables
 DZE_DEPLOYABLES = [];
 {
     private["_class","_distance","_deployables","_packDist","_packOthers","_clearCargo","_clearAmmo","_permanent","_damage","_needNear","_parts","_requirePlot","_enableSim","_road","_condition"];
@@ -34,7 +32,6 @@ DZE_DEPLOYABLES = [];
     } forEach _deployables;
 } forEach DZE_DEPLOYABLES_CONFIG;
 
-// if server then we only need to define the safe vehicles for each deployable
 if (isServer) exitWith {
     diag_log text "BIKE: adding bike to safe vehicle list...";
     {
@@ -43,8 +40,6 @@ if (isServer) exitWith {
             dayz_allowedObjects set [count dayz_allowedObjects,(_forEachIndex call getDeployableClass)];
         };
     } forEach DZE_DEPLOYABLES;
-    //diag_log text format["BIKE: done patching DZE_safeVehicle: %1",str DZE_safeVehicle];
-    //diag_log text format["BIKE: done patching dayz_allowedObjects: %1",str dayz_allowedObjects];
 };
 
 [] spawn {
@@ -56,22 +51,17 @@ if (isServer) exitWith {
         diag_log text format["BIKE: ERROR -- Click Actions Handler loaded build #%1! Required build #%2!",DZE_CLICK_ACTIONS_BUILD,DZE_CRV_DEPLOYABLE];
     };
 
-    // register actions with the click actions handler
     {DZE_CLICK_ACTIONS = DZE_CLICK_ACTIONS + [[(_forEachIndex call getDeployableKitClass),format["Deploy %1",(_forEachIndex call getDeployableDisplay)],format["%1 execVM 'GG\bike\deploy.sqf';",_forEachIndex],(_forEachIndex call getDeployableCondition)]];} forEach DZE_DEPLOYABLES;
     DZE_DEPLOYING      = false;
     DZE_PACKING        = false;
     
-    // colors for formatting messages
     DZE_COLOR_PRIMARY = [(51/255),(181/255),(229/255),1];
     DZE_COLOR_SUCCESS = [(153/255),(204/255),0,1];
     DZE_COLOR_DANGER  = [1,(68/255),(68/255),1];
     
-
-    // wait for login before we start checking actions
     diag_log text "BIKE: waiting for login...";
     waitUntil{!isNil "PVDZE_plr_LoginRecord"};
 
-    // unlock locked deployable vehicles
     [] spawn {
         waitUntil {sm_done;};
         {
@@ -86,7 +76,7 @@ if (isServer) exitWith {
             {   
                 private ["_cursorTarget"];
                 _cursorTarget = cursorTarget;
-                //make sure all of these conditions pass before adding any actions -- shouldn't be too laggy since it's called every 2s rather than every frame like normal actions
+            
                 if(!(isNull _cursorTarget)
                         && {_forEachIndex call getDeployablePackAny} 
                         && {typeOf _cursorTarget == (_forEachIndex call getDeployableClass)} 
@@ -106,7 +96,6 @@ if (isServer) exitWith {
                     player removeAction (_forEachIndex call getActionId);
                     [_forEachIndex,-1] call setActionId;
                 };
-                //if((_forEachIndex call getActionId) > -1) exitWith {};
             } forEach DZE_DEPLOYABLES;
         };
         sleep 2.5;

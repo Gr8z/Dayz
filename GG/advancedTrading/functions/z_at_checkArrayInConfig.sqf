@@ -1,12 +1,3 @@
-/**
-*	[_weaps,_mags,_extraText] call Z_checkArrayInConfig
-*
-*   @param Array of Strings _this select 0 (_weaps) -> all weapons/items in the container
-*   @param Array of Strings _this select 1 (_mags) -> all magazines in the container
-*	@param String 			_this select 2 (_extraText) -> Indicator what container you are trading from
-*
-*	Fills up the sell or buy list if the item has a valid config.
-**/
 private ["_weaps","_mags","_extraText","_all","_total","_arrayOfTraderCat","_totalPrice","_ctrltext","_backUpText"];
 #include "defines.sqf";
 
