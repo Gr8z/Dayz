@@ -1,7 +1,7 @@
 private["_isEpoch","_itemNew","_onLadder","_skin","_body","_okSkin","_clothesTaken","_itemNewName","_result","_animState","_takeClothesUsageTime","_started","_finished","_takeClothesUseTime"];
 
-if (!isNil "DZE_ActionInProgress") then { // check if this is dayz epoch
-	if (DZE_ActionInProgress) exitWith {}; // Do not allow if any script is running.
+if (!isNil "DZE_ActionInProgress") then {
+	if (DZE_ActionInProgress) exitWith {};
 };
 
 _body = (_this select 3) select 0;

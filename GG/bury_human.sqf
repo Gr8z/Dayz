@@ -77,7 +77,6 @@ if (!_isBuried) then {
             _box addBackpackCargoGlobal [_newBackpackType, 1];
         };
 
-        //Permaloot
         _box setVariable ["permaLoot", true];
 		
 		if (_namec == _namep) then {

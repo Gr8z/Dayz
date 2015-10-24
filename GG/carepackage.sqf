@@ -21,7 +21,6 @@ _NearPlotMeters = 60;
 _vehicle = vehicle player;
 _inVehicle = (_vehicle != player);
 
-//item lists
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
 _items = ["ItemSodaPepsi","FoodCanCorn","FoodNutmix","ItemSodaClays","FoodCanSardines","ItemKiloHemp"];
 _walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","ItemWoodWallGarageDoor","ItemWoodFloor"];
@@ -32,14 +31,13 @@ _giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM
 _possibleMags = getArray (configfile >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags select 0;
 
-//select arrays to use
 _crateItems = [_walls,_supplies,_items] call BIS_fnc_selectRandom;
 
 _Time = time - lastpack;
 
-if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
+if(_Time < _LastUsedTime) exitWith {
 	DZE_ActionInProgress = false;
-	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
+	cutText [format["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"];
 };
 if	((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 75) exitWith {
 	DZE_ActionInProgress = false; 
@@ -87,7 +85,6 @@ _smoke attachTo [_box, [0,0,0]];
 _var = floor((random 20) + 1);
 _var2 = floor((random 10) + 1);
 
-//display text to alert user
 _textt = format ["\The Air Drop is above you!",10];
 titleText [_textt,"PLAIN DOWN"];
 

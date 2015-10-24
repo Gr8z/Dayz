@@ -21,17 +21,12 @@ _showMarkerSize = [3,3];
 _showMarkerSearchText = "Search:";
 _showMarkerOthers = false;
 
-// get key Owner from ui_selectSlot.sqf
 _keyOwner = _this select 0;
 _keyName = _this select 1;
 
-// variable to remember if vehicle has been found in range
 _vehFoundInRange = false;
-// The target vehicle which belong to the key
 _vehTarget = objNull;
 
-//---------------------------------------------------------------------------------------------------------    
-// compare with vehicles around
 _vehsAround = nearestObjects [getPos player, ["Plane","LandVehicle","Helicopter","Ship"], _scanRadius];
 {
     _ownerID = _x getVariable ["CharacterID", "0"];
@@ -40,18 +35,15 @@ _vehsAround = nearestObjects [getPos player, ["Plane","LandVehicle","Helicopter"
         _vehTarget = _x;
     };
 } forEach _vehsAround;
-//---------------------------------------------------------------------------------------------------------    
-    
-// if vehicle has been found in range show marker above vehicle
+
 if (_vehFoundInRange) then {
     _classname = typeOf _vehTarget;
     _vehDisplayName = gettext (configFile >> "CfgVehicles" >> (typeof _vehTarget) >> "displayName");
     systemChat format ["VP: %1 belongs to %2 found in range. Trying to mark it...",_keyName, _vehDisplayName];	
-    // create the sign which shows up above the target vehicle
+
     _location = position _vehTarget;
     _positionArrow = _vehTarget modelToWorld [0,0,2];
 
-    // local or globally visible
     if (_showSignOthers) then {
         _arrow = createVehicle [_showSign, _location, [], 0, "NONE"];
         _light = "#lightpoint" createVehicle [0,0,0];
@@ -61,8 +53,7 @@ if (_vehFoundInRange) then {
     };
     _arrow setVehiclePosition [_positionArrow, [], 0];
     _arrow attachTo [_vehTarget,[0,0,_signHeight],""];
-            
-    // Create a small local white light and attach it to the object.
+    
     if ( _showFlare ) then {
         if ( _showFlareOthers ) then {
             _flare = _showFlareType createVehicle [getPos _vehTarget select 0, getPos _vehTarget select 1, _showFlareHeight];
@@ -70,34 +61,26 @@ if (_vehFoundInRange) then {
             _flare = _showFlareType createVehicleLocal [getPos _vehTarget select 0, getPos _vehTarget select 1, _showFlareHeight];
         };
     };
-    // Create the light effect
     _light setLightBrightness 0.01;
     _light setLightAmbient[1.0, 1.0, 1.0];
     _light setLightColor[1.0, 1.0, 1.0];
     _light lightAttachObject [_vehTarget, [0,0,1]];
 
-    // Show the sign that long above the vehicle
     sleep _showTime;
 
-    // Delete the Sign again
     deleteVehicle _arrow;
-    // Turn off the light.
     deletevehicle _light;
     
 } else {
 
     systemChat format ["JVP: %1 does not belong to any vehicle in range.", _keyName];
     
-    // exit if marker config set to 'false'
     if !( _showVehMapMarker ) exitWith { };
     
-    // exit if player has no map to see the marker
     _inventoryItems = [player] call BIS_fnc_invString;
     if !("ItemMap" in _inventoryItems) exitWith { systemChat "JVP: You do not have a map to see the marker! Exit.";};
     
     systemChat format ["JVP: Searching for Vehicle in wider range...", _keyName];
-    //---------------------------------------------------------------------------------------------------------    
-    // Do the bigger search (whole map)
     _vehsAround = nearestObjects [getPos player, ["Plane","LandVehicle","Helicopter","Ship"], _scanRadius2];
     {
         _ownerID = _x getVariable ["CharacterID", "0"];
@@ -105,8 +88,7 @@ if (_vehFoundInRange) then {
             _vehFoundInRange = true; 
             _vehTarget = _x;
         };
-    } forEach _vehsAround;
-    //---------------------------------------------------------------------------------------------------------    
+    } forEach _vehsAround;  
     
     if (_vehFoundInRange) then {
         _classname = typeOf _vehTarget;
@@ -115,11 +97,9 @@ if (_vehFoundInRange) then {
         systemChat format ["JVP: %1 belongs to %2 found in range. Trying to show on map...",_keyName, _vehDisplayName];
         
         _location = position _vehTarget;
-        // Get the vehicle display name from config
         _vehDisplayName = gettext (configFile >> "CfgVehicles" >> (typeof _vehTarget) >> "displayName");
         _rNum = floor random 10;
         _name = format ["Search: %1" + " [%2]", _vehDisplayName, _rNum];
-        // local or globally visible
         if ( _showMarkerOthers ) then {
             _mark = createMarker [_name, _location];
             _name setMarkerShape _showMarkerShape;
@@ -128,7 +108,6 @@ if (_vehFoundInRange) then {
             _name setMarkerSize _showMarkerSize;
             _name setMarkerAlpha 1;
             _name setMarkerText format [_showMarkerSearchText + " " + "%1", _vehDisplayName];
-            //Marker stays this time on map
         } else {
             _mark = createMarkerLocal [_name, _location];
             _name setMarkerShapeLocal _showMarkerShape;

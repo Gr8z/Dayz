@@ -31,17 +31,6 @@ GGSafezones = [
 	[zonewholesale2, 50, "Wholesale 2"]
 ];
 
-EpochEvents = [
-	["any","any","any","any",30,"abandonedvault"],
-	["any","any","any","any",0,"crash_spawner"],
-	["any","any","any","any",40,"supply_drop"],
-	["any","any","any","any",10,"Building"],
-	["any","any","any","any",20,"Military"],
-	["any","any","any","any",30,"Treasure"],
-	["any","any","any","any",40,"Construction"],
-	["any","any","any","any",50,"SupplyItems"],
-	["any","any","any","any",55,"Treasure"]];
-
 call compile preprocessFileLineNumbers "GG\init\variables.sqf";
 progressLoadingScreen 0.1;
 call compile preprocessFileLineNumbers "GG\init\publicEH.sqf";

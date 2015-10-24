@@ -1,9 +1,9 @@
 private["_ammo","_vehicle","_hasAmmo","_text","_weapon","_weaponname","_ammoname"];
     
 _vehicle = _this select 0;
-_weapon = "PKT"; //vehicleweapon
-_ammo = "100Rnd_762x54_PK"; //weaponammo
-_weaponname = _weapon; //cant read from config, coz there is no turret or what ever - so its hardcoded
+_weapon = "PKT";
+_ammo = "100Rnd_762x54_PK";
+_weaponname = _weapon;
 _ammoname = getText (configFile >> "cfgMagazines" >> _ammo >> "displayName");
 _text = [_ammoname,_weaponname];
 _hasAmmo = _ammo in magazines player;

@@ -52,16 +52,14 @@ _hitpoints = ["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGl
     if(["Glass",_x,false] call fnc_inString) then {
         _part = "PartGlass";
     };
- 
-    // allow removal of any lightly damaged parts
+	
     if (_damage <= 0.95 and _damage >= 0) then {
     
-        // Do not allow removal of engine || fueltanks
         if( _part == "PartGlass" || _part == "PartWheel" ) then {
  
-            _color = "color='#ffff00'"; //yellow
-            if (_damage >= 0.5) then {_color = "color='#ff8800'";}; //orange
-            if (_damage >= 0.75) then {_color = "color='#ff0000'";}; //red
+            _color = "color='#ffff00'";
+            if (_damage >= 0.5) then {_color = "color='#ff8800'";};
+            if (_damage >= 0.75) then {_color = "color='#ff0000'";};
  
             _percent = round(_damage*100);
             _string = format["<t %2>Remove%1 (%3 %4)</t>",_cmpt,_color,_percent,"%"];

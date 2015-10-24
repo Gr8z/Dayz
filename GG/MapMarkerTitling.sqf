@@ -46,7 +46,7 @@ fnc_marker_keyDown_EH = {
 fnc_map_mouseButtonDblClick_EH = {
     private ["_display"];
 
-    disableUserInput true; // Scheduled environment
+    disableUserInput true;
 
     (time + MMT_SEARCHTIME) spawn {
         disableSerialization;

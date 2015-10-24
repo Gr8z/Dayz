@@ -12,9 +12,9 @@ _hasGPS = "ItemGPS" in items player;
 
 _Time = time - lastscan;
 
-if(_Time < _LastUsedTime) exitWith { // If cooldown is not done then exit script
+if(_Time < _LastUsedTime) exitWith {
 	DZE_ActionInProgress = false;
-	cutText [format["please wait %1s before scaning again!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"]; //display text at bottom center of screen when players cooldown is not done\
+	cutText [format["please wait %1s before scaning again!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"];
 };
 if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exitWith {
 	DZE_ActionInProgress = false; 

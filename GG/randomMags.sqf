@@ -1,6 +1,3 @@
-/*---------------------------------------------------------------------------
-Variable Init
----------------------------------------------------------------------------*/
 private ["_w","_m","_r","_r1","_r2","_isSD","_isMagSD","_m2c","_isDone","_d","_launcherResult","_launcherMagazineRandomiser","_checkIfSD_Weapon","_checkIfSD_Ammo"];
 _w = 		"";
 _m = 		[];
@@ -11,11 +8,7 @@ _isSD = 	false;
 _isMagSD =	false;
 _m2c =		"";
 _isDone =	false;
-_d = 		false;			//enable/disable debugging
-
-/*---------------------------------------------------------------------------
-	Inputs
----------------------------------------------------------------------------*/
+_d = 		false;
 
 _w = _this select 0;
 _m = _this select 1;
@@ -23,21 +16,13 @@ _r = _this select 2;
 _r1 = 	_r select 0;
 _r2 = 	_r select 1;
 
-/*---------------------------------------------------------------------------
-Private Functions
----------------------------------------------------------------------------*/
-
 _checkIfSD_Weapon = {
 	private ["_isInConfig","_isInWepName","_isInMag0Name","_result"];
 	_result = false;
-	//get audible value from ammo, check if less than 0.1
 	_isInConfig = 	(getNumber (configFile >> "CfgAmmo" >> (getText (configFile >> "cfgMagazines" >> (_m select 0) >> "ammo")) >> "audibleFire")) < 0.1;
-	//check if SD is in weapon name
 	_isInWepName = 	[_w,"SD"] call KRON_StrInStr;
-	//check if SD is in the default magazine name
 	_isInMag0Name = [_m select 0, "SD"] call KRON_StrInStr;
 
-	//if any of above are true, result is true
 	if (_isInWepName || _isInMag0Name || _isInConfig) then {
 		_result = true;
 	};
@@ -111,23 +96,16 @@ _launcherMagazineRandomiser = {
 	[_isLauncher,_magOutput]
 };
 
-
-/*---------------------------------------------------------------------------
-Instructions
----------------------------------------------------------------------------*/
 if (_d && !_r1) then { diag_log (format["P2DEBUG: p2_randomMags: Input: %1",[_w,_m,[_r1,_r2]]]); };
 
-//if mag count not > 0
 if !(count _m > 0) then {
 	_m2c = 		_m select 0;
 	_isDone = 	true;
 };
 
-//if not a re-run and not done, check if sd.
 if (!_r1 && !_isDone) then {	
 	if (_d) then { diag_log ("p2_randomMags: Not ReRun"); };
 
-	//if is grenade launcher weapon this will randomise the nades, if not proceed as normal
 	_launcherResult = 	[_m2c,_w] call _launcherMagazineRandomiser;
 	if (_launcherResult select 0) then {
 		_m2c = 			_launcherResult select 1;
@@ -137,7 +115,6 @@ if (!_r1 && !_isDone) then {
 		_isSD = 		call _checkIfSD_Weapon;
 	};
 } else {
-	//if a rerun, sd val is parsed from last time in r2
 	if (_d) then { diag_log (format["p2_randomMags: reRun, _r2: %1 _m: %2",_r2,_m]); };
 	_isSD = 			_r2;
 };
@@ -146,7 +123,6 @@ if (_isSD && !_isDone) then {
 		_m2c = _m call BIS_fnc_selectRandom;
 		_isMagSD = _m2c call _checkIfSD_Ammo;
 
-		//ReRun if non-SD mag returned
 		if !(_isMagSD) then {
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun, _m2c: %1, _m: %2",_m2c,_m]); };
 			_m = _m - [_m2c];
@@ -160,7 +136,6 @@ if (_isSD && !_isDone) then {
 		_m2c = 		_m call BIS_fnc_selectRandom;
 		_isMagSD = 	_m2c call _checkIfSD_Ammo;
 
-		//ReRun if SD mag returned
 		if (_isMagSD) then {
 			if (_d) then { diag_log (format["p2_randomMags: !isMagSD reRun, _m2c: %1, _m: %2",_m2c,_m]); };
 			_m = _m - [_m2c];
@@ -171,7 +146,6 @@ if (_isSD && !_isDone) then {
 
 };
 
-//Select default if _m2c is Nil or ""
 if (isNil "_m2c" || isNil "_m" || {_m2c == ""} || {str _m == str[]}) then {
 	if (_d) then { diag_log ("p2_randomMags: isNil reRun"); };
 	_m2c = [] + getArray (configFile >> "cfgWeapons" >> _w >> "magazines");
@@ -179,7 +153,4 @@ if (isNil "_m2c" || isNil "_m" || {_m2c == ""} || {str _m == str[]}) then {
 };
 
 if (_d && !_r1) then { diag_log (format["P2DEBUG: p2_randomMags: Output: %1",_m2c]); };
-/*---------------------------------------------------------------------------
-Output
----------------------------------------------------------------------------*/
 _m2c

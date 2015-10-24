@@ -12,23 +12,17 @@ _kilHumans = _killer getVariable ["humanKills",0];
 humChange = 0;
 
 if(_killer isKindOf "Man" and _kilName != "unknown") then{
-	// Killed
 	if(_kilHumanity < -5000) then {
-		// Killer = Bandit
 		if(_vicHumanity < -5000) then {
-			// Victim = Bandit
 			humChange = +100;
 			_killer setVariable ["banditKills",(_kilBandits + 1),true];
 		} else {
 			if(_vicHumanity > 5000) then {
-				// Victim = Hero
 				humChange = -1000;
 			} else {
 				if(_vicHumanity >= 2500) then{
-					// Victim = Friendly
 					humChange = -750;
 				} else {
-					// Victim = Neutral
 					humChange = -500;
 				};
 			};
@@ -36,21 +30,16 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 		};
 	} else {
 		if(_kilHumanity < 2500) then {
-			// Killer = Neutral
 			if(_vicHumanity < -5000) then {
-				// Victim = Bandit
 				humChange = +150;
 				_killer setVariable ["banditKills",(_kilBandits + 1),true];
 			} else {
 				if(_vicHumanity > 5000) then {
-					// Victim = Hero
 					humChange = -1000;
 				} else {
 					if(_vicHumanity >= 2500) then{
-						// Victim = Friendly
 						humChange = -750;
 					} else {
-						// Victim = Neutral
 						humChange = -500;
 					};
 				};
@@ -58,42 +47,32 @@ if(_killer isKindOf "Man" and _kilName != "unknown") then{
 			};
 		} else {
 			if(_kilHumanity < 5000) then {
-				// Killer = Friendly
 				if(_vicHumanity < -5000) then {
-					// Victim = Bandit
 					humChange = +200;
 					_killer setVariable ["banditKills",(_kilBandits + 1),true];
 				} else {
 					if(_vicHumanity > 5000) then {
-						// Victim = Hero
 						humChange = -1000;
 					} else {
 						if(_vicHumanity >= 2500) then{
-							// Victim = Friendly
 							humChange = -750;
 						} else {
-							// Victim = Neutral
 							humChange = -500;
 						};
 					};
 					_killer setVariable ["humanKills",(_kilHumans + 1),true];
 				};
 			} else {
-				// Killer = Hero
 				if(_vicHumanity < -5000) then {
-					// Victim = Bandit
 					humChange = +350;
 					_killer setVariable ["banditKills",(_kilBandits + 1),true];
 				} else {
 					if(_vicHumanity > 5000) then {
-						// Victim = Hero
 						humChange = -1000;
 					} else {
 						if(_vicHumanity >= 2500) then{
-							// Victim = Friendly
 							humChange = -750;
 						} else {
-							// Victim = Neutral
 							humChange = -500;
 						};
 					};
