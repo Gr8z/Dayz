@@ -9,9 +9,6 @@ _vehicle = lbData[2802,(lbCurSel 2802)];
 _vehicle = (call compile format["%1",_vehicle]);
 _vehicleClass = getText(configFile >> "CfgVehicles" >> (_vehicle select 1) >> "vehicleClass");
 _vehicleName = getText(configFile >> "CfgVehicles" >> (_vehicle select 1) >> "displayName");
-
-
-//Get Spawn Location
 _dir = round(random 360);
 _helipad = nearestObjects [player, ["HeliH","HeliHCivil","HeliHRescue","MAP_Heli_H_army","MAP_Heli_H_cross","Sr_border"], 70];
 if((count _helipad == 0) && (_vehicleClass == "Air")) exitWith {DZE_ActionInProgress = true;cutText ["You need to be near a helipad to spawn air vehicles", "PLAIN DOWN"];};

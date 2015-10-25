@@ -42,12 +42,8 @@ if (_total_trades > _free_magazine_slots) then {
 };
 
 _abort = false;
-
-// perform number of total trades
 for "_x" from 1 to _total_trades do {
 	_tradeCounter = _tradeCounter + 1;
-
-	// cutText ["Starting trade, stand still to complete.", "PLAIN DOWN"];
 	if(_total_trades == 1) then { 
 		cutText [format["Starting trade, stand still to complete trade.",_tradeCounter,_total_trades] , "PLAIN DOWN"];
 	} else {
@@ -124,13 +120,8 @@ if (_total_trades < 1) exitWith {
 
 
 _abort = false;
-
-// perform number of total trades
 for "_x" from 1 to _total_trades do {
 	_tradeCounter = _tradeCounter + 1;
-
-
-	// cutText ["Starting trade, stand still to complete.", "PLAIN DOWN"];
 	if(_total_trades == 1) then { 
 		cutText [format["Starting trade, stand still to complete trade.",_tradeCounter,_total_trades] , "PLAIN DOWN"];
 	} else {

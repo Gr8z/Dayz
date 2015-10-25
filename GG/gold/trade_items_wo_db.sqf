@@ -5,14 +5,12 @@ DZE_ActionInProgress = true;
 
 _part_out = (_this select 3) select 0;
 _part_in = (_this select 3) select 1;
-_qty_out = (_this select 3) select 2; // sell price for u
-_qty_in = (_this select 3) select 3;  //  buy price for u
+_qty_out = (_this select 3) select 2;
+_qty_in = (_this select 3) select 3;
 _buy_o_sell = (_this select 3) select 4;
 _textPartIn = (_this select 3) select 5;
 _textPartOut = (_this select 3) select 6;
 _qty = player getVariable ["cashMoney",0];
-
-// find total number of possible trades
 _total_trades = floor (_qty / _qty_in);
 
 
@@ -29,8 +27,6 @@ if(_total_trades < 1) exitWith {
 
 _abort = false;
 _tradeCounter = 0;
-
-// trade all items
 for "_x" from 1 to _total_trades do {
 	
 	_removed = 0;
@@ -92,7 +88,6 @@ for "_x" from 1 to _total_trades do {
 			};
 
 			if(_humanityGain > 0) then {
-				// Increase humanity for turning in bio meat
 				_humanity = player getVariable["humanity",0];
 				_humanity = _humanity + _humanityGain;
 				player setVariable["humanity",_humanity,true];
@@ -100,9 +95,7 @@ for "_x" from 1 to _total_trades do {
 
 			cutText [format[(localize "str_epoch_player_186"),_qty_in,_textPartIn,_qty_out,_textPartOut], "PLAIN DOWN"];
 			
-		} else {
-			
-			// Return items from botched trade. 		 
+		} else {		 
 			for "_x" from 1 to _removed do {
 				player addMagazine _part_in;
 			};

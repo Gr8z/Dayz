@@ -9,8 +9,6 @@ closeDialog 0;
 
 _debloyed = _obj getVariable["Deployed", false];
 if (_debloyed) exitWith { cutText ["You cannot store deployed vehicles!","PLAIN DOWN"]; };
-
-//Exploit fix
 _GGsold = _obj getVariable["GGsold", false];
 if (_GGsold) exitWith { cutText ["This vehicle is already sold","PLAIN DOWN"]; };
 

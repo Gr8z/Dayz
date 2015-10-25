@@ -1,6 +1,4 @@
 disableSerialization;
-
-//Model Variables
 Bandit1_DZ = 	"Bandit1_DZ";
 Bandit2_DZ = 	"Bandit2_DZ";
 BanditW1_DZ = 	"BanditW1_DZ";
@@ -22,7 +20,6 @@ if (isNil "DayZ_UseSteamID") then {
 FastBuilding = ["0","76561198153784743"];
 MeleeWeapons = ["MeleeFishingPole","MeleeCrowbar","MeleeBaseBallBatNails","MeleeBaseBallBatBarbed","MeleeBaseBallBat","Crossbow_DZ","MeleeSledge","MeleeMachete","MeleeHatchet_DZE"];
 gear_done = false;
-//Cooking
 meatraw = [
 	"FoodSteakRaw",
 	"FoodmeatRaw",
@@ -48,10 +45,7 @@ meatcooked = [
 	"ItemSeaBassCooked",
 	"ItemTunaCooked"
 ];
-//Eating
 no_output_food = ["FoodMRE", "FoodPistachio", "FoodNutmix","FoodBioMeat"]+meatcooked+meatraw;
-
-// Food with increased chance for infection.
 badfood = ["FoodBioMeat","FoodCanUnlabeled"];
 
 food_with_output=[
@@ -91,10 +85,9 @@ food_output = [
 	"FoodCanTylersEmpty",
 	"FoodCanUnlabeledEmpty"
 ];
-//Drinking
 no_output_drink = ["ItemWaterbottle", "ItemWaterbottleBoiled"];
 drink_with_output = [
-	"ItemSoda",  //just to define item for ItemSodaEmpty
+	"ItemSoda",
 	"ItemSodaRbull",
 	"ItemSodaOrangeSherbet",
 	"ItemSodaCoke",
@@ -163,8 +156,6 @@ canRoll = true;
 SafeZoneEnterCount = 0;
 
 canbuild = true;
-
-//Hunting Variables
 dayZ_partClasses = [
 	"PartFueltank",
 	"PartWheel",
@@ -174,27 +165,19 @@ dayZ_explosiveParts = [
 	"palivo",
 	"motor"
 ];
-//Survival Variables
-SleepFood =				2160; //minutes (48 hours)
-SleepWater =			1440; //minutes (24 hours)
-SleepTemperatur	= 		90 / 100;	//Firs Value = Minutes untill Player reaches the coldest Point at night (without other effects! night factor expected to be -1)
+SleepFood =				2160;
+SleepWater =			1440;
+SleepTemperatur	= 		90 / 100;
 
-//Server Variables
 allowConnection = 		false;
 isSinglePlayer =		false;
 PVDZE_serverObjectMonitor = [];
 PlayerDeaths = [];
-
-//Streaming Variables (player only)
 dayz_Locations = [];
 dayz_locationsActive = [];
-
-//GUI
-Dayz_GUI_R = 0.38; // 0.7
-Dayz_GUI_G = 0.63; // -0.63
-Dayz_GUI_B = 0.26; // -0.26
-
-//Player self-action handles
+Dayz_GUI_R = 0.38;
+Dayz_GUI_G = 0.63;
+Dayz_GUI_B = 0.26;
 dayz_resetSelfActions = {
 	s_player_inCarlockUnlock_crtl = -1;
     s_player_incarlockunlock = [];
@@ -288,21 +271,14 @@ dayz_resetSelfActions = {
 	s_player_packOBJ = -1;
 };
 call dayz_resetSelfActions;
-
-//Engineering variables
 s_player_lastTarget =	[objNull,objNull,objNull,objNull,objNull];
 s_player_repairActions = [];
 s_player_lockunlock = [];
-
-// Custom
 s_player_madsci 		= 	[];
 s_player_parts 			= 	[];
 s_player_combi 			= 	[];
-
-//Modular player_build
 snapGizmos = [];
 snapGizmosNearby = [];
-//Initialize Medical Variables
 r_interrupt = 			false;
 r_doLoop = 				false;
 r_self = 				false;
@@ -337,8 +313,6 @@ r_isBandit =			false;
 isInTraderCity =		false;
 NORRN_dropAction =		-1;
 DZE_PROTOBOX = objNull;
-
-//ammo routine
 r_player_actions2 = [];
 r_action2 = false;
 r_player_lastVehicle = objNull;
@@ -460,7 +434,6 @@ DZE_HeliAllowToTow = [
 	"JetSkiYanahui_Case_Yellow",
 	"JetSkiYanahui_Case_Green",
 	"JetSkiYanahui_Case_Blue",
-	//default epoch
 	"Skoda",
 	"SkodaBlue",
 	"SkodaGreen",
@@ -484,7 +457,6 @@ DZE_HeliAllowToTow = [
 	"datsun1_civil_2_covered",
 	"datsun1_civil_1_open",
 	"hilux1_civil_2_covered",
-	//unarmed
 	"LandRover_TK_CIV_EP1",
 	"LandRover_CZ_EP1",
 	"HMMWV_DZ",
@@ -493,7 +465,6 @@ DZE_HeliAllowToTow = [
 	"HMMWV_Ambulance_CZ_DES_EP1",
 	"HMMWV_Ambulance",
 	"HMMWV_M1035_DES_EP1",
-	//armed
 	"ArmoredSUV_PMC_DZE",
 	"Pickup_PK_TK_GUE_EP1_DZE",
 	"Offroad_DSHKM_Gue_DZE",
@@ -505,7 +476,6 @@ DZE_HeliAllowToTow = [
 	"LandRover_MG_TK_EP1_DZE",
 	"UAZ_MG_TK_EP1_DZE",
 	"GAZ_Vodnik_DZE",
-	//ural
 	"Ural_CDF",
 	"Ural_TK_CIV_EP1",
 	"Ural_UN_EP1",
@@ -525,7 +495,6 @@ DZE_HeliAllowToTow = [
 	"UralRefuel_TK_EP1_DZ",
 	"V3S_Refuel_TK_GUE_EP1_DZ",
 	"MtvrRefuel_DZ",
-	//suv
 	"SUV_TK_CIV_EP1",
 	"SUV_Blue",
 	"SUV_Charcoal",
@@ -543,7 +512,6 @@ DZE_HeliAllowToTow = [
 	"UAZ_Unarmed_TK_CIV_EP1",
 	"UAZ_Unarmed_TK_EP1",
 	"UAZ_Unarmed_UN_EP1",
-	//overwatcg 350z
 	"350z",
 	"350z_red",
 	"350z_kiwi",
@@ -568,35 +536,31 @@ DZE_HeliAllowToTow = [
 	"350z_yellow_DZ",
 	"350z_cream_DZ"
 ];
-
-//Initialize Zombie Variables
 dayz_zombieTargetList = [
 	["SoldierWB",50],
 	["Air",500],
 	["LandVehicle",200]
 ];
 PVDZE_plr_Hit = [];
-PVDZE_obj_Publish = [];		//used for eventhandler to spawn a mirror of players tent
+PVDZE_obj_Publish = [];
 PVDZE_plr_HideBody = objNull;
 dayz_selectedVault = objNull;
 dayz_selectedDoor = objNull;
 
-PVDZE_veh_Publish = [];		// for vehicle traders
-PVDZE_obj_Trade = [];		// For all traders increment qty
-PVDZE_plr_TradeMenu = [];  		// For all traders
+PVDZE_veh_Publish = [];
+PVDZE_obj_Trade = [];
+PVDZE_plr_TradeMenu = [];
 PVDZE_plr_DeathB = [];
-
-//DayZ settings
 dayz_dawn = 6;
 dayz_dusk = 18;
 DAYZ_agentnumber = 0;
 dayz_animalDistance = 800;
 dayz_zSpawnDistance = 1000;
 
-dayz_maxMaxModels = 80; // max quantity of Man models (player || Z, dead || alive) around players. Below this limit we can spawn Z // max quantity of loot piles around players. Below this limit we can spawn some loot
-dayz_cantseeDist = 150; // distance from which we can spawn a Z in front of any player without ray-tracing && angle checks
-dayz_cantseefov = 70; // half player field-of-view. Visible Z won't be spawned in front of any near players
-dayz_canDelete = 300; // Z, further than this distance from its "owner", will be deleted
+dayz_maxMaxModels = 80;
+dayz_cantseeDist = 150;
+dayz_cantseefov = 70;
+dayz_canDelete = 300;
 
 if(isNil "DZE_SelfTransfuse") then {
 	DZE_SelfTransfuse = false;
@@ -706,8 +670,6 @@ if (isNil "DZE_PlotOwnership") then {
 if (isNil "DZE_checkNearbyRadius") then {
 	DZE_checkNearbyRadius = 120;
 };
-
-// needed on server
 if(isNil "DZE_PlotPole") then {
 	DZE_PlotPole = [60,85];
 };
@@ -727,8 +689,6 @@ if(isNil "dayz_spawnAirCount") then {
 if(isNil "dayz_zedsAttackVehicles") then {
 	dayz_zedsAttackVehicles = true;
 };
-
-// update objects
 dayz_updateObjects = ["Plane","Tank","Car", "Helicopter", "Motorcycle", "Ship", "TentStorage", "VaultStorage","LockboxStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ","Scaffolding_DZ"];
 dayz_disallowedVault = ["TentStorage", "BuiltItems","ModularItems","DZE_Base_Object"];
 special_backpacks = ["M2StaticMG_US_Bag_EP1","DSHKM_TK_GUE_BAG_EP1","KORD_UN_Bag_EP1","AGS_UN_Bag_EP1","MK19_TriPod_US_Bag_EP1","BAF_GMG_ACOG_minitripod_bag"];
@@ -751,10 +711,7 @@ dayz_allowedObjects = StaticVehicleArray + ["TentStorage","TentStorageDomed","Te
 "Land_Misc_Cargo2E","Land_Misc_Cargo1C","Land_sara_hasic_zbroj","SearchLight_TK_EP1","Infostand_2_EP1",
 "Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C"
 ];
-
-//#########################INDESTRUCTIBLE ITEMS#########################
 indestructible = ["Land_HBarrier_large","TK_GUE_WarfareBLLightFactory_base_EP1","CDF_WarfareBUAVterminal","USMC_WarfareBHeavyFactory","MAP_A_CraneCon","Misc_Cargo1B_military","Misc_cargo_cont_small2","Land_Misc_Cargo1E_EP1","MAP_A_Castle_Bergfrit","Plastic_Pole_EP1_DZ","MBG_Warehouse_InEditor","MBG_Killhouse_1","MBG_Killhouse_2","MBG_Killhouse_3","MBG_Killhouse_4","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","Land_sara_domek_zluty","MAP_stodola_old_open","MAP_sara_domek_zluty","Land_sara_hasic_zbroj","Land_MBG_HeavyShelter","MAP_A_Pub_01","Land_A_Villa_EP1","MAP_A_Castle_Bastion","MAP_A_Castle_Stairs_A","CinderWallHalf_DZ","CinderWall_DZ","CinderWallSmallDoorway_DZ","CinderWallDoorSmall_DZ","CinderWallDoorSmallLocked_DZ","CinderWallDoorway_DZ","CinderWallDoor_DZ","CinderWallDoorLocked_DZ","MetalFloor_DZ","MAP_sara_hasic_zbroj","Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C"];
-//######################################################################
 
 DZE_ATM = ["Laptop_EP1","SmallTable","Infostand_2_EP1"];
 
@@ -767,17 +724,14 @@ DZE_Garage = ["Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Ga
 
 DZE_DoorsLocked = ["Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallDoorLocked_DZ","CinderWallDoorSmallLocked_DZ"];
 
-// List of removable items that require crowbar
 DZE_isRemovable = ["Fence_corrugated_DZ","ParkBench_DZ","Plastic_Pole_EP1_DZ","FireBarrel_DZ","Scaffolding_DZ","M240Nest_DZ","AGS_RU","MK19_TriPod","BAF_GMG_Tripod_D","M2StaticMG_US_EP1","M2HD_mini_TriPod","KORD_high","KORD","DSHkM_Mini_TriPod","DSHKM_Gue"];
 DZE_isWreck = ["SKODAWreck","HMMWVWreck","UralWreck","datsun01Wreck","hiluxWreck","datsun02Wreck","UAZWreck","Land_Misc_Garb_Heap_EP1","Fort_Barricade_EP1","Rubbish2"];
 DZE_isWreckBuilding = ["Land_wreck_cinder","Land_wood_wreck_quarter","Land_wood_wreck_floor","Land_wood_wreck_third","Land_wood_wreck_frame","Iron_Vein_DZE","Silver_Vein_DZE","Gold_Vein_DZE","Supply_Crate_DZE"];
 DZE_isNewStorage = ["VaultStorage","OutHouse_DZ","Wooden_shed_DZ","WoodShack_DZ","StorageShed_DZ","GunRack_DZ","WoodCrate_DZ"];
 
-// These work with just a running generator
 dayz_fuelpumparray = ["Land_repair_center","Land_Ind_TankSmall","Land_fuel_tank_big","Land_fuel_tank_stairs","Land_fuel_tank_stairs_ep1","Land_wagon_tanker","Land_fuelstation","Land_fuelstation_army","land_fuelstation_w","Land_benzina_schnell","FuelPump_DZ","Land_A_FuelStation_Feed","MAP_A_FuelStation_Feed","Land_Ind_FuelStation_Feed_EP1","Land_FuelStation_Feed_PMC","FuelStation","Land_ibr_FuelStation_Feed","Land_fuelstation_army","Land_fuelstation","land_fuelstation_w","Land_benzina_schnell"];
 DZE_fueltruckarray = ["KamazRefuel_DZ","UralRefuel_TK_EP1_DZ","MtvrRefuel_DES_EP1_DZ","V3S_Refuel_TK_GUE_EP1_DZ","MtvrRefuel_DZ","KamazRefuel_DZE","UralRefuel_TK_EP1_DZE","MtvrRefuel_DES_EP1_DZE","V3S_Refuel_TK_GUE_EP1_DZE","MtvrRefuel_DZE"];
 
-// Standard Fuel sources
 dayz_fuelsources = ["Land_repair_center","Land_Ind_TankSmall","Land_fuel_tank_big","Land_fuel_tank_stairs","Land_fuel_tank_stairs_ep1","Land_wagon_tanker","Land_fuelstation","Land_fuelstation_army","land_fuelstation_w","Land_benzina_schnell"];
 
 DZE_Lock_Door = "";
@@ -785,7 +739,6 @@ DZE_Lock_Door = "";
 if (isNil "DZE_plotOwnershipExclusions") then {
 	DZE_plotTakeOwnershipItems = dayz_allowedObjects - (DZE_LockableStorage + ["Plastic_Pole_EP1_DZ","TentStorage","TentStorageDomed","TentStorageDomed2"]);
 };
-//init global arrays for Loot Chances
 call compile preprocessFileLineNumbers "\z\addons\dayz_code\init\loot_init.sqf";
 
 if(isServer) then {
@@ -831,10 +784,8 @@ if(!isDedicated) then {
 
 	dayz_spawnPos = getPosATL player;
 
-	dayz_buildingMonitor = [];	//Buildings to check
+	dayz_buildingMonitor = [];
 	dayz_bodyMonitor = [];
-
-	// weather control var
 	zeroPreviousWeather = [0,0,[0,0],0];
 	zeroCurrentWeather = [0,0,[0,0],0];
 
@@ -843,15 +794,10 @@ if(!isDedicated) then {
 	} else {
 		dayz_baseTypes = 		getArray (configFile >> "CfgBuildingLoot" >> "Default" >> "zombieClass");
 	};
-
-
-	//temperature variables
 	dayz_temperatur       =     25;  
 	dayz_temperaturnormal =     25;   
 	dayz_temperaturmax    =     40;
 	dayz_temperaturmin    =     10;
-
-	//player special variables
 	dayZ_lastPlayerUpdate = 0;
 	dayZ_everyonesTents =	[];
 	dayz_hunger	=			0;
@@ -888,16 +834,12 @@ if(!isDedicated) then {
 	dayz_areaAffect =		2.5;
 	dayz_heartBeat = 		false;
 	dayzClickTime =			0;
-//Current local
 	dayz_spawnZombies = 0;
 	dayz_swarmSpawnZombies = 0;
-//Max local
 		if (isNil "dayz_maxNearByZombies") then {
-		dayz_maxNearByZombies = 60; 
-//Current total
+		dayz_maxNearByZombies = 60;
 	};
 	dayz_currentGlobalZombies = 0;
-//Max global zeds.
 	if (isNil "dayz_maxGlobalZeds") then {
 		dayz_maxGlobalZeds = 3000;
 	};
@@ -933,8 +875,6 @@ if(!isDedicated) then {
 
 
 	DZE_ActionInProgress =		false;
-
-	// DayZ Epoch Client only variables
 	if(isNil "DZE_AllowForceSave") then {
 		DZE_AllowForceSave = false;
 	};
@@ -1005,8 +945,6 @@ if(!isDedicated) then {
 	
 	GGEARPLUGS = false;
 };
-
-//Model Variables
 AllPlayers set [count AllPlayers, "Bandit1_DZ",
 					"Bandit2_DZ",
 					"BanditW1_DZ",

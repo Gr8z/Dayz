@@ -16,8 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	//_qty = {_x == _part_in} count magazines player;
-	_qty = player getVariable ["cashMoney",0]; // get your money variable	
+	_qty = player getVariable ["cashMoney",0];
 } else {
 
 	if (_part_in isKindOf "Air") then {
@@ -49,11 +48,8 @@ if (_qty >= _qty_in) then {
     };
 
 	if (_finished) then {
-
-		// Double check for items
 		if(_buy_o_sell == "buy") then {
-			//_qty = {_x == _part_in} count magazines player;
-				_qty = player getVariable ["cashMoney",0]; // get your money variable
+				_qty = player getVariable ["cashMoney",0];
 		} else {
 			if (_part_in isKindOf "AIR") then {
 				_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_air];
@@ -70,24 +66,14 @@ if (_qty >= _qty_in) then {
 			if (isNil "inTraderCity") then { inTraderCity = "Unknown Trader City" };
 			PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_obj,inTraderCity];
 			publicVariableServer  "PVDZE_obj_Trade";
-	
-			//diag_log format["DEBUG Starting to wait for answer: %1", PVDZE_obj_Trade];
 
 			waitUntil {!isNil "dayzTradeResult"};
 
-			//diag_log format["DEBUG Complete Trade: %1", dayzTradeResult];
-
 			if(dayzTradeResult == "PASS") then {
 
-				if(_buy_o_sell == "buy") then {	
-
-					// First select key color
+				if(_buy_o_sell == "buy") then {
 					_keyColor = ["Green","Red","Blue","Yellow","Black"] call BIS_fnc_selectRandom;
-
-					// then select number from 1 - 2500
 					_keyNumber = (floor(random 2500)) + 1;
-
-					// Combine to key (eg.ItemKeyYellow2494) classname
 					_keySelected = format[("ItemKey%1%2"),_keyColor,_keyNumber];	
 
 					_isKeyOK = 	isClass(configFile >> "CfgWeapons" >> _keySelected);
@@ -96,15 +82,12 @@ if (_qty >= _qty_in) then {
 					_isOk = [player,_config] call BIS_fnc_invAdd;
 					waitUntil {!isNil "_isOk"};
 					if (_isOk and _isKeyOK) then {
-					
-						//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 						
 						_qtychange = _qty - _qty_in;
 					player setVariable ["cashMoney", _qtychange , true];	
 					_newM = player getVariable ["cashMoney",0];
-					//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 					
-					_removed = _qty - _newM; // 
+					_removed = _qty - _newM;
 					
 						systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out,CurrencyName];
 						
@@ -117,8 +100,6 @@ if (_qty >= _qty_in) then {
 							} else {
 								_location = [(position player),0,20,1,0,2000,0] call BIS_fnc_findSafePos;
 							};
-	
-							//place vehicle spawn marker (local)
 							_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
 
 							_location = (getPosATL _veh);
@@ -135,15 +116,9 @@ if (_qty >= _qty_in) then {
 				} else {
 					
 					_obj = _obj select 0;
-
-					//check to make sure vehicle has no more than 75% average tire damage
 					_hitpoints = _obj call vehicle_getHitpoints;
 					_okToSell = true;
-
-					// count parts
-					_tires = 0; 
-
-					// total damage 
+					_tires = 0;
 					_tireDmg = 0;
 
 					_damage = 0;
@@ -154,8 +129,6 @@ if (_qty >= _qty_in) then {
 							_tires = _tires + 1;
 						};
 					} forEach _hitpoints;
-
-					// find average tire damage
 					if(_tireDmg > 0 and _tires > 0) then {
 						if((_tireDmg / _tires) > 0.75) then {
 							_okToSell = false;
@@ -165,8 +138,6 @@ if (_qty >= _qty_in) then {
 					if(local _obj and !isNull _obj and alive _obj) then {
 
 						if(_okToSell) then {
-
-							//Exploit fix
 							_obj setVariable ["GGsold",true,true];
 							
 							_myMoney = player getVariable ["cashMoney",0];

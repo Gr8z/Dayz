@@ -39,10 +39,10 @@ TraderDialogLoadItemList = {
 	_item_list = [];
 	{
 		private ["_header", "_item", "_name", "_type", "_textPart", "_qty", "_buy", "_bqty", "_bname", "_btype", "_btextCurrency", "_sell", "_sqty", "_sname", "_stype", "_stextCurrency", "_order", "_order", "_afile", "_File", "_count", "_bag", "_bagclass", "_index", "_image"];
-		_header = _x select 0; // "TRD"   example 3
-		_item = _x select 1; // ex ['G36A_camo",3]
-		_name = _item select 0; // g36
-		_type = _item select 1; // 3
+		_header = _x select 0;
+		_item = _x select 1;
+		_name = _item select 0; 
+		_type = _item select 1;
 		
 	
 		switch (true) do {
@@ -56,17 +56,12 @@ TraderDialogLoadItemList = {
 				_type = "CfgWeapons";
 			};
 		};
-		// Display Name of item
-		_textPart =	getText(configFile >> _type >> _name >> "displayName"); // g36a
-
-		// Total in stock
-		_qty = _x select 2; // 251
-
-		// Buy Data from array
-		_buy = _x select 3; // [6,"Itemgoldbar",1]
-		_bqty = _buy select 0; // 6
-		_bname = _buy select 1; //ItemGoldbar
-		_btype = _buy select 2; // 1
+		_textPart =	getText(configFile >> _type >> _name >> "displayName");
+		_qty = _x select 2;
+		_buy = _x select 3;
+		_bqty = _buy select 0;
+		_bname = _buy select 1;
+		_btype = _buy select 2;
 		
 			switch(true)do{ 
 			case (_btype == 1): { 
@@ -78,15 +73,13 @@ TraderDialogLoadItemList = {
 			case (_btype == 3): { 
 				_btype = "CfgWeapons";
 			}; 
-		}; 
+		};
+		_btextCurrency = "Coins" ;
 
-		// Display Name of buy item
-		_btextCurrency = "Coins" ; //getText(configFile >> _btype >> _bname >> "displayName");
-
-		_sell = _x select 4; // [3,"Itemgoldbar",1],
-		_sqty = _sell select 0; //3
-		_sname = _sell select 1; // Itemgoldbar
-		_stype = _sell select 2; // 1
+		_sell = _x select 4;
+		_sqty = _sell select 0;
+		_sname = _sell select 1;
+		_stype = _sell select 2;
 		
 
 		switch(true)do{ 
@@ -99,14 +92,9 @@ TraderDialogLoadItemList = {
 			case (_stype == 3): { 
 				_stype = "CfgWeapons";
 			}; 
-		}; 
-		// Display Name of sell item
-		_stextCurrency = "Coins";	//getText(configFile >> _stype >> _sname >> "displayName");
-
-		// Menu sort order
-		_order = _x select 5; //
-
-		// Action file to use for trade
+		};
+		_stextCurrency = "Coins";
+		_order = _x select 5;
 		_afile = _x select 7;
 		
 	

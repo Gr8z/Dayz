@@ -16,8 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	//_qty = {_x == _part_in} count magazines player;
-	_qty = player getVariable ["cashMoney",0]; // get your money variable	
+	_qty = player getVariable ["cashMoney",0];
 } else {
 	_qty = {_x == _part_in} count weapons player;
 	_bos = 1;
@@ -44,11 +43,8 @@ if (_qty >= _qty_in) then {
     };
 
 	if (_finished) then {
-
-		// double check for all parts
 		if(_buy_o_sell == "buy") then {
-			//_qty = {_x == _part_in} count magazines player;
-			_qty = player getVariable ["cashMoney",0]; // get your money variable	
+			_qty = player getVariable ["cashMoney",0];
 
 		} else {
 			_qty = {_x == _part_in} count weapons player;
@@ -59,10 +55,8 @@ if (_qty >= _qty_in) then {
 			if (isNil "_part_out") then { _part_out = "Unknown Weapon/Magazine" };
 			if (isNil "inTraderCity") then { inTraderCity = "Unknown Trader City" };
 			if (_bos == 1) then {
-				// Selling
 				PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_part_in,inTraderCity,CurrencyName,_qty_out];
 			} else {
-				// Buying
 				PVDZE_obj_Trade = [_activatingPlayer,_traderID,_bos,_part_out,inTraderCity,CurrencyName,_qty_in];
 			};
 			publicVariableServer  "PVDZE_obj_Trade";
@@ -75,8 +69,7 @@ if (_qty >= _qty_in) then {
 				_qtychange = _qty - _qty_in;
 				player setVariable ["cashMoney", _qtychange , true];	
 				_newM = player getVariable ["cashMoney",0];
-				//_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
-				_removed = _qty - _newM; // 
+				_removed = _qty - _newM;
 							
 				if(_removed == _qty_in) then {
 					for "_x" from 1 to _qty_out do {

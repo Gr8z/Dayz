@@ -7,10 +7,8 @@ DZE_DYN_UnlockDoorInprogress = true;
 if(!isNull dayz_selectedDoor) then {
 	_display = findDisplay 41144;
 	_display closeDisplay 1;
-	// our target
 	_notNearestPlayer = false;
-	if (_notNearestPlayer) then {
-		// close display since another player is closer		
+	if (_notNearestPlayer) then {	
 		cutText [(localize "STR_EPOCH_ACTIONS_16"), "PLAIN DOWN"];
 	} else {
 		_allowedComplex 	=  dayz_selectedDoor getVariable ["doorfriends",[]];	
@@ -23,16 +21,14 @@ if(!isNull dayz_selectedDoor) then {
 		  _friendUID = _x select 0;
 		  _allowed  =  _allowed  + [_friendUID];
 		} forEach _allowedComplex;	
-		_allowed = _allowed + [_ownerID];	
-		// Check allowed
+		_allowed = _allowed + [_ownerID];
 		if ( (getPlayerUID player) in _allowed ) then {
 		
 		     DZE_Lock_Door = dayz_selectedDoor getVariable['CharacterID','0'];
 			
 			cutText ["Scanning", "PLAIN DOWN"];
 			
-			sleep 2; // to make it realistic, not instantly opening door.
-			// unlock if locked
+			sleep 2;
 			
 			cutText ["Eye Scan SUCCESS.", "PLAIN DOWN"];
 			

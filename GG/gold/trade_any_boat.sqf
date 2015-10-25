@@ -16,7 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	_qty = player getVariable ["cashMoney",0]; // get your money variable	
+	_qty = player getVariable ["cashMoney",0];
 } else {
 	_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
 	_qty = count _obj;
@@ -44,10 +44,8 @@ if (_qty >= _qty_in) then {
     };
 
 	if (_finished) then {
-
-		// Double check for items
 		if(_buy_o_sell == "buy") then {
-			_qty = player getVariable ["cashMoney",0]; // get your money variable	
+			_qty = player getVariable ["cashMoney",0];
 		} else {
 			_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
 			_qty = count _obj;
@@ -64,15 +62,9 @@ if (_qty >= _qty_in) then {
 
 			if(dayzTradeResult == "PASS") then {
 
-				if(_buy_o_sell == "buy") then {	
-
-					// First select key color
+				if(_buy_o_sell == "buy") then {
 					_keyColor = ["Green","Red","Blue","Yellow","Black"] call BIS_fnc_selectRandom;
-
-					// then select number from 1 - 2500
 					_keyNumber = (floor(random 2500)) + 1;
-
-					// Combine to key (eg.ItemKeyYellow2494) classname
 					_keySelected = format[("ItemKey%1%2"),_keyColor,_keyNumber];
 
 					_isKeyOK = 	isClass(configFile >> "CfgWeapons" >> _keySelected);
@@ -84,7 +76,7 @@ if (_qty >= _qty_in) then {
 					_qtychange = _qty - _qty_in;
 					player setVariable ["cashMoney", _qtychange , true];
 					_newM = player getVariable ["cashMoney",0];
-					_removed = _qty - _newM; // 					
+					_removed = _qty - _newM;					
 					systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out, CurrencyName];
 									
 						if(_removed == _qty_in) then {
@@ -96,8 +88,6 @@ if (_qty >= _qty_in) then {
 							} else {
 								_location = [(position player),0,20,1,2,2000,0] call BIS_fnc_findSafePos;
 							};
-	
-							//place vehicle spawn marker (local)
 							_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
 
 							_location = (getPosATL _veh);

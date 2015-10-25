@@ -103,7 +103,6 @@ switch (_iClass) do {
 	};
 	case "single":
 	{
-		//Item is sigle, add 1 item from cfgloot
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		_itemTypes = [];
 		{
@@ -123,7 +122,6 @@ switch (_iClass) do {
 	};
 	case "backpacks":
 	{
-		//Item is single backpack
 		_itemTypes = [];
 		_itemTypes = ((getArray (missionConfigFile >> "cfgLoot" >> _iItem)));
 
@@ -140,7 +138,6 @@ switch (_iClass) do {
 	};
 	case "militarybackpacks":
 	{
-		//Item is single backpack
 		_itemTypes = [];
 		_itemTypes = ((getArray (missionConfigFile >> "cfgLoot" >> _iItem)));
 
@@ -157,7 +154,6 @@ switch (_iClass) do {
 	};
 	case "tents":
 	{
-		//Item is single backpack
 		_itemTypes = [];
 		_itemTypes = ((getArray (missionConfigFile >> "cfgLoot" >> _iItem)));
 
@@ -196,8 +192,6 @@ switch (_iClass) do {
 			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 			_item addWeaponCargoGlobal [_iItem,1];
 		} else {
-
-			//Item is a weapon, add it && a random quantity of magazines
 			_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 			_item addWeaponCargoGlobal [_iItem,1];
 			_mags = [] + getArray (configFile >> "cfgWeapons" >> _iItem >> "magazines");
@@ -219,7 +213,6 @@ switch (_iClass) do {
 	};
 	case "weapon":
 	{
-		//Item is a weapon, add it && a random quantity of magazines
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 
@@ -250,7 +243,6 @@ switch (_iClass) do {
 	};
 	case "weaponnomags":
 	{
-		//Item is a weapon, && spawns no mags
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 
@@ -263,7 +255,6 @@ switch (_iClass) do {
 	};
 	case "magazine":
 	{
-		//Item is one magazine
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 		_item addMagazineCargoGlobal [_iItem,1];

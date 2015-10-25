@@ -75,13 +75,8 @@ TraderDialogLoadItemList = {
 				_type = "CfgWeapons";
 			};
 		};
-		// Display Name of item
-		_textPart =	getText(configFile >> _type >> _name >> "displayName"); // g36a
-
-		// Total in stock
-		_qty = _x select 2; // 251
-
-		// Buy Data from array
+		_textPart =	getText(configFile >> _type >> _name >> "displayName");
+		_qty = _x select 2;
 		_buy = _x select 3;
 		_bqty = _buy select 0; 
 		_bname = _buy select 1; 
@@ -97,9 +92,7 @@ TraderDialogLoadItemList = {
 			case (_btype == 3): { 
 				_btype = "CfgWeapons";
 			}; 
-		}; 
-
-		// Display Name of buy item
+		};
 		_btextCurrency = CurrencyName ;
 
 		_sell = _x select 4;
@@ -118,14 +111,9 @@ TraderDialogLoadItemList = {
 			case (_stype == 3): { 
 				_stype = "CfgWeapons";
 			}; 
-		}; 
-		// Display Name of sell item
+		};
 		_stextCurrency = CurrencyName;
-
-		// Menu sort order
-		_order = _x select 5; //
-
-		// Action file to use for trade
+		_order = _x select 5;
 		_afile = _x select 7;
 		
 	
@@ -186,7 +174,7 @@ TraderDialogLoadItemList = {
 					_index = lbAdd [TraderDialogItemList, format["%1 (Gear:%3)(%2)", _textPart, _name, _capacity]]; 
 				};
 			}else{
-				_index = lbAdd [TraderDialogItemList, format["%1 (%2)", _textPart, _name, _crew, _capacity]]; // original one
+				_index = lbAdd [TraderDialogItemList, format["%1 (%2)", _textPart, _name, _crew, _capacity]];
 			};	
 		if (_count > 0) then {
 			lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]];

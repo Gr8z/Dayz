@@ -88,8 +88,6 @@ KRON_StrInStr = {
 if (!isDedicated) then {
 
 	"filmic" setToneMappingParams [0.07, 0.31, 0.23, 0.37, 0.011, 3.750, 6, 4]; setToneMapping "Filmic";
-	
-	//Door Management
 	DoorGetFriends 		= 			compile preprocessFileLineNumbers "GG\doorManagement\doorGetFriends.sqf";
 	DoorNearbyHumans 	= 			compile preprocessFileLineNumbers "GG\doorManagement\doorNearbyHumans.sqf";
 	DoorAddFriend 		= 			compile preprocessFileLineNumbers "GG\doorManagement\doorAddFriend.sqf";
@@ -121,8 +119,7 @@ if (!isDedicated) then {
 	randomMags =					compile preprocessFileLineNumbers "GG\randomMags.sqf";
 	
 	dayz_spaceInterrupt = 			compile preprocessFileLineNumbers "GG\compile\dayz_spaceInterrupt.sqf";
-	
-	//Plot Management
+
 	PlotGetFriends      = 			compile preprocessFileLineNumbers "GG\plotManage\plotGetFriends.sqf";
 	PlotNearbyHumans    = 			compile preprocessFileLineNumbers "GG\plotManage\plotNearbyHumans.sqf";
 	PlotAddFriend       = 			compile preprocessFileLineNumbers "GG\plotManage\plotAddFriend.sqf";
@@ -130,18 +127,15 @@ if (!isDedicated) then {
 	MaintainPlot    	= 			compile preprocessFileLineNumbers "GG\plotManage\maintain_area.sqf";
 	PlotPreview    	    = 			compile preprocessFileLineNumbers "GG\plotManage\plotToggleMarkers.sqf";
 	PlotObjects         = 			compile preprocessFileLineNumbers "GG\plotManage\plotObjects.sqf";
-	//Plot Management End
 	
 	DoorGetFriends 		= 			compile preprocessFileLineNumbers "GG\doorManagement\doorGetFriends.sqf";
 	DoorNearbyHumans 	= 			compile preprocessFileLineNumbers "GG\doorManagement\doorNearbyHumans.sqf";
 	DoorAddFriend 		= 			compile preprocessFileLineNumbers "GG\doorManagement\doorAddFriend.sqf";
 	DoorRemoveFriend 	= 			compile preprocessFileLineNumbers "GG\doorManagement\doorRemoveFriend.sqf";
-	
-	//Garage
+
 	player_getVehicle = 			compile preprocessFileLineNumbers "GG\garage\getvehicle.sqf";
 	player_storeVehicle = 			compile preprocessFileLineNumbers "GG\garage\player_storeVehicle.sqf";
 	vehicle_info = 					compile preprocessFileLineNumbers "GG\garage\vehicle_info.sqf";
-	//Garage End
 	
 	player_fired =					compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_fired.sqf";
 	player_harvest =				compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_harvest.sqf";
@@ -182,15 +176,11 @@ if (!isDedicated) then {
 	player_alertZombies = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_alertZombies.sqf";
 	player_fireMonitor = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\system\fire_monitor.sqf";
 	fn_gearMenuChecks =			compile preprocessFileLineNumbers "GG\compile\fn_gearMenuChecks.sqf";
-
-	//Objects
 	object_roadFlare = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_roadFlare.sqf";
 	object_setpitchbank	=		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_setpitchbank.sqf";
 	object_monitorGear =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\object_monitorGear.sqf";
 
 	local_roadDebris =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\local_roadDebris.sqf";
-
-	//Zombies
 	zombie_findTargetAgent = 	compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_findTargetAgent.sqf";
 	zombie_loiter = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\zombie_loiter.sqf";
 	zombie_generate = 			compile preprocessFileLineNumbers "GG\zombies\zombie_generate.sqf";
@@ -199,8 +189,6 @@ if (!isDedicated) then {
 	pz_attack = 				compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\pzombie\pz_attack.sqf";
 
 	dog_findTargetAgent = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
-
-	//actions
 	player_countmagazines =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_countmagazines.sqf";
 	player_addToolbelt =		compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_addToolbelt.sqf";
 	player_copyKey =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\player_copyKey.sqf";
@@ -244,30 +232,19 @@ if (!isDedicated) then {
 	player_deathBoard =			compile preprocessFileLineNumbers "\z\addons\dayz_code\actions\list_playerDeathsAlt.sqf";
 
 	player_upgradeVehicle =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_upgradeVehicle.sqf";
-
-	
-
-	
-	//ui
 	player_gearSync	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSync.sqf";
 	player_gearSet	=			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_gearSet.sqf";
 	ui_changeDisplay = 			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_changeDisplay.sqf";
 	ui_gear_sound =             compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\ui_gear_sound.sqf";
-
-	//System
 	player_monitor =			compile preprocessFileLineNumbers "GG\compile\player_monitor.sqf";
 	player_spawn_1 =			compile preprocessFileLineNumbers "GG\spawn\player_spawn_1.sqf";
 	player_spawn_2 =			compile preprocessFileLineNumbers "GG\spawn\player_spawn_2.sqf";
 	onPreloadStarted 			"dayz_preloadFinished = false;";
 	onPreloadFinished 			"dayz_preloadFinished = true;";
-
-	// helper functions
 	player_hasTools =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_hasTools.sqf";
 	player_checkItems =			compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_checkItems.sqf";
 	player_removeItems =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_removeItems.sqf";
 	player_traderCity = 		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderCity.sqf";
-
-	// combination of check && remove items
 	player_checkAndRemoveItems = {
 		private ["_items","_b"];
 		_items = _this;
@@ -284,7 +261,6 @@ if (!isDedicated) then {
 	};
 
 	epoch_totalCurrency = {
-		// total currency
 		_total_currency = 0;
 		{
 			_part =  (configFile >> "CfgMagazines" >> _x);
@@ -507,7 +483,6 @@ if (!isDedicated) then {
 		_lenInfo = count _objInfo - 1;
 		_objName = [];
 		_i = 0;
-		// determine where the object name starts
 		{
 			if (58 == _objInfo select _i) exitWith {};
 			_i = _i + 1;
@@ -527,7 +502,6 @@ if (!isDedicated) then {
 			_playerNear = ({isPlayer _x} count _nearPlayers) > 1;
 			_notClosest = false;
 			if (_playerNear) then {
-				// check if another player is closer
 				_playerDistance = player distance _this;
 				{
 					if (_playerDistance > (_x distance _this)) exitWith { _notClosest = true; };
@@ -538,14 +512,11 @@ if (!isDedicated) then {
 		};
 		_notClosest
 	};
-
-	// trader menu code
 	if (DZE_ConfigTrader) then {
 		call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderMenuConfig.sqf";
 	}else{
 		call compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_traderMenuHive.sqf";
 	};
-	// recent murders menu code
 	call compile preprocessFileLineNumbers "GG\compile\player_murderMenu.sqf";
 
 	Zupa_LoadingMessage = ["Loading up [GG] Ghostz Gamerz"];
@@ -619,8 +590,6 @@ if (!isDedicated) then {
 
 	progressLoadingScreen 0.8;
 };
-
-	//Both
 	BIS_fnc_selectRandom =		compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_selectRandom.sqf";
 	BIS_fnc_vectorAdd =         compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_vectorAdd.sqf";
 	BIS_fnc_halo =              compile preprocessFileLineNumbers "\z\addons\dayz_code\compile\BIS_fnc\fn_halo.sqf";
@@ -719,7 +688,6 @@ if (!isDedicated) then {
 	};
 
 	dayz_EjectPlayer = {
-		// check if player in vehicle
         private ["_noDriver","_vehicle","_inVehicle"];
         _vehicle = vehicle player;
 		_inVehicle = (_vehicle != player);
@@ -760,8 +728,6 @@ if (!isDedicated) then {
 		];
 		_medical
 	};
-
-	//Server Only
 	if (isServer) then {
 		call compile preprocessFileLineNumbers "\z\addons\dayz_server\init\server_functions.sqf";
 	} else {
@@ -771,8 +737,6 @@ if (!isDedicated) then {
 	vehicle_handleDamage = compile preprocessFileLineNumbers "GG\compile\vehicle_handleDamage.sqf";
 	
 	call compile preprocessFileLineNumbers "GG\gold\player_traderMenu.sqf";
-	
-	//Safe-zones ---------------------------------------
 	SafeZoneCreate 			= compile preprocessFileLineNumbers "GG\safezone\SafeZoneCreate.sqf";
 	SafeZoneEnable 			= compile preprocessFileLineNumbers "GG\safezone\safeZoneEnable.sqf";
 	SafeZoneDisable 		= compile preprocessFileLineNumbers "GG\safezone\safeZoneDisable.sqf";

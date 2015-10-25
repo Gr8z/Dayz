@@ -12,7 +12,6 @@ switch (_iClass) do
 {
 	default
 	{
-		//Item is sigle, add 1 item from CfgLootSmall
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		_itemTypes = [];
 
@@ -78,7 +77,6 @@ switch (_iClass) do
 	};
 	case "single":
 	{
-		//Item is sigle, add 1 item from CfgLootSmall
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 
 		_itemTypes = [];
@@ -99,7 +97,6 @@ switch (_iClass) do
 	};
 	case "cfglootweapon":
 	{
-		//Item is sigle, add 1 item from cfgloot
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 
 		_itemTypes = [];
@@ -128,7 +125,6 @@ switch (_iClass) do
 	};
 	case "magazine":
 	{
-		//Item is one magazine
 		_item = createVehicle ["WeaponHolder", _iPos, [], _radius, "CAN_COLLIDE"];
 		[_iItem] call checkWepBpslot;
 		_item addMagazineCargoGlobal [_iItem,1];
@@ -136,15 +132,12 @@ switch (_iClass) do
 	
 	case "weaponnomags":
 	{
-		//do nothing for now
 	};
 	case "backpack":
 	{
-		//do nothing for now
 	};
 	case "object":
 	{
-		//do nothing for now
 	};
 };
 if (!isNull(_item)) then{

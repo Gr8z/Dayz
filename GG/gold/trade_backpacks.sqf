@@ -16,7 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	_qty = player getVariable ["cashMoney",0]; // get your money variable	
+	_qty = player getVariable ["cashMoney",0];	
 } else {
 	_bos = 1;
 	_qty = 0;
@@ -47,11 +47,8 @@ if (_qty >= _qty_in) then {
     };
 
 	if (_finished) then {
-
-		// Double check we still have parts
 		if(_buy_o_sell == "buy") then {
-			//_qty = {_x == _part_in} count magazines player;
-			_qty = player getVariable ["cashMoney",0]; // get your money variable	
+			_qty = player getVariable ["cashMoney",0];	
 		} else {
 			_qty = 0;
 			_bag = unitBackpack player;
@@ -77,7 +74,7 @@ if (_qty >= _qty_in) then {
 					_qtychange = _qty - _qty_in;
 					player setVariable ["cashMoney", _qtychange , true];
 					_newM = player getVariable ["cashMoney",0];
-					_num_removed = _qty - _newM; // 
+					_num_removed = _qty - _newM;
 					
 						systemChat format ['Payed %1 %3. %2 incoming!',_num_removed,_part_out,CurrencyName];
 					if(_num_removed == _qty_in) then {
@@ -85,7 +82,6 @@ if (_qty >= _qty_in) then {
 						player addBackpack _part_out;
 					};
 				} else {
-					// Sell
 					if((typeOf (unitBackpack player)) == _part_in) then {
 						removeBackpack player;						
 						_myMoney = player getVariable ["cashMoney",0];

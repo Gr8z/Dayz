@@ -1,37 +1,33 @@
 private ["_veh","_location","_part_out","_part_in","_qty_out","_qty_in","_qty","_buy_o_sell","_obj","_objectID","_objectUID","_bos","_started","_finished","_animState","_isMedic","_dir","_helipad","_removed","_damage","_tireDmg","_tires","_okToSell","_hitpoints","_needed","_activatingPlayer","_textPartIn","_textPartOut","_traderID","_playerNear"];
 
-
-// DONE
-
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_103") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
 
 _activatingPlayer = player;
 
-_part_out = (_this select 3) select 0; //  Foodnutmix -------------------------ItemCopperBar (classname)
-_part_in = (_this select 3) select 1; // CopperBar-----------------------------Foodnutmix (classname)
-_qty_out = (_this select 3) select 2; // 1 ammount u get of item---------------1 coins u get
-_qty_in = (_this select 3) select 3; // 2 amount of coins u give---------------1 food u give
-_buy_o_sell = (_this select 3) select 4; // buy -------------------------------sell
-_textPartIn = (_this select 3) select 5; // Coins text-------------------------Trail Mix (name
-_textPartOut = (_this select 3) select 6; // Trail mix ( show name of item)----Coins
-_traderID = (_this select 3) select 7; // 5868 klenn food----------------------5868
+_part_out = (_this select 3) select 0;
+_part_in = (_this select 3) select 1;
+_qty_out = (_this select 3) select 2;
+_qty_in = (_this select 3) select 3;
+_buy_o_sell = (_this select 3) select 4;
+_textPartIn = (_this select 3) select 5;
+_textPartOut = (_this select 3) select 6;
+_traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	//_qty = {_x == _part_in} count magazines player;	
-	_qty = player getVariable ["cashMoney",0]; // get your money variable	
+	_qty = player getVariable ["cashMoney",0];
 	
 	
 } else {
 	_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_vehicle];
-	_qty = count _obj; // aantal fietsen
-	_bos = 1; // bos 1 bij sell 0 by buy?
+	_qty = count _obj;
+	_bos = 1;
 };
 
 if (_qty >= _qty_in) then {
 
-	cutText [(localize "str_epoch_player_105"), "PLAIN DOWN"]; //start trading blabla
+	cutText [(localize "str_epoch_player_105"), "PLAIN DOWN"];
 	 
 	[1,1] call dayz_HungerThirst;
 	
@@ -48,12 +44,9 @@ if (_qty >= _qty_in) then {
         cutText [(localize "str_epoch_player_106") , "PLAIN DOWN"];
     };
 
-	if (_finished) then { // serious stuff
-
-		// Double check for items
-		if(_buy_o_sell == "buy") then {
-			//_qty = {_x == _part_in} count magazines player;			
-			_qty = player getVariable ["cashMoney",0]; // get your money variable
+	if (_finished) then {
+		if(_buy_o_sell == "buy") then {			
+			_qty = player getVariable ["cashMoney",0];
 		
 		} else {
 			_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_vehicle];
@@ -83,8 +76,8 @@ if (_qty >= _qty_in) then {
 					player setVariable ["cashMoney", _qtychange , true];	
 					_newM = player getVariable ["cashMoney",0];
 					
-					_removed = _qty - _newM; // 
-					
+					_removed = _qty - _newM;
+				
 						systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out, CurrencyName];
 				
 					if(_removed == _qty_in) then {
@@ -98,8 +91,6 @@ if (_qty >= _qty_in) then {
 						} else {
 							_location = [(position player),0,20,1,0,2000,0] call BIS_fnc_findSafePos;
 						};
-	
-						//place vehicle spawn marker (local)
 						_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0, "CAN_COLLIDE"];
 
 						_location = (getPosATL _veh);
@@ -115,15 +106,9 @@ if (_qty >= _qty_in) then {
 				} else {
 					
 					_obj = _obj select 0;
-
-					//check to make sure vehicle has no more than 75% average tire damage
 					_hitpoints = _obj call vehicle_getHitpoints;
 					_okToSell = true;
-
-					// count parts
-					_tires = 0; 
-
-					// total damage 
+					_tires = 0;
 					_tireDmg = 0;
 
 					_damage = 0;
@@ -134,8 +119,6 @@ if (_qty >= _qty_in) then {
 							_tires = _tires + 1;
 						};
 					} forEach _hitpoints;
-
-					// find average tire damage
 					if(_tireDmg > 0 and _tires > 0) then {
 						if((_tireDmg / _tires) > 0.75) then {
 							_okToSell = false;
@@ -183,7 +166,7 @@ if (_qty >= _qty_in) then {
 } else {
 	_needed =  _qty_in - _qty;
 	if(_buy_o_sell == "buy") then {
-		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"]; // edited so it says, You need 5000 coins or you need 1 engine.
+		cutText [format["You need %1 %2",_needed,_textPartIn] , "PLAIN DOWN"];
 	} else {
 		cutText [format[(localize "str_epoch_player_185"),_textPartIn] , "PLAIN DOWN"];
 	};	

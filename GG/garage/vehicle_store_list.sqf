@@ -24,7 +24,7 @@ StoreVehicleList = [];
 	_displayName = getText(configFile >> "CfgVehicles" >> _class >> "displayName");
 	_control lbAdd _displayName;
 	_control lbSetData [(lbSize _control)-1,_class];
-	StoreVehicleList set [count StoreVehicleList,_x] //Annoying Workaround can not use lbSetData with objects
+	StoreVehicleList set [count StoreVehicleList,_x]
 	};
 } count _obj;
 
