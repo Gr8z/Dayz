@@ -1,6 +1,4 @@
-
 private ["_object","_objectSnapGizmo","_objColorActive","_objColorInactive","_classname","_whitelist","_radius","_cfg","_cnt","_pos","_findWhitelisted","_nearbyObject","_posNearby","_selectedAction","_newPos","_pointsNearby","_onWater","_waterBase"];
-//Args
 _todo = _this select 3 select 2;
 if(_todo == 0) then{
 	vectorActionState = _this select 3 select 0;

@@ -5,7 +5,6 @@ deathHandled = true;
 if ((alive player) && {isNil {dayz_playerName}}) then {
 	dayz_playerName = name player;
 };
-//Prevent client freezes
 _display = findDisplay 49;
 if(!isNull _display) then {_display closeDisplay 0;};
 if (dialog) then {closeDialog 0;};
@@ -15,7 +14,6 @@ _body = player;
 _playerID = getPlayerUID player;
 
 disableUserInput true;
-
 
 _infected = 0;
 if (r_player_infected && DZE_PlayerZed) then {
@@ -45,12 +43,10 @@ if (count _array > 0) then {
 	_method = _array select 1;
 	if (!isNull _source) then {
 		if (_source != player) then {
-			// Killed
 			ctc_HumanityChange = [_body,_source];
-			publicVariableServer "ctc_HumanityChange"; //Send needed values to server.
-			ctc_HumanityChange = []; //Clean up global variable.
+			publicVariableServer "ctc_HumanityChange";
+			ctc_HumanityChange = [];
 		} else {
-			// Suicide
 		};
 	};
 	_body setVariable ["deathType",_method,true];
@@ -71,7 +67,6 @@ r_player_dead = true;
 "colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 0.01],  [1, 1, 1, 0.0]];
 "colorCorrections" ppEffectCommit 1;
 
-//Player is Dead!
 3 fadeSound 0;
 sleep 1;
 

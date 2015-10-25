@@ -1,5 +1,4 @@
-BIS_Effects_Init = true; //A2 won't overwrite this if var is not nil
-/* BIS_Effects_* fixes from Dwarden */
+BIS_Effects_Init = true;
 diag_log "Res3tting B!S effects...";
 BIS_Effects_EH_Fired = {false};
 BIS_Effects_EH_Killed = compile preprocessFileLineNumbers "GG\BIS_Effects\killed.sqf";

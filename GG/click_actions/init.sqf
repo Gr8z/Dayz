@@ -1,7 +1,6 @@
 if(isServer) exitWith {};
 private["_build"];
 _build = 3;
-// don't initialize more than once
 if(isNil "DZE_CLICK_ACTIONS_BUILD") then {
     diag_log text "CLICK ACTIONS: loading...";
     call compile preprocessFileLineNumbers "GG\click_actions\config.sqf";

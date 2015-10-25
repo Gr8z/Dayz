@@ -1,4 +1,3 @@
-
 private ["_dialog"];
 _sc_lmax = 10; 
 sc_snext = false; 

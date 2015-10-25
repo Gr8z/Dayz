@@ -14,8 +14,6 @@ _timeMax = diag_tickTime+10;
 dayz_lastCheckBit = time;
 		
 if(r_fracture_legs && !r_player_dead) then {_btnRespawn ctrlEnable true;};
-		
-//force gear save
 if (!r_player_dead && time - dayz_lastCheckBit > 10) then {
 	call dayz_forceSave;
 };			

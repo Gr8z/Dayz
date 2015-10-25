@@ -19,28 +19,20 @@ _weapons = _weapons + [_primweapon];
 if(!(_secweapon in _weapons) && _secweapon != "") then {
 _weapons = _weapons + [_secweapon];
 };
-//BackUp Backpack
 dayz_myBackpack = unitBackpack player;
 _newBackpackType = (typeOf dayz_myBackpack);
 if(_newBackpackType != "") then {
 _backpackWpn = getWeaponCargo unitBackpack player;
 _backpackMag = _countMags select 1;
 };
-//Get Muzzle
 _currentWpn = currentWeapon player;
 _muzzles = getArray(configFile >> "cfgWeapons" >> _currentWpn >> "muzzles");
 if (count _muzzles > 1) then {
 _currentWpn = currentMuzzle player;
 };
-//Secure Player for Transformation
 player setPosATL dayz_spawnPos;
-//BackUp Player Object
 _oldUnit = player;
 _oldGroup = group player;
-/**********************************/
-//DONT USE player AFTER THIS POINT//
-/**********************************/
-//Create New Character
 _group = createGroup west;
 _newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
 _newUnit setPosATL _position;
@@ -48,23 +40,18 @@ _newUnit setDir _dir;
 [_newUnit] joinSilent createGroup WEST;
 _newUnit setVariable ["cashMoney",_cashMoney,true];
 _newUnit setVariable ["bankMoney",_bankMoney];
-//Clear New Character
 {_newUnit removeMagazine _x;} count magazines _newUnit;
 removeAllWeapons _newUnit;
-//Equip New Charactar
 {
 if (typeName _x == "ARRAY") then {if ((count _x) > 0) then {_newUnit addMagazine [(_x select 0), (_x select 1)]; }; } else { _newUnit addMagazine _x; };
 } count _magazines;
 {
 _newUnit addWeapon _x;
 } count _weapons;
-//Check && Compare it
 if(str(_weapons) != str(weapons _newUnit)) then {
-//Get Differecnce
 {
 _weapons = _weapons - [_x];
 } count (weapons _newUnit);
-//Add the Missing
 {
 _newUnit addWeapon _x;
 } count _weapons;
@@ -104,12 +91,10 @@ deleteVehicle _oldUnit;
 if (count units _oldGroup < 1) then {deleteGroup _oldGroup;};
 if(_currentWpn != "") then {_newUnit selectWeapon _currentWpn;};
 };
-//Add && Fill BackPack
 if (!isNil "_newBackpackType") then {
 if (_newBackpackType != "") then {
 _newUnit addBackpack _newBackpackType;
 dayz_myBackpack = unitBackpack _newUnit;
-//Weapons
 _backpackWpnTypes = [];
 _backpackWpnQtys = [];
 if (count _backpackWpn > 0) then {
@@ -119,7 +104,6 @@ _backpackWpnQtys = _backpackWpn select 1;
 [] call _switchUnit;
 if (gear_done) then {sleep 0.001;};
 ["1"] call gearDialog_create;
-//magazines
 _countr = 0;
 {
 if (!(isClass(configFile >> "CfgWeapons" >> _x))) then {
@@ -151,13 +135,11 @@ _playerUID = getPlayerUID player;
 _playerObjName = format["PVDZE_player%1",_playerUID];
 call compile format["%1 = player;",_playerObjName];
 publicVariableServer _playerObjName;
-//melee check
 _wpnType = primaryWeapon player;
 _ismelee = (gettext (configFile >> "CfgWeapons" >> _wpnType >> "melee"));
 if (_ismelee == "true") then {
 call dayz_meleeMagazineCheck;
 };
-//reveal the same objects we do on login
 {player reveal _x} count (nearestObjects [getPosATL player, dayz_reveal, 50]);
 _newUnit addMPEventHandler ["MPHit", {_this spawn fnc_plyrHit;}];
 

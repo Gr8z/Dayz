@@ -14,18 +14,13 @@ if ((_dikCode == 0x3E || _dikCode == 0x0F || _dikCode == 0xD3)) then {
 	};
 	call dayz_EjectPlayer;
 };
-
-// esc
 if (_dikCode == 0x01) then {
 	DZE_cancelBuilding = true;
 	call dayz_EjectPlayer;
 };
-// Disable ESC after death
 if (_dikCode == 0x01 && r_player_dead) then {
 	_handled = true;
 };
-
-// surrender 
 if (_dikCode in actionKeys "Surrender") then {
 	
 	_vehicle = vehicle player;
@@ -70,10 +65,7 @@ if (_dikCode in actionKeys "Surrender") then {
 			};
 			player reveal _item;
 		};
-
-		// set publicvariable that allows other player to access gear
 		player setVariable ["DZE_Surrendered", true, true];
-		// surrender animation
 		player playMove "AmovPercMstpSsurWnonDnon";
 	};
 	_handled = true;
@@ -83,24 +75,18 @@ if (_dikCode in actionKeys "MoveForward") exitWith {r_interrupt = true; if (DZE_
 if (_dikCode in actionKeys "MoveLeft") exitWith {r_interrupt = true; if (DZE_Surrender) then {call dze_surrender_off};};
 if (_dikCode in actionKeys "MoveRight") exitWith {r_interrupt = true; if (DZE_Surrender) then {call dze_surrender_off};};
 if (_dikCode in actionKeys "MoveBack") exitWith {r_interrupt = true; if (DZE_Surrender) then {call dze_surrender_off};};
-
-//Prevent exploit of glitching through doors
 if (_dikCode in actionKeys "Prone") then {
 	_doors = nearestObjects [player, DZE_DoorsLocked, 3];
 	if (count _doors > 0) then {
 		_handled = true;
 	};
 };
-
-//Prevent exploit of drag body
 if ((_dikCode in actionKeys "Prone") && r_drag_sqf) exitWith { force_dropBody = true; };
 if ((_dikCode in actionKeys "Crouch") && r_drag_sqf) exitWith { force_dropBody = true; };
 
 _shift = 	_this select 2;
 _ctrl = 	_this select 3;
 _alt =		_this select 4;
-
-//diag_log format["Keypress: %1", _this];
 if ((_dikCode in actionKeys "Gear") && (vehicle player != player) && !_shift && !_ctrl && !_alt && !dialog) then {
 			createGearDialog [player, "RscDisplayGear"];
 			_handled = true;
@@ -150,74 +136,48 @@ if (_dikCode in actionKeys "User20" && (diag_tickTime - dayz_lastCheckBit > 5)) 
 	dayz_lastCheckBit = diag_tickTime;
 	_nill = execvm "GG\actions\playerstats.sqf";
 };
-
-// numpad 8 0x48 now pgup 0xC9 1
 if ((_dikCode == 0xC9 && (!_alt || !_ctrl)) || (_dikCode in actionKeys "User15")) then {
 	DZE_Q = true;
 };
-// numpad 2 0x50 now pgdn 0xD1
 if ((_dikCode == 0xD1 && (!_alt || !_ctrl)) || (_dikCode in actionKeys "User16")) then {
 	DZE_Z = true;
 };
-
-
-// numpad 8 0x48 now pgup 0xC9 0.1
 if ((_dikCode == 0xC9 && (_alt && !_ctrl)) || (_dikCode in actionKeys "User13")) then {
 	DZE_Q_alt = true;
 };
-// numpad 2 0x50 now pgdn 0xD1
 if ((_dikCode == 0xD1 && (_alt && !_ctrl)) || (_dikCode in actionKeys "User14")) then {
 	DZE_Z_alt = true;
 };
-
-
-// numpad 8 0x48 now pgup 0xC9 0.01
 if ((_dikCode == 0xC9 && (!_alt && _ctrl)) || (_dikCode in actionKeys "User7")) then {
 	DZE_Q_ctrl = true;
 };
-// numpad 2 0x50 now pgdn 0xD1
 if ((_dikCode == 0xD1 && (!_alt && _ctrl)) || (_dikCode in actionKeys "User8")) then {
 	DZE_Z_ctrl = true;
 };
-
-
-
-
-// numpad 4 0x4B now Q 0x10
 if (_dikCode == 0x10 || (_dikCode in actionKeys "User17")) then {
 	DZE_4 = true;
-};		
-// numpad 6 0x4D now E 0x12
+};
 if (_dikCode == 0x12 || (_dikCode in actionKeys "User18")) then {
 	DZE_6 = true;
 };
-// numpad 5 0x4C now space 0x39
 if (_dikCode == 0x39 || (_dikCode in actionKeys "User19")) then {
 	DZE_5 = true;
 };
-
-// F key
 if ((_dikCode == 0x21 && (!_alt && !_ctrl)) || (_dikCode in actionKeys "User6")) then {
 	DZE_F = true;
 };
-
-
 if (_dikCode == 0x36) then {
     if (dialog) then {closeDialog 0;groupManagementActive = false;} else {execVM "GG\group\loadGroupManagement.sqf";};
 };
-
-
 if (_dikCode == 0xDB) then {
     if (tagname) then {tagname = false;titleText ["Name tags OFF","PLAIN DOWN"];titleFadeOut 4;} else {tagname = true;titleText ["Name tags ON","PLAIN DOWN"];titleFadeOut 4;};
     _handled = true;
 };
-
 if (_dikCode in actionKeys "TacticalView") then {_handled = true;};
 
 if (_dikCode == 0xB8) then {
     [] execVM "GG\menu\actionmenu_main.sqf";
 };
-
 if (_dikCode == 0x15) then {
 	if (isNil 'GGEARPLUGS') then {
 		GGEARPLUGS = false;
