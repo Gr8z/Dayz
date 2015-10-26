@@ -10,7 +10,6 @@ _LAdmins = [
 	"76561198126348047", // Mr. Bandit
 	"76561198227881216", // Local User
 	"76561198067566966", // SniperNoSniping
-	"76561197960289679", // TangoWhiskey
 	"76561198042335279", // Dean Winchester
 	"76561198086239163", // ThatEstonian
 "0"
@@ -25,6 +24,7 @@ _NAdmins = [
 	"76561198129049369", // Zatley
 	"76561198163835069", // SniperNoSniping
 	"76561198084154973", // Mr.Bandit
+	"76561198257149369", // TangoWhiskey
 "0"
 ]; 
 
