@@ -1,7 +1,6 @@
 //===============================
 // ANDRE MOST WANTED SCRIPT =====
 //===============================
-	
 //====================
 // CONFIGURATION =====
 //====================
@@ -19,10 +18,10 @@ _maxTimeNearPlot = 0.15;
 _onPlotCheckFrequency = 20;
 
 //THE RADIUS OF THE POSITION HINT (FUGITIVE WILL BE SOMEWHERE INSIDE THE CIRCLE) *IN METERS*
-_circleSize = 200;
+_circleSize = 150;
 
 //MINIMUM NUMBER OF PLAYERS TO RUN
-_minPlayersToRun = 25;
+_minPlayersToRun = 15;
 
 //TIME TO WAIT BEFORE TRY TO RUN AGAIN *IN MINUTES*
 _runTimeInter = 50;
@@ -32,13 +31,14 @@ _firstRunDelay = 30;
 
 //FUGITIVE TIME REWARDS: [time in minutes to exec reward (in sequence),reward message,reward code where _this is the fugitive]
 _fugitiveRewards = [
-	[4,"The Most Wanted received a MK 48 and Ammo.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_holder = createVehicle ['Weaponholder',_posFGround,[],0,'NONE'];_holder addWeaponCargoGlobal ['Mk_48_DZ',1];_holder addMagazineCargoGlobal ['100Rnd_762x51_M240',5];_this reveal [_holder,4];}],
-	[4,"The Most Wanted received a motorbike.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_veh = createVehicle ['TT650_Ins',_posFGround,[],8,'NONE'];_veh setVariable ['ObjectID','0',true];_veh setVariable ['ObjectUID',str round random 9999999,true];_this reveal [_veh,4];}],
-	[4,"The Most Wanted received medical supplies.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_holder = createVehicle ['Weaponholder',_posFGround,[],0,'NONE'];_holder addMagazineCargoGlobal ['ItemBloodBag',1];_holder addMagazineCargoGlobal ['ItemBandage',2];_holder addMagazineCargoGlobal ['ItemSeaBassCooked',1];_holder addMagazineCargoGlobal ['ItemWaterbottle',1];_holder addMagazineCargoGlobal ['ItemPainkiller',1];_holder addMagazineCargoGlobal ['ItemORP',1];_holder addMagazineCargoGlobal ['ItemMorphine',1];_this reveal [_holder,4];}],
-	[4,"The Most Wanted sees an enemy.",{donn_seeSmoke = [];{if (_this distance _x < 300 && !((vehicle _x) isKindOf 'Air')) then {_posK = position _x;for '_i' from 1 to 4 do {_smoke = createVehicle [['SmokeShell','SmokeShellYellow','SmokeShellRed','SmokeShellGreen','SmokeShellPurple','SmokeShellBlue','SmokeShellOrange'] call BIS_fnc_selectRandom,[_posK select 0,_posK select 1,40+_i*10],[],0,'CAN_COLLIDE'];donn_seeSmoke = donn_seeSmoke + [_smoke];};};} forEach (playableUnits-[_this]);}],
+	[4,"The Fugitive received a MK 48 and Ammo.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_holder = createVehicle ['Weaponholder',_posFGround,[],0,'NONE'];_holder addWeaponCargoGlobal ['Mk_48_DZ',1];_holder addMagazineCargoGlobal ['100Rnd_762x51_M240',5];_this reveal [_holder,4];}],
+	[4,"The fugitive received a motorbike.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_veh = createVehicle ['TT650_Ins',_posFGround,[],8,'NONE'];_veh setVariable ['ObjectID','0',true];_veh setVariable ['ObjectUID',str round random 9999999,true];_this reveal [_veh,4];}],
+	[4,"The fugitive received medical items.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_holder = createVehicle ['Weaponholder',_posFGround,[],0,'NONE'];_holder addMagazineCargoGlobal ['ItemBloodBag',1];_holder addMagazineCargoGlobal ['ItemBandage',2];_holder addMagazineCargoGlobal ['ItemSeaBassCooked',1];_holder addMagazineCargoGlobal ['ItemWaterbottle',1];_holder addMagazineCargoGlobal ['ItemPainkiller',1];_holder addMagazineCargoGlobal ['ItemORP',1];_holder addMagazineCargoGlobal ['ItemMorphine',1];_this reveal [_holder,4];}],
+	[4,"The fugitive sees an enemy.",{donn_seeSmoke = [];{if (_this distance _x < 300 && !((vehicle _x) isKindOf 'Air')) then {_posK = position _x;for '_i' from 1 to 4 do {_smoke = createVehicle [['SmokeShell','SmokeShellYellow','SmokeShellRed','SmokeShellGreen','SmokeShellPurple','SmokeShellBlue','SmokeShellOrange'] call BIS_fnc_selectRandom,[_posK select 0,_posK select 1,40+_i*10],[],0,'CAN_COLLIDE'];donn_seeSmoke = donn_seeSmoke + [_smoke];};};} forEach (playableUnits-[_this]);}],
 	[1/12,"",{{deleteVehicle _x;} forEach donn_seeSmoke;}]
 ];
 
+//SAFE ZONES
 _safezones = switch (toLower worldName) do {
 //NAPF
 		case "napf":{
@@ -93,39 +93,35 @@ _safezones = switch (toLower worldName) do {
 			[0,0,0]
 			];
 		};
-	};
-
-_safezonesRad = 200;
+};
+_safezonesRad = 160;
 
 //ADMINS STEAM ID (TO PREVENT THE SCRIPT TO SELECT ADMINS AS FUGITIVE)
-_LAdmins = [
-	"76561198122210030", // Pirate								
-	"76561198080045762", // Deadskin	(Mod)								 
-	"76561198162046909", // Shahzad
+_LAdmins = [							
+	"76561198080045762", // Deadskin	(Mod)
 	"76561197970044945", // MrCheeseyman
-	"76561198073669230", // Jack Black
-	"76561198110162434", // Chemical Burn
 	"76561198128804731", // xtsis
 	"76561198166231771", // Wombat
 	"76561198001066546", // MeowMix
-	"76561198144994529", // BountyCraft
 	"76561198037365948", // Devvo
 	"76561198126348047", // Mr. Bandit
-	"76561198129049369", // Zatley
 	"76561198227881216", // Local User
 	"76561198067566966", // SniperNoSniping
+	"76561197960289679", // TangoWhiskey
+	"76561198042335279", // Dean Winchester
+	"76561198086239163", // ThatEstonian
 "0"
 ]; 
 
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
-	"76561198182408150",  // Pirate Admin
-	"76561198195305425",  // Shahzad
-	"76561198240385148",  // Jack Black
 	"76561198183434467",  // MeowMix Admin
 	"76561198203698253",  // xtsis
 	"76561198242337504",  // MrCheeseyman
-	"76561198244936152",  // BountyCraft
+	"76561198196195669",  // Shroudy
+	"76561198129049369", // Zatley
+	"76561198163835069", // SniperNoSniping
+	"76561198084154973", // Mr.Bandit
 "0"
 ]; 
 
@@ -138,6 +134,7 @@ _SAdmins = [
 	"76561198021389971", // Thirdhero
 	"76561197973172761",  // Milton
 	"76561198115492831",  //BigEgg
+	"76561198195305425", //Shahzad
 "0"
 ];
 
@@ -147,21 +144,27 @@ _admins = _SAdmins+_NAdmins+_LAdmins;
 // FUNCTIONS ==========
 //=====================
 
+_lockedFugitives = [];
+
+//THE TWO LINES BELLOW ARE EPOCH SPECIFIC
+waitUntil {!isNil "DZE_safeVehicle"};
+DZE_safeVehicle = DZE_safeVehicle + ["TT650_Ins"];
+
 donn_fugitiveChoose = {
 	_fugitive = objNull;
 	_maxSumDist = -1;
 	{
 		_p = _x;
-		if (damage _p < 0.2 && vehicle _p == _p) then {
-			if (count (_p nearObjects ["Plastic_Pole_EP1_DZ",(DZE_PlotPole select 0)*1.25]) == 0) then {
-				_pUID = getPlayerUID _p;
-				if !(_pUID in _admins) then {
-					_sumDist = 0;
-					{_sumDist = _sumDist + (_p distance _x);} forEach playableUnits;
-					if (_sumDist > _maxSumDist) then {_fugitive = _p;_maxSumDist = _sumDist;};
+			if (damage _p < 0.2 && vehicle _p == _p) then {
+				if (count (_p nearObjects ["Plastic_Pole_EP1_DZ",(DZE_PlotPole select 0)*1.25]) == 0) then {
+					_pUID = getPlayerUID _p;
+					if !(_pUID in _admins || _pUID in _lockedFugitives) then {
+						_sumDist = 0;
+						{_sumDist = _sumDist + (_p distance _x);} forEach playableUnits;
+						if (_sumDist > _maxSumDist) then {_fugitive = _p;_maxSumDist = _sumDist;};
+					};
 				};
 			};
-		};
 	} forEach playableUnits;
 	_fugitive
 };
@@ -180,6 +183,7 @@ while {true} do {
 	if (!isNull _fugitive) then {
 		diag_log "[MOSTWA] Begin!";
 		_fugitiveName = name _fugitive;
+		_fugitiveID = getPlayerUID _fugitive;
 		_aliveTimeStart = time;
 		_aliveTimePassed = 0;
 		_timeCell = 2;
@@ -196,9 +200,9 @@ while {true} do {
 		_sleepB = 0; 
 		_sleepC = 0;
 		_sleepD = 0;
-		_txt = ((name _fugitive)+" have a price on his head, kill him to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
+		_txt = ((name _fugitive)+" have a price on his head, kill hin to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
 		_timeInPlot = 0;
-		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin} do {
+		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin && _timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot} do {
 			if (_sleepA >= _sleepAMark) then {
 				_txt = _txt + ((name _fugitive)+" mark updated on map.\n"+(str (round(((_aliveTimeToWin-_aliveTimePassed)/60)*10)/10))+" minutes to stop the hunt.\n\n");
 				_sleepA = 0;
@@ -220,12 +224,13 @@ while {true} do {
 				_nearPlotPole = _fugitive nearObjects ["Plastic_Pole_EP1_DZ",DZE_PlotPole select 0];
 				_inSafe = false;
 				{if (_fugitive distance _x < _safezonesRad) exitWith {_inSafe = true;};} forEach _safezones;
-				if (count _nearPlotPole == 0 && !_inSafe) then {
+				_isFlying = ((getPosATL _fugitive) select 2) > 45;
+				if (count _nearPlotPole == 0 && !_inSafe && !_isFlying) then {
 					_txt = _txt + "Time Reward! " + (_fugitiveRewards select _slepBIndex select 1);
 					_code = _fugitiveRewards select _slepBIndex select 2;
 					_fugitive call _code;
 				} else {
-					_txt = _txt + "Time Reward! No reward... the fugitive is near a plot pole.";
+					_txt = _txt + "Time Reward!? In safe, on plot or flying. No reward...";
 				};
 				_sleepB = 0;
 				_slepBIndex = _slepBIndex + 1;
@@ -237,8 +242,9 @@ while {true} do {
 			if (_sleepC == _sleepCMark) then {
 				_nearPlotPole = _fugitive nearObjects ["Plastic_Pole_EP1_DZ",DZE_PlotPole select 0];
 				_inSafe = false;
+				_isHigh = ((getPosATL _fugitive) select 2) > 1250;
 				{if (_fugitive distance _x < _safezonesRad) exitWith {_inSafe = true;};} forEach _safezones;
-				if (count _nearPlotPole > 0 || _inSafe) then {_timeInPlot = _timeInPlot+_sleepCMark*_timeCell};
+				if (count _nearPlotPole > 0 || _inSafe || _isHigh) then {_timeInPlot = _timeInPlot+_sleepCMark*_timeCell};
 				_sleepC = 0;
 			};
 			if (_sleepD == _sleepDMark) then {
@@ -265,6 +271,7 @@ while {true} do {
 		deleteMarker "DONN_FUGITIVE";
 		deleteMarker "DONN_FUGITIVE_DOT";
 		if (!isNull _fugitive) then {
+			_lockedFugitives = _lockedFugitives + [_fugitiveID];
 			if (alive _fugitive) then {
 				if (_timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot) then {
 					[nil,nil,rTitleText,((name _fugitive)+", time over! The prize is yours!\nColect your reward near you."),"PLAIN",7.5] call RE;
@@ -275,10 +282,13 @@ while {true} do {
 					_holder = createVehicle ["Weaponholder",[position _fugitive select 0,position _fugitive select 1,0],[],0,"NONE"];
 					_holder addMagazineCargoGlobal ["ItemBriefCase100oz",4];
 					_fugitive reveal [_holder,4];
+					diag_log "[MOSTWA] Ending! Fugitive Win!";
+					_lastTimeConclude = time;
 				} else {
-					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near plot poles or safezones.\nNo pain no gain. No reward."),"PLAIN",10] call RE;
+					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near plot poles or safezones\n or high in the sky. No pain no gain. No reward."),"PLAIN",10] call RE;
+					diag_log "[MOSTWA] Ending! Fugitive not Fair...";
+					_lastTimeConclude = time-_runTimeInter*0.75;
 				};
-				diag_log "[MOSTWA] Ending! Fugitive Win!";
 			} else {
 				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nMark is on map for 45 seconds..."),"PLAIN",10] call RE;
 				createMarker ["DONN_FUGITIVE",position _fugitive];
@@ -293,16 +303,16 @@ while {true} do {
 				_holder = createVehicle ["Weaponholder",[position _fugitive select 0,position _fugitive select 1,0],[],0,"NONE"];
 				_holder addMagazineCargoGlobal ["ItemBriefCase100oz",4];
 				_fugitive reveal [_holder,4];
-				uiSleep 45;
+				uiSleep 120;
 				deleteMarker "DONN_FUGITIVE";
 				deleteMarker "DONN_FUGITIVE_DOT";
 				diag_log "[MOSTWA] Ending! Fugitive perished.";
+				_lastTimeConclude = time;
 			};
-			_lastTimeConclude = time;
 		} else {
 			[nil,nil,rTitleText,("The hunt for "+_fugitiveName+" head is over... "+_fugitiveName+" disconnected."),"PLAIN",5] call RE;
-			_lastTimeConclude = time-_runTimeInter*0.75;
 			diag_log "[MOSTWA] Fugitive disconnected...";
+			_lastTimeConclude = time-_runTimeInter*0.75;
 		};
 	} else {
 		diag_log "[MOSTWA] Cant find an elegible fugitive...";
