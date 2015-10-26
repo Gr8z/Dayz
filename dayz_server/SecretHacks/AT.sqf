@@ -575,7 +575,7 @@ PV_AdminMainCode = {
 			adminadd = adminadd + ["  KSVK",adminksvk,"0","0","0","0",[]];
 			adminadd = adminadd + ["  L85 Thermal",adminl85,"0","0","0","0",[]];
 			adminadd = adminadd + ["  Lapua",adminlapua,"0","0","0","0",[]];
-			adminadd = adminadd + ["  M14",adminm14,"0","0","0","0",[]];
+			adminadd = adminadd + ["  Cheytac",adminm14,"0","0","0","0",[]];
 			adminadd = adminadd + ["  M16A4 ACOG",adminm16acg,"0","0","0","0",[]];
 			adminadd = adminadd + ["  M24",adminm24,"0","0","0","0",[]];
 			adminadd = adminadd + ["  M249",adminm249,"0","0","0","0",[]];
@@ -2553,11 +2553,11 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{player removeMagazine _x;} forEach (magazines player);
 		removeAllWeapons player;
 		removebackpack player;
-		player addweapon 'M14_EP1';player selectWeapon 'M14_EP1';player addMagazine '20Rnd_762x51_DMR';player addMagazine '20Rnd_762x51_DMR';player addMagazine '20Rnd_762x51_DMR';player addMagazine '20Rnd_762x51_DMR';
-		player addMagazine 'Skin_Sniper1_DZ';player addMagazine 'FoodSteakCooked';player addMagazine 'ItemSodaCoke';player addMagazine 'ItemBloodbag';player addMagazine 'ItemPainkiller';player addMagazine 'ItemAntibiotic';
-		player addMagazine 'ItemMorphine';player addMagazine 'ItemEpinephrine';player addWeapon 'ItemMap';player addWeapon 'Binocular_Vector';player addweapon 'UZI_SD_EP1';player addMagazine '30Rnd_9x19_UZI_SD';player addMagazine '30Rnd_9x19_UZI_SD';
-		player addMagazine '30Rnd_9x19_UZI_SD';player addMagazine '30Rnd_9x19_UZI_SD';player addMagazine '30Rnd_9x19_UZI_SD';player addMagazine 'ItemBandage';player addMagazine 'ItemBandage';player addMagazine 'ItemBandage';
-		player addBackPack 'DZ_Backpack_EP1';player addWeapon 'NVGoggles';player addWeapon 'ItemCompass';player addWeapon 'ItemHatchet';player addWeapon 'ItemKnife';player addWeapon 'Itemmatchbox';player addWeapon 'Itemetool';
+		player addweapon 'USSR_cheytacM200_sd';player selectWeapon 'USSR_cheytacM200_sd';player addMagazine 'USSR_5Rnd_408';player addMagazine 'USSR_5Rnd_408';player addMagazine 'USSR_5Rnd_408';player addMagazine 'USSR_5Rnd_408';
+		player addMagazine 'Skin_Sniper1_DZ';player addMagazine 'FoodSteakCooked';player addMagazine 'ItemSodaCoke';player addMagazine 'ItemBloodbag';player addMagazine 'ItemPainkiller';
+		player addMagazine 'ItemMorphine';player addMagazine 'PartGeneric';player addWeapon 'ItemMap';player addWeapon 'Binocular_Vector';player addweapon 'RH_Deagleg';player addMagazine 'RH_7Rnd_50_AE';player addMagazine 'RH_7Rnd_50_AE';
+		player addMagazine 'RH_7Rnd_50_AE';player addMagazine 'RH_7Rnd_50_AE';player addMagazine 'ItemBandage';player addMagazine 'ItemBandage';player addMagazine 'ItemBandage';player addMagazine 'ItemBandage';
+		player addBackPack 'DZ_LargeGunBag_EP1';player addWeapon 'NVGoggles';player addWeapon 'ItemCompass';player addWeapon 'ItemHatchet';player addWeapon 'ItemKnife';player addWeapon 'Itemmatchbox';player addWeapon 'Itemetool';
 		player addWeapon 'Itemtoolbox';player addWeapon 'ItemWatch';player addWeapon 'ItemGPS';reload player;
 	};
 	adminm16acg =
