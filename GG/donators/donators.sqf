@@ -210,6 +210,7 @@ Marksman3 = [
 	"76561198094845724", // Mats (OD-2015-09-22) #11739 
 	"76561198147961836", // CoRe*10pounds (OD-2015-10-02) #11890 
 	"76561198115492831", // BigEgg
+	"76561198126348047", // Mr.bandit admin 
 	"76561198076654806", // Pervitin (OD-2015-10-10) #12015
 	"76561198076764315", // Dr. Lag (OD-2015-10-15) #12136
 	// Add UIDs above, don't forget the comma
@@ -419,7 +420,6 @@ Scout3 = [
 	"76561198115492831", // BigEgg
 	"76561198195305425", // shaz
 	"76561198129049369", // Zatley admin
-	"76561198126348047", // MR.Bandit admin
 	"76561198166231771", // Wombat admin
 	// Add UIDs above, don't forget the comma
 "0"
