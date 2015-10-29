@@ -4437,7 +4437,7 @@ publicVariable '"+_randvar28+"';
 			'irap35p','irap37a','irap3d3l','/bot','/tp','/2ndtp','/playermarker','/safemarkers','/fini','/finikillall','/banall','/givecoins','/itemspawn','/itemmassspawn','/vehspawn','/finitpall','/finiinfistar',
 			'/finiactivatere','/kickall','/finialldance','/god','/fixvehicle','/time','/keybind','/esp','/backpack','/morph','/start','/exec','/menu','/skin','/ban','execu',
 			'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport','teleport',
+			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport',
 			'/pnuke','/nuke','/gunbox','/run'
 			];
 		while{1 == 1}do
