@@ -8,6 +8,8 @@ _projectile = nearestObject [_unit, _ammo];
 _endPos = getPosATL _projectile;
 _dir = 0;
 
+if((_ammo isKindOf 'Melee') || (_ammo isKindOf ('Bol' +'tSteel')) || (_ammo isKindOf 'WoodenArrow') || (_ammo isKindOf 'GrenadeHand') || (_ammo isKindOf 'ThrownObjects'))exitWith {};
+
 _doWait = true;
 while {_doWait} do {
 	_vel = (velocity _projectile) distance [0,0,0];
