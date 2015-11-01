@@ -486,6 +486,7 @@ Soldier3 = [
 	"76561198034827033", // Zack (OD-2015-10-10)#12018
 	"76561198068695714", // Ghost_IX (OD-2015-10-12)#12063       
 	"76561197960289679", // TangoWhiskey (OD-2015-10-15)#12129       
+	"76561198114785751", // Fuzzy (EXP-2015-12-01)       
 	"76561198115492831", // BigEgg - Tiny Penis boy-True
 	// Add UIDs above, don't forget the comma
 "0"
