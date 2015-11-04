@@ -1,7 +1,7 @@
 @echo off
 @REM *** PARAMETERS/VARIABLES ***
 SET mysqlschema=dayz
-SET mysqlpassword=03333755478
+SET mysqlpassword=Database00
 SET mysqluser=root
 @REM *** EXECUTION ***
 
