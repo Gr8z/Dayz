@@ -3999,7 +3999,6 @@ publicVariable '"+_randvar28+"';
 									_log = format['Voice over Side Chat (KILLED) @%1',mapGridPosition player];
 									[name player,getPlayerUID player,'SLOG',toArray (_log)] call "+_randvar280337+";
 									uiSleep 3;
-									warn_last = true;
 									playMusic ['PitchWhine',0];
 									[] spawn DS_slap_them;
 									['beat04'] spawn DS_really_loud_sounds;
