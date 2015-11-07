@@ -1,7 +1,6 @@
 
 class Category_517 { 
 class AN2_DZ { type = "trade_any_vehicle"; buy[] = {3600,"Coins"}; sell[] = {2300,"Coins"}; }; 
-class An2_TK_EP1 { type = "trade_any_vehicle"; buy[] = {3600,"Coins"}; sell[] = {2300,"Coins"}; }; 
 class An2_2_TK_CIV_EP1 { type = "trade_any_vehicle"; buy[] = {3600,"Coins"}; sell[] = {2300,"Coins"}; }; 
 class An2_1_TK_CIV_EP1 { type = "trade_any_vehicle"; buy[] = {3600,"Coins"}; sell[] = {2300,"Coins"}; }; 
 class C130J_US_EP1_DZ { type = "trade_any_vehicle"; buy[] = {36000,"Coins"}; sell[] = {23000,"Coins"}; }; 
