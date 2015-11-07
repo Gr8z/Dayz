@@ -8,6 +8,7 @@ _ObjectsS = [
 //// Medium
 //// "AN2_DZ","UH60M_MEV_EP1", "UH1H_DZE", "MH60S_DZE", "UH60M_EP1_DZE", "UH1Y_DZE"
 _ObjectsM = [
+	"ReammoBox",
 	"TT650_Civ",
 	"TT650_Ins",
 	"TT650_TK_CIV_EP1",
@@ -21,6 +22,7 @@ _ObjectsM = [
 //// Large
 //// "CH_47F_EP1_DZE", "Mi17_DZE", "BAF_Merlin_DZE", "Mi17_Civilian_DZ"
 _ObjectsL = [
+	"ReammoBox",
 	"TT650_Civ",
 	"TT650_Ins",
 	"TT650_TK_CIV_EP1",
@@ -153,7 +155,8 @@ _ObjectsL = [
 //// Xtra Large
 //// "C130J_US_EP1_DZ", "MV22_DZ", "CH53_DZE"
 _ObjectsXL = [
-		"TT650_Civ",
+	"ReammoBox",
+	"TT650_Civ",
 	"TT650_Ins",
 	"TT650_TK_CIV_EP1",
 	"M1030_US_DES_EP1",
