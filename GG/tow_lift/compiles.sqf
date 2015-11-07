@@ -6,7 +6,7 @@ if (!isDedicated) then {
 	MONI_OBJECT	= compile preprocessFileLineNumbers "GG\tow_lift\monitor\monitor_object.sqf";
 	MONI_ACTION	= compile preprocessFileLineNumbers "GG\tow_lift\monitor\monitor_action.sqf";
 	LOG_OBJ_INIT = compile preprocessFileLineNumbers "GG\tow_lift\object\init.sqf";
-	LOG_LIFT_INIT = compile preprocessFileLineNumbers "GG\tow_lift\lift\init.sqf";
+//	LOG_LIFT_INIT = compile preprocessFileLineNumbers "GG\tow_lift\lift\init.sqf";
 	LOG_TOW_INIT = compile preprocessFileLineNumbers "GG\tow_lift\tow\init.sqf";
 	
 	LOG_FNCT_DETACH_AND_SAVE = {

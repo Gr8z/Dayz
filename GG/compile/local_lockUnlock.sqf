@@ -17,6 +17,7 @@ if (local _vehicle) then {
 		_vehicle setVehicleLock "LOCKED";
 		_vehicle setVariable ["BTC_Cannot_Lift",true,true];
 		_vehicle setVariable ["MF_Tow_Cannot_Tow",true,true];
+		_vehicle setVariable ["R3F_LOG_disabled",true,true];
 		if (_alarmCar) then {
 			[nil, _vehicle, rSAY, "suvLock", 50] call RE;
 			} else {
@@ -29,6 +30,7 @@ if (local _vehicle) then {
 		_vehicle setVehicleLock "UNLOCKED";
 		_vehicle setVariable ["BTC_Cannot_Lift",false,true];
 		_vehicle setVariable ["MF_Tow_Cannot_Tow",false,true];
+		_vehicle setVariable ["R3F_LOG_disabled",false,true];
 		if (_alarmCar) then {
 			[nil, _vehicle, rSAY, "suvLock", 50] call RE;
 			} else {
