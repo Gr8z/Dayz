@@ -431,6 +431,7 @@ Scout3 = [
 	"76561198129049369", // Zatley admin
 	"76561198166231771", // Wombat admin
 	"76561197967394795", // Ivaper (EXP-2015-12-07) #00000
+	"76561198207556579", // Tstig (EXP-2015-12-07) #00000
 	// Add UIDs above, don't forget the comma
 "0"
 ];
