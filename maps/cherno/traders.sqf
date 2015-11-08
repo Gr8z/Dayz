@@ -128,7 +128,7 @@ menu_FR_Sykes = [
 ];
 // Boat Vendor
 menu_GUE_Villager4 = [
-	[["Boats Armed",673],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
@@ -170,7 +170,7 @@ menu_Dr_Annie_Baker_EP1 = [
 ];
 // Boat Trader 2
 menu_GUE_Soldier_Crew = [
-	[["Boats Armed",673],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];

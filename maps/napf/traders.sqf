@@ -105,7 +105,7 @@ menu_HouseWife3 = [
 
 // West Boat Vendor
 menu_Farmwife2 = [
-	[["Boats Armed",673],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
@@ -129,7 +129,7 @@ menu_RU_Damsel3 = [
 
 // East Boat Vendor
 menu_Citizen4 = [
-	[["Boats Armed",673],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
@@ -261,7 +261,7 @@ menu_Damsel5 = [
 ];
 // North Boat Vendor
 menu_TK_Special_Forces_EP1 = [
-	[["Boats Armed",558],["Boats Unarmed",557]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
@@ -297,7 +297,7 @@ menu_Dr_Hladik_EP1 = [
 ];
 // Boat Trader 2
 menu_Ins_Woodlander2 = [
-	[["Boats Armed",558],["Boats Unarmed",557]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];

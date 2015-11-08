@@ -136,12 +136,12 @@ menu_RU_Woodlander4 = [
 	"neutral"
 ];
 menu_Worker4 = [
-	[["Boats Armed",558],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
 menu_Profiteer2_EP1 = [
-	[["Boats Armed",558],["Boats Unarmed",672]],
+	[["Boats",672]],
 	[],
 	"neutral"
 ];
