@@ -4,7 +4,7 @@ if(DZE_ActionInProgress) exitWith { cutText ["Another AirDrop is in progress","P
 DZE_ActionInProgress = true;
 
 
-_cost = 20000;
+_cost = 10000;
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
@@ -23,7 +23,7 @@ _inVehicle = (_vehicle != player);
 
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
 _items = ["ItemSodaPepsi","FoodCanCorn","FoodNutmix","ItemSodaClays","FoodCanSardines","ItemKiloHemp"];
-_walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","ItemWoodWallGarageDoor","ItemWoodFloor"];
+_walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","ItemWoodWallGarageDoor","ItemWoodFloor","metal_floor_kit"];
 _supplies = ["CinderBlocks","MortarBucket","ItemTankTrap","PartWoodPlywood","PartWoodLumber","ItemPole","PartGlass"];
 
 
