@@ -57,7 +57,7 @@ publicVariableServer "PVDZE_plr_Save";
 
 deleteMarker "MarkerDrop";
 _null  = createMarker ["MarkerDrop",_positionM];
-"MarkerDrop"  setMarkerText "Air Drop";
+"MarkerDrop"  setMarkerText format["%1's Air Drop",_playerName];
 "MarkerDrop"  setMarkerType "mil_objective";
 "MarkerDrop"  setMarkerColor "ColorRed";
 
