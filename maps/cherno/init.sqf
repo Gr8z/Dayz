@@ -96,7 +96,7 @@ execVM "GG\debug.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
 execVM "GG\antimanualfire.sqf";
-execVM "GG\CargoDrop\Start.sqf";
+execVM "CargoDrop\Start.sqf";
 
 #include "GG\BIS_Effects\init.sqf"
 
