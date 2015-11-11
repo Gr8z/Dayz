@@ -494,6 +494,7 @@ Soldier3 = [
 	"76561198115492831", // BigEgg - Tiny Penis boy-True
 	"76561198054707975", // NV Goggles (EX-2015-12-06)  
 	"76561198077564266", // AWetSalad (EXP-2015-12-07) #00000
+	"76561198106522861", // GAMEREAPER (EXP-2015-12-10) #00000
 	// Add UIDs above, don't forget the comma
 "0"
 ];
