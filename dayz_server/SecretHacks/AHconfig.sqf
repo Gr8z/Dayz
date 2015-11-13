@@ -9,7 +9,6 @@ _LAdmins = [
 	"76561198126348047", // Mr. Bandit
 	"76561198227881216", // Local User
 	"76561198067566966", // SniperNoSniping
-	"76561198086239163", // ThatEstonian
 	"76561197960289679", // TangoWhiskey
 	"76561198062993387", // Azul
 	"76561198242337504",  // MrCheeseyman
