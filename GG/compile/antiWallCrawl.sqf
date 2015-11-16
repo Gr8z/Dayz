@@ -11,18 +11,18 @@ if (_isSmkProne) exitWith {
 	//open a new thread if it didnt just exit, give the new thread the ogPos and player object ((_this select 0)) as input
 	0 = [_ogPos,(_this select 0)] spawn {
 		private["_ogPos","_isSmkProne","_newPos","_newAnim","_plyr"]; //privatise variables in memory for new thread to prevent error...
-		_isSmkProne = false; _ogPos = []; _newPos = []; _newAnim = ""; _plyr2 = objNull; //create variables we will use later as empty to prevent error...
+		_isSmkProne = false; _ogPos = []; _newPos = []; _newAnim = ""; _plyr = objNull; //create variables we will use later as empty to prevent error...
    		_ogPos = _this select 0; //grab the ogPos from the thread input
-   		_plyr2 = _this select 1; //grab player from the thread input
+   		_plyr = _this select 1; //grab player from the thread input
    		//wait until: player has moved more than 0.00545 meters OR player is no longer in urban prone
 		waitUntil{ 
-			_newAnim = animationState _plyr2; _isSmkProne = [_newAnim,"smk_urbanprone"] call KRON_strInStr; _newPos = position _plyr2; _posDist = _newPos distance _ogPos;
+			_newAnim = animationState _plyr; _isSmkProne = [_newAnim,"smk_urbanprone"] call KRON_strInStr; _newPos = position _plyr; _posDist = _newPos distance _ogPos;
 			(((_isSmkProne) && (_posDist > 0.00545)) || (!_isSmkProne))
 		};
 		
 		if (!_isSmkProne) exitWith { }; //if player got out of urban prone without moving, exit without doing below code
 		//player moved while in urban prone...
 		(_this select 1) switchMove "amovppnemstpsraswrfldnon"; //switch player back to normal prone
-		systemChat("[ZombZ] Anti-Wall-Crawl: You cannot move in this stance."); //send a message & exit
+		systemChat("Anti-Wall-Crawl: You cannot move in this stance."); //send a message & exit
 	};
 };	
