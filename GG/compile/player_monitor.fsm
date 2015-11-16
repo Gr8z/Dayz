@@ -1195,6 +1195,8 @@ class FSM
        "	r_player_timeout = player getVariable[""unconsciousTime"",0];" \n
        "	player playActionNow ""Die"";" \n
        "};" \n
+       "player addEventHandler [""AnimChanged"", { (_this) spawn antiWallCrawl; }];" \n
+       "" \n
        "player allowDamage true;" \n
        "player enableSimulation true;" \n
        "0 cutText ["""", ""BLACK IN"",3];" \n

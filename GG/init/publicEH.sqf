@@ -144,4 +144,7 @@ if (!isDedicated) then {
 
 	"norrnRaDrag"			addPublicVariableEventHandler {(_this select 1) execVM "\z\addons\dayz_code\medical\publicEH\animDrag.sqf"};
 	"norrnRnoAnim"			addPublicVariableEventHandler {(_this select 1) execVM "\z\addons\dayz_code\medical\publicEH\noAnim.sqf"};
+
+	antiWallCrawl = compile preprocessFileLineNumbers "GG\compile\antiWallCrawl.sqf";
+	player addEventHandler ["AnimChanged", { (_this) spawn antiWallCrawl; }];
 };
