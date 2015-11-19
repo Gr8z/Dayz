@@ -67,7 +67,7 @@ BankDialogDepositAmount = {
 			player setVariable["bankMoney",(_bank + _amount),true];		
 			cutText [format["You have deposited %1 %2.", [_amount] call BIS_fnc_numberText, CurrencyName], "PLAIN DOWN"];			
 		}else{
-			cutText [format["You can only have a max of %1 %3, donators %2", [MaxBankMoney] call BIS_fnc_numberText,[MaxDonatorBankMoney] call BIS_fnc_numberText,CurrencyName], "PLAIN DOWN"];
+			cutText [format["You can only have a max of %1 %3, donators %2. If you want this donor perk, please contact an admin", [MaxBankMoney] call BIS_fnc_numberText,[MaxDonatorBankMoney] call BIS_fnc_numberText,CurrencyName], "PLAIN DOWN"];
 		};
 	}else{	
 		player setVariable["cashMoney",(_wealth - _amount),true];

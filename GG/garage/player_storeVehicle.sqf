@@ -86,6 +86,6 @@ if	(count _vehicles < GarageSlots) then
 	if (getPlayerUID player in GarageDonor) then {
 		cutText ["You cannot store more than 6 vehicles, your garage is full.", "PLAIN DOWN"];
 	} else {
-		cutText ["You cannot store anymore vehicles, your garage is full. Donate to get a 6 slot capacity", "PLAIN DOWN"];
+		cutText ["You cannot store anymore vehicles, your garage is full. Donate to get a 6 slot capacity.  If you want this donor perk, please contact an admin", "PLAIN DOWN"];
 	};	
 };

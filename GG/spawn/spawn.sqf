@@ -92,7 +92,7 @@ spawnPick = {
 		_puid = getPlayerUID player;
 		if ((_hlevel < 0) && {_humanity >= _hlevel}) exitWith {systemChat format["Your humanity must be less than %1 for this spawn.",_hlevel];_go=0;};
 		if ((_hlevel > 0) && {_humanity <= _hlevel}) exitWith {systemChat format["Your humanity must be greater than %1 for this spawn.",_hlevel];_go=0;};
-		if ((_level == 1) && {!(_puid in vipSpawn)}) exitWith {systemChat "Donate for VIP Spawn to Unlock this Spawn";_go=0;};
+		if ((_level == 1) && {!(_puid in vipSpawn)}) exitWith {systemChat "Donate for VIP Spawn to Unlock this Spawn. Talk to an admin to find out how to donate.";_go=0;};
 	};
 	if (_go > 0) then {uiNamespace setVariable ["spawnChoice",_spawn];};
 };
