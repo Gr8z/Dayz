@@ -33,7 +33,7 @@ _mag = _possibleMags select 0;
 
 _crateItems = [_walls,_supplies,_items] call BIS_fnc_selectRandom;
 
-_Time = time - lastpack;
+_Time = diag_tickTime - lastpack;
 
 if(_Time < _LastUsedTime) exitWith {
 	DZE_ActionInProgress = false;
