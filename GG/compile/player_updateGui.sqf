@@ -44,7 +44,7 @@ _bloodTotal = round((r_player_blood/12000)*100);
 _RestartTime = (count playableUnits);
 
 _ctrlBloodAmount      ctrlSetText str(_bloodTotal);
-_ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0]);
+_ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0] call BIS_fnc_numberText);
 _ctrlServerRestart  ctrlSetText str(_RestartTime);
 
 _ctrlFPS = _display displayCtrl 1321;
