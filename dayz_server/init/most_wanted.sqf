@@ -103,25 +103,29 @@ _LAdmins = [
 	"76561198128804731", // xtsis
 	"76561198166231771", // Wombat
 	"76561198001066546", // MeowMix
-	"76561198037365948", // Devvo
 	"76561198126348047", // Mr. Bandit
-	"76561198227881216", // Local User
 	"76561198067566966", // SniperNoSniping
 	"76561197960289679", // TangoWhiskey
-	"76561198042335279", // Dean Winchester
-	"76561198086239163", // ThatEstonian
+	"76561198242337504", // MrCheeseyman
+	"76561198137880291", //Xenon
+	"76561198062993387", // Azul
+	"76561198135739831", // Daveyy
+	"76561198058099842", // Fap
 "0"
 ]; 
 
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
-	"76561198183434467",  // MeowMix Admin
-	"76561198203698253",  // xtsis
-	"76561198242337504",  // MrCheeseyman
-	"76561198196195669",  // Shroudy
-	"76561198129049369", // Zatley
+	"76561198183434467", // MeowMix Admin
+	"76561198203698253", // xtsis
+	"76561198196195669", // Shroudy
 	"76561198163835069", // SniperNoSniping
 	"76561198084154973", // Mr.Bandit
+	"76561198257149369", // TangoWhiskey
+	"76561198042335279", // Dean Winchester
+	"76561198237597876", // FAP
+	"76561198261729728", // Daveyy
+	"76561198260519944", // Azul
 "0"
 ]; 
 
@@ -129,11 +133,8 @@ _NAdmins = [
 _SAdmins = [
 	"76561198078201908", // Gr8 
 	"76561198153784743", // Ghost
-	"76561198002511087", // TempSniper
-	"76561198137100220",  // Deadskin
-	"76561198021389971", // Thirdhero
-	"76561197973172761",  // Milton
-	"76561198115492831",  //BigEgg
+	"76561198137100220", // Deadskin
+	"76561198115492831", //BigEgg
 	"76561198195305425", //Shahzad
 "0"
 ];
@@ -200,7 +201,7 @@ while {true} do {
 		_sleepB = 0; 
 		_sleepC = 0;
 		_sleepD = 0;
-		_txt = ((name _fugitive)+" have a price on his head, kill hin to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
+		_txt = ((name _fugitive)+" has a price on his head. Kill him to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
 		_timeInPlot = 0;
 		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin && _timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot} do {
 			if (_sleepA >= _sleepAMark) then {
