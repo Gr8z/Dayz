@@ -33,7 +33,7 @@ _mag = _possibleMags select 0;
 
 _crateItems = [_walls,_supplies,_items] call BIS_fnc_selectRandom;
 
-_Time = diag_tickTime - lastpack;
+_Time = time - lastDrop;
 
 if(_Time < _LastUsedTime) exitWith {
 	DZE_ActionInProgress = false;
@@ -70,7 +70,8 @@ for "_x" from 1 to 100 do {
 	uiSleep 1;
 };
 
-lastpack = time;
+lastDrop = time;
+publicVariable "lastDrop";
 
 _chute = createVehicle ["ParachuteMediumEast", _position, [], 0, "FLY"];
 _chutePos = getPos _chute;
