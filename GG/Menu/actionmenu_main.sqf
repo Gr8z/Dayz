@@ -43,7 +43,7 @@ ActionMenua =
 [
 	["",true],
 		["Flip Vehicle", [2],  "", -5, [["expression", format[_EXECscript1,"flipvehicle.sqf"]]], "1", "1"],
-		["Call Air Drop (10k Coins)", [3],  "", -5, [["expression", format[_EXECscript13,"carepackage.sqf"]]], "1", "1"],
+		["Call Air Drop (20k Coins)", [3],  "", -5, [["expression", format[_EXECscript13,"carepackage.sqf"]]], "1", "1"],
 		["Scan Players (1000m)", [4],  "", -5, [["expression", format[_EXECscript13,"player_nearMe.sqf"]]], "1", "1"],
 		["Self Bloodbag", [5],  "", -5, [["expression", format[_EXECscript1,"bloodbag.sqf"]]], "1", "1"],
 		["Commit Suicide", [6],  "", -5, [["expression", format[_EXECscript1,"suicide.sqf"]]], "1", "1"],
