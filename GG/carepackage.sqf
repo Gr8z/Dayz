@@ -4,7 +4,7 @@ if(DZE_ActionInProgress) exitWith { cutText ["Another AirDrop is in progress","P
 DZE_ActionInProgress = true;
 
 
-_cost = 20000;
+_cost = 10000;
 _wealth = player getVariable["cashMoney",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
