@@ -127,6 +127,8 @@ GarageDonor = [
 /////////// Engineer Class ///////
 Engineer1 = [
 	"76561198120151646", // Chris(OD-2015-06-06)#9364
+	"76561198105892308", // Billy Mayes (OD-2015-12-24) #0000
+	"76561198057545696", // Coco The Clown (OD-2015-12-24) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];
