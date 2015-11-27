@@ -1,4 +1,3 @@
-#include "GG\loot\CfgBuildingLoot.hpp"
 #include "GG\Trader\cfgServerTrader.hpp"
 
 respawn = "BASE";
