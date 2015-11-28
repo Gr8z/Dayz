@@ -205,7 +205,7 @@ while {true} do {
 		_timeInPlot = 0;
 		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin && _timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot} do {
 			if (_sleepA >= _sleepAMark) then {
-				_txt = _txt + ((name _fugitive)+" mark updated on the map.\n"+(str (round(((_aliveTimeToWin-_aliveTimePassed)/60)*10)/10))+" minutes to stop the hunt.\n\n");
+				_txt = _txt + ((name _fugitive)+" mark updated on map.\n"+(str (round(((_aliveTimeToWin-_aliveTimePassed)/60)*10)/10))+" minutes to stop the hunt.\n\n");
 				_sleepA = 0;
 				_fPos = position _fugitive;
 				_error = (_circleSize*2)/sqrt(2);
@@ -260,10 +260,7 @@ while {true} do {
 				};
 				_sleepD = 0;
 			};
-			if (_txt != "" && _txt != "Time Reward! ") then {
-				RemoteMessage = ["dynamic_text",["FUGITIVE",_txt]];
-				publicVariable "RemoteMessage";
-			};
+			if (_txt != "" && _txt != "Time Reward! ") then {[nil,nil,rTitleText,_txt,"PLAIN",7.5] call RE;};
 			uiSleep _timeCell;
 			_txt = "";
 			_sleepA = _sleepA + 1;
@@ -278,8 +275,7 @@ while {true} do {
 			_lockedFugitives = _lockedFugitives + [_fugitiveID];
 			if (alive _fugitive) then {
 				if (_timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot) then {
-					RemoteMessage = ["dynamic_text",["FUGITIVE",format["%1, time over! The prize is yours! Colect your reward near you.",(name _fugitive)]]];
-					publicVariable "RemoteMessage";
+					[nil,nil,rTitleText,((name _fugitive)+", time over! The prize is yours!\nColect your reward near you."),"PLAIN",7.5] call RE;
 					_veh = createVehicle ["CSJ_GyroC",[position _fugitive select 0,position _fugitive select 1,0],[],10,'NONE'];
 					_veh setVariable ["ObjectID","0",true];
 					_veh setVariable ["ObjectUID",str round random 9999999,true];
@@ -290,14 +286,12 @@ while {true} do {
 					diag_log "[MOSTWA] Ending! Fugitive Win!";
 					_lastTimeConclude = time;
 				} else {
-					RemoteMessage = ["dynamic_text",["FUGITIVE",format["Hunt time over! %1, you were near plot poles or safezones or high in the sky. No pain no gain. No reward.",(name _fugitive)]]];
-					publicVariable "RemoteMessage";
+					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near plot poles or safezones\n or high in the sky. No pain no gain. No reward."),"PLAIN",10] call RE;
 					diag_log "[MOSTWA] Ending! Fugitive not Fair...";
 					_lastTimeConclude = time-_runTimeInter*0.75;
 				};
 			} else {
-				RemoteMessage = ["dynamic_text",["FUGITIVE",format["%1, perished! Collect the prize on his body!Mark is on map for 45 seconds...",(name _fugitive)]]];
-				publicVariable "RemoteMessage";
+				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nMark is on map for 45 seconds..."),"PLAIN",10] call RE;
 				createMarker ["DONN_FUGITIVE",position _fugitive];
 				"DONN_FUGITIVE" setMarkerColor "ColorRed";
 				"DONN_FUGITIVE" setMarkerShape "ELLIPSE";
@@ -317,8 +311,7 @@ while {true} do {
 				_lastTimeConclude = time;
 			};
 		} else {
-			RemoteMessage = ["dynamic_text",["FUGITIVE",format["The hunt for %1's head is over %1 disconnected. ",(name _fugitive)]]];
-			publicVariable "RemoteMessage";
+			[nil,nil,rTitleText,("The hunt for "+_fugitiveName+" head is over... "+_fugitiveName+" disconnected."),"PLAIN",5] call RE;
 			diag_log "[MOSTWA] Fugitive disconnected...";
 			_lastTimeConclude = time-_runTimeInter*0.75;
 		};
