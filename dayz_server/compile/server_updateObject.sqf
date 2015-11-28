@@ -49,18 +49,10 @@ _object_position = {
 	if (_object isKindOf "AllVehicles") then {
 		_colour = _object getVariable ["Colour","0"];
 		_colour2 = _object getVariable ["Colour2","0"];
-		_worldspace = [
-			round(direction _object),
-			_position,
-			_colour,
-			_colour2
-		];
+		 _worldspace = [getDir _object, _position] call AN_fnc_formatWorldspace;
 		_fuel = fuel _object;
 	} else {
-		_worldspace = [
-			round(direction _object),
-			_position
-		];
+		_worldspace = [getDir _object, _position] call AN_fnc_formatWorldspace;
 		_fuel = 0;
 	};
 		if (_object isKindOf "AllVehicles") then {
