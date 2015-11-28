@@ -80,7 +80,7 @@ _BlackList =
 	'RussianGat','Dami','DamiCC','Russypoo','Alphadom','Radiix','Kill Me Baby','Miguel Self','George Smith','Arran',
 	'Ewan Jones','QuickShotzKeyz','xCyberxx','HeroZero','EJRProdigy','Kermit','Zemaa','aFriendlyBandit','Altair','CMDie',
 	'76561197984690630','76561197978913290','76561197979392398','76561198002094787','76561198148907901','76561198062276128',
-	'76561198032309705','76561198137073763'
+	'76561198032309705','76561198137073763','Bayan'
 ];
 _BadSkins =
 [
