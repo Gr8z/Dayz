@@ -3962,8 +3962,11 @@ publicVariable '"+_randvar11+"';
 			'irap35p','irap37a','irap3d3l','/bot','/tp','/2ndtp','/playermarker','/safemarkers','/fini','/finikillall','/banall','/givecoins','/itemspawn','/itemmassspawn','/vehspawn','/finitpall','/finiinfistar',
 			'/finiactivatere','/kickall','/finialldance','/god','/fixvehicle','/time','/keybind','/esp','/backpack','/morph','/start','/exec','/menu','/skin','execu',
 			'adminstart','admin_start','.ban','.sqf','bbhelp','bbammo','bbbox','bbdel','bbesp','bbgod','bbtp','bbunlock','/pesp','/pmarkers','/ptp','/pdel','/pammo','/pgunbox','/pepochbox',
-			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew ','/teleport',
-			'/pnuke','/nuke','/gunbox','/run'
+			'/pteleportall','/pgod','t3l3all','n00k3','t3p3','4mm0','3sp','j3sus','v3hj3sus','m4rk3rs','z3dz','inf4mm0','b0mb4ll','bombtrgt','/god','pewpew','/teleport',
+			'/pnuke','/nuke','/gunbox','/run','/esp','/getvehkey','/humanityplus','/humanityminus','/god','/delete','/botdmr','/botm107','/botcheytac',
+			'/bot1brief','/bot50brief','/botbuilding','/botcustom','/tp','/2ndtp','/playermarker','/safeespmap','/infniteammo',
+			'/heal','/time','/zshield','/code','/ccgcode','/destroy','/fixvehicle','/vehdelivery','/bigbullets','/humanityminuscurs',
+			'/humanitypluscurs','/selfkill010','/keybind','/itemmassspawn','/giveammo','/getfile'
 		];
 		while{1 == 1}do
 		{
