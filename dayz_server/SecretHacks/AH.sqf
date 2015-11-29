@@ -3375,7 +3375,7 @@ publicVariable '"+_randvar11+"';
 						'WRMoney.sqf','allover_[www.unknowncheats.me]_.dll','allover.dll','WhippyMenu\keybindfz.sqf','WhippyMenu\SqfFiles\esp.sqf',
 						'WhippyMenu\SqfFiles\destroyb.sqf','WhippyMenu\SqfFiles\setviewdistance500m.sqf','WhippyMenu\SqfFiles\night.sqf','WhippyMenu\SqfFiles\unlock.sqf',
 						'initFunctions.sqf','tbb4malloc_bi.dll','PRaZ\start.sqf','jh\Action.sqf','ArmA2OA_Extars\BB_menu_BB.sqf',
-						'A2MenuV2\ExecME.sqf','Expansion\Addons\ui_addons.pbo',
+						'A2MenuV2\ExecME.sqf','Expansion\Addons\ui_addons.pbo','krynomore1\activate.sqf','krynomore1\keybindfz.sqf',
 						'\z\addons\ui_addons\decrypt.sqf',
 						'ui_addons\decrypt.sqf',
 						'decrypt.sqf',
