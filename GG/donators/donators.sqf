@@ -172,6 +172,7 @@ Engineer3 = [
 Marksman1 = [
 	"76561198153784743", // Ghost
 	"76561198115492831", // BigEgg 
+	"76561198056028211", // Nasty Moderator Loadout
 	"76561198093462212", // Mr. Ruggets (OD-2015-10-29) #12221 
 	// Add UIDs above, don't forget the comma
 "0"
