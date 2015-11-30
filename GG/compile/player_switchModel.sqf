@@ -1,4 +1,4 @@
-private ["_weapons","_backpackWpn","_backpackMag","_currentWpn","_backpackWpnTypes","_backpackWpnQtys","_countr","_class","_position","_dir","_currentAnim","_tagSetting","_playerUID","_countMags","_magazines","_primweapon","_secweapon","_newBackpackType","_muzzles","_oldUnit","_group","_newUnit","_playerObjName","_wpnType","_ismelee"];
+private ["_weapons","_backpackWpn","_backpackMag","_currentWpn","_backpackWpnTypes","_backpackWpnQtys","_countr","_class","_position","_dir","_currentAnim","_tagSetting","_playerUID","_countMags","_magazines","_primweapon","_secweapon","_newBackpackType","_muzzles","_oldUnit","_group","_newUnitGG","_playerObjName","_wpnType","_ismelee"];
 _class = _this;
 _position = getPosATL player;
 _dir = getDir player;
@@ -34,67 +34,67 @@ player setPosATL dayz_spawnPos;
 _oldUnit = player;
 _oldGroup = group player;
 _group = createGroup west;
-_newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
-_newUnit setPosATL _position;
-_newUnit setDir _dir;
-[_newUnit] joinSilent createGroup WEST;
-_newUnit setVariable ["GGCoins",_cashMoney,true];
-_newUnit setVariable ["GGBank",_bankMoney];
-{_newUnit removeMagazine _x;} count magazines _newUnit;
-removeAllWeapons _newUnit;
+_newUnitGG = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
+_newUnitGG setPosATL _position;
+_newUnitGG setDir _dir;
+[_newUnitGG] joinSilent createGroup WEST;
+_newUnitGG setVariable ["GGCoins",_cashMoney,true];
+_newUnitGG setVariable ["GGBank",_bankMoney];
+{_newUnitGG removeMagazine _x;} count magazines _newUnitGG;
+removeAllWeapons _newUnitGG;
 {
-if (typeName _x == "ARRAY") then {if ((count _x) > 0) then {_newUnit addMagazine [(_x select 0), (_x select 1)]; }; } else { _newUnit addMagazine _x; };
+if (typeName _x == "ARRAY") then {if ((count _x) > 0) then {_newUnitGG addMagazine [(_x select 0), (_x select 1)]; }; } else { _newUnitGG addMagazine _x; };
 } count _magazines;
 {
-_newUnit addWeapon _x;
+_newUnitGG addWeapon _x;
 } count _weapons;
-if(str(_weapons) != str(weapons _newUnit)) then {
+if(str(_weapons) != str(weapons _newUnitGG)) then {
 {
 _weapons = _weapons - [_x];
-} count (weapons _newUnit);
+} count (weapons _newUnitGG);
 {
-_newUnit addWeapon _x;
+_newUnitGG addWeapon _x;
 } count _weapons;
 };
-if(_primweapon != (primaryWeapon _newUnit)) then {
-_newUnit addWeapon _primweapon;
+if(_primweapon != (primaryWeapon _newUnitGG)) then {
+_newUnitGG addWeapon _primweapon;
 };
 if (_primweapon == "MeleeCrowbar") then {
-_newUnit addMagazine 'crowbar_swing';
+_newUnitGG addMagazine 'crowbar_swing';
 };
 if (_primweapon == "MeleeSledge") then {
-_newUnit addMagazine 'sledge_swing';
+_newUnitGG addMagazine 'sledge_swing';
 };
 if (_primweapon == "MeleeHatchet_DZE") then {
-_newUnit addMagazine 'Hatchet_Swing';
+_newUnitGG addMagazine 'Hatchet_Swing';
 };
 if (_primweapon == "MeleeMachete") then {
-_newUnit addMagazine 'Machete_swing';
+_newUnitGG addMagazine 'Machete_swing';
 };
 if (_primweapon == "MeleeFishingPole") then {
-_newUnit addMagazine 'Fishing_Swing';
+_newUnitGG addMagazine 'Fishing_Swing';
 };
-if(_secweapon != (secondaryWeapon _newUnit) && _secweapon != "") then {
-_newUnit addWeapon _secweapon;
+if(_secweapon != (secondaryWeapon _newUnitGG) && _secweapon != "") then {
+_newUnitGG addWeapon _secweapon;
 };
 _switchUnit = {
-addSwitchableUnit _newUnit;
-setPlayable _newUnit;
-selectPlayer _newUnit;
+addSwitchableUnit _newUnitGG;
+setPlayable _newUnitGG;
+selectPlayer _newUnitGG;
 if ((count units _oldGroup > 1) && {!isNil "PVDZE_plr_LoginRecord"}) then {
-    [_newUnit] join _oldGroup;
+    [_newUnitGG] join _oldGroup;
     if (count units _group < 1) then {deleteGroup _group;};
 };
 removeAllWeapons _oldUnit;
 {_oldUnit removeMagazine _x;} count magazines _oldUnit;
 deleteVehicle _oldUnit;
 if (count units _oldGroup < 1) then {deleteGroup _oldGroup;};
-if(_currentWpn != "") then {_newUnit selectWeapon _currentWpn;};
+if(_currentWpn != "") then {_newUnitGG selectWeapon _currentWpn;};
 };
 if (!isNil "_newBackpackType") then {
 if (_newBackpackType != "") then {
-_newUnit addBackpack _newBackpackType;
-dayz_myBackpack = unitBackpack _newUnit;
+_newUnitGG addBackpack _newBackpackType;
+dayz_myBackpack = unitBackpack _newUnitGG;
 _backpackWpnTypes = [];
 _backpackWpnQtys = [];
 if (count _backpackWpn > 0) then {
@@ -141,7 +141,7 @@ if (_ismelee == "true") then {
 call dayz_meleeMagazineCheck;
 };
 {player reveal _x} count (nearestObjects [getPosATL player, dayz_reveal, 50]);
-_newUnit addMPEventHandler ["MPHit", {_this spawn fnc_plyrHit;}];
+_newUnitGG addMPEventHandler ["MPHit", {_this spawn fnc_plyrHit;}];
 
 _savedGroup = profileNamespace getVariable["savedGroup",[]];
 player setVariable ["savedGroup",_savedGroup,true];
