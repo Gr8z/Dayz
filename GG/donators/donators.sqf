@@ -387,7 +387,6 @@ Scout3 = [
 /////// Soldier Class ///////////
 Soldier1 = [
 	"76561198014873677", // IceMan(OD-2015-05-21)#9098
-	"76561198012898897", // [GER]TenSor(EXp-2015-11-31)
 	// Add UIDs above, don't forget the comma
 "0"
 ];
