@@ -1,5 +1,5 @@
 
-private ["_activatingPlayer","_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_object","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_dis","_sfx","_classname","_location","_playerUID"];
+private ["_activatingPlayer","_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_object","_holderGG","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_dis","_sfx","_classname","_location","_playerUID"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_13") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -59,7 +59,7 @@ if(!isNull _obj && alive _obj) then {
 	_object setposATL _pos;
 	player reveal _object;
 	
-	_holder = _object;
+	_holderGG = _object;
 	
 	_weapons = 		getWeaponCargo _obj;
 	_magazines = 	getMagazineCargo _obj;
@@ -78,7 +78,7 @@ if(!isNull _obj && alive _obj) then {
 	_objWpnQty = 	_weapons select 1;
 	_countr = 0;
 	{
-		_holder addweaponcargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addweaponcargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
@@ -86,7 +86,7 @@ if(!isNull _obj && alive _obj) then {
 	_objWpnQty = _magazines select 1;
 	_countr = 0;
 	{
-		_holder addmagazinecargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addmagazinecargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 
@@ -94,13 +94,13 @@ if(!isNull _obj && alive _obj) then {
 	_objWpnQty = _backpacks select 1;
 	_countr = 0;
 	{
-		_holder addbackpackcargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addbackpackcargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
 	cutText [localize "str_success_tent_pack", "PLAIN DOWN"];
 
-	player action ["Gear", _holder];
+	player action ["Gear", _holderGG];
 };
 
 s_player_packtent = -1;

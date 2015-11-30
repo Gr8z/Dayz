@@ -1,4 +1,4 @@
-private ["_activatingPlayer","_obj","_ownerID","_objectID","_objectUID","_alreadyPacking","_location1","_location2","_dir","_pos","_bag","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_packedClass","_text","_playerNear","_playerUID","_combination"];
+private ["_activatingPlayer","_obj","_ownerID","_objectID","_objectUID","_alreadyPacking","_location1","_location2","_dir","_pos","_bag","_holderGG","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_packedClass","_text","_playerNear","_playerUID","_combination"];
 
 if(DZE_ActionInProgress) exitWith { cutText [(localize "str_epoch_player_15") , "PLAIN DOWN"]; };
 DZE_ActionInProgress = true;
@@ -76,17 +76,17 @@ if(!isNull _obj && alive _obj) then {
 	_bag setdir _dir;
 	_bag setposATL _pos;
 	player reveal _bag;
-	_holder = _bag;
+	_holderGG = _bag;
 
 	_itemOut = getText(configFile >> "CfgVehicles" >> _packedClass >> "seedItem");
 	_countOut = 1;
-	_holder addMagazineCargoGlobal[_itemOut, _countOut];
+	_holderGG addMagazineCargoGlobal[_itemOut, _countOut];
 	
 	_objWpnTypes = 	_weapons select 0;
 	_objWpnQty = 	_weapons select 1;
 	_countr = 0;
 	{
-		_holder addweaponcargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addweaponcargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
@@ -94,7 +94,7 @@ if(!isNull _obj && alive _obj) then {
 	_objWpnQty = _magazines select 1;
 	_countr = 0;
 	{
-		_holder addmagazinecargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addmagazinecargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 
@@ -102,13 +102,13 @@ if(!isNull _obj && alive _obj) then {
 	_objWpnQty = _backpacks select 1;
 	_countr = 0;
 	{
-		_holder addbackpackcargoGlobal [_x,(_objWpnQty select _countr)];
+		_holderGG addbackpackcargoGlobal [_x,(_objWpnQty select _countr)];
 		_countr = _countr + 1;
 	} count _objWpnTypes;
 	
 	cutText [format[(localize "str_epoch_player_123"),_text], "PLAIN DOWN"];
 
-	player action ["Gear", _holder];
+	player action ["Gear", _holderGG];
 };
 s_player_packvault = -1;
 DZE_ActionInProgress = false;

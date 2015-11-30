@@ -1,10 +1,10 @@
-private ["_magazinesToBuy", "_weaponsToBuy", "_backpacksToBuy", "_toolsToBuy", "_sidearmToBuy", "_primaryToBuy", "_priceToBuy"
-,"_enoughMoney", "_myMoney", "_canBuy", "_moneyInfo","_count","_success","_backpack"
+private ["_magazinesToBuy", "_weaponsToBuy", "_backpackGGsToBuy", "_toolsToBuy", "_sidearmToBuy", "_primaryToBuy", "_priceToBuy"
+,"_enoughMoney", "_myMoney", "_canBuy", "_moneyInfo","_count","_success","_backpackGG"
 ];
 
 _magazinesToBuy = 0;
 _weaponsToBuy = 0;
-_backpacksToBuy = 0;
+_backpackGGsToBuy = 0;
 _toolsToBuy = 0;
 _sidearmToBuy = 0;
 _primaryToBuy = 0;
@@ -32,8 +32,8 @@ if (SingleCurrency) then {
 			_magazinesToBuy = _magazinesToBuy + (_x select 9) ;
 			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2));
 		};
-		if( _x select 1 == "trade_backpacks")then{
-			_backpacksToBuy = _backpacksToBuy + (_x select 9) ;
+		if( _x select 1 == "trade_backpackGGs")then{
+			_backpackGGsToBuy = _backpackGGsToBuy + (_x select 9) ;
 			_priceToBuy	= _priceToBuy + ((_x select 9)*(_x select 2));
 		};
 		if( _x select 1 == "trade_any_vehicle")then{
@@ -61,8 +61,8 @@ if (SingleCurrency) then {
 			_magazinesToBuy = _magazinesToBuy + (_x select 9) ;
 			_priceToBuy	= _priceToBuy + ((_x select 11) *(_x select 2)*(_x select 9));
 		};
-		if( _x select 1 == "trade_backpacks")then{
-			_backpacksToBuy = _backpacksToBuy + (_x select 9) ;
+		if( _x select 1 == "trade_backpackGGs")then{
+			_backpackGGsToBuy = _backpackGGsToBuy + (_x select 9) ;
 			_priceToBuy	= _priceToBuy + ((_x select 11)*(_x select 2)*(_x select 9));
 		};
 		if( _x select 1 == "trade_any_vehicle")then{
@@ -72,7 +72,7 @@ if (SingleCurrency) then {
 	} count Z_BuyingArray;
 };
 
-_canBuy = [_weaponsToBuy,_magazinesToBuy,_backpacksToBuy,_toolsToBuy, _sidearmToBuy, _primaryToBuy,_vehiclesToBuy] call Z_allowBuying;
+_canBuy = [_weaponsToBuy,_magazinesToBuy,_backpackGGsToBuy,_toolsToBuy, _sidearmToBuy, _primaryToBuy,_vehiclesToBuy] call Z_allowBuying;
 
 _myMoney = player getVariable[MoneyVariable,0];
 
@@ -98,15 +98,15 @@ if(_enoughMoney) then {
 	closeDialog 2;
 
 		if(Z_SellingFrom == 0) then {
-		_backpack = unitBackpack player;
+		_backpackGG = unitBackpack player;
 		systemChat format["Adding %1 items in backpack",count (Z_BuyingArray)];
 			{
 				if( _x select 1 == "trade_weapons")then{
-					_backpack addWeaponCargoGlobal [_x select 0, _x select 9];
+					_backpackGG addWeaponCargoGlobal [_x select 0, _x select 9];
 					diag_log format ["%1 x %2 added", _x select 0, _x select 9];
 				};
 				if( _x select 1 == "trade_items")then{
-					_backpack addMagazineCargoGlobal  [_x select 0, _x select 9];
+					_backpackGG addMagazineCargoGlobal  [_x select 0, _x select 9];
 					diag_log format ["%1 x %2 added", _x select 0, _x select 9];
 				};
 			} count Z_BuyingArray;
@@ -114,17 +114,17 @@ if(_enoughMoney) then {
 
 		if(Z_SellingFrom == 1)then{
 			{
-				systemChat format["Adding %1 items in %2",count (Z_BuyingArray), typeOf Z_vehicle];
+				systemChat format["Adding %1 items in %2",count (Z_BuyingArray), typeOf Z_vehicleGG];
 				if( _x select 1 == "trade_weapons")then{
-					Z_vehicle addWeaponCargoGlobal [_x select 0, _x select 9];
+					Z_vehicleGG addWeaponCargoGlobal [_x select 0, _x select 9];
 					diag_log format ["%1 x %2 added", _x select 0, _x select 9];
 				};
 				if( _x select 1 == "trade_items")then{
-					Z_vehicle addMagazineCargoGlobal [_x select 0, _x select 9];
+					Z_vehicleGG addMagazineCargoGlobal [_x select 0, _x select 9];
 					diag_log format ["%1 x %2 added", _x select 0, _x select 9];
 				};
-				if( _x select 1 == "trade_backpacks")then{
-					Z_vehicle addBackpackCargoGlobal [_x select 0, _x select 9];
+				if( _x select 1 == "trade_backpackGGs")then{
+					Z_vehicleGG addBackpackCargoGlobal [_x select 0, _x select 9];
 					diag_log format ["%1 x %2 added", _x select 0, _x select 9];
 				};
 			} count Z_BuyingArray;
@@ -149,7 +149,7 @@ if(_enoughMoney) then {
 						_count = _count + 1;
 					};
 				};
-				if( _x select 1 == "trade_backpacks")then{
+				if( _x select 1 == "trade_backpackGGs")then{
 						player addBackpack (_x select 0);
 				};
 			} count Z_BuyingArray;
