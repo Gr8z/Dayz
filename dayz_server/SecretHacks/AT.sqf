@@ -5345,7 +5345,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				_log = format['%1 (%2) @%3 SPD %4',name _unit,getPlayerUID _unit,mapGridPosition _veh,abs(speed _veh)];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log+'</t>',safezoneX+0.2,safezoneY+0.405,0.3,0,0,3033] spawn bis_fnc_dynamicText;
 				
-				_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['GGCoins',0]),(_unit getVariable['bankMoney',0])];
+				_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['GGCoins',0]),(_unit getVariable['GGBank',0])];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log2+'</t>',safezoneX+0.2,safezoneY+0.435,0.3,0,0,3034] spawn bis_fnc_dynamicText;
 				
 				_cwep = '';

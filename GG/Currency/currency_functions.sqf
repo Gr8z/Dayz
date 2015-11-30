@@ -1,7 +1,7 @@
 CurrencyDialogFetchData = {
 	_currency_targetName = name currencyTarget;
 	_currency_targetCash = currencyTarget getVariable ['GGCoins', 0] call BIS_fnc_numberText;
-	_currency_targetBank = currencyTarget getVariable ['bankMoney', 0] call BIS_fnc_numberText;
+	_currency_targetBank = currencyTarget getVariable ['GGBank', 0] call BIS_fnc_numberText;
 	ctrlSetText [15006, format["Target: %1", _currency_targetName]];
 	ctrlSetText [15007, format["Cash: %1", _currency_targetCash]];
 	ctrlSetText [15004, format["In bank: %1", _currency_targetBank]];
@@ -39,17 +39,17 @@ CurrencyTransferMoney = {
 		
 	} else {
 	
-		_wealth = _target getVariable["bankMoney",0];
+		_wealth = _target getVariable["GGBank",0];
 		if (_direction == 'remove') then {
 		
 			if (_amount >= _wealth) then {
-				_target setVariable["bankMoney",0, true]; } else {
-				_target setVariable["bankMoney",_wealth - _amount, true]; };
+				_target setVariable["GGBank",0, true]; } else {
+				_target setVariable["GGBank",_wealth - _amount, true]; };
 			_response = format["You removed %1 %2 from %3's bank account.", _amount call BIS_fnc_numberText, CurrencyName, name _target];
 			
 		} else {
 			
-			_target setVariable["bankMoney",_wealth + _amount, true];
+			_target setVariable["GGBank",_wealth + _amount, true];
 			_response = format["You transferred %1 %2 to %3's bank account.", _amount call BIS_fnc_numberText, CurrencyName, name _target];
 			
 		};

@@ -6,7 +6,7 @@ _wpui = uiNameSpace getVariable "AsReMixhud";
 _vitals = _wpui displayCtrl 4900;
 _thePlayer = player;
 _cashMoney  = _thePlayer getVariable["GGCoins",0];
-_bankMoney  = _thePlayer getVariable["bankMoney",0];
+_bankMoney  = _thePlayer getVariable["GGBank",0];
 
 _vitals ctrlSetStructuredText parseText format ["
 	<img size='1.4' align='left' image='GG\images\Money.paa'/><t size='0.9'> %1 </t>   <br/>

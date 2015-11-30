@@ -241,14 +241,14 @@ _primary2 = _key2 call server_hiveReadWrite;
 if(count _primary2 > 0) then {
 	if((_primary2 select 0) != "ERROR") then {
 		_bankMoney = _primary2 select 1;
-		_playerObj setVariable["bankMoney",_bankMoney,true];
+		_playerObj setVariable["GGBank",_bankMoney,true];
 		_playerObj setVariable["bankMoney_CHK",_bankMoney];
 	} else {
-		_playerObj setVariable["bankMoney",0,true];
+		_playerObj setVariable["GGBank",0,true];
 		_playerObj setVariable["bankMoney_CHK",0];
 	};
 } else {
-	_playerObj setVariable["bankMoney",0,true];
+	_playerObj setVariable["GGBank",0,true];
 	_playerObj setVariable["bankMoney_CHK",0];
 };
 //diag_log ("LOGIN PUBLISHING: " + str(_playerObj) + " Type: " + (typeOf _playerObj));

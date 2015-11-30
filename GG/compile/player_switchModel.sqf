@@ -9,7 +9,7 @@ _weapons = weapons player;
 _countMags = call player_countMagazines;
 _magazines = _countMags select 0;
 _cashMoney = player getVariable["GGCoins",0];
-_bankMoney = player getVariable["bankMoney",0];
+_bankMoney = player getVariable["GGBank",0];
 if ((_playerUID == dayz_playerUID) && (count _magazines == 0) && (count (magazines player) > 0 )) exitWith {cutText [(localize "str_epoch_player_17"), "PLAIN DOWN"]};
 _primweapon = primaryWeapon player;
 _secweapon = secondaryWeapon player;
@@ -39,7 +39,7 @@ _newUnit setPosATL _position;
 _newUnit setDir _dir;
 [_newUnit] joinSilent createGroup WEST;
 _newUnit setVariable ["GGCoins",_cashMoney,true];
-_newUnit setVariable ["bankMoney",_bankMoney];
+_newUnit setVariable ["GGBank",_bankMoney];
 {_newUnit removeMagazine _x;} count magazines _newUnit;
 removeAllWeapons _newUnit;
 {
