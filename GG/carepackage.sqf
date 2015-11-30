@@ -5,7 +5,7 @@ DZE_ActionInProgress = true;
 
 
 _cost = 10000;
-_wealth = player getVariable["cashMoney",0];
+_wealth = player getVariable["GGCoins",0];
 _distance = 500;
 _boxtype = "USVehicleBox_EP1";
 _LastUsedTime = 900;
@@ -50,7 +50,7 @@ if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_E
 if ((count playableUnits) < _OnlineLimit) exitWith  {DZE_ActionInProgress = false; cutText [format["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
 if(_wealth < _cost) exitWith {DZE_ActionInProgress = false; cutText [format["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
 
-player setVariable["cashMoney",(_wealth - _cost),true];
+player setVariable["GGCoins",(_wealth - _cost),true];
 
 PVDZE_plr_Save = [player,(magazines player),true,true] ;
 publicVariableServer "PVDZE_plr_Save";

@@ -10,7 +10,7 @@ _qty_in = (_this select 3) select 3;
 _buy_o_sell = (_this select 3) select 4;
 _textPartIn = (_this select 3) select 5;
 _textPartOut = (_this select 3) select 6;
-_qty = player getVariable ["cashMoney",0];
+_qty = player getVariable ["GGCoins",0];
 _total_trades = floor (_qty / _qty_in);
 
 

@@ -99,7 +99,7 @@ if(royale_vehicle == _player) then {
 			{player removeMagazine _x;} forEach (magazines player);
 			{player removeWeapon _x;} forEach (weapons player);
 			removeBackpack player;
-			player setVariable['CashMoney',0,true];
+			player setVariable['GGCoins',0,true];
 			player addWeapon 'itemMap'; 
 		};",(getPlayerUID _this)];
 		_tmpu = createAgent['Rabbit',[2500,2500,0],[],0,'FORM'];

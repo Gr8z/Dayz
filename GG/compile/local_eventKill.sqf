@@ -11,7 +11,7 @@ _killer setVariable[_type,(_kills + 1),true];
 _humanity = _killer getVariable["humanity",0];
 _humanity = _humanity + 5;
 _killer setVariable["humanity",_humanity,true];
-_killCash = _killer getVariable["cashMoney",0];
-_killer setVariable["cashMoney",(_killCash + 5),true];
+_killCash = _killer getVariable["GGCoins",0];
+_killer setVariable["GGCoins",(_killCash + 5),true];
 
 };

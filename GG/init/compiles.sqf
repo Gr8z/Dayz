@@ -7,12 +7,12 @@ SC_fnc_removeCoins=
 				_player =  _this select  0;
 				_amount =  _this select  1;
 				_result = false;
-				_wealth = _player getVariable["cashMoney",0];		
+				_wealth = _player getVariable["GGCoins",0];		
 				if (_wealth <= _amount) then { 
 					_result = false;
 				} else { 						
 				_newwealth = _wealth - _amount;
-				_player setVariable["cashMoney",_newwealth, true];
+				_player setVariable["GGCoins",_newwealth, true];
 				_player setVariable ["moneychanged",1,true];	
 				_result = true;
 				PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
@@ -28,12 +28,12 @@ SC_fnc_addCoins =
 			_player =  _this select  0;
 			_amount =  _this select  1;
 			_result = false;	
-			_wealth = _player getVariable["cashMoney",0];
-			_player setVariable["cashMoney",_wealth + _amount, true];
+			_wealth = _player getVariable["GGCoins",0];
+			_player setVariable["GGCoins",_wealth + _amount, true];
 			PVDZE_plr_Save = [_player,(magazines _player),true,true] ;
 			publicVariableServer "PVDZE_plr_Save";
 			_player setVariable ["moneychanged",1,true];					
-			_newwealth = _player getVariable["cashMoney",0];		
+			_newwealth = _player getVariable["GGCoins",0];		
 			if (_newwealth >= _wealth) then { _result = true; };			
 			_result
 };	

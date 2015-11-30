@@ -18,7 +18,7 @@ _textPart = (_this select 3) select 6;
 _price = (_this select 3) select 3;
 _traderID = (_this select 3) select 7;
 
-_player_headShots = player getVariable ["cashMoney",0];
+_player_headShots = player getVariable ["GGCoins",0];
 
 _emptySlots = [player] call BIS_fnc_invSlotsEmpty;
 _free_magazine_slots = _emptySlots select 4;
@@ -64,9 +64,9 @@ for "_x" from 1 to _total_trades do {
     };
 
 	if (_finished) then {
-		_player_headShots = player getVariable ["cashMoney",0];
+		_player_headShots = player getVariable ["GGCoins",0];
 		if (_player_headShots >= _price) then {
-				player setVariable["cashMoney",(_player_headShots - _price),true];
+				player setVariable["GGCoins",(_player_headShots - _price),true];
 				player addMagazine _name;
 				_abort = false;
 				cutText [format["Traded %1 %2 for %3",_price,CurrencyName,_textPart], "PLAIN DOWN"];
@@ -102,7 +102,7 @@ _price = (_this select 3) select 2;
 _traderID = (_this select 3) select 7;
 
 
-_player_headShots = player getVariable ["cashMoney",0];
+_player_headShots = player getVariable ["GGCoins",0];
 
 _qty = {_x == _name} count magazines player;
 
@@ -145,8 +145,8 @@ for "_x" from 1 to _total_trades do {
 	
 		_removed = ([player,_name,1] call BIS_fnc_invRemove);
 		if (_removed > 0) then {
-			_player_headShots = player getVariable ["cashMoney",0];	
-				player setVariable["cashMoney",(_player_headShots + _price),true];
+			_player_headShots = player getVariable ["GGCoins",0];	
+				player setVariable["GGCoins",(_player_headShots + _price),true];
 				cutText [format[("Traded %1 for %2 %3"),_textPart,_price,CurrencyName], "PLAIN DOWN"];
 				PVDZE_plr_Save = [player,(magazines player),true,true] ;
 				publicVariableServer "PVDZE_plr_Save";

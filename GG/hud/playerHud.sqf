@@ -5,7 +5,7 @@ while {true} do
 _wpui = uiNameSpace getVariable "AsReMixhud";
 _vitals = _wpui displayCtrl 4900;
 _thePlayer = player;
-_cashMoney  = _thePlayer getVariable["cashMoney",0];
+_cashMoney  = _thePlayer getVariable["GGCoins",0];
 _bankMoney  = _thePlayer getVariable["bankMoney",0];
 
 _vitals ctrlSetStructuredText parseText format ["

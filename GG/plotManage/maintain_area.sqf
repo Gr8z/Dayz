@@ -48,7 +48,7 @@ _option = _this select 0;
 switch _option do {
 	case "maintain": {
 		
-		_wealth = player getVariable["cashMoney",0];
+		_wealth = player getVariable["GGCoins",0];
 		_missing = "";
 		_missingQty = 0;
 		_proceed = true;
@@ -63,7 +63,7 @@ switch _option do {
 			player playActionNow "Medic";
 			[player,_range,true,(getPosATL player)] spawn player_alertZombies;
 
-			player setVariable["cashMoney",_newWealth,true];
+			player setVariable["GGCoins",_newWealth,true];
 
 			PVDZE_plr_Save = [player,(magazines player),true,true];
 			publicVariableServer "PVDZE_plr_Save";

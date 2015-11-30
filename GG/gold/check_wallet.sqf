@@ -1,10 +1,10 @@
 private ["_body", "_hisMoney", "_myMoney", "_killsH", "_test2", "_headShots", "_test","_playeridke","_humanity"];
 _body = _this select 3;
 _name = _body getVariable ["bodyName","AI"];
-_hisMoney = _body getVariable ["cashMoney",0];
-_myMoney = player getVariable ["cashMoney",0];
+_hisMoney = _body getVariable ["GGCoins",0];
+_myMoney = player getVariable ["GGCoins",0];
 _myMoney = _myMoney + _hisMoney;
-_body setVariable ["cashMoney", 0 , true];
+_body setVariable ["GGCoins", 0 , true];
 
 if (DZE_ActionInProgress) exitWith {};
 
@@ -30,7 +30,7 @@ if (_hisMoney == 0) exitWith {
 };
 
 if (typeName (_myMoney) == "SCALAR")then{
-    player setVariable ["cashMoney", _myMoney , true];
+    player setVariable ["GGCoins", _myMoney , true];
 };
 
 DZE_ActionInProgress=false;

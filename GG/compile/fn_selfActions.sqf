@@ -453,7 +453,7 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
         s_player_bury_human = -1;
     };
 	
-	_bmoney = _cursorTarget getVariable['cashMoney',0];
+	_bmoney = _cursorTarget getVariable['GGCoins',0];
 	_name = _cursorTarget getVariable ["bodyName","AI"];
 	if (_player_studybody) then {
 		if (s_player_studybody < 0) then {	

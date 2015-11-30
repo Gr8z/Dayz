@@ -45,7 +45,7 @@ if (!_isBuried) then {
         clearMagazineCargoGlobal _box;
         { _box addWeaponCargoGlobal [_x, 1] } forEach weapons _corpse;
         { _box addMagazineCargoGlobal [_x ,1] } forEach magazines _corpse;
-		_box setVariable["CashMoney",0 ,true];
+		_box setVariable["GGCoins",0 ,true];
 		deleteVehicle _corpse;
 
         _mound = createVehicle ["Grave", _position, [], 0, "CAN_COLLIDE"];

@@ -3,4 +3,4 @@ VehicleDistance = 30;
 SingleCurrency = true;
 AllowTakingMoneyFromBackpack = true;
 AllowTakingMoneyFromVehicle = true;
-MoneyVariable = "cashMoney";
+MoneyVariable = "GGCoins";

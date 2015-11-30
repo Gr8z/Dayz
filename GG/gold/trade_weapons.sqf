@@ -16,7 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	_qty = player getVariable ["cashMoney",0];
+	_qty = player getVariable ["GGCoins",0];
 } else {
 	_qty = {_x == _part_in} count weapons player;
 	_bos = 1;
@@ -44,7 +44,7 @@ if (_qty >= _qty_in) then {
 
 	if (_finished) then {
 		if(_buy_o_sell == "buy") then {
-			_qty = player getVariable ["cashMoney",0];
+			_qty = player getVariable ["GGCoins",0];
 
 		} else {
 			_qty = {_x == _part_in} count weapons player;
@@ -67,8 +67,8 @@ if (_qty >= _qty_in) then {
 
 					if(_buy_o_sell == "buy") then {
 				_qtychange = _qty - _qty_in;
-				player setVariable ["cashMoney", _qtychange , true];	
-				_newM = player getVariable ["cashMoney",0];
+				player setVariable ["GGCoins", _qtychange , true];	
+				_newM = player getVariable ["GGCoins",0];
 				_removed = _qty - _newM;
 							
 				if(_removed == _qty_in) then {
@@ -81,9 +81,9 @@ if (_qty >= _qty_in) then {
 				_removed = ([player,_part_in,_qty_in] call BIS_fnc_invRemove);
 				 							
 				if(_removed == _qty_in) then {
-					_myMoney = player getVariable ["cashMoney",0];
+					_myMoney = player getVariable ["GGCoins",0];
 								_myMoney = _myMoney + _qty_out;
-								player setVariable ["cashMoney", _myMoney , true];	
+								player setVariable ["GGCoins", _myMoney , true];	
 								
 					cutText [format[(localize "str_epoch_player_186"),_qty_in,_textPartIn,_qty_out,_textPartOut], "PLAIN DOWN"];
 				};

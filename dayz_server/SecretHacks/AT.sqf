@@ -4563,8 +4563,8 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{
 			if (name _x == _this select 0) then
 			{
-				_wealth = _x getVariable["cashMoney",0];
-				_x setVariable["cashMoney",_wealth + 10000, true];
+				_wealth = _x getVariable["GGCoins",0];
+				_x setVariable["GGCoins",_wealth + 10000, true];
 				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
 				publicVariableServer "PVDZE_plr_Save";
 				hint format ["Gave %1 1000 Coins!",_this select 0];
@@ -4581,7 +4581,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 		{
 			if (name _x == _this select 0) then
 			{
-				_wealth = _x getVariable["cashMoney",0];
+				_wealth = _x getVariable["GGCoins",0];
 				_removecoins = 10000;
 				if (_wealth <= 10000) then { 
 					_removecoins = _wealth; 
@@ -4590,7 +4590,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				};
 				_newwealth = _wealth-_removecoins;
 				if (_newwealth <= 0) then { _newwealth = 0; };
-				_x setVariable["cashMoney",_newwealth, true];
+				_x setVariable["GGCoins",_newwealth, true];
 				PVDZE_plr_Save = [_x,(magazines _x),true,true] ;
 				publicVariableServer "PVDZE_plr_Save";	
 				hint format ["Take %1 coins from %2!",_removecoins, _this select 0];
@@ -5345,7 +5345,7 @@ adminadd = adminadd + ["  FreeRoam Cam (RightClick to exit)",admin_frcam,"0","0"
 				_log = format['%1 (%2) @%3 SPD %4',name _unit,getPlayerUID _unit,mapGridPosition _veh,abs(speed _veh)];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log+'</t>',safezoneX+0.2,safezoneY+0.405,0.3,0,0,3033] spawn bis_fnc_dynamicText;
 				
-				_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['CashMoney',0]),(_unit getVariable['bankMoney',0])];
+				_log2 = format['Blood: %1 | Humanity: %2 | Money: %3 | Bank: %4',(_unit getVariable['USEC_BloodQty',12000]),(_unit getVariable['humanity',0]),(_unit getVariable['GGCoins',0]),(_unit getVariable['bankMoney',0])];
 				['<t align=''left'' size=''0.5'' color=''#238701''>'+_log2+'</t>',safezoneX+0.2,safezoneY+0.435,0.3,0,0,3034] spawn bis_fnc_dynamicText;
 				
 				_cwep = '';

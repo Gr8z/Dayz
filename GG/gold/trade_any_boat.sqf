@@ -16,7 +16,7 @@ _traderID = (_this select 3) select 7;
 _bos = 0;
 
 if(_buy_o_sell == "buy") then {
-	_qty = player getVariable ["cashMoney",0];
+	_qty = player getVariable ["GGCoins",0];
 } else {
 	_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
 	_qty = count _obj;
@@ -45,7 +45,7 @@ if (_qty >= _qty_in) then {
 
 	if (_finished) then {
 		if(_buy_o_sell == "buy") then {
-			_qty = player getVariable ["cashMoney",0];
+			_qty = player getVariable ["GGCoins",0];
 		} else {
 			_obj = nearestObjects [(getPosATL player), [_part_in], dayz_sellDistance_boat];
 			_qty = count _obj;
@@ -74,8 +74,8 @@ if (_qty >= _qty_in) then {
 					waitUntil {!isNil "_isOk"};
 					if (_isOk and _isKeyOK) then {
 					_qtychange = _qty - _qty_in;
-					player setVariable ["cashMoney", _qtychange , true];
-					_newM = player getVariable ["cashMoney",0];
+					player setVariable ["GGCoins", _qtychange , true];
+					_newM = player getVariable ["GGCoins",0];
 					_removed = _qty - _newM;					
 					systemChat format ['Payed %1 %3. %2 incoming!',_removed,_part_out, CurrencyName];
 									
@@ -116,9 +116,9 @@ if (_qty >= _qty_in) then {
 
 					if(_okToSell and !isNull _obj and alive _obj) then {
 
-						_myMoney = player getVariable ["cashMoney",0];
+						_myMoney = player getVariable ["GGCoins",0];
 						_myMoney = _myMoney + _qty_out;
-						player setVariable ["cashMoney", _myMoney , true];
+						player setVariable ["GGCoins", _myMoney , true];
 
 						_objectID 	= _obj getVariable ["ObjectID","0"];
 						_objectUID	= _obj getVariable ["ObjectUID","0"];
