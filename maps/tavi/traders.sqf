@@ -1,5 +1,3 @@
-
-
 serverTraders = [
 "GUE_Worker2",
 "Soldier_Sniper_KSVK_PMC",

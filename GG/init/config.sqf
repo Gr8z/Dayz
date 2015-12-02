@@ -68,27 +68,6 @@ ServerIllegalRadius = 1000;
 ServerIllegalRadius2 = 500;
 ServerIllegalRadius3 = 200;
 
-GGNoBuildList = [
-"Infostand_2_EP1",
-"HeliHEmpty",
-"Ins_Woodlander2",
-"RU_Damsel1",
-"Citizen4",
-"RU_Damsel3",
-"GUE_Soldier_2",
-"Reynolds_PMC",
-"Profiteer2_EP1",
-"GUE_Soldier_Pilot",
-"UN_CDF_Soldier_Pilot_EP1",
-"Worker4",
-"Soldier_Sniper_PMC",
-"GUE_Soldier_Crew",
-"GUE_Villager4",
-"FR_Sykes",
-"GUE_Soldier_CO",
-"HouseWife3"
-];
-
 GGNoBuildList2 = [
 "Land_SS_hangar",
 "Land_Mil_Barracks_i",

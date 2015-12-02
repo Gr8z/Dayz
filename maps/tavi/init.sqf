@@ -124,3 +124,30 @@ if( !isNil "_adminated" &&  _adminated != 0)then{
 _x setObjectTexture [0, "GG\images\admin.jpg"];
 };
 }forEach playableUnits; 
+
+GGNoBuildList = [
+"GUE_Worker2",
+"Soldier_Sniper_KSVK_PMC",
+"Soldier_GL_PMC",
+"GUE_Soldier_Pilot",
+"GUE_Woodlander3",
+"Worker4",
+"Reynolds_PMC",
+"Soldier_Sniper_PMC",
+"GUE_Soldier_3",
+"RU_Doctor",
+"Doctor",
+"UN_CDF_Soldier_Pilot_EP1",
+"RU_Worker4",
+"RU_Woodlander4",
+"Citizen3",
+"RU_Damsel5",
+"Dr_Hladik_EP1",
+"GUE_Commander",
+"GUE_Soldier_CO",
+"Profiteer2_EP1",
+"RU_Farmwife5",
+"GUE_Woodlander1",
+"RU_Worker1",
+"GUE_Soldier_2"
+];
