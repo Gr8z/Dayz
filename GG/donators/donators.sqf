@@ -181,7 +181,6 @@ Marksman1 = [
 Marksman2 = [
 	"76561198078201908", // Gr8
 	"76561198153784743", // Ghost 
-	"76561198025751324", // Round Metal Box (EXP-2015-12-03) #11913
 	"76561198078967636", // Landon (OD-2015-10-26) #12211 
 	// Add UIDs above, don't forget the comma
 "0"
