@@ -155,5 +155,6 @@ GGNoBuildList = [
 "ibr_lingorman6",
 "ibr_lingorman6s",
 "TK_CIV_Woman02_EP1",
-"Damsel3"
+"Damsel3",
+"Sign_sphere100cm_EP1"
 ];

@@ -135,5 +135,5 @@ GGNoBuildList = [
 "RUS_Soldier2","Drake_Light","GUE_Woodlander3","Soldier_GL_PMC",
 "GUE_Villager3","CIV_EuroWoman01_EP1","Dr_Annie_Baker_EP1","RUS_Commander",
 "Damsel5","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","Ins_Soldier_AR",
-"Ins_Lopotev","Ins_Worker2","Ins_Woodlander3","Dr_Hladik_EP1","pook_Doc_Bell47","Ins_Woodlander2"
+"Ins_Lopotev","Ins_Worker2","Ins_Woodlander3","Dr_Hladik_EP1","pook_Doc_Bell47","Ins_Woodlander2","Sign_sphere100cm_EP1"
 ];

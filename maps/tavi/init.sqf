@@ -149,5 +149,6 @@ GGNoBuildList = [
 "RU_Farmwife5",
 "GUE_Woodlander1",
 "RU_Worker1",
-"GUE_Soldier_2"
+"GUE_Soldier_2",
+"Sign_sphere100cm_EP1"
 ];

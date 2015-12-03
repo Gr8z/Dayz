@@ -2,7 +2,7 @@ private ["_speed","_density","_model","_thePlot","_center","_radius","_angle","_
 //-----------------------------------------------------------------------------------------
 _speed = 4;			// multiplier for speed of sphere rotation/wobble
 _density = 3;		// density of markers per ring
-_model = "Sign_sphere100cm_EP1";	// marker model to use on rings
+_model = "Sign_sphere25cm_EP1";	// marker model to use on rings
 //-----------------------------------------------------------------------------------------
 //
 _thePlot = (nearestObjects [player, ["Plastic_Pole_EP1_DZ"],15]) select 0;
