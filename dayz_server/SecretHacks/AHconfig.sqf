@@ -108,7 +108,7 @@ _blockDamageFrom = [
 
 /*  MouseMoving EH check  */ _MOH =  false;	/* true or false */	/* will say: "MouseMoving EventHandler added" - needs to be disabled for UAV scripts and such.. */
 /*  Close Dialogs ?       */ _CUD =  true;	/* true or false */	/* Closes custom Dialogs (Menus) that are not in _ALLOWED_Dialogs */
-/*  check MapSingleClick  */ _OMC =  true;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
+/*  check MapSingleClick  */ _OMC =  false;	/* true or false */	/* announces: "MapSingleClick modified", if modification is found - NEEDS _MBC to be true! */
 /*  Remove Keybinds ?     */ _RCK =  false;	/* true or false */	/* Removes custom Keybinds and sets back the default ones */
 /*  Check Keybinds ?      */ _CKD =  false;	/* true or false */	/* checks for additional keybinds.. */
 /*  Check CMDMenus ?      */ _CCM =  true;	/* true or false */	/* only disable this if you know what you are doing. I strongly recommend to use this! */
