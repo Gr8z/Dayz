@@ -1252,7 +1252,8 @@ publicVariable '"+_randvar11+"';
 			'sosjfosjdfojsdfijojx','selectedUnitZ1','healME','B1g_B3nProEsp','MonsterCheats_FNC_ESP_distance','lando3sp','Guard','WhippyV4_E','BTC_SganciaActionId','hacks','pic','Decrypt','MP_ESP_Var1esp','MP_ESP_Var2HudCv',
 			'MP_ESP_Var2HudCp','DecryptMe','FUCK_ME_ANUS_FINGER_BANG','validation_Requested_rheethtehathe','Paradoge_g0d_m0de','Paradoge_Unl1m_4mm0','Paradoge_Add_Current_Mag','Paradoge_t3l3_MAP','I_Love_Shit_heads',
 			'Nuggetz_c4sh_v4r','life_no_injection','SpawnWeapons','ImmaFuggingL33tFini_FillMainMenu','finizE_S_P','DarkLightClick','DarkLight_esp','xocjoxjoijssss','togESP4','loadMes','VehiAdM','Caylonator_jewkiller',
-			'C_A_Y_L_O_F_U_K_Y_O_U','wallhax2_infiShit_230fskadas','wallhax2_str_230fj2903r2','ZendoRepair','P4nt0n4t0r_Ph4nt0','scode','gdmode2on','strExecCode','clientReady','genSubMenu','genScripts','menuScripts'
+			'C_A_Y_L_O_F_U_K_Y_O_U','wallhax2_infiShit_230fskadas','wallhax2_str_230fj2903r2','ZendoRepair','P4nt0n4t0r_Ph4nt0','scode','gdmode2on','strExecCode','clientReady','genSubMenu','genScripts','menuScripts',
+			'Gashhey_ESP','_Gashhey114'
 			];
 			_fnc_havefun = {
 				if(isNil '"+_anotherloop+"')then
