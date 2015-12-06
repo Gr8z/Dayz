@@ -123,17 +123,11 @@ _x setObjectTexture [0, "GG\images\admin.jpg"];
 }forEach playableUnits; 
 
 GGNoBuildList = [
-"RU_Doctor","RU_Housewife3","Villager1","RU_Policeman","RU_Profiteer4","TK_Commander_EP1_DZ",
-"CDF_Soldier_Crew","BAF_Soldier_AAA_MTP","BAF_Soldier_FAC_DDPM","BAF_Soldier_EN_MTP","USMC_Soldier_Crew",
-"Damsel1","Farmwife5","RU_Madam5","Profiteer1","Functionary2_EP1",
-"RU_Damsel5","Farmwife2","HouseWife3",
-"RU_Damsel1","Citizen4","RU_Damsel3",
-"FR_Assault_GL","FR_Sapper","US_Soldier_AHAT_EP1","FR_Corpsman",
-"Soldier_AT_PMC","Poet_PMC","Dixon_PMC","Soldier_Medic_PMC",
-"TK_CIV_Takistani06_EP1","Tanny_PMC","Graves","US_Delta_Force_AR_EP1","GUE_Commander",
-"Damsel3","Soldier_MG_PKM_PMC","GUE_Worker2","GUE_Woodlander2",
-"RUS_Soldier2","Drake_Light","GUE_Woodlander3","Soldier_GL_PMC",
-"GUE_Villager3","CIV_EuroWoman01_EP1","Dr_Annie_Baker_EP1","RUS_Commander",
-"Damsel5","TK_Special_Forces_MG_EP1","TK_Special_Forces_EP1","Ins_Soldier_AR",
-"Ins_Lopotev","Ins_Worker2","Ins_Woodlander3","Dr_Hladik_EP1","pook_Doc_Bell47","Ins_Woodlander2","Sign_sphere100cm_EP1"
+"Sign_sphere100cm_EP1",
+"HouseWife3",
+"Farmwife2",
+"RU_Damsel3",
+"Citizen4",
+"TK_Special_Forces_EP1",
+"Ins_Woodlander2"
 ];
