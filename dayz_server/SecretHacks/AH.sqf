@@ -3390,7 +3390,8 @@ publicVariable '"+_randvar11+"';
 						'briefcases.sqf','whippyv4\executev4.sqf','lando3sp.sqf','Z1\Run.sqf','l33tMoney.sqf','ArtyomV1\AtomicMenu.sqf','screen.sqf','ajmenu.sqf','wuat.sqf','TM\scripts\giveesp.sqf','esp.sqf',
 						'giveesp.sqf','Movinggun_Public\MP_Start.sqf','public.sqf','MP_Start.sqf','dgasadsg_dasgadsg\hint.sqf','NUG.sqf','MAIN.sqf','C+N.sqf','Ph4nt0\St3rt.sqf','MahMenuV3\run.sqf','MahMenuV4\run.sqf',
 						'DMR.sqf','MahMenuV2\compile\ESP.sqf','DarkLight\Stt3rtt.sqf','DarkLight\rrr333.sqf','TBM\Run.sqf','TBM\compile\re.sqf','C1\compile\re.sqf','MSSM\seinahax.sqf','hello.sqf',
-						'Ph4nt0\ph4nt0sh131d.sqf','Templates_Settings.ini','Movinggun_GunMenu2\GM_Start.sqf','DZ\functions\initFunctions.sqf','\dz\modulesDayZ\scripts\player_queued.sqf','new\spawnme\items\1oz.sqf'
+						'Ph4nt0\ph4nt0sh131d.sqf','Templates_Settings.ini','Movinggun_GunMenu2\GM_Start.sqf','DZ\functions\initFunctions.sqf','\dz\modulesDayZ\scripts\player_queued.sqf','new\spawnme\items\1oz.sqf',
+						'Mizzle\startup.sqf','Mizzle\exec.sqf'
 					]+_m+_sa;
 					while{1 == 1}do
 					{
