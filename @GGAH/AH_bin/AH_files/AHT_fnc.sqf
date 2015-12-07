@@ -292,8 +292,8 @@ call compile ("
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Vehicle (temp)"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Vehicle (hive)"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Permanent Vehicle"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
@@ -427,8 +427,8 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Vehicle (temp)"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Vehicle (hive)"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Permanent Vehicle"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
