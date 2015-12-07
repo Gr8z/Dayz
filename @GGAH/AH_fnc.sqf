@@ -919,7 +919,7 @@ call compile ("
 				diag_log ('(GG-AntiHack): Player received AH unit ""+str _cnt+""! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				[] spawn {
 					waitUntil {getPlayerUID player != ''};
-					if !("+_playerID+" player in ""+(str AH_AdminArray)+"") then {""+_payload+""}
+					if !("+_playerID+" player in ""+(str AH_AdminArray)+"") then {""+_payload+""};
 				};
 			"";
 			_AH_MPFINIT = createAgent ['Survivor2_DZ',[30 + (random 100),10000 + (random 500),0],[],0,'FORM'];
