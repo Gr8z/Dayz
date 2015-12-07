@@ -1190,7 +1190,6 @@ _AH_CC = compile ("
 		if (!isNull (findDisplay 24)) then {
 			((findDisplay 24) displayCtrl 101) ctrlSetText '';
 			(findDisplay 24) closeDisplay 0;
-			if (_msg in _debug) then fnc_debug_toggle;
 			_this = ['Hack menu','Chat hack'];
 			if (_msg in _badcht) then "+str _AH_KICK+";
 			if (_msg in _repm) then {[] spawn "+_RND+"_pmRE};
