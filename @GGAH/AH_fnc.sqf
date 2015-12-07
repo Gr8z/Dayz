@@ -561,7 +561,7 @@ call compile ("
 						};"},{""}])+(if !(_CMD_DIS) then [{"
 							_this = ['Commanding menu',(str commandingMenu)];
 							if !(commandingMenu in (['','RscMainMenu','RscStatus','RscGroupRootMenu']+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in ['RscMainMenu','RscStatus','RscGroupRootMenu']) then {showCommandingMenu ''}}]
-						}"},{""}])+(if !(_AM_DIS) then [{"
+						};"},{""}])+(if !(_AM_DIS) then [{"
 							if (isNil '"+_randv+"_dzacts') then {
 								{
 									if (isNil _x) then {call compile (_x+' = -1;')};
@@ -578,7 +578,7 @@ call compile ("
 									(cursorTarget) removeAction _i;
 								}
 							}
-						}"},{""}])+"
+						};"},{""}])+"
 						if ((damage(vehicle player)) > 0.98) then {if !(inSafeZone) then [{player action ['EJECT',(vehicle player)];if (r_player_blood > 4000) then {r_player_blood = ((random 4000) max 500)}},{deleteVehicle (vehicle player)}]};
 						if (!deathHandled) then {
 							if (""+str AH_AH_DZE+"" && dayz_clientPreload && dayz_authed) then {
