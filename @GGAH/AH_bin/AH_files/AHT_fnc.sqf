@@ -503,13 +503,7 @@ call compile ("
 				adminadd set [count adminadd,[""      4 to spawn key of cursorTarget(vehicle) "","""",""0"",""1"",""0"",""0"",[]]]};
 				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""Toggleable Scripts "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      ALT + Left Click Teleport"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Toggle Teleport"",admin_teleportToggle,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Toggle player Markers"",admin_playerMarkers,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Toggle Stealth"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Toggle zombie shield"",admin_zedShield,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Targeted Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
