@@ -1,4 +1,4 @@
-[] spawn {[] execVM "\z\addons\dayz_server\SecretHacks\AH.sqf";};
+execVM "\@GGAH\AH_fnc.sqf";
 [] ExecVM "\z\addons\dayz_server\init\removeVehicleAmmo.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
