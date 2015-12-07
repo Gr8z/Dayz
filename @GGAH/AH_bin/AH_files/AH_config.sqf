@@ -509,7 +509,7 @@
 	_escBS		= 0.031;	//esc lower text size
 /**Debug**/
 	_AH_DEBUG 	= false;	//Add debug monitor to server?
-	_DB_TOP		=			//Top of debug. OPTIONAL For pictures use <img image=""DamiMods\Loading\debug.paa""/>
+	_DB_TOP		=			//Top of debug.
 	""; 
 	_DB_TOPSIZE = 3.25;		//TXT/IMG size
 	_DB_BOT 	=			//Text at the bottom of debug. 	OPTIONAL (leave "" if you don't want to add text)!
