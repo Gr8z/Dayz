@@ -1,19 +1,7 @@
 if (isServer) then {
-
-
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\bandit.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\bilgrad.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\branibor.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\hero.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\lyepestok.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\miscvendors.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\sabina.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\wholesalers.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\farms.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\bankinit.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\sabinatunnelblock.sqf";
-  call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\debug.sqf";
-
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\Taviana.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\bankinit.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Taviana\sabinatunnelblock.sqf";
 };
 
 /*---------------------------------------------------------------------------

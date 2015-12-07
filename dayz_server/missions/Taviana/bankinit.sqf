@@ -1,6 +1,3 @@
-
-call compile preProcessFileLineNumbers  "\z\addons\dayz_server\missions\Taviana\banks.sqf";
-
 "PVDZE_bank_Save" addPublicVariableEventHandler {
 _playerObj = ((_this select 1) select 0);
 _playerID = getPlayerUID _playerObj;
