@@ -4817,9 +4817,9 @@ systemChat (""""Hello!"""");
 						['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>Players within 300m: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str _nrplyr+'</t>',safezoneX+0.2,safezoneY+0.75,4,0,0,3036] spawn AH_fnc_dynamictext;
 						['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>speed: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str _speedzr+'</t>',safezoneX+0.2,safezoneY+0.8,4,0,0,3037] spawn AH_fnc_dynamictext;
 						['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>GPS POS: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+_GPSpos+'</t>',safezoneX+0.2,safezoneY+0.85,4,0,0,3038] spawn AH_fnc_dynamictext;
-						if (admin_AHactiveTarget getVariable ['bankMoney',97532468] != 97532468) then {
-							['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>Cash: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str(admin_AHactiveTarget getVariable ['cashMoney',0])+'</t>',safezoneX+0.2,safezoneY+0.90,4,0,0,3039] spawn AH_fnc_dynamictext;
-							['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>Bank: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str(admin_AHactiveTarget getVariable ['bankMoney',0])+'</t>',safezoneX+0.2,safezoneY+0.95,4,0,0,3040] spawn AH_fnc_dynamictext;
+						if (admin_AHactiveTarget getVariable ['GGBank',97532468] != 97532468) then {
+							['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>Cash: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str(admin_AHactiveTarget getVariable ['GGCoins',0])+'</t>',safezoneX+0.2,safezoneY+0.90,4,0,0,3039] spawn AH_fnc_dynamictext;
+							['<t size=''0.45''color=''#FF3300''font=''Zeppelin33''align=''left''>Bank: </t> <t size=''0.55''color=''#ffffff''font=''Zeppelin33''align=''left''>'+str(admin_AHactiveTarget getVariable ['GGBank',0])+'</t>',safezoneX+0.2,safezoneY+0.95,4,0,0,3040] spawn AH_fnc_dynamictext;
 						};
 						sleep 1;
 					};
@@ -6383,9 +6383,9 @@ systemChat (""""Hello!"""");
 					if !(isNull _plyr) then {
 						_text = _text + '<t color=''#FF3300''>Name</t>: '+_name+'<br/>';
 						_text = _text + '<t color=''#FF3300''>Blood</t>: '+str (_plyr getVariable['USEC_BloodQty','Not yet synced'])+'<br/>';
-						_text = _text + '<t color=''#FF3300''>Humanity</t>: '+str (_plyr getVariable['humanity',0])+'<br/>';if (_plyr getVariable ['bankMoney',97532468] != 97532468) then {
-						_text = _text + '<t color=''#FF3300''>Cash</t>: '+str(_plyr getVariable ['cashMoney',0])+'<br/>';
-						_text = _text + '<t color=''#FF3300''>Bank</t>: '+str(_plyr getVariable ['bankMoney',0])+'<br/>';};
+						_text = _text + '<t color=''#FF3300''>Humanity</t>: '+str (_plyr getVariable['humanity',0])+'<br/>';if (_plyr getVariable ['GGBank',97532468] != 97532468) then {
+						_text = _text + '<t color=''#FF3300''>Cash</t>: '+str(_plyr getVariable ['GGCoins',0])+'<br/>';
+						_text = _text + '<t color=''#FF3300''>Bank</t>: '+str(_plyr getVariable ['GGBank',0])+'<br/>';};
 						_nrplyr = ({isPlayer _x} count (getPosATL (vehicle _plyr) nearentities [['CAManBase'],300])) - 1;
 						if (_plyr != vehicle _plyr) then {
 							_crew = '<br/>';

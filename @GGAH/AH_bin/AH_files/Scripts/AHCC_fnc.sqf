@@ -629,7 +629,7 @@ _AH_CC = compile ("
 				[objNull,player,rSwitchMove,''] call RE;
 				3 fadeSound 1;
 				player setVariable ['Humanity',_oldHumani,true];
-				player setVariable ['cashMoney',_oldCashmo,true];
+				player setVariable ['GGCoins',_oldCashmo,true];
 				PVDZE_plr_Save = [player,(magazines player),true,true];
 				publicVariableServer 'PVDZE_plr_Save';
 				
@@ -781,11 +781,11 @@ _AH_CC = compile ("
 			_gear = [_inventory,_backpack,_backpackm,_backpackmq,_backpackw,_backpackwq];
 			
 			_humanity = player getVariable ['Humanity',0];
-			_cashmoney = player getVariable ['cashMoney',0];
+			_cashmoney = player getVariable ['GGCoins',0];
 			_pos = (vehicle player) call AH_fnc_getPos;
 			"+_RND+"_StoreGear = [player,_gear,_pos,'save',_cashmoney,typeOf player,_humanity];
 			publicVariableServer '"+_RND+"_StoreGear';
-			player setVariable ['cashMoney',0];
+			player setVariable ['GGCoins',0];
 			
 			_msg = 'Listen to your admins during this event, otherwise you will receive a ban!';
 			systemChat ('"+_AH_CHAT+": ' + str _msg);systemChat ('"+_AH_CHAT+": ' + str _msg);

@@ -42,7 +42,7 @@ AH_CUSTOM = {
 					_dothis = format ['
 						if (name player == ''%1'') then {
 							[] spawn {
-								player setVariable ["cashMoney",(player getVariable["cashMoney",0])+ %3,true];
+								player setVariable ["GGCoins",(player getVariable["GGCoins",0])+ %3,true];
 								uiSleep 1;
 								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
 							};
@@ -79,7 +79,7 @@ AH_CUSTOM = {
 					_dothis = format ['
 						if (name player == ''%1'') then {
 							[] spawn {
-								player setVariable ["bankMoney",(player getVariable["bankMoney",0])+ %3,true];
+								player setVariable ["GGBank",(player getVariable["GGBank",0])+ %3,true];
 								uiSleep 1;
 								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
 								PVDZE_bank_Save = [player];publicVariableServer "PVDZE_bank_Save";
