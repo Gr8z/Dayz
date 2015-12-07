@@ -427,12 +427,17 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Vehicle (temp)"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Vehicle (hive)"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Toggleable Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      ALT + Left Click Teleport"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""_________________________________________________________"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Toggle Teleport"",admin_teleportToggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Toggle God"",admin_godmodeToggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Toggle ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Toggle player Markers"",admin_playerMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Toggle AI Markers"",admin_aiMarkers,""1"",""0"",""0"",""0"",[]]];
 				if (AM_EPOCH) then {
