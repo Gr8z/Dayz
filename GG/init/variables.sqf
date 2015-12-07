@@ -945,14 +945,4 @@ if(!isDedicated) then {
 	
 	GGEARPLUGS = false;
 };
-AllPlayers set [count AllPlayers, "Bandit1_DZ",
-					"Bandit2_DZ",
-					"BanditW1_DZ",
-					"BanditW2_DZ",
-					"Survivor2_DZ",
-					"SurvivorW2_DZ",
-					"Sniper1_DZ",
-					"Camo1_DZ",
-					"Soldier1_DZ",
-					"Rocket_DZ"
-				];
+{AllPlayers set [count AllPlayers, _x]} forEach ["Bandit1_DZ","Bandit2_DZ","BanditW1_DZ","BanditW2_DZ","Survivor2_DZ","SurvivorW2_DZ","Sniper1_DZ","Camo1_DZ","Soldier1_DZ","Rocket_DZ"];
