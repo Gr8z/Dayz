@@ -560,7 +560,7 @@ call compile ("
 							diag_log ('(ArmA-AntiHack): Thread 1 loop file scan complete. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 						};"},{""}])+(if !(_CMD_DIS) then [{"
 							_this = ['Commanding menu',(str commandingMenu)];
-							if !(commandingMenu in (['','RscMainMenu','RscStatus','RscGroupRootMenu']+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in ['RscMainMenu','RscStatus','RscGroupRootMenu']) then {showCommandingMenu ''}}]
+							if !(commandingMenu in (['','RscMainMenu','RscStatus','RscGroupRootMenu']+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in ['RscMainMenu','RscStatus','RscGroupRootMenu']) then {showCommandingMenu ''}}];
 						"},{""}])+(if !(_AM_DIS) then [{"
 							if (isNil '"+_randv+"_dzacts') then {
 								{
@@ -577,7 +577,7 @@ call compile ("
 									(vehicle player) removeAction _i;
 									(cursorTarget) removeAction _i;
 								}
-							}
+							};
 						"},{""}])+"
 						if ((damage(vehicle player)) > 0.98) then {if !(inSafeZone) then [{player action ['EJECT',(vehicle player)];if (r_player_blood > 4000) then {r_player_blood = ((random 4000) max 500)}},{deleteVehicle (vehicle player)}]};
 						if (!deathHandled) then {
