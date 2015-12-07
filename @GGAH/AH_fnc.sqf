@@ -1,10 +1,10 @@
 _AH_scrhndlr = [];
-diag_log ("(GG-AntiHack): Loading settings...");
+diag_log ("(ArmA-AntiHack): Loading settings...");
 
-#include "\@GGAH\AH_bin\AH_files\AH_config.sqf";
-diag_log ("(GG-AntiHack): Settings loaded.");
+#include "\@DamiMods\AH_bin\AH_files\AH_config.sqf";
+diag_log ("(ArmA-AntiHack): Settings loaded.");
 waitUntil {!isNil "BIS_fnc_init"};
-diag_log ("(GG-AntiHack): Compiling anti-hack...");
+diag_log ("(ArmA-AntiHack): Compiling anti-hack...");
 
 _BIS_MPF_RES = {
 	_MPF 	= compile preprocessFile ('\ca\Modules\MP\data\scripts\remExServer.sqf');
@@ -170,14 +170,14 @@ call compile ("
 			};
 		};
 	};
-	diag_log ('(GG-AntiHack): (1/2) Server AH framework loading...');
+	diag_log ('(ArmA-AntiHack): (1/2) Server AH framework loading...');
 	[] spawn {
 		if ("+str _SVR_FW+") then {
 			dayzSetFogAH 			= "+str _SVR_FOG+";
 			dayzSetRainAH 			= "+str _SVR_RAIN+";
 			dayzSetOvercastAH 		= "+str _SVR_OVC+";
 			dayzSetViewDistanceAH 	= "+str _SVR_VDIS+";
-			diag_log format ['(GG-AntiHack): Weather set! FOG: %4 RAIN:%3 OVERCAST: %2 VIEW DISTANCE: %1',dayzSetViewDistanceAH,dayzSetOvercastAH,dayzSetRainAH,dayzSetFogAH];
+			diag_log format ['(ArmA-AntiHack): Weather set! FOG: %4 RAIN:%3 OVERCAST: %2 VIEW DISTANCE: %1',dayzSetViewDistanceAH,dayzSetOvercastAH,dayzSetRainAH,dayzSetFogAH];
 			publicVariable 'dayzSetFogAH';
 			publicVariable 'dayzSetRainAH';
 			publicVariable 'dayzSetOvercastAH';
@@ -186,7 +186,7 @@ call compile ("
 			0 setRain dayzSetRainAH;
 			0 setOvercast dayzSetOvercastAH;
 			setViewDistance dayzSetViewDistanceAH;
-			diag_log ('(GG-AntiHack): Global weather settings applied.');
+			diag_log ('(ArmA-AntiHack): Global weather settings applied.');
 		};
 		
 		'dayzSetDateAH' addPublicVariableEventHandler {server_timeSync = {};setDate dayzSetDateAH};
@@ -245,9 +245,9 @@ call compile ("
 		processInitCommands;
 		
 		_AH_GB_ARR = [(""
-			diag_log ('(GG-AntiHack): Loading AH login..');
+			diag_log ('(ArmA-AntiHack): Loading AH login..');
 			waitUntil {((!isNil 'dayz_medicalH') || (!isNil 'dayz_gui') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_monitor1'))};
-			diag_log ('(GG-AntiHack): Spawn detected! Using default login... '+str time);
+			diag_log ('(ArmA-AntiHack): Spawn detected! Using default login... '+str time);
 			AM_EPOCH = if (""+str AH_AH_DZE+"") then [{TRUE},{FALSE}];
 			_cuid = ("+_playerID+" player);
 			_luid = (profileNamespace getVariable ['AH_PUID','notsaved']);
@@ -295,17 +295,17 @@ call compile ("
 				};
 			};
 			'PVOZ_coloredbros' addPublicVariableEventHandler AH_colorskins;
-			diag_log ('(GG-AntiHack): Logged in! '+str time);
+			diag_log ('(ArmA-AntiHack): Logged in! '+str time);
 			'PVDZE_plr_SetDate' addPublicVariableEventHandler {
 				if (""+str AH_SVR_FW+"") then {
 					if (isNil 'stopsyncingme') then {
 						stopsyncingme = true;
 						setDate (_this select 1);
-						diag_log ('(GG-AntiHack): Server setDate '+str _this+'. No longer updating time. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+						diag_log ('(ArmA-AntiHack): Server setDate '+str _this+'. No longer updating time. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 					};
 				} else {
 					setDate (_this select 1);
-					diag_log ('(GG-AntiHack): Server setDate '+str _this+'. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+					diag_log ('(ArmA-AntiHack): Server setDate '+str _this+'. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				};
 			};
 			"+(if (_SVR_FW) then [{"
@@ -331,7 +331,7 @@ call compile ("
 			if ("+_playerID+" player in ""+(str AH_AdminArray)+"") then {
 				_msg = ('Welcome, [ADMIN] '+name player+'!');
 				systemChat ('"+_AH_CHAT+": '+str _msg);
-				diag_log ('(GG-AntiHack): LOGGED IN AS ADMIN. '+str time);
+				diag_log ('(ArmA-AntiHack): LOGGED IN AS ADMIN. '+str time);
 				
 				call compile ('loadFile '+str 'anti-hack loaded. Welcome, admin! Errors'+';');
 				'"+_AdminTool+"_AHALERTS' addPublicVariableEventHandler {
@@ -348,13 +348,13 @@ call compile ("
 				_msg = 'Loading admin tool...';
 				systemChat ('"+_AH_CHAT+": '+str _msg);
 				
-				diag_log ('(GG-AntiHack): Requesting admin tool... '+str time);
+				diag_log ('(ArmA-AntiHack): Requesting admin tool... '+str time);
 				"+_RND+"_RequestAHT = [player,name player];
 				publicVariableServer '"+_RND+"_RequestAHT';
 				waitUntil {(!isNil '"+_AdminTool+"_AHT')};
-				diag_log ('(GG-AntiHack): Admin tool received! '+str time);
+				diag_log ('(ArmA-AntiHack): Admin tool received! '+str time);
 				[] spawn "+_AdminTool+"_AHT;
-				diag_log ('(GG-AntiHack): Admin tool spawned ! '+str time);
+				diag_log ('(ArmA-AntiHack): Admin tool spawned ! '+str time);
 				
 				_msg = 'Admin tool loaded!';
 				systemChat ('"+_AH_CHAT+": '+str _msg);
@@ -375,26 +375,26 @@ call compile ("
 					[] spawn AH_CUSTOM;
 				};
 			} else {
-				diag_log ('(GG-AntiHack): Logged in as player! '+str time);
+				diag_log ('(ArmA-AntiHack): Logged in as player! '+str time);
 				_msg = 'Welcome, '+name player+'!';
 				_msg call AH_fnc_dynTextMsg;
 				systemChat ('"+_AH_CHAT+": '+str _msg);
 			};
 			"+(if (_AH_SCRH) then [{"
-				diag_log ('(GG-AntiHack): Script handler loading... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Script handler loading... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				_AH_scripthandler = ""+str AH_AH_scrhndlr+"";
 				_cntL = 0;
 				_cntS = (count _AH_scripthandler);
 				{
 					[] spawn _x;
 					_cntL = _cntL + 1;
-					diag_log ('(GG-AntiHack): Script handler loaded script '+str _cntL+' out of '+str _cntS+'! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+					diag_log ('(ArmA-AntiHack): Script handler loaded script '+str _cntL+' out of '+str _cntS+'! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				} forEach _AH_scripthandler;
-				diag_log ('(GG-AntiHack): Script handler is finished! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Script handler is finished! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 			"},{""}])+"
 		""),(""
 			"+_RNNND+"_THREAD1 = [] spawn {
-				diag_log ('(GG-AntiHack): Thread 1 started, waiting for login... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Thread 1 started, waiting for login... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				waitUntil {((!isNil 'dayz_medicalH') || (!isNil 'dayz_gui') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_monitor1'))};
 				disableSerialization;
 				_RE = compile preprocessFile ('\ca\Modules\MP\data\scripts\remExWrite.sqf');
@@ -550,18 +550,18 @@ call compile ("
 						"+(
 						if (!_BAD_FILE_DIS) then [{"
 						if (time - "+_randv+"_flchk1 >= 1800) then {
-							diag_log ('(GG-AntiHack): Thread 1 loop file scan starting... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+							diag_log ('(ArmA-AntiHack): Thread 1 loop file scan starting... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 							"+_randv+"_flchk1 = time;
 							{
 								_loadfile = call compile ('loadFile '+str(_x)+';');
 								_this = ['Hack File',_x];
 								if (_loadfile != '') then ""+str AH_AH_KICK+"";
 							} forEach (""+(str AH_BAD_FILE)+"");
-							diag_log ('(GG-AntiHack): Thread 1 loop file scan complete. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+							diag_log ('(ArmA-AntiHack): Thread 1 loop file scan complete. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 						};"},{""}])+(if !(_CMD_DIS) then [{"
 							_this = ['Commanding menu',(str commandingMenu)];
 							if !(commandingMenu in (['','RscMainMenu','RscStatus','RscGroupRootMenu']+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in ['RscMainMenu','RscStatus','RscGroupRootMenu']) then {showCommandingMenu ''}}]
-						};"},{""}])+(if !(_AM_DIS) then [{"
+						"},{""}])+(if !(_AM_DIS) then [{"
 							if (isNil '"+_randv+"_dzacts') then {
 								{
 									if (isNil _x) then {call compile (_x+' = -1;')};
@@ -578,7 +578,7 @@ call compile ("
 									(cursorTarget) removeAction _i;
 								}
 							}
-						};"},{""}])+"
+						"},{""}])+"
 						if ((damage(vehicle player)) > 0.98) then {if !(inSafeZone) then [{player action ['EJECT',(vehicle player)];if (r_player_blood > 4000) then {r_player_blood = ((random 4000) max 500)}},{deleteVehicle (vehicle player)}]};
 						if (!deathHandled) then {
 							if (""+str AH_AH_DZE+"" && dayz_clientPreload && dayz_authed) then {
@@ -794,14 +794,14 @@ call compile ("
 						};
 					};
 					uiSleep 1;
-					diag_log ('(GG-AntiHack): Thread 1 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+					diag_log ('(ArmA-AntiHack): Thread 1 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				};
 			};
 		"")];
 		_AH_PL_ARR = [(""
 			{if (_x in ['allUnits','allGroups','entities','vehicles','playableUnits']) then [{call compile (_x+'=[player]')},{call compile (_x+'={}')}]} forEach ""+str AH_UN_FNC+"";
 			"+_RNNND+"_THREAD2 = [] spawn {
-				diag_log ('(GG-AntiHack): Thread 2 started, waiting for login... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Thread 2 started, waiting for login... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				"+(if (_AH_ATP) then [{"
 					waitUntil {((!isNil 'dayz_medicalH') || (!isNil 'dayz_gui') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_monitor1'))};
 					_debugPos = getMarkerpos 'respawn_west';
@@ -877,7 +877,7 @@ call compile ("
 							publicVariableServer '"+_AdminReport+"';
 							(findDisplay 46) closeDisplay 0;
 						};
-						diag_log ('(GG-AntiHack): Thread 2 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+						diag_log ('(ArmA-AntiHack): Thread 2 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 					};
 				"},{""}])+"
 			};
@@ -894,7 +894,7 @@ call compile ("
 				this enableSimulation false;
 				this allowDamage false;
 				if (!hasInterface) exitWith {};
-				diag_log ('(GG-AntiHack): Player received AH unit ""+str _cnt+""! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Player received AH unit ""+str _cnt+""! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				[] spawn {
 					waitUntil {getPlayerUID player != ''};
 					""+_payload+""
@@ -903,7 +903,7 @@ call compile ("
 			_AH_MPFINIT = createAgent ['Survivor2_DZ',[30 + (random 100),10000 + (random 500),0],[],0,'FORM'];
 			_AH_MPFINIT setVehicleInit _AH_PAYLOAD;
 			processInitCommands;
-			diag_log ('(GG-AntiHack): AH init unit created... ('+str _cnt+')');
+			diag_log ('(ArmA-AntiHack): AH init unit created... ('+str _cnt+')');
 		} forEach _AH_GB_ARR;
 		{
 			_cnt = _cnt + 1;
@@ -916,18 +916,18 @@ call compile ("
 				this enableSimulation false;
 				this allowDamage false;
 				if (!hasInterface) exitWith {};
-				diag_log ('(GG-AntiHack): Player received AH unit ""+str _cnt+""! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+				diag_log ('(ArmA-AntiHack): Player received AH unit ""+str _cnt+""! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				[] spawn {
 					waitUntil {getPlayerUID player != ''};
-					if !("+_playerID+" player in ""+(str AH_AdminArray)+"") then {""+_payload+""};
+					if !("+_playerID+" player in ""+(str AH_AdminArray)+"") then {""+_payload+""}
 				};
 			"";
 			_AH_MPFINIT = createAgent ['Survivor2_DZ',[30 + (random 100),10000 + (random 500),0],[],0,'FORM'];
 			_AH_MPFINIT setVehicleInit _AH_PAYLOAD;
 			processInitCommands;
-			diag_log ('(GG-AntiHack): AH init unit created... ('+str _cnt+')');
+			diag_log ('(ArmA-AntiHack): AH init unit created... ('+str _cnt+')');
 		} forEach _AH_PL_ARR;
-		diag_log ('(GG-AntiHack): All AH init units created, total: ('+str _cnt+')');
+		diag_log ('(ArmA-AntiHack): All AH init units created, total: ('+str _cnt+')');
 		
 		_fmlist = [];
 		{if ((typeOF _x) == 'FunctionsManager') then [{_x setPos [floor(random 9999),floor(random 9999),1000000000];_fmlist set [count _fmlist,_x]},{deleteVehicle _x}]} forEach (entities 'Logic');
@@ -956,7 +956,7 @@ call compile ("
 		"+_Player_LOGIN+"_unit1 = objNull;
 		"},{""}])+"
 		while {100 == 100} do {
-			diag_log ('(GG-AntiHack): AH_PERF PLAYERS: '+(str (count playableUnits))+' UNITS: '+(str (count allUnits))+' OBJECTS: '+(str (count (allMissionObjects '')))+' FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
+			diag_log ('(ArmA-AntiHack): AH_PERF PLAYERS: '+(str (count playableUnits))+' UNITS: '+(str (count allUnits))+' OBJECTS: '+(str (count (allMissionObjects '')))+' FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 			"+(if (_AH_TERCHK) then [{"
 			if !(isNull "+_Player_LOGIN+"_unit1) then {clearVehicleInit "+_Player_LOGIN+"_unit1;deleteVehicle "+_Player_LOGIN+"_unit1};
 			_AH_UNIT = createAgent ['Survivor2_DZ',[30 + (random 100),10000 + (random 500),0],[],0,'FORM'];
@@ -1047,10 +1047,10 @@ call compile ("
 			uiSleep 10;
 		};
 	};
-	diag_log ('(GG-AntiHack): (1/2) Server AH framework loaded!');
+	diag_log ('(ArmA-AntiHack): (1/2) Server AH framework loaded!');
 ");
 call compile ("
-	diag_log ('(GG-AntiHack): (2/2) Anti-hack PVEHs loading...');
+	diag_log ('(ArmA-AntiHack): (2/2) Anti-hack PVEHs loading...');
 	if ("+str _OD_DPLY+") then {
 		""PVOZ_OBJ_DEPLOY"" addPublicVariableEventHandler {
 			_array = _this select 1;
@@ -1121,11 +1121,11 @@ call compile ("
 		_array 		= _this select 1;
 		_playerObj 	= _array select 0;
 		_namePLR 	= _array select 1;
-		diag_log format ['(GG-AntiHack): Spawning admin tool on %1...',_namePLR];
+		diag_log format ['(ArmA-AntiHack): Spawning admin tool on %1...',_namePLR];
 		if ("+_playerID+" _playerOBJ in "+str _AdminArray+") then {
 			(owner _playerObj) publicVariableClient '"+_AdminTool+"_AHT';
 			if !(isNil 'AH_CUSTOM') then {(owner _playerObj) publicVariableClient 'AH_CUSTOM'};
-			diag_log format ['(GG-AntiHack): Admin tool spawned on %1!',_namePLR];
+			diag_log format ['(ArmA-AntiHack): Admin tool spawned on %1!',_namePLR];
 		};
 	};
 	"+_AdminReport+"_PVEH = {
@@ -1230,10 +1230,10 @@ call compile ("
 		};
 	};
 	'"+_AdminReport+"' addPublicVariableEventHandler "+_AdminReport+"_PVEH;
-	diag_log ('(GG-AntiHack): (2/4) Anti-hack PVEHs loaded!');
+	diag_log ('(ArmA-AntiHack): (2/2) Anti-hack PVEHs loaded!');
 ");
 
-diag_log ("(GG-AntiHack): Anti-hack compiled!");
+diag_log ("(ArmA-AntiHack): Anti-hack compiled!");
 _badGFNC = [
 	"rcallVarcode","markerColor","markerBrush",
 	"createTeam","addTeamMember","removeTeamMember",
@@ -1244,5 +1244,5 @@ markerText = {};
 loadFile = {};
 {call compile (_x+' = {};publicVariable "'+_x+'";')} forEach _badGFNC;
 
-diag_log format ["(GG-AntiHack): Disabled bad fncs: %1",_badGFNC];
-diag_log ("(GG-AntiHack): Successfully loaded.");
+diag_log format ["(ArmA-AntiHack): Disabled bad fncs: %1",_badGFNC];
+diag_log ("(ArmA-AntiHack): Successfully loaded.");
