@@ -702,3 +702,369 @@ class Life_RscToolbox {
 	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 0.8)";
 };
 
+class AH_RSC_AHT {
+	idd = 3030;
+	movingEnable = 1;
+	moving = 1;
+	enableSimulation = 0;
+	onload = "";
+	onunload = "";
+	class controlsBackground {
+		class Menu_titlebarBG: RscPicture {
+			idc = 1200;
+			text = "DamiMods\GUI\background_ca.paa";
+			x = "0.235 * safezoneW + safezoneX";
+			y = "safezoneY + 0.025";
+			w = "0.529 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.1,0.1,0.9};
+		};
+		class Menu_MBoxBG : RscText {
+			idc = 1000;
+			type = 0;
+			text = "";
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 0.75";
+			w = "0.3";
+			h = "safezoneH - 0.93";
+			colorBackground[] = {0.3,0,0,0.5};
+		};
+		class Menu_TBoxBG : RscText {
+			idc = 1001;
+			type = 0;
+			text = "";
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 0.07";
+			w = "0.3";
+			h = "safezoneH - 1.143";
+			colorBackground[] = {0, 0, 0, 0.5};
+		};
+		class Menu_BBox : RscText {
+			idc = 1002;
+			type = 0;
+			text = "";
+			x = "0.2365 * safezoneW + safezoneX + 0.9774245";
+			y = "safezoneY + 1.65";
+			w = "0.301";
+			h = "safezoneH - 1.68";
+			colorBackground[] = {0, 0, 0, 0.5};
+		};
+		class Menu_titlebar: RscText {
+			moving = 1;
+			idc = 1004;
+			type = 0;
+			text = "Title";
+			font = "TahomaB";
+			x = "0.235 * safezoneW + safezoneX";
+			y = "safezoneY + 0.025";
+			w = "0.529 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,1,1,0.8};
+			colorBackground[] = {-1,-1,-1,-1};
+		};
+		class MainTreeBG : RscText {
+			idc = 1005;
+			type = 0;
+			text = "";
+			x = "0.235 * safezoneW + safezoneX";
+			y = "safezoneY + 0.07";
+			w = "0.3";
+			h = "safezoneH - 0.07 - 0.03";
+			colorBackground[] = {0, 0, 0, 0.5};
+		};
+		class MainListBG : RscText {
+			idc = 1006;
+			type = 0;
+			text = "";
+			x = "0.237 * safezoneW + safezoneX + 0.3";
+			y = "safezoneY + 0.07";
+			w = "safezoneWAbs - 1.75";
+			h = "safezoneH - 0.07 - 0.03";
+			colorBackground[] = {0, 0, 0, 0.8};
+		};
+	};
+	class Controls {
+		class Menu_TboxHolder: RscControlsGroup {
+			idc = 100301;
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 0.07";
+			w = "0.3";
+			h = "safezoneH - 1.143";
+			sizeEx = 0.023;
+			colorText[] = {1,1,1,1};
+			colorBackground[] = {-1,-1,-1,-1};
+			class Controls {
+				class Menu_TBox : RscStructuredText {
+					idc = 1003;
+					text = "";
+					x = "0";
+					y = "0";
+					w = "0.29";
+					h = "1";
+				};
+			};
+		};
+		class MainTree {
+			style = 0;
+			maxHistoryDelay = 0;
+			idc = 1;
+			type = 5;
+			x = "0.235 * safezoneW + safezoneX";
+			y = "safezoneY + 0.07";
+			w = "0.3";
+			h = "safezoneH - 0.07 - 0.03";
+			font = "Zeppelin32";
+			sizeEx = 0.023;
+			text = "";
+			rowHeight = 0;
+			color[] = {0.95, 0.95, 0.95, 0.5};
+			colorText[] = {0.95, 0.95, 0.95, 1};
+			colorScrollbar[] = {0.8, 0.3, 0.3, 1};
+			colorSelect[] = {0, 0, 0, 1};
+			colorSelect2[] = {0, 0, 0, 1};
+			colorSelectBackground[] = {0.7, 0.7, 0.7, 1};
+			colorSelectBackground2[] = {0.7, 0.7, 0.7, 1};
+			colorDisabled[] = {0.8, 0.3, 0.3, 0.75};
+			period = 0;
+			colorBackground[] = {0, 0, 0, 0.5};
+			soundSelect[] = {"", 0.1, 1};
+			onLBSelChanged = "";
+			onLBDblClick = ";";
+			onMouseButtonDown = "";
+			onKeyDown = "";
+			class ScrollBar {
+				color[] = {0.8, 0.3, 0.3, 1};
+				colorActive[] = {1, 1, 1, 1};
+				colorDisabled[] = {1, 1, 1, 1};
+				thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+				arrowEmpty = "\ca\ui\data\ui_arrow_left_ca.paa";
+				arrowFull = "\ca\ui\data\ui_arrow_left_active_ca.paa";
+				border = "\ca\ui\data\ui_border_frame_ca.paa";
+			};
+			class ListScrollBar: ScrollBar {};
+			autoScrollRewind = 0;
+			autoScrollDelay = 0;
+			autoScrollSpeed = 0;
+			shadow = 0;
+		};
+		class MainList : MainTree {
+			color[] = {0.8, 0.3, 0.3, 0.5};
+			colorActive[] = {0.8, 0.3, 0.3, 0.5};
+			colorDisabled[] = {0.8, 0.3, 0.3, 0.5};
+			colorBackground[] = {0, 0, 0, 0.8};
+			idc = 2;
+			x = "0.237 * safezoneW + safezoneX + 0.3";
+			y = "safezoneY + 0.07";
+			w = "safezoneWAbs - 1.75";
+			h = "safezoneH - 0.07 - 0.03";
+			onLBSelChanged = "";
+			onLBDblClick = "";
+			onMouseButtonDown = "";
+			onKeyDown = "";
+			shadow = false;
+		};
+		class Menu_MBox : RscEdit {
+			idc = 4;
+			style = "0x00 + 0x10";
+			linespacing = 1;
+			text = "";
+			font = "EtelkaMonospaceProBold";
+			htmlControl = true;
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 0.75";
+			w = "0.3";
+			h = "safezoneH - 0.93";
+			colorText[] = {1,0.8,0.8,1};
+			colorBackground[] = {0,0,0,0};
+		};
+		class Menu_btnTTL: RscButton {
+			idc = 781;
+			text = "Run target";
+			font = "Zeppelin32";
+			onButtonClick = "[format ['if (name player == ''%1'') then {'+(ctrlText (((ctrlParent (_this select 0)) displayCtrl 4)))+'};',(lbtext [1,(lbCurSel 1)])]] spawn admin_dothis;";
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 1.655";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnTTR: RscButton {
+			idc = 782;
+			text = "Clear text";
+			font = "Zeppelin32";
+			onButtonClick = "((ctrlParent (_this select 0)) displayCtrl 4) ctrlSetText ''";
+			x = "0.237 * safezoneW + safezoneX + 1.13";
+			y = "safezoneY + 1.655";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnTL: RscButton {
+			idc = 891;
+			text = "Run local";
+			font = "Zeppelin32";
+			onButtonClick = "call compile (ctrlText (((ctrlParent (_this select 0)) displayCtrl 4)));";
+			x = "0.237 * safezoneW + safezoneX + 1.13";
+			y = "safezoneY + 1.7";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnTR: RscButton {
+			idc = 892;
+			text = "Run global";
+			font = "Zeppelin32";
+			onButtonClick = "[ctrlText (((ctrlParent (_this select 0)) displayCtrl 4))] spawn admin_dothis;";
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 1.7";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnBL: RscButton {
+			idc = 981;
+			text = "MSG server";
+			font = "Zeppelin32";
+			onButtonClick = "ctrlText (((ctrlParent (_this select 0)) displayCtrl 4)) spawn msg_all;";
+			x = "0.237 * safezoneW + safezoneX + 0.978";
+			y = "safezoneY + 1.745";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnBR: RscButton {
+			idc = 982;
+			text = "MSG target";
+			font = "Zeppelin32";
+			onButtonClick = "ctrlText (((ctrlParent (_this select 0)) displayCtrl 4)) spawn msg_player";
+			x = "0.237 * safezoneW + safezoneX + 1.13";
+			y = "safezoneY + 1.745";
+			w = "0.06 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class Menu_btnDisc: RscButton {
+			idc = 990;
+			text = "Disconnect";
+			font = "Zeppelin32";
+			onButtonClick = "endMission 'loser'";
+			x = "0.712 * safezoneW + safezoneX";
+			y = "safezoneY + 0.025";
+			w = "0.052 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.23,0,1};
+			colorDisabled[] = {1,0.1,0.1,0};
+			colorBackground[] = {1,0.1,0.1,0};
+			colorBackgroundDisabled[] = {0,0,0,0};
+			colorBackgroundActive[] = {1,0.1,0.1,1};
+			colorFocused[] = {0.75,0.75,0.75,.5};
+			colorShadow[] = {0,0,0,0};
+			colorBorder[] = {0,0,0,0};
+		};
+	};
+};
+class AH_RSC_TXT {
+	idd = 71069;
+	movingEnable = true;
+	moving = 1;
+	onLoad = "";
+	onUnload = "";
+	class controlsBackground {
+		class TXT_titlebg: RscPicture {
+			idc = 1200;
+			text = "DamiMods\GUI\background_ca.paa";
+			x = "0.376256 * safezoneW + safezoneX";
+			y = "0.444978 * safezoneH + safezoneY";
+			w = "0.237177 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.1,0.1,0.9};
+		};
+		class TXT_title: RscText {
+			idc = 1000;
+			type = 0;
+			text = "Title";
+			font = "TahomaB";
+			moving = 1;
+			x = "0.376256 * safezoneW + safezoneX";
+			y = "0.444978 * safezoneH + safezoneY";
+			w = "0.237177 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,1,1,0.8};
+			colorBackground[] = {-1,-1,-1,-1};
+		};
+		class TXT_mainbg: RscText {
+			idc = 1001;
+			text = "";
+			type = 0;
+			x = "0.376256 * safezoneW + safezoneX";
+			y = "0.466986 * safezoneH + safezoneY";
+			w = "0.237177 * safezoneW";
+			h = "0.0880359 * safezoneH";
+			colorBackground[] = {0,0,0,0.5};
+		};
+		class TXT_editTitle: RscText {
+			idc = 1002;
+			text = "Text:";
+			font = "Zeppelin32";
+			x = "0.381412 * safezoneW + safezoneX";
+			y = "0.466986 * safezoneH + safezoneY";
+			w = "0.232021 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0.8,0.8,0.9};
+		};
+		class TXT_editboxbg: RscText {
+			text = "";
+			idc = 1003;
+			x = "0.386568 * safezoneW + safezoneX";
+			y = "0.488995 * safezoneH + safezoneY";
+			w = "0.216553 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorBackground[] = {0.3,0,0,0.2};
+		};
+	};
+	class controls {
+		class TXT_editbox: RscEdit {
+			idc = 101;
+			text = "";
+			font = "EtelkaMonospaceProBold";
+			x = "0.386568 * safezoneW + safezoneX";
+			y = "0.488995 * safezoneH + safezoneY";
+			w = "0.216553 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorBackground[] = {1,1,1,1};
+			colorActive[] = {1,0.5,0.5,1};
+		};
+		class TXT_btnLeft: RscButton {
+			idc = 1;
+			text = "OK";
+			font = "Zeppelin32";
+			shortcuts[] = {"0x00050000 + 0",28,57,156};
+			onButtonClick = "TXT_var = ctrlText (((ctrlParent (_this select 0)) displayCtrl 101));";
+			x = "0.386568 * safezoneW + safezoneX";
+			y = "0.522009 * safezoneH + safezoneY";
+			w = "0.0412482 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {0,1,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+		class TXT_btnRight: RscButton {
+			idc = 2;
+			text = "Cancel";
+			font = "Zeppelin32";
+			shortcuts[] = {1};
+			onButtonClick = "closeDialog 0;";
+			x = "0.561872 * safezoneW + safezoneX";
+			y = "0.522009 * safezoneH + safezoneY";
+			w = "0.0412482 * safezoneW";
+			h = "0.022009 * safezoneH";
+			colorText[] = {1,0,0,1};
+			colorBackground[] = {0.15,0,0,1};
+		};
+	};
+};
