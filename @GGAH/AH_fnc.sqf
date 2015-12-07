@@ -1,7 +1,7 @@
 _AH_scrhndlr = [];
 diag_log ("(ArmA-AntiHack): Loading settings...");
 
-#include "\@DamiMods\AH_bin\AH_files\AH_config.sqf";
+#include "\@GGAH\AH_bin\AH_files\AH_config.sqf";
 diag_log ("(ArmA-AntiHack): Settings loaded.");
 waitUntil {!isNil "BIS_fnc_init"};
 diag_log ("(ArmA-AntiHack): Compiling anti-hack...");
