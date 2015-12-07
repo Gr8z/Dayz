@@ -4554,7 +4554,7 @@ systemChat (""""Hello!"""");
 					[] spawn {
 						dami_zombiecheck 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
 						dami_damageHandler 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
-						dami_death 				= (if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf'},{compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf'}]);
+						dami_death 				= (if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
 						dami_RespawnTime 		= playerRespawnTime;
 						dami_UnconFunc 			= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						fnc_usec_damageHandler 	= {};
