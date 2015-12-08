@@ -283,8 +283,8 @@ call compile ("
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -415,8 +415,8 @@ call compile ("
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -482,8 +482,8 @@ call compile ("
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""    Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Players Bank Balance"",admin_subaddGoldBank,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
