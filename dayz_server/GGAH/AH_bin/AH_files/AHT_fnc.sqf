@@ -281,6 +281,11 @@ call compile ("
 				adminadd set [count adminadd,[""  Delete All Broken Vehicles"",admin_deletevehicles,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete / Kill All Zombies"",admin_deletezombies,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,["    Adjust Players Cash Money",admin_subaddGold,"0","0","0","1",[]]];
+				adminadd set [count adminadd,["    Adjust Players Bank Balance",admin_subaddGoldBank,"0","0","0","1",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
@@ -407,6 +412,11 @@ call compile ("
 				adminadd set [count adminadd,[""  Fix Server Lag"",admin_fixServerLag,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Broken Vehicle's"",admin_deletevehicles,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""   Adjust Players Cash Money"",admin_subaddGold,"0","0","0","1",[]]];
+				adminadd set [count adminadd,[""   Adjust Players Bank Balance"",admin_subaddGoldBank,"0","0","0","1",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
@@ -467,6 +477,11 @@ call compile ("
 				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""   Adjust Players Cash Money"",admin_subaddGold,"0","0","0","1",[]]];
+				adminadd set [count adminadd,[""   Adjust Players Bank Balance"",admin_subaddGoldBank,"0","0","0","1",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -584,6 +599,81 @@ call compile ("
 						adminadd set [count adminadd,[""  --> Revert N: ""+str _name+"" GPS: ""+str (mapGridPosition _ppos)+"" "",compile (""[""+str(_name)+"",""+str(_ppos)+""] spawn admin_revertPos;""),""0"",""0"",""0"",""0"",[1,0,0,1]]];
 					};
 				};
+			};
+			admin_subaddGold = {
+			_name = _this select 0;
+			_allPlayers = playableUnits;
+			{
+			if (name _x == _name) then {
+				sel_gold = nil;
+				disableSerialization;
+				['Give gold to '+str(_name),'Amount:','Give','sel_gold'] call AH_fnc_displayCreate;
+				if (isNil 'sel_gold') then {
+					_msg = format ['Giving gold cancelled!',_name];
+					systemChat ("(GG-AntiHack): " + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+				} else {
+					_msg = format ['Giving '+str(sel_gold)+' coins to %1!',_name];
+					systemChat ("(GG-AntiHack): " + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_msg = format ['[ADMIN] %1 gave you %2 coins.',name player,sel_gold call BIS_fnc_numberText];
+					[_name,_msg] spawn admin_fnc_dynTextSend;
+					
+					_savelog = format['%1 gave %3 coins to %2',name player,_name,sel_gold call BIS_fnc_numberText];
+					[_savelog] call admin_adminlogAction;
+					
+					_dothis = format ['
+						if (name player == ''%1'') then {
+							[] spawn {
+								player setVariable ["GGCoins",(player getVariable["GGCoins",0])+ %3,true];
+								uiSleep 1;
+								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
+							};
+						};
+					',_name,name player,sel_gold];
+					[_dothis] spawn admin_dothis;
+				};
+			};
+			} forEach _allPlayers;
+			};
+			admin_subaddGoldBank = {
+			_name = _this select 0;
+			_allPlayers = playableUnits;
+			{
+			if (name _x == _name) then {
+				sel_gold = nil;
+				disableSerialization;
+				['Give gold to '+str(_name),'Amount:','Give','sel_gold'] call AH_fnc_displayCreate;
+				if (isNil 'sel_gold') then {
+					_msg = format ['Giving bank money cancelled!',_name];
+					systemChat ("(GG-AntiHack): " + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+				} else {
+					_msg = format ['Adding '+str(sel_gold)+' to %1''s bank!',_name];
+					systemChat ("(GG-AntiHack): " + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_msg = format ['%1 added %2 coins to your bank.',name player,sel_gold call BIS_fnc_numberText];
+					[_name,_msg] spawn admin_fnc_dynTextSend;
+					
+					_savelog = format['%1 added %3 coins to %2''s bank',name player,_name,sel_gold call BIS_fnc_numberText];
+					[_savelog] call admin_adminlogAction;
+					
+					_dothis = format ['
+						if (name player == ''%1'') then {
+							[] spawn {
+								player setVariable ["GGBank",(player getVariable["GGBank",0])+ %3,true];
+								uiSleep 1;
+								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
+								PVDZE_bank_Save = [player];publicVariableServer "PVDZE_bank_Save";
+							};
+						};
+					',_name,name player,sel_gold];
+					[_dothis] spawn admin_dothis;
+				};
+			};
+			} forEach _allPlayers;
 			};
 			admin_menuHeader = {
 				['',0,safezoneY,1,0,0,3077] spawn AH_fnc_dynamictext;
