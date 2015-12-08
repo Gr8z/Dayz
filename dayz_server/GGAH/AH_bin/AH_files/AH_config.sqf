@@ -164,7 +164,7 @@
 		"BAF_L17_40mm","BAF_L2A1","BAF_L7A2","BAF_L94A1","BAF_M240_veh","BAF_static_GMG","bat_swing","BikeHorn","BombLauncher","BombLauncherA10",
 		"BombLauncherF35","bulk","CamelGrenades","CannonCore","CarHorn","Ch29Launcher","Ch29Launcher_Su34","CMFlareLauncher","Cobalt_File",
 		"CRV7_FAT","CRV7_HEPD","CRV7_PG","CTWS","CTWS_AI","CZ805_A1_ACR","CZ805_A1_GL_ACR","CZ805_B_GL_ACR","D10","D10_AI","D30","D81","D81CZ",
-		"D81CZ_AI","D81_AI","DMR_SKN","DSHKM","DT_veh","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","FakeWeapon","FFARLauncher",
+		"D81CZ_AI","D81_AI","DSHKM","DT_veh","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","FakeWeapon","FFARLauncher",
 		"FFARLauncher_12","FFARLauncher_14","FlareLauncher","GAU12","300Rnd_25mm_GAU12","GAU8","GRAD","GrenadeCore","GrenadeLauncher","GrenadeLauncher_EP1","GSh23L",
 		"GSh23L_L39","GSh301","GSh302","GyroGrenadeLauncher","HandGunBase","HeliBombLauncher","HellfireLauncher","HellfireLauncher_AH6","Igla_twice",
 		"ItemBriefcase_base","ItemCore","ItemMap_Debug","KORD","Kostey_map_case","Kostey_notebook","Kostey_photos","KPVT","ksvk","L85A2_base_BAF",
