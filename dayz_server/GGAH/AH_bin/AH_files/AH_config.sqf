@@ -539,8 +539,8 @@
 	];
 /**File paths**/
 	lvl3_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_high.sqf";
-	lvl2_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_admins\Admins_medium.sqf";
-	lvl1_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\Admins_low.sqf";
+	lvl2_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_medium.sqf";
+	lvl1_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_low.sqf";
 	donr_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Donators.sqf";
 	ahbl_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\banned_puids.sqf";
 	ahnl_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\banned_names.sqf";
