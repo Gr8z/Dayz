@@ -537,8 +537,6 @@
 	[
 		"Old_bike_TK_CIV_EP1","TT650_Gue","CSJ_GyroC","MH6J_DZ","AH6J_EP1_DZ","T72_INS"
 	];
-/**Server Uptime in Seconds**/	
-	_sUptime = 7201;
 /**File paths**/
 	lvl3_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_high.sqf";
 	lvl2_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_medium.sqf";
@@ -550,24 +548,6 @@
 	_AHBLN 	= ["machewy","beatz","greenperson","mor modules","jasper jake fishcock","shazbot","maby","moby","hihi","infistar","infishit","rustler"];
 	_AHBL 	= ["76561198134335098","76561198068780534","76561198015462133","76561198079253746","76561198023739857","76561198226173876","76561198028050332","76561198153176100","76561198088972090","76561198019293015","76561198160464763","76561198085809264","76561198045026228","76561198079253746","76561198125153966","76561198135960185","76561198156067824","76561198006706104","76561198149535568","76561198074737706","76561198154399410"];
 	
-
-	if(!isNil '_sUptime')then
-	{
-		if(typeName _sUptime != 'SCALAR')then
-		{
-			_sUptime = parseNumber _sUptime;
-		};
-		if(typeName _sUptime == 'SCALAR')then
-		{
-			if(_sUptime > 0)then
-			{
-				UPTIMER = _sUptime;
-				publicVariable 'UPTIMER';
-			};
-		};
-	};
-
-
 	diag_log ("(GG-AntiHack): Loading admins...");
 	_playerID = if (_AH_OPUID) then [{"get"+"Player"+"UID"+"old"},{"get"+"Player"+"UID"}];
 	if (lvl1_path != "") then {levelone 	= levelone 	+ (call compile lvl1_path)};

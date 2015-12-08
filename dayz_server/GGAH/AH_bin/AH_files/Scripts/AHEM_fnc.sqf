@@ -6,23 +6,6 @@ _AH_DC = compile ("
 	_debugPos = getMarkerpos 'respawn_west';
 	_ctp = 0;
 	_mtp = 3;
-	if(!isNil 'UPTIMER')then
-	{
-		private['_stime','_hours','_minutes','_minutes2','_upTimeLeft'];
-		_stime = 0;
-		if(serverTime > 36000)then{_stime = time;}else{_stime = serverTime;};
-		_upTimeLeft = UPTIMER - _stime;
-		_hours = (_upTimeLeft/60/60);
-		_hours = toArray (str _hours);
-		_hours resize 1;
-		_hours = toString _hours;
-		_hours = compile _hours;
-		_hours = call  _hours;
-		_minutes = floor(_upTimeLeft/60);
-		_minutes2 = ((_minutes - (_hours*60)) min 60) max 0;if(_minutes2 < 10)then{_minutes2 = format['0%1',_minutes2];};
-		_mytime = format['Restart in: %1h %2min',_hours,_minutes2];
-		['<t size=''0.35'' align=''right'' font=''TahomaB''>'+_mytime+'</t>',safezoneX*-1,0.98 * safezoneH + safezoneY,15,0,0,1338] spawn bis_fnc_dynamicText;
-	};
 	while {str(100) == str(100)} do {
 		waitUntil {!isNull (findDisplay 49)};
 		if (!isNull (findDisplay 49)) then {
@@ -49,7 +32,7 @@ _AH_DC = compile ("
 				
 				((findDisplay 49) displayCtrl 1010) ctrlSetFont 'EtelkaMonospaceProBold';
 				((findDisplay 49) displayCtrl 1010) ctrlSetTextColor [0.8,0.5,0.5,1];
-				((findDisplay 49) displayCtrl 1010) ctrlSetText "+str _mytime+";
+				((findDisplay 49) displayCtrl 1010) ctrlSetText ' ';
 				((findDisplay 49) displayCtrl 1010) ctrlEnable false;
 				
 				((findDisplay 49) displayCtrl 101) ctrlSetFont 'EtelkaMonospaceProBold';
