@@ -22,17 +22,17 @@ _AH_DC = compile ("
 				
 				((findDisplay 49) displayCtrl 103) ctrlSetFont 'EtelkaMonospaceProBold';
 				((findDisplay 49) displayCtrl 103) ctrlSetTextColor [0.8,0.5,0.5,1];
-				((findDisplay 49) displayCtrl 103) ctrlSetText 'Disabled';
+				((findDisplay 49) displayCtrl 103) ctrlSetText 'PlayerUID';
 				((findDisplay 49) displayCtrl 103) ctrlEnable false;
 				
 				((findDisplay 49) displayCtrl 119) ctrlSetFont 'EtelkaMonospaceProBold';
 				((findDisplay 49) displayCtrl 119) ctrlSetTextColor [0.8,0.5,0.5,1];
-				((findDisplay 49) displayCtrl 119) ctrlSetText 'Disabled';
+				((findDisplay 49) displayCtrl 119) ctrlSetText (format['%1',getPlayerUID player]);
 				((findDisplay 49) displayCtrl 119) ctrlEnable false;
 				
 				((findDisplay 49) displayCtrl 1010) ctrlSetFont 'EtelkaMonospaceProBold';
 				((findDisplay 49) displayCtrl 1010) ctrlSetTextColor [0.8,0.5,0.5,1];
-				((findDisplay 49) displayCtrl 1010) ctrlSetText 'Disabled';
+				((findDisplay 49) displayCtrl 1010) ctrlSetText ' ';
 				((findDisplay 49) displayCtrl 1010) ctrlEnable false;
 				
 				((findDisplay 49) displayCtrl 101) ctrlSetFont 'EtelkaMonospaceProBold';
