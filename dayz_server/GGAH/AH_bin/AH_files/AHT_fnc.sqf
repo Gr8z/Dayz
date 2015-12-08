@@ -769,15 +769,15 @@ call compile ("
 			};
 			admin_subManipulate = {
 				adminadd set [count adminadd,[""[]---- Manipulate Menu ----[]"",admin_subTglManip,""0"",""0"",""0"",""0"",MMCLR]];
-				adminadd set [count adminadd,[""  Spawn zombies on player"",manipulate_spawnzed,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Spawn whine on player"",manipulate_pitchwhine,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Remove player's zombie aggro"",manipulate_aggro,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Spawn Zombies on Player"",manipulate_spawnzed,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Spawn Whine on Player"",manipulate_pitchwhine,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Remove Players Zombie Aggro"",manipulate_aggro,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,[""  Send player 50m up"",manipulate_fly50,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,[""  Send player 100m up"",manipulate_fly100,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Spawn explosion on player"",manipulate_boom,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Toggle godmode for target"",manipulate_godmode,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Toggle instant build for target"",manipulate_instantbuild,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,[""  Toggle building restrictions for target"",manipulate_norestrictions,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Spawn Explosion on Player"",manipulate_boom,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Toggle God Mode for Player"",manipulate_godmode,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Toggle Instant Build for Player"",manipulate_instantbuild,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,[""  Toggle Building Restrictions for Player"",manipulate_norestrictions,""0"",""0"",""0"",""1"",SMCLR]];
 			};
 			admin_weather = {
 				inSub = false;
