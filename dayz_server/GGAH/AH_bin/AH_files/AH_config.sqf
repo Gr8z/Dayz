@@ -172,7 +172,7 @@
 		"M16_base","M197","M2","M230","M240BC_veh","M240_veh","M240_veh_2","M240_veh_MG_Nest","M242","M242BC","M242BC_AI","M242_AI","M249_TWS_EP1",
 		"M252","M256","M256_AI","M2BC","M32_heli","M3P","M621","M68","M68_AI","m8_base","m8_tws","m8_tws_sd","MaverickLauncher",
 		"MeleeBaseBallBat","MeleeWeapon","MGun","MGunCore","Mine","MineE","MiniCarHorn","MissileLauncher","MK19","MK19BC","Mk82BombLauncher",
-		"Mk82BombLauncher_6","MLRS","Moscow_Bombing_File","PipeBomb","Pistol","PistolBase","PistolCore","PKT","PKTBC","PKTBC_veh","PKT_2","PKT_3",
+		"Mk82BombLauncher_6","MLRS","Moscow_Bombing_File","Pistol","PistolBase","PistolCore","PKT","PKTBC","PKTBC_veh","PKT_2","PKT_3",
 		"PKT_high_AI_dispersion","PKT_high_AI_dispersion_tank","PKT_MG_Nest","PKT_veh","PMC_AS50_TWS_Large","PMC_documents","Put","R73Launcher",
 		"R73Launcher_2","Rifle","RifleCore","RocketPods","S8Launcher","SCAR_Base","SCAR_H_Base","SCAR_H_STD_TWS_SD","SCAR_L_Base","SCAR_L_STD_EGLM_TWS",
 		"SEARCHLIGHT","SGMT","SidewinderLauncher","SidewinderLauncher_AH1Z","SidewinderLauncher_AH64","SidewinderLauncher_F35","SmokeLauncher","SPG9",
