@@ -387,7 +387,7 @@ class playerStatusGUI {
 		class RscText_1425: RscTextGUIK
 		{
 			idc = 1425;
-			text = "Online Players:";
+			text = "Uptime:";
 			x = 0.53 * safezoneW + safezoneX;
 			y = 0.895 * safezoneH + safezoneY;
 			w = 0.1 * safezoneW;
