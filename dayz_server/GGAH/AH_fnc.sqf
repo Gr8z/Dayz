@@ -1,7 +1,7 @@
 _AH_scrhndlr = [];
 diag_log ("(GG-AntiHack): Loading settings...");
 
-#include "\@GGAH\AH_bin\AH_files\AH_config.sqf";
+#include "\z\addons\dayz_server\GGAH\AH_bin\AH_files\AH_config.sqf";
 diag_log ("(GG-AntiHack): Settings loaded.");
 waitUntil {!isNil "BIS_fnc_init"};
 diag_log ("(GG-AntiHack): Compiling anti-hack...");

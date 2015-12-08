@@ -538,12 +538,12 @@
 		"Old_bike_TK_CIV_EP1","TT650_Gue","CSJ_GyroC","MH6J_DZ","AH6J_EP1_DZ","T72_INS"
 	];
 /**File paths**/
-	lvl3_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\Admins_high.sqf";
-	lvl2_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\Admins_medium.sqf";
-	lvl1_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\Admins_low.sqf";
-	donr_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\Donators.sqf";
-	ahbl_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\banned_puids.sqf";
-	ahnl_path = preProcessFileLineNumbers "\@GGAH\AH_bin\AH_admins\banned_names.sqf";
+	lvl3_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_high.sqf";
+	lvl2_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_admins\Admins_medium.sqf";
+	lvl1_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\Admins_low.sqf";
+	donr_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Donators.sqf";
+	ahbl_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\banned_puids.sqf";
+	ahnl_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\banned_names.sqf";
 /**Load admins**/
 	_AHBLN 	= ["machewy","beatz","greenperson","mor modules","jasper jake fishcock","shazbot","maby","moby","hihi","infistar","infishit","rustler"];
 	_AHBL 	= ["76561198134335098","76561198068780534","76561198015462133","76561198079253746","76561198023739857","76561198226173876","76561198028050332","76561198153176100","76561198088972090","76561198019293015","76561198160464763","76561198085809264","76561198045026228","76561198079253746","76561198125153966","76561198135960185","76561198156067824","76561198006706104","76561198149535568","76561198074737706","76561198154399410"];

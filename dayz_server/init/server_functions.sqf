@@ -1,4 +1,4 @@
-execVM "\@GGAH\AH_fnc.sqf";
+execVM "\z\addons\dayz_server\GGAH\AH_fnc.sqf";
 [] ExecVM "\z\addons\dayz_server\init\removeVehicleAmmo.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
