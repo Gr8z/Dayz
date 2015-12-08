@@ -296,7 +296,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Admin Crate"",admincrate,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""  Spawn Building Crate"",admincrate_epoch_4,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""  Spawn Skin Crate"",admincrate_epoch_2,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
-				adminadd set [count adminadd,[""  Spawn Food Crate"",admincrate_epoch_3,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]]};
+				adminadd set [count adminadd,[""  Spawn Food Crate"",admincrate_epoch_3,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Miscellaneous "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -319,7 +319,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Camo Net (""+str (DZE_PlotPole select 0)+""m)"",admin_deleteCamoNet,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Closest ... (""+str (DZE_PlotPole select 0)+""m)"",admin_deleteClosecake,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Delete Base / Area"",admin_baseDelete,""0"",""0"",""0"",""0"",[]]]};
+				adminadd set [count adminadd,[""  Delete Base / Area"",admin_baseDelete,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Repair Nearby Buildings"",admin_repairBuildings,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Repair Nearby Entities"",admin_repairentities,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Open Enviroment Menu"",admin_environmentmenu,""0"",""0"",""0"",""0"",[]]];
