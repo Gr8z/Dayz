@@ -612,11 +612,11 @@ call compile ("
 				['Give gold to '+str(_name),'Amount:','Give','sel_gold'] call AH_fnc_displayCreate;
 				if (isNil 'sel_gold') then {
 					_msg = format ['Giving gold cancelled!',_name];
-					systemChat ("(GG-AntiHack): " + str _msg);
+					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 				} else {
 					_msg = format ['Giving '+str(sel_gold)+' coins to %1!',_name];
-					systemChat ("(GG-AntiHack): " + str _msg);
+					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 					
 					_msg = format ['[ADMIN] %1 gave you %2 coins.',name player,sel_gold call BIS_fnc_numberText];
@@ -628,9 +628,9 @@ call compile ("
 					_dothis = format ['
 						if (name player == ''%1'') then {
 							[] spawn {
-								player setVariable ["GGCoins",(player getVariable["GGCoins",0])+ %3,true];
+								player setVariable [""GGCoins"",(player getVariable[""GGCoins"",0])+ %3,true];
 								uiSleep 1;
-								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
+								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer ""PVDZE_plr_Save"";
 							};
 						};
 					',_name,name player,sel_gold];
@@ -649,11 +649,11 @@ call compile ("
 				['Give gold to '+str(_name),'Amount:','Give','sel_gold'] call AH_fnc_displayCreate;
 				if (isNil 'sel_gold') then {
 					_msg = format ['Giving bank money cancelled!',_name];
-					systemChat ("(GG-AntiHack): " + str _msg);
+					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 				} else {
 					_msg = format ['Adding '+str(sel_gold)+' to %1''s bank!',_name];
-					systemChat ("(GG-AntiHack): " + str _msg);
+					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 					
 					_msg = format ['%1 added %2 coins to your bank.',name player,sel_gold call BIS_fnc_numberText];
@@ -665,10 +665,10 @@ call compile ("
 					_dothis = format ['
 						if (name player == ''%1'') then {
 							[] spawn {
-								player setVariable ["GGBank",(player getVariable["GGBank",0])+ %3,true];
+								player setVariable [""GGBank"",(player getVariable[""GGBank"",0])+ %3,true];
 								uiSleep 1;
-								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
-								PVDZE_bank_Save = [player];publicVariableServer "PVDZE_bank_Save";
+								PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer ""PVDZE_plr_Save"";
+								PVDZE_bank_Save = [player];publicVariableServer ""PVDZE_bank_Save"";
 							};
 						};
 					',_name,name player,sel_gold];
