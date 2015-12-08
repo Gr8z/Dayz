@@ -303,6 +303,27 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Skin Crate"",admincrate_epoch_2,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""  Spawn Food Crate"",admincrate_epoch_3,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Teleport To Player"",admin_teleportToTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Teleport Player To Me"",admin_targetTPhere,""0"",""0"",""0"",""1"",[]]];
+				call admin_fillTPlogs;
+				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Give Ammo"",admin_giveAmmo,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Mute / Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Heal"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Kill"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Slap"",admin_slapTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Break Legs"",admin_breaklegsTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Eject From Vehicle"",manipulate_eject,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Move in Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Crash Client"",admin_crashTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Miscellaneous "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Activate [ALT+LeftmouseButton] Map to TP"",admin_teleportToggle,""1"",""0"",""0"",""0"",[]]];
@@ -348,27 +369,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Stash Markers"",admin_stashMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Map ICONS"",admin_alpIcons,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Teleport To Player"",admin_teleportToTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Teleport Player To Me"",admin_targetTPhere,""0"",""0"",""0"",""1"",[]]];
-				call admin_fillTPlogs;
-				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Give Ammo"",admin_giveAmmo,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Mute / Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Heal"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Kill"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Slap"",admin_slapTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Break Legs"",admin_breaklegsTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Eject From Vehicle"",manipulate_eject,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Move in Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Crash Client"",admin_crashTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Menu Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Display Player UIDs"",admin_tglDisplayPUIDs,""1"",""0"",""0"",""0"",[]]];
@@ -403,10 +403,10 @@ call compile ("
 			Level2_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      		 Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      		 Double Click Player To Spectate      		 "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate     "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle      "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key    		 "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -425,6 +425,26 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Permanent Vehicle"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""=======================Donor Vaults======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
+				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
+				adminadd set [count adminadd,[""  Spawn Large Donor Safe"",donorsafe3,""0"",""0"",""0"",""0"",[1,1,0,1]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Teleport To Player"",admin_teleportToTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Teleport Player To Me"",admin_targetTPhere,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Give Ammo To Player"",admin_giveAmmo,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Mute/Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Kill Player"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Move Player In Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Miscellaneous "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -447,22 +467,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Plot Pole Markers"",admin_ppMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Corpse Markers"",admin_deadMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Vehicle Markers"",admin_vehicleMarkers,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Teleport To Player"",admin_teleportToTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Teleport Player To Me"",admin_targetTPhere,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Give Ammo To Player"",admin_giveAmmo,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Mute/Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Kill Player"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Move Player In Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Menu Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -4051,36 +4055,24 @@ systemChat (""""Hello!"""");
 			};
 			donorsafe1 = {
 				_weapons = [
-					['ItemCrowbar',2],
-					['ItemToolbox',2],
-					['ItemEtool',2]
+					['ItemCrowbar',1],
+					['ItemToolbox',1],
+					['ItemEtool',1]
 				];
 				_magazines = [
-					['CinderBlocks',50],
-					['metal_floor_kit',20],
-					['MortarBucket',20],
-					['ItemPole',20],
-					['ItemTankTrap',15],
-					['cinder_wall_kit',10],
-					['ItemComboLock',10],
-					['cinder_door_kit',5],
-					['cinder_garage_kit',5],
-					['light_pole_kit',4],
-					['ItemWoodStairsSupport',3],
-					['ItemWoodLadder',3],
-					['desert_large_net_kit',3],
-					['desert_net_kit',3],
-					['forest_large_net_kit',3],
-					['forest_net_kit',3],
-					['fuel_pump_kit',3],
-					['park_bench_kit',3],
-					['storage_shed_kit',3],
-					['stick_fence_kit',3],
-					['ItemGenerator',3],
-					['30m_plot_kit',3],
-					['ItemVault',2]
+					['ItemWoodWallLg',1],
+					['ItemWoodFloorQuarter',1],
+					['ItemWoodStairs',1],
+					['ItemWoodWallWithDoorLgLocked',1],
+					['ItemWoodWallGarageDoorLocked',1],
+					['ItemLockBox',1],
+					['ItemVault',1],
+					['ItemSledgeHead',1],
+					['ItemSledgeHandle',1],
+					['30m_plot_kit',1],
+					['workbench_kit',1]
 				];
-				_backpack = [['DZ_LargeGunbag_EP1',2]];
+				_backpack = [['DZ_LargeGunbag_EP1',1]];
 				
 				_weparray1 = [];
 				_weparray2 = [];
@@ -4132,49 +4124,34 @@ systemChat (""""Hello!"""");
 					
 					_t3mp0v4ult setVariable ['WeaponCargo',_weparray,true];
 					_t3mp0v4ult setVariable ['BackpackCargo',_bakarray,true];
-					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
-					
-					_location2 = [_location select 0,_location select 1,(_location select 2) + 1.25];
-					
-					_t3mp0v4ult = createVehicle ['VaultStorageLocked', _location2, [], 0, 'CAN_COLLIDE'];
-					_t3mp0v4ult setdir _dir;
-					_t3mp0v4ult setpos _location2;
-					player reveal _t3mp0v4ult;
-					_t3mp0v4ult setVariable ['CharacterID',don8_code,true];
-					_t3mp0v4ult setVariable ['OEMPos',_location2,true];
-					
-					PVDZE_obj_Publish = [don8_code,_t3mp0v4ult,[_dir,_location2],'VaultStorageLocked'];
-					publicVariableServer 'PVDZE_obj_Publish';
-					
-					_magarray = [['CinderBlocks','cinder_wall_kit'],[30,20]];
 					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
 				};
 			};
 			donorsafe2 = {
 				_weapons = [
-					['ItemCrowbar',2],
-					['ItemToolbox',2],
-					['ItemEtool',2]
+					['ItemCrowbar',1],
+					['ItemToolbox',1],
+					['ItemEtool',1]
 				];
 				_magazines = [
+					['ItemVault',1],
+					['ItemSledgeHead',1],
+					['ItemSledgeHandle',1],
+					['storage_shed_kit',1],
+					['30m_plot_kit',1],
+					['workbench_kit',1],
+					['cinder_wall_kit',15],
+					['MortarBucket',10],
 					['CinderBlocks',30],
-					['metal_floor_kit',40],
-					['cinder_wall_kit',30],
-					['cinder_garage_kit',10],
-					['cinder_door_kit',10],
-					['ItemComboLock',10],
-					['MortarBucket',20],
-					['ItemPole',20],
-					['ItemTankTrap',5],
-					['ItemWoodStairsSupport',5],
-					['ItemWoodLadder',3],
-					['30m_plot_kit',3],
-					['ItemVault',3]
+					['cinder_garage_kit',2],
+					['ItemTankTrap',6],
+					['ItemPole',6],
+					['ItemComboLock',2],
+					['ItemWoodLadder',2],
+					['ItemWoodStairs',3],
+					['metal_floor_kit',8]
 				];
-				_magazines2 = [
-					['CinderBlocks',90]
-				];
-				_backpack = [['DZ_LargeGunbag_EP1',2]];
+				_backpack = [['DZ_LargeGunbag_EP1',1]];
 				
 				_weparray1 = [];
 				_weparray2 = [];
@@ -4190,10 +4167,6 @@ systemChat (""""Hello!"""");
 				_bakarray2 = [];
 				{_bakarray1 set [count _bakarray1,_x select 0];_bakarray2 set [count _bakarray2,_x select 1]} forEach _backpack;
 				_bakarray = [_bakarray1,_bakarray2];
-				_magarray21 = [];
-				_magarray22 = [];
-				{_magarray21 set [count _magarray21,_x select 0];_magarray22 set [count _magarray22,_x select 1]} forEach _magazines2;
-				_magarray2 = [_magarray21,_magarray22];
 				
 				don8_code = nil;
 				['Donator safe','Code:','Set','don8_code'] call AH_fnc_displayCreate;
@@ -4230,21 +4203,6 @@ systemChat (""""Hello!"""");
 					
 					_t3mp0v4ult setVariable ['WeaponCargo',_weparray,true];
 					_t3mp0v4ult setVariable ['BackpackCargo',_bakarray,true];
-					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
-					
-					_location2 = [_location select 0,_location select 1,(_location select 2) + 1.25];
-					
-					_t3mp0v4ult = createVehicle ['VaultStorageLocked', _location2, [], 0, 'CAN_COLLIDE'];
-					_t3mp0v4ult setdir _dir;
-					_t3mp0v4ult setpos _location2;
-					player reveal _t3mp0v4ult;
-					_t3mp0v4ult setVariable ['CharacterID',don8_code,true];
-					_t3mp0v4ult setVariable ['OEMPos',_location2,true];
-					
-					PVDZE_obj_Publish = [don8_code,_t3mp0v4ult,[_dir,_location2],'VaultStorageLocked'];
-					publicVariableServer 'PVDZE_obj_Publish';
-					
-					_magarray = _magarray2;
 					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
 				};
 			};
@@ -4255,21 +4213,25 @@ systemChat (""""Hello!"""");
 					['ItemEtool',2]
 				];
 				_magazines = [
-					['CinderBlocks',100],
-					['metal_floor_kit',50],
-					['cinder_wall_kit',50]
+					['30m_plot_kit',1],
+					['workbench_kit',1],
+					['cinder_wall_kit',25],
+					['MortarBucket',15],
+					['CinderBlocks',50],
+					['cinder_garage_kit',4],
+					['ItemComboLock',4],
+					['ItemWoodLadder',4],
+					['ItemPole',12],
+					['ItemTankTrap',12],
+					['ItemWoodStairs',6],
+					['metal_floor_kit',15],
+					['ItemVault',2],
+					['ItemSledgeHead',2],
+					['ItemSledgeHandle',2],
+					['storage_shed_kit',2]
 				];
 				_backpack = [['DZ_LargeGunbag_EP1',2]];
-				_magazines2 = [
-					['MortarBucket',20],
-					['ItemPole',20],
-					['ItemTankTrap',20],
-					['cinder_door_kit',20 ],
-					['cinder_garage_kit',10],
-					['ItemComboLock',10],
-					['ItemWoodLadder',10]
-				];
-				
+
 				_weparray1 = [];
 				_weparray2 = [];
 				{_weparray1 set [count _weparray1,_x select 0];_weparray2 set [count _weparray2,_x select 1]} forEach _weapons;
@@ -4284,10 +4246,6 @@ systemChat (""""Hello!"""");
 				_bakarray2 = [];
 				{_bakarray1 set [count _bakarray1,_x select 0];_bakarray2 set [count _bakarray2,_x select 1]} forEach _backpack;
 				_bakarray = [_bakarray1,_bakarray2];
-				_magarray21 = [];
-				_magarray22 = [];
-				{_magarray21 set [count _magarray21,_x select 0];_magarray22 set [count _magarray22,_x select 1]} forEach _magazines2;
-				_magarray2 = [_magarray21,_magarray22];
 				
 				don8_code = nil;
 				['Donator safe','Code:','Set','don8_code'] call AH_fnc_displayCreate;
@@ -4324,21 +4282,6 @@ systemChat (""""Hello!"""");
 					
 					_t3mp0v4ult setVariable ['WeaponCargo',_weparray,true];
 					_t3mp0v4ult setVariable ['BackpackCargo',_bakarray,true];
-					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
-					
-					_location2 = [_location select 0,_location select 1,(_location select 2) + 1.25];
-					
-					_t3mp0v4ult = createVehicle ['VaultStorageLocked', _location2, [], 0, 'CAN_COLLIDE'];
-					_t3mp0v4ult setdir _dir;
-					_t3mp0v4ult setpos _location2;
-					player reveal _t3mp0v4ult;
-					_t3mp0v4ult setVariable ['CharacterID',don8_code,true];
-					_t3mp0v4ult setVariable ['OEMPos',_location2,true];
-					
-					PVDZE_obj_Publish = [don8_code,_t3mp0v4ult,[_dir,_location2],'VaultStorageLocked'];
-					publicVariableServer 'PVDZE_obj_Publish';
-					
-					_magarray = _magarray2;
 					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
 				};
 			};
