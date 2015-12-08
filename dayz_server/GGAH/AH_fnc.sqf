@@ -777,7 +777,7 @@ call compile ("
 						};
 						if (r_player_timeout > 1) then {
 							r_player_unconslide = nil;
-							[format['<t color=''#FF0000''>Unconscious for another %1 seconds..</t>',r_player_timeout],safezoneX + 0.75,safezoneY + 0.5,2,0,0,77396] spawn AH_fnc_dynamictext;
+							[format['<t color=''#FF0000''>Unconscious for %1 seconds..</t>',r_player_timeout],safezoneX + 0.75,safezoneY + 0.5,2,0,0,77396] spawn AH_fnc_dynamictext;
 						};
 					} else {
 						if (isNil 'r_player_unconslide') then {

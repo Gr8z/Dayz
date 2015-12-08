@@ -1114,13 +1114,6 @@ _AH_CC = compile ("
 	call_msg = {systemChat ("""+_AH_CHAT+": ""+str _this+"""")};
 	
 	player setVariable [""AH_friendlist"",(profileNameSpace getVariable [""AH_friendlist"",[]]),true];
-	if (profileNameSpace getVariable ['AH_FESP',true]) then {
-		_msg = ""Friend GPS tags enabled."";
-		systemChat ("""+_AH_CHAT+": ""+str _msg);
-	} else {
-		_msg = ""Friend GPS tags disabled."";
-		systemChat ("""+_AH_CHAT+": ""+str _msg);
-	};
 	
 	if (isNil 'dayzSetViewDistanceAH') then {dayzSetViewDistanceAH=0};
 	_viewDistance = profileNameSpace getVariable ['AH_viewdistance',dayzSetViewDistanceAH];
@@ -1140,7 +1133,6 @@ _AH_CC = compile ("
 	
 	_msg = ""Chat commands loaded! Type !help for more info."";
 	systemChat ("""+_AH_CHAT+": ""+str _msg);
-	0 cutText [_msg,'PLAIN'];
 	disableSerialization;
 	_badcht = "+str _CC_badChat+";
 	_help 	= ['!help'];
