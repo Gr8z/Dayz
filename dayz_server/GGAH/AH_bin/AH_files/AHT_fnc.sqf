@@ -337,9 +337,9 @@ call compile ("
 				adminadd set [count adminadd,[""  Corpse Markers"",admin_deadMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Vehicle Markers"",admin_vehicleMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Wreck Markers"",admin_wreckMarkers,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Tent Markers"",admin_tentMarkers,""1"",""0"",""0"",""0"",[]]];if (AM_EPOCH) then {
+				adminadd set [count adminadd,[""  Tent Markers"",admin_tentMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Vault Markers"",admin_vaultMarkers,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Stash Markers"",admin_stashMarkers,""1"",""0"",""0"",""0"",[]]];};
+				adminadd set [count adminadd,[""  Stash Markers"",admin_stashMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Map ICONS"",admin_alpIcons,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
@@ -399,7 +399,7 @@ call compile ("
 				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      		 Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];if (AM_EPOCH) then {
+				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
@@ -465,7 +465,7 @@ call compile ("
 				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      		 Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];if (AM_EPOCH) then {
+				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
