@@ -546,9 +546,7 @@ call compile ("
 								if !(isNil _x) then ""+str AH_AH_KICK+"";
 							} forEach (""+(str AH_BAD_VAR)+"");
 							"},{""}])+"
-						};
-						"+(
-						if (!_BAD_FILE_DIS) then [{"
+						};"+(if (!_BAD_FILE_DIS) then [{"
 						if (time - "+_randv+"_flchk1 >= 1800) then {
 							diag_log ('(GG-AntiHack): Thread 1 loop file scan starting... FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 							"+_randv+"_flchk1 = time;
@@ -731,11 +729,11 @@ call compile ("
 						(findDisplay 46) displayRemoveAllEventHandlers 'KeyUp';
 						(findDisplay 46) displayAddEventHandler ['KeyDown','_this call dayz_spaceInterrupt'];
 						if ((!isNil 'bis_fnc_halo_para_loop')||(!isNil 'bis_fnc_halo_clouds')||(!isNil 'bis_fnc_halo_para_vel')) then {
-	                        BIS_fnc_halo_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_keydown;'];
-	                        BIS_fnc_halo_para_mousemoving_eh = (finddisplay 46) displayAddEventHandler ['mousemoving','_this call BIS_fnc_halo_para_loop;'];
-	                        BIS_fnc_halo_para_mouseholding_eh = (finddisplay 46) displayAddEventHandler ['mouseholding','_this call BIS_fnc_halo_para_loop;'];
-	                        BIS_fnc_halo_para_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_para_keydown;'];
-                        };
+							BIS_fnc_halo_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_keydown;'];
+							BIS_fnc_halo_para_mousemoving_eh = (finddisplay 46) displayAddEventHandler ['mousemoving','_this call BIS_fnc_halo_para_loop;'];
+							BIS_fnc_halo_para_mouseholding_eh = (finddisplay 46) displayAddEventHandler ['mouseholding','_this call BIS_fnc_halo_para_loop;'];
+							BIS_fnc_halo_para_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_para_keydown;'];
+						};
 					};
 					if ((player getVariable ['bodyName','ah_check']) == 'ah_check') then {player setVariable ['bodyName',name player,true]};
 					if (str(player getVariable ['AH_friendlist',[]]) != str(profileNameSpace getVariable ['AH_friendlist',[]])) then {
@@ -773,7 +771,7 @@ call compile ("
 					};
 					if (!isNil 'AH_colorskins') then {call AH_colorskins};
 					if (!alive player) then {r_player_unconscious = false};
-					if ((viewDistance > 3000)&&(((getPosATL (vehicle player)) select 2) > 200)) then {setViewDistance 2800};	
+					if ((viewDistance > 3000)&&(((getPosATL (vehicle player)) select 2) > 200)) then {setViewDistance 2800};
 					if (r_player_unconscious) then {
 						[] spawn {
 							waitUntil {
@@ -802,7 +800,6 @@ call compile ("
 						};
 					};
 					uiSleep 1;
-					diag_log ('(GG-AntiHack): Thread 1 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 				};
 			};
 		"")];
@@ -885,7 +882,6 @@ call compile ("
 							publicVariableServer '"+_AdminReport+"';
 							(findDisplay 46) closeDisplay 0;
 						};
-						diag_log ('(GG-AntiHack): Thread 2 loop completed! FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 					};
 				"},{""}])+"
 			};
