@@ -25,6 +25,8 @@ hintSilent parseText format ["
 	<t size='1.15' font='Bitstream' align='left' color='#C70000'>Blood: </t>
 	<t size='1.15' font='Bitstream' align='right' color='#C70000'>%8&#37;</t><br/><br/>
 	
+	<t size='1.20' font='Bitstream' align='center' color='#BDBDBD'>Restart in %9 minutes</t><br/>
+	
 	<t size='1.20' font='Bitstream' align='center' color='#2E64FE'>Website:</t><br/>
 	<t size='1.20' font='Bitstream' align='center' color='#BDBDBD'>www.GhostzGamerz.com</t><br/>
 	
@@ -37,5 +39,6 @@ hintSilent parseText format ["
 	(player getVariable['humanity', 0]),
 	(dayz_Survived),
 	dayz_playerName,
-	round((r_player_blood/12000)*100)
+	round((r_player_blood/12000)*100),
+	(round(120-(serverTime) / 60))
 ];
