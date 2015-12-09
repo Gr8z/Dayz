@@ -730,6 +730,12 @@ call compile ("
 						(findDisplay 46) displayRemoveAllEventHandlers 'KeyDown';
 						(findDisplay 46) displayRemoveAllEventHandlers 'KeyUp';
 						(findDisplay 46) displayAddEventHandler ['KeyDown','_this call dayz_spaceInterrupt'];
+						if ((!isNil 'bis_fnc_halo_para_loop')||(!isNil 'bis_fnc_halo_clouds')||(!isNil 'bis_fnc_halo_para_vel')) then {
+	                        BIS_fnc_halo_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_keydown;'];
+	                        BIS_fnc_halo_para_mousemoving_eh = (finddisplay 46) displayAddEventHandler ['mousemoving','_this call BIS_fnc_halo_para_loop;'];
+	                        BIS_fnc_halo_para_mouseholding_eh = (finddisplay 46) displayAddEventHandler ['mouseholding','_this call BIS_fnc_halo_para_loop;'];
+	                        BIS_fnc_halo_para_keydown_eh = (finddisplay 46) displayAddEventHandler ['keydown','_this call BIS_fnc_halo_para_keydown;'];
+                        };
 					};
 					if ((player getVariable ['bodyName','ah_check']) == 'ah_check') then {player setVariable ['bodyName',name player,true]};
 					if (str(player getVariable ['AH_friendlist',[]]) != str(profileNameSpace getVariable ['AH_friendlist',[]])) then {
@@ -767,17 +773,19 @@ call compile ("
 					};
 					if (!isNil 'AH_colorskins') then {call AH_colorskins};
 					if (!alive player) then {r_player_unconscious = false};
-					if ((viewDistance > 3000)&&(((getPosATL (vehicle player)) select 2) > 200)) then {setViewDistance 2800};
+					if ((viewDistance > 3000)&&(((getPosATL (vehicle player)) select 2) > 200)) then {setViewDistance 2800};	
 					if (r_player_unconscious) then {
 						[] spawn {
 							waitUntil {
 								if (!isNull (findDisplay 106)) then [{(findDisplay 106) closeDisplay 0},{closeDialog 0}];
+								if (animationState player != 'adthpercmstpsnonwnondnon_1') then {player switchMove 'adthpercmstpsnonwnondnon_1'};
 								(!r_player_unconscious)
 							};
+							if (animationState player == 'adthpercmstpsnonwnondnon_1') then {player switchMove ''};
 						};
 						if (r_player_timeout > 1) then {
 							r_player_unconslide = nil;
-							[format['<t color=''#FF0000''>Unconscious for %1 seconds..</t>',r_player_timeout],safezoneX + 0.75,safezoneY + 0.5,2,0,0,77396] spawn AH_fnc_dynamictext;
+							[format['<t color=''#FF0000''>Unconscious for another %1 seconds..</t>',r_player_timeout],safezoneX + 0.75,safezoneY + 0.5,2,0,0,77396] spawn AH_fnc_dynamictext;
 						};
 					} else {
 						if (isNil 'r_player_unconslide') then {
