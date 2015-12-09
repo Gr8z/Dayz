@@ -43,7 +43,7 @@ _bloodTotal = round((r_player_blood/12000)*100);
 
 _hours = floor((servertime)/60/60);
 _minutes = floor((servertime)/60) - (_hours*60);
-_RestartTime = format["%1 hrs %2 mins",_hours,_minutes];
+_RestartTime = format["%1h %2m",_hours,_minutes];
 
 _ctrlBloodAmount      ctrlSetText str(_bloodTotal);
 _ctrlHumanityAmount ctrlSetText str(player getVariable['humanity', 0] call BIS_fnc_numberText);
