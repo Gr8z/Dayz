@@ -1,24 +1,6 @@
-
-
 if (isServer) then {
-
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Lenzburg.sqf";
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Emmen.sqf";
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\militaerneutral.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\schangen.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ww.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\ew.sqf";    
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\hero.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\bandit.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\black.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\weed.sqf";  
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\banks.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";   
-  call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\debug.sqf";   
-     
-  
-  //#######################################################  Lenzburg Tradercity  ###########################################################
-  //#########################################################################################################################################
+call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Napf.sqf";
+call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";
   
 _unit_1 = objNull;
 if (true) then
@@ -453,9 +435,9 @@ _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this d
 _unit_50 = objNull;
 if (true) then
 {
-  _this = createAgent ["USMC_Soldier_Crew", [18193.814, 2123.3591], [], 0, "CAN_COLLIDE"];
+  _this = createAgent ["USMC_Soldier_Crew", [18136.428, 1959.5653], [], 0, "CAN_COLLIDE"];
   _unit_50 = _this;
-  _this setDir 114.15798;
+  _this setDir 39.617237;
   _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
   _this setUnitAbility 0.60000002;
 _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
