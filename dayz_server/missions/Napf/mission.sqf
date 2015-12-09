@@ -405,32 +405,6 @@ _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this d
 
   //#######################################################  Military Trader City  ############################################################
   //#########################################################################################################################################
-  
-
-
-_unit_46 = objNull;
-if (true) then
-{
-  _this = createAgent ["BAF_Soldier_AAA_MTP", [18182.498, 2140.7607, 0.011451858], [], 0, "CAN_COLLIDE"];
-  _unit_46 = _this;
-  _this setDir -169.14951;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
-
-};
-
-_unit_48 = objNull;
-if (true) then
-{
-  _this = createAgent ["BAF_Soldier_FAC_DDPM", [18184.037, 2139.2825, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
-  _unit_48 = _this;
-  _this setDir -162.73315;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
-
-};
 
 _unit_50 = objNull;
 if (true) then
@@ -443,52 +417,5 @@ if (true) then
 _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
 
 };
-
-_unit_52 = objNull;
-if (true) then
-{
-  _this = createAgent ["CDF_Soldier_Crew", [18160.416, 2122.6165, 6.1035156e-005], [], 0, "CAN_COLLIDE"];
-  _unit_52 = _this;
-  _this setDir 30.106567;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
-
-};
-
-_unit_54 = objNull;
-if (true) then
-{
-  _this = createAgent ["BAF_Soldier_EN_MTP", [18160.861, 2147.3975, 3.0517578e-005], [], 0, "CAN_COLLIDE"];
-  _unit_54 = _this;
-  _this setDir -242.38445;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
-
-};
-
-_unit_56 = objNull;
-if (true) then
-{
-  _this = createAgent ["TK_Commander_EP1_DZ", [18177.064, 2145.1038, 0.00012207031], [], 0, "CAN_COLLIDE"];
-  _unit_56 = _this;
-  _this setDir -158.73273;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
-
-};
-
-_unit_57 = objNull;
-if (true) then
-{
-  _this = createAgent ["Ins_Soldier_AR", [9149.32,5419.84,0.788895], [], 0, "CAN_COLLIDE"];
-  _unit_57 = _this;
-  _this setDir 350.35;
-  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;  ";
-  _this setUnitAbility 0.60000002;
-_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;};
-
 
 };
