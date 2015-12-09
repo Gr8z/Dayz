@@ -29,7 +29,7 @@ GGSafezones = [
 	[Wholesale1, 100, "West Wholesaler and Boat Dealer"],
 	[Wholesaler, 100, "East Wholesaler and Boat Dealer"],
 	[black, 50, "Black Market"],
-	[Aircraft, 100, "Aircraft"]
+	[Aircraft, 60, "Aircraft"]
 ];
 
 call compile preprocessFileLineNumbers "GG\init\variables.sqf";
