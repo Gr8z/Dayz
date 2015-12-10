@@ -8143,7 +8143,6 @@ systemChat (""""Hello!"""");
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
-					if (_key == 0x0F) then {call admin_init};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
 					if (_key == 0x3C) then {[] spawn admin_healPlayers};
 					if (_key == 0x3D) then {[] spawn admin_spawnweapons};
