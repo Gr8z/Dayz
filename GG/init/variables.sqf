@@ -264,6 +264,7 @@ dayz_resetSelfActions = {
 	s_player_bury_human = -1;
 	s_player_clothes = -1;
 	s_garage_dialog = -1;
+	s_hangar_dialog = -1;
 	s_player_managedoor = -1;
 	s_safebank_dialog = -1;
 	s_player_plotpole_dialog = -1;
@@ -720,7 +721,32 @@ DZE_LockedStorage = ["VaultStorageLocked","LockboxStorageLocked"];
 DZE_UnLockedStorage = ["VaultStorage","LockboxStorage"];
 DZE_maintainClasses = ["Desk","FoldChair","FoldTable","SmallTable","Barrel1","Garbage_can","Hhedgehog_concrete","Land_CncBlock","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Land_MBG_Garage_Single_D","MAP_A_Castle_Bergfrit_dam","MAP_A_Castle_Bergfrit","Land_A_Castle_Bergfrit_dam","Land_sara_domek_zluty","MAP_sara_domek_zluty","Land_sara_hasic_zbroj","MAP_sara_hasic_zbroj","MBG_Warehouse_InEditor","MBG_Killhouse_1","MBG_Killhouse_2","MBG_Killhouse_3","MBG_Killhouse_4","MBG_Killhouse_1_InEditor","MBG_Killhouse_2_InEditor","MBG_Killhouse_3_InEditor","MBG_Killhouse_4_InEditor","MAP_stodola_old_open","Land_MBG_HeavyShelter","MAP_A_Pub_01","Land_A_Villa_EP1","MAP_A_Castle_Bastion","MAP_A_Castle_Stairs_A","ModularItems","DZE_Housebase","LightPole_DZ","BuiltItems","Plastic_Pole_EP1_DZ","Fence_corrugated_DZ","CanvasHut_DZ","ParkBench_DZ","MetalGate_DZ","StickFence_DZ","DesertCamoNet_DZ","ForestCamoNet_DZ","DesertLargeCamoNet_DZ","ForestLargeCamoNet_DZ","DeerStand_DZ","Scaffolding_DZ","FireBarrel_DZ"];
 
-DZE_Garage = ["Land_MBG_Garage_Single_D","Land_MBG_Garage_Single_A","Land_MBG_Garage_Single_B","Land_MBG_Garage_Single_C","Tanny_PMC","US_Delta_Force_AR_EP1","GUE_Soldier_1","UN_CDF_Soldier_Pilot_EP1","GUE_Soldier_2","CDF_Soldier_Crew","Profiteer1","RU_Damsel1","GUE_Commander","GUE_Woodlander3","Ins_Worker2","FR_Sapper","Soldier_AT_PMC","GUE_Soldier_3","RU_Woodlander4","Soldier_Sniper_PMC","GUE_Woodlander1"];
+DZE_Garage = [
+"Land_MBG_Garage_Single_D",
+"Land_MBG_Garage_Single_A",
+"Land_MBG_Garage_Single_B",
+"Land_MBG_Garage_Single_C",
+"Tanny_PMC",
+"US_Delta_Force_AR_EP1",
+"GUE_Soldier_1",
+"GUE_Soldier_2",
+"CDF_Soldier_Crew",
+"Profiteer1",
+"RU_Damsel1",
+"GUE_Commander",
+"GUE_Woodlander3",
+"Ins_Worker2",
+"FR_Sapper",
+"Soldier_AT_PMC",
+"GUE_Soldier_3",
+"RU_Woodlander4",
+"GUE_Woodlander1"];
+
+DZE_Hangar = [
+"Soldier_Sniper_PMC",
+"USMC_Soldier_Crew",
+"GUE_Soldier_Pilot",
+"UN_CDF_Soldier_Pilot_EP1"];
 
 DZE_DoorsLocked = ["Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallDoorLocked_DZ","CinderWallDoorSmallLocked_DZ"];
 

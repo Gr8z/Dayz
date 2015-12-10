@@ -520,11 +520,19 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	};
 	if (_typeOfCursorTarget in DZE_Garage) then {
 		if (s_garage_dialog < 0) then {
-			s_garage_dialog = player addAction ["Garage Menu","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
+			s_garage_dialog = player addAction ["Garage","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
 		};
 	} else {
 		player removeAction s_garage_dialog;
 		s_garage_dialog = -1;
+	};
+	if (_typeOfCursorTarget in DZE_Hangar) then {
+		if (s_hangar_dialog < 0) then {
+			s_hangar_dialog = player addAction ["Hangar","GG\garage\garage_menu.sqf","", 5, false, true, "", ""];
+		};
+	} else {
+		player removeAction s_hangar_dialog;
+		s_hangar_dialog = -1;
 	};
 	if(_isTent && (player distance _cursorTarget < 3)) then {
 		if (_ownerID == _playerUID) then {
@@ -933,6 +941,8 @@ if (!isNull cursorTarget && !_inVehicle && !_isPZombie && (player distance curso
 	s_player_towing = -1;
 	player removeAction s_garage_dialog;
 	s_garage_dialog = -1;
+	player removeAction s_hangar_dialog;
+	s_hangar_dialog = -1;
 	player removeAction s_player_fuelauto;
 	s_player_fuelauto = -1;
 	player removeAction s_player_fuelauto2;
