@@ -167,7 +167,7 @@
 		"D81CZ_AI","D81_AI","DSHKM","DT_veh","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","FakeWeapon","FFARLauncher",
 		"FFARLauncher_12","FFARLauncher_14","FlareLauncher","GAU12","300Rnd_25mm_GAU12","GAU8","GRAD","GrenadeCore","GrenadeLauncher","GrenadeLauncher_EP1","GSh23L",
 		"GSh23L_L39","GSh301","GSh302","GyroGrenadeLauncher","HandGunBase","HeliBombLauncher","HellfireLauncher","HellfireLauncher_AH6","Igla_twice",
-		"ItemBriefcase_base","ItemCore","ItemMap_Debug","KORD","Kostey_map_case","Kostey_notebook","Kostey_photos","KPVT","ksvk","L85A2_base_BAF",
+		"ItemBriefcase_base","ItemCore","ItemMap_Debug","KORD","Kostey_map_case","Kostey_notebook","Kostey_photos","KPVT","L85A2_base_BAF",
 		"Laserdesignator_mounted","Launcher","LauncherCore","loot","m107","M107_TWS_EP1","M110_TWS_EP1","M119","M120","M134","M134_2","M168",
 		"M16_base","M197","M2","M230","M240BC_veh","M240_veh","M240_veh_2","M240_veh_MG_Nest","M242","M242BC","M242BC_AI","M242_AI","M249_TWS_EP1",
 		"M252","M256","M256_AI","M2BC","M32_heli","M3P","M621","M68","M68_AI","m8_base","m8_tws","m8_tws_sd","MaverickLauncher",
