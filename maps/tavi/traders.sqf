@@ -144,12 +144,12 @@ menu_Profiteer2_EP1 = [
 	"neutral"
 ];
 menu_GUE_Soldier_Pilot = [
-	[["Airplanes",517],["Helicopter Unarmed",519]],
+	[["Airplanes",517],["Camels",5000],["Helicopter Unarmed",519],["Metals",700]],
 	[],
 	"neutral"
 ];
 menu_UN_CDF_Soldier_Pilot_EP1 = [
-	[["Airplanes",517],["Helicopter Unarmed",519]],
+	[["Airplanes",517],["Camels",5000],["Helicopter Unarmed",519],["Metals",700]],
 	[],
 	"neutral"
 ];

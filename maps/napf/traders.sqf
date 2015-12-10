@@ -51,7 +51,7 @@ menu_BAF_Soldier_EN_MTP = [
 
 // Aircraft Dealer
 menu_USMC_Soldier_Crew = [
-	[["Airplanes",517],["Helicopter Unarmed",519]],
+	[["Airplanes",517],["Camels",5000],["Helicopter Unarmed",519],["Metals",700]],
 	[],
 	"neutral"
 ];
