@@ -489,4 +489,16 @@ _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this d
 
 };
 
+_unit_57 = objNull;
+if (true) then
+{
+  _this = createAgent ["Ins_Soldier_AR", [9149.32,5419.84,0.788895], [], 0, "CAN_COLLIDE"];
+  _unit_57 = _this;
+  _this setDir 350.35;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;  ";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
 };
