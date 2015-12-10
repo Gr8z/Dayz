@@ -3522,4 +3522,13 @@ if (true) then
   _this setPos [8650.54, 13406.949, -78.806854];
 };
 
+_vehicle_656 = objNull;
+if (true) then
+{
+  _this = createVehicle ["Infostand_2_EP1", [7853.85,8854.1,0], [], 0, "CAN_COLLIDE"];
+  _vehicle_84 = _this;
+  _this setDir 50.0723;
+  _this setPos [8985.88,7571.31,0.00183105];
+};
+
 };
