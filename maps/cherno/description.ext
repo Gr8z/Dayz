@@ -274,7 +274,6 @@ class RscTitles
 #include "GG\doorManagement\doorManagement.hpp"
 #include "GG\doorManagement\ComboLockUI.hpp"
 
-#include "GG\currency\currency_dialog.hpp"
 #include "GG\plotManage\plotManagement.hpp"
 #include "GG\snap_pro\snappoints.hpp"
 
