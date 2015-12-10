@@ -1,6 +1,5 @@
 if (isServer) then {
 call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Napf.sqf";
-call compile preProcessFileLineNumbers "z\addons\dayz_server\missions\Napf\Chatzbach.sqf";
   
 _unit_1 = objNull;
 if (true) then
@@ -390,7 +389,7 @@ _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this d
   //####################################################### Black Market  ####################################################################
   //#########################################################################################################################################
   
-  _unit_44 = objNull;
+_unit_44 = objNull;
 if (true) then
 {
   _this = createAgent ["TK_CIV_Takistani06_EP1", [8988.8975, 7562.7227, 0.044801213], [], 0, "CAN_COLLIDE"];
@@ -412,6 +411,78 @@ if (true) then
   _this = createAgent ["USMC_Soldier_Crew", [18136.428, 1959.5653], [], 0, "CAN_COLLIDE"];
   _unit_50 = _this;
   _this setDir 39.617237;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_51 = objNull;
+if (true) then
+{
+  _this = createAgent ["TK_Commander_EP1_DZ", [7851.9258, 8845.4668, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
+  _unit_51 = _this;
+  _this setDir -795.42169;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_52 = objNull;
+if (true) then
+{
+  _this = createAgent ["BAF_Soldier_EN_MTP", [7843.8496, 8837.1563, 1.5258789e-005], [], 0, "CAN_COLLIDE"];
+  _unit_52 = _this;
+  _this setDir 1.3727932;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_53 = objNull;
+if (true) then
+{
+  _this = createAgent ["GUE_Commander", [7850.873, 8835.667, -0.014542133], [], 0, "CAN_COLLIDE"];
+  _unit_53 = _this;
+  _this setDir 138.44409;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_54 = objNull;
+if (true) then
+{
+  _this = createAgent ["Damsel3", [7847.5791, 8859.3828, -4.5776367e-005], [], 0, "CAN_COLLIDE"];
+  _unit_54 = _this;
+  _this setDir -159.7012;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_55 = objNull;
+if (true) then
+{
+  _this = createAgent ["GUE_Worker2", [7843.3989, 8860.5684, -7.6293945e-005], [], 0, "CAN_COLLIDE"];
+  _unit_55 = _this;
+  _this setDir -171.77649;
+  _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
+  _this setUnitAbility 0.60000002;
+_this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
+
+};
+
+_unit_56 = objNull;
+if (true) then
+{
+  _this = createAgent ["Soldier_MG_PKM_PMC", [7837.5337, 8857.7979], [], 0, "CAN_COLLIDE"];
+  _unit_56 = _this;
+  _this setDir -251.82944;
   _this setVehicleInit "this allowDammage false; this disableAI 'FSM'; this disableAI 'MOVE'; this disableAI 'AUTOTARGET'; this disableAI 'TARGET'; this setBehaviour 'CARELESS'; this forceSpeed 0;";
   _this setUnitAbility 0.60000002;
 _this allowDammage false; _this disableAI 'FSM'; _this disableAI 'MOVE'; _this disableAI 'AUTOTARGET'; _this disableAI 'TARGET'; _this setBehaviour 'CARELESS'; _this forceSpeed 0;_this enableSimulation false;
