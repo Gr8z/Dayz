@@ -528,8 +528,8 @@
 /**Weather**/
 	_SVR_FW 	= true;		//Force weather?
 	_SVR_FOG 	= 0;		//0 = clear 1 = low visibility
-	_SVR_VDIS 	= 1800;		//View distance. DayZ default = 1000-1500
-	_SVR_OVC 	= 0.3;		//0 = clear skys 	1 = stormy clouds
+	_SVR_VDIS 	= 1500;	    //View distance. DayZ default = 1000-1500
+	_SVR_OVC 	= 0;		//0 = clear skys 	1 = stormy clouds
 	_SVR_RAIN 	= 0;		//0 = no rain 		1 = thunder storm
 /**Object deploy**/
 	_OD_DPLY 	= false;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
