@@ -767,7 +767,6 @@ call compile ("
 					};
 					if (!isNil 'AH_colorskins') then {call AH_colorskins};
 					if (!alive player) then {r_player_unconscious = false};
-					if ((viewDistance > 3000)&&(((getPosATL (vehicle player)) select 2) > 200)) then {setViewDistance 2800};
 					if (r_player_unconscious) then {
 						[] spawn {
 							waitUntil {
