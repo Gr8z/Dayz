@@ -92,8 +92,6 @@ if (!isDedicated) then {
 	preload_done = true;
 };
 
-execVM "GG\external\DynamicWeatherEffects.sqf";
-
 execVM "GG\debug.sqf";
 execVM "GG\preview.sqf";
 execVM "GG\gold\init.sqf";
