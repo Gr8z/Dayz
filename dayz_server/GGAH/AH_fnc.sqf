@@ -558,7 +558,9 @@ call compile ("
 							diag_log ('(GG-AntiHack): Thread 1 loop file scan complete. FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 						};"},{""}])+(if !(_CMD_DIS) then [{"
 							_this = ['Commanding menu',(str commandingMenu)];
-							if !(commandingMenu in (['','RscMainMenu','RscStatus','RscGroupRootMenu']+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in ['RscMainMenu','RscStatus','RscGroupRootMenu']) then {showCommandingMenu ''}}];
+							private '_nocmd';
+							_nocmd = ['','RscMainMenu','RscStatus','RscGroupRootMenu','RscMoveHigh','#WATCH','#WATCH0','RscWatchDir','RscWatchMoreDir','#GET_IN','RscStatus','RscCallSupport','#ACTION','RscCombatMode','RscFormations','RscTeam','RscSelectTeam','RscReply','#User:BIS_Menu_GroupCommunication','#CUSTOM_RADIO','RscRadio','RscGroupRootMenu'];
+							if !(commandingMenu in (_nocmd+""+(str AH_CMD_WLS)+"")) then [""+str AH_AH_KICK+"",{if (commandingMenu in _nocmd) then {showCommandingMenu ''}}];
 						"},{""}])+(if !(_AM_DIS) then [{"
 							if (isNil '"+_randv+"_dzacts') then {
 								{
@@ -685,9 +687,11 @@ call compile ("
 							_this = ['Memory Hack','Infinite Ammo '+str(currentWeapon player)];
 							if (9 > 0) then ""+str AH_AH_KICK+"";
 						};
-						if ((!isNil 'TraderItemList')&&(typeName TraderItemList == 'CODE')) then {
-							_this = ['Global Var','TraderItemList modified: '+str TraderItemList+''];
-							if (9 > 0) then ""+str AH_AH_KICK+"";
+						if (""+str AH_AH_DZE+"") then {
+							if ((!isNil 'TraderItemList')&&(typeName TraderItemList == 'CODE')) then {
+								_this = ['Global Var','TraderItemList modified: '+str TraderItemList+''];
+								if (9 > 0) then ""+str AH_AH_KICK+"";
+							};
 						};
 						if (typeName (player getVariable ['ahworldspace',0]) != 'SCALAR') then {
 							_this = ['Global Var','ahworldspace'];
@@ -791,11 +795,13 @@ call compile ("
 						};
 						['',safezoneX + 0.75,safezoneY + 0,1,0,-1,77396] spawn AH_fnc_dynamictext;
 					};
-					if (!DZE_CanPickup) then {
-						if (isNil 'pickupwait') then {pickupwait = time};
-						if ((time - pickupwait) > 5) then {
-							DZE_CanPickup = true;
-							pickupwait = nil;
+					if (""+str AH_AH_DZE+"") then {
+						if (!DZE_CanPickup) then {
+							if (isNil 'pickupwait') then {pickupwait = time};
+							if ((time - pickupwait) > 5) then {
+								DZE_CanPickup = true;
+								pickupwait = nil;
+							};
 						};
 					};
 					uiSleep 1;
