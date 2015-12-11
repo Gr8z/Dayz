@@ -752,9 +752,8 @@ call compile ("
 				adminadd set [count adminadd,["" --> Give IGLA loadout"",loadout_IGLA,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" --> Give JAVELIN loadout"",loadout_JAVELIN,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" [ -- SNIPERS -- ]"","""",""0"",""0"",""0"",""0"",SSMCLR]];
-				adminadd set [count adminadd,["" --> Give AS50 loadout"",loadout_as50,""0"",""0"",""0"",""1"",SMCLR]];
+				adminadd set [count adminadd,["" --> Give Cheytac loadout"",loadout_Cheytac,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" --> Give M107_DZ loadout (EPOCH)"",loadout_M107,""0"",""0"",""0"",""1"",SMCLR]];
-				adminadd set [count adminadd,["" --> Give DMR_DZ loadout (EPOCH)"",loadout_dmr_DZ,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" --> Give DMR loadout"",loadout_dmr,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" --> Give M14 AIM loadout"",loadout_m14,""0"",""0"",""0"",""1"",SMCLR]];
 				adminadd set [count adminadd,["" [ -- ASSAULT RIFLES -- ]"","""",""0"",""0"",""0"",""0"",SSMCLR]];
@@ -6138,34 +6137,18 @@ systemChat (""""Hello!"""");
 				];
 				[_loadout_select,_loadout_backpack,_loadout_bpinvent,_loadout_inventory,_name] spawn loadout_init;
 			};
-			loadout_as50 = {
+			loadout_Cheytac = {
 				_name = _this select 0;
-				_loadout_select 	= ""AS50 loadout"";
+				_loadout_select 	= ""Cheytac Loadout"";
 				_loadout_backpack  = ""DZ_Backpack_EP1"";
 				_loadout_bpinvent 	= [""FoodCanFrankBeans"",""FoodCanFrankBeans"",""ItemSodaMdew"",""ItemSodaMdew"",""ItemBloodbag"",""ItemBloodbag""];
 				_loadout_inventory 	= [
-					""BAF_AS50_scoped"",""5Rnd_127x99_as50"",""5Rnd_127x99_as50"",""5Rnd_127x99_as50"",
-					""M9SD"",""15Rnd_9x19_M9SD"",""15Rnd_9x19_M9SD"",""15Rnd_9x19_M9SD"",
+					""USSR_cheytacM200_sd"",""USSR_5Rnd_408"",""USSR_5Rnd_408"",""USSR_5Rnd_408"",
+					""RH_Deagleg"",""RH_7Rnd_50_AE"",""RH_7Rnd_50_AE"",""RH_7Rnd_50_AE"",""RH_7Rnd_50_AE"",
 					""ItemGPS"",""ItemToolbox"",""ItemWatch"",""NVGoggles"",""ItemMatchbox"",
 					""ItemMap"",""ItemHatchet"",""ItemFlashlightRed"",""ItemEtool"",""ItemCompass"",""Binocular_Vector"",
-					""ItemHeatPack"",""ItemAntibiotic"",""FoodSteakCooked"",""ItemSodaPepsi"",""ItemEpinephrine"",
-					""ItemPainkiller"",""ItemBloodbag"",""ItemBandage"",""ItemBandage"",""Skin_Sniper1_DZ"",
-					""ItemMorphine"",""ItemMorphine""
-				];
-				[_loadout_select,_loadout_backpack,_loadout_bpinvent,_loadout_inventory,_name] spawn loadout_init;
-			};
-			loadout_dmr_DZ = {
-				_name = _this select 0;
-				_loadout_select 	= ""DMR_DZ loadout"";
-				_loadout_backpack  = ""DZ_Backpack_EP1"";
-				_loadout_bpinvent 	= [""FoodCanFrankBeans"",""FoodCanFrankBeans"",""ItemSodaMdew"",""ItemSodaMdew"",""ItemBloodbag"",""ItemBloodbag""];
-				_loadout_inventory 	= [
-					""DMR_DZ"",""20Rnd_762x51_DMR"",""20Rnd_762x51_DMR"",""20Rnd_762x51_DMR"",
-					""M9SD"",""15Rnd_9x19_M9SD"",""15Rnd_9x19_M9SD"",""15Rnd_9x19_M9SD"",
-					""ItemGPS"",""ItemToolbox"",""ItemWatch"",""NVGoggles"",""ItemMatchbox"",
-					""ItemMap"",""ItemHatchet"",""ItemFlashlightRed"",""ItemEtool"",""ItemCompass"",""Binocular_Vector"",
-					""ItemHeatPack"",""ItemAntibiotic"",""FoodSteakCooked"",""ItemSodaPepsi"",""ItemEpinephrine"",
-					""ItemPainkiller"",""ItemBloodbag"",""ItemBandage"",""ItemBandage"",""Skin_Sniper1_DZ"",
+					""ItemAntibiotic"",""FoodSteakCooked"",""ItemSodaPepsi"",
+					""ItemPainkiller"",""ItemBloodbag"",""ItemBandage"",""ItemBandage"",""Skin_Sniper1_DZ"",""ItemBandage"",""ItemBandage"",
 					""ItemMorphine"",""ItemMorphine""
 				];
 				[_loadout_select,_loadout_backpack,_loadout_bpinvent,_loadout_inventory,_name] spawn loadout_init;
