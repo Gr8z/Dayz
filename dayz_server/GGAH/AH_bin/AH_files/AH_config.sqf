@@ -528,7 +528,6 @@
 /**Weather**/
 	_SVR_FW 	= true;		//Force weather?
 	_SVR_FOG 	= 0;		//0 = clear 1 = low visibility
-	_SVR_VDIS 	= 1500;	    //View distance. DayZ default = 1000-1500
 	_SVR_OVC 	= 0;		//0 = clear skys 	1 = stormy clouds
 	_SVR_RAIN 	= 0;		//0 = no rain 		1 = thunder storm
 /**Object deploy**/
