@@ -176,13 +176,16 @@ call compile ("
 			dayzSetFogAH 			= "+str _SVR_FOG+";
 			dayzSetRainAH 			= "+str _SVR_RAIN+";
 			dayzSetOvercastAH 		= "+str _SVR_OVC+";
-			diag_log format ['(GG-AntiHack): Weather set! FOG: %3 RAIN: %2 OVERCAST: %1',dayzSetOvercastAH,dayzSetRainAH,dayzSetFogAH];
+			dayzSetViewDistanceAH 	= "+str _SVR_VDIS+";
+			diag_log format ['(GG-AntiHack): Weather set! FOG: %4 RAIN:%3 OVERCAST: %2 VIEW DISTANCE: %1',dayzSetViewDistanceAH,dayzSetOvercastAH,dayzSetRainAH,dayzSetFogAH];
 			publicVariable 'dayzSetFogAH';
 			publicVariable 'dayzSetRainAH';
 			publicVariable 'dayzSetOvercastAH';
+			publicVariable 'dayzSetViewDistanceAH';
 			0 setFog dayzSetFogAH;
 			0 setRain dayzSetRainAH;
 			0 setOvercast dayzSetOvercastAH;
+			setViewDistance dayzSetViewDistanceAH;
 			diag_log ('(GG-AntiHack): Global weather settings applied.');
 		};
 		
@@ -190,6 +193,7 @@ call compile ("
 		'dayzSetFogAH' 	addPublicVariableEventHandler {3 setFog dayzSetFogAH};
 		'dayzSetRainAH' addPublicVariableEventHandler {3 setRain dayzSetRainAH};
 		'dayzSetOvercastAH' addPublicVariableEventHandler {3 setOvercast dayzSetOvercastAH};
+		'dayzSetViewDistanceAH' addPublicVariableEventHandler {setViewDistance dayzSetViewDistanceAH};
 		
 		_badVehicles = [];
 		{_badVehicles = _badVehicles + [toLower(_x)]} forEach "+str _BAD_VEHS+";
