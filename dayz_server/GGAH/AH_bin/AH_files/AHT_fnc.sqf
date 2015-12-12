@@ -8172,7 +8172,6 @@ systemChat (""""Hello!"""");
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
-					if (_key == 0x0F) then {call admin_init};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
 					if (_key == 0x3E) then {[] spawn admin_deleteTarget};
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
@@ -8193,7 +8192,6 @@ systemChat (""""Hello!"""");
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
-					if (_key == 0x0F) then {call admin_init};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
