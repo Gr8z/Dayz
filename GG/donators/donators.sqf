@@ -162,6 +162,7 @@ Engineer3 = [
 	"76561198110162434", // Chemical Burn (OD-2015-10-13) #12084   
 	"76561198161443982", // Major (OD-2015-10-14) #12093    
 	"76561198034470577", // ShortBus_Toasty (OD-2015-09-02) #11271  
+	"76561198088343328", // Predaturd (OD-2015-12-13) #12380  
 	"76561198067566966", // Sniper admin
 	"76561198115492831", // BigEgg
 	// Add UIDs above, don't forget the comma
