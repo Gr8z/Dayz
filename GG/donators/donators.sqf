@@ -175,7 +175,6 @@ Engineer3 = [
 Marksman1 = [
 	"76561198153784743", // Ghost
 	"76561198115492831", // BigEgg 
-	"76561198056028211", // Nasty Moderator Loadout
 	"76561198093462212", // Mr. Ruggets (OD-2015-10-29) #12221 
 	// Add UIDs above, don't forget the comma
 "0"
@@ -194,8 +193,9 @@ Marksman3 = [
 	"76561198195305425", // Shaz
 	"76561198084864687", // Porch
 	"76561198001066546", // MeowMix 
-	"76561198126348047", // Mr.bandit admin
+	"76561198126348047", // Mr.bandit Admin Load
 	"76561198115492831", // BigEgg 
+	"76561198056028211", // Nasty Admin Loadout
 	"76561198063792194", // punkturtle(OD-2015-05-25)#9138
 	"76561198014832728", // Loverboy(OD-2015----3 Months) #-
 	"76561198107354770", // [NoVa] Caleb(OD-2015-07-08) #9893
