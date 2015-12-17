@@ -253,6 +253,7 @@ Medic3 = [
 	//"76561198097039109", // defaultpc (OD-2015-09-14)#11555 -Payment skipped 19-Nov-2015
 	"76561197960289679", // TangoWhiskey (OD-2015-09-15)#11587  
 	"76561198064014755", // Akula (OD-2015-10-28)#12214
+	"76561198042185844", // Sinny Blackwater (OD-2015-12-15) #12410
 	
 	// Add UIDs above, don't forget the comma
 "0"
