@@ -139,6 +139,7 @@ Engineer1 = [
 ];
 Engineer2 = [
 	"76561198106639583", // Professor Twinkletoes(OD-2015-09-29) #11859
+	"76561198041652178", // Garcia(OD-2015-12-16) #12424 
 	// Add UIDs above, don't forget the comma
 "0"
 ];
