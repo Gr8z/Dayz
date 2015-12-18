@@ -267,7 +267,7 @@
 		"MP_ESP_Var1esp","MP_ESP_Var1HudSize","MP_ESP_Var2HudDist","MP_ESP_Var2HudCp","MP_ESP_Var2HudCv","BTC_liftHudId","tr3ntitudsize","l33thtmlv1","l33tJumenu",
 		"l33tv4html","l33tMain","l33thumanity","l33tCoin","l33tBoxes","l33tdistance","l33tSecurity","l33tDN","l33tAllP","l33tv4html","iRapeKiduKnow","iRaPeclick",
 		"iRaPezClick","iRape_iRap3u","MoviNametmr2","input_text","zeloBomb","zeloFpos","manatee_craft_menu","Gashhey_ESP","_Gashhey114","P4nt0n4t0r_Ph4nt0",
-		"Ph4nt0mzBomb","BTC_SganciaActionId","godall","BTC_liftHudId","fnc_temp","MainMenu"
+		"Ph4nt0mzBomb","BTC_SganciaActionId","godall","BTC_liftHudId","fnc_temp","MainMenu","weaponBoxeriino","LuL1ee7FF1"
 	];
 /**Forbidden files**/
 	_BAD_FILE_DIS = true; //Disable forbidden file scans? (May eliminate FPS drops/lag spikes).
