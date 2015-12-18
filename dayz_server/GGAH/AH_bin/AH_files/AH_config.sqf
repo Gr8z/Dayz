@@ -389,12 +389,6 @@
 		"addMPEventHandler","addWaypoint","setWaypointStatements","BattleFieldClearance",
 		"onMapSingleClick","inputAction",
 		
-		/*Unused marker functions*/
-		"setMarkerDirLocal","setMarkerAlphaLocal","setMarkerPosLocal","setMarkerTextLocal","setMarkerTypeLocal",
-		"setMarkerColorLocal","setMarkerBrushLocal","setMarkerSizeLocal","setMarkerShapeLocal",
-		"markerText","setMarkerAlpha","setMarkerBrush","setMarkerDir",
-		"setMarkerPos","setMarkerShape","setMarkerSize"
-		
 		/*Unused BIS functions*/
 		"BIS_fnc_spawnCrew","BIS_fnc_spawnGroup","BIS_fnc_help","BIS_fnc_3Dcredits",
 		"BIS_fnc_crows","BIS_fnc_customGPS","BIS_fnc_destroyCity","BIS_fnc_playVideo","BIS_fnc_spawnEnemy",
