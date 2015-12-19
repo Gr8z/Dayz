@@ -49,7 +49,6 @@ progressLoadingScreen 1.0;
 if (isServer) then {
 	call compile preprocessFileLineNumbers "\z\addons\dayz_server\missions\dynamic_vehicle.sqf";
 	call compile preprocessFileLineNumbers '\marmadebug\init\fn_init.sqf';
-	execVM "\z\addons\dayz_server\missions\Chernarus\mission.sqf";
 	diag_log text "APlotForLife";
 	_serverMonitor = 	[] execVM "\z\addons\dayz_code\system\server_monitor.sqf";
 	"ctc_HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\humanitychange.sqf'};
