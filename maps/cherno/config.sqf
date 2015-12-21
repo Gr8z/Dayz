@@ -124,21 +124,23 @@ DZE_noRotate 		= [
 ];
 DZE_nobuildarray 	= [
 	/*[Position,[marker radius,nobuild radius],"marker name","marker color"]*/
-	[[6325.6772,7807.7412,0],[100,500],"Stary Trader","ColorBlueFaded50"],
-	[[4063.4226,11664.19,0],[100,500],"Bash Trader","ColorBlueFaded50"],
-	[[11452.472,11339.504,0],[100,500],"Klen Trader","ColorBlueFaded50"],
-	[[1606.6443,7803.5156,0],[100,500],"Bandit Trader","ColorBlueFaded50"],
-	[[12944.227,12766.889,0],[100,500],"Hero Trader","ColorBlueFaded50"],
-	[[7216.54,3006.9,0],[75,500],"South Side Trader","ColorBlueFaded50"],
-	[[12564.357,12527.54,0],[50,500],"NEAF Trader","ColorBlueFaded50"],
-	[[4769.9883,9569.2783,0],[0,500],"NWAF Trader",""],
-	[[11447.685,7544.3623,0],[0,500],"Salvage Trader",""],
-	[[1820.2555,2134.6614,0],[0,500],"Fish Trader1",""],
-	[[13094.573,8172.9424,0],[0,500],"Fish Trader2",""],
-	[[4361.4937,2259.9526,0],[0,500],"Wholesale Trader1",""],
-	[[13532.614,6355.9497,0],[0,500],"Wholesale Trader2",""],
-	[[7989.3354,2900.9946,0],[0,500],"Boat Trader1",""],
-	[[13441.16,5429.3013,0],[0,500],"Boat Trader2",""]
+	[[6325.6772,7807.7412,0],[100,1000],"Stary Trader","ColorBlueFaded50"],
+	[[4063.4226,11664.19,0],[100,1000],"Bash Trader","ColorBlueFaded50"],
+	[[11452.472,11339.504,0],[100,1000],"Klen Trader","ColorBlueFaded50"],
+	[[3445.0112,3804.1453,0],[75,1000],"Bor Trader","ColorBlueFaded50"],
+	[[1606.6443,7803.5156,0],[100,1000],"Bandit Trader","ColorBlueFaded50"],
+	[[12944.227,12766.889,0],[100,1000],"Hero Trader","ColorBlueFaded50"],
+	[[5066.8984,9729.3574,0],[0,1000],"Aircraft Dealer",""],
+	[[13441.16,5429.3013,0],[0,1000],"Wholesale East",""],
+	[[4361.4937,2259.9526,0],[0,1000],"Wholesale South",""],
+	[[8385.834,1.6642252,2368.8264],[0,1000],"Boat Trader1",""],
+	[[13093.446,0.42457402,8241.5625],[0,1000],"Boat Trader2",""],
+	[[9464.64, 0, 11483.8],[0,500],"Weed Farm","ColorOrange"],
+
+	[[7768.69,0,4499.63],[0,500],"Mogilevka Base","ColorRed"],
+	[[13725.498,0, 2907.4512],[0,500],"Skalisty Base","ColorRed"],
+	[[7286.0166,0, 9730.1201],[0,500],"Grishino Base","ColorRed"],
+	[[4492.81,0,8296.52],[0,500],"Dichina Base","ColorRed"]
 ];
 
 dayz_maxLocalZombies = 4;
