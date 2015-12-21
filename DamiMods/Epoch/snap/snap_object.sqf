@@ -25,16 +25,16 @@ fnc_snapActionCleanup = {
 	player removeAction s_player_toggleSnapSelect; s_player_toggleSnapSelect = -1;
 	if (count s_player_toggleSnapSelectPoint != 0) then {{player removeAction _x} count s_player_toggleSnapSelectPoint; s_player_toggleSnapSelectPoint=[]; snapActions = -1};
 	if (_s1 > 0) then {
-		s_player_toggleSnap = player addaction [format[("<t color=""#ffffff"">" + ("Snap: %1") +"</t>"),snapActionState],"GG\Epoch\snap\snap_object.sqf",[snapActionState,_object,_classname,_objectHelper],6,false,true];
+		s_player_toggleSnap = player addaction [format[("<t color=""#ffffff"">" + ("Snap: %1") +"</t>"),snapActionState],"DamiMods\Epoch\snap\snap_object.sqf",[snapActionState,_object,_classname,_objectHelper],6,false,true];
 	};
 	if (_s2 > 0) then {
-		s_player_toggleSnapSelect = player addaction [format[("<t color=""#ffffff"">" + ("Snap Point: %1") +"</t>"),snapActionStateSelect],"GG\Epoch\snap\snap_object.sqf",[snapActionStateSelect,_object,_classname,_objectHelper],5,false,true];
+		s_player_toggleSnapSelect = player addaction [format[("<t color=""#ffffff"">" + ("Snap Point: %1") +"</t>"),snapActionStateSelect],"DamiMods\Epoch\snap\snap_object.sqf",[snapActionStateSelect,_object,_classname,_objectHelper],5,false,true];
 	};
 	if (_s3 > 0) then {
 		s_player_toggleSnapSelectPoint=[];
 		_cnt = 0;
 		{
-			snapActions = player addaction [format[("<t color=""#ffffff"">" + ("%1)Select: %2") +"</t>"),_cnt,_x select 3],"GG\Epoch\snap\snap_object.sqf",["Selected",_object,_classname,_objectHelper,_cnt],4,false,false];
+			snapActions = player addaction [format[("<t color=""#ffffff"">" + ("%1)Select: %2") +"</t>"),_cnt,_x select 3],"DamiMods\Epoch\snap\snap_object.sqf",["Selected",_object,_classname,_objectHelper,_cnt],4,false,false];
 			s_player_toggleSnapSelectPoint set [count s_player_toggleSnapSelectPoint,snapActions];
 			_cnt = _cnt+1;
 		}count _points;

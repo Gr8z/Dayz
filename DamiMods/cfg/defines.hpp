@@ -1043,12 +1043,12 @@ class CfgSounds {
     sounds[] = {bonfIntro,carBeep};
     class bonfIntro {
 		name="bonfIntro";
-		sound[]= {"GG\GUI\bonfIntro.ogg",0.9,1};
+		sound[]= {"DamiMods\GUI\bonfIntro.ogg",0.9,1};
 		titles[] = {};
     };
 	class carBeep {
 		name="carBeep";
-		sound[]= {"GG\GUI\carBeep.ogg",0.9,1};
+		sound[]= {"DamiMods\GUI\carBeep.ogg",0.9,1};
 		titles[] = {};
     };
 };
@@ -1432,7 +1432,7 @@ class BankDialog {
 		class BD_titleBG: RscPicture {
 			moving = 1;
 			idc = -1;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.319597 * safezoneW + safezoneX;
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
@@ -1568,7 +1568,7 @@ class GivePlayerDialog {
 		class GPD_titleBG: RscPicture {
 			moving = 1;
 			idc = -1;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.319597 * safezoneW + safezoneX;
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
@@ -1678,7 +1678,7 @@ class RefuelDialog {
 		class RD_titleBG: RscPicture {
 			idc = 1200;
 			moving = 1;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.332386 * safezoneW + safezoneX;
 			y = 0.307472 * safezoneH + safezoneY;
 			w = 0.34812 * safezoneW;
@@ -1810,7 +1810,7 @@ class AH_RSC_AHT {
 	class controlsBackground {
 		class Menu_titlebarBG: RscPicture {
 			idc = 1200;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = "0.235 * safezoneW + safezoneX";
 			y = "safezoneY + 0.025";
 			w = "0.529 * safezoneW";
@@ -2076,7 +2076,7 @@ class AH_RSC_TXT {
 	class controlsBackground {
 		class TXT_titlebg: RscPicture {
 			idc = 1200;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = "0.376256 * safezoneW + safezoneX";
 			y = "0.444978 * safezoneH + safezoneY";
 			w = "0.237177 * safezoneW";
@@ -2186,7 +2186,7 @@ class RscPlotMenu {
 		class BM_titleBG: RscPicture {
 			idc = 1200;
 			moving = 1;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.29375 * safezoneW + safezoneX;
 			y = 0.225053 * safezoneH + safezoneY;
 			w = 0.4125 * safezoneW;
@@ -2254,7 +2254,7 @@ class RscPlotMenu {
 			y = 0.70621 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			onButtonClick = "['','','','maintain'] execVM 'GG\Epoch\dami_MA.sqf';closeDialog 0;";
+			onButtonClick = "['','','','maintain'] execVM 'DamiMods\Epoch\dami_MA.sqf';closeDialog 0;";
 			colorBackground[] = {0,1,0.6,0.8};
 			colorBackgroundActive[] = {0,1,1,1};
 		};
@@ -2596,7 +2596,7 @@ class RscTitles {
 			};
 			class RscPicture_13001: RscPictureGUI {
                 idc = 13001;//Callender
-                text = "GG\gui\hud\1.paa";
+                text = "DamiMods\gui\hud\1.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.32";
 				colorText[] = {1,1,1,0.8};
@@ -2605,7 +2605,7 @@ class RscTitles {
             };
 			class RscPicture_13002: RscPictureGUI {
                 idc = 13002;//FPS
-                text = "GG\gui\hud\2.paa";
+                text = "DamiMods\gui\hud\2.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.39";
 				colorText[] = {1,1,1,0.8};
@@ -2614,7 +2614,7 @@ class RscTitles {
             };
 			class RscPicture_13003: RscPictureGUI {
                 idc = 13003;//Blood
-                text = "GG\gui\hud\3.paa";
+                text = "DamiMods\gui\hud\3.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.46";
 				colorText[] = {1,1,1,0.8};
@@ -2623,7 +2623,7 @@ class RscTitles {
             };
 			class RscPicture_13004: RscPictureGUI {
                 idc = 13004;//Humanity
-                text = "GG\gui\hud\4.paa";
+                text = "DamiMods\gui\hud\4.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.53";
 				colorText[] = {1,1,1,0.8};
@@ -2632,7 +2632,7 @@ class RscTitles {
             };
 			class RscPicture_13005: RscPictureGUI {
                 idc = 13005;//Murders
-                text = "GG\gui\hud\5.paa";
+                text = "DamiMods\gui\hud\5.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.60";
 				colorText[] = {1,1,1,0.8};
@@ -2641,7 +2641,7 @@ class RscTitles {
             };
 			class RscPicture_13006: RscPictureGUI {
                 idc = 13006;//Bandit kills
-                text = "GG\gui\hud\6.paa";
+                text = "DamiMods\gui\hud\6.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.67";
 				colorText[] = {1,1,1,0.8};
@@ -2650,7 +2650,7 @@ class RscTitles {
             };
 			class RscPicture_13007: RscPictureGUI {
                 idc = 13007;//Zombie kills
-                text = "GG\gui\hud\7.paa";
+                text = "DamiMods\gui\hud\7.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.74";
 				colorText[] = {1,1,1,0.8};
@@ -2659,7 +2659,7 @@ class RscTitles {
             };
 			class RscPicture_13008: RscPictureGUI {
                 idc = 13008;//Coin icon
-                text = "GG\gui\hud\gold_p.paa";
+                text = "DamiMods\gui\hud\gold_p.paa";
 				x = "(safeZoneX + safeZoneW) - 0.053";
 				y = "(safeZoneY + safeZoneH) - 0.81";
 				colorText[] = {1,1,1,0.8};
@@ -2668,7 +2668,7 @@ class RscTitles {
             };
 			class RscPicture_13009: RscPictureGUI {
                 idc = 13009;//Bank icon
-                text = "GG\gui\hud\gold_b.paa";
+                text = "DamiMods\gui\hud\gold_b.paa";
 				x = "(safeZoneX + safeZoneW) - 0.053";
 				y = "(safeZoneY + safeZoneH) - 0.88";
 				colorText[] = {1,1,1,0.8};
@@ -2833,7 +2833,7 @@ class AH_fnc_spawnSelect {
 		class SS_titleBG: RscPicture {
 			moving = 1;
 			idc = 38696;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.216509 * safezoneW + safezoneX;
 			y = 0.29372 * safezoneH + safezoneY;
 			w = 0.566981 * safezoneW;
@@ -2984,7 +2984,7 @@ class AH_traderMenu {
 		class TM_titleBG: RscPicture {
 			moving = 1;
 			idc = -1;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			x = 0.267992 * safezoneW + safezoneX;
 			y = 0.224974 * safezoneH + safezoneY;
 			w = 0.464016 * safezoneW;
@@ -3212,7 +3212,7 @@ class AH_RAT {
 		};
 		class RAT_titleBG: RscPicture {
 			idc = 1200;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			moving = 1;
 			x = 0.358174 * safezoneW + safezoneX;
 			y = 0.280024 * safezoneH + safezoneY;
@@ -3303,7 +3303,7 @@ class GarageDialog {
 		};
 		class VG_titleBG: RscPicture {
 			idc = 1200;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			moving = 1;
 			x = 0.316666 * safezoneW + safezoneX;
 			y = 0.266666 * safezoneH + safezoneY;
@@ -3434,7 +3434,7 @@ class GarageDialogManage {
 		};
 		class GM_titleBG: RscPicture {
 			idc = 1200;
-			text = "GG\GUI\background_ca.paa";
+			text = "DamiMods\GUI\background_ca.paa";
 			moving = 1;
 			x = 0.316666 * safezoneW + safezoneX;
 			y = 0.266666 * safezoneH + safezoneY;

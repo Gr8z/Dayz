@@ -53,8 +53,8 @@ if (!hasInterface && !isServer) then {
 	PVOZ_HeadlessUnit = player;publicVariable "PVOZ_HeadlessUnit";
 	PVOZ_HCISALIVE = true;publicVariable "PVOZ_HCISALIVE";
 	execVM "\GG_HC\WAI\init.sqf";
-	execVM "\GG_HC\GG\traders.sqf";
-	execVM "\GG_HC\GG\markers.sqf";
+	execVM "\GG_HC\DamiMods\traders.sqf";
+	execVM "\GG_HC\DamiMods\markers.sqf";
 };
 if (isServer) then {
 	"PVOZ_damiHCaddtomonitor" addPublicVariableEventHandler {PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,((_this select 1) select 0)]};

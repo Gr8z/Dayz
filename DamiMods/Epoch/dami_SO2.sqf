@@ -2,7 +2,7 @@
 _vehicle = vehicle player;
 if (gunner _vehicle == player) then [{player xac ["moveToCargo",_vehicle,1]},{
 	call r_player_removeGunActionz;
-	_action = _vehicle xaa ["Open Gunner","GG\Epoch\dami_SO1.sqf",_vehicle,2,false,true,"",""];
+	_action = _vehicle xaa ["Open Gunner","DamiMods\Epoch\dami_SO1.sqf",_vehicle,2,false,true,"",""];
 	r_player_gunactions set [count r_player_gunactions,_action];
 	r_gunaction2 = true;
 }];

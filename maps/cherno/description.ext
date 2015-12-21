@@ -11,7 +11,7 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "";
-loadScreen = "GG\GUI\Splash\deadcellgaming.jpg";
+loadScreen = "DamiMods\GUI\Splash\deadcellgaming.jpg";
 
 class Header
 {
@@ -24,6 +24,6 @@ aiKills = 1;
 diagRadio = 1;
 diagHit = 1;
 
-#include "GG\cfg\defines.hpp"
-#include "GG\cfg\loot.hpp"
-#include "GG\cfg\Ammo.hpp"
+#include "DamiMods\cfg\defines.hpp"
+#include "DamiMods\cfg\loot.hpp"
+#include "DamiMods\cfg\Ammo.hpp"
