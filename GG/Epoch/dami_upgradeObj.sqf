@@ -76,11 +76,11 @@ if ((count _upgrade) > 0) then {
 			_objectCharacterID = _combination;
 			cutText [fmt[(lzl "str_epoch_player_158"),_combination,_text], "PLAIN DOWN", 5];
 		} else {cutText [fmt[(lzl "str_epoch_player_159"),_text], "PLAIN DOWN", 5]};
-		if (_classname in dami_indestructables) then {
+		if (_classname in GG_indestructables) then {
 			_object allowDamage false;
 			_object addEventHandler ["HandleDamage", {false}];
 			_object enableSimulation false
-		} else {_object addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}]};
+		} else {_object addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}]};
 		PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location,_vector],_classname,_obj,player];
 		publicVariableServer "PVDZE_obj_Swap";
 		player reveal _object;

@@ -30,9 +30,9 @@
 		"RscDisplaySpawnSelecter","RscWatchMoreDir","#GETIN","RscStatus",
 		"RscCombatMode","RscFormations","RscTeam","RscSelectTeam","RscReply",
 		"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu",
-		"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:DamiSpawn","#USER:VoteMenu",
+		"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:GGSpawn","#USER:VoteMenu",
 		"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass",
-		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu","#USER:_Dami_GMGDFP"
+		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu","#USER:_GG_GMGDFP"
 	];
 /**Whitelisted Displays**/
 	/*	
@@ -229,9 +229,9 @@
 		"playerDistanceScreen","ihatelife","debugConsoleIndex","MY_KEYDOWN_FNC","pathtoscrdir","Bowen_RANDSTR","ProDayz","idonteven","walrein820","RandomEx",
 		"TAG_onKeyDown","derp123","heel","rangelol","unitsmenu","xZombieBait","plrshldblckls","ARGT_JUMP_s","ARGT_JUMP_d","globalplaya","ALL_MAGS_TO_SEARCH",
 		"shnmenu","xtags","pm","lmzsjgnas","vm","bowonkys","glueallnigga","hotkeymenu","Monky_hax_toggled","espfnc","playeresp","zany","dfgjafafsafccccasd",
-		"atext","boost","nd","vspeed","Ug8YtyGyvguGF","inv","rspwn","pList","loldami","T","bowonky","aimbott","Admin_Layout","markeresp","allMrk","MakeRandomSpace",
+		"atext","boost","nd","vspeed","Ug8YtyGyvguGF","inv","rspwn","pList","lolGG","T","bowonky","aimbott","Admin_Layout","markeresp","allMrk","MakeRandomSpace",
 		"helpmenu","godlol","rustlinginit","qofjqpofq","invall","initarr","reinit","byebyezombies","admin_toggled","fn_ProcessDiaryLink","ALexc","DAYZ_CREATEVEHICLE",
-		"Monky_funcs_inited","FUK_da_target","damihakeplz","damikeyz_veryhawt","mapopt","hangender","slag","jizz","kkk","ebay_har","sceptile279","TargetPlayer",
+		"Monky_funcs_inited","FUK_da_target","GGhakeplz","GGkeyz_veryhawt","mapopt","hangender","slag","jizz","kkk","ebay_har","sceptile279","TargetPlayer",
 		"tell_me_more_infiSTAR","airborne_spawn_vehicle_infiSTAR","sxy_list_stored","advert_SSH","antiantiantiantih4x","Flare8","Flare7","SuperAdmin_MENU",
 		"bl4ck1ist","keybinds","actualunit","mark_player","unitList_vec","yo2","actualunit_vec","typeVec","mark","r_menu","hfghfg","vhnlist","work","Intro",
 		"yo3","q","yo4","k","cTargetPos","cpbLoops","cpLoopsDelay","Flare","Flare1","Flare2","Flare3","Flare4","Flare5","Flare6","kanghaskhan","palkia",

@@ -15,12 +15,12 @@ _key call server_hiveWrite;
 
 _object setVariable ["lastUpdate",time];
 _object setVariable ["ObjectUID", _uid,true];
-if (typeOf _object in dami_indestructables) then {
+if (typeOf _object in GG_indestructables) then {
 	_object allowDamage false;
 	_object addEventHandler ["HandleDamage", {false}];
 }else{
 	_object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled}];
-	_object addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}];
+	_object addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}];
 };
 _object enableSimulation false;
 PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object];

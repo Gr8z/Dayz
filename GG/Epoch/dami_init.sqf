@@ -14,31 +14,31 @@ if (!isDedicated) then {
 	building_spawnZombies =		xcm xlx "\z\addons\dayz_code\compile\building_spawnZombies.sqf";
 	dayz_spaceInterrupt =		xcm xlx "\z\addons\dayz_code\actions\dayz_spaceInterrupt.sqf";
 	[] swx {
-		dami_spaceInterrupt = (str dayz_spaceInterrupt);
-		_text 	= toArray dami_spaceInterrupt;
+		GG_spaceInterrupt = (str dayz_spaceInterrupt);
+		_text 	= toArray GG_spaceInterrupt;
 		_cnt 	= count _text;
 		_i 		= 0;
 		_text set [_cnt - _cnt,objNull];
 		_text set [_cnt,objNull];
 		for '_i' from 0 to 10 do {_text set [_cnt - _i,objNull]};
 		_txt = _text - [objNull];
-		dami_spaceInterrupt = toString _txt;
-		dami_spaceInterrupt2 = {
+		GG_spaceInterrupt = toString _txt;
+		GG_spaceInterrupt2 = {
 			if ((_dikCode == 0x21 and (!_alt and !_ctrl)) or (_dikCode in actionKeys "User6")) then {
 				DZE_F = true;
 			};
 			_handled;
 		};
-		dami_spaceInterrupt2 = (str dami_spaceInterrupt2);
-		_text = toArray dami_spaceInterrupt2;
+		GG_spaceInterrupt2 = (str GG_spaceInterrupt2);
+		_text = toArray GG_spaceInterrupt2;
 		_cnt = count _text;
 		_text set [_cnt - _cnt,objNull];
 		_text set [_cnt - 0,objNull];
 		_text set [_cnt - 1,objNull];
 		_txt = _text - [objNull];
-		dami_spaceInterrupt2 = toString _txt;
-		dami_spaceInterrupt = dami_spaceInterrupt + dami_spaceInterrupt2;
-		dayz_spaceInterrupt = xcm dami_spaceInterrupt;
+		GG_spaceInterrupt2 = toString _txt;
+		GG_spaceInterrupt = GG_spaceInterrupt + GG_spaceInterrupt2;
+		dayz_spaceInterrupt = xcm GG_spaceInterrupt;
 	};
 	player_fired =				xcm xlx "\z\addons\dayz_code\compile\player_fired.sqf";
 	player_harvest =			xcm xlx "\z\addons\dayz_code\compile\player_harvest.sqf";
@@ -49,7 +49,7 @@ if (!isDedicated) then {
 	player_changeCombo =		xcm xlx "\z\addons\dayz_code\compile\player_changeCombo.sqf";
 	player_crossbowBolt =		xcm xlx "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				xcm xlx "\z\addons\dayz_code\compile\player_music.sqf";
-	player_death = 				xcm xlx "GG\Epoch\dami_PD.sqf";
+	player_death = 				xcm xlx "GG\Epoch\GG_PD.sqf";
 	player_switchModel =		xcm xlx "\z\addons\dayz_code\compile\player_switchModel.sqf";
 	player_checkStealth =		xcm xlx "\z\addons\dayz_code\compile\player_checkStealth.sqf";
 	world_sunRise =				xcm xlx "\z\addons\dayz_code\compile\fn_sunRise.sqf";
@@ -290,7 +290,7 @@ if (!isDedicated) then {
 		PIDP_playerUID = (gpd player) call PIDP_check;
 	};
 	a2s = {_info = _info + ("<t align='left'>"+_this+"</t><br/>")};
-	dami_getTurretInfo = {
+	GG_getTurretInfo = {
 		private ["_result","_tw","_wep","_mags","_wepa"];
 		_result = [];
 		{
@@ -308,7 +308,7 @@ if (!isDedicated) then {
 		} forEach [-1,0,1,3,4,5];
 		_result;
 	};
-	dami_RATdo = {
+	GG_RATdo = {
 		private ["_sel","_veh","_wep","_mag","_dis","_prc","_tur","_rlt","_crt","_magTyp","_turPos","_ctrl","_info","_money","_newBal","_msg"];
 		if (count RAT_array < 1) exitWith {};
 		_sel = RAT_array sel (_this sel 0);
@@ -360,10 +360,10 @@ if (!isDedicated) then {
 	RefuelBuyFuel = {private ["_fuel","_slider","_capacity","_fuelDif","_cost","_playerWealth","_name"];_fuel 		= fuel RefuelTargetVehicle;_slider 	= (sliderPosition ((uiNamespace xgv "RefuelDialog") displayCtrl 4602) / 10);_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - (_fuel * _capacity);_cost 		= if (RefuelTargetVehicle iko "AIR") then [{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice / 4))},{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice))}];_name 		= getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName");_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = fmt ["Need %1 more %2!",_cost - _playerWealth,GCoins];systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};_msg = "Vehicle has been refueled for "+str _cost;systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";PVDZE_send = [RefuelTargetVehicle,"SFuel",[RefuelTargetVehicle,((fuel RefuelTargetVehicle) + ((1 - _fuel) * _slider))]];publicVariableServer "PVDZE_send";};
 	RepairVehicleCost = {private ["_prices","_vehicle","_hitpoints","_parts_cost","_parts_needed","_damage","_part","_armor","_cost"];_prices = ["PartGeneric", 10,"PartEngine", 20,"PartVRotor", 20,"PartFueltank", 150,"PartWheel", 20,"PartGlass", 10];_vehicle = _this;if (damage _vehicle == 0) exw {0};_hitpoints = switch (true) do {default {_vehicle call vehicle_getHitpoints};case ((_vehicle iko  "Car") && !(_vehicle iko  "Truck")): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};case (_vehicle iko  "Truck"): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitGlass7","HitGlass8","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitLMWheel","HitRMWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};};_parts_cost = 0;_parts_needed = [];{private ["_damage", "_part"];_damage = [_vehicle,_x] call object_getHit;_part = switch (true) do {default {"PartGeneric"};case (["Engine",_x,false] call fnc_inString): 	{"PartEngine"};case (["HRotor",_x,false] call fnc_inString): 	{"PartVRotor"};case (["Fuel",_x,false] call fnc_inString): 	{"PartFueltank"};case (["Wheel",_x,false] call fnc_inString): 	{"PartWheel"};case (["Glass",_x,false] call fnc_inString): 	{"PartGlass"};};if (_damage > 0) then {_parts_needed set [count _parts_needed, _part];_parts_cost = _parts_cost + (_prices sel ((_prices find _part) + 1));_parts_needed set [count _parts_needed, (_prices sel ((_prices find _part) + 1))];};} forEach _hitpoints;_armor = xgn((xcf >> "cfgVehicles" >> (typeOf _vehicle)) >> "armor");_cost = if (_vehicle iko "Air") then [{ceil(_parts_cost + (damage _vehicle * (_armor * 100)))},{ceil(_parts_cost + (damage _vehicle * (_armor * 10)))}];_cost};
 	RepairVehicle = {private ["_cost","_color","_playerWealth"];_cost = RefuelTargetVehicle call RepairVehicleCost;_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = "You don't have enough money to do this.";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";{private ["_damage", "_selection"];_damage = [RefuelTargetVehicle,_x] call object_getHit;if (_damage > 0) then {_selection = getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "HitPoints" >> _x >> "name");PVDZE_veh_SFix = [RefuelTargetVehicle,_selection,0];publicVariable "PVDZE_veh_SFix";if (local RefuelTargetVehicle) then {PVDZE_veh_SFix call object_setFixServer;};};} forEach (RefuelTargetVehicle call vehicle_getHitpoints);_msg = "Vehicle has been fully repaired!";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;RefuelTargetVehicle setDamage 0;};
-	dami_cceff = {"filmGrain" ppEffectEnable true;_hndl = ppEffectCreate ["colorCorrections", 1501];_hndl ppEffectEnable true;if (( daytime < 18 )&&( daytime < 7)) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 7 )&&( daytime < 18 )) then {_hndl ppEffectAdjust[1,1,0,[0,-0.12,0.05,0.03],[0,0,0,1.23],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.0225, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 18 )&&( daytime > 7 )) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};};
-	dami_DPP = {
+	GG_cceff = {"filmGrain" ppEffectEnable true;_hndl = ppEffectCreate ["colorCorrections", 1501];_hndl ppEffectEnable true;if (( daytime < 18 )&&( daytime < 7)) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 7 )&&( daytime < 18 )) then {_hndl ppEffectAdjust[1,1,0,[0,-0.12,0.05,0.03],[0,0,0,1.23],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.0225, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 18 )&&( daytime > 7 )) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};};
+	GG_DPP = {
 		if !(isNil 'SZ_VEH') then {
-			SZ_lastVehicle call dami_RVP;
+			SZ_lastVehicle call GG_RVP;
 			SZ_VEH = nil;
 		} else {
 			if (vehicle player != player) then {
@@ -377,30 +377,30 @@ if (!isDedicated) then {
 		player removeEventHandler ["Hit", 		SafeZone_HIT];
 		player removeEventHandler ["Killed", 	SafeZone_KILLED];
 		fnc_usec_unconscious 	= xcm preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_unconscious.sqf";
-		if (preProcessFile "GG\Epoch\dami_PD.sqf" != "") then {
-			player_death 		= xcm preprocessFileLineNumbers "GG\Epoch\dami_PD.sqf";
+		if (preProcessFile "GG\Epoch\GG_PD.sqf" != "") then {
+			player_death 		= xcm preprocessFileLineNumbers "GG\Epoch\GG_PD.sqf";
 		} else {
 			player_death 		= xcm preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_death.sqf";
 		};
 		player_zombieCheck 		= xcm preprocessFileLineNumbers "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 		fnc_usec_damageHandler 	= xcm preprocessFileLineNumbers "\z\addons\dayz_code\compile\fn_damageHandler.sqf";
 	};
-	dami_PP = {
+	GG_PP = {
 		_msg = "Infantry protection loaded.";
 		systemChat ("(ArmA-AH): "+str _MSG);
-		SafeZone_FIRED  = player aeh ["Fired",	{call dami_pfired}];
-		SafeZone_HIT    = player aeh ["Hit",	{call dami_phit}];
-		SafeZone_KILLED = player aeh ["Killed",	{call dami_pkill}];
+		SafeZone_FIRED  = player aeh ["Fired",	{call GG_pfired}];
+		SafeZone_HIT    = player aeh ["Hit",	{call GG_phit}];
+		SafeZone_KILLED = player aeh ["Killed",	{call GG_pkill}];
 		fnc_usec_unconscious 	= {};
 		player_death 			= {};
 		player_zombieCheck 		= {};
 		fnc_usec_damageHandler 	= {};
 	};
-	dami_pfired = {
+	GG_pfired = {
 		nearestObject [(_this sel 0),(_this sel 4)] setPos[0,0,0];
 		cutText ["You are not allowed to shoot in safezones","PLAIN"];
 	};
-	dami_pkill = {
+	GG_pkill = {
 		_killer = (_this sel 1);
 		if ((izn _killer)||!(isPlayer _killer)||(name _killer in ["Error: No vehicle","Error: No unit"])||(_killer == player)) exw {};
 		_nKill = name _killer;
@@ -416,7 +416,7 @@ if (!isDedicated) then {
 			systemChat ("(ArmA-AH): "+str _MSG);
 		};
 	};
-	dami_phit = {
+	GG_phit = {
 		_attker = (_this sel 1);
 		if ((izn _attker)||!(isPlayer _attker)||(name _attker in ["Error: No vehicle","Error: No unit"])||(_attker == player)) exw {};
 		_nAttkr = name _attker;
@@ -431,14 +431,14 @@ if (!isDedicated) then {
 			systemChat (str _msg);
 		};
 	};
-	dami_ZSHIELD = {
+	GG_ZSHIELD = {
 		while {1 == 1} do {
 			_zombies = ((getPosATL (vehicle player)) nearEntities ["zZombie_Base",50]);
 			if (count _zombies > 0) then {{deletevehicle _x} forEach _zombies};
 			sleep 1;
 		};
 	};
-	dami_ANTITHEFT2 = {
+	GG_ANTITHEFT2 = {
 		while {inSafeZone} do {
 			waitUntil {((!izn (findDisplay 106))||(!inSafeZone))};
 			_target = (cursorTarget);
@@ -471,35 +471,35 @@ if (!isDedicated) then {
 			} else {sleep 1};
 		};
 	};
-	dami_AVP = {
+	GG_AVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
-		SZ_lastVehicle aeh ["Fired", {call dami_pfired}];
+		SZ_lastVehicle aeh ["Fired", {call GG_pfired}];
 		SZ_lastVehicle aeh ["HandleDamage",{false}];
 		SZ_lastVehicle allowDamage false;
 	};
-	dami_RVP = {
+	GG_RVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
 		SZ_lastVehicle aeh ["HandleDamage",{_this call vehicle_handleDamage}];
 		SZ_lastVehicle allowDamage true;
 	};
-	dami_VP = {
+	GG_VP = {
 		if (isNil 'SZ_lastvehicle') then {SZ_lastVehicle = objNull};
 		while {1 == 1} do {
 			if ((vehicle player != player)&&(isNil 'SZ_VEH')) then {
 				SZ_lastVehicle = (vehicle player);
-				call dami_AVP;
+				call GG_AVP;
 				SZ_VEH = true;
 			};
 			if ((vehicle player != SZ_lastVehicle)&&!(isNil 'SZ_VEH')) then {
-				call dami_RVP;
+				call GG_RVP;
 				SZ_VEH = nil;
 			};
 			sleep 1;
 		};
 	};
-	dami_ANTIRUN = {
+	GG_ANTIRUN = {
 		waitUntil {uiSleep 1;
 		(vehicle player != player)||(!inSafeZone)};
 		if (!inSafeZone) exw {};
@@ -528,7 +528,7 @@ if (!isDedicated) then {
 		_msg = 'You are only allowed to access your friends backpacks!';
 		systemChat ("(ArmA-AH): "+str _MSG);
 	};
-	dami_ANTITHEFT = {
+	GG_ANTITHEFT = {
 		BP_FIX = false;
 		while {1 == 1} do {
 			waitUntil {((izn (findDisplay 106))||(!inSafeZone))};
@@ -571,23 +571,23 @@ if (!isDedicated) then {
 	};
 	if (hasInterface) then {
 		[] swx {
-			waitUntil {(!isNil "dami_ANTIRUN")};
+			waitUntil {(!isNil "GG_ANTIRUN")};
 			if (isNil "inSafezone") then {inSafezone = false};
 			while {1 == 1} do {
 				waitUntil {uiSleep 1;(inSafeZone)};
-				dami_szCHK = false;
+				GG_szCHK = false;
 				canbuild = false;
 				SZ_SkTyp = typeOf player;
 				SZ_timeEntered = time;
 				_msg = "You have entered a safezone! Running people over, stealing, or griefing within safezones shall result in a ban! YOU HAVE BEEN WARNED!";
 				systemChat ("(ArmA-AH): "+str _MSG);
-				dami_thread1 = [] swx dami_ANTIRUN;
-				dami_thread2 = [] swx dami_ZSHIELD;
-				dami_thread3 = [] swx dami_ANTITHEFT;
-				dami_thread4 = [] swx dami_ANTITHEFT2;
-				dami_thread5 = [] swx dami_VP;
+				GG_thread1 = [] swx GG_ANTIRUN;
+				GG_thread2 = [] swx GG_ZSHIELD;
+				GG_thread3 = [] swx GG_ANTITHEFT;
+				GG_thread4 = [] swx GG_ANTITHEFT2;
+				GG_thread5 = [] swx GG_VP;
 				["Safe Zone"] swx bis_fnc_infotext;
-				call dami_PP;
+				call GG_PP;
 				waitUntil {uiSleep 1;((!inSafeZone)||(typeOf player != SZ_SkTyp))};
 				if (inSafeZone) then {
 					if (typeOf player != SZ_SkTyp) then {
@@ -595,14 +595,14 @@ if (!isDedicated) then {
 							inSafeZone = false;
 							_msg = "Skin change detected! Toggling safezone protection...";
 							systemChat ("(ArmA-AH): "+str _MSG);
-							waitUntil {dami_szCHK};
+							waitUntil {GG_szCHK};
 							inSafeZone = true;
 						};
 					};
 				};
 				waitUntil {uiSleep 1;(!inSafeZone)};
 				systemChat ("SAFE-ZONE: You have left a safezone!");
-				dami_szCHK = true;
+				GG_szCHK = true;
 				if ((floor(time - SZ_timeEntered) > 60)&&(typeOf player == SZ_SkTyp)) then {
 					systemChat ("SAFE-ZONE: Safe-zone hit/kill protection will stay on for 20-30 seconds to prevent safezone snipers... TAKE COVER!");
 					_time = time;
@@ -610,39 +610,39 @@ if (!isDedicated) then {
 					waitUntil {((inSafeZone)||((time - _time) > (20+_rtim)))};
 				} else {if (typeOf player == SZ_SkTyp) then {systemChat ("SAFE-ZONE: You were only in the safezone for "+str floor(time - SZ_timeEntered)+" seconds!")}};
 				canbuild = true;
-				xtr dami_thread1;
-				xtr dami_thread2;
-				xtr dami_thread3;
-				xtr dami_thread4;
-				xtr dami_thread5;
-				call dami_DPP;
+				xtr GG_thread1;
+				xtr GG_thread2;
+				xtr GG_thread3;
+				xtr GG_thread4;
+				xtr GG_thread5;
+				call GG_DPP;
 				_msg = "";
 				if (inSafeZone) then {_msg = "It appears you have re-entered a safezone. Reenabling protection..."} else {_msg = "Safe-zone hit/kill protection has been disabled!"};
 				systemChat ("SAFE-ZONE: "+str _msg);
 			};
 		};
 	};
-	damicam = {
+	GGcam = {
 		1 cutRsc ["default","PLAIN",0];
 		3 cutRsc ["default","PLAIN",0];
 		4 cutRsc ["default","PLAIN",0];
 		playMusic "dayz_track_death_1";
 		showCinemaBorder true;
 		camUseNVG false;
-		dami_CAM = "camera" camCreate [(getPosATL player sel 0), (getPosATL player sel 1),(getPosATL player sel 2)+1];
-		dami_CAM cameraEffect ["internal","back"];
-		dami_CAM camSetFOV 2;
-		dami_CAM camSetTarget (vehicle player);
-		dami_CAM camCommit 0;
-		waitUntil{camCommitted dami_CAM};
-		dami_CAM camSetTarget [(getPosATL player sel 0), (getPosATL player sel 1)+50,(getPosATL player sel 2)+50];
-		dami_CAM camSetRelPos [50,50,0];
-		dami_CAM camCommit 25;
+		GG_CAM = "camera" camCreate [(getPosATL player sel 0), (getPosATL player sel 1),(getPosATL player sel 2)+1];
+		GG_CAM cameraEffect ["internal","back"];
+		GG_CAM camSetFOV 2;
+		GG_CAM camSetTarget (vehicle player);
+		GG_CAM camCommit 0;
+		waitUntil{camCommitted GG_CAM};
+		GG_CAM camSetTarget [(getPosATL player sel 0), (getPosATL player sel 1)+50,(getPosATL player sel 2)+50];
+		GG_CAM camSetRelPos [50,50,0];
+		GG_CAM camCommit 25;
 		uiSleep 5;
-		dami_CAM camSetRelPos [0,5,0];
-		dami_CAM camCommit 20;
+		GG_CAM camSetRelPos [0,5,0];
+		GG_CAM camCommit 20;
 	};
-	damirespown = {
+	GGrespown = {
 		player removeEventHandler ["FiredNear",eh_player_killed];
 		player removeEventHandler ["HandleDamage",mydamage_eh1];
 		player removeEventHandler ["Killed",mydamage_eh3];
@@ -695,14 +695,14 @@ if (!isDedicated) then {
 		dayz_temperatur 	= 40;
 		dayz_thirst 		= 0;
 		dayz_selectGender 	= "Survivor2_DZ";
-		{call compile (_x+' = false')} forEach ["r_action","r_action_unload","r_doLoop","r_drag_sqf","r_fracture_arms","r_fracture_legs","r_interrupt","r_player_cardiac","r_player_dead","r_player_handler","r_player_handler1","r_player_infected","r_player_injured","r_player_inpain","r_player_loaded","r_player_lowblood","r_player_unconscious","r_self","DZE_InRadiationZone","dayz_unsaved","dami_respawn"];
+		{call compile (_x+' = false')} forEach ["r_action","r_action_unload","r_doLoop","r_drag_sqf","r_fracture_arms","r_fracture_legs","r_interrupt","r_player_cardiac","r_player_dead","r_player_handler","r_player_handler1","r_player_infected","r_player_injured","r_player_inpain","r_player_loaded","r_player_lowblood","r_player_unconscious","r_self","DZE_InRadiationZone","dayz_unsaved","GG_respawn"];
 		{player setVariable [_x sel 0,_x sel 1,_x sel 2]} forEach [["hit_arms",0,true],["hit_hands",0,true],["hit_legs",0,true],["NORRN_unconscious",false,true],["unconsciousTime",0,true],["USEC_BloodQty",r_player_blood,true],["USEC_injured",false,true],["USEC_inPain",false,true],["USEC_isCardiac",false,true],["USEC_lowBlood",false,true],["humanity",_humanity,true],["GGCoins",0,true],["GGBank",_bankMoney,true],["CharacterID",dayz_characterID,true],["friendlies",_friendlies,true],["USEC_isDead",false,true],["USEC_infected",false,true],["AH_friendlist",_friendlist,true]];
 		{player removeMagazine _x} count (magazines player);
 		removeAllWeapons player;
 		"Survivor2_DZ" call player_switchModel;
 		startLoadingScreen ["","RscDisplayLoadCustom"];
-		dami_CAM cameraEffect ["terminate","back"];
-		camDestroy dami_CAM;
+		GG_CAM cameraEffect ["terminate","back"];
+		camDestroy GG_CAM;
 		playMusic "";
 		for "_x" from 5 to 1 step -1 do {
 			((uiNameSpace getVariable "BIS_loadingScreen") displayctrl 8400) ctrlSetText ("Respawning in "+str _x);
@@ -720,7 +720,7 @@ if (!isDedicated) then {
 		createDialog "AH_fnc_spawnSelect";
 		call AH_fnc_spawnMenu;
 		waitUntil{!dialog};
-		if (!dami_respawn) exitWith {
+		if (!GG_respawn) exitWith {
 			systemChat ("(ArmA-AH.net): You didn't sel respawn or disconnect!");
 			for "_x" from 5 to 1 step -1 do {
 				systemChat format ["Returning to lobby in %1 second(s)...", _x];
@@ -819,7 +819,7 @@ if (!isDedicated) then {
 		dayz_animalCheck = [] spawn player_spawn_1;
 		dayz_slowCheck = [] spawn player_spawn_2;
 		dayz_medicalH = [] execVM "\z\addons\dayz_code\medical\init_medical.sqf";
-		player_death = compile preprocessFileLineNumbers "GG\Epoch\dami_PD.sqf";
+		player_death = compile preprocessFileLineNumbers "GG\Epoch\GG_PD.sqf";
 		deathHandled = false;
 		player addWeapon "Flare";
 		player addWeapon "Loot";
@@ -830,7 +830,7 @@ if (!isDedicated) then {
 		'dynamicBlur'ppEffectAdjust[0];
 		'dynamicBlur'ppEffectCommit 0;
 		'dynamicBlur'ppEffectEnable false;
-		call dami_cceff;
+		call GG_cceff;
 		if (!isNil 'dayzSetFogAH') then {0 setFog dayzSetFogAH};
 		if (!isNil 'dayzSetDateAH') then {setDate dayzSetDateAH};
 		if (!isNil 'dayzSetRainAH') then {0 setRain dayzSetRainAH};
@@ -844,7 +844,7 @@ if (!isDedicated) then {
 		reload player;
 		endLoadingScreen;
 	};
-	dami_maintainbase = {
+	GG_maintainbase = {
 		BM_getControl = {(findDisplay 7331) displayCtrl _this};
 		baseManage_alphaSort = {
 			if (count _this < 2) exitWith {aht_plrs = _this};
@@ -933,7 +933,7 @@ if (!isDedicated) then {
 				_maint = 1008 call BM_getControl;
 				_maint ctrlEnable false;
 			} else {
-				if (getPlayerUID player in dami_freemaintarra) then {baseManage_requirements = [["Thanks for donating!","Free"]]};
+				if (getPlayerUID player in GG_freemaintarra) then {baseManage_requirements = [["Thanks for donating!","Free"]]};
 				_txtstart = "<t align='center' color='#FFFFFF' size='2'>";
 				_txtfinal = "</t>";
 				_textleft = "<t color='#cc3333'>";
@@ -1081,17 +1081,17 @@ if (!isDedicated) then {
 		_ctrl ctrlMapAnimAdd [_time,_zoom,_pos];
 		ctrlMapAnimCommit _ctrl;
 	};
-	dami_getPlayerCargo = {
-		dami_plyrmags = magazines player;
-		dami_plyrweps = weapons player;
+	GG_getPlayerCargo = {
+		GG_plyrmags = magazines player;
+		GG_plyrweps = weapons player;
 	};
-	dami_getBackpackCargo = {
+	GG_getBackpackCargo = {
 		private ["_backpack","_mags","_weps","_megs","_waps"];
 		_backpack = (unitBackpack player);
 		if (isNull _backpack) exitWith {
-			dami_bpmags = [];
-			dami_bpweps = [];
-			dami_bpobj = objNull;
+			GG_bpmags = [];
+			GG_bpweps = [];
+			GG_bpobj = objNull;
 		};
 		_mags = getMagazineCargo (unitBackpack player);
 		_weps = getWeaponCargo (unitBackpack player);
@@ -1099,11 +1099,11 @@ if (!isDedicated) then {
 		_waps = [];
 		{for "_i" from 1 to ((_mags sel 1) sel _forEachIndex) do {_megs set [count _megs,_x]}} forEach (_mags sel 0);
 		{for "_i" from 1 to ((_weps sel 1) sel _forEachIndex) do {_waps set [count _waps,_x]}} forEach (_weps sel 0);
-		dami_bpmags = _megs;
-		dami_bpweps = _waps;
-		dami_bpobj = (unitBackpack player);
+		GG_bpmags = _megs;
+		GG_bpweps = _waps;
+		GG_bpobj = (unitBackpack player);
 	};
-	dami_getVehicleCargo = {
+	GG_getVehicleCargo = {
 		private ["_vehicle","_mags","_weps","_megs","_waps"];
 		_temp_keys = [];
 		_temp_keys_names = [];
@@ -1123,9 +1123,9 @@ if (!isDedicated) then {
 		} forEach (nearestObjects [(getPosATL player), ["LandVehicle","Air","Ship"], 80]);
 		
 		if (isNull _vehicle) exitWith {
-			dami_vehmags = [];
-			dami_vehweps = [];
-			dami_vehobj = objNull;
+			GG_vehmags = [];
+			GG_vehweps = [];
+			GG_vehobj = objNull;
 		};
 		_megs = [];
 		_waps = [];
@@ -1133,11 +1133,11 @@ if (!isDedicated) then {
 		_weps = getWeaponCargo _vehicle;
 		{for "_i" from 1 to ((_mags sel 1) sel _forEachIndex) do {_megs set [count _megs,_x]}} forEach (_mags sel 0);
 		{for "_i" from 1 to ((_weps sel 1) sel _forEachIndex) do {_waps set [count _waps,_x]}} forEach (_weps sel 0);
-		dami_vehmags = _megs;
-		dami_vehweps = _waps;
-		dami_vehobj = _vehicle;
+		GG_vehmags = _megs;
+		GG_vehweps = _waps;
+		GG_vehobj = _vehicle;
 	};
-	dami_removeFromCargo = {
+	GG_removeFromCargo = {
 		private ["_obj","_item","_qty","_typ","_ocm1","_ocm2","_ocw1","_ocw2","_cnt","_num"];
 		_obj 	= _this sel 0;
 		_item 	= _this sel 1;
@@ -1186,11 +1186,11 @@ if (!isDedicated) then {
 			_num = 0;
 			{_obj addWeaponCargoGlobal [_x,_ocw2 sel _num];_num = _num + 1;} forEach _ocw1;
 		} else {
-			dami_failed = true;
+			GG_failed = true;
 			systemChat ("ERROR: Could not find "+str _item+" inside of "+typeOf _obj+"!!!");
 		};
 	};
-	dami_addToCargo = {
+	GG_addToCargo = {
 		private ["_obj","_item","_qty","_typ","_ocm1","_ocm2","_ocw1","_ocw2","_ocb1","_ocb2","_cnt","_indx","_num"];
 		_obj 	= _this sel 0;
 		_item 	= _this sel 1;
@@ -1230,7 +1230,7 @@ if (!isDedicated) then {
 		_num = 0;
 		{_obj addWeaponCargoGlobal [_x,_ocw2 sel _num];_num = _num + 1;} forEach _ocw1;
 	};
-	dami_countReqWepSlots = {
+	GG_countReqWepSlots = {
 		private "_req";
 		_req = 1;
 		if (isClass (configFile >> 'CfgWeapons' >> _this)) then {
@@ -1239,7 +1239,7 @@ if (!isDedicated) then {
 		};
 		_req
 	};
-	dami_checkFreeSlotsBP = {
+	GG_checkFreeSlotsBP = {
 		private ["_books","_title","_author","_obj","_ocm1","_ocm2","_ocw1","_ocw2","_totalis","_qty"];
 		_obj = _this;
 		_ocm1 	= (getMagazineCargo _obj) sel 0;
@@ -1250,12 +1250,12 @@ if (!isDedicated) then {
 		
 		{_totalis = _totalis + _x} forEach _ocm2;
 		{
-			_qty = _x * ((_ocw1 sel _forEachIndex) call dami_countReqWepSlots);
+			_qty = _x * ((_ocw1 sel _forEachIndex) call GG_countReqWepSlots);
 			_totalis = _totalis + _qty;
 		} forEach _ocw2;
 		[((getNumber (configFile >> "cfgVehicles" >> typeOf _obj >> "transportMaxMagazines")) - _totalis)]
 	};
-	dami_checkFreeSlotsVEH = {
+	GG_checkFreeSlotsVEH = {
 		private ["_obj","_ocm1","_ocm2","_ocw1","_ocw2","_ocb1","_ocb2","_totalmags","_totalweps","_totalbaks","_magslotsfree","_wepslotsfree","_bakslotsfree"];
 		_obj = _this;
 		_ocm1 	= (getMagazineCargo _obj) sel 0;
@@ -1414,8 +1414,8 @@ if (!isDedicated) then {
 			_player_lockUnlock_crtl = false;
 			if (_canDo && (speed player <= 1) && (_cursorTarget iko "Plastic_Pole_EP1_DZ")) then {
 				if (s_player_maintain_area < 0) then {
-					s_player_maintain_area = player xaa ["<t color='#FFE700'>Manage base</t>", "GG\Epoch\dami_PPM.sqf", "", 5, false];
-					s_player_maintain_area_preview = player xaa ["<t color='#ff0000'>Toggle plot arrows</t>", "GG\Epoch\dami_MA.sqf", "preview", 5, false];
+					s_player_maintain_area = player xaa ["<t color='#FFE700'>Manage base</t>", "GG\Epoch\GG_PPM.sqf", "", 5, false];
+					s_player_maintain_area_preview = player xaa ["<t color='#ff0000'>Toggle plot arrows</t>", "GG\Epoch\GG_MA.sqf", "preview", 5, false];
 				};
 			} else {
 				player rac s_player_maintain_area;
@@ -1454,7 +1454,7 @@ if (!isDedicated) then {
 			};
 			if (_player_deleteBuild) then {
 				if (s_player_deleteBuild < 0) then {
-					s_player_deleteBuild = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\Epoch\dami_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
+					s_player_deleteBuild = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\Epoch\GG_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_deleteBuild;
@@ -1611,7 +1611,7 @@ if (!isDedicated) then {
 			if ((_player_studybody)||(_isUncon)) then {
 				if (s_player_teabag < 0) then {
 					_name = _cursorTarget xgv ["bodyName","body"];
-					s_player_teabag = player xaa ["<t color='#dddddd'>Teabag "+str _name+"</t>", "GG\Epoch\dami_TB.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_teabag = player xaa ["<t color='#dddddd'>Teabag "+str _name+"</t>", "GG\Epoch\GG_TB.sqf",_cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_teabag;
@@ -1629,7 +1629,7 @@ if (!isDedicated) then {
 			};
 			if (_player_studybody) then {
 				if (s_clothes < 0) then {
-					s_clothes = player xaa ["<t color='#dddddd'>Take Clothes</t>", "GG\Epoch\dami_TC.sqf",cursorTarget, 0, false, true, "",""];
+					s_clothes = player xaa ["<t color='#dddddd'>Take Clothes</t>", "GG\Epoch\GG_TC.sqf",cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_clothes;
@@ -1660,7 +1660,7 @@ if (!isDedicated) then {
 				_isDeployed = cursorTarget xgv ["Deployed",false];
 				if ((_HEdistance < 5)&&(_isDeployed)) then {
 					if (s_player_packOBJ < 0) then {
-						s_player_packOBJ = player xaa [("<t color=""#00FF04"">" + ("Pack "+typeOf cursorTarget+"") +"</t>"),"GG\Epoch\dami_PV.sqf",cursorTarget,6,false,true,"", ""];
+						s_player_packOBJ = player xaa [("<t color=""#00FF04"">" + ("Pack "+typeOf cursorTarget+"") +"</t>"),"GG\Epoch\GG_PV.sqf",cursorTarget,6,false,true,"", ""];
 					};
 				};
 			} else {
@@ -1670,7 +1670,7 @@ if (!isDedicated) then {
 			if (cursorTarget iko "Land_Water_Pipe_ep1") then {
 				_dObj = cursorTarget;
 				if (s_player_hookahHit < 0) then {
-					s_player_hookahHit = player xaa ["<t color='#009000'>Take a hit</t>","GG\Epoch\dami_HOOKAH.sqf",cursorTarget, 0, false, true, "",""];
+					s_player_hookahHit = player xaa ["<t color='#009000'>Take a hit</t>","GG\Epoch\GG_HOOKAH.sqf",cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_hookahHit;
@@ -1726,7 +1726,7 @@ if (!isDedicated) then {
 				} else {
 					if (("ItemJerrycan" in _magazinesPlayer) && ("ItemMatchbox_DZE" in weapons player)) then {
 						if (s_player_packtent < 0) then {
-							s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\Epoch\dami_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
+							s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\Epoch\GG_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
 						};
 					};
 				};
@@ -1825,7 +1825,7 @@ if (!isDedicated) then {
 			if (isNil "SmeltingInProgress") then {SmeltingInProgress = false};
 			if ((_typeOfCursorTarget in DZE_rnr_trader)&&(player distance _cursorTarget < 3)) then {
 				if (s_player_autorefuel < 0) then {
-					s_player_autorefuel = player xaa [fmt  [("<t color=""#00F000"">"+("Refuel and repair vehicle") + "</t>")], "GG\Epoch\dami_RNR.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_player_autorefuel = player xaa [fmt  [("<t color=""#00F000"">"+("Refuel and repair vehicle") + "</t>")], "GG\Epoch\GG_RNR.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_autorefuel;
@@ -1892,7 +1892,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_upgrade_build < 0) then {
 					s_player_lastTarget set [0,_cursorTarget];
-					s_player_upgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UPGRADE",_text]], "GG\Epoch\dami_upgradeObj.sqf",_cursorTarget, -1, false, true, "",""];
+					s_player_upgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UPGRADE",_text]], "GG\Epoch\GG_upgradeObj.sqf",_cursorTarget, -1, false, true, "",""];
 				};
 			} else {
 				player rac s_player_upgrade_build;
@@ -1907,7 +1907,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_downgrade_build < 0) then {
 					s_player_lastTarget set [1,_cursorTarget];
-					s_player_downgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\Epoch\dami_downgradeObj.sqf",_cursorTarget, -2, false, true, "",""];
+					s_player_downgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\Epoch\GG_downgradeObj.sqf",_cursorTarget, -2, false, true, "",""];
 				};
 			} else {
 				player rac s_player_downgrade_build;
@@ -1922,13 +1922,13 @@ if (!isDedicated) then {
 				};
 				if (s_player_maint_build < 0) then {
 					s_player_lastTarget set [2,_cursorTarget];
-					s_player_maint_build = player xaa [fmt ["<t color='#00F000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_MAINTAIN",_text]], "GG\Epoch\dami_MB.sqf",_cursorTarget, -2, false, true, "",""];
+					s_player_maint_build = player xaa [fmt ["<t color='#00F000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_MAINTAIN",_text]], "GG\Epoch\GG_MB.sqf",_cursorTarget, -2, false, true, "",""];
 				};
 			} else {
 				player rac s_player_maint_build;
 				s_player_maint_build = -1;
 			};
-			if (gpd player in dami_modbremarra) then {
+			if (gpd player in GG_modbremarra) then {
 				_isModItem 		= _cursorTarget iko "ModularItems";
 				_isHouseBase 	= _cursorTarget iko "DZE_Housebase";
 				if ((_isModItem)||(_isHouseBase)) then {
@@ -1942,7 +1942,7 @@ if (!isDedicated) then {
 					if ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID)) then {
 						if (s_player_remove_build < 0) then {
 							s_player_lastTarget set [3,_cursorTarget];
-							s_player_remove_build = player xaa ["<t color='#FF0000'>Remove "+str _typeOfCursorTarget+"</t>", "GG\Epoch\dami_MBR.sqf",_cursorTarget, -2, false, true, "",""];
+							s_player_remove_build = player xaa ["<t color='#FF0000'>Remove "+str _typeOfCursorTarget+"</t>", "GG\Epoch\GG_MBR.sqf",_cursorTarget, -2, false, true, "",""];
 						};
 					};
 				} else {
@@ -1979,10 +1979,10 @@ if (!isDedicated) then {
 			if ((dayz_myCursorTarget != _cursorTarget) && _isVehicle && !_isMan && _hasToolbox && (damage _cursorTarget < 1) && !_isDisallowRepair && !locked _cursorTarget) then {
 				if (s_player_repair_crtl < 0) then {
 					dayz_myCursorTarget = _cursorTarget;
-					_menu = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_REPAIRV"], "GG\Epoch\dami_RVE.sqf",_cursorTarget, 0, true, false, "",""];
+					_menu = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_REPAIRV"], "GG\Epoch\GG_RVE.sqf",_cursorTarget, 0, true, false, "",""];
 					s_player_repairActions set [count s_player_repairActions,_menu];
 					if !(inSafeZone) then {
-						_menu1 = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_SALVAGEV"], "GG\Epoch\dami_SVE.sqf",_cursorTarget, 0, true, false, "",""];
+						_menu1 = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_SALVAGEV"], "GG\Epoch\GG_SVE.sqf",_cursorTarget, 0, true, false, "",""];
 						s_player_repairActions set [count s_player_repairActions,_menu1];
 					};
 					s_player_repair_crtl = 1;
@@ -2411,7 +2411,7 @@ if (!isDedicated) then {
 			} else {
 				(vehicle player) reh "Fired";
 				(vehicle player) reh "HandleDamage";
-				(vehicle player) aeh ["Fired", {call dami_pfired}];
+				(vehicle player) aeh ["Fired", {call GG_pfired}];
 				(vehicle player) aeh ["HandleDamage",{false}];
 				(vehicle player) allowDamage false;
 				(vehicle player) setVectorUp [0,0,1];
@@ -2588,11 +2588,11 @@ if (!isDedicated) then {
 				if (typeOf _vehicle in ["ArmoredSUV_PMC_DZE"]) then {
 					_isClosed = _vehicle getVariable ["SUV_closed",false];
 					if (_isClosed) then {
-						_action = _vehicle xaa ["<t color='#dddddd'>Open Gunner</t>","GG\Epoch\dami_SO1.sqf",_vehicle,2,false,true,"",""];
+						_action = _vehicle xaa ["<t color='#dddddd'>Open Gunner</t>","GG\Epoch\GG_SO1.sqf",_vehicle,2,false,true,"",""];
 						r_player_gunactions set [count r_player_gunactions,_action];
 						r_gunaction2 = true;
 					} else {
-						if ((gunner _vehicle == player)||(izn (gunner _vehicle))) then {_action = _vehicle xaa ["<t color='#dddddd'>Close Gunner</t>","GG\Epoch\dami_SO2.sqf",_vehicle,2,false,true,"",""];
+						if ((gunner _vehicle == player)||(izn (gunner _vehicle))) then {_action = _vehicle xaa ["<t color='#dddddd'>Close Gunner</t>","GG\Epoch\GG_SO2.sqf",_vehicle,2,false,true,"",""];
 							r_player_gunactions set [count r_player_gunactions,_action];
 							r_gunaction2 = true;
 						};
@@ -2603,7 +2603,7 @@ if (!isDedicated) then {
 			_isNearTrader = (({typeOf _x in DZE_rnr_trader} count _nearrnrs) > 0);
 			if (_isNearTrader) then {
 				if (!s_player_rearm_aa) then {
-					_action = _vehicle xaa [fmt  [("<t color=""#00F000"">"+("Rearm vehicle") + "</t>")], "GG\Epoch\dami_RAT.sqf",_nearrnrs sel 0, 3, true, true, "", ""];
+					_action = _vehicle xaa [fmt  [("<t color=""#00F000"">"+("Rearm vehicle") + "</t>")], "GG\Epoch\GG_RAT.sqf",_nearrnrs sel 0, 3, true, true, "", ""];
 					s_player_rearm_ar set [count s_player_rearm_ar,_action];
 					s_player_rearm_aa = true;
 				};
@@ -2616,14 +2616,14 @@ if (!isDedicated) then {
 			};
 			if (!r_player_unconscious && !r_action2) then {
 				r_player_lastSeat = _assignedRole;
-				if (DZE_usedamiammo) then {
+				if (DZE_useGGammo) then {
 					if ((_vehicle isKindOf "plane")||(typeOf _vehicle in ["AH6J_EP1_DZ","pook_H13_gunship"])) then {
 						_action = (switch (true) do {default {"M240"};
 						case (typeOf _vehicle == "pook_H13_gunship") : {"M60"};
 						case (typeOf _vehicle in ["AH6J_EP1_DZ","AH6J_EP1_DZE"]) : {"M134"};
 						case (typeOf _vehicle in ["F35B","SU34","L39_TK_EP1"]) : {"DSHKM"};
 						});
-						_action = _vehicle xaa ["<t color='#dddddd'>Add AMMO to "+_action+"</t>", "GG\Epoch\dami_ammo.sqf",[_vehicle], 0, false, true];
+						_action = _vehicle xaa ["<t color='#dddddd'>Add AMMO to "+_action+"</t>", "GG\Epoch\GG_ammo.sqf",[_vehicle], 0, false, true];
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					};
@@ -2702,7 +2702,7 @@ if (!isDedicated) then {
 				if !(inSafeZone) then {
 					_action1 = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_01"], "\z\addons\dayz_code\medical\drag.sqf",_unit, 0, true, true];
 					_action2 = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_02"], "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
-					_action3 = _unit xaa [fmt  ["<t color='#dddddd'>Loot %1</t>",name _unit],"GG\Epoch\dami_OG.sqf",_unit, 0, true, true];
+					_action3 = _unit xaa [fmt  ["<t color='#dddddd'>Loot %1</t>",name _unit],"GG\Epoch\GG_OG.sqf",_unit, 0, true, true];
 					r_player_actions = r_player_actions + [_action1,_action2,_action3];
 				} else {
 					_action1 = _unit xaa ["<t color='#ff000>Drag disabled</t>", "",_cursorTarget, 2, true, true, "", ""];
@@ -2765,7 +2765,7 @@ if (!isDedicated) then {
 			} else {
 				if ((isPlayer _unit) && !(PIDP_playerUID in _friendlies)) then {
 					r_action = true;
-					_action = _unit xaa ["<t color='#dddddd'>Tag as friendly</t>", "GG\Epoch\dami_TF.sqf", [], 0, false, true, "", ""];
+					_action = _unit xaa ["<t color='#dddddd'>Tag as friendly</t>", "GG\Epoch\GG_TF.sqf", [], 0, false, true, "", ""];
 					r_player_actions set [count r_player_actions,_action];
 				};
 			};
@@ -2842,7 +2842,7 @@ if (!isDedicated) then {
 			cutText [(lzl "str_epoch_player_41"), "PLAIN DOWN"]
 		};
 		
-		if (isNil "dami_donatorarra") then {dami_donatorarra = []};
+		if (isNil "GG_donatorarra") then {GG_donatorarra = []};
 		DZE_ActionInProgress = true;
 		_onLadder 	= (xgn (xcf >> "CfgMovesMaleSdr" >> "States" >> (xas player) >> "onLadder")) == 1;
 		_isWater 	= dayz_isSwimming;
@@ -3310,11 +3310,11 @@ if (!isDedicated) then {
 				_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
 				_tmpbuilt setdir _dir;
 				_tmpbuilt sdu _vector;
-				if (_classname in dami_indestructables) then {
+				if (_classname in GG_indestructables) then {
 					_tmpbuilt allowDamage false;
 					_tmpbuilt aeh ["HandleDamage", {false}];
 					_tmpbuilt enableSimulation false;
-				} else {_tmpbuilt addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}]};
+				} else {_tmpbuilt addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}]};
 				_location = _position;
 				if ((_isAllowedUnderGround == 0) && ((_location sel 2) < 0)) then {_location set [2,0]};
 				_buildOffset = [0,0,0];
@@ -3331,7 +3331,7 @@ if (!isDedicated) then {
 				_proceed = false;
 				_counter = 0;
 				while {_isOk} do {
-					if ((!isNil "AM_Epoch_ADMIN")||(gpd player in dami_instntbarra)) exw {
+					if ((!isNil "AM_Epoch_ADMIN")||(gpd player in GG_instntbarra)) exw {
 						_isOk = false;
 						_proceed = true;
 						_msg = "Instant build! Thanks for donating!";
@@ -3495,7 +3495,7 @@ if (!isDedicated) then {
 			cutText [(lzl "STR_EPOCH_ACTIONS_10"), "PLAIN DOWN"]
 		};
 		if (!izn (unitBackpack player)) then {
-			dami_oldbp = typeOf(unitBackpack player);
+			GG_oldbp = typeOf(unitBackpack player);
 			player addbackpack "DZ_TerminalPack_EP1";
 			sleep 0.1;
 			removeBackpack player;
@@ -3651,9 +3651,9 @@ if (!isDedicated) then {
 		player addWeapon "Flare";
 		if ((getText (xcf >> "CfgWeapons" >> (primaryWeapon player) >> "melee")) == "true") then dayz_meleeMagazineCheck;
 		if (!izn _old) then {deleteVehicle _old};
-		if (!isNil 'dami_oldbp') then {
-			player action ["takeBag",nearestObject [player,dami_oldbp]];
-			dami_oldbp = nil;
+		if (!isNil 'GG_oldbp') then {
+			player action ["takeBag",nearestObject [player,GG_oldbp]];
+			GG_oldbp = nil;
 		};
 	};
 	player_nearPP = {_findNearestPole = [];{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x];};} foreach (nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole sel 0]);_findNearestPole;};
@@ -3815,7 +3815,7 @@ if (!isDedicated) then {
 		};
 	};
 	player_craftMsg = {["<t color='#FF0000'>"+_this+"</t>",safeZoneX * 0.1,safeZoneY * -0.5,3,0,0,77398] swx AH_fnc_dynamictext};
-	player_craftItem = {cdg 0;private ["_crafting","_baseClass","_item","_abort","_distance","_reason","_waterLevel","_canDo","_outputWeapons","_selectedRecipeOutput","_needNear","_isNear","_selectedRecipeTools","_selectedRecipeInput","_selectedRecipeInputStrict","_inputWeapons","_sfx","_randomOutput","_craft_doLoop","_tradeComplete","_temp_removed_array","_missing","_missingTools","_hastoolweapon","_proceed","_itemIn","_countIn","_qty","_missingQty","_finished","_removed_total","_tobe_removed_total","_waterLevel_lowest","_removed","_configParent","_num_removed","_num_removed_weapons","_selectedWeapon","_selectedMag","_itemOut","_countOut","_textCreate","_textMissing"];if (player xgv['combattimeout',0] >= time) exw {cutText ["Can not craft in combat!","PLAIN DOWN"]};if (DZE_ActionInProgress) exw { cutText [(lzl "str_epoch_player_63") , "PLAIN DOWN"]; };DZE_ActionInProgress = true;_crafting 	= _this sel 0;_baseClass 	= _this sel 1;_item 		= _this sel 2;_abort 		= false;_distance 	= 3;_reason 	= "";_waterLevel = 0;_canDo 		= (!r_drag_sqf && !r_player_unconscious && !((xgn (xcf >> "CfgMovesMaleSdr" >> "States" >> (xas player) >> "onLadder")) == 1));_outputWeapons = [];_selectedRecipeOutput = [];_needNear = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "neednearby");switch (true) do {case ("fire" in _needNear): {_isNear = {inflamed _x} count ((player call AH_fnc_getPos) nearObjects _distance);if (_isNear == 0) then {_abort = true;_reason = "fire";};};case ("workshop" in _needNear): {_isNear = count (nearestObjects [player, ["Wooden_shed_DZ","WoodShack_DZ","WorkBench_DZ"], _distance]);if (_isNear == 0) then {_abort = true;_reason = "workshop";};};};if (_abort) exw {cutText [fmt [(lzl "str_epoch_player_149"),_reason,_distance], "PLAIN DOWN"];DZE_ActionInProgress = false;};if (_canDo) then {_selectedRecipeTools = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "requiretools");_selectedRecipeOutput = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "output");_selectedRecipeInput = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "input");_selectedRecipeInputStrict = if ((isNumber (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputstrict")) && (xgn (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputstrict") > 0)) then {true} else {false};_outputWeapons = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "outputweapons");_inputWeapons = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputweapons");_sfx = getText(xcf >> _baseClass >> _item >> "sfx");if (_sfx == "") then {_sfx = "repair"};_randomOutput = if (isNumber (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "randomOutput")) then [{xgn(xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "randomOutput")},{0}];_craft_doLoop = true;_tradeComplete = 0;DZE_cancelBuilding = false;while {_craft_doLoop} do {_temp_removed_array = [];_missing = "";_missingTools = false;{_hastoolweapon = _x in weapons player;if (!_hastoolweapon) exw { _craft_doLoop = false; _missingTools = true; _missing = _x; };} forEach _selectedRecipeTools;if (!_missingTools) then {_proceed = true;if (count _selectedRecipeInput > 0) then {{_itemIn = _x sel 0;_countIn = _x sel 1;_qty = { (_x == _itemIn) || (!_selectedRecipeInputStrict && configName(inheritsFrom(xcf >> "cfgMagazines" >> _x)) == _itemIn) } count magazines player;if (_qty < _countIn) exw { _missing = _itemIn; _missingQty = (_countIn - _qty); _proceed = false; };} forEach _selectedRecipeInput;};if (_proceed) then {sleep 0.1;_crti = time;_crpo = (vehicle player) call AH_fnc_getPos;_tocancel = "<br/>Move to cancel crafting. ";if (gpd player in dami_notimerarra) then {if !(pns xgv ['AH_instacraft',false]) then {_tocancel = "";("<t size='0.5'>Insta craft: Toggle menu with !instacraft.</t>") call player_craftMsg;cont_crft = nil;DamiSpawn = [['Insta-craft', true],['Craft?',[-1],'',-5,[['expression','']],'1','0'],['Yes',[2],'',-5,[['expression','cont_crft=true;']],'1','1'],['No',[3],'',-5,[['expression','cont_crft=false;']],'1','1'],['',[-1],'',-5,[['expression','']],'1','0'],['Exit', [10], '', -5, [['expression', '']], '1','1'],['', [-1], '', -5, [['expression', '']], '1', '0']];showCommandingMenu '#USER:DamiSpawn';waitUntil {((!isNil 'cont_crft')||(commandingMenu == ''))};if (!cont_crft) then {DZE_cancelBuilding = true};} else {_tocancel = "<br/>Press ESC to cancel crafting.";("<t size='0.5'>Insta craft: Toggle menu with !instacraft.</t>"+_tocancel) call player_craftMsg;sleep 1;};} else {waitUntil {_ciret = false;_elps = round(time - _crti);_tlft = (3 - _elps);if ((_crpo distance (vehicle player) > 3)||(player xgv['combattimeout',0] >= time)||(_elps >=3)) then {_ciret = true;if (_elps < 3) then {DZE_cancelBuilding = true};};("<t size='0.5'>Crafting complete in "+str _tlft+"</t>"+_tocancel) call player_craftMsg;_ciret;};};if (DZE_cancelbuilding) then {DZE_cancelBuilding = false;r_interrupt = false;_craft_doLoop = false;("Cancelled crafting.") call player_craftMsg;} else {[player,_sfx,0,false] call dayz_zombieSpeak;_removed_total = 0;_tobe_removed_total = 0; _waterLevel_lowest = 0;{_removed = 0;_itemIn = _x sel 0;_countIn = _x sel 1;_tobe_removed_total = _tobe_removed_total + _countIn;{_configParent = configName(inheritsFrom(xcf >> "cfgMagazines" >> _x));if ((_x == _itemIn) || (!_selectedRecipeInputStrict && _configParent == _itemIn)) then {if ((_x == "ItemWaterbottle") ||( _configParent == "ItemWaterbottle")) then {_waterLevel = xgn(xcf >> "CfgMagazines" >> _x >> "wateroz");if (_waterLevel_lowest == 0 || _waterLevel < _waterLevel_lowest) then {_waterLevel_lowest = _waterLevel};};};} forEach (magazines player);{_configParent = configName(inheritsFrom(xcf >> "cfgMagazines" >> _x));if ( (_removed < _countIn) && ((_x == _itemIn) || (!_selectedRecipeInputStrict && _configParent == _itemIn))) then {_num_removed = if ((_waterLevel_lowest == 0) || ((_waterLevel_lowest > 0) && (xgn(xcf >> "CfgMagazines" >> _x >> "wateroz") == _waterLevel_lowest))) then [{([player,_x] call BIS_fnc_invRemove)},{0}];_removed = _removed + _num_removed;_removed_total = _removed_total + _num_removed;if (_num_removed >= 1) then {if (_x == "ItemWaterbottle" || _configParent == "ItemWaterbottle") then {_waterLevel = floor((xgn(xcf >> "CfgMagazines" >> _x >> "wateroz")) - 1)};_temp_removed_array set [count _temp_removed_array,_x];};};} forEach (magazines player);} forEach _selectedRecipeInput;if (_removed_total == _tobe_removed_total) then {_num_removed_weapons = 0;{_num_removed_weapons = _num_removed_weapons + ([player,_x] call BIS_fnc_invRemove)} forEach _inputWeapons;if (_num_removed_weapons == (count _inputWeapons)) then {if (_randomOutput == 1) then {if (!isNil "_outputWeapons" && count _outputWeapons > 0) then {_selectedWeapon = _outputWeapons call BIS_fnc_selectRandom;_outputWeapons = [_selectedWeapon];};if (!isNil "_selectedRecipeOutput" && count _selectedRecipeOutput > 0) then {_selectedMag = _selectedRecipeOutput call BIS_fnc_selectRandom;_selectedRecipeOutput = [_selectedMag];};_craft_doLoop = false;};{player addWeapon _x;} forEach _outputWeapons;{_itemOut = _x sel 0;_countOut = _x sel 1;if (_itemOut == "ItemWaterbottleUnfilled") then {if (_waterLevel > 0) then {_itemOut = fmt ["ItemWaterbottle%1oz",_waterLevel];};};for "_x" from 1 to _countOut do {player addMagazine _itemOut;};_textCreate = getText(xcf >> "CfgMagazines" >> _itemOut >> "displayName");("<t size='0.5'>Crafted "+str _countOut+" "+str _textCreate+"</t>"+_tocancel) call player_craftMsg;sleep 1;} forEach _selectedRecipeOutput;_tradeComplete = _tradeComplete+1;};} else {{player addMagazine _x;} forEach _temp_removed_array;fmt ["Missing parts after first check Item: %1 / %2",_removed_total,_tobe_removed_total] call player_craftMsg;};};} else {_textMissing = getText(xcf >> "CfgMagazines" >> _missing >> "displayName");fmt ["%3 complete, missing %1 more of %2",_missingQty, _textMissing,_tradeComplete] call player_craftMsg;_craft_doLoop = false;};} else {_textMissing = getText(xcf >> "CfgWeapons" >> _missing >> "displayName");fmt ["Missing tool %1",_textMissing] call player_craftMsg;_craft_doLoop = false;};};};DZE_ActionInProgress = false;};
+	player_craftItem = {cdg 0;private ["_crafting","_baseClass","_item","_abort","_distance","_reason","_waterLevel","_canDo","_outputWeapons","_selectedRecipeOutput","_needNear","_isNear","_selectedRecipeTools","_selectedRecipeInput","_selectedRecipeInputStrict","_inputWeapons","_sfx","_randomOutput","_craft_doLoop","_tradeComplete","_temp_removed_array","_missing","_missingTools","_hastoolweapon","_proceed","_itemIn","_countIn","_qty","_missingQty","_finished","_removed_total","_tobe_removed_total","_waterLevel_lowest","_removed","_configParent","_num_removed","_num_removed_weapons","_selectedWeapon","_selectedMag","_itemOut","_countOut","_textCreate","_textMissing"];if (player xgv['combattimeout',0] >= time) exw {cutText ["Can not craft in combat!","PLAIN DOWN"]};if (DZE_ActionInProgress) exw { cutText [(lzl "str_epoch_player_63") , "PLAIN DOWN"]; };DZE_ActionInProgress = true;_crafting 	= _this sel 0;_baseClass 	= _this sel 1;_item 		= _this sel 2;_abort 		= false;_distance 	= 3;_reason 	= "";_waterLevel = 0;_canDo 		= (!r_drag_sqf && !r_player_unconscious && !((xgn (xcf >> "CfgMovesMaleSdr" >> "States" >> (xas player) >> "onLadder")) == 1));_outputWeapons = [];_selectedRecipeOutput = [];_needNear = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "neednearby");switch (true) do {case ("fire" in _needNear): {_isNear = {inflamed _x} count ((player call AH_fnc_getPos) nearObjects _distance);if (_isNear == 0) then {_abort = true;_reason = "fire";};};case ("workshop" in _needNear): {_isNear = count (nearestObjects [player, ["Wooden_shed_DZ","WoodShack_DZ","WorkBench_DZ"], _distance]);if (_isNear == 0) then {_abort = true;_reason = "workshop";};};};if (_abort) exw {cutText [fmt [(lzl "str_epoch_player_149"),_reason,_distance], "PLAIN DOWN"];DZE_ActionInProgress = false;};if (_canDo) then {_selectedRecipeTools = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "requiretools");_selectedRecipeOutput = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "output");_selectedRecipeInput = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "input");_selectedRecipeInputStrict = if ((isNumber (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputstrict")) && (xgn (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputstrict") > 0)) then {true} else {false};_outputWeapons = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "outputweapons");_inputWeapons = getArray (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "inputweapons");_sfx = getText(xcf >> _baseClass >> _item >> "sfx");if (_sfx == "") then {_sfx = "repair"};_randomOutput = if (isNumber (xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "randomOutput")) then [{xgn(xcf >> _baseClass >> _item >> "ItemActions" >> _crafting >> "randomOutput")},{0}];_craft_doLoop = true;_tradeComplete = 0;DZE_cancelBuilding = false;while {_craft_doLoop} do {_temp_removed_array = [];_missing = "";_missingTools = false;{_hastoolweapon = _x in weapons player;if (!_hastoolweapon) exw { _craft_doLoop = false; _missingTools = true; _missing = _x; };} forEach _selectedRecipeTools;if (!_missingTools) then {_proceed = true;if (count _selectedRecipeInput > 0) then {{_itemIn = _x sel 0;_countIn = _x sel 1;_qty = { (_x == _itemIn) || (!_selectedRecipeInputStrict && configName(inheritsFrom(xcf >> "cfgMagazines" >> _x)) == _itemIn) } count magazines player;if (_qty < _countIn) exw { _missing = _itemIn; _missingQty = (_countIn - _qty); _proceed = false; };} forEach _selectedRecipeInput;};if (_proceed) then {sleep 0.1;_crti = time;_crpo = (vehicle player) call AH_fnc_getPos;_tocancel = "<br/>Move to cancel crafting. ";if (gpd player in GG_notimerarra) then {if !(pns xgv ['AH_instacraft',false]) then {_tocancel = "";("<t size='0.5'>Insta craft: Toggle menu with !instacraft.</t>") call player_craftMsg;cont_crft = nil;GGSpawn = [['Insta-craft', true],['Craft?',[-1],'',-5,[['expression','']],'1','0'],['Yes',[2],'',-5,[['expression','cont_crft=true;']],'1','1'],['No',[3],'',-5,[['expression','cont_crft=false;']],'1','1'],['',[-1],'',-5,[['expression','']],'1','0'],['Exit', [10], '', -5, [['expression', '']], '1','1'],['', [-1], '', -5, [['expression', '']], '1', '0']];showCommandingMenu '#USER:GGSpawn';waitUntil {((!isNil 'cont_crft')||(commandingMenu == ''))};if (!cont_crft) then {DZE_cancelBuilding = true};} else {_tocancel = "<br/>Press ESC to cancel crafting.";("<t size='0.5'>Insta craft: Toggle menu with !instacraft.</t>"+_tocancel) call player_craftMsg;sleep 1;};} else {waitUntil {_ciret = false;_elps = round(time - _crti);_tlft = (3 - _elps);if ((_crpo distance (vehicle player) > 3)||(player xgv['combattimeout',0] >= time)||(_elps >=3)) then {_ciret = true;if (_elps < 3) then {DZE_cancelBuilding = true};};("<t size='0.5'>Crafting complete in "+str _tlft+"</t>"+_tocancel) call player_craftMsg;_ciret;};};if (DZE_cancelbuilding) then {DZE_cancelBuilding = false;r_interrupt = false;_craft_doLoop = false;("Cancelled crafting.") call player_craftMsg;} else {[player,_sfx,0,false] call dayz_zombieSpeak;_removed_total = 0;_tobe_removed_total = 0; _waterLevel_lowest = 0;{_removed = 0;_itemIn = _x sel 0;_countIn = _x sel 1;_tobe_removed_total = _tobe_removed_total + _countIn;{_configParent = configName(inheritsFrom(xcf >> "cfgMagazines" >> _x));if ((_x == _itemIn) || (!_selectedRecipeInputStrict && _configParent == _itemIn)) then {if ((_x == "ItemWaterbottle") ||( _configParent == "ItemWaterbottle")) then {_waterLevel = xgn(xcf >> "CfgMagazines" >> _x >> "wateroz");if (_waterLevel_lowest == 0 || _waterLevel < _waterLevel_lowest) then {_waterLevel_lowest = _waterLevel};};};} forEach (magazines player);{_configParent = configName(inheritsFrom(xcf >> "cfgMagazines" >> _x));if ( (_removed < _countIn) && ((_x == _itemIn) || (!_selectedRecipeInputStrict && _configParent == _itemIn))) then {_num_removed = if ((_waterLevel_lowest == 0) || ((_waterLevel_lowest > 0) && (xgn(xcf >> "CfgMagazines" >> _x >> "wateroz") == _waterLevel_lowest))) then [{([player,_x] call BIS_fnc_invRemove)},{0}];_removed = _removed + _num_removed;_removed_total = _removed_total + _num_removed;if (_num_removed >= 1) then {if (_x == "ItemWaterbottle" || _configParent == "ItemWaterbottle") then {_waterLevel = floor((xgn(xcf >> "CfgMagazines" >> _x >> "wateroz")) - 1)};_temp_removed_array set [count _temp_removed_array,_x];};};} forEach (magazines player);} forEach _selectedRecipeInput;if (_removed_total == _tobe_removed_total) then {_num_removed_weapons = 0;{_num_removed_weapons = _num_removed_weapons + ([player,_x] call BIS_fnc_invRemove)} forEach _inputWeapons;if (_num_removed_weapons == (count _inputWeapons)) then {if (_randomOutput == 1) then {if (!isNil "_outputWeapons" && count _outputWeapons > 0) then {_selectedWeapon = _outputWeapons call BIS_fnc_selectRandom;_outputWeapons = [_selectedWeapon];};if (!isNil "_selectedRecipeOutput" && count _selectedRecipeOutput > 0) then {_selectedMag = _selectedRecipeOutput call BIS_fnc_selectRandom;_selectedRecipeOutput = [_selectedMag];};_craft_doLoop = false;};{player addWeapon _x;} forEach _outputWeapons;{_itemOut = _x sel 0;_countOut = _x sel 1;if (_itemOut == "ItemWaterbottleUnfilled") then {if (_waterLevel > 0) then {_itemOut = fmt ["ItemWaterbottle%1oz",_waterLevel];};};for "_x" from 1 to _countOut do {player addMagazine _itemOut;};_textCreate = getText(xcf >> "CfgMagazines" >> _itemOut >> "displayName");("<t size='0.5'>Crafted "+str _countOut+" "+str _textCreate+"</t>"+_tocancel) call player_craftMsg;sleep 1;} forEach _selectedRecipeOutput;_tradeComplete = _tradeComplete+1;};} else {{player addMagazine _x;} forEach _temp_removed_array;fmt ["Missing parts after first check Item: %1 / %2",_removed_total,_tobe_removed_total] call player_craftMsg;};};} else {_textMissing = getText(xcf >> "CfgMagazines" >> _missing >> "displayName");fmt ["%3 complete, missing %1 more of %2",_missingQty, _textMissing,_tradeComplete] call player_craftMsg;_craft_doLoop = false;};} else {_textMissing = getText(xcf >> "CfgWeapons" >> _missing >> "displayName");fmt ["Missing tool %1",_textMissing] call player_craftMsg;_craft_doLoop = false;};};};DZE_ActionInProgress = false;};
 	player_unlockVault = {
 		private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_playerNear","_playerID","_claimedBy","_unlockedClass","_text","_nul","_objType"];
 		if (DZE_ActionInProgress) exw {
@@ -3899,7 +3899,7 @@ if (!isDedicated) then {
 					_weapons = 		_obj xgv ["WeaponCargo",[]];
 					_magazines = 	_obj xgv ["MagazineCargo",[]];
 					_backpacks = 	_obj xgv ["BackpackCargo",[]];
-					if (gpd player in dami_notimerarra) then {
+					if (gpd player in GG_notimerarra) then {
 						_msg = "Vault unlock timer removed. Thanks for donating!";
 						systemChat ("(EPOCH BOOSTER): "+str _msg);
 						_msg swx AH_fnc_dynTextMsg;
@@ -4051,7 +4051,7 @@ if (!isDedicated) then {
 		_pos = _obj xgv ["OEMPos",(_obj call AH_fnc_getPos)];
 		if (!izn _obj) then {
 			[] spawn {
-				if (gpd player in dami_notimerarra) then {
+				if (gpd player in GG_notimerarra) then {
 					_msg = "Vault lock timer removed. Thanks for donating!";
 					systemChat ("(EPOCH BOOSTER): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
@@ -4088,7 +4088,7 @@ if (!isDedicated) then {
 		s_player_lockvault = -1;
 		DZE_ActionInProgress = false;
 	};
-	dami_deletehelipad = {
+	GG_deletehelipad = {
 		_nearpads = nearestObjects [player,['HeliH'],10];
 		if (count _nearpads == 0) exw {cutText ["No helipads found within 10m, try again.", "PLAIN DOWN"]};
 		_helipad = _nearpads sel 0;
@@ -4121,7 +4121,7 @@ if (!isDedicated) then {
 				_menu = _parent displayCtrl (1600 + 0);
 				_menu ctrlShow true;
 				_type = "Track Vehicles";
-				_script = "GG\Epoch\dami_TV.sqf";
+				_script = "GG\Epoch\GG_TV.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
@@ -4133,7 +4133,7 @@ if (!isDedicated) then {
 				_menu = _parent displayCtrl (1600 + 0);
 				_menu ctrlShow true;
 				_type = "Bloodbag myself";
-				_script = "GG\Epoch\dami_SBB.sqf";
+				_script = "GG\Epoch\GG_SBB.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
@@ -4144,7 +4144,7 @@ if (!isDedicated) then {
 				_menu = _parent displayCtrl (1600 + 1);
 				_menu ctrlShow true;
 				_type = "Consume bloodbag";
-				_script = "GG\Epoch\dami_CBB.sqf";
+				_script = "GG\Epoch\GG_CBB.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
@@ -4157,7 +4157,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy bicycle";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['Old_bike_TK_CIV_EP1',['ItemToolbox']] execVM 'GG\Epoch\dami_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['Old_bike_TK_CIV_EP1',['ItemToolbox']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4167,7 +4167,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy motorcycle";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['TT650_Gue',['PartGeneric','PartWheel','PartEngine']] execVM 'GG\Epoch\dami_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['TT650_Gue',['PartGeneric','PartWheel','PartEngine']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4177,7 +4177,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy KA137";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['Ka137_PMC',['PartVRotor','PartEngine','ItemGoldBar10oz']] execVM 'GG\Epoch\dami_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['Ka137_PMC',['PartVRotor','PartEngine','ItemGoldBar10oz']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4187,7 +4187,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy SUV";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['SUV_TK_CIV_EP1_DZE4',['PartGeneric','PartEngine','PartWheel']] execVM 'GG\Epoch\dami_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['SUV_TK_CIV_EP1_DZE4',['PartGeneric','PartEngine','PartWheel']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4217,7 +4217,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Delete helipad";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = [] spawn dami_deletehelipad;closeDialog 0;";
+				_compile = "_id = [] spawn GG_deletehelipad;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4295,7 +4295,7 @@ if (!isDedicated) then {
 	EpochDeathBoardDialogSText = 21001;
 	EpochDeathBoardDeaths = [];
 	EpochDeathBoardLoad = {cdx "EpochDeathBoardDialog";{lbAdd [EpochDeathBoardDialogList, (_x sel 0)]} forEach PVDZE_plr_DeathBResult;};
-	EpochDeathBoardClick = {disableSerialization;private ["_i", "_record", "_output", "_record_stxt", "_name", "_image", "_h", "_m", "_format"];_quotes = ["Dami's sweg appears to have exploded your anus.","What happens if you get scared half to death, twice?","Don't upset me.. I'm running out of places to hide the bodies.","Don't run, you'll just die tired.","You want some of Dami's penis?","The best thing about 29 year olds? There's 20 of them.","Why won't you die?!?!","Guns don't kill people; death kills people. It's a proven medical fact."];_i = _this sel 0;if (_i < 0) exw {};_output = _this sel 1;_record = PVDZE_plr_DeathBResult sel _i;_record_stxt = xcc fmt ["epoch_death_board_record_%1;",_i];if (isNil "_record_stxt") then {_record_stxt = fmt ["<t size='1.6' align='left'>%1</t><br /><br />", (_record sel 0)];_format = {private ["_codeCount", "_str"];_str = fmt ["%1", _this];_codeCount = (count (toArray _str));if (_codeCount == 1) then {_str = fmt ["0%1", _str];};_str;};_h = ((_record sel 4) sel 0)+timezoneswitch;_m = (_record sel 4) sel 1;_record_stxt = fmt ["%1<t size='1' align='left'>Died at %2:%3</t><br /><br />", _record_stxt, (_h call _format), (_m call _format)];if ((_record sel 1) != 'unknown') then {_record_stxt = fmt ["%1<t size='1' align='left'>Was killed by %2</t><br /><br />", _record_stxt, (_record sel 1)]};if ((_record sel 2) != 'unknown') then {_name = getText(xcf >> "cfgWeapons" >> (_record sel 2) >> "displayName");_image = getText(xcf >> "cfgWeapons" >> (_record sel 2) >> "picture");_record_stxt = fmt ["%1<t size='1' align='left'>With a %2<br /><img size='3' image='%3' /></t><br /><br />", _record_stxt, _name, _image];};if (fmt ["%1", (_record sel 3)] != 'unknown') then {_record_stxt = fmt ["%1<t size='1' align='left'>At a distance of %2m</t><br /><br />", _record_stxt, (_record sel 3)]};_record_stxt = fmt ["%1<t font='Bitstream'>%2</t>", _record_stxt, (_quotes call BIS_fnc_selectRandom)];xcc fmt ["epoch_death_board_record_%1 = ""%2"";" ,_i , _record_stxt];};if (!isNil "_record_stxt") then {_output ctrlSetStructuredText (parseText _record_stxt)};};
+	EpochDeathBoardClick = {disableSerialization;private ["_i", "_record", "_output", "_record_stxt", "_name", "_image", "_h", "_m", "_format"];_quotes = ["GG's sweg appears to have exploded your anus.","What happens if you get scared half to death, twice?","Don't upset me.. I'm running out of places to hide the bodies.","Don't run, you'll just die tired.","You want some of GG's penis?","The best thing about 29 year olds? There's 20 of them.","Why won't you die?!?!","Guns don't kill people; death kills people. It's a proven medical fact."];_i = _this sel 0;if (_i < 0) exw {};_output = _this sel 1;_record = PVDZE_plr_DeathBResult sel _i;_record_stxt = xcc fmt ["epoch_death_board_record_%1;",_i];if (isNil "_record_stxt") then {_record_stxt = fmt ["<t size='1.6' align='left'>%1</t><br /><br />", (_record sel 0)];_format = {private ["_codeCount", "_str"];_str = fmt ["%1", _this];_codeCount = (count (toArray _str));if (_codeCount == 1) then {_str = fmt ["0%1", _str];};_str;};_h = ((_record sel 4) sel 0)+timezoneswitch;_m = (_record sel 4) sel 1;_record_stxt = fmt ["%1<t size='1' align='left'>Died at %2:%3</t><br /><br />", _record_stxt, (_h call _format), (_m call _format)];if ((_record sel 1) != 'unknown') then {_record_stxt = fmt ["%1<t size='1' align='left'>Was killed by %2</t><br /><br />", _record_stxt, (_record sel 1)]};if ((_record sel 2) != 'unknown') then {_name = getText(xcf >> "cfgWeapons" >> (_record sel 2) >> "displayName");_image = getText(xcf >> "cfgWeapons" >> (_record sel 2) >> "picture");_record_stxt = fmt ["%1<t size='1' align='left'>With a %2<br /><img size='3' image='%3' /></t><br /><br />", _record_stxt, _name, _image];};if (fmt ["%1", (_record sel 3)] != 'unknown') then {_record_stxt = fmt ["%1<t size='1' align='left'>At a distance of %2m</t><br /><br />", _record_stxt, (_record sel 3)]};_record_stxt = fmt ["%1<t font='Bitstream'>%2</t>", _record_stxt, (_quotes call BIS_fnc_selectRandom)];xcc fmt ["epoch_death_board_record_%1 = ""%2"";" ,_i , _record_stxt];};if (!isNil "_record_stxt") then {_output ctrlSetStructuredText (parseText _record_stxt)};};
 	epoch_returnChange = xcm xlx "\z\addons\dayz_code\compile\epoch_returnChange.sqf";
 	dayz_losChance = {private["_agent","_maxDis","_dis","_val","_maxExp","_myExp"];_agent = _this sel 0;_dis = _this sel 1;_maxDis = _this sel 2;_val = (_maxDis - _dis) max 0;_maxExp = ((exp 2) * _maxDis);_myExp = ((exp 2) * (_val)) / _maxExp;_myExp = _myExp * 0.7;_myExp};
 	ui_initDisplay = {
@@ -4502,8 +4502,8 @@ if (!isDedicated) then {
 					WT_dis = 131300;
 					{
 						WT_dis = (WT_dis + 1);
-						_text = format ['<t size=''"+DAMI_HeaderSize+"'' color=''#"+DAMI_HeaderColor+"'' align=''left''>%1<br/></t><t size=''0.1''><br /></t>',_x select 0];
-						_text = _text + '<t size=''"+DAMI_BodySize+"'' color=''#"+DAMI_BodyColor+"'' align=''left''>';
+						_text = format ['<t size=''"+GG_HeaderSize+"'' color=''#"+GG_HeaderColor+"'' align=''left''>%1<br/></t><t size=''0.1''><br /></t>',_x select 0];
+						_text = _text + '<t size=''"+GG_BodySize+"'' color=''#"+GG_BodyColor+"'' align=''left''>';
 						{_text=(_text+format['%1<br/>',_x])} forEach (_x select 1);
 						_text = _text + ""</t>"";
 						_time = (3+((count (_x select 1)) * 1.2));
@@ -4512,20 +4512,20 @@ if (!isDedicated) then {
 						[_text,WT_dis] spawn {[(_this select 0),[safezoneX  + safezoneW - 0.8,0.7],[safezoneY + safezoneH - 1.6,2],3,0,4,(_this select 1)] spawn AH_fnc_dynamictext};
 						sleep 1;
 					} forEach [
-						["+str DAMI_features_header+", "+str DAMI_features_body+"],
-						["+str DAMI_website_header+", "+str DAMI_website_body+"],
-						["+str DAMI_srvrrules_header+", "+str DAMI_srvrrules_body+"], 
-						["+str DAMI_stafflist__header+", "+str DAMI_stafflist__body+"]
+						["+str GG_features_header+", "+str GG_features_body+"],
+						["+str GG_website_header+", "+str GG_website_body+"],
+						["+str GG_srvrrules_header+", "+str GG_srvrrules_body+"], 
+						["+str GG_stafflist__header+", "+str GG_stafflist__body+"]
 					];
 				};
 				spawn_intro = {
 					if (profileNamespace getVariable ['AH_introSong',true]) then {playSound 'bonfIntro'};
 					if (isNil 'freshSpawn') then {freshSpawn = 0};
 					if (((player getVariable ['freshSpawn',0]) == 1)||(freshSpawn == 2)) then {
-						['WELCOME TO "+DAMI_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
+						['WELCOME TO "+GG_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
 						call server_intro;
 					} else {
-						['WELCOME BACK TO "+DAMI_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
+						['WELCOME BACK TO "+GG_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
 					};
 				};
 				call spawn_intro;
@@ -4932,7 +4932,7 @@ local_lockUnlock = {
 		};
 	};
 };
-dami_bohandleDamage = {
+GG_bohandleDamage = {
 	_unit 	= _this sel 0;
 	_total 	= _this sel 2;
 	_source = _this sel 3;

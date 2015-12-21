@@ -1041,7 +1041,7 @@ class FSM
        "r_player_lowblood = player getVariable[""USEC_lowBlood"",false];" \n
        "r_player_blood = player getVariable[""USEC_BloodQty"",r_player_bloodTotal];" \n
        "selfTransfusionTime = time;" \n
-	   "call dami_cceff;" \n
+	   "call GG_cceff;" \n
        "dayz_gui = [] spawn {" \n
        "	private[""_distance""];" \n
        "	dayz_musicH = [] spawn player_music;" \n

@@ -1,5 +1,5 @@
 #define aeh addEventHandler
-#define dd dami
+#define dd GG
 #define pls progressLoadingScreen
 #define pns profileNamespace
 #define reh removeAllEventHandlers

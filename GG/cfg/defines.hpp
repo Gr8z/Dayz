@@ -2254,7 +2254,7 @@ class RscPlotMenu {
 			y = 0.70621 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			onButtonClick = "['','','','maintain'] execVM 'GG\Epoch\dami_MA.sqf';closeDialog 0;";
+			onButtonClick = "['','','','maintain'] execVM 'GG\Epoch\GG_MA.sqf';closeDialog 0;";
 			colorBackground[] = {0,1,0.6,0.8};
 			colorBackgroundActive[] = {0,1,1,1};
 		};
@@ -2946,7 +2946,7 @@ class AH_fnc_spawnSelect {
 			h = 0.027504 * safezoneH;
 			colorText[] = {1,1,1,1};
 			colorBackground[] = {1,0.7,0.3,1};
-			onButtonClick = "dami_respawn = true;closeDialog 0;";
+			onButtonClick = "GG_respawn = true;closeDialog 0;";
 		};
 		class SS_btnDisc: RscButton {
 			idc = -1;
@@ -3257,7 +3257,7 @@ class AH_RAT {
 			w = 0.116039 * safezoneW;
 			h = 0.329964 * safezoneH;
 			sizeEx = 0.03;
-			onMouseButtonClick = "[(lbCurSel 1500),'INFO'] call dami_RATdo;";
+			onMouseButtonClick = "[(lbCurSel 1500),'INFO'] call GG_RATdo;";
 		};
 		class RAT_buyBtn: RscButton {
 			idc = 1600;
@@ -3266,7 +3266,7 @@ class AH_RAT {
 			y = 0.67873 * safezoneH + safezoneY;
 			w = 0.270758 * safezoneW;
 			h = 0.027497 * safezoneH;
-			onButtonClick = "[(lbCurSel 1500),'BUY'] call dami_RATdo;";
+			onButtonClick = "[(lbCurSel 1500),'BUY'] call GG_RATdo;";
 		};
 		class RAT_closeBtn: RscButton {
 			idc = 1601;

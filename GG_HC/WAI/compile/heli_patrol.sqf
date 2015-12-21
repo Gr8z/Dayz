@@ -106,7 +106,7 @@ ai_air_units 		= (ai_air_units + 1);
 	_x addEventHandler ["Killed",{[_this select 0, _this select 1, "air"] call on_kill}];
 } forEach (units _unitgroup);
 
-PVOZ_damiHCaddtomonitor = [_helicopter];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_helicopter];publicVariableServer "PVOZ_GGHCaddtomonitor";
 [_helicopter] spawn vehicle_monitor;
 
 _unitGroup allowFleeing 0;

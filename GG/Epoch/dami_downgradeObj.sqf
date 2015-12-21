@@ -62,11 +62,11 @@ if ((count _upgrade) > 0) then [{
 		_object sdu _vector;
 		_object setPosATL _location;
 		cutText [fmt[(lzl "str_epoch_player_142"),_text], "PLAIN DOWN", 5];
-		if (_classname in dami_indestructables) then [{
+		if (_classname in GG_indestructables) then [{
 			_object allowDamage false;
 			_object addEventHandler ["HandleDamage", {false}];
 			_object enableSimulation false
-		},{_object addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}]}];
+		},{_object addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}]}];
 		PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location,_vector],_classname,_obj,player];
 		publicVariableServer "PVDZE_obj_Swap";
 		player reveal _object;

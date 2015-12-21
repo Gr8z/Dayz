@@ -62,7 +62,7 @@ _vehicle addEventHandler ["GetOut",{(_this select 0) setFuel 0;(_this select 0) 
 _vehicle allowCrewInImmobile true; 
 _vehicle lock true;
 
-PVOZ_damiHCaddtomonitor = [_vehicle];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_vehicle];publicVariableServer "PVOZ_GGHCaddtomonitor";
 
 _pilot assignAsDriver 	_vehicle;
 _pilot moveInDriver 	_vehicle;

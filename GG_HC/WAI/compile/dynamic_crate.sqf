@@ -52,7 +52,7 @@ if (count _allPlayers < 10) then {
 	};
 };
 
-PVOZ_damiHCaddtomonitor = [_crate];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_crate];publicVariableServer "PVOZ_GGHCaddtomonitor";
 
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;

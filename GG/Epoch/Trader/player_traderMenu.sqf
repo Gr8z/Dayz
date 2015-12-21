@@ -26,9 +26,9 @@ TraderDialogRE = {
 TraderDialogLoadItemList = {
 	private ["_index","_cfgTraderCategory","_item","_i","_type","_item_list"];
 	
-	call dami_getPlayerCargo;
-	call dami_getBackpackCargo;
-	call dami_getVehicleCargo;
+	call GG_getPlayerCargo;
+	call GG_getBackpackCargo;
+	call GG_getVehicleCargo;
 	
 	TraderItemList = [];
 	_index = _this select 0;
@@ -77,14 +77,14 @@ TraderDialogLoadItemList = {
 			};
 		};
 		if (_type == "CfgMagazines") then {
-			if (_name in dami_plyrmags) exitWith {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
-			if (_name in dami_bpmags) exitWith {_inside = "bp";lbSetColor [TraderDialogItemList, _index, [1, 1, 0, 1]]};
-			if (_name in dami_vehmags) exitWith {_inside = "veh";lbSetColor [TraderDialogItemList, _index, [0, 1, 1, 1]]};
+			if (_name in GG_plyrmags) exitWith {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
+			if (_name in GG_bpmags) exitWith {_inside = "bp";lbSetColor [TraderDialogItemList, _index, [1, 1, 0, 1]]};
+			if (_name in GG_vehmags) exitWith {_inside = "veh";lbSetColor [TraderDialogItemList, _index, [0, 1, 1, 1]]};
 		};
 		if (_type == "CfgWeapons") then {
-			if (_name in dami_plyrweps) exitWith {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
-			if (_name in dami_bpweps) exitWith {_inside = "bp";lbSetColor [TraderDialogItemList, _index, [1, 1, 0, 1]]};
-			if (_name in dami_vehweps) exitWith {_inside = "veh";lbSetColor [TraderDialogItemList, _index, [0, 1, 1, 1]]};
+			if (_name in GG_plyrweps) exitWith {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
+			if (_name in GG_bpweps) exitWith {_inside = "bp";lbSetColor [TraderDialogItemList, _index, [1, 1, 0, 1]]};
+			if (_name in GG_vehweps) exitWith {_inside = "veh";lbSetColor [TraderDialogItemList, _index, [0, 1, 1, 1]]};
 		};
 		if (_count > 0) then {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
 		lbSetPicture [TraderDialogItemList, _index, _image];
@@ -130,7 +130,7 @@ TraderDialogShowPrices = {
 	((findDisplay 420420) displayCtrl TraderDialogBuyPrice) ctrlSetStructuredText parseText format["%1<br/><t color='#FFFF66'>%2</t>", [(_bqty * _editb)] call BIS_fnc_numberText, GCoins];
 	ctrlEnable [TraderDialogBuyBtn, (player getVariable ["GGCoins",0] >= (_bqty * _editb))];
 	((findDisplay 420420) displayCtrl TraderDialogSellPrice) ctrlSetStructuredText parseText format["%1<br/><t color='#FFFF66'>%2</t>", [(_sqty * _editb)] call BIS_fnc_numberText, GCoins];
-	_qty = {_x == _name} count (switch (_combo) do {case "plyr": {dami_plyrmags+dami_plyrweps};case "bp": {dami_bpmags+dami_bpweps};case "veh": {dami_vehmags+dami_vehweps};});
+	_qty = {_x == _name} count (switch (_combo) do {case "plyr": {GG_plyrmags+GG_plyrweps};case "bp": {GG_bpmags+GG_bpweps};case "veh": {GG_vehmags+GG_vehweps};});
 	_di = _name;
 	_cfg = (switch (true) do {
 		default {''};
@@ -165,11 +165,11 @@ TraderDialogShowPrices = {
 	} else {
 		_free = (switch (_combo) do {
 			case "plyr": {(([player] call BIS_fnc_invSlotsEmpty) select 4)};
-			case "bp": {((dami_bpobj call dami_checkFreeSlotsBP) select 0)};
-			case "veh": {if (_cfg == 'CfgWeapons') then {((dami_vehobj call dami_checkFreeSlotsVEH) select 1)} else {((dami_vehobj call dami_checkFreeSlotsVEH) select 0)}};
+			case "bp": {((GG_bpobj call GG_checkFreeSlotsBP) select 0)};
+			case "veh": {if (_cfg == 'CfgWeapons') then {((GG_vehobj call GG_checkFreeSlotsVEH) select 1)} else {((GG_vehobj call GG_checkFreeSlotsVEH) select 0)}};
 		});
 		_maxbuy = floor((player getVariable ["GGCoins",0]) / _bqty);
-		_canhold = floor(_free / (_name call dami_countReqWepSlots));
+		_canhold = floor(_free / (_name call GG_countReqWepSlots));
 		if (_maxbuy > _free) then {_maxbuy = _free};
 		if (_maxbuy > _canhold) then {_maxbuy = _canhold};
 		((findDisplay 420420) displayCtrl TraderDialogCurrency) ctrlSetStructuredText parseText ("<t color='#FF3300'align='left'>Free slots</t>: "+str _free+" <t color='#FF3300'align='left'>Max buy</t>: "+str _maxbuy+" <t color='#FF3300'align='left'>Max sell</t>: "+(str _qty));

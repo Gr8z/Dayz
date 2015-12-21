@@ -15,11 +15,11 @@ _newobject = createVehicle [_classname, [0,0,0], [], 0, "CAN_COLLIDE"];
 _newobject setDir _dir;
 _newobject setVectorDirAndUp _vec;
 _newobject setPosATL _location;
-if (_classname in dami_indestructables) then {
+if (_classname in GG_indestructables) then {
 	_newobject allowDamage false;
 	_newobject addEventHandler ["HandleDamage", {false}];
 	_newobject enableSimulation false
-} else {_newobject addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}]};
+} else {_newobject addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}]};
 	
 PVDZE_obj_Swap = [_actual,_newobject,[_dir,_location,_vec],_classname,_object,player];
 publicVariableServer "PVDZE_obj_Swap";

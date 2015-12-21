@@ -56,7 +56,7 @@ _requirements = [[GCoins,(50 * _count)]];
 
 switch (_this sel 3) do {
 	case "maintain": {
-		if (gpd player in dami_freemaintarra) then {
+		if (gpd player in GG_freemaintarra) then {
 			_requirements = [[GCoins,0]];
 			_msg = "Thanks for donating, "+name player+", maintaining is free of charge!";
 			systemChat ("(ArmA-AH): "+str _msg+"");

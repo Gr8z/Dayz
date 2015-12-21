@@ -640,7 +640,7 @@ call compile ("
 							} forEach [1000,1001,1002,1003,1004,1005,1006,1007,1008,1009,1010];
 							((findDisplay 7331) displayCtrl 1010) buttonSetAction '[lbtext [1002,lbCurSel 1002]] spawn baseManage_addFriend;';
 							((findDisplay 7331) displayCtrl 1009) buttonSetAction '[lbtext [1003,lbCurSel 1003]] spawn baseManage_delFriend;';
-							((findDisplay 7331) displayCtrl 1008) buttonSetAction '['''','''','''',''maintain''] execVM ''GG\Epoch\dami_MA.sqf'';closeDialog 0;';
+							((findDisplay 7331) displayCtrl 1008) buttonSetAction '['''','''','''',''maintain''] execVM ''GG\Epoch\GG_MA.sqf'';closeDialog 0;';
 						};
 						if (ctrlEnabled 4) then {
 							_this = ['Hack Menu','CTRL 4'];

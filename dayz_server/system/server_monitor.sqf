@@ -198,7 +198,7 @@ if (isServer and isNil "sm_done") then {
 			
 			clearWeaponCargoGlobal  _object;
 			clearMagazineCargoGlobal  _object;
-			_object call dami_ammovehicle;
+			_object call GG_ammovehicle;
 			
 			_object setdir _dir;
 			
@@ -208,11 +208,11 @@ if (isServer and isNil "sm_done") then {
 			_object setDamage _damage;
 			
 			if ((typeOf _object) in dayz_allowedObjects) then {
-				if (typeOf _object in dami_indestructables) then {
+				if (typeOf _object in GG_indestructables) then {
 					_object addEventHandler ["HandleDamage", {false}];
 					_object allowDamage false;
 				} else {
-					_object addEventHandler ["HandleDamage", {_this call dami_bohandleDamage}];
+					_object addEventHandler ["HandleDamage", {_this call GG_bohandleDamage}];
 					_object addMPEventHandler ["MPKilled",{_this call object_handleServerKilled}];
 				};
 				_object enableSimulation false;

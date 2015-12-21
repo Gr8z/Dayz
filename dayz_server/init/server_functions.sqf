@@ -962,7 +962,7 @@ server_logUnlockLockEvent = {
 		diag_log format["SAFE %5: ID:%1 UID:%2 BY %3(%4)", _objectID, _objectUID, (name _player), (getPlayerUID _player), _statusText];
 	};
 };
-dami_ammovehicle = {
+GG_ammovehicle = {
 	_type = (typeOf _this);
 	if (DZE_removeweps) then {{_this removeWeapon _x} forEach (weapons _this)};
 	if ((DZE_removeammo) && !(_type in DZE_removewlist)) then {
@@ -974,7 +974,7 @@ dami_ammovehicle = {
 			{_tur = _x;{_this removeMagazinesTurret [_x,_tur]} forEach (_this magazinesTurret _tur)} forEach [[-1],[0],[1],[2],[3]];
 		}];
 	};
-	if ((DZE_usedamiammo)&&((_this isKindOf "Ship")||(_this isKindOf "Plane"))&&!(_type in ["fishingboat"])) then {_this addWeapon "M134"};
+	if ((DZE_useGGammo)&&((_this isKindOf "Ship")||(_this isKindOf "Plane"))&&!(_type in ["fishingboat"])) then {_this addWeapon "M134"};
 	_this disableTIEquipment true;
 };
 update_whitelist = [

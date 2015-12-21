@@ -121,7 +121,7 @@ ai_air_units = (ai_air_units +1);
 	_x addmagazine "8Rnd_9x18_Makarov";
 } count (units _unitgroup);
 
-PVOZ_damiHCaddtomonitor = [_helicopter];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_helicopter];publicVariableServer "PVOZ_GGHCaddtomonitor";
 [_helicopter] spawn vehicle_monitor;
 
 _unitGroup allowFleeing 0;

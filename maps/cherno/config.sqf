@@ -24,17 +24,17 @@ DynamicVehicleDamageLow = 0;
 DynamicVehicleDamageHigh = 0.2;
 
 //Welcome message config
-DAMI_useWelcomeTxt		= true;
-DAMI_serverName 		= "[GG] Ghostz Gamerz Overpoch Chernarus";//<img image=""Path\To\Logo.paa""/>
-DAMI_HeaderColor 		= "FF3300";
-DAMI_HeaderSize 		= "0.6";
-DAMI_BodyColor 			= "ffffff";
-DAMI_BodySize 			= "0.45";
-DAMI_features_header 	= "Server features";
-DAMI_website_header 	= "Community info";
-DAMI_srvrrules_header 	= "Server rules";
-DAMI_stafflist__header 	= "Server staff";
-DAMI_features_body 		= [
+GG_useWelcomeTxt		= true;
+GG_serverName 		= "[GG] Ghostz Gamerz Overpoch Chernarus";//<img image=""Path\To\Logo.paa""/>
+GG_HeaderColor 		= "FF3300";
+GG_HeaderSize 		= "0.6";
+GG_BodyColor 			= "ffffff";
+GG_BodySize 			= "0.45";
+GG_features_header 	= "Server features";
+GG_website_header 	= "Community info";
+GG_srvrrules_header 	= "Server rules";
+GG_stafflist__header 	= "Server staff";
+GG_features_body 		= [
 	"<t color='#ffdb00'>Gold coin currency</t>",
 	"<t color='#fff4b1'> - Bank at Solnichniy</t>",
 	"<t color='#fff4b1'> - Online banking</t>",
@@ -62,18 +62,18 @@ DAMI_features_body 		= [
 	"<t color='#ff6c3b'> - Admin events like CTF, TDM, DM, KOTH, and more!</t>",
 	"<t color='#ff6c3b'> - For a full list of features, check out DayZBonfire.net!</t>"
 ];
-DAMI_website_body 		= [
+GG_website_body 		= [
 	"<t color='#ffdb00'>Join our website:</t>",
 	"www.ghostzgamerz.com",
 	"<t color='#ffdb00'>Join our teamspeak:</t>",
 	"TS.GhostzGamerz.com"
 ];
-DAMI_srvrrules_body 	= [
+GG_srvrrules_body 	= [
 	"<t color='#f00000'size='1.5'>Server rules</t>",
 	"<t color='#D42436'>1</t>. Don't be homphobic!",
 	"<t color='#D42436'>2</t>. Don't be homosexual!"
 ];
-DAMI_stafflist__body 	= [
+GG_stafflist__body 	= [
 	"<t color='#FF3300'>Owner</t>: Gr8",
 	"<t color='#FF3300'>Owner</t>: Ghost",
 	"<t color='#FF3300'>Coder</t>: Deadskin",
@@ -81,10 +81,10 @@ DAMI_stafflist__body 	= [
 	"<t color='#FF3300'>Admin</t>: MeowMix"
 ];
 
-//Dami config
+//GG config
 NameTagDistance = 20; //Distance player names show when looking at them.
 DZE_restarttime = [1,59]; //Hour,Minute restart time. 1,59 logs people off at 1hr 59min uptime.
-DZE_usedamiammo = true; //If you want jets/planes/boats to get M13A4
+DZE_useGGammo = true; //If you want jets/planes/boats to get M13A4
 DZE_removeammo 	= false; //Remove vehicle ammo when it spawns
 DZE_removeweps 	= false; //Remove vehicle weapons when it spawns
 DZE_removewlist = []; //Remove whitelist, if you want certain vehicles to spawn with full ammo

@@ -1,6 +1,6 @@
 #include "cake.h"
 if (deathHandled) exw {};
-[] swx damicam;
+[] swx GGcam;
 deathHandled = true;
 r_player_dead = true;
 r_player_unconscious = false;

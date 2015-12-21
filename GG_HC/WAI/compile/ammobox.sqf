@@ -4,7 +4,7 @@ _allPlayers = playableUnits;
 
 _crate setVariable ["ObjectID","1",true];
 _crate setVariable ["permaLoot",true];
-PVOZ_damiHCaddtomonitor = [_crate];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_crate];publicVariableServer "PVOZ_GGHCaddtomonitor";
 
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;

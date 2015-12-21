@@ -58,7 +58,7 @@ _key call server_hiveWrite;
 	clearWeaponCargoGlobal _object;
 	clearMagazineCargoGlobal _object;
 	if (!_donotusekey) then {_object setvehiclelock "locked"};
-	_object call dami_ammovehicle;
+	_object call GG_ammovehicle;
 	PVDZE_veh_Init = _object;
 	publicVariable "PVDZE_veh_Init";
 	diag_log format ["PUBLISH: %1 bought %2 with ID: %3 CHARID: %4 OBJID: %5",_activatingPlayer,_class,_uid,_characterID,_oid];

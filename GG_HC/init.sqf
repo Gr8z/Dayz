@@ -1,4 +1,4 @@
-dami_ammovehicle = {
+GG_ammovehicle = {
 	_type = (typeOf _this);
 	if (DZE_removeweps) then {{_this removeWeapon _x} forEach (weapons _this)};
 	if ((DZE_removeammo) && !(_type in DZE_removewlist)) then {
@@ -10,7 +10,7 @@ dami_ammovehicle = {
 			{_tur = _x;{_this removeMagazinesTurret [_x,_tur]} forEach (_this magazinesTurret _tur)} forEach [[-1],[0],[1],[2],[3]];
 		}];
 	};
-	if ((DZE_usedamiammo)&&((_this isKindOf "Ship")||(_this isKindOf "Plane"))&&!(_type in ["fishingboat"])) then {_this addWeapon "M134"};
+	if ((DZE_useGGammo)&&((_this isKindOf "Ship")||(_this isKindOf "Plane"))&&!(_type in ["fishingboat"])) then {_this addWeapon "M134"};
 	_this disableTIEquipment true;
 };
 if (!hasInterface && !isServer) then {
@@ -57,8 +57,8 @@ if (!hasInterface && !isServer) then {
 	execVM "\GG_HC\GG\markers.sqf";
 };
 if (isServer) then {
-	"PVOZ_damiHCaddtomonitor" addPublicVariableEventHandler {PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,((_this select 1) select 0)]};
-	"PVOZ_damiHCmsgsrvr" addPublicVariableEventHandler {
+	"PVOZ_GGHCaddtomonitor" addPublicVariableEventHandler {PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,((_this select 1) select 0)]};
+	"PVOZ_GGHCmsgsrvr" addPublicVariableEventHandler {
 		[nil, nil, rspawn, [((_this select 1) select 0)], {
 			if !(isServer) then {
 				_msg = _this select 0;
@@ -67,7 +67,7 @@ if (isServer) then {
 			};
 		}] call RE;
 	};
-	"PVOZ_damiHCpublish" addPublicVariableEventHandler {
+	"PVOZ_GGHCpublish" addPublicVariableEventHandler {
 		_arr = _this select 1;
 		_vehicle = _arr select 0;
 		
@@ -128,7 +128,7 @@ if (isServer) then {
 				};
 			};
 			_vehicle call fnc_veh_ResetEH;
-			_vehicle call dami_ammovehicle;
+			_vehicle call GG_ammovehicle;
 			PVDZE_veh_Init = _vehicle;
 			publicVariable "PVDZE_veh_Init";
 			if (debug_mode) then {diag_log ("PUBLISH: Created " + (_class) + " with ID " + str(_uid))};

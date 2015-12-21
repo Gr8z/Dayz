@@ -114,7 +114,7 @@ _key call server_hiveWrite;
 
 	PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object];
 	_object call fnc_veh_ResetEH;
-	_object call dami_ammovehicle;
+	_object call GG_ammovehicle;
 	PVDZE_veh_Init = _object;
 	publicVariable "PVDZE_veh_Init";
 };

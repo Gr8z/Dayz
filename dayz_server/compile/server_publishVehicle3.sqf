@@ -67,7 +67,7 @@ _key call server_hiveWrite;
 	clearWeaponCargoGlobal _object;
 	clearMagazineCargoGlobal _object;
 	clearBackpackCargoGlobal _object;
-	_object call dami_ammovehicle;
+	_object call GG_ammovehicle;
 	PVDZE_veh_Init = _object;
 	publicVariable "PVDZE_veh_Init";
 	_countr = 0;

@@ -1,6 +1,6 @@
 #include "cake.h"
 cdg 0;
-if (!isNil 'dami_SBBIP') exw {
+if (!isNil 'GG_SBBIP') exw {
 	_msg = "Already blood bagging!";
 	systemChat ('(ArmA-AH): ' + str _msg);
 	_msg swx AH_fnc_dynTextMsg;
@@ -11,7 +11,7 @@ if (player xgv['combattimeout',0] >= time) exw {
 	systemChat ('(ArmA-AH): ' + str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
-dami_SBBIP = false;
+GG_SBBIP = false;
 player removeMagazine "ItemBloodbag";
 r_interrupt = false;
 for "_i" from 0 to (DZE_bloodperbb+100) step 100 do {
@@ -45,9 +45,9 @@ if (r_interrupt) then {
 	10 fadeSound 1;
 	"dynamicBlur" ppEffectAdjust [0];
 	 "dynamicBlur" ppEffectCommit 5;
-	call dami_cceff;
+	call GG_cceff;
 	("Blood bag complete!") call player_craftMsg;
 };
 ((uiNamespace xgv 'DAYZ_GUI_display') displayCtrl 1300) ctrlShow true;
 player xsv["USEC_BloodQty",r_player_blood,true];
-dami_SBBIP = nil;
+GG_SBBIP = nil;

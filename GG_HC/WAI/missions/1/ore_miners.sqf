@@ -7,7 +7,7 @@ diag_log format["WAI: [Mission:[Hero] Ore miners]: Starting... %1",_position];
 _crate_type = crates_small call BIS_fnc_selectRandom;
 _crate = createVehicle [_crate_type,[(_position select 0),(_position select 1),0],[],0,"CAN_COLLIDE"];
 
-PVOZ_damiHCaddtomonitor = [_crate];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_crate];publicVariableServer "PVOZ_GGHCaddtomonitor";
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;
 

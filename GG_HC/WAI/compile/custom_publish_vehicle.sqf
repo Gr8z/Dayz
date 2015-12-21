@@ -52,13 +52,13 @@ if (getNumber(configFile >> "CfgVehicles" >> _class >> "isBicycle") != 1) then {
 if (debug_mode) then {diag_log("WAI: Spawned " +str(_class) + " at " + str(_position) + " with " + str(_fuel) + " fuel and " + str(_damage) + " damage.")};
 
 _vehicle setFuel _fuel;
-_vehicle call dami_ammovehicle;
+_vehicle call GG_ammovehicle;
 _vehicle addeventhandler ["HandleDamage",{_this call vehicle_handleDamage } ];
 
-PVOZ_damiHCaddtomonitor = [_vehicle];publicVariableServer "PVOZ_damiHCaddtomonitor";
+PVOZ_GGHCaddtomonitor = [_vehicle];publicVariableServer "PVOZ_GGHCaddtomonitor";
 
 if (wai_keep_vehicles) then {
-	PVOZ_damiHCpublish = [_vehicle];
-	publicVariableServer "PVOZ_damiHCpublish";
+	PVOZ_GGHCpublish = [_vehicle];
+	publicVariableServer "PVOZ_GGHCpublish";
 };
 _vehicle

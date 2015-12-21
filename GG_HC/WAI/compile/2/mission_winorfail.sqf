@@ -15,7 +15,7 @@ _timeout_time = ((wai_mission_timeout select 0) + random((wai_mission_timeout se
 _max_ai		 = (wai_mission_data2 select _mission) select 0;
 _killpercent = _max_ai - (_max_ai * (wai_kill_percent / 100));
 
-PVOZ_damiHCmsgsrvr = [_msgstart];publicVariableServer "PVOZ_damiHCmsgsrvr";
+PVOZ_GGHCmsgsrvr = [_msgstart];publicVariableServer "PVOZ_GGHCmsgsrvr";
 
 clearWeaponCargoGlobal _crate;
 clearMagazineCargoGlobal _crate;
@@ -89,7 +89,7 @@ if (_complete) then {
 	_delete_mines = ((wai_mission_data2 select _mission) select 2);
 	if (count _delete_mines > 0) then {{if (typeName _x == "ARRAY") then [{{deleteVehicle _x} forEach _x},{deleteVehicle _x}]} count _delete_mines};
 	wai_mission_data2 set [_mission, -1];
-	PVOZ_damiHCmsgsrvr = [_msgwin];publicVariableServer "PVOZ_damiHCmsgsrvr";
+	PVOZ_GGHCmsgsrvr = [_msgwin];publicVariableServer "PVOZ_GGHCmsgsrvr";
 	
 	if (wai_clean_mission) then {
 		[_position,_baseclean] spawn {
@@ -139,7 +139,7 @@ if (_timeout) then {
 
 	wai_mission_data2 set [_mission, -1];
 	
-	PVOZ_damiHCmsgsrvr = [_msglose];publicVariableServer "PVOZ_damiHCmsgsrvr";
+	PVOZ_GGHCmsgsrvr = [_msglose];publicVariableServer "PVOZ_GGHCmsgsrvr";
 };
 
 _complete

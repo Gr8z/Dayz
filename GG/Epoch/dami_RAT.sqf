@@ -2,7 +2,7 @@ if (vehicle player == player) exitWith {systemChat ("You are not in a vehicle.")
 RearmTargetVehicle = (vehicle player);
 createDialog "AH_RAT";
 RAT_array = [];
-_tinfo = RearmTargetVehicle call dami_getTurretInfo;
+_tinfo = RearmTargetVehicle call GG_getTurretInfo;
 if (count _tinfo > 0) then {
 	lbClear 1500;
 	{

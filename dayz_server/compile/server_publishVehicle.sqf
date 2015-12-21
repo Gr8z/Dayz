@@ -81,5 +81,5 @@ PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object];
 	PVDZE_veh_Init = _object;
 	publicVariable "PVDZE_veh_Init";
 	diag_log format ["PUBLISH: Created %1 with ID: %2 CHARID: %3 OBJID: %4",_class,_uid,_characterID,_oid];
-	_object call dami_ammovehicle;
+	_object call GG_ammovehicle;
 };
