@@ -1,31 +1,28 @@
-if (!isDedicated) then {
-
-	call compile preprocessFileLineNumbers "DamiMods\Lift\config.sqf";
-
-	MONI_OBJECT	= compile preprocessFileLineNumbers "DamiMods\Lift\monitor\monitor_object.sqf";
-	MONI_ACTION	= compile preprocessFileLineNumbers "DamiMods\Lift\monitor\monitor_action.sqf";
-	LOG_OBJ_INIT = compile preprocessFileLineNumbers "DamiMods\Lift\object\init.sqf";
-	LOG_LIFT_INIT = compile preprocessFileLineNumbers "DamiMods\Lift\lift\init.sqf";
-	LOG_TOW_INIT = compile preprocessFileLineNumbers "DamiMods\Lift\tow\init.sqf";
-	
+if (!isDedicated) then {	
+	LOG_READY = false;
+	call compile preprocessFileLineNumbers "GG\Lift\config.sqf";
+	MONI_OBJECT	= compile preprocessFileLineNumbers "GG\Lift\monitor\monitor_object.sqf";
+	MONI_ACTION	= compile preprocessFileLineNumbers "GG\Lift\monitor\monitor_action.sqf";
+	LOG_OBJ_INIT = compile preprocessFileLineNumbers "GG\Lift\object\init.sqf";
+	LOG_LIFT_INIT = compile preprocessFileLineNumbers "GG\Lift\lift\init.sqf";
+	LOG_TOW_INIT = compile preprocessFileLineNumbers "GG\Lift\tow\init.sqf";
 	LOG_FNCT_DETACH_AND_SAVE = {
-			private ["_object"]; 
-			_object = (_this select 0);
-			_object setVelocity [0,0,0];
-			detach _object;
-			if (!isNil "dayz_zombieSpeak" && !isNil "dayz_HungerThirst" && !isNil "player_alertZombies" ) then {			
-				PVDZE_veh_Update = [_object,"all"];
-				publicVariableServer "PVDZE_veh_Update";
-				[10,10] call dayz_HungerThirst;
-				player playActionNow "Medic";
-				[player,"repair",0,false,20] call dayz_zombieSpeak;
-				[player,20,true,(getPosATL player)] spawn player_alertZombies;
-			}else{
-				player playActionNow "Medic";
-			};
+		private ["_object"]; 
+		_object = (_this select 0);
+		_object setVelocity [0,0,0];
+		detach _object;
+		if (!isNil "dayz_zombieSpeak" && !isNil "dayz_HungerThirst" && !isNil "player_alertZombies" ) then {			
+			PVDZE_veh_Update = [_object,"all"];
+			publicVariableServer "PVDZE_veh_Update";
+			[10,10] call dayz_HungerThirst;
+			player playActionNow "Medic";
+			[player,"repair",0,false,20] call dayz_zombieSpeak;
+			[player,20,true,(getPosATL player)] spawn player_alertZombies;
+		} else {
+			player playActionNow "Medic";
+		};
 	};
-
-	LOG_FNCT_LOCKED = { 
+	LOG_FNCT_LOCKED = {
 		private ["_return","_target"]; 
 		_target = (_this select 0);
 		_return = true; 
@@ -33,8 +30,7 @@ if (!isDedicated) then {
 				_return = false; 
 			};
 		_return
-		};
-	
+	};
 	LOG_FNCT_CHAINING = { 
 		private ["_return","_target"];
 		_target = (_this select 0);
@@ -45,7 +41,6 @@ if (!isDedicated) then {
 		};
 		_return 
 	};
-	
 	LOG_FNCT_GETPOS = {
 		private "_pos";
 		if (isNil {_this select 0}) exitWith {[0,0,0]};
@@ -54,7 +49,6 @@ if (!isDedicated) then {
 		if !(surfaceIsWater _pos) then { _pos =  ASLToATL _pos;};
 		_pos
 	};
-	
 	LOG_OBJECT_MOVES = objNull;
 	LOG_OBJECT_SELECTION = objNull;
 	LOG_OBJECT_ADDACTION = objNull;
@@ -68,6 +62,8 @@ if (!isDedicated) then {
 	LOG_HELI_DROP_VALID = false;
 	LOG_OBJECT_TRAILER_VALID = false;
 	LOG_DETACH_VALID = false;
-	
-LOG_READY = true;
+	LOG_READY = true;
+	[] spawn MONI_OBJECT;
+	[] spawn MONI_ACTION;
 };
+

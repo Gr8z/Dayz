@@ -1,4 +1,4 @@
-#include "DamiMods\Epoch\cake.h"
+#include "GG\Epoch\cake.h"
 #include "config.sqf"
 
 __ccp("\z\addons\dayz_code\init\variables.sqf");
@@ -7,14 +7,14 @@ __ccp("\z\addons\dayz_code\init\publicEH.sqf");
 pls 0.6;
 __ccp("\z\addons\dayz_code\medical\setup_functions_med.sqf");
 pls 0.9;
-__ccp("DamiMods\Epoch\dami_init.sqf");
+__ccp("GG\Epoch\dami_init.sqf");
 pls 1.0;
 if (!hasInterface) exitWith {__ccp("\GG_HC\init.sqf");if (isServer) then {__ccp("\z\addons\dayz_server\system\start.sqf")};};
 if (!isDedicated) then {
 	0 fadeSound 0;
 	__wun(!isNil "dayz_loadScreenMsg");
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
-	rf "DamiMods\Epoch\player_monitor.fsm";
+	rf "GG\Epoch\player_monitor.fsm";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
 		6 cutRsc ["EarPlugs", "PLAIN"];

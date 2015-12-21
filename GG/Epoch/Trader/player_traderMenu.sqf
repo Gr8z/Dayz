@@ -88,7 +88,7 @@ TraderDialogLoadItemList = {
 		};
 		if (_count > 0) then {lbSetColor [TraderDialogItemList, _index, [0, 1, 0, 1]]};
 		lbSetPicture [TraderDialogItemList, _index, _image];
-		_item_list set [count _item_list, [_name,GCoins,[_bqty,_sqty],_textPart,"DamiMods\Epoch\Trader\bs\" + _afile + ".sqf"]];
+		_item_list set [count _item_list, [_name,GCoins,[_bqty,_sqty],_textPart,"GG\Epoch\Trader\bs\" + _afile + ".sqf"]];
 	} forEach PVDZE_plr_TradeMenuResult;
 	TraderItemList = _item_list;
 };

@@ -17,6 +17,6 @@ if !(LOG_CFG_ALLOW_GETIN) then {
 	}];
 };
 if ({_object isKindOf _x} count LOG_CFG_ISTOWABLE > 0) then{
-	_object addAction [("<t color='#dddd00'>" + "Tow..." + "</t>"),"DamiMods\Lift\object\isSelected.sqf",[],0,false,true,"","LOG_OBJECT_ADDACTION == _target && LOG_OBJECT_TRAILER_VALID"];
-	_object addAction [("<t color='#dddd00'>" + "Untow Vehicle" + "</t>"),"DamiMods\Lift\tow\detach.sqf",[],6,true,true,"","LOG_OBJECT_ADDACTION == _target && LOG_DETACH_VALID"];
+	_object addAction [("<t color='#dddd00'>" + "Tow..." + "</t>"),"GG\Lift\object\isSelected.sqf",[],0,false,true,"","LOG_OBJECT_ADDACTION == _target && LOG_OBJECT_TRAILER_VALID"];
+	_object addAction [("<t color='#dddd00'>" + "Untow Vehicle" + "</t>"),"GG\Lift\tow\detach.sqf",[],6,true,true,"","LOG_OBJECT_ADDACTION == _target && LOG_DETACH_VALID"];
 };
