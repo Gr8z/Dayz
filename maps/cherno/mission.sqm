@@ -289,7 +289,7 @@ class Mission
 		class Item9
 		{
 			position[]={5068.6636,338.99176,9723.4248};
-			name="Airplane Dealer";
+			name="AirplaneDealer";
 			text="Airplane Dealer";
 			type="mil_dot";
 			colorName="ColorBlue";
@@ -297,7 +297,7 @@ class Mission
 		class Item10
 		{
 			position[]={8385.834,1.6642252,2368.8264};
-			name="Boat Dealer";
+			name="BoatDealer";
 			text="Boat Dealer";
 			type="mil_dot";
 			colorName="ColorOrange";
@@ -313,7 +313,7 @@ class Mission
 		class Item12
 		{
 			position[]={13093.446,0.42457402,8241.5625};
-			name="Boat Dealer_1";
+			name="BoatDealer_1";
 			text="Boat Dealer";
 			type="mil_dot";
 			colorName="ColorOrange";
