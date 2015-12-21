@@ -72,11 +72,8 @@ _marker __sm(shape) "RECTANGLE";
 _marker __sm(size) [10000,30000];
 _marker __sm(Color) "ColorBlack";
 
-_marker = xct ["PetrolTraders", [5000,16100]];
-[_marker," <These icons mark petrol traders","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
-
-_marker = xct ["NoBuildAreas", [5000,15900]];
-[_marker," Brown circles = No build areas","ColorBrown","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+_marker = xct ["PetrolTraders", [5000,15900]];
+[_marker," <These icons mark Gas Station traders","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
 _marker = xct ["SafezoneAreas", [5000,15700]];
 [_marker," Green circles = Safezones","ColorGreen","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
@@ -93,15 +90,7 @@ _marker = xct ["HelpInfo", [5000,15500]];
 	_clr = _x sel 3;
 	
 	if !(_loc in [""]) then {
-		if ((_diz > 0)&&(_clr != "")) then {
-			_mark = xct [_loc,_pos];
-			_mark __sm(Brush) 'SolidBorder';
-			_mark __sm(Color) 'ColorBrown';
-			_mark __sm(Shape) 'ELLIPSE';
-			_mark __sm(Alpha) 0.4;
-			_mark __sm(Size) [_diz,_diz];
-		};
-		
+	
 		if (_dis > 0) then {
 			_mark = xct [_loc+" green",_pos];
 			_mark __sm(Brush) 'SolidBorder';
