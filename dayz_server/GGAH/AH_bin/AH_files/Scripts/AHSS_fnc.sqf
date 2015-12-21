@@ -17,7 +17,7 @@ _txt = _txt + "<t color='#FF5050'>GhostzGamerz.com</t><br/>";
 _txt = _txt + "Join our teamspeak:<br/>";
 _txt = _txt + "<t color='#FF5050'>TS.GhostzGamerz.com</t><br/>";
 _txt = _txt + "<br/>";
-_txt = _txt + "<t color='#FF5050'>Donation Perks Available at our Website.</t><br/>";
+_txt = _txt + "<t color='#FF5050'>Unlock More Spawns with VIP spawns.</t><br/>";
 AH_str_welcomeMsg = _txt;
 AH_fnc_spawnMenu = {
 	if (isNil 'added_cspawn') then {
