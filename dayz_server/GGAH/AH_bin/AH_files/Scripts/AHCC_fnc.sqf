@@ -661,8 +661,8 @@ _AH_CC = compile ("
 			player setPosATL [-18697,25815,0];
 			diag_log ('AH_EVENT: Event init reverted!');
 			
-			if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then {
-				player_death = compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf';
+			if (preProcessFile 'GG\Epoch\dami_PD.sqf' != '') then {
+				player_death = compile preprocessFileLineNumbers 'GG\Epoch\dami_PD.sqf';
 			} else {
 				player_death = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf';
 			};

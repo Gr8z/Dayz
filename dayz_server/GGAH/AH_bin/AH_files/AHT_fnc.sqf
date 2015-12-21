@@ -54,7 +54,7 @@ _AH_KICK = compile ("
 ");
 
 _hasWAI = (preProcessFileLineNumbers "\z\addons\dayz_server\WAI\init.sqf" != "");
-_hasDB 	= (preProcessFileLineNumbers "DamiMods\Epoch\dami_init.sqf" != "");
+_hasDB 	= (preProcessFileLineNumbers "GG\Epoch\dami_init.sqf" != "");
 
 PVOZ_coloredbros = [];
 AH_fnc_dynamictext = compile preprocessFileLineNumbers "ca\modules_e\functions\GUI\fn_dynamicText.sqf";
@@ -4667,7 +4667,7 @@ systemChat (""""Hello!"""");
 					[] spawn {
 						dami_zombiecheck 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
 						dami_damageHandler 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
-						dami_death 				= (if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
+						dami_death 				= (if (preProcessFile 'GG\Epoch\dami_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'GG\Epoch\dami_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
 						dami_RespawnTime 		= playerRespawnTime;
 						dami_UnconFunc 			= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						fnc_usec_damageHandler 	= {};
