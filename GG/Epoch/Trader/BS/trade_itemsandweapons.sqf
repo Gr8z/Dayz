@@ -19,7 +19,7 @@ _inside 	= _this select 5;
 _psamnt 	= _this select 6;
 _price 		= _price * _psamnt;
 _isWeapon 	= isClass (configFile >> 'CfgWeapons' >> _trade_item);
-_qty 		= (if (_BoS == "buy") then [{player getVariable ["cashMoney",0]}, {{_x == _trade_item} count (switch (_inside) do {case "plyr": {dami_plyrweps+dami_plyrmags};case "bp": {dami_bpweps+dami_bpmags};case "veh": {dami_vehweps+dami_vehmags};})}]);
+_qty 		= (if (_BoS == "buy") then [{player getVariable ["GGCoins",0]}, {{_x == _trade_item} count (switch (_inside) do {case "plyr": {dami_plyrweps+dami_plyrmags};case "bp": {dami_bpweps+dami_bpmags};case "veh": {dami_vehweps+dami_vehmags};})}]);
 _freeslots 	= (switch (_inside) do {default {0};case "plyr": {(([player] call BIS_fnc_invSlotsEmpty) select 4)};case "bp": {((dami_bpobj call dami_checkFreeSlotsBP) select 0)};case "veh": {if (_isWeapon) then {((dami_vehobj call dami_checkFreeSlotsVEH) select 1)} else {((dami_vehobj call dami_checkFreeSlotsVEH) select 0)};};});
 _required 	= (_trade_item call dami_countReqWepSlots);
 _inv 		= (switch (_inside) do {case "plyr": {"your inventory"};case "bp": {"your backpack"};case "veh": {"your vehicle"};});
@@ -58,8 +58,8 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty >= _psamnt)&&(_BoS == "sell"))) 
 	if (_BoS == "buy") then {
 		_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 		//PVOZ_tradeshit = [player,_trader,_BoS,_textPart,_price];publicVariableServer "PVOZ_tradeshit";
-		player setVariable ["cashMoney", (_qty - _price), true];
-		_removed = _qty - (player getVariable ["cashMoney",0]);
+		player setVariable ["GGCoins", (_qty - _price), true];
+		_removed = _qty - (player getVariable ["GGCoins",0]);
 		if (_removed == _price) then {
 			if (_isWeapon) then {
 				switch (_inside) do {
@@ -91,7 +91,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty >= _psamnt)&&(_BoS == "sell"))) 
 			if (dami_failed) exitWith TraderFinishTrade;
 			_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 			//PVOZ_tradeshit = [player,_trader,_BoS,_textPart,_price];publicVariableServer "PVOZ_tradeshit";
-			player setVariable ["cashMoney", (((player getVariable ["cashMoney",0]) + _price)) , true];
+			player setVariable ["GGCoins", (((player getVariable ["GGCoins",0]) + _price)) , true];
 			_msg =format["Sold %1 %2(s) for %3 %4",_psamnt,_textPart,_price,_currency];
 			_msg call AH_fnc_dynTextMsg;
 		} else {
@@ -112,7 +112,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty >= _psamnt)&&(_BoS == "sell"))) 
 			} else {
 				_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 				//PVOZ_tradeshit = [player,_trader,_BoS,_textPart,_price];publicVariableServer "PVOZ_tradeshit";
-				player setVariable ["cashMoney", (((player getVariable ["cashMoney",0]) + _price)) , true];
+				player setVariable ["GGCoins", (((player getVariable ["GGCoins",0]) + _price)) , true];
 				_msg = format["Sold %1 %2(s) for %3 %4",_psamnt,_textPart,_price,_currency];
 				_msg call AH_fnc_dynTextMsg;
 			};

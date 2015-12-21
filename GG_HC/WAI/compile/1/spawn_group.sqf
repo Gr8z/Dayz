@@ -104,12 +104,12 @@ for "_x" from 1 to _unitnumber do {
 	};
 	if (random 100 > 80) then {
 		if (random 100 > 95) then {
-			_unit setVariable ["CashMoney",1000 + round(random 1000),true];
+			_unit setVariable ["GGCoins",1000 + round(random 1000),true];
 		} else {
-			_unit setVariable ["CashMoney",round(random 100) + round(random 1000),true];
+			_unit setVariable ["GGCoins",round(random 100) + round(random 1000),true];
 		};
 	} else {
-		_unit setVariable ["CashMoney",100 + round(random 200),true];
+		_unit setVariable ["GGCoins",100 + round(random 200),true];
 	};
 	if (!isNil "_gain") then {_unit setVariable ["humanity", _gain]};
 	call {

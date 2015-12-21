@@ -340,10 +340,10 @@ if (!isDedicated) then {
 				systemChat ("(ArmA-AH.net): "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			} else {
-				_money = player getVariable ["cashMoney",0];
+				_money = player getVariable ["GGCoins",0];
 				_newBal = (_money - _prc);
 				if (_newBal >= 0) then {
-					player setVariable ["cashMoney", _newBal, true];
+					player setVariable ["GGCoins", _newBal, true];
 					
 					_msg = format["Bought %1 for %2 %3!",_magTyp,_prc,GCoins];
 					_msg call AH_fnc_dynTextMsg;
@@ -356,10 +356,10 @@ if (!isDedicated) then {
 			};
 		};
 	};
-	RefuelUpdateCost = {private ["_ctrl","_val","_cost","_color","_fuelToBuyL"];_val = (_this sel 1) / 10;_fuel = fuel RefuelTargetVehicle;_fuelToBuyL = (((1 - _fuel) * _val) * (xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity")));_cost = if (RefuelTargetVehicle iko "AIR") then [{ceil(_fuelToBuyL * (DZE_gasprice / 4))},{ceil(_fuelToBuyL * DZE_gasprice)}];_info = fmt ["<t color='#FF3300'>Fuel cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' /><br/>%3 litres", [_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["cashMoney",0])) then {"#ff0000"} else {"#00ff00"}), ceil(_fuelToBuyL)];((uiNamespace xgv "RefuelDialog") displayCtrl 4603) ctrlSetStructuredText parseText _info;};
-	RefuelBuyFuel = {private ["_fuel","_slider","_capacity","_fuelDif","_cost","_playerWealth","_name"];_fuel 		= fuel RefuelTargetVehicle;_slider 	= (sliderPosition ((uiNamespace xgv "RefuelDialog") displayCtrl 4602) / 10);_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - (_fuel * _capacity);_cost 		= if (RefuelTargetVehicle iko "AIR") then [{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice / 4))},{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice))}];_name 		= getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName");_playerWealth = player xgv["cashMoney",0];if (_cost > _playerWealth) exw {_msg = fmt ["Need %1 more %2!",_cost - _playerWealth,GCoins];systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};_msg = "Vehicle has been refueled for "+str _cost;systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;player xsv["cashMoney",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";PVDZE_send = [RefuelTargetVehicle,"SFuel",[RefuelTargetVehicle,((fuel RefuelTargetVehicle) + ((1 - _fuel) * _slider))]];publicVariableServer "PVDZE_send";};
+	RefuelUpdateCost = {private ["_ctrl","_val","_cost","_color","_fuelToBuyL"];_val = (_this sel 1) / 10;_fuel = fuel RefuelTargetVehicle;_fuelToBuyL = (((1 - _fuel) * _val) * (xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity")));_cost = if (RefuelTargetVehicle iko "AIR") then [{ceil(_fuelToBuyL * (DZE_gasprice / 4))},{ceil(_fuelToBuyL * DZE_gasprice)}];_info = fmt ["<t color='#FF3300'>Fuel cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' /><br/>%3 litres", [_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"}), ceil(_fuelToBuyL)];((uiNamespace xgv "RefuelDialog") displayCtrl 4603) ctrlSetStructuredText parseText _info;};
+	RefuelBuyFuel = {private ["_fuel","_slider","_capacity","_fuelDif","_cost","_playerWealth","_name"];_fuel 		= fuel RefuelTargetVehicle;_slider 	= (sliderPosition ((uiNamespace xgv "RefuelDialog") displayCtrl 4602) / 10);_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - (_fuel * _capacity);_cost 		= if (RefuelTargetVehicle iko "AIR") then [{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice / 4))},{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice))}];_name 		= getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName");_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = fmt ["Need %1 more %2!",_cost - _playerWealth,GCoins];systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};_msg = "Vehicle has been refueled for "+str _cost;systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";PVDZE_send = [RefuelTargetVehicle,"SFuel",[RefuelTargetVehicle,((fuel RefuelTargetVehicle) + ((1 - _fuel) * _slider))]];publicVariableServer "PVDZE_send";};
 	RepairVehicleCost = {private ["_prices","_vehicle","_hitpoints","_parts_cost","_parts_needed","_damage","_part","_armor","_cost"];_prices = ["PartGeneric", 10,"PartEngine", 20,"PartVRotor", 20,"PartFueltank", 150,"PartWheel", 20,"PartGlass", 10];_vehicle = _this;if (damage _vehicle == 0) exw {0};_hitpoints = switch (true) do {default {_vehicle call vehicle_getHitpoints};case ((_vehicle iko  "Car") && !(_vehicle iko  "Truck")): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};case (_vehicle iko  "Truck"): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitGlass7","HitGlass8","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitLMWheel","HitRMWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};};_parts_cost = 0;_parts_needed = [];{private ["_damage", "_part"];_damage = [_vehicle,_x] call object_getHit;_part = switch (true) do {default {"PartGeneric"};case (["Engine",_x,false] call fnc_inString): 	{"PartEngine"};case (["HRotor",_x,false] call fnc_inString): 	{"PartVRotor"};case (["Fuel",_x,false] call fnc_inString): 	{"PartFueltank"};case (["Wheel",_x,false] call fnc_inString): 	{"PartWheel"};case (["Glass",_x,false] call fnc_inString): 	{"PartGlass"};};if (_damage > 0) then {_parts_needed set [count _parts_needed, _part];_parts_cost = _parts_cost + (_prices sel ((_prices find _part) + 1));_parts_needed set [count _parts_needed, (_prices sel ((_prices find _part) + 1))];};} forEach _hitpoints;_armor = xgn((xcf >> "cfgVehicles" >> (typeOf _vehicle)) >> "armor");_cost = if (_vehicle iko "Air") then [{ceil(_parts_cost + (damage _vehicle * (_armor * 100)))},{ceil(_parts_cost + (damage _vehicle * (_armor * 10)))}];_cost};
-	RepairVehicle = {private ["_cost","_color","_playerWealth"];_cost = RefuelTargetVehicle call RepairVehicleCost;_playerWealth = player xgv["cashMoney",0];if (_cost > _playerWealth) exw {_msg = "You don't have enough money to do this.";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};player xsv["cashMoney",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";{private ["_damage", "_selection"];_damage = [RefuelTargetVehicle,_x] call object_getHit;if (_damage > 0) then {_selection = getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "HitPoints" >> _x >> "name");PVDZE_veh_SFix = [RefuelTargetVehicle,_selection,0];publicVariable "PVDZE_veh_SFix";if (local RefuelTargetVehicle) then {PVDZE_veh_SFix call object_setFixServer;};};} forEach (RefuelTargetVehicle call vehicle_getHitpoints);_msg = "Vehicle has been fully repaired!";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;RefuelTargetVehicle setDamage 0;};
+	RepairVehicle = {private ["_cost","_color","_playerWealth"];_cost = RefuelTargetVehicle call RepairVehicleCost;_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = "You don't have enough money to do this.";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";{private ["_damage", "_selection"];_damage = [RefuelTargetVehicle,_x] call object_getHit;if (_damage > 0) then {_selection = getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "HitPoints" >> _x >> "name");PVDZE_veh_SFix = [RefuelTargetVehicle,_selection,0];publicVariable "PVDZE_veh_SFix";if (local RefuelTargetVehicle) then {PVDZE_veh_SFix call object_setFixServer;};};} forEach (RefuelTargetVehicle call vehicle_getHitpoints);_msg = "Vehicle has been fully repaired!";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;RefuelTargetVehicle setDamage 0;};
 	dami_cceff = {"filmGrain" ppEffectEnable true;_hndl = ppEffectCreate ["colorCorrections", 1501];_hndl ppEffectEnable true;if (( daytime < 18 )&&( daytime < 7)) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 7 )&&( daytime < 18 )) then {_hndl ppEffectAdjust[1,1,0,[0,-0.12,0.05,0.03],[0,0,0,1.23],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.0225, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 18 )&&( daytime > 7 )) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};};
 	dami_DPP = {
 		if !(isNil 'SZ_VEH') then {
@@ -650,7 +650,7 @@ if (!isDedicated) then {
 		666 cutText [format ["You survived %1 days, killed %2 zombies, %3 survivors, and %4 bandits...",dayz_Survived,(player getVariable ["zombieKills",0]),(player getVariable ["humanKills",0]),(player getVariable ["banditKills",0])],"PLAIN DOWN"];
 		disableUserInput false;
 		_humanity		= player getVariable ["humanity",0];
-		_bankMoney 		= player getVariable ["bankMoney",0];
+		_bankMoney 		= player getVariable ["GGBank",0];
 		_friendlies		= player getVariable ["friendlies",[]];
 		_tagList		= player getVariable ["tagList",[]];
 		_friendlist 	= profileNamespace getVariable ['AH_friendlist',[]];
@@ -696,7 +696,7 @@ if (!isDedicated) then {
 		dayz_thirst 		= 0;
 		dayz_selectGender 	= "Survivor2_DZ";
 		{call compile (_x+' = false')} forEach ["r_action","r_action_unload","r_doLoop","r_drag_sqf","r_fracture_arms","r_fracture_legs","r_interrupt","r_player_cardiac","r_player_dead","r_player_handler","r_player_handler1","r_player_infected","r_player_injured","r_player_inpain","r_player_loaded","r_player_lowblood","r_player_unconscious","r_self","DZE_InRadiationZone","dayz_unsaved","dami_respawn"];
-		{player setVariable [_x sel 0,_x sel 1,_x sel 2]} forEach [["hit_arms",0,true],["hit_hands",0,true],["hit_legs",0,true],["NORRN_unconscious",false,true],["unconsciousTime",0,true],["USEC_BloodQty",r_player_blood,true],["USEC_injured",false,true],["USEC_inPain",false,true],["USEC_isCardiac",false,true],["USEC_lowBlood",false,true],["humanity",_humanity,true],["cashMoney",0,true],["bankMoney",_bankMoney,true],["CharacterID",dayz_characterID,true],["friendlies",_friendlies,true],["USEC_isDead",false,true],["USEC_infected",false,true],["AH_friendlist",_friendlist,true]];
+		{player setVariable [_x sel 0,_x sel 1,_x sel 2]} forEach [["hit_arms",0,true],["hit_hands",0,true],["hit_legs",0,true],["NORRN_unconscious",false,true],["unconsciousTime",0,true],["USEC_BloodQty",r_player_blood,true],["USEC_injured",false,true],["USEC_inPain",false,true],["USEC_isCardiac",false,true],["USEC_lowBlood",false,true],["humanity",_humanity,true],["GGCoins",0,true],["GGBank",_bankMoney,true],["CharacterID",dayz_characterID,true],["friendlies",_friendlies,true],["USEC_isDead",false,true],["USEC_infected",false,true],["AH_friendlist",_friendlist,true]];
 		{player removeMagazine _x} count (magazines player);
 		removeAllWeapons player;
 		"Survivor2_DZ" call player_switchModel;
@@ -705,7 +705,7 @@ if (!isDedicated) then {
 		camDestroy dami_CAM;
 		playMusic "";
 		for "_x" from 5 to 1 step -1 do {
-			((uiNameSpace getVariable "BIS_loadingScreen") displayctrl 8400) ctrlSetText ("Moving to respawn menu in "+str _x);
+			((uiNameSpace getVariable "BIS_loadingScreen") displayctrl 8400) ctrlSetText ("Respawning in "+str _x);
 			uiSleep 1;
 		};
 		1 cutRsc ["default","PLAIN",0];
@@ -1618,7 +1618,7 @@ if (!isDedicated) then {
 				s_player_teabag = -1;
 			};
 			_bodymoney = -1;
-			_bodymoney = _cursorTarget xgv["cashMoney",-1];
+			_bodymoney = _cursorTarget xgv["GGCoins",-1];
 			if ((_player_studybody)&&(_bodymoney > 0)) then {
 				if (s_player_checkWallet < 0) then {
 					s_player_checkWallet = player xaa [fmt  [("<t color=""#FFE700"">"+("Take %1 %2") + "</t>"),_bodymoney call BIS_fnc_numberText, GCoins], "GG\Epoch\Trader\check_wallet.sqf",_cursorTarget, 0, false, true, "",""];
@@ -2443,7 +2443,7 @@ if (!isDedicated) then {
 		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'><t color='#A80000'> Restart</t>: %1h(s) %2m(s)</t>",_hours,_minutes];
 		_ctrlDS10 ctrlCommit 0;
 		_bank1 = player xgv ["bank","none"];
-		_bank2 = player xgv ["bankMoney","none"];
+		_bank2 = player xgv ["GGBank","none"];
 		if ((typeName(_bank1) == "SCALAR")||(typeName(_bank2) == "SCALAR")) then {
 			_ctrlNB8 ctrlShow true;
 			_ctrlNB8i ctrlShow true;
@@ -2453,11 +2453,11 @@ if (!isDedicated) then {
 			_ctrlDS9 ctrlShow true;
 			_ctrlNB8 ctrlSetScale 0.6;
 			_ctrlNB8 ctrlCommit 0;
-			_ctrlDS8 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["cashMoney",0]] call BIS_fnc_numberText];
+			_ctrlDS8 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["GGCoins",0]] call BIS_fnc_numberText];
 			_ctrlDS8 ctrlCommit 0;
 			_ctrlNB9 ctrlSetScale 0.6;
 			_ctrlNB9 ctrlCommit 0;
-			_ctrlDS9 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["bankMoney",0]] call BIS_fnc_numberText];
+			_ctrlDS9 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["GGBank",0]] call BIS_fnc_numberText];
 			_ctrlDS9 ctrlCommit 0;
 		} else {
 			_ctrlNB8 ctrlShow false;
@@ -3597,8 +3597,8 @@ if (!isDedicated) then {
 		_worldspace 	= [round(direction player),player call AH_fnc_getPos];
 		_zombieKills 	= player xgv ["zombieKills",0];
 		_headShots 		= player xgv ["headShots",0];
-		_cashMoney 		= player xgv ["cashMoney",0];
-		_bankMoney 		= player xgv ["bankMoney",0];
+		_cashMoney 		= player xgv ["GGCoins",0];
+		_bankMoney 		= player xgv ["GGBank",0];
 		_humanKills 	= player xgv ["humanKills",0];
 		_banditKills 	= player xgv ["banditKills",0];
 		_friendlies		= player xgv ["friendlies",[]];
@@ -3629,13 +3629,13 @@ if (!isDedicated) then {
 			player xsv ["USEC_injured",false,true];
 			player xsv ["USEC_inPain",false,true];
 		};
-		player xsv ["cashMoney",_cashMoney,true];
-		player xsv ["bankMoney",_bankMoney,true];
+		player xsv ["GGCoins",_cashMoney,true];
+		player xsv ["GGBank",_bankMoney,true];
 		player xsv ["humanity",_humanity,true];
 		player xsv ["zombieKills",_zombieKills,true];
 		player xsv ["headShots",_headShots,true];
-		player xsv ["cashMoney",_cashMoney,true];
-		player xsv ["bankMoney",_bankMoney,false];
+		player xsv ["GGCoins",_cashMoney,true];
+		player xsv ["GGBank",_bankMoney,false];
 		player xsv ["humanKills",_humanKills,true];
 		player xsv ["banditKills",_banditKills,true];
 		player xsv ["CharacterID",dayz_characterID,true];
@@ -4630,7 +4630,7 @@ if (isServer) then {
 	"PVDZE_bank_Save" addPublicVariableEventHandler {
 		_playerObj = ((_this sel 1) sel 0);
 		_playerID = gpd _playerObj;
-		_bankMoney = _playerObj xgv ["bankMoney",0];
+		_bankMoney = _playerObj xgv ["GGBank",0];
 		
 		if (_playerID != "") then {
 			_key = fmt ["CHILD:299:%1:%2:",_playerID,_bankMoney];

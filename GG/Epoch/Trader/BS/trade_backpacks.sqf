@@ -19,13 +19,13 @@ if ((_bag != _trade_item)&&(_BoS == "sell")) exitWith {
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
-if (_BoS == "buy") then {_qty = player getVariable ["cashMoney",0]} else {_qty = 0};
+if (_BoS == "buy") then {_qty = player getVariable ["GGCoins",0]} else {_qty = 0};
 if (((_qty >= _price)&&(_BoS == "buy"))||((_bag == _trade_item)&&(_BoS == "sell"))) then {
 	if (_BoS == "buy") then {
 		_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 		//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
-		player setVariable ["cashMoney", (_qty - _price) , true];
-		_num_removed = _qty - (player getVariable ["cashMoney",0]);
+		player setVariable ["GGCoins", (_qty - _price) , true];
+		_num_removed = _qty - (player getVariable ["GGCoins",0]);
 		_msg = format ["Bought %1 for %2 %3!",_trade_item,_num_removed, GCoins];
 		_msg call AH_fnc_dynTextMsg;
 		if (_num_removed == _price) then {
@@ -37,9 +37,9 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_bag == _trade_item)&&(_BoS == "sell"
 			_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 			//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
 			removeBackpack player;
-			_myMoney = player getVariable ["cashMoney",0];
+			_myMoney = player getVariable ["GGCoins",0];
 			_myMoney = _myMoney + _price;
-			player setVariable ["cashMoney", _myMoney , true];
+			player setVariable ["GGCoins", _myMoney , true];
 			
 			_msg = format ["Sold %1 for %2 %3!",_bag,_price, GCoins];
 			_msg call AH_fnc_dynTextMsg;

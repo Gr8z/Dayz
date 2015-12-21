@@ -11,7 +11,7 @@ _price 		= _this select 2;
 _BoS 		= _this select 3;
 _textPart 	= _this select 4;
 _obj 		= (nearestObjects [(getPosATL player), [_trade_item], 80]);
-_qty 		= (if (_BoS == "buy") then [{player getVariable ["cashMoney",0]},{count _obj}]);
+_qty 		= (if (_BoS == "buy") then [{player getVariable ["GGCoins",0]},{count _obj}]);
 
 if ((_qty <= 0)&&(_BoS == "sell")) exitWith {
 	_msg = format["No %1 found within 20 meters.",_textPart];
@@ -26,8 +26,8 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 		_config = _keySelected;
 		_isOk = [player,_config] call BIS_fnc_invAdd;
 		if (_isOk && (isClass(configFile >> "CfgWeapons" >> _keySelected))) then {
-			player setVariable ["cashMoney", (_qty - _price), true];
-			_removed = _qty - (player getVariable ["cashMoney",0]);
+			player setVariable ["GGCoins", (_qty - _price), true];
+			_removed = _qty - (player getVariable ["GGCoins",0]);
 			_msg = format ["Paid %1 Coins. %2 incoming!",_removed,_trade_item, GCoins];
 			_msg call AH_fnc_dynTextMsg;
 			if (_removed == _price) then {
@@ -67,7 +67,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 				_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 				//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
 				
-				player setVariable ["cashMoney", ((player getVariable ["cashMoney",0]) + _price), true];
+				player setVariable ["GGCoins", ((player getVariable ["GGCoins",0]) + _price), true];
 				_objectID 	= _obj getVariable ["ObjectID","0"];
 				_objectUID	= _obj getVariable ["ObjectUID","0"];
 				PVDZE_obj_Delete = [_objectID,_objectUID,player];

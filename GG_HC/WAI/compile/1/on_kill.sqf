@@ -51,7 +51,7 @@ if (isPlayer _player) then {
 	};
 } else {
 	if (ai_clean_roadkill) then {
-		_unit setVariable ["cashMoney",0,true];
+		_unit setVariable ["GGCoins",0,true];
 		removeBackpack _unit;
 		removeAllWeapons _unit;
 		{_unit removeMagazine _x} count magazines _unit;

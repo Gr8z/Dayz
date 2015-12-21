@@ -158,7 +158,7 @@ _playerObj setVariable["CharacterID",_characterID,true];
 _playerObj setVariable["humanity",_humanity,true];
 _playerObj setVariable["humanity_CHK",_humanity];
 _playerObj setVariable["lastPos",getPosATL _playerObj];
-_playerObj setVariable ["cashMoney",_cashMoney,true];
+_playerObj setVariable ["GGCoins",_cashMoney,true];
 _playerObj setVariable ["cashMoney_CHK",_cashMoney];
 
 dayzPlayerLogin2 = [_worldspace,_state];
@@ -173,14 +173,14 @@ _primary2 = _key2 call server_hiveReadWrite;
 if (count _primary2 > 0) then {
 	if ((_primary2 select 0) != "ERROR") then {
 		_bankMoney = _primary2 select 1;
-		_playerObj setVariable["bankMoney",_bankMoney,true];
+		_playerObj setVariable["GGBank",_bankMoney,true];
 		_playerObj setVariable["bankMoney_CHK",_bankMoney];
 	} else {
-		_playerObj setVariable["bankMoney",0,true];
+		_playerObj setVariable["GGBank",0,true];
 		_playerObj setVariable["bankMoney_CHK",0];
 	};
 } else {
-	_playerObj setVariable["bankMoney",0,true];
+	_playerObj setVariable["GGBank",0,true];
 	_playerObj setVariable["bankMoney_CHK",0];
 };
 PVDZE_plr_Login = nil;

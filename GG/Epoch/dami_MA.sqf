@@ -62,7 +62,7 @@ switch (_this sel 3) do {
 			systemChat ("(ArmA-AH): "+str _msg+"");
 			_msg swx AH_fnc_dynTextMsg;
 		};
-		_wealth = player xgv["cashMoney",0];
+		_wealth = player xgv["GGCoins",0];
 		_missing = "";
 		_missingQty = 0;
 		_proceed = true;
@@ -81,7 +81,7 @@ switch (_this sel 3) do {
 			player playActionNow "Medic";
 			[player,_range,true,(getPosATL player)] swx player_alertZombies;
 
-			player xsv["cashMoney",_newWealth,true];
+			player xsv["GGCoins",_newWealth,true];
 
 			PVDZE_plr_Save = [player,(magazines player),true,true];
 			publicVariableServer "PVDZE_plr_Save";

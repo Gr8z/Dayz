@@ -128,7 +128,7 @@ TraderDialogShowPrices = {
 	_name = (_item select 0);
 	
 	((findDisplay 420420) displayCtrl TraderDialogBuyPrice) ctrlSetStructuredText parseText format["%1<br/><t color='#FFFF66'>%2</t>", [(_bqty * _editb)] call BIS_fnc_numberText, GCoins];
-	ctrlEnable [TraderDialogBuyBtn, (player getVariable ["cashMoney",0] >= (_bqty * _editb))];
+	ctrlEnable [TraderDialogBuyBtn, (player getVariable ["GGCoins",0] >= (_bqty * _editb))];
 	((findDisplay 420420) displayCtrl TraderDialogSellPrice) ctrlSetStructuredText parseText format["%1<br/><t color='#FFFF66'>%2</t>", [(_sqty * _editb)] call BIS_fnc_numberText, GCoins];
 	_qty = {_x == _name} count (switch (_combo) do {case "plyr": {dami_plyrmags+dami_plyrweps};case "bp": {dami_bpmags+dami_bpweps};case "veh": {dami_vehmags+dami_vehweps};});
 	_di = _name;
@@ -168,7 +168,7 @@ TraderDialogShowPrices = {
 			case "bp": {((dami_bpobj call dami_checkFreeSlotsBP) select 0)};
 			case "veh": {if (_cfg == 'CfgWeapons') then {((dami_vehobj call dami_checkFreeSlotsVEH) select 1)} else {((dami_vehobj call dami_checkFreeSlotsVEH) select 0)}};
 		});
-		_maxbuy = floor((player getVariable ["cashMoney",0]) / _bqty);
+		_maxbuy = floor((player getVariable ["GGCoins",0]) / _bqty);
 		_canhold = floor(_free / (_name call dami_countReqWepSlots));
 		if (_maxbuy > _free) then {_maxbuy = _free};
 		if (_maxbuy > _canhold) then {_maxbuy = _canhold};

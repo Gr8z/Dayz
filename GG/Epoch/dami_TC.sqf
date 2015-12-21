@@ -28,7 +28,7 @@ if (_isModel) then {
 	player playActionNow "PutDown";
 	_name 		= _body xgv["bodyName","unknown"];
 	_method 	= _body xgv["deathType","unknown"];
-	_cashMoney 	= _body xgv["cashMoney",0];
+	_cashMoney 	= _body xgv["GGCoins",0];
 	_class 		= "Survivor2_DZ";
 	_position 	= getPosATL _body;
 	_dir 		= getDir _body;
@@ -97,5 +97,5 @@ if (_isModel) then {
 	_newUnit setDamage 1;
 	_newUnit xsv["bodyName",_name,true];
 	_newUnit xsv["deathType",_method,true];
-	_newUnit xsv["cashMoney",_cashMoney,true];
+	_newUnit xsv["GGCoins",_cashMoney,true];
 };
