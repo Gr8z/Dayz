@@ -1,0 +1,43 @@
+#include "cake.h"
+private ["_config","_text","_sfx","_msg","_gain"];
+disableserialization;
+call gear_ui_init;
+_config = xcf >> "CfgMagazines" >> "ItemBloodbag";
+_text 	= getText (_config >> "displayName");
+_sfx 	= getText (_config >> "sfx");
+if ((xgn (xcf >> "CfgMovesMaleSdr" >> "States" >> (xas player) >> "onLadder")) == 1) exw {cutText [(lzl "str_player_21") , "PLAIN DOWN"]};
+if !("ItemBloodbag" in magazines player) exw {cutText [fmt[(lzl "str_player_31"),_text,"drink"] , "PLAIN DOWN"]};
+player playActionNow "PutDown";
+[player,"eat",0,false,50] call dayz_zombieSpeak;
+[player,50,true,(getPosATL player)] swx player_alertZombies;
+player removeMagazine "ItemBloodbag";
+(findDisplay 106) closeDisplay 0;
+uiSleep 1;
+if ((floor(random 100) > 80)) then {
+	r_player_infected = true;
+	player xsv["USEC_infected",true,true];
+	_msg = "You feel the infection setting in...";
+	systemChat ("(ArmA-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
+_gain = round((DZE_bloodcons / 2) + (random (DZE_bloodcons / 2)));
+r_player_blood = r_player_blood + _gain;
+if (r_player_blood > r_player_bloodTotal) then {
+	r_player_blood = r_player_bloodTotal;
+	_msg = "You've gained "+str(_gain)+" health.";
+	systemChat ("(ArmA-AH): "+str _msg);
+	"<t size ='1' font='Zeppelin33' color='#FF0000'>"+str _msg+"</t>" swx AH_fnc_dynTextMsg;
+};
+player xsv ["messing",[dayz_hunger,dayz_thirst],true];
+player xsv["USEC_BloodQty",r_player_blood,true];
+player xsv["medForceUpdate",true];
+PVDZE_plr_Save = [player,[],true,true];
+publicVariableServer "PVDZE_plr_Save";
+dayz_lastDrink = time;
+dayz_lastMeal =	time;
+dayz_thirst = 0;
+dayz_hunger = 0;
+((uiNamespace xgv 'DAYZ_GUI_display') displayCtrl 1302) ctrlShow true;
+if (r_player_blood / r_player_bloodTotal >= 0.2) then {((uiNamespace xgv 'DAYZ_GUI_display') displayCtrl 1301) ctrlShow true};
+cutText [fmt[(lzl  "str_player_consumed"),_text], "PLAIN DOWN"];
+systemChat ("Blood bags fill your drink, food, and up to "+str DZE_bloodcons+" blood when consumed.");

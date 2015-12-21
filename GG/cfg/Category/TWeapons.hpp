@@ -1,0 +1,24 @@
+class Category_4003 {
+class FHQ_ACR_WDL_TWS_SD: d_tit {buy = 3900;sell = 920;}; 
+class FHQ_ACR_WDL_TWS: d_tit {buy = 2250;sell = 575;}; 
+class FHQ_ACR_BLK_TWS_SD: d_tit {buy = 5500;sell = 920;}; 
+class FHQ_ACR_BLK_TWS: d_tit {buy = 2250;sell = 575;}; 
+class FHQ_ACR_TAN_TWS_SD: d_tit {buy = 5250;sell = 920;}; 
+class FHQ_ACR_TAN_TWS: d_tit {buy = 1800;sell = 575;}; 
+class FHQ_ACR_SNW_TWS_SD: d_tit {buy = 3800;sell = 920;}; 
+class FHQ_ACR_SNW_TWS: d_tit {buy = 1800;sell = 575;}; 
+class BAF_LRR_scoped: d_tit {buy = 31750;sell = 10000;}; 
+class BAF_LRR_scoped_W: d_tit {buy = 32000;sell = 10000;}; 
+class USSR_cheytacM200: d_tit {buy = 59000;sell = 28750;}; 
+class USSR_cheytacM200_sd: d_tit {buy = 37000;sell = 15500;}; 
+class m107_DZ: d_tit {buy = 48000;sell = 28000;};
+class BAF_AS50_scoped: d_tit {buy = 115000;sell = 35000;};
+class M110_NVG_EP1: d_tit {buy = 3300;sell = 2300;};
+class KSVK_DZE: d_tit {buy = 19000;sell = 5750;}; 
+class DMR: d_tit {buy = 900;sell = 856;};
+class DMR_DZ: d_tit {buy = 900;sell = 856;};
+class DMR_SKN: d_tit {buy = 900;sell = 865;};
+class Javelin: d_tit {buy = 211500;sell = 10000;};
+class Stinger: d_tit {buy = 203125;sell = 10000;};
+class RPG18: d_tit {buy = 183750;sell = 10000;};
+};

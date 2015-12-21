@@ -1,0 +1,32 @@
+
+class Category_486 { 
+class M249_EP1_DZ: d_tit {buy = 1000;sell = 600;}; 
+class M240_DZ: d_tit {buy = 1000;sell = 500;}; 
+class Mk_48_DZ: d_tit {buy = 2000;sell = 800;}; 
+class Pecheneg_DZ: d_tit {buy = 2000;sell = 800;};
+class vil_M240_B: d_tit {buy = 5000;sell = 1000;}; 
+class vil_M249_Para: d_tit {buy = 5000;sell = 1000;}; 
+class vil_FnMag: d_tit {buy = 5000;sell = 1000;}; 
+class vil_Mg3: d_tit {buy = 5000;sell = 1000;}; 
+class vil_MG4: d_tit {buy = 5000;sell = 1000;}; 
+class vil_MG4E: d_tit {buy = 5000;sell = 1000;}; 
+class vil_Minimi: d_tit {buy = 5000;sell = 1000;}; 
+class vil_MPi: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PK: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PKM: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PKP: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PKP_EOT: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PMI: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PMI74S: d_tit {buy = 5000;sell = 1000;}; 
+class vil_PMIS: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPD: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK74: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK74M: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK74M_P29: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK75: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK75_M72: d_tit {buy = 5000;sell = 1000;}; 
+class vil_RPK75_Romania: d_tit {buy = 5000;sell = 1000;}; 
+class vil_zastava_m84: d_tit {buy = 5000;sell = 1000;}; 
+class skavil_M60: d_tit {buy = 5000;sell = 1000;}; 
+class skavil_M60e3: d_tit {buy = 5000;sell = 1000;}; }; 

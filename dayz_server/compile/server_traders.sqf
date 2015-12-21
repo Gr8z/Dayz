@@ -9,7 +9,7 @@ _clientID = owner _character;
 // add cacheing
 _retrader = call compile format["ServerTcache_%1;",_traderid];
 
-if(isNil "_retrader") then {
+if (isNil "_retrader") then {
 	
 	_retrader = [];
 
@@ -40,6 +40,6 @@ if(isNil "_retrader") then {
 
 // diag_log(_retrader);
 PVDZE_plr_TradeMenuResult = _retrader;
-if(!isNull _character) then {
+if (!isNull _character) then {
 	_clientID publicVariableClient "PVDZE_plr_TradeMenuResult";
 };

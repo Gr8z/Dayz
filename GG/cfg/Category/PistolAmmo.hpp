@@ -1,0 +1,36 @@
+
+class Category_625 { 
+class 15Rnd_9x19_M9: d_tit {buy = 10;sell = 5;}; 
+class 15Rnd_9x19_M9SD: d_tit {buy = 20;sell = 10;}; 
+class 17Rnd_9x19_glock17: d_tit {buy = 10;sell = 5;}; 
+class 6Rnd_45ACP: d_tit {buy = 2;sell = 1;}; 
+class 7Rnd_45ACP_1911: d_tit {buy = 2;sell = 1;}; 
+class 8Rnd_9x18_Makarov: d_tit {buy = 2;sell = 1;}; 
+class 8Rnd_9x18_MakarovSD: d_tit {buy = 20;sell = 10;};
+class RH_7Rnd_50_AE: d_tit {buy = 8;sell = 4;}; 
+class RH_6Rnd_44_Mag: d_tit {buy = 7;sell = 4;}; 
+class RH_6Rnd_357_Mag: d_tit {buy = 7;sell = 4;}; 
+class RH_13Rnd_9x19_bhp: d_tit {buy = 8;sell = 4;}; 
+class RH_8Rnd_9x19_P38: d_tit {buy = 5;sell = 2;}; 
+class RH_7Rnd_32cal_ppk: d_tit {buy = 5;sell = 2;}; 
+class RH_8Rnd_9x19_Mk: d_tit {buy = 5;sell = 2;}; 
+class RH_8Rnd_9x19_Mksd: d_tit {buy = 5;sell = 2;}; 
+class RH_15Rnd_9x19_usp: d_tit {buy = 6;sell = 3;}; 
+class RH_15Rnd_9x19_uspsd: d_tit {buy = 7;sell = 4;}; 
+class RH_12Rnd_45cal_usp: d_tit {buy = 6;sell = 3;}; 
+class RH_8Rnd_45cal_m1911: d_tit {buy = 5;sell = 2;}; 
+class RH_8Rnd_762_tt33: d_tit {buy = 5;sell = 2;}; 
+class RH_10Rnd_22LR_mk2: d_tit {buy = 6;sell = 3;}; 
+class RH_20Rnd_9x19_M93: d_tit {buy = 9;sell = 5;}; 
+class RH_19Rnd_9x19_g18: d_tit {buy = 8;sell = 4;}; 
+class RH_17Rnd_9x19_g17: d_tit {buy = 6;sell = 3;}; 
+class RH_17Rnd_9x19_g17SD: d_tit {buy = 7;sell = 4;}; 
+class RH_20Rnd_32cal_vz61: d_tit {buy = 5;sell = 2;}; 
+class RH_30Rnd_9x19_tec: d_tit {buy = 5;sell = 2;}; 
+class RH_32Rnd_9x19_Muzi: d_tit {buy = 5;sell = 2;}; 
+class vil_bhp_mag: d_tit {buy = 5;sell = 2;}; 
+class vil_usp45_mag: d_tit {buy = 6;sell = 3;}; 
+class vil_usp45sd_mag: d_tit {buy = 6;sell = 4;}; 
+class vil_32Rnd_UZI_SD: d_tit {buy = 6;sell = 3;}; 
+class vil_32Rnd_uzi: d_tit {buy = 5;sell = 2;};
+ }; 
