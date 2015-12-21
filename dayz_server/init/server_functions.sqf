@@ -1,4 +1,4 @@
-execVM "\@GG\AH_fnc.sqf";
+execVM "\z\addons\dayz_server\GGAH\AH_fnc.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
 BIS_Effects_Burn 		= {};
