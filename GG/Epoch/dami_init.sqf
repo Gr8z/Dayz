@@ -5060,5 +5060,5 @@ initialized = true;
 diag_log ("GG: Loaded server/client init!");
 if (!hasInterface && !isServer) exitWith {};
 rn "GG\Epoch\Trader\init.sqf";
-__ccp("GG\Epoch\server_traders.sqf");
+__ccp("traders.sqf");
 __ccp("GG\v.sqf");

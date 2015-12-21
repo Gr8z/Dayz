@@ -56,7 +56,7 @@ menu_GUE_Soldier_1 = [
 ];
 // Aircraft Dealer
 menu_Soldier_Sniper_PMC = [
-	[["Airplanes",517],["Camels",5000],["Helicopter Unarmed",519],["Metals",700]],
+	[["Airplanes",517],["Helicopter Unarmed",519]],
 	[],
 	"neutral"
 ];
