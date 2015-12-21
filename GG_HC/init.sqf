@@ -49,7 +49,7 @@ if (!hasInterface && !isServer) then {
 			{_unit reveal _x} forEach _allPlayers;
 		} forEach (_this select 1);
 	};
-	diag_log ("Dami_HC: Loading WAI\init.sqf...");
+	diag_log ("GG_HC: Loading WAI\init.sqf...");
 	PVOZ_HeadlessUnit = player;publicVariable "PVOZ_HeadlessUnit";
 	PVOZ_HCISALIVE = true;publicVariable "PVOZ_HCISALIVE";
 	execVM "\GG_HC\WAI\init.sqf";
