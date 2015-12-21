@@ -133,14 +133,13 @@ DZE_nobuildarray 	= [
 	[[5066.8984,9729.3574,0],[0,1000],"Aircraft Dealer",""],
 	[[13441.16,5429.3013,0],[0,1000],"Wholesale East",""],
 	[[4361.4937,2259.9526,0],[0,1000],"Wholesale South",""],
-	[[8385.834,1.6642252,2368.8264],[0,1000],"Boat Trader1",""],
-	[[13093.446,0.42457402,8241.5625],[0,1000],"Boat Trader2",""],
-	[[9464.64, 0, 11483.8],[0,500],"Weed Farm","ColorOrange"],
-
-	[[7768.69,0,4499.63],[0,500],"Mogilevka Base","ColorRed"],
-	[[13725.498,0, 2907.4512],[0,500],"Skalisty Base","ColorRed"],
-	[[7286.0166,0, 9730.1201],[0,500],"Grishino Base","ColorRed"],
-	[[4492.81,0,8296.52],[0,500],"Dichina Base","ColorRed"]
+	[[8385.834,2368.8264,0],[0,1000],"Boat Trader1",""],
+	[[13093.446,8241.5625,0],[0,1000],"Boat Trader2",""],
+	[[9464.64, 11483.8,0],[0,500],"Weed Farm","ColorOrange"],
+	[[7768.69,4499.63,0],[0,500],"Mogilevka Base","ColorRed"],
+	[[13725.498, 2907.4512,0],[0,500],"Skalisty Base","ColorRed"],
+	[[7286.0166, 9730.1201,0],[0,500],"Grishino Base","ColorRed"],
+	[[4492.81,8296.52,0],[0,500],"Dichina Base","ColorRed"]
 ];
 
 dayz_maxLocalZombies = 4;
