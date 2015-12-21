@@ -1,6 +1,6 @@
 /* GENERAL CONFIG */
 	debug_mode = false;
-	use_blacklist = true;
+	use_blacklist = false;
 	blacklist = [
 		[[11088,11932],[11815,10792]],	// Klen
 		[[5533,8445],[6911,7063]],		// Stary
@@ -9,7 +9,7 @@
 		[[0,16000,0],[16000,14580,0]]	// Top
 	];
 	trader_markers = (switch (dayz_instance) do {
-		default {["Tradercitystary","wholesaleSouth","boatTraderEast","BoatDealerSouth","AirVehicles","BanditDen","Klen","BoatDealerEast","TradercityBash","HeroTrader","GemDealer","Bank1","Bank2"]};
+		default {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]};
 		case 99: {["example"]};
 	});
 /* END GENERAL CONFIG */

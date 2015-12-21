@@ -288,7 +288,7 @@ if (isServer and isNil "sm_done") then {
 								diag_log (typeOf _this+' was left in safezone! POS: '+str(_oldPos));
 								uiSleep (60 * 15);
 								if (_this distance _oldPos < 5) then {
-									[nil, nil, rSpawn, ["Vehicle "+typeOf _this+" has been deleted due to being left in a safezone after a restart."], {systemChat ("(ArmA-AH.net): "+(_this select 0)+".")}] call RE;
+									[nil, nil, rSpawn, ["Vehicle "+typeOf _this+" has been deleted due to being left in a safezone after a restart."], {systemChat ("(GG-AH): "+(_this select 0)+".")}] call RE;
 									_objectID = _this getVariable ["ObjectID","0"];
 									_objectUID = _this getVariable ["ObjectUID","0"];
 									[_objectID,_objectUID,objNull] spawn server_deleteObj;
