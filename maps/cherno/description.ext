@@ -11,7 +11,7 @@ briefing = 0;
 debriefing = 0;
 
 onPauseScript = "";
-loadScreen = "GG\GUI\Splash\deadcellgaming.jpg";
+loadScreen = "GG\GUI\Splash\GG.jpg";
 
 class Header
 {
