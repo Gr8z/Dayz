@@ -2440,7 +2440,7 @@ if (!isDedicated) then {
 		_hours = (floor(_time/60));
 		_minutes = (_time - (_hours * 60));
 		_ctrlDS10 ctrlSetPosition [(safeZoneX),(safeZoneY + safeZoneH) - 0.1];
-		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'>%1</t>",player name];
+		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'>%1</t>",name player];
 		_ctrlDS10 ctrlCommit 0;
 		_bank1 = player xgv ["bank","none"];
 		_bank2 = player xgv ["GGBank","none"];
