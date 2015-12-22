@@ -1,7 +1,7 @@
 respawn = "BASE";
 respawndelay = 0;
-onLoadMission= "DayZ Epoch Chernarus";
-OnLoadIntro = "Welcome to DayZ Epoch Chernarus";
+onLoadMission= "[GG] Overpoch Chernarus";
+OnLoadIntro = "Welcome to [GG] Ghostz Gamerz";
 OnLoadIntroTime = False;
 OnLoadMissionTime = False;
 disabledAI = true;
