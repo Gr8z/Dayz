@@ -1441,7 +1441,7 @@ class BankDialog {
 		};
 		class BD_title: RscText {
 			idc = -1;
-			text = "Bank of Chernarus";
+			text = "Bank of [GG] Ghostz Gamerz Hive";
 			x = 0.319597 * safezoneW + safezoneX;
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
