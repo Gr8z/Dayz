@@ -1,10 +1,18 @@
+/*
+Epoch Dynamic Traders my maca134
+http://www.epochservers.com
+
+You will need to go into each file in the traders file and change the model/skin to the relevent trader for the map you are using. 
+Look in server_traders.sqf in the mission pbo for more information.
+
+*/
 private ["_trader_config", "_markers"];
 
-DT_fnc_ObjectsMapper = compile preprocessFileLineNumbers "\z\addons\dayz_server\TravelingTrader\objectMapper.sqf";
-DT_fnc_CreateTrader = compile preprocessFileLineNumbers "\z\addons\dayz_server\TravelingTrader\createTrader.sqf";
+DT_fnc_ObjectsMapper = compile preprocessFileLineNumbers "\z\addons\dayz_server\DynamicTraders\objectMapper.sqf";
+DT_fnc_CreateTrader = compile preprocessFileLineNumbers "\z\addons\dayz_server\DynamicTraders\createTrader.sqf";
 
 _trader_config = [
-	[1,"traveling.sqf"]
+	[10, "hero.sqf", 		"Military Vendor", 					"ColorGreen"]
 ]; 
 
 _markers = [];
@@ -45,9 +53,12 @@ waitUntil { sleep 1; !isNil "sm_done" };
 
 		if ((count _position) == 2) then { 
 			diag_log format["Trader Caravans: Spawning %1 at %2 (%3)", _x select 1, _position, mapGridPosition _position];
-			_position execVM format["\z\addons\dayz_server\TravelingTrader\traders\%1", _x select 1];
+			_position execVM format["\z\addons\dayz_server\DynamicTraders\traders\%1", _x select 1];
 			_markers set [count _markers, [_position, _x select 2, _x select 3]];
 		};
 	};
 	true
 } count _trader_config;
+
+PV_TraderMarkers = _markers;
+publicVariable "PV_TraderMarkers";

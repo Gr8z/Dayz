@@ -1,7 +1,7 @@
 admins = ["76561198078201908","76561198002511087","76561198002511087"];
 DZE_crashLootConfig = [true,2,5,8,0];
 CurrencyName = "Coins";
-DZE_ATM = ["Infostand_2_EP1"];
+DZE_ATM = ["Infostand_2_EP1","FR_Commander"];
 LimitOnBank = true;
 MaxBankMoney = 100000;
 MaxDonatorBankMoney = 500000;
