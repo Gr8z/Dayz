@@ -63,8 +63,8 @@ if (!isDedicated) then {
 	local_roadDebris =			xcm xlx "\z\addons\dayz_code\compile\local_roadDebris.sqf";
 	zombie_findTargetAgent = 	xcm xlx "\z\addons\dayz_code\compile\zombie_findTargetAgent.sqf";
 	zombie_loiter = 			xcm xlx "\z\addons\dayz_code\compile\zombie_loiter.sqf";
-	zombie_generate	= 			xcm xlx "\z\addons\dayz_code\compile\zombie_generate.sqf";
-	wild_spawnZombies = 		xcm xlx "\z\addons\dayz_code\compile\wild_spawnZombies.sqf";
+	zombie_generate	= 			xcm xlx "GG\Epoch\GG_ZG.sqf";
+	wild_spawnZombies = 		xcm xlx "GG\Epoch\GG_WSZ.sqf";
 	pz_attack = 				xcm xlx "\z\addons\dayz_code\actions\pzombie\pz_attack.sqf";
 	dog_findTargetAgent = 		xcm xlx "\z\addons\dayz_code\compile\dog_findTargetAgent.sqf";
 	player_countmagazines =		xcm xlx "\z\addons\dayz_code\actions\player_countmagazines.sqf";
