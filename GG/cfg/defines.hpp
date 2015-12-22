@@ -2595,7 +2595,7 @@ class RscTitles {
 				h = "0.08";
 			};
 			class RscPicture_13001: RscPictureGUI {
-                idc = 13001;//Callender
+                idc = 13001;//Restart
                 text = "GG\gui\hud\1.paa";
 				x = "(safeZoneX + safeZoneW) - 0.055";
 				y = "(safeZoneY + safeZoneH) - 0.32";
@@ -2818,7 +2818,7 @@ class RscTitles {
                 sizeEx = 0.035;
             };
 			class RscText_17010: RscStructuredTextGUI {
-                idc = 17010;//Uptime txt
+                idc = 17010;//player name
                 text = "";
 				x = "safeZoneX";
 				y = "(safeZoneY + safeZoneH) - 0.1";

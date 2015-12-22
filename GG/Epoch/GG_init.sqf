@@ -2440,7 +2440,7 @@ if (!isDedicated) then {
 		_hours = (floor(_time/60));
 		_minutes = (_time - (_hours * 60));
 		_ctrlDS10 ctrlSetPosition [(safeZoneX),(safeZoneY + safeZoneH) - 0.1];
-		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'><t color='#A80000'> Restart</t>: %1h(s) %2m(s)</t>",_hours,_minutes];
+		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'>%1</t>",player name];
 		_ctrlDS10 ctrlCommit 0;
 		_bank1 = player xgv ["bank","none"];
 		_bank2 = player xgv ["GGBank","none"];
@@ -2469,7 +2469,7 @@ if (!isDedicated) then {
 		};
 		_ctrlNB1 ctrlSetScale 0.670000;
 		_ctrlNB1 ctrlCommit 0;
-		_ctrlDS1 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",dayz_Survived];
+		_ctrlDS1 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1h(s) %2m(s)</t>",_hours,_minutes];
 		_ctrlDS1 ctrlCommit 0;
 		_ctrlNB2 ctrlSetScale 0.670000;
 		_ctrlNB2 ctrlCommit 0;
@@ -4189,7 +4189,7 @@ if (!isDedicated) then {
 				
 				_menu = _parent displayCtrl (1600 + 3);
 				_menu ctrlShow true;
-				_type = "Deploy motorcycle";
+				_type = "Deploy ATV";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = ['ATV_CZ_EP1',['PartGeneric','PartEngine','PartWheel','PartWheel']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
