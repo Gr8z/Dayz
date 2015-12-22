@@ -2682,8 +2682,8 @@ class RscTitles {
 				text = "GG\GUI\logo.paa";
 				x = "(safeZoneX + 0.015)";
 				y = "(safeZoneY + safeZoneH) - 0.16";
-				colorText[] = {1,1,1,0.3};
-				w = "0.2";
+				colorText[] = {1,1,1,0.8};
+				w = "0.15";
 				h = "0.15";
 			};
 			class RscPicture_1307: RscPictureGUI {
