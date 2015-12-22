@@ -337,7 +337,7 @@ if (!isDedicated) then {
 		} else {
 			if ((_mag in ["14Rnd_FFAR","28Rnd_FFAR","38Rnd_FFAR"])&&(_mag in (_veh magazinesTurret _tur))&&(typeOf _veh in ["AH6J_EP1"])) then {
 				_msg = "Max hydras reached for AH6J!";
-				systemChat ("(ArmA-AH.net): "+str _msg+"");
+				systemChat ("(GG-AH): "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			} else {
 				_money = player getVariable ["GGCoins",0];
@@ -350,7 +350,7 @@ if (!isDedicated) then {
 					_veh addMagazineTurret [_mag,_tur];
 				} else {
 					_msg = "Not enough money to buy "+_magTyp+"! Need "+str(abs _newBal)+" more coins!";
-					systemChat ("(ArmA-AH.net): "+str _msg+"");
+					systemChat ("(GG-AH): "+str _msg+"");
 					_msg call AH_fnc_dynTextMsg;
 				};
 			};
@@ -721,7 +721,7 @@ if (!isDedicated) then {
 		call AH_fnc_spawnMenu;
 		waitUntil{!dialog};
 		if (!GG_respawn) exitWith {
-			systemChat ("(ArmA-AH.net): You didn't sel respawn or disconnect!");
+			systemChat ("(GG-AH): You didn't sel respawn or disconnect!");
 			for "_x" from 5 to 1 step -1 do {
 				systemChat format ["Returning to lobby in %1 second(s)...", _x];
 				uiSleep 1;
@@ -957,14 +957,14 @@ if (!isDedicated) then {
 			_allPlayers = playableUnits;
 			if (player getVariable['combattimeout', 0] >= time) exitWith {
 				_msg = format ['Friend request from %1 blocked because you are in combat.',name _caller];
-				systemChat ('(ArmA-AH.net): '+str _msg);
+				systemChat ('(GG-AH): '+str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			_name = _this sel 0;
 			if (_name == "") exitWith {};
 			if (_name == name player) exitWith {
 				_msg = "You can not add yourself!";
-				systemChat ('(ArmA-AH.net): '+str _msg);
+				systemChat ('(GG-AH): '+str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			SEL_TARGET = objNull;
@@ -980,16 +980,16 @@ if (!isDedicated) then {
 			} foreach _allPlayers;
 			if (isNull SEL_TARGET) exitWith {
 				_msg = format ['Could not find %1.',_name];
-				systemChat ('(ArmA-AH.net): ' + str _msg);
+				systemChat ('(GG-AH): ' + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			if (_isCF) exitWith {
 				_msg = format ['%1 is already your friend.',name SEL_TARGET];
-				systemChat ('(ArmA-AH.net): ' + str _msg);
+				systemChat ('(GG-AH): ' + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			_msg = format ['Sending friend request to %1.',name SEL_TARGET];
-			systemChat ('(ArmA-AH.net): ' + str _msg);
+			systemChat ('(GG-AH): ' + str _msg);
 			_msg call AH_fnc_dynTextMsg;
 			PVOZ_FL_handle = [SEL_TARGET,player,'request'];
 			publicVariableServer 'PVOZ_FL_handle';
@@ -1000,7 +1000,7 @@ if (!isDedicated) then {
 				call baseManage_fillLists;
 			} else {
 				_msg = "Player did not accept your friend request in time!";
-				systemChat ("(ArmA-AH.net): "+str _msg+"");
+				systemChat ("(GG-AH): "+str _msg+"");
 			};
 		};
 		baseManage_delFriend = {
@@ -1009,7 +1009,7 @@ if (!isDedicated) then {
 			if (_name == "") exitWith {};
 			if (_name == name player) exitWith {
 				_msg = "You can not delete yourself!";
-				systemChat ('(ArmA-AH.net): '+str _msg);
+				systemChat ('(GG-AH): '+str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			_foundFriend = false;
@@ -1023,7 +1023,7 @@ if (!isDedicated) then {
 			} forEach _allPlayers;
 			if (isNull SEL_TARGET) exitWith {
 				_msg = format ['Could not find %1.',_name];
-				systemChat ('(ArmA-AH.net): ' + str _msg);
+				systemChat ('(GG-AH): ' + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 			if (_foundFriend) then {
@@ -1040,12 +1040,12 @@ if (!isDedicated) then {
 				SEL_TARGET setVariable ['AH_friendlist',_targetList,true];
 				
 				_msg = format ['%1 has been removed from your friendlist.',name SEL_TARGET];
-				systemChat ('(ArmA-AH.net): ' + str _msg);
+				systemChat ('(GG-AH): ' + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				call baseManage_fillLists;
 			} else {
 				_msg = format ['Could not find %1!',_name];
-				systemChat ('(ArmA-AH.net): ' + str _msg);
+				systemChat ('(GG-AH): ' + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 		};

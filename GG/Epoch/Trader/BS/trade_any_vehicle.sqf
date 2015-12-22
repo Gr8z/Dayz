@@ -1,7 +1,7 @@
 private ["_msg","_trade_item","_currency","_price","_BoS","_textPart","_obj","_qty","_keySelected","_isKeyOK","_config","_isOk","_removed","_trader","_helipad","_location","_veh","_hitpoints","_okToSell","_tires","_tireDmg","_damage","_objectID","_objectUID","_needed"];
 if (DZE_ActionInProgress) exitWith {
 	_msg = "Trade already in progress.";
-	systemChat ("(ArmA-AH.net): "+str _msg+"");
+	systemChat ("(GG-AH): "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;
