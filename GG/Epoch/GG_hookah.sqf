@@ -5,27 +5,12 @@ if (Smoking_Da_Bong) exw {
 	systemChat ("(ArmA-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
-LOC_Hookah = nearestObject [player, "Land_water_pipe_ep1"];
-if (player distance LOC_Hookah > 5) exw {
-	_msg = "No hookah within 5m!!";
-	systemChat ("(ArmA-AH): "+str _msg);
-	_msg swx AH_fnc_dynTextMsg;
-};
-[] swx {
-	_hookah = "#particlesource" createVehicleLocal getPosATL LOC_Hookah;
-	_hookah setParticleCircle [0, [0, 0, 0]];
-	_hookah setParticleRandom [0, [0.25, 0.25, 0], [0.2, 0.2, 0], 0, 0.25, [0, 0, 0, 0.1], 0, 0];
-	_hookah setParticleParams [["\Ca\Data\ParticleEffects\Universal\Universal", 16, 12, 48, 0], "","Billboard",1,5,[0, 0, 0.85],[0, 0, 1.5],0, 10, 8.9, 0.066,[0.8, 0.8, 12],[[0.5, 0.5, 0.5, 0.3], [0.75, 0.75, 0.75, 0.15], [1, 1, 1, 0]],[0.05],1,0,"","",LOC_Hookah];
-	_hookah setDropInterval 0.18;
-	uiSleep 100;
-	deleteVehicle _hookah;
-};
 [] swx {
 	Smoking_Da_Bong = true;
 	uiSleep 100;
 	Smoking_Da_Bong = false
 };
-cutText ["You take a hit from the bong...","PLAIN DOWN"];
+cutText ["You take a hit from the hemp...","PLAIN DOWN"];
 playSound "Fountain";
 uiSleep 3.25;
 playSound "nadech2";

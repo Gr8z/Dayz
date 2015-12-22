@@ -43,4 +43,3 @@
 #define rac removeAction
 #define lzl localize
 #define fmt format
-#define goodluckandgoodjobstealingmycode "urafaget"

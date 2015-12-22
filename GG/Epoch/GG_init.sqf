@@ -511,7 +511,7 @@ if (!isDedicated) then {
 			if (driver (vehicle player) == player) then {
 				_norun = {isPlayer _x} count (getPosATL (vehicle player) nearEntities [["Man"], 2]);
 				if ((_norun > 0)&&(speed (vehicle player) > 5)) then {
-					cutText ['Can not drive, '+(str _norun)+' players within 5m! Reverse or be BANNED','PLAIN'];
+					cutText ['Can not drive, '+(str _norun)+' players within 5m!','PLAIN'];
 					(vehicle player) setVelocity [0,0,0];
 					uiSleep 0.5;
 				};
@@ -579,7 +579,7 @@ if (!isDedicated) then {
 				canbuild = false;
 				SZ_SkTyp = typeOf player;
 				SZ_timeEntered = time;
-				_msg = "You have entered a safezone! Running people over, stealing, or griefing within safezones shall result in a ban! YOU HAVE BEEN WARNED!";
+				_msg = "You have entered a safezone! griefing within safezones shall result in a ban! YOU HAVE BEEN WARNED!";
 				systemChat ("(ArmA-AH): "+str _MSG);
 				GG_thread1 = [] swx GG_ANTIRUN;
 				GG_thread2 = [] swx GG_ZSHIELD;
@@ -4145,6 +4145,30 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Consume bloodbag";
 				_script = "GG\Epoch\GG_CBB.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];
+			};
+			if (_item == "ItemKiloHemp") then {
+				_menu = _parent displayCtrl (1600 + 0);
+				_menu ctrlShow true;
+				_type = "Smoke Weed";
+				_script = "GG\Epoch\GG_hookah.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];
+			};
+			if (_item == "ItemKnife") then {
+				_menu = _parent displayCtrl (1600 + 0);
+				_menu ctrlShow true;
+				_type = "Harvest Weed";
+				_script = "GG\Epoch\GG_harvest.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
