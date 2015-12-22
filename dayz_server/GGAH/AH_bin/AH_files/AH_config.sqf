@@ -526,7 +526,7 @@
 	_SVR_OVC 	= 0;		//0 = clear skys 	1 = stormy clouds
 	_SVR_RAIN 	= 0;		//0 = no rain 		1 = thunder storm
 /**Object deploy**/
-	_OD_DPLY 	= false;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
+	_OD_DPLY 	= true;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
 	_OD_AOBJ 	= 			//Add objectsto the array if you will be using the OD_DPLY.
 	[
 		"Old_bike_TK_CIV_EP1","TT650_Gue","CSJ_GyroC","MH6J_DZ","AH6J_EP1_DZ","T72_INS"
