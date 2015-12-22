@@ -89,8 +89,6 @@ if (!isDedicated) then {
 	execVM "GG\hud\playerHud.sqf";
 	//Map Marker Titling
 	execVM "GG\MapMarkerTitling.sqf";
-	//Military Traders
-	execVM "GG\player_tradermarkers.sqf";
 	
 	preload_done = true;
 };

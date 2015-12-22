@@ -193,10 +193,3 @@ menu_Reynolds_PMC = [
 	[],
 	"neutral"
 ];
-
-// Traveling Trader
-menu_FR_Commander = [
-	[["Aircraft",4000],["Tanks",4001],["Metals",700]],
-	[],
-	"neutral"
-];

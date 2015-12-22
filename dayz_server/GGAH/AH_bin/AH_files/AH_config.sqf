@@ -118,12 +118,66 @@
 /**Banned vehicles**/
 	_BAD_VEHS 	= 			//Add vehicles you want to blacklist.
 	[
-	"UH1_Base"
+	"AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V","AAV","LAV25_DZ","Mi24_P","Mi24_D","KA52Black",
+		"Su25_CDF","SU25_Ins","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU","T72_CDF",
+		"T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1","BAF_Apache_AH1_D",
+		"Mi17_rockets_RU","Mi171Sh_rockets_CZ_EP1","Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1",
+		"T72_TK_EP1","BMP2_TK_EP1","BMP2_UN_EP1","BMP2_HQ_TK_EP1","ZSU_TK_EP1",
+		"AV8B","Su39","Ka52","AW159_Lynx_BAF",
+		"M1128_MGS_EP1","M119_US_EP1","AH6J_EP1","Ka60_PMC","ZSU_INS",
+		"M1A2_TUSK_MG","Ural_ZU23_CDF","GNT_C18F","GNT_C18E","GNT_C18T","BTR90_DZE","BTR90","LAV25_DZE",
+		"LAV25","M1126_ICV_mk19_EP1","M1126_ICV_M2_EP1","M1130_CV_EP1","M1129_MC_EP1","M1133_MEV_EP1","M1135_ATGMV_EP1",
+		"HMMWV_Avenger_DES_EP1","HMMWV_Avenger","Ural_ZU23_TK_EP1","Ural_ZU23_TK_GUE_EP1","Ural_ZU23_INS","Ural_ZU23_Gue",
+		"GRAD_INS","GRAD_RU","GRAD_TK_EP1","BMP2_INS","BMP2_CDF","BRDM2_ATGM_CDF","BRDM2_ATGM_INS",
+		"BMP2_Gue","BRDM2_ATGM_TK_EP1","ZSU_CDF","GAZ_Vodnik_HMG","MAZ_543_SCUD_TK_EP1","Offroad_SPG9_TK_GUE_EP1",
+		"LandRover_SPG9_TK_EP1","LandRover_SPG9_TK_INS_EP1","D30_TK_GUE_EP1","D30_TK_INS_EP1","D30_TK_EP1","D30_CDF","D30_Ins",
+		"D30_RU","Zu23_TK_INS_EP1","ZU23_Ins","Zu23_TK_EP1","ZU23_CDF","ZU23_Gue","ZU23_TK_GUE_EP1","Igla_AA_pod_TK_EP1",
+		"Igla_AA_pod_East","Stinger_pod_US_EP1","TOW_TriPod_US_EP1","TOW_TriPod","Metis_TK_EP1","Metis",
+		"SPG9_TK_GUE_EP1","Stinger_Pod","SPG9_CDF","SPG9_Ins","SPG9_Gue","SPG9_TK_INS_EP1","AGS_TK_INS_EP1","AGS_CZ_EP1",
+		"MK19_TriPod_US_EP1","AGS_UN_EP1","2b14_82mm_CZ_EP1","2b14_82mm_GUE","2b14_82mm","M252","2b14_82mm_INS","2b14_82mm_CDF",
+		"2b14_82mm_TK_GUE_EP","2b14_82mm_TK_EP1","M252_US_EP1","M252_US_EP1","BRDM2_Gue","BRDM2_CDF","BRDM2_INS",
+		"HMMWV_M998_crows_MK19_DES_EP1","Chukar","Chukar_EP1","MQ0PredatorB","MQ0PredatorB_US_EP1",
+		"Pchela1T","Ka137_PMC","Ka137_MG_PMC","Su34","Ka60_GL_PMC",
+		"MLRS_DES_EP1","T34_TK_EP1","T34_TK_GUE_EP1","T55_TK_EP1","T55_TK_GUE_EP1",
+		"M113Ambul_TK_EP1","M113Ambul_UN_EP1","M2A2_EP1",
+		"M2A3_EP1","M6_EP1","BAF_FV510_D","BAF_FV510_W","A10","MQ9PredatorB_US_EP1","A10_US_EP1",
+		"CYBP_Camel_rus","Civcar","Civcarbu","civcarbl","Civcarre","Civcarge","Civcarwh","Civcarsl",
+		"CVPI_Patrol","CVPI_Trooper_Patrol","CVPI_TrooperSL_Patrol","CVPI_NYPD_Patrol","CVPI_HighwaySL_Patrol","CVPI_UnmarkedB_Patrol",
+		"CVPI_UnmarkedG_Patrol","CVPI_LAPD_Patrol","CVPI_UnmarkedW_Patrol","CVPI_LAPDSL_Patrol","CVPI_NYPDSL_Patrol","Copcar","Copcarhw","Copcarswat",
+		"M2StaticMG_US_EP1","DSHkM_Mini_TriPod","KORD_high","KORD","AGS_RU","MK19_TriPod","BAF_GMG_Tripod_D"
 	];
 /**Banned weapons**/
 	_BAD_WEPS 	= 			//Add weapons you want to blacklist.
 	[
-	"Something"
+	/*_DZ or commonly used on some servers*/
+		"m107_TWS_EP1_DZ","M107_TWS_EP1_DZ",
+		/*Overpoch TWS*/
+		"PMC_AS50_TWS","M249_TWS_EP1_Small","m107_TWS_EP1_Small","m107_TWS_EP1","FHQ_XM2010_TWS_SD_DESERT",
+		/*Other*/
+		"1200Rnd_30x113mm_M789_HEDP","1350Rnd_30mmAP_A10","2000Rnd_23mm_AZP85","20Rnd_120mmHE_M1A2","22Rnd_125mmHE_T72",
+		"2A14","2A38M","2A42","2A42_AI","2A46M","2A46MRocket","2A46M_AI","2A70","2A70Rocket","2A72","2B14",
+		"30Rnd_122mmHE_D30","33Rnd_85mmHE","57mmLauncher","57mmLauncher_128","57mmLauncher_64","750Rnd_M197_AH1","80mmLauncher",
+		"9M311Launcher","AA12_PMC","AALauncher_twice","AGS17","AGS30","AGS30_heli","AirBombLauncher","AKS_74_GOSHAWK","AKS_BASE",
+		"AK_107_BASE","AK_BASE","AngelCookies","ARTY_8rnd_81mmHE_M252","AT10LauncherSingle","AT11LauncherSingle","AT13LauncherSingle",
+		"AT2Launcher","AT5Launcher","AT5LauncherSingle","AT6Launcher","AT9Launcher","ATKMK44_ACR","ATKMK44_ACR_AI","AZP85",
+		"BAF_AS50_scoped_Large","BAF_AS50_TWS","BAF_AS50_TWS_Large","BAF_GMG","BAF_ied_v1","BAF_ied_v2","BAF_ied_v3","BAF_ied_v4",
+		"BAF_L17_40mm","BAF_L2A1","BAF_L7A2","BAF_L94A1","BAF_M240_veh","BAF_static_GMG","bat_swing","BikeHorn","BombLauncher","BombLauncherA10",
+		"BombLauncherF35","bulk","CamelGrenades","CannonCore","CarHorn","Ch29Launcher","Ch29Launcher_Su34","CMFlareLauncher","Cobalt_File",
+		"CRV7_FAT","CRV7_HEPD","CRV7_PG","CTWS","CTWS_AI","CZ805_A1_ACR","CZ805_A1_GL_ACR","CZ805_B_GL_ACR","D10","D10_AI","D30","D81","D81CZ",
+		"D81CZ_AI","D81_AI","DSHKM","DT_veh","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","FakeWeapon","FFARLauncher",
+		"FFARLauncher_12","FFARLauncher_14","FlareLauncher","GAU12","300Rnd_25mm_GAU12","GAU8","GRAD","GrenadeCore","GrenadeLauncher","GrenadeLauncher_EP1","GSh23L",
+		"GSh23L_L39","GSh301","GSh302","GyroGrenadeLauncher","HandGunBase","HeliBombLauncher","HellfireLauncher","HellfireLauncher_AH6","Igla_twice",
+		"ItemBriefcase_base","ItemCore","ItemMap_Debug","KORD","Kostey_map_case","Kostey_notebook","Kostey_photos","KPVT","L85A2_base_BAF",
+		"Laserdesignator_mounted","Launcher","LauncherCore","loot","m107","M107_TWS_EP1","M110_TWS_EP1","M119","M120","M134","M134_2","M168",
+		"M16_base","M197","M2","M230","M240BC_veh","M240_veh","M240_veh_2","M240_veh_MG_Nest","M242","M242BC","M242BC_AI","M242_AI","M249_TWS_EP1",
+		"M252","M256","M256_AI","M2BC","M32_heli","M3P","M621","M68","M68_AI","m8_base","m8_tws","m8_tws_sd","MaverickLauncher",
+		"MeleeBaseBallBat","MeleeWeapon","MGun","MGunCore","MineE","MiniCarHorn","MissileLauncher","MK19","MK19BC","Mk82BombLauncher",
+		"Mk82BombLauncher_6","MLRS","Moscow_Bombing_File","Pistol","PistolBase","PistolCore","PKT","PKTBC","PKTBC_veh","PKT_2","PKT_3",
+		"PKT_high_AI_dispersion","PKT_high_AI_dispersion_tank","PKT_MG_Nest","PKT_veh","PMC_AS50_TWS_Large","PMC_documents","Put","R73Launcher",
+		"R73Launcher_2","Rifle","RifleCore","RocketPods","S8Launcher","SCAR_Base","SCAR_H_Base","SCAR_H_STD_TWS_SD","SCAR_L_Base","SCAR_L_STD_EGLM_TWS",
+		"SEARCHLIGHT","SGMT","SidewinderLauncher","SidewinderLauncher_AH1Z","SidewinderLauncher_AH64","SidewinderLauncher_F35","SmokeLauncher","SPG9",
+		"SportCarHorn","StingerLauncher","StingerLauncher_4x","StingerLauncher_twice","TimeBomb","TOWLauncher","TOWLauncherSingle",
+		"TruckHorn","TruckHorn2","TwinM134","TwinVickers","VikhrLauncher","WeaponExplosive","YakB","ZiS_S_53","ZiS_S_53_AI"
 	];
 /**Forbidden variables**/
 	_BAD_VAR_DIS = false; //Disalbe bad variable scans?
