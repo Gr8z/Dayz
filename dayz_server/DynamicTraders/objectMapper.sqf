@@ -1,3 +1,19 @@
+/*
+Original Script 
+objectMapper.sqf Author: Joris-Jan van 't Land
+Edited by armatec
+
+	Description:
+	Takes an array of data about a dynamic object template and creates the objects.
+
+	Parameter(s):
+	_this select 0: compositions name - "fuelDepot_us"
+	_this select 1: Direction in degrees - Number 
+	_this select 2: Location to start
+	
+	Exsample:
+	["fuelDepot_us", 0, getpos player] execVM "Createcomposition.sqf";
+*/
 _pos 	= _this select 0;
 _azi 	= _this select 1;
 _objs 	= _this select 2;
