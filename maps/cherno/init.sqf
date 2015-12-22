@@ -1,4 +1,4 @@
-#include "GG\Epoch\cake.h"
+#include "GG\Epoch\shortcuts.h"
 #include "config.sqf"
 
 __ccp("\z\addons\dayz_code\init\variables.sqf");

@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _ammo = switch (true) do {
 	default {["Unknown"]};
 	case ((vehicle player) iko "AH6J_EP1_DZ") : {["4000Rnd_762x51_M134","2000Rnd_762x51_M134"]};

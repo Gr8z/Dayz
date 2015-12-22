@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_config","_text","_sfx","_msg","_gain"];
 disableserialization;
 call gear_ui_init;

@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 if (inSafeZone) exw {
 	_msg = "Safezone detected! Primary weapon deleted! Next time, help unconcious players or fuck off.";
 	systemChat ("(ArmA-AH): "+str _msg);

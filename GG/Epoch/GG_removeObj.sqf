@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_found","_activatingPlayer","_obj","_objectID","_objectUID","_started","_finished","_animState","_isMedic","_isOk","_proceed","_counter","_limit","_objType","_sfx","_dis","_itemOut","_countOut","_selectedRemoveOutput","_friendlies","_nearestPole","_ownerID","_refundpart","_isWreck","_findNearestPole","_isNearPlot","_brokenTool","_removeTool","_isDestructable","_isRemovable","_objOwnerID","_isOwnerOfObj","_preventRefund","_ipos","_item","_radius","_isWreckBuilding","_nameVehicle","_isModular"];
 if (DZE_ActionInProgress) exw {cutText [(lzl "str_epoch_player_88") , "PLAIN DOWN"]};
 DZE_ActionInProgress = true;

@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_vehicle","_allFixed","_hitpoints","_damage","_cmpt","_part","_color","_percent","_string","_handle","_cancel"];
 _vehicle = _this sel 3;
 {dayz_myCursorTarget rac _x} count s_player_repairActions;

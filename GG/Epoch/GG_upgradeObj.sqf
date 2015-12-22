@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_found","_location","_dir","_classname","_missing","_text","_proceed","_num_removed","_object","_missingQty","_itemIn","_countIn","_qty","_removed","_removed_total","_tobe_removed_total","_objectID","_objectUID","_temp_removed_array","_textMissing","_newclassname","_requirements","_obj","_upgrade","_lockable","_combination_1","_combination_2","_combination_3","_combination","_objectCharacterID","_canBuildOnPlot","_friendlies","_nearestPole","_ownerID","_needText","_findNearestPoles","_findNearestPole","_isNearPlot"];
 if (DZE_ActionInProgress) exw {cutText [(lzl "str_epoch_player_52") , "PLAIN DOWN"]};
 DZE_ActionInProgress = true;

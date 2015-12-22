@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _vehicle = vehicle player;
 if (gunner _vehicle == player) then [{player xac ["moveToCargo",_vehicle,1]},{
 	call r_player_removeGunActionz;

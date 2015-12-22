@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 if (DZE_ActionInProgress) exw {cutText [(lzl "str_epoch_player_52") , "PLAIN DOWN"]};
 if (player xgv["combattimeout", 0] >= time) exw {
 	_msg = "Remove cancelled! You are in combat!";

@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 if (isNil "Smoking_Da_Bong") then {Smoking_Da_Bong = false};
 if (Smoking_Da_Bong) exw {
 	_msg = "Slow down there! You can only smoke every 2 minutes...";

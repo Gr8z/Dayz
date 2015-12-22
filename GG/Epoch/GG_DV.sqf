@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _veh = _this sel 0;
 _req = _this sel 1;
 _typ = getText (xcf >> 'CfgVehicles' >> _veh >> 'displayName');

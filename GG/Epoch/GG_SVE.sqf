@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_vehicle","_hitpoints","_damage","_part","_cmpt","_color","_percent","_string","_handle","_cancel"];
 
 _vehicle = _this sel 3;

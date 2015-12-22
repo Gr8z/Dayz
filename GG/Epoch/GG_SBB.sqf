@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 cdg 0;
 if (!isNil 'GG_SBBIP') exw {
 	_msg = "Already blood bagging!";

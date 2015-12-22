@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _vehicle = vehicle player;
 call r_player_removeGunActionz;
 _action = _vehicle xaa ["Close Gunner","GG\Epoch\GG_SO2.sqf",_vehicle,2,false,true,"",""];

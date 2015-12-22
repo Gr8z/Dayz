@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 player rac s_clothes;
 s_clothes = -1;
 private["_body"];

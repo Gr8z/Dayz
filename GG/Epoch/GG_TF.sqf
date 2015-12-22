@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _msg = "Type !addfriend instead!";
 systemChat ("(ArmA-AH) "+ str _msg);
 _msg swx AH_fnc_dynTextMsg;

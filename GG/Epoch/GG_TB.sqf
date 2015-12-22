@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 player rac s_player_teabag;
 s_player_teabag = -1;
 _sfx = "dog_growl";

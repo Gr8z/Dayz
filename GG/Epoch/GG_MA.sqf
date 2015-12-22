@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 _nobuildcheck = "";
 {
 	private ["_pos","_dis","_loc","_rng"];

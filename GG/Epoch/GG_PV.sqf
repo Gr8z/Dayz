@@ -1,4 +1,4 @@
-#include "cake.h"
+#include "shortcuts.h"
 private ["_obj","_msg","_origMat","_bag"];
 _obj = _this sel 3;
 _pos = _obj call AH_fnc_getPos;
