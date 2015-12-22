@@ -2677,6 +2677,15 @@ class RscTitles {
             };
 		};
 		class Controls {
+			class RscPicture_7373: RscPictureGUI {
+				idc = 7373;//Logo
+				text = "GG\GUI\dayzbonfire.paa";
+				x = "(safeZoneX + 0.015)";
+				y = "(safeZoneY + safeZoneH) - 0.16";
+				colorText[] = {1,1,1,0.3};
+				w = "0.2";
+				h = "0.15";
+			};
 			class RscPicture_1307: RscPictureGUI {
 				idc = 1307;//Combat
 				text = "\z\addons\dayz_code\gui\status\status_combat_inside_ca.paa";
