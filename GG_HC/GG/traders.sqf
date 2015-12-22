@@ -1,4 +1,3 @@
-if (isServer) then {	
 	{
 		_object = createVehicle [(_x select 0), (_x select 1), [], 0, "CAN_COLLIDE"];
 		_object setDir (_x select 2);
@@ -3896,7 +3895,6 @@ if (isServer) then {
 		["Barrel1",[10733.7,10779.7,0.0125275],359.692],
 		["SmallTable",[10732.8,10782.2,0.0085144],300.011]
 	];
-};
 
 {
 	_trader = createAgent [_x select 0,_x select 1,[],0,"CAN_COLLIDE"];
