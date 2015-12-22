@@ -296,7 +296,7 @@ if (isServer and isNil "sm_done") then {
 								};
 							};
 						};
-					} forEach [zonestary,zonebash,zoneklen,zonebank];
+					} forEach [zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor];
 					_totalvehicles = _totalvehicles + 1;
 					serverVehicleCounter set [count serverVehicleCounter,_type];
 				};
