@@ -2469,7 +2469,7 @@ if (!isDedicated) then {
 		};
 		_ctrlNB1 ctrlSetScale 0.670000;
 		_ctrlNB1 ctrlCommit 0;
-		_ctrlDS1 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1h(s) %2m(s)</t>",_hours,_minutes];
+		_ctrlDS1 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1h %2m</t>",_hours,_minutes];
 		_ctrlDS1 ctrlCommit 0;
 		_ctrlNB2 ctrlSetScale 0.670000;
 		_ctrlNB2 ctrlCommit 0;
