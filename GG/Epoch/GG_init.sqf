@@ -2436,7 +2436,7 @@ if (!isDedicated) then {
 			};
 		};
 		
-		_time = (round(180-(serverTime)/60));
+		_time = (round(120-(serverTime)/60));
 		_hours = (floor(_time/60));
 		_minutes = (_time - (_hours * 60));
 		_ctrlDS10 ctrlSetPosition [(safeZoneX),(safeZoneY + safeZoneH) - 0.1];
