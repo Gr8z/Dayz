@@ -268,7 +268,7 @@ class Mission
 			name="Tradercitystary";
 			text="Trader City Stary";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item7
 		{
@@ -276,7 +276,7 @@ class Mission
 			name="boatsnwholesale_1";
 			text="Wholesaler";
 			type="mil_dot";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item8
 		{
@@ -284,7 +284,7 @@ class Mission
 			name="boatsnwholesale_1_1";
 			text="Wholesaler";
 			type="mil_dot";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item9
 		{
