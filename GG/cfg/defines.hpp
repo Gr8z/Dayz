@@ -2679,7 +2679,7 @@ class RscTitles {
 		class Controls {
 			class RscPicture_7373: RscPictureGUI {
 				idc = 7373;//Logo
-				text = "GG\GUI\dayzbonfire.paa";
+				text = "GG\GUI\logo.paa";
 				x = "(safeZoneX + 0.015)";
 				y = "(safeZoneY + safeZoneH) - 0.16";
 				colorText[] = {1,1,1,0.3};
