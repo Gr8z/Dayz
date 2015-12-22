@@ -2,7 +2,7 @@
 if (DZE_ActionInProgress) exw {cutText [(lzl "str_epoch_player_52") , "PLAIN DOWN"]};
 if (player xgv["combattimeout", 0] >= time) exw {
 	_msg = "Remove cancelled! You are in combat!";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;

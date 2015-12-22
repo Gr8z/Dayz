@@ -13,12 +13,12 @@ switch (_model) do {
 _isModel = isClass (xcf >> "CfgMagazines" >> ("Skin_" + _model));
 if (_count > 0) exw {
 	_msg = "You can't take clothes from a body when a player is within 5m of you!";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if !(_isModel) then {
 	_msg = "These clothes can not be taken!";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if (_isModel) then {

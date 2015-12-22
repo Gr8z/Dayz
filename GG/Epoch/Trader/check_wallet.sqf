@@ -12,7 +12,7 @@ player setVariable ["GGCoins", _myMoney , true];
 PVOZ_coinlog = [player,"looted corpse ("+_name+") for",(_hisMoney call BIS_fnc_numberText),(player getVariable ["GGCoins",0]),(player getVariable ["GGBank",0])];
 publicVariableServer "PVOZ_coinlog";
 _msg = format ["You took %1 %2, his name was %3!",_hisMoney call BIS_fnc_numberText,GCoins,_name];
-systemChat ("(ArmA-AH): "+str _msg+"");
+systemChat ("(GG-AH): "+str _msg+"");
 _msg call AH_fnc_dynTextMsg;
 _cid =	player getVariable ["CharacterID","0"];
 _cashMoney = player getVariable ["GGCoins",0];

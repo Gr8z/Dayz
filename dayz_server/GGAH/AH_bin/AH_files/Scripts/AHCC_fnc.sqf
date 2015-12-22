@@ -965,12 +965,12 @@ _AH_CC = compile ("
 		_serverTE = (if (serverTime > 40000) then [{0},{serverTime}]);
 		if ((_lastsuiV == str(donator_key))&&((_serverTE - _lastsuiT) < 300)&&(_lastsuiT != 0)&&(_serverTE < 40000)) exitWith {
 			_msg = ('You can only suicide once every 5 minutes! Time left: '+str floor(300 - (serverTime - _lastsuiT)));
-			systemChat ('(ArmA-AH): '+str _msg);
+			systemChat ('(GG-AH): '+str _msg);
 			_msg call AH_fnc_dynTextMsg;
 		};
 		if (inSafeZone) exitWith {
 			_msg = 'You can not suicide in safezones..';
-			systemChat ('(ArmA-AH): '+str _msg);
+			systemChat ('(GG-AH): '+str _msg);
 			_msg call AH_fnc_dynTextMsg;
 		};
 		suicide_answer = nil;

@@ -13,7 +13,7 @@ _nobuildcheck = "";
 if ((_nobuildcheck != "")&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 	DZE_ActionInProgress = false;
 	_msg = "Maintain canceled, reason: "+str _nobuildcheck;
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 
@@ -45,7 +45,7 @@ _count = count _objects;
 
 if ((_count == 0)&&((_this sel 3) == "maintain")) exw {
 	_msg = "Your base is already fully maintained!";
-	systemChat ("(ArmA-AH): "+str _msg+"");
+	systemChat ("(GG-AH): "+str _msg+"");
 	_msg swx AH_fnc_dynTextMsg;
 	DZE_ActionInProgress = false;
 	s_player_maintain_area = -1;
@@ -59,7 +59,7 @@ switch (_this sel 3) do {
 		if (gpd player in GG_freemaintarra) then {
 			_requirements = [[GCoins,0]];
 			_msg = "Thanks for donating, "+name player+", maintaining is free of charge!";
-			systemChat ("(ArmA-AH): "+str _msg+"");
+			systemChat ("(GG-AH): "+str _msg+"");
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		_wealth = player xgv["GGCoins",0];
@@ -90,11 +90,11 @@ switch (_this sel 3) do {
 			publicVariableServer "PVDZE_maintainArea";
 			
 			_msg = fmt[(lzl "STR_EPOCH_ACTIONS_4"), _count];
-			systemChat ("(ArmA-AH): "+str _msg+"");
+			systemChat ("(GG-AH): "+str _msg+"");
 			"<t size ='1' font='Zeppelin33' color='#FF0000'>"+_msg+"</t>" swx AH_fnc_dynTextMsg;
 		} else {
 			_msg = fmt[(lzl "STR_EPOCH_ACTIONS_6"), _missingQty, GCoins];
-			systemChat ("(ArmA-AH): "+str _msg+"");
+			systemChat ("(GG-AH): "+str _msg+"");
 			"<t size ='1' font='Zeppelin33' color='#FF0000'>"+_msg+"</t>" swx AH_fnc_dynTextMsg;
 		};
 	};
@@ -113,13 +113,13 @@ switch (_this sel 3) do {
 			};
 			
 			_msg = "Plot pole preview loaded, check for red arrows.";
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		} else {
 			if (count plot_previewArrows > 0) then {
 				{deleteVehicle _x} foreach plot_previewArrows;
 				_msg = "Plot pole preview has been deleted!";
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				_msg swx AH_fnc_dynTextMsg;
 			};
 			plot_previewArrows = nil;

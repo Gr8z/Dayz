@@ -17,7 +17,7 @@ if ((floor(random 100) > 80)) then {
 	r_player_infected = true;
 	player xsv["USEC_infected",true,true];
 	_msg = "You feel the infection setting in...";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 _gain = round((DZE_bloodcons / 2) + (random (DZE_bloodcons / 2)));
@@ -25,7 +25,7 @@ r_player_blood = r_player_blood + _gain;
 if (r_player_blood > r_player_bloodTotal) then {
 	r_player_blood = r_player_bloodTotal;
 	_msg = "You've gained "+str(_gain)+" health.";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	"<t size ='1' font='Zeppelin33' color='#FF0000'>"+str _msg+"</t>" swx AH_fnc_dynTextMsg;
 };
 player xsv ["messing",[dayz_hunger,dayz_thirst],true];

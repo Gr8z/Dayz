@@ -357,9 +357,9 @@ if (!isDedicated) then {
 		};
 	};
 	RefuelUpdateCost = {private ["_ctrl","_val","_cost","_color","_fuelToBuyL"];_val = (_this sel 1) / 10;_fuel = fuel RefuelTargetVehicle;_fuelToBuyL = (((1 - _fuel) * _val) * (xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity")));_cost = if (RefuelTargetVehicle iko "AIR") then [{ceil(_fuelToBuyL * (DZE_gasprice / 4))},{ceil(_fuelToBuyL * DZE_gasprice)}];_info = fmt ["<t color='#FF3300'>Fuel cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' /><br/>%3 litres", [_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"}), ceil(_fuelToBuyL)];((uiNamespace xgv "RefuelDialog") displayCtrl 4603) ctrlSetStructuredText parseText _info;};
-	RefuelBuyFuel = {private ["_fuel","_slider","_capacity","_fuelDif","_cost","_playerWealth","_name"];_fuel 		= fuel RefuelTargetVehicle;_slider 	= (sliderPosition ((uiNamespace xgv "RefuelDialog") displayCtrl 4602) / 10);_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - (_fuel * _capacity);_cost 		= if (RefuelTargetVehicle iko "AIR") then [{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice / 4))},{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice))}];_name 		= getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName");_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = fmt ["Need %1 more %2!",_cost - _playerWealth,GCoins];systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};_msg = "Vehicle has been refueled for "+str _cost;systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";PVDZE_send = [RefuelTargetVehicle,"SFuel",[RefuelTargetVehicle,((fuel RefuelTargetVehicle) + ((1 - _fuel) * _slider))]];publicVariableServer "PVDZE_send";};
+	RefuelBuyFuel = {private ["_fuel","_slider","_capacity","_fuelDif","_cost","_playerWealth","_name"];_fuel 		= fuel RefuelTargetVehicle;_slider 	= (sliderPosition ((uiNamespace xgv "RefuelDialog") displayCtrl 4602) / 10);_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - (_fuel * _capacity);_cost 		= if (RefuelTargetVehicle iko "AIR") then [{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice / 4))},{ceil(((1 - _fuel) * _slider) * _capacity * (DZE_gasprice))}];_name 		= getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName");_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = fmt ["Need %1 more %2!",_cost - _playerWealth,GCoins];systemChat ("(GG-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};_msg = "Vehicle has been refueled for "+str _cost;systemChat ("(GG-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";PVDZE_send = [RefuelTargetVehicle,"SFuel",[RefuelTargetVehicle,((fuel RefuelTargetVehicle) + ((1 - _fuel) * _slider))]];publicVariableServer "PVDZE_send";};
 	RepairVehicleCost = {private ["_prices","_vehicle","_hitpoints","_parts_cost","_parts_needed","_damage","_part","_armor","_cost"];_prices = ["PartGeneric", 10,"PartEngine", 20,"PartVRotor", 20,"PartFueltank", 150,"PartWheel", 20,"PartGlass", 10];_vehicle = _this;if (damage _vehicle == 0) exw {0};_hitpoints = switch (true) do {default {_vehicle call vehicle_getHitpoints};case ((_vehicle iko  "Car") && !(_vehicle iko  "Truck")): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};case (_vehicle iko  "Truck"): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitGlass7","HitGlass8","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitLMWheel","HitRMWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};};_parts_cost = 0;_parts_needed = [];{private ["_damage", "_part"];_damage = [_vehicle,_x] call object_getHit;_part = switch (true) do {default {"PartGeneric"};case (["Engine",_x,false] call fnc_inString): 	{"PartEngine"};case (["HRotor",_x,false] call fnc_inString): 	{"PartVRotor"};case (["Fuel",_x,false] call fnc_inString): 	{"PartFueltank"};case (["Wheel",_x,false] call fnc_inString): 	{"PartWheel"};case (["Glass",_x,false] call fnc_inString): 	{"PartGlass"};};if (_damage > 0) then {_parts_needed set [count _parts_needed, _part];_parts_cost = _parts_cost + (_prices sel ((_prices find _part) + 1));_parts_needed set [count _parts_needed, (_prices sel ((_prices find _part) + 1))];};} forEach _hitpoints;_armor = xgn((xcf >> "cfgVehicles" >> (typeOf _vehicle)) >> "armor");_cost = if (_vehicle iko "Air") then [{ceil(_parts_cost + (damage _vehicle * (_armor * 100)))},{ceil(_parts_cost + (damage _vehicle * (_armor * 10)))}];_cost};
-	RepairVehicle = {private ["_cost","_color","_playerWealth"];_cost = RefuelTargetVehicle call RepairVehicleCost;_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = "You don't have enough money to do this.";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";{private ["_damage", "_selection"];_damage = [RefuelTargetVehicle,_x] call object_getHit;if (_damage > 0) then {_selection = getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "HitPoints" >> _x >> "name");PVDZE_veh_SFix = [RefuelTargetVehicle,_selection,0];publicVariable "PVDZE_veh_SFix";if (local RefuelTargetVehicle) then {PVDZE_veh_SFix call object_setFixServer;};};} forEach (RefuelTargetVehicle call vehicle_getHitpoints);_msg = "Vehicle has been fully repaired!";systemChat ("(ArmA-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;RefuelTargetVehicle setDamage 0;};
+	RepairVehicle = {private ["_cost","_color","_playerWealth"];_cost = RefuelTargetVehicle call RepairVehicleCost;_playerWealth = player xgv["GGCoins",0];if (_cost > _playerWealth) exw {_msg = "You don't have enough money to do this.";systemChat ("(GG-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};player xsv["GGCoins",(_playerWealth - _cost),true];PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";{private ["_damage", "_selection"];_damage = [RefuelTargetVehicle,_x] call object_getHit;if (_damage > 0) then {_selection = getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "HitPoints" >> _x >> "name");PVDZE_veh_SFix = [RefuelTargetVehicle,_selection,0];publicVariable "PVDZE_veh_SFix";if (local RefuelTargetVehicle) then {PVDZE_veh_SFix call object_setFixServer;};};} forEach (RefuelTargetVehicle call vehicle_getHitpoints);_msg = "Vehicle has been fully repaired!";systemChat ("(GG-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;RefuelTargetVehicle setDamage 0;};
 	GG_cceff = {"filmGrain" ppEffectEnable true;_hndl = ppEffectCreate ["colorCorrections", 1501];_hndl ppEffectEnable true;if (( daytime < 18 )&&( daytime < 7)) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 7 )&&( daytime < 18 )) then {_hndl ppEffectAdjust[1,1,0,[0,-0.12,0.05,0.03],[0,0,0,1.23],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.0225, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};if (( daytime > 18 )&&( daytime > 7 )) then {_hndl ppEffectAdjust[1,1,0,[0,0.04,0,-0.01],[0,0,0,1.58],[-0.11,-0.11,-0.11,0]];_hndl ppEffectCommit 0;"filmGrain" ppEffectAdjust [0.01, 1, 1, 0.1, 1, true];"filmGrain" ppEffectCommit 0;};};
 	GG_DPP = {
 		if !(isNil 'SZ_VEH') then {
@@ -387,7 +387,7 @@ if (!isDedicated) then {
 	};
 	GG_PP = {
 		_msg = "Infantry protection loaded.";
-		systemChat ("(ArmA-AH): "+str _MSG);
+		systemChat ("(GG-AH): "+str _MSG);
 		SafeZone_FIRED  = player aeh ["Fired",	{call GG_pfired}];
 		SafeZone_HIT    = player aeh ["Hit",	{call GG_phit}];
 		SafeZone_KILLED = player aeh ["Killed",	{call GG_pkill}];
@@ -413,7 +413,7 @@ if (!isDedicated) then {
 			PVOZ_EPOCH_SAFEZONE = toArray _sMSG;
 			publicVariableServer "PVOZ_EPOCH_SAFEZONE";
 			_msg = "You were killed by "+str _nKill+"";
-			systemChat ("(ArmA-AH): "+str _MSG);
+			systemChat ("(GG-AH): "+str _MSG);
 		};
 	};
 	GG_phit = {
@@ -463,7 +463,7 @@ if (!isDedicated) then {
 						if (_hasKey) exw {};
 						if (_oldOwner) exw {};
 						_msg = "You do not own this vehicle!";
-						systemChat ("(ArmA-AH): "+str _MSG);
+						systemChat ("(GG-AH): "+str _MSG);
 						(findDisplay 106) closeDisplay 1;
 					};
 				};
@@ -504,7 +504,7 @@ if (!isDedicated) then {
 		(vehicle player != player)||(!inSafeZone)};
 		if (!inSafeZone) exw {};
 		_msg = "SAFE-ZONE: Vehicle protection loaded.";
-		systemChat ("(ArmA-AH): "+str _MSG);
+		systemChat ("(GG-AH): "+str _MSG);
 		while {1 == 1} do {
 			waitUntil {((vehicle player != player)||(!inSafeZone))};
 			if (!inSafeZone) exw {};
@@ -523,10 +523,10 @@ if (!isDedicated) then {
 		BP_FIX = true;
 		player xac ["GEAR",objNull];
 		_msg = 'You can not access gear while too close to a player!';
-		systemChat ("(ArmA-AH): "+str _MSG);
+		systemChat ("(GG-AH): "+str _MSG);
 		sleep 1;
 		_msg = 'You are only allowed to access your friends backpacks!';
-		systemChat ("(ArmA-AH): "+str _MSG);
+		systemChat ("(GG-AH): "+str _MSG);
 	};
 	GG_ANTITHEFT = {
 		BP_FIX = false;
@@ -580,7 +580,7 @@ if (!isDedicated) then {
 				SZ_SkTyp = typeOf player;
 				SZ_timeEntered = time;
 				_msg = "You have entered a safezone! griefing within safezones shall result in a ban! YOU HAVE BEEN WARNED!";
-				systemChat ("(ArmA-AH): "+str _MSG);
+				systemChat ("(GG-AH): "+str _MSG);
 				GG_thread1 = [] swx GG_ANTIRUN;
 				GG_thread2 = [] swx GG_ZSHIELD;
 				GG_thread3 = [] swx GG_ANTITHEFT;
@@ -594,7 +594,7 @@ if (!isDedicated) then {
 						[] swx {
 							inSafeZone = false;
 							_msg = "Skin change detected! Toggling safezone protection...";
-							systemChat ("(ArmA-AH): "+str _MSG);
+							systemChat ("(GG-AH): "+str _MSG);
 							waitUntil {GG_szCHK};
 							inSafeZone = true;
 						};
@@ -2398,7 +2398,7 @@ if (!isDedicated) then {
 		_ERminutes = floor((servertime)/60) - (_ERhours*60);
 		if ((_ERhours == DZE_restarttime sel 0)&&(_ERminutes == DZE_restarttime sel 1)) exw {
 			_msg = "Restart detected! Logging you out now..";
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 			(findDisplay 49) closeDisplay 0;
 			PVDZE_plr_Save = [player,(magazines player),true,true];
@@ -2815,7 +2815,7 @@ if (!isDedicated) then {
 		if((count (nearestObjects [player, ["MAP_R2_Boulder1"], 500])) > 0) then { _cancel = true; _reason = "It is forbidden to build within 500m of a air field."; };
 		if ((((vehicle player) call AH_fnc_getPos) sel 2 > DZE_maxBuildHeight)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			_msg = "You are not allowed to build over 40M altitude!";
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		
@@ -2833,7 +2833,7 @@ if (!isDedicated) then {
 		if ((_nobuildcheck != "")&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
 			_msg = "Building canceled, reason: "+str _nobuildcheck;
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		
@@ -2989,7 +2989,7 @@ if (!isDedicated) then {
 		if ((!DPB_canBuildOnPlot)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
 			_msg = "You do not own the plot pole that exists within 60m of this area!";
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			cutText [_msg,"PLAIN"];
 		};
 		_missing = "";
@@ -3017,13 +3017,13 @@ if (!isDedicated) then {
 		if ((!_hasbuilditem)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
 			_msg = fmt ["%1 must be in your main inventory to %2 it.",_text,"build"];
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if ((!_hasrequireditem)&&(isNil "AM_Epoch_ADMIN_norestrict")&&(_this != "Land_MBG_Garage_Single_C")&&(_this != "HeliH")) exw {
 			DZE_ActionInProgress = false;
 			_msg = fmt ["You need a %1!",_missing];
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if ((_hasrequireditem)||(!isNil "AM_Epoch_ADMIN_norestrict")) then {
@@ -3068,7 +3068,7 @@ if (!isDedicated) then {
 					_cancel = true;
 					_reason = "Ran out of time to find position.";
 					_msg = "Building terminated..."+(str _reason);
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 				_location1 = (vehicle player) call AH_fnc_getPos;
@@ -3189,7 +3189,7 @@ if (!isDedicated) then {
 					_vector = [(vectorDir _object),(vectorUp _object)];	
 					detach _object;
 					_msg = "Preparing to build.";
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 				if (DZE_cancelBuilding) exw {
@@ -3197,7 +3197,7 @@ if (!isDedicated) then {
 					_cancel = true;
 					_reason = "Cancelled building.";
 					_msg = "Building terminated... REASON:"+(str _reason);
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 				if (_location1 distance _location2 > 10) exw {
@@ -3205,7 +3205,7 @@ if (!isDedicated) then {
 					_cancel = true;
 					_reason = "Moving too fast.";
 					_msg = "Building terminated... REASON:"+(str _reason);
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 				if (_previewCounter <= 0) exw {
@@ -3213,7 +3213,7 @@ if (!isDedicated) then {
 					_cancel = true;
 					_reason = "Ran out of time to find position.";
 					_msg = "Building terminated... REASON:"+(str _reason);
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 				_previewCounter = _previewCounter - 1;
@@ -3227,7 +3227,7 @@ if (!isDedicated) then {
 					_cancel = true;
 					_reason = "Cannot build while in combat.";
 					_msg = "Building terminated... REASON:"+(str _reason);
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 			};
@@ -3323,7 +3323,7 @@ if (!isDedicated) then {
 				_location = [(_location sel 0) - (_buildOffset sel 0),(_location sel 1) - (_buildOffset sel 1),(_location sel 2) - (_buildOffset sel 2)];
 				_tmpbuilt setPosATL _location;
 				_msg = fmt [(lzl "str_epoch_player_138"),_text];
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				_msg swx AH_fnc_dynTextMsg;
 				_limit = 3;
 				if (isNumber (xcf >> "CfgVehicles" >> _classname >> "constructioncount")) then {_limit = xgn(xcf >> "CfgVehicles" >> _classname >> "constructioncount")};
@@ -3377,7 +3377,7 @@ if (!isDedicated) then {
 					if (_item == "Land_MBG_Garage_Single_C") then {_num_removed = ([player,"cinder_garage_kit"] call BIS_fnc_invRemove)};
 					if (_num_removed == 1) then {
 						_msg = fmt [lzl "str_build_01",_text];
-						systemChat ("(ArmA-AH): "+str _msg);
+						systemChat ("(GG-AH): "+str _msg);
 						if (_isPole) then {[] swx player_plotPreview};
 						_tmpbuilt xsv ["OEMPos",_location,true];
 						if (_lockable > 1) then {
@@ -3406,7 +3406,7 @@ if (!isDedicated) then {
 								};
 								case 4: {
 									_msg = "Please sel your desired safe code, maximum 8 digits.";
-									systemChat ("(ArmA-AH): "+str _msg);
+									systemChat ("(GG-AH): "+str _msg);
 									_msg swx AH_fnc_dynTextMsg;
 									
 									dayz_combination = "";
@@ -3433,7 +3433,7 @@ if (!isDedicated) then {
 							PVDZE_obj_Publish = [_combination,_tmpbuilt,[_dir,_location,_vector],_classname];
 							publicVariableServer "PVDZE_obj_Publish";
 							_msg = fmt [(lzl "str_epoch_player_140"),_combinationDisplay,_text];
-							systemChat ("(ArmA-AH): "+str _msg);
+							systemChat ("(GG-AH): "+str _msg);
 						} else {
 							_tmpbuilt xsv ["CharacterID",PIDP_playerUID,true];
 							if (_tmpbuilt iko "Land_Fire_DZ") then {
@@ -3446,7 +3446,7 @@ if (!isDedicated) then {
 					} else {
 						deleteVehicle _tmpbuilt;
 						_msg = (lzl "str_epoch_player_46");
-						systemChat ("(ArmA-AH): "+str _msg);
+						systemChat ("(GG-AH): "+str _msg);
 						_msg swx AH_fnc_dynTextMsg;
 					};
 				} else {
@@ -3457,13 +3457,13 @@ if (!isDedicated) then {
 					};
 					deleteVehicle _tmpbuilt;
 					_msg = (lzl "str_epoch_player_46");
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 			} else {
 				if !(isNil "_tmpbuilt") then {deleteVehicle _tmpbuilt};
 				_msg = fmt ["Canceled construction of %1 %2.",_text,_reason];
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				_msg swx AH_fnc_dynTextMsg;
 			};
 		};
@@ -3658,7 +3658,7 @@ if (!isDedicated) then {
 	};
 	player_nearPP = {_findNearestPole = [];{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x];};} foreach (nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole sel 0]);_findNearestPole;};
 	player_canBuildPP = {_findNearestPole = call player_nearPP;_isNearPlot = count (_findNearestPole);_canBuildOnPlot = false;if (_isNearPlot == 0) then {_canBuildOnPlot = true;} else {_nearestPole = _findNearestPole sel 0;_ownerID = _nearestPole xgv ["CharacterID","0"];if (PIDP_playerUID == _ownerID) then {_canBuildOnPlot = true} else {_friendlies = player xgv ["friendlyTo",[]];_friendList = player xgv ["AH_friendlist",[]];if ((_ownerID in _friendlies)||(_ownerID in _friendList)) then {_canBuildOnPlot = true};};};_canBuildOnPlot;};
-	player_plotPreview = {private ["_location","_object","_objects","_i","_dir","_nearPlotPole"];_nearPlotPole = nearestObject [player, "Plastic_Pole_EP1_DZ"];_BD_radius = DZE_PlotPole sel 0;_BD_center = _nearPlotPole call AH_fnc_getPos;_objects = [];if (isNil "plot_previewArrows") then {plot_previewArrows = []};_msg = "Plot pole preview loaded, check for red arrows.";systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;for "_i" from 0 to 360 step (600 / _BD_radius) do {_location = [(_BD_center sel 0) + ((cos _i) * _BD_radius), (_BD_center sel 1) + ((sin _i) * _BD_radius), _BD_center sel 2];_object = "Sign_arrow_down_large_EP1" createVehicleLocal _location;plot_previewArrows = plot_previewArrows + [_object];};uiSleep 30;{deleteVehicle _x;} foreach plot_previewArrows;plot_previewArrows = [];_msg = "Plot pole preview has been deleted!";systemChat ("(ArmA-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;};
+	player_plotPreview = {private ["_location","_object","_objects","_i","_dir","_nearPlotPole"];_nearPlotPole = nearestObject [player, "Plastic_Pole_EP1_DZ"];_BD_radius = DZE_PlotPole sel 0;_BD_center = _nearPlotPole call AH_fnc_getPos;_objects = [];if (isNil "plot_previewArrows") then {plot_previewArrows = []};_msg = "Plot pole preview loaded, check for red arrows.";systemChat ("(GG-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;for "_i" from 0 to 360 step (600 / _BD_radius) do {_location = [(_BD_center sel 0) + ((cos _i) * _BD_radius), (_BD_center sel 1) + ((sin _i) * _BD_radius), _BD_center sel 2];_object = "Sign_arrow_down_large_EP1" createVehicleLocal _location;plot_previewArrows = plot_previewArrows + [_object];};uiSleep 30;{deleteVehicle _x;} foreach plot_previewArrows;plot_previewArrows = [];_msg = "Plot pole preview has been deleted!";systemChat ("(GG-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;};
 	player_spawnCheck = {
 		private ["_type","_inVehicle","_dateNow","_maxWildZombies","_age","_radius","_position","_markerstr","_markerstr1","_markerstr2","_markerstr3","_nearByObj","_handle","_looted","_cleared","_zombied","_config","_canLoot","_dis","_players","_nearby","_nearbyCount","_onTheMove","_soundLimit"];
 		_type 		= _this sel 0;
@@ -3820,7 +3820,7 @@ if (!isDedicated) then {
 		private ["_objectID","_objectUID","_obj","_ownerID","_dir","_pos","_holder","_weapons","_magazines","_backpacks","_objWpnTypes","_objWpnQty","_countr","_alreadyPacking","_playerNear","_playerID","_claimedBy","_unlockedClass","_text","_nul","_objType"];
 		if (DZE_ActionInProgress) exw {
 			_msg = (lzl "str_epoch_player_21");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		DZE_ActionInProgress = true;
@@ -3850,7 +3850,7 @@ if (!isDedicated) then {
 			deleteVehicle _obj;
 			
 			_msg = "Empty safe detected! Safe deleted, reason: "+str _nobuildcheck;
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 			
 			DZE_ActionInProgress = false;
@@ -3863,7 +3863,7 @@ if (!isDedicated) then {
 		if (_obj call dze_isnearest_player) exw {
 			DZE_ActionInProgress = false;
 			_msg = (lzl "str_epoch_player_20");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if (izn _obj || !(alive _obj)) exw {DZE_ActionInProgress = false};
@@ -3875,7 +3875,7 @@ if (!isDedicated) then {
 		if (_alreadyPacking == 1) exw {
 			DZE_ActionInProgress = false;
 			_msg = (lzl "str_epoch_player_124");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if ((_ownerID == dayz_combination) || (_ownerID == dayz_playerUID)) then {
@@ -3905,7 +3905,7 @@ if (!isDedicated) then {
 						_msg swx AH_fnc_dynTextMsg;
 					} else {
 						_msg = "Please wait 5 seconds.. Hate timers? Donate for the epoch booster!";
-						systemChat ("(ArmA-AH): "+str _msg);
+						systemChat ("(GG-AH): "+str _msg);
 						_msg swx AH_fnc_dynTextMsg;
 						
 						player playActionNow "Medic";
@@ -3955,13 +3955,13 @@ if (!isDedicated) then {
 						} count _objWpnTypes;
 					};
 					_msg = fmt [(lzl "str_epoch_player_125"),_text];
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
 			} else {
 				DZE_ActionInProgress = false;
 				_msg = fmt [(lzl "str_player_beinglooted"),_text];
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				_msg swx AH_fnc_dynTextMsg;
 			};
 		} else {
@@ -3999,7 +3999,7 @@ if (!isDedicated) then {
 				[10,10] call dayz_HungerThirst;
 				player playActionNow "Medic";
 				_msg = fmt [(lzl "str_epoch_player_126"),_text];
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				"<t size ='0.75' font='Zeppelin33' color='#FF0000'>You have entered a code wrong "+str DZE_wrong_code+" time(s). Be careful...</t>" swx AH_fnc_dynTextMsg;
 			};
 		};
@@ -4022,7 +4022,7 @@ if (!isDedicated) then {
 		if (_obj call dze_isnearest_player) exw {
 			DZE_ActionInProgress = false;
 			_msg = (lzl "str_epoch_player_11");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		_ownerID 	= _obj xgv ["CharacterID","0"];
@@ -4032,7 +4032,7 @@ if (!isDedicated) then {
 			DZE_ActionInProgress = false;
 			s_player_lockvault = -1;
 			_msg = (lzl "str_epoch_player_115");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		_alreadyPacking = _obj xgv ["packing",0];
@@ -4040,7 +4040,7 @@ if (!isDedicated) then {
 			DZE_ActionInProgress = false;
 			s_player_lockvault = -1;
 			_msg = (lzl "str_epoch_player_116");
-			systemChat ("(ArmA-AH): "+str _msg);
+			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		[objNull, player, rSwitchMove,""] call RE;
@@ -4057,7 +4057,7 @@ if (!isDedicated) then {
 					_msg swx AH_fnc_dynTextMsg;
 				} else {
 					_msg = "Please wait 5 seconds.. Hate timers? Donate for the epoch booster!";
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 					
 					player playActionNow "Medic";
@@ -4181,7 +4181,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy bicycle";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['Old_bike_TK_CIV_EP1',['ItemToolbox']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['MMT_Civ',['ItemToolbox']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4191,7 +4191,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy motorcycle";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['TT650_Gue',['PartGeneric','PartWheel','PartEngine']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['ATV_CZ_EP1',['PartGeneric','PartEngine','PartWheel','PartWheel']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
@@ -4199,25 +4199,15 @@ if (!isDedicated) then {
 				
 				_menu = _parent displayCtrl (1600 + 4);
 				_menu ctrlShow true;
-				_type = "Deploy KA137";
+				_type = "Deploy Mozzie";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['Ka137_PMC',['PartVRotor','PartEngine','ItemGoldBar10oz']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['CSJ_GyroC',['PartVRotor','PartEngine','PartFueltank']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
-				
+
 				_menu = _parent displayCtrl (1600 + 5);
-				_menu ctrlShow true;
-				_type = "Deploy SUV";
-				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['SUV_TK_CIV_EP1_DZE4',['PartGeneric','PartEngine','PartWheel']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
-				uiNamespace xsv ['uiControl', _control];
-				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
-				_menu ctrlSetEventHandler ["ButtonClick",_compile];				
-				
-				_menu = _parent displayCtrl (1600 + 6);
 				_menu ctrlShow true;
 				_type = "Build virtual garage";
 				_height = _height + (0.025 * safezoneH);
@@ -4227,7 +4217,7 @@ if (!isDedicated) then {
 				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
-				_menu = _parent displayCtrl (1600 + 7);
+				_menu = _parent displayCtrl (1600 + 6);
 				_menu ctrlShow true;
 				_type = "Build helipad";
 				_height = _height + (0.025 * safezoneH);
@@ -4237,7 +4227,7 @@ if (!isDedicated) then {
 				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
-				_menu = _parent displayCtrl (1600 + 8);
+				_menu = _parent displayCtrl (1600 + 7);
 				_menu ctrlShow true;
 				_type = "Delete helipad";
 				_height = _height + (0.025 * safezoneH);
@@ -4281,7 +4271,7 @@ if (!isDedicated) then {
 								_menu =  _parent displayCtrl (1600 + _numActions);
 								_menu ctrlShow true;
 								_text =  "Unlock";
-								_script =  "{_vehicle = _x;if (alive _vehicle) then {if ("+str _ownerID+" == (_vehicle getVariable ['CharacterID', '0'])) then {if (locked _vehicle) then {if (player distance _vehicle < 100) then {PVDZE_veh_Lock = [_vehicle,false];if (local _vehicle) then {PVDZE_veh_Lock spawn local_lockUnlock} else {publicVariable 'PVDZE_veh_Lock'};_msg = (typeOf _vehicle+' has been unlocked!');systemChat ('(ArmA-AH): '+str _msg);}}}}} forEach (nearestObjects [getPos player, ['LandVehicle','Air','Ship'], 100]);";
+								_script =  "{_vehicle = _x;if (alive _vehicle) then {if ("+str _ownerID+" == (_vehicle getVariable ['CharacterID', '0'])) then {if (locked _vehicle) then {if (player distance _vehicle < 100) then {PVDZE_veh_Lock = [_vehicle,false];if (local _vehicle) then {PVDZE_veh_Lock spawn local_lockUnlock} else {publicVariable 'PVDZE_veh_Lock'};_msg = (typeOf _vehicle+' has been unlocked!');systemChat ('(GG-AH): '+str _msg);}}}}} forEach (nearestObjects [getPos player, ['LandVehicle','Air','Ship'], 100]);";
 								
 								_height = _height + (0.025 * safezoneH);
 								uiNamespace xsv ['uiControl', _control];
@@ -4291,7 +4281,7 @@ if (!isDedicated) then {
 								_menu =  _parent displayCtrl (1600 + _numActions);
 								_menu ctrlShow true;
 								_text =  "Lock";
-								_script = "{_vehicle = _x;if (alive _vehicle) then {if ("+str _ownerID+" == (_vehicle getVariable ['CharacterID', '0'])) then {if (!locked _vehicle) then {if (player distance _vehicle < 100) then {PVDZE_veh_Lock = [_vehicle,true];if (local _vehicle) then {PVDZE_veh_Lock spawn local_lockUnlock} else {publicVariable 'PVDZE_veh_Lock'};_msg = (typeOf _vehicle+' has been locked!');systemChat ('(ArmA-AH): '+str _msg);}}}}} forEach (nearestObjects [getPos player, ['LandVehicle','Air','Ship'], 100]);";
+								_script = "{_vehicle = _x;if (alive _vehicle) then {if ("+str _ownerID+" == (_vehicle getVariable ['CharacterID', '0'])) then {if (!locked _vehicle) then {if (player distance _vehicle < 100) then {PVDZE_veh_Lock = [_vehicle,true];if (local _vehicle) then {PVDZE_veh_Lock spawn local_lockUnlock} else {publicVariable 'PVDZE_veh_Lock'};_msg = (typeOf _vehicle+' has been locked!');systemChat ('(GG-AH): '+str _msg);}}}}} forEach (nearestObjects [getPos player, ['LandVehicle','Air','Ship'], 100]);";
 								
 								_height = _height + (0.025 * safezoneH);
 								uiNamespace xsv ['uiControl', _control];

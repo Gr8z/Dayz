@@ -7,7 +7,7 @@ _location	= _object getVariable["OEMPos",(getposATL _object)];
 _dir = getDir _object;
 _vec = [(vectorDir _object),(vectorUp _object)];
 _msg = "Your new code: "+str _actual;
-systemChat ("(ArmA-AH): "+str _msg+"");
+systemChat ("(GG-AH): "+str _msg+"");
 cutText [_msg,"PLAIN"];
 "<t font='Zeppelin33' align='right' color='#FF0000'>"+_msg+"</t>" call AH_fnc_dynTextMsg;
 

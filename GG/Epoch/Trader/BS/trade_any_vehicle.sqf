@@ -15,7 +15,7 @@ _qty 		= (if (_BoS == "buy") then [{player getVariable ["GGCoins",0]},{count _ob
 
 if ((_qty <= 0)&&(_BoS == "sell")) exitWith {
 	_msg = format["No %1 found within 20 meters.",_textPart];
-	systemChat ("(ArmA-AH): "+str _msg+"");
+	systemChat ("(GG-AH): "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
@@ -44,7 +44,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 			} else {player removeMagazine _keySelected};
 		} else {
 			_msg = "You do not have enough room on your toolbelt for the key!";
-			systemChat ("(ArmA-AH): "+str _msg+"");
+			systemChat ("(GG-AH): "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
 	} else {
@@ -77,12 +77,12 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 				_msg call AH_fnc_dynTextMsg;
 			} else {
 				_msg = format ["Cannot sell %1, tires are too damaged.",_textPart];
-				systemChat ("(ArmA-AH): "+str _msg+"");
+				systemChat ("(GG-AH): "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			};
 		} else {
 			_msg = "Failed, you must get into the driver's seat first.";
-			systemChat ("(ArmA-AH): "+str _msg+"");
+			systemChat ("(GG-AH): "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
 	};
@@ -91,7 +91,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 } else {
 	_needed =  _price - _qty;
 	_msg = format ["You need another %1 %2",_needed,_textPart];
-	systemChat ("(ArmA-AH): "+str _msg+"");
+	systemChat ("(GG-AH): "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 call TraderFinishTrade;

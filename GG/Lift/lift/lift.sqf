@@ -1,6 +1,6 @@
 if (LOG_INPROGRESS) then{
 	_msg = "Failed, the current operation is not finished yet";
-	systemChat ("(ArmA-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg call AH_fnc_dynTextMsg;
 } else {
 	LOG_INPROGRESS = true;
@@ -23,26 +23,26 @@ if (LOG_INPROGRESS) then{
 							_object setVariable ["LOG_moves_by", _heliporteur, true];
 							_object attachTo [_heliporteur, [0,0,(boundingBox _heliporteur select 0 select 2) - (boundingBox _object select 0 select 2) - (getPos _heliporteur select 2) + 0.5]];
 							_msg = format["Vehicle %1 lifted", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-							systemChat ("(ArmA-AH): "+str _msg);
+							systemChat ("(GG-AH): "+str _msg);
 							_msg call AH_fnc_dynTextMsg
 						} else {
 							_msg = format["Cannot lift %1, it is towing another vehicle", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-							systemChat ("(ArmA-AH): "+str _msg);
+							systemChat ("(GG-AH): "+str _msg);
 							_msg call AH_fnc_dynTextMsg
 						};
 					} else {
 						_msg = format["Cannot lift %1, it is being moved", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-						systemChat ("(ArmA-AH): "+str _msg);
+						systemChat ("(GG-AH): "+str _msg);
 						_msg call AH_fnc_dynTextMsg
 					};
 				} else {
 					_msg = format["Cannot lift %1, there is a player inside", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-					systemChat ("(ArmA-AH): "+str _msg);
+					systemChat ("(GG-AH): "+str _msg);
 					_msg call AH_fnc_dynTextMsg
 				};
 			} else {
 				_msg = format["Cannot lift %1, it is already being transported", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-				systemChat ("(ArmA-AH): "+str _msg);
+				systemChat ("(GG-AH): "+str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 		};
