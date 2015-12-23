@@ -327,7 +327,7 @@ if (!isDedicated) then {
 		_dis = _sel sel 3;
 		_prc = _sel sel 4;
 		_tur = _sel sel 5;
-		if (_prc <= 100) then {_prc = 10203};
+		if (_prc <= 100) then {_prc = -1};
 		_rlt = "<t color='#FF3300'>";
 		_crt = "</t>";
 		_magTyp = (getText (configFile >> "CfgMagazines" >> _mag >> "displayName"));
@@ -349,19 +349,24 @@ if (!isDedicated) then {
 				systemChat ("(GG-AH): "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			} else {
-				_money = player getVariable ["GGCoins",0];
-				_newBal = (_money - _prc);
-				if (_newBal >= 0) then {
-					player setVariable ["GGCoins", _newBal, true];
-					
-					_msg = format["Bought %1 for %2 %3!",_magTyp,_prc,GCoins];
-					_msg call AH_fnc_dynTextMsg;
-					_veh addMagazineTurret [_mag,_tur];
-				} else {
-					_msg = "Not enough money to buy "+_magTyp+"! Need "+str(abs _newBal)+" more coins!";
-					systemChat ("(GG-AH): "+str _msg+"");
-					_msg call AH_fnc_dynTextMsg;
-				};
+				if (_prc == -1) then {
+						_msg = format["%1 is disabled and you cannot purchase it!",_magTyp];
+						_msg call AH_fnc_dynTextMsg;
+					} else {
+						_money = player getVariable ["GGCoins",0];
+						_newBal = (_money - _prc);
+						if (_newBal >= 0) then {
+							player setVariable ["GGCoins", _newBal, true];
+							
+							_msg = format["Bought %1 for %2 %3!",_magTyp,_prc,GCoins];
+							_msg call AH_fnc_dynTextMsg;
+							_veh addMagazineTurret [_mag,_tur];
+						} else {
+							_msg = "Not enough money to buy "+_magTyp+"! Need "+str(abs _newBal)+" more coins!";
+							systemChat ("(GG-AH): "+str _msg+"");
+							_msg call AH_fnc_dynTextMsg;
+						};
+					};
 			};
 		};
 	};
