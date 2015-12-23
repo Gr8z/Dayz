@@ -89,6 +89,7 @@ DZE_removeammo 	= false; //Remove vehicle ammo when it spawns
 DZE_removeweps 	= false; //Remove vehicle weapons when it spawns
 DZE_removewlist = []; //Remove whitelist, if you want certain vehicles to spawn with full ammo
 DZE_maxBank 	= 100000;
+MaxDonatorBankMoney = 500000;
 DZE_gasprice	= 5; //Price per litre
 DZE_limitbank 	= true;
 DZE_bloodperbb 	= 6000; //Max blood received via self bloodbag.

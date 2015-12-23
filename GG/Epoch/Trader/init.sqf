@@ -65,7 +65,7 @@ BankDialogDepositAmount = {
 				_msg call AH_fnc_dynTextMsg;
 			};
 		} else {
-			_msg = format ["You can only have a max of %1 %2, donators can have up to 2,000,000!", [DZE_maxBank] call BIS_fnc_numberText,GCoins];
+			_msg = format ["You can only have a max of %1 %2, donators can have up to 500,000!", [DZE_maxBank] call BIS_fnc_numberText,GCoins];
 			systemChat ("(GG-AH): "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};

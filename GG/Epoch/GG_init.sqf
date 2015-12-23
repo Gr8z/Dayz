@@ -1794,9 +1794,6 @@ if (!isDedicated) then {
 				_playerNear = _cursorTarget call dze_isnearest_player;
 				if (s_player_packvault < 0 && (!_playerNear)  && (_ownerID == dayz_combination || ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID)))) then {
 					s_player_packvault = player xaa [fmt  ["<t color='#ff0000'>%1</t>",(fmt [lzl "STR_EPOCH_ACTIONS_PACK",_text])], "\z\addons\dayz_code\actions\vault_pack.sqf",_cursorTarget, 0, false, true, "",""];
-					if (s_bank_dialog < 0) then {
-						s_bank_dialog = player xaa [fmt  [("<t color=""#00F000"">Online Banking</t>")], "GG\Epoch\Trader\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
-					};
 				};
 			} else {
 				player rac s_player_packvault;
