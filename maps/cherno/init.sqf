@@ -15,6 +15,7 @@ if (!isDedicated) then {
 	__wun(!isNil "dayz_loadScreenMsg");
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 	rf "GG\Epoch\player_monitor.fsm";
+	rn "GG\dzgm\init.sqf";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
 		6 cutRsc ["EarPlugs", "PLAIN"];
@@ -26,5 +27,6 @@ if (!isDedicated) then {
 		    };
 		    _this call player_reloadMago;
 	    };
-    };	
+    };
+    rn "GG\Epoch\GG_MMT.sqf";
 };

@@ -391,7 +391,7 @@
 		
 		/*Unused BIS functions*/
 		"BIS_fnc_spawnCrew","BIS_fnc_spawnGroup","BIS_fnc_help","BIS_fnc_3Dcredits",
-		"BIS_fnc_crows","BIS_fnc_customGPS","BIS_fnc_destroyCity","BIS_fnc_playVideo","BIS_fnc_spawnEnemy",
+		"BIS_fnc_crows","BIS_fnc_destroyCity","BIS_fnc_playVideo","BIS_fnc_spawnEnemy",
 		"BIS_fnc_AAN","BIS_fnc_taskPatrol","BIS_fnc_taskDefend","BIS_fnc_taskAttack","BIS_fnc_supplydrop",
 		"BIS_fnc_spotter","BIS_fnc_listPlayers","BIS_fnc_spawnvehicle","BIS_fnc_dirIndicator",
 		"BIS_fnc_customGPSvideo"

@@ -27,6 +27,12 @@ if (!isDedicated) then {
 			if ((_dikCode == 0x21 and (!_alt and !_ctrl)) or (_dikCode in actionKeys "User6")) then {
 				DZE_F = true;
 			};
+			if (_dikCode == 0xDB) then {
+			    if (tagName) then {tagName = false;titleText ["Group name tags OFF","PLAIN DOWN"];titleFadeOut 4;} else {tagName = true;titleText ["Group name tags ON","PLAIN DOWN"];titleFadeOut 4;};
+			    _handled = true;
+			};
+
+			if (_dikCode in actionKeys "TacticalView") then {_handled = true;};
 			_handled;
 		};
 		GG_spaceInterrupt2 = (str GG_spaceInterrupt2);
@@ -3537,6 +3543,7 @@ if (!isDedicated) then {
 		dayz_myBackpack = unitBackpack player;
 		[player,dayz_spawnPos] call AH_fnc_setPos;
 		_oldUnit = player;
+		_oldGroup = group player;
 		_group = createGroup west;
 		_newUnit = _group createUnit [_class,dayz_spawnPos,[],0,"NONE"];
 		[_newUnit,_position] call AH_fnc_setPos;
@@ -3560,6 +3567,10 @@ if (!isDedicated) then {
 		addSwitchableUnit _newUnit;
 		setPlayable _newUnit;
 		selectPlayer _newUnit;
+		if ((count units _oldGroup > 1) && {!isNil "PVDZE_plr_LoginRecord"}) then {
+		    [_newUnit] join _oldGroup;
+		    if (count units _group < 1) then {deleteGroup _group;};
+		};
 		removeAllWeapons _oldUnit;
 		{_oldUnit removeMagazine _x} count  magazines _oldUnit;
 		deleteVehicle _oldUnit;
@@ -3572,6 +3583,10 @@ if (!isDedicated) then {
 		xcc fmt ["PVDZE_player%1 = player;publicVariableServer 'PVDZE_player%1';",_playerUID];
 		if ((getText (xcf >> "CfgWeapons" >> (primaryWeapon player) >> "melee")) == "true") then dayz_meleeMagazineCheck;
 		{player reveal _x} count (nearestObjects [player call AH_fnc_getPos,dayz_reveal,50]);
+
+		_savedGroup = profileNamespace getVariable["savedGroup",[]];
+		player setVariable ["savedGroup",_savedGroup,true];
+		player setVariable ["purgeGroup",0,true];
 	};
 	player_humanityMorph = {
 		private ["_updates","_playerUID","_charID","_humanity","_worldspace","_model","_friendlies","_fractures","_old","_medical","_zombieKills","_headShots","_humanKills","_banditKills","_tagList"];
@@ -4119,6 +4134,17 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Track Vehicles";
 				_script = "GG\Epoch\GG_TV.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];
+
+				_menu = _parent displayCtrl (1600 + 1);
+				_menu ctrlShow true;
+				_type = "Group Management";
+				_script = "GG\dzgm\loadGroupManagement.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
