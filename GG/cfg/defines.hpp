@@ -3940,7 +3940,7 @@ class DoorManagement {
 			x = 0.33 * safezoneW + safezoneX;
 			y = 0.70 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.06 * safezoneH;
+			h = 0.03 * safezoneH;
 			onButtonClick = "[(lbCurSel 7101)] call DoorAddFriend;";
 		};
 		class RscShortcutButton_7105: RscButtonMenu
@@ -3950,7 +3950,7 @@ class DoorManagement {
 			x = 0.47 * safezoneW + safezoneX;
 			y = 0.70 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.06 * safezoneH;
+			h = 0.03 * safezoneH;
 			onButtonClick = "[(lbCurSel 7102)] call DoorRemoveFriend;";
 		};	
 		class RscShortcutButton_7106: RscButtonMenu
@@ -3960,7 +3960,7 @@ class DoorManagement {
 			x = 0.40 * safezoneW + safezoneX;
 			y = 0.74 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.06 * safezoneH;
+			h = 0.03 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
 		};		
 		class RscText_7107: RscText
