@@ -2,7 +2,8 @@ version=11;
 class Mission
 {
 	addOns[]= {      
-		"chernarus",
+		"tavi",
+		"kh_dayztaviana",
 		"ca_modules_animals",
 		"dayz_anim",
 		"dayz_code",
@@ -54,12 +55,12 @@ class Mission
 		"ca_modules_functions",
 		"cacharacters2",
 		"cacharacters_e",
-		"chernarus"
+		"tavi"
 	};
 	randomSeed=11171215;
 	class Intel
 	{
-		briefingName="[GG] Overpoch Chernarus";
+		briefingName="[GG] Overpoch Taviana";
 		briefingDescription="[GG] Ghostz Gamerz | Web: GHOSTZGAMERZ.com | TS: ts.ghostzgamerz.com";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
@@ -499,10 +500,10 @@ class Mission
 class Intro
 {
 	addOns[]= {
-		"chernarus"
+		"tavi"
 	};
 	addOnsAuto[]= {
-		"chernarus"
+		"tavi"
 	};
 	randomSeed=6913869;
 	class Intel
@@ -519,10 +520,10 @@ class Intro
 class OutroWin
 {
 	addOns[]= {
-		"chernarus"
+		"tavi"
 	};
 	addOnsAuto[]= {
-		"chernarus"
+		"tavi"
 	};
 	randomSeed=4081731;
 	class Intel
@@ -539,10 +540,10 @@ class OutroWin
 class OutroLoose
 {
 	addOns[]= {
-		"chernarus"
+		"tavi"
 	};
 	addOnsAuto[]= {
-		"chernarus"
+		"tavi"
 	};
 	randomSeed=4975929;
 	class Intel

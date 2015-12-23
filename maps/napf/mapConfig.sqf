@@ -1,13 +1,13 @@
 // Map Settings
-GG_serverName 		= "<img image='GG\GUI\logo.paa'/><br/><t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Chernarus</t>";
+GG_serverName 		= "<img image='GG\GUI\logo.paa'/><br/><t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Napf</t>";
 
 spawnShoremode 		= 1;
-spawnArea 			= 1000;
+spawnArea 			= 1500;
 MaxVehicleLimit 	= 300;
-dayz_MapArea  		= 14000;
+dayz_MapArea  		= 18000;
 dayz_maxAnimals 	= 8;
 dayz_minpos 		= -1; 
-dayz_maxpos 		= 16000;
+dayz_maxpos 		= 26000;
 
 DZE_nobuildarray 	= [
 	/*[Position,[marker radius,nobuild radius],"marker name","marker color"]*/
