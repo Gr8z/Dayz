@@ -2820,10 +2820,10 @@ class RscTitles {
 			class RscText_17010: RscStructuredTextGUI {
                 idc = 17010;//player name
                 text = "";
-				x = "safeZoneX";
-				y = "(safeZoneY + safeZoneH)";
-				w = "0.30";
-				h = "0.08";
+				x = "0.008 * safezoneW + safezoneX";
+				y = "0.959 * safezoneH + safezoneY";
+				w = "0.115 * safezoneW";
+				h = "0.027 * safezoneH";
                 colorText[] = {0.192,0.765,0,1};
                 size = 0.035;
                 sizeEx = 0.035;
