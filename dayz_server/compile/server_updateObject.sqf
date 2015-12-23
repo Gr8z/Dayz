@@ -67,11 +67,18 @@ _object_inventory = {
 			};
 			_key call server_hiveWrite;
 		} else {
-			_inventory = [
-				getWeaponCargo _object,
-				getMagazineCargo _object,
-				getBackpackCargo _object
-			];
+			_isNormal = true;
+			if (typeOf (_object)in DZE_DoorsLocked) then{
+				_isNormal = false;
+				_inventory = _object getVariable ["doorfriends", []]; //We're replacing the inventory with UIDs for this item
+			};
+			if(_isNormal)then {
+				_inventory = [
+					getWeaponCargo _object,
+					getMagazineCargo _object,
+					getBackpackCargo _object
+				];
+			};
 			_previous = str(_object getVariable["lastInventory",[]]);
 			if (str(_inventory) != _previous) then {
 				_object setVariable["lastInventory",_inventory];

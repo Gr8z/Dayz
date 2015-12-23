@@ -159,6 +159,9 @@ if (isServer and isNil "sm_done") then {
 		};
 		if (_damage < 1) then {
 			_object = createVehicle [_type, _pos, [], 0, "CAN_COLLIDE"];
+			if (typeOf (_object) in  DZE_DoorsLocked) then {
+			    _object setVariable ["doorfriends", _intentory, true];
+			};
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
 			_object setVariable ["OwnerPUID", _ownerPUID, true];
@@ -219,7 +222,7 @@ if (isServer and isNil "sm_done") then {
 				_object setVariable ["OEMPos", _pos, true];
 			};
 
-			if ((count _intentory > 0) && !((typeOf _object) == "Land_MBG_Garage_Single_C")) then {
+			if ((count _intentory > 0) && !((typeOf _object) == "Land_MBG_Garage_Single_C")  && !(typeOf( _object) in  DZE_DoorsLocked)) then {
 				if (_type in DZE_LockedStorage) then {
 					_object setVariable ["WeaponCargo", (_intentory select 0),true];
 					_object setVariable ["MagazineCargo", (_intentory select 1),true];

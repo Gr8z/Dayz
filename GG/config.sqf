@@ -128,3 +128,9 @@ EpochEvents = [
 ["any","any","any","any",50,"SupplyItems"],
 ["any","any","any","any",55,"Treasure"]];
 dayz_fullMoonNights = true;
+
+/**DoorManagement Config**/
+DoorAdminList = ["2","3"];
+AllowManualCode = true;
+HarderPenalty = true;
+DZE_DoorsLocked = ["Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallDoorLocked_DZ","CinderWallDoorSmallLocked_DZ"];

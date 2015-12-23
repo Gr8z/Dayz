@@ -408,6 +408,27 @@ class RscCombo {
 	font = "Zeppelin32";
 	sizeEx = 0.03921;
 };
+class RscBackground {
+	type = 0;
+	style = ST_BACKGROUND;
+	shadow = 2;
+	colorBackground[] = {0,0,0,1};
+	colorText[] = {1,1,1,1};
+	font = "Zeppelin32";
+	sizeEx = 0.02;
+	text = "";
+};
+class RscFrame {
+	type = 0;
+	idc = -1;
+	style = 64;
+	shadow = 2;
+	colorBackground[] = {0,0,0,0};
+	colorText[] = {1,1,1,1};
+	font = "Zeppelin32";
+	sizeEx = 0.02;
+	text = "";
+};
 class RscMapControl {
 	access = 0;
 	type = 101;
@@ -1098,6 +1119,61 @@ class RscButton {
     offsetPressedX = 0.002;
     offsetPressedY = 0.002;
     borderSize = 0;
+};
+class RscButtonMenu : RscButton {
+	idc = -1;
+	type = 16;
+	style = "0x02 + 0xC0";
+	default = 0;
+	shadow = 0;
+	x = 0;
+	y = 0;
+	w = 0.095589;
+	h = 0.039216;
+	animTextureNormal = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureDisabled = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureOver = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureFocused = "#(argb,8,8,3)color(1,1,1,1)";
+	animTexturePressed = "#(argb,8,8,3)color(1,1,1,1)";
+	animTextureDefault = "#(argb,8,8,3)color(1,1,1,1)";
+	colorBackgroundFocused[] = {1,1,1,1};
+	colorBackground2[] = {0.75,0.75,0.75,1};
+	color[] = {1,1,1,1};
+	colorFocused[] = {0,0,0,1};
+	color2[] = {0,0,0,1};
+	colorText[] = {1,1,1,1};
+	colorDisabled[] = {1,1,1,0.25};
+	colorBackground[] = {"(profilenamespace getvariable ['GUI_BCG_RGB_R',0.3843])", "(profilenamespace getvariable ['GUI_BCG_RGB_G',0.7019])", "(profilenamespace getvariable ['GUI_BCG_RGB_B',0.8862])", 0.5};	
+	period = 1.2;
+	periodFocus = 1.2;
+	periodOver = 1.2;
+	size = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	sizeEx = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)";
+	tooltipColorText[] = {1,1,1,1};
+	tooltipColorBox[] = {1,1,1,1};
+	tooltipColorShade[] = {0,0,0,0.65};
+	class TextPos
+	{
+		left = "0.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
+		top = "(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) - 		(			(			(			((safezoneW / safezoneH) min 1.2) / 1.2) / 25) * 1)) / 2";
+		right = 0.005;
+		bottom = 0.0;
+	};
+	class Attributes
+	{
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "center";
+		shadow = "false";
+	};
+	class ShortcutPos
+	{
+		left = "(6.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)) - 0.0225 - 0.005";
+		top = 0.005;
+		w = 0.0225;
+		h = 0.03;
+	};
+	textureNoShortcut = "";
 };
 class RscEdit {
 	access = 0;
@@ -3824,4 +3900,182 @@ class GroupManagement {
 		};
 	};
 };
+class DoorManagement {
+	idd = 711195;
+	onLoad = "uiNamespace setVariable ['DoorManagement', _this select 0]";
+	class Controls {
+		class RscText_7100: RscText
+		{
+			idc = 7100;
+			x = 0.30 * safezoneW + safezoneX;
+			y = 0.30 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.5 * safezoneH;
+			colorBackground[] = {0,0,0,0.8};
+		};	
+		class RscListbox_7101: RscListbox
+		{
+			idc = 7101;
+			x = 0.31* safezoneW + safezoneX;
+			y = 0.41 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.30 * safezoneH;
+			soundSelect[] = {"",0.1,1};
+			colorBackground[] = {0.1,0.1,0.1,0.8};
+		};
+		class RscListbox_7102: RscListbox
+		{
+			idc = 7102;
+			x = 0.45 * safezoneW + safezoneX;
+			y = 0.41* safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.30 * safezoneH;
+			soundSelect[] = {"",0.1,1};
+			colorBackground[] = {0.1,0.1,0.1,0.8};
+		};
+		class RscShortcutButton_7104: RscButtonMenu
+		{
+			idc = 7104;
+			text = "Add";
+			x = 0.33 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			h = 0.06 * safezoneH;
+			onButtonClick = "[(lbCurSel 7101)] call DoorAddFriend;";
+		};
+		class RscShortcutButton_7105: RscButtonMenu
+		{
+			idc = 7105;
+			text = "Delete";
+			x = 0.47 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			h = 0.06 * safezoneH;
+			onButtonClick = "[(lbCurSel 7102)] call DoorRemoveFriend;";
+		};	
+		class RscShortcutButton_7106: RscButtonMenu
+		{
+			idc = 7106;
+			text = "Close";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.74 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			h = 0.06 * safezoneH;
+			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
+		};		
+		class RscText_7107: RscText
+		{
+			idc = 7107;
+			text = "Door Management";
+			x = 0.30 * safezoneW + safezoneX;
+			y = 0.30 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.05 * safezoneH;		
+			colorBackground[] = {0,0,0,0.8};	
+			colorText[] = {1,1,1,1};			
+		};
+		class RscText_7108: RscText
+		{
+			idc = 7108;
+			text = "Online People";
+			x = 0.31 * safezoneW + safezoneX;
+			y = 0.38 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.03 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};		
+		class RscText_7103: RscText
+		{
+			idc = 71103;
+			text = "DoorFriends";
+			x = 0.45 * safezoneW + safezoneX;
+			y = 0.38 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.03 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+	};
+};
+class ComboLockUI {
+	idd = 41144;
+	movingenable = 0;
+	class Controls
+	{	
+		class ZupaBackground_1
+		{
+		    access = 0;
+			type = 0;
+			colorText[] = {0.8784,0.8471,0.651,1};
+			text = "";
+			fixedWidth = 0;
+			style = 0;
+			shadow = 2;
+			font = "Zeppelin32";
+			SizeEx = 0.03921;			
+			idc = -1;
+			x = 0.35 * safezoneW + safezoneX;
+			y = 0.30 * safezoneH + safezoneY;
+			w = 0.20 * safezoneW;
+			h = 0.50 * safezoneH;
+			colorBackground[] = {0,0,0,0.8};
+		};	
+		
+		class ZupaHeader_2: RscText
+		{
+		
+			idc = -1;
+			x = 0.35 * safezoneW + safezoneX;
+			y = 0.30 * safezoneH + safezoneY;
+			w = 0.20 * safezoneW;
+			h = 0.05 * safezoneH;		
+			text = "Unlock / Lock Door";
+			colorBackground[] = {0,0,0,0.8};	
+			colorText[] = {1,1,1,1};			
+		};
+		
+					
+		class ZupaButton_1 : RscButtonMenu
+		{
+			idc = -1;
+			text = "Eye Scan";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.40 * safezoneH + safezoneY;					
+			style = 2;
+			w = 0.20;
+			onButtonClick = "call player_unlockDoor";					
+		};
+		
+		class ZupaButton_4 : RscButtonMenu
+		{
+			idc = -1;
+			text = "Manual Code";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.50 * safezoneH + safezoneY;					
+			style = 2;
+			w = 0.20;
+			onButtonClick = "call player_enterCode";					
+		};
+		
+		class ZupaButton_2: RscButtonMenu
+		{
+			idc = -1;
+			text = "Cancel";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;			
+			w = 0.20;
+			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 3000);";			
+		};		
+
+		class ZupaButton_3: RscButtonMenu
+		{
+			idc = -1;
+			text = "Manage";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.60 * safezoneH + safezoneY;			
+			w = 0.20;
+			onButtonClick = "[] call player_manageDoor";			
+		};				
+	};	
+};
+
 #include "traders.hpp"

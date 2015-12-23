@@ -84,15 +84,15 @@ if ((count _upgrade) > 0) then {
 		PVDZE_obj_Swap = [_objectCharacterID,_object,[_dir,_location,_vector],_classname,_obj,player];
 		publicVariableServer "PVDZE_obj_Swap";
 		player reveal _object;
-		if (!isNil 'DZE_doorfriends') then {
-			_friendUID = getPlayerUID player;
-			_friendName = name  player;
-			_friends = [[_friendUID,_friendName]];
-			
-			_object setVariable ["doorfriends", _friends, true];
-			PVDZE_veh_Update = [_object,"gear"];
-			publicVariableServer "PVDZE_veh_Update";
-		};
+
+		_friendUID = getPlayerUID player;
+		_friendName = name  player;
+		_friends = [[_friendUID,_friendName]] ; 
+
+		_object setVariable ["doorfriends", _friends, true];
+		PVDZE_veh_Update = [_object,"gear"];
+		publicVariableServer "PVDZE_veh_Update";
+		PVDZE_veh_Update call server_updateObject;
 	} else {
 		{player addMagazine _x} forEach _temp_removed_array;
 		cutText [fmt[(lzl "str_epoch_player_145"),_removed_total,_tobe_removed_total], "PLAIN DOWN"];

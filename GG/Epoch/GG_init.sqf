@@ -2,6 +2,11 @@
 if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4];
 	setToneMapping "Filmic";
+
+	DoorGetFriends = 			xcm xlx "GG\doorManagement\doorGetFriends.sqf";
+	DoorNearbyHumans = 			xcm xlx "GG\doorManagement\doorNearbyHumans.sqf";
+	DoorAddFriend = 			xcm xlx "GG\doorManagement\doorAddFriend.sqf";
+	DoorRemoveFriend = 			xcm xlx "GG\doorManagement\doorRemoveFriend.sqf";
 	BIS_Effects_Burn = 			xcm xlx "\ca\Data\ParticleEffects\SCRIPTS\destruction\burn.sqf";
 	player_zombieCheck = 		xcm xlx "\z\addons\dayz_code\compile\player_zombieCheck.sqf";
 	player_zombieAttack = 		xcm xlx "\z\addons\dayz_code\compile\player_zombieAttack.sqf";
@@ -54,8 +59,10 @@ if (!isDedicated) then {
 	player_packTent =			xcm xlx "\z\addons\dayz_code\compile\player_packTent.sqf";
 	player_packVault =			xcm xlx "\z\addons\dayz_code\compile\player_packVault.sqf";
 	player_removeNearby =    	xcm xlx "\z\addons\dayz_code\compile\object_removeNearby.sqf";
-	player_unlockDoor =			xcm xlx "\z\addons\dayz_code\compile\player_unlockDoor.sqf";
-	player_changeCombo =		xcm xlx "\z\addons\dayz_code\compile\player_changeCombo.sqf";
+	player_unlockDoor =			xcm xlx "GG\doorManagement\player_unlockDoor.sqf";
+	player_unlockDoorCode = 	xcm xlx "GG\doorManagement\player_unlockDoorCode.sqf";
+	player_manageDoor = 		xcm xlx "GG\doorManagement\initDoorManagement.sqf";
+	player_enterCode = 			xcm xlx "GG\doorManagement\player_enterCode.sqf";
 	player_crossbowBolt =		xcm xlx "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				xcm xlx "\z\addons\dayz_code\compile\player_music.sqf";
 	player_death = 				xcm xlx "GG\Epoch\GG_PD.sqf";
@@ -1748,6 +1755,14 @@ if (!isDedicated) then {
 				player rac s_player_packtent;
 				s_player_packtent = -1;
 			};
+			if((_typeOfCursorTarget in DZE_DoorsLocked)) then {
+				if (s_player_manageDoor < 0) then {		 
+			     s_player_manageDoor = player xaa ["<t color='#0059FF'>Manage Door</t>", "doorManagement\initDoorManagement.sqf", _cursorTarget, 5, false];
+				};
+			} else {
+					player rac s_player_manageDoor;
+					s_player_manageDoor = -1;
+			};
 			if ((_typeOfCursorTarget in DZE_LockableStorage) && _ownerID != "0" && (player distance _cursorTarget < 3)) then {
 				if (s_player_unlockvault < 0) then {
 					if (_typeOfCursorTarget in DZE_LockedStorage) then {
@@ -2158,6 +2173,9 @@ if (!isDedicated) then {
 			s_player_hookahHit = -1;
 			player rac s_player_packOBJ;
 			s_player_packOBJ = -1;
+			// Door management
+			player removeAction s_player_manageDoor;
+			s_player_manageDoor = -1;
 			//Dog
 			player rac s_player_tamedog;
 			s_player_tamedog = -1;
@@ -4682,6 +4700,7 @@ if (!isDedicated) then {
 			mv22_unfold = -1;
 			mv22_open = -1;
 			mv22_close = -1;
+			s_player_manageDoor = -1;
 		};
 		call dayz_resetSelfActions;
 		rn "GG\Epoch\Trader\player_traderMenu.sqf";
