@@ -24,7 +24,7 @@ if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) 
 if (!_hasGPS) exw {DZE_ActionInProgress = false;cutText ["You don't have a GPS", "PLAIN DOWN"];};
 if (dayz_combat == 1) exw { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
 
-_Radar = ["GG\sounds\GPS.ogv",1.04] swx bis_fnc_customGPSvideo;
+_Radar = ["GG\GUI\GPS.ogv",1.04] swx bis_fnc_customGPSvideo;
 
 for "_x" from 1 to 10 do {
 	if (_x >= 2) then {cutText [fmt ["\n\nSCANING IN PROGRESS...", 11-_x], "PLAIN DOWN"];};
