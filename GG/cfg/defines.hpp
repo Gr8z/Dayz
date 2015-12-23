@@ -2821,7 +2821,7 @@ class RscTitles {
                 idc = 17010;//player name
                 text = "";
 				x = "0.008 * safezoneW + safezoneX";
-				y = "0.959 * safezoneH + safezoneY";
+				y = "0.989 * safezoneH + safezoneY";
 				w = "0.115 * safezoneW";
 				h = "0.027 * safezoneH";
                 colorText[] = {0.192,0.765,0,1};
