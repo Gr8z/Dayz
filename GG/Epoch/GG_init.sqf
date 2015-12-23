@@ -4631,9 +4631,9 @@ if (!isDedicated) then {
 		call dayz_resetSelfActions;
 		rn "GG\Epoch\Trader\player_traderMenu.sqf";
 		rn "GG\Lift\init.sqf";
-		rn "GG\Epoch\GG_MMT.sqf";
 	};
 	rn "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
+	rn "GG\Epoch\GG_MMT.sqf";
 	diag_log ("GG: Loaded client init!");
 };
 if (isServer) then {
