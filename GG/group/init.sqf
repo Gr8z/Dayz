@@ -1,4 +1,4 @@
-#include "Epoch\shortcuts.h"
+#include "GG\Epoch\shortcuts.h"
 private ["_loginGroup","_loginVar"];
 
 _loginVar = if (isClass(xcf >> "CfgWeapons" >> "Chainsaw")) then {"PVDZE_plr_LoginRecord"} else {"PVDZ_plr_LoginRecord"};

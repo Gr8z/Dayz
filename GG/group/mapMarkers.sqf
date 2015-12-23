@@ -1,4 +1,4 @@
-#include "Epoch\shortcuts.h"
+#include "GG\Epoch\shortcuts.h"
 if (visibleMap || (!izn (findDisplay 88890))) then {
 	{
 		if ((!izn _x) && {isPlayer _x} && {(driver (vehicle _x)) == _x}) then {
