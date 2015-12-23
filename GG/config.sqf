@@ -116,6 +116,29 @@ DZE_noRotate 		= [
 "30m_plot_kit","workbench_kit","ItemSandbagLarge","ItemSandbagExLarge","ItemSandbagExLarge5x"
 ];
 
+ServerIllegalRadius = 500;
+ServerIllegalRadius2 = 200;
+
+GGNoBuildList = [
+"Land_SS_hangar",
+"Land_Mil_Barracks_i",
+"Land_Mil_Barracks",
+"Land_budova4_in",
+"Land_Mil_ControlTower"
+];
+
+GGNoBuildList2 = [
+"Land_a_stationhouse",
+"Land_A_GeneralStore_01",
+"Land_A_Hospital",
+"Land_A_FuelStation_Feed",
+"Land_fuelStation_army",
+"Land_fuelstation",
+"Land_Ind_FuelStation_Feed_EP1",
+"Land_ibr_FuelStation_Feed",
+"land_fuelStation_w"
+];
+
 dayz_maxLocalZombies = 4;
 EpochEvents = [
 ["any","any","any","any",30,"abandonedvault"],

@@ -3335,6 +3335,18 @@ if (!isDedicated) then {
 			deleteVehicle _objectHelper;
 			if ((isOnRoad _position)&&(isNil "AM_Epoch_ADMIN_norestrict")&&(!DZE_BuildOnRoads)) then {_cancel = true; _reason = "Cannot build on a road."};
 			if ((!canbuild)&&(isNil "AM_Epoch_ADMIN_norestrict")) then {_cancel = true; _reason = "Cannot build in a city."};
+			private ["_posrad","_cntrad","_cntrad2"];
+			_posrad = [player] call FNC_GetPos;
+			_cntrad = count (nearestObjects [_posrad, GGNoBuildList, ServerIllegalRadius]);
+			_cntrad2 = count (nearestObjects [_posrad, GGNoBuildList2, ServerIllegalRadius2]);
+			if (_cntrad > 0) then {
+			_cancel = true;
+			_reason = format["- You are within %1m of a Blacklisted Building.", ServerIllegalRadius];
+			};
+			if (_cntrad2 > 0) then {
+			_cancel = true;
+			_reason = format["- You are within %1m of a Blacklisted Building.", ServerIllegalRadius2];
+			};
 			if (!_cancel) then {
 				_classname = _classnametmp;
 				_tmpbuilt = createVehicle [_classname, _location, [], 0, "CAN_COLLIDE"];
