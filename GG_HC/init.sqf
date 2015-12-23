@@ -53,7 +53,7 @@ if (!hasInterface && !isServer) then {
 	PVOZ_HeadlessUnit = player;publicVariable "PVOZ_HeadlessUnit";
 	PVOZ_HCISALIVE = true;publicVariable "PVOZ_HCISALIVE";
 	execVM "\GG_HC\WAI\init.sqf";
-	execVM "\GG_HC\GG\traders.sqf";
+	execVM "\GG_HC\GG\markers.sqf";
 	if (dayZ_instance == 1) then {execVM "\GG_HC\GG\objects_1.sqf";};
 	if (dayZ_instance == 2) then {execVM "\GG_HC\GG\objects_2.sqf";};
 	if (dayZ_instance == 3) then {execVM "\GG_HC\GG\objects_3.sqf";};
