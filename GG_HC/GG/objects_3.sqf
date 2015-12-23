@@ -1,3 +1,22 @@
+// ---------------------------------------------------
+// ------------  NAPF -----------------------------
+// ---------------------------------------------------
+// Objects
+private ["_object","_objects"];
+
+_objects = [
+    
+];
+
+{
+    _object = (_x select 0) createVehicleLocal (_x select 1);
+    _object setDir (_x select 2);
+    _object setPos (_x select 1);
+    _object allowDamage false;
+    _object enableSimulation false;
+} count _objects;
+
+// traders
 {
 	_trader = createAgent [_x select 0,_x select 1,[],0,"CAN_COLLIDE"];
 	{_trader removeMagazine _x} count magazines _trader;
