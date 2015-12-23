@@ -2947,7 +2947,7 @@ class RscTitles {
 		fadeout = 0;
 		class controls
 		{
-			class Icons : w_RscStructuredText
+			class Icons : RscStructuredText
 			{
 				idc = -1;
 				style = 0x00;
@@ -3750,7 +3750,7 @@ class GroupManagement {
 			w = .235; h = .380;
 		};
 		
-		class RefreshButton : W_RscButton {
+		class RefreshButton : RscButton {
 			idc = -1;
 			text = "Refresh";
 			onButtonClick = "call updatePlayerList;";
