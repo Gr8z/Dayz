@@ -31,7 +31,7 @@ if (dayz_combat == 1) then {
 	[10,10] call dayz_HungerThirst;
 	player playActionNow "Medic";
 	sleep 1;
-	if (count nearestObjects [_playerPos, ["fiberplant"], 4] = 0) exw {
+	if (count nearestObjects [_playerPos, ["fiberplant"], 4] == 0) exw {
 	cutText [fmt["You need to be near the weed plants in order to harvest."], "PLAIN DOWN"];
 	};
 	_objectID = _weed xgv ["ObjectID","0"];
