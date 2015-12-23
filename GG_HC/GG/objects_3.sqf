@@ -9,7 +9,7 @@ _objects = [
 ];
 
 {
-    _object = (_x select 0) createVehicleLocal (_x select 1);
+    _object = (_x select 0) createVehicle (_x select 1);
     _object setDir (_x select 2);
     _object setPos (_x select 1);
     _object allowDamage false;
