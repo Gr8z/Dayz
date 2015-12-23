@@ -1168,12 +1168,15 @@ _AH_CC = compile ("
 	_FL_addfriend = ['!addfriend'];
 	_FL_delfriend = ['!delfriend'];
 	_FL_groupTags = ['!grouptags'];
+
+	_airdrop = ['!airdrop'];
+	_scan = ['!scan'];
 	
 	if !("+str _CC_VDIS+") then {_viewd=[]};
 	if !("+str _CC_MUSIC+") then {_inmusi=[]};
 	_frndCommands = "+_CC_fcmds+";
 	_animCommands = "+_CC_anims+";
-	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta);
+	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta + _airdrop + _scan);
 	_chatCommands = _chatCommands + _animCommands + _frndCommands;
 	while {str(100) == str(100)} do {
 		waitUntil {!(isNull (findDisplay 24))};
@@ -1224,6 +1227,12 @@ _AH_CC = compile ("
 					rules_on = nil;
 					[' ',0,0,1,0,0,77398] spawn AH_fnc_dynamictext
 				};
+			};
+			if (_msg in _airdrop) then {
+				player execVM 'GG\Epoch\GG_AD.sqf';
+			};
+			if (_msg in _scan) then {
+				player execVM 'GG\Epoch\GG_SP.sqf';
 			};
 			if (_msg in _animCommands) then {
 				if (count (nearestObjects [player, (DZE_maintainClasses), 10]) == 0) then {
