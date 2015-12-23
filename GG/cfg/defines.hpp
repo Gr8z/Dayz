@@ -1143,12 +1143,7 @@ class RscProgressF {
 	h = 0.02;
 };
 class CfgSounds {
-    sounds[] = {bonfIntro,carBeep};
-    class bonfIntro {
-		name="bonfIntro";
-		sound[]= {"GG\GUI\bonfIntro.ogg",0.9,1};
-		titles[] = {};
-    };
+    sounds[] = {carBeep};
 	class carBeep {
 		name="carBeep";
 		sound[]= {"GG\GUI\carBeep.ogg",0.9,1};

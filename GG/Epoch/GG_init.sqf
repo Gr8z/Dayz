@@ -4144,7 +4144,7 @@ if (!isDedicated) then {
 				_menu = _parent displayCtrl (1600 + 1);
 				_menu ctrlShow true;
 				_type = "Group Management";
-				_script = "GG\dzgm\loadGroupManagement.sqf";
+				_script = "GG\group\loadGroupManagement.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
