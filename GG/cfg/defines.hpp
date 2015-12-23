@@ -2681,9 +2681,9 @@ class RscTitles {
 				idc = 7373;//Logo
 				text = "GG\GUI\logo.paa";
 				x = "(safeZoneX + 0.015)";
-				y = "(safeZoneY + safeZoneH) - 0.16";
+				y = "(safeZoneY + safeZoneH) - 0.2";
 				colorText[] = {1,1,1,0.8};
-				w = "0.15";
+				w = "0.13";
 				h = "0.15";
 			};
 			class RscPicture_1307: RscPictureGUI {
@@ -2821,7 +2821,7 @@ class RscTitles {
                 idc = 17010;//player name
                 text = "";
 				x = "safeZoneX";
-				y = "(safeZoneY + safeZoneH) - 0.1";
+				y = "(safeZoneY + safeZoneH)";
 				w = "0.30";
 				h = "0.08";
                 colorText[] = {0.192,0.765,0,1};
