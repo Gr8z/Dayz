@@ -1,6 +1,7 @@
 
 class Category_512 { 
 class CH_47F_EP1_DZE {type = "trade_any_vehicle";buy[] = {36000,"Coins"};sell[] = {11500,"Coins"};}; 
+class F35B { type = "trade_any_vehicle"; buy[] = {1,"Coins"}; sell[] = {1,"Coins"}; }; 
 class UH1H_DZE {type = "trade_any_vehicle";buy[] = {18000,"Coins"};sell[] = {5750,"Coins"};}; 
 class Mi17_DZE {type = "trade_any_vehicle";buy[] = {18000,"Coins"};sell[] = {5750,"Coins"};}; 
 class UH60M_EP1_DZE {type = "trade_any_vehicle";buy[] = {18000,"Coins"};sell[] = {5750,"Coins"};}; 
