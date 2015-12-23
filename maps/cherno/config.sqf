@@ -36,9 +36,8 @@ GG_srvrrules_header 	= "Server rules";
 GG_stafflist__header 	= "Server staff";
 GG_features_body 		= [
 	"<t color='#ffdb00'>Gold coin currency</t>",
-	"<t color='#fff4b1'> - Bank at Solnichniy</t>",
-	"<t color='#fff4b1'> - Online banking</t>",
-	"<t color='#fff4b1'> - Lootable wallet</t>",
+	"<t color='#fff4b1'> - Banking</t>",
+	"<t color='#fff4b1'> - Take Coins off Bodies</t>",
 	"<t color='#fff4b1'> - Refuel n Repair stations</t>",
 	"<t color='#bd0000'>Chat commands</t> !help",
 	"<t color='#ff6c3b'> - Friend system</t> !addfriend !delfriend !grouptags",
@@ -46,25 +45,25 @@ GG_features_body 		= [
 	"<t color='#ff6c3b'> - Custom player HUD</t> !nohud",
 	"<t color='#ff6c3b'> - Suicide</t> !kill !die",
 	"<t color='#bd0000'>Custom framework</t>",
-	"<t color='#ff6c3b'> - Custom anti-hack since December 2012</t>",
+	"<t color='#ff6c3b'> - Custom Antihack</t>",
 	"<t color='#ff6c3b'> - Custom military camps!</t>",
 	"<t color='#ff6c3b'> - Custom traders with safezones<!/t>",
 	"<t color='#ff6c3b'> - Custom trader menu, buy/sell to/from your player, backpack, or vehicle!</t>",
-	"<t color='#ff6c3b'> - Custom plot menu, works with our !addfriend system!</t>",
-	"<t color='#ff6c3b'> - Custom death/respawn framework, respawn on death!</t>",
-	"<t color='#ff6c3b'> - Custom spawn select!</t>",
+	"<t color='#ff6c3b'> - Custom Plot Menu</t>",
+	"<t color='#ff6c3b'> - Custom Respawn System!</t>",
+	"<t color='#ff6c3b'> - Custom Spawn Select!</t>",
 	"<t color='#ff6c3b'> - Set your safe code on placement!</t>",
 	"<t color='#ff6c3b'> - Many custom buildings</t>",
 	"<t color='#ff6c3b'> - Revamped vector build</t>",
 	"<t color='#ff6c3b'> - Take clothes, teabag</t>",
 	"<t color='#ff6c3b'> - Self transfuse and consume</t>",
 	"<t color='#ff6c3b'> - 30M player tags</t>",
-	"<t color='#ff6c3b'> - Admin events like CTF, TDM, DM, KOTH, and more!</t>",
-	"<t color='#ff6c3b'> - For a full list of features, check out DayZBonfire.net!</t>"
+	"<t color='#ff6c3b'> - Admin events!</t>",
+	"<t color='#ff6c3b'> - For a full list of features, check out GhostzGamerz.com!</t>"
 ];
 GG_website_body 		= [
 	"<t color='#ffdb00'>Join our website:</t>",
-	"www.ghostzgamerz.com",
+	"www.GhostzGamerz.com",
 	"<t color='#ffdb00'>Join our teamspeak:</t>",
 	"TS.GhostzGamerz.com"
 ];
@@ -76,7 +75,8 @@ GG_srvrrules_body 	= [
 GG_stafflist__body 	= [
 	"<t color='#FF3300'>Owner</t>: Gr8",
 	"<t color='#FF3300'>Owner</t>: Ghost",
-	"<t color='#FF3300'>Coder</t>: Deadskin",
+	"<t color='#FF3300'>Coder</t>: BigEgg",
+	"<t color='#FF3300'>Admin</t>: DeadSkin",
 	"<t color='#FF3300'>Admin</t>: Shahzad",
 	"<t color='#FF3300'>Admin</t>: MeowMix"
 ];
