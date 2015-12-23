@@ -4176,6 +4176,30 @@ if (!isDedicated) then {
 				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
+			if (_item == "ItemMap") then {
+				_menu = _parent displayCtrl (1600 + 0);
+				_menu ctrlShow true;
+				_type = "Call Airdrop";
+				_script = "GG\Epoch\GG_AD.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];
+			};
+			if (_item == "ItemGPS") then {
+				_menu = _parent displayCtrl (1600 + 0);
+				_menu ctrlShow true;
+				_type = "Scan Players";
+				_script = "GG\Epoch\GG_SP.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];
+			};
 			if (_item == "ItemToolbox") then {
 				_menu = _parent displayCtrl (1600 + 2);
 				_menu ctrlShow true;
