@@ -96,7 +96,7 @@ _null  = xct ["MarkerDrop",_positionM];
 "MarkerDrop"  setMarkerColor "ColorRed";
 
 _message = fmt["%1 has called in an AirDrop, It is marked on your map, Go Capture it !",_playerName];
-[nil,nil,rTitleText,_message, "PLAIN",6] call RE;
+PVOZ_GGHCmsgsrvr = [_message];publicVariableServer "PVOZ_GGHCmsgsrvr";
 diag_log text fmt["[AirDrop]: Air Drop Called By a player Successfully"];
 
 for "_x" from 1 to 100 do {
