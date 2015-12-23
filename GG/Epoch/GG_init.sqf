@@ -27,6 +27,9 @@ if (!isDedicated) then {
 			if ((_dikCode == 0x21 and (!_alt and !_ctrl)) or (_dikCode in actionKeys "User6")) then {
 				DZE_F = true;
 			};
+			if (_dikCode == 0x36) then {
+			    if (dialog) then {closeDialog 0;groupManagementActive = false;} else {execVM "GG\group\loadGroupManagement.sqf";};
+			};
 			if (_dikCode == 0xDB) then {
 			    if (tagName) then {tagName = false;titleText ["Group name tags OFF","PLAIN DOWN"];titleFadeOut 4;} else {tagName = true;titleText ["Group name tags ON","PLAIN DOWN"];titleFadeOut 4;};
 			    _handled = true;
