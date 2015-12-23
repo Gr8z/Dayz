@@ -1757,7 +1757,7 @@ if (!isDedicated) then {
 			};
 			if((_typeOfCursorTarget in DZE_DoorsLocked)) then {
 				if (s_player_manageDoor < 0) then {		 
-			     s_player_manageDoor = player xaa ["<t color='#0059FF'>Manage Door</t>", "doorManagement\initDoorManagement.sqf", _cursorTarget, 5, false];
+			     s_player_manageDoor = player xaa ["<t color='#0059FF'>Manage Door</t>", "GG\doorManagement\initDoorManagement.sqf", _cursorTarget, 5, false];
 				};
 			} else {
 					player rac s_player_manageDoor;
