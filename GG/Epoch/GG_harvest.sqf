@@ -38,7 +38,6 @@ if (dayz_combat == 1) then {
 	_objectUID = _weed xgv ["ObjectUID","0"];
 	deleteVehicle _weed;
 	[_objectID,_objectUID] call server_deleteObj;
-	_weed setDamage 1;
 	sleep 5;
 	player addMagazine "ItemKiloHemp";
 	sleep 2;
