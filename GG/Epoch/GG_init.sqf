@@ -63,6 +63,7 @@ if (!isDedicated) then {
 	player_unlockDoorCode = 	xcm xlx "GG\doorManagement\player_unlockDoorCode.sqf";
 	player_manageDoor = 		xcm xlx "GG\doorManagement\initDoorManagement.sqf";
 	player_enterCode = 			xcm xlx "GG\doorManagement\player_enterCode.sqf";
+	player_changeCombo = 		xcm xlx "GG\doorManagement\player_changeCombo.sqf";
 	player_crossbowBolt =		xcm xlx "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				xcm xlx "\z\addons\dayz_code\compile\player_music.sqf";
 	player_death = 				xcm xlx "GG\Epoch\GG_PD.sqf";
