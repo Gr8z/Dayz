@@ -1,5 +1,6 @@
 AllowedVehiclesList = [
 ["AN2_DZ",1],
+["F35B",1],
 ["An2_2_TK_CIV_EP1",1],
 ["An2_1_TK_CIV_EP1",1],
 ["C10J_US_EP1_DZ",1],
