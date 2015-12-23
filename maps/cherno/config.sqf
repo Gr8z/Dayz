@@ -128,7 +128,7 @@ DZE_nobuildarray 	= [
 	[[4063.4226,11664.19,0],[100,1000],"Bash Trader","ColorBlueFaded50"],
 	[[11452.472,11339.504,0],[100,1000],"Klen Trader","ColorBlueFaded50"],
 	[[3445.0112,3804.1453,0],[75,1000],"Bor Trader","ColorBlueFaded50"],
-	[[1606.6443,7803.5156,0],[100,1000],"Bandit Trader","ColorBlueFaded50"],
+	[[1606.6443,7803.5156,0],[0,1000],"Bandit Trader","ColorBlueFaded50"],
 	[[12944.227,12766.889,0],[100,1000],"Hero Trader","ColorBlueFaded50"],
 	[[5066.8984,9729.3574,0],[0,1000],"Aircraft Dealer",""],
 	[[13441.16,5429.3013,0],[0,1000],"Wholesale East",""],
