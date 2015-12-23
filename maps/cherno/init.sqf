@@ -1,5 +1,6 @@
 #include "GG\Epoch\shortcuts.h"
-#include "config.sqf"
+#include "GG\config.sqf"
+#include "mapConfig.sqf"
 
 __ccp("\z\addons\dayz_code\init\variables.sqf");
 pls 0.3;

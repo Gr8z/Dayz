@@ -10,14 +10,7 @@ player setVariable ["BIS_noCoreConversations", true];
 enableRadio false;
 enableSentences false;
 ServerCurrentTime 	= 0;
-spawnShoremode 		= 1;
-spawnArea 			= 1000;
 MaxHeliCrashes 		= 2;
-MaxVehicleLimit 	= 300;
-dayz_MapArea  		= 14000;
-dayz_maxAnimals 	= 8;
-dayz_minpos 		= -1; 
-dayz_maxpos 		= 16000;
 dayz_tameDogs 		= false;
 MaxDynamicDebris 	= 0;
 DynamicVehicleDamageLow = 0;
@@ -25,7 +18,6 @@ DynamicVehicleDamageHigh = 0.2;
 
 //Welcome message config
 GG_useWelcomeTxt		= true;
-GG_serverName 		= "[GG] Ghostz Gamerz Overpoch Chernarus";//<img image=""Path\To\Logo.paa""/>
 GG_HeaderColor 		= "FF3300";
 GG_HeaderSize 		= "0.6";
 GG_BodyColor 			= "ffffff";
@@ -123,26 +115,16 @@ DZE_noRotate 		= [
 "ItemVault","ItemWoodStairs","ItemLockbox","ItemWoodStairsSupport","ItemWoodLadder",
 "30m_plot_kit","workbench_kit","ItemSandbagLarge","ItemSandbagExLarge","ItemSandbagExLarge5x"
 ];
-DZE_nobuildarray 	= [
-	/*[Position,[marker radius,nobuild radius],"marker name","marker color"]*/
-	[[6325.6772,7807.7412,0],[100,1000],"Stary Trader","ColorBlueFaded50"],
-	[[4063.4226,11664.19,0],[100,1000],"Bash Trader","ColorBlueFaded50"],
-	[[11452.472,11339.504,0],[100,1000],"Klen Trader","ColorBlueFaded50"],
-	[[3445.0112,3804.1453,0],[75,1000],"Bor Trader","ColorBlueFaded50"],
-	[[1606.6443,7803.5156,0],[0,1000],"Bandit Trader","ColorBlueFaded50"],
-	[[12944.227,12766.889,0],[100,1000],"Hero Trader","ColorBlueFaded50"],
-	[[5066.8984,9729.3574,0],[0,1000],"Aircraft Dealer",""],
-	[[13441.16,5429.3013,0],[0,1000],"Wholesale East",""],
-	[[4361.4937,2259.9526,0],[0,1000],"Wholesale South",""],
-	[[8385.834,2368.8264,0],[0,1000],"Boat Trader1",""],
-	[[13093.446,8241.5625,0],[0,1000],"Boat Trader2",""],
-	[[9464.64, 11483.8,0],[0,500],"Weed Farm","ColorOrange"],
-	[[7768.69,4499.63,0],[0,500],"Mogilevka Base","ColorRed"],
-	[[13725.498, 2907.4512,0],[0,500],"Skalisty Base","ColorRed"],
-	[[7286.0166, 9730.1201,0],[0,500],"Grishino Base","ColorRed"],
-	[[4492.81,8296.52,0],[0,500],"Dichina Base","ColorRed"]
-];
 
 dayz_maxLocalZombies = 4;
-EpochEvents = [["any","any","any","any",45,"crash_spawner"]];
+EpochEvents = [
+["any","any","any","any",30,"abandonedvault"],
+["any","any","any","any",0,"crash_spawner"],
+["any","any","any","any",40,"supply_drop"],
+["any","any","any","any",10,"Building"],
+["any","any","any","any",20,"Military"],
+["any","any","any","any",30,"Treasure"],
+["any","any","any","any",40,"Construction"],
+["any","any","any","any",50,"SupplyItems"],
+["any","any","any","any",55,"Treasure"]];
 dayz_fullMoonNights = true;

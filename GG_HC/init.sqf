@@ -67,6 +67,16 @@ if (isServer) then {
 			};
 		}] call RE;
 	};
+	"PVOZ_GGHCmsgsrvr2" addPublicVariableEventHandler {
+		[nil, nil, rspawn, [((_this select 1) select 0)], {
+			if !(isServer) then {
+				_title = _this select 0;
+				_msg = _this select 1;
+				systemChat ("(NON-AI MISSION): "+str _msg+"");
+				hint parseText format ["<t align='center' color='#52bf90' shadow='2' size='1.75'>%1</t><br/><t align='center' color='#ffffff'>%2</t>",_title,_msg];
+			};
+		}] call RE;
+	};
 	"PVOZ_GGHCpublish" addPublicVariableEventHandler {
 		_arr = _this select 1;
 		_vehicle = _arr select 0;
