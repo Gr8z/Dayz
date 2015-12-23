@@ -3,7 +3,7 @@ private ["_msg","_cost","_positionM","_Marker","_LastUsedTime","_height","_downs
 
 if(DZE_ActionInProgress) exw { 
 	_msg = "Another AirDrop is in progress"; 
-	ystemChat ("(GG-AH): "+str _msg);
+	systemChat ("(GG-AH): "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;
