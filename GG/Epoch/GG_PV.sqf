@@ -48,9 +48,9 @@ if (r_interrupt) then {
 	player playActionNow "stop";
 } else {
 	_origMat = switch (typeOf _obj) do {
-		case "Old_bike_TK_CIV_EP1": {["PartGeneric"]};
-		case "TT650_Gue": {["PartGeneric","PartGeneric","PartEngine"]};
-		case "MH6J_DZ": {["PartVRotor","PartGeneric","PartGeneric"]};
+		case "MMT_Civ": {["PartGeneric"]};
+		case "ATV_CZ_EP1": {["PartGeneric","PartEngine","PartWheel","PartWheel"]};
+		case "CSJ_GyroC": {["PartVRotor","PartEngine","PartFueltank"]};
 	};
 	_item = createVehicle ["WeaponHolder", _pos, [], 1, "CAN_COLLIDE"];
 	[_item,_pos] call AH_fnc_setPos;

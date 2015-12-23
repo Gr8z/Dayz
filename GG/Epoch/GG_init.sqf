@@ -4181,7 +4181,7 @@ if (!isDedicated) then {
 				_menu ctrlShow true;
 				_type = "Deploy bicycle";
 				_height = _height + (0.025 * safezoneH);
-				_compile = "_id = ['MMT_Civ',['ItemToolbox']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
+				_compile = "_id = ['MMT_Civ',['PartGeneric']] execVM 'GG\Epoch\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
