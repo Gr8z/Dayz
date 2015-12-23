@@ -1,7 +1,11 @@
 #include "shortcuts.h"
-private ["_cost","_positionM","_Marker","_LastUsedTime","_height","_downspeed","_wealth","_distance","_boxtype","_unit","_getPos","_position","_box","_chute","_smoke","_var","_textt","_tools","_items","_walls","_supplies","_weapon","_weapon2","_weapon3","_weapon4","_weapon5","_weapon6","_giveWep","_possibleMags","_mag","_whichBuild","_crateItems","_text"];
+private ["_msg","_cost","_positionM","_Marker","_LastUsedTime","_height","_downspeed","_wealth","_distance","_boxtype","_unit","_getPos","_position","_box","_chute","_smoke","_var","_textt","_tools","_items","_walls","_supplies","_weapon","_weapon2","_weapon3","_weapon4","_weapon5","_weapon6","_giveWep","_possibleMags","_mag","_whichBuild","_crateItems","_text"];
 
-if(DZE_ActionInProgress) exw { cutText ["Another AirDrop is in progress","PLAIN DOWN"]; };
+if(DZE_ActionInProgress) exw { 
+	_msg = "Another AirDrop is in progress"; 
+	ystemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
 DZE_ActionInProgress = true;
 
 
@@ -38,18 +42,47 @@ _Time = time - lastDrop;
 
 if(_Time < _LastUsedTime) exw {
 	DZE_ActionInProgress = false;
-	cutText [fmt["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))], "PLAIN DOWN"];
+	_msg = fmt["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))];
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
 };
 if	((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 75) exw {
 	DZE_ActionInProgress = false; 
-	cutText ["\n\nYou are near a Base and cannot perform that action!" , "PLAIN DOWN"];
+	_msg = "You are near a Base and cannot perform that action!";
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
 };
-if (_inVehicle) exw {DZE_ActionInProgress = false; cutText ["\n\nYou are in a vehicle and cannot perform that action!", "PLAIN DOWN"]; };
-if (dayz_combat == 1) exw { DZE_ActionInProgress = false; cutText ["\n\nYou are in combat and cannot perform that action!", "PLAIN DOWN"]; };
-if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exw { DZE_ActionInProgress = false; cutText ["\n\nYou need to be far away from a Trader to call an Airdrop." , "PLAIN DOWN"]; };
+if (_inVehicle) exw {
+	DZE_ActionInProgress = false;
+	_msg = "You are in a vehicle and cannot perform that action!";
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
+if (dayz_combat == 1) exw { 
+	DZE_ActionInProgress = false; 
+	_msg = "You are in combat and cannot perform that action!";
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
+if(!(canbuild) || (inSafeZone) || (count(nearestObjects [player, ["Infostand_2_EP1","Info_Board_EP1"],200]) > 1)) exw { 
+	DZE_ActionInProgress = false; 
+	_msg = "You need to be far away from a Trader to call an Airdrop.";
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
 
-if ((count playableUnits) < _OnlineLimit) exw  {DZE_ActionInProgress = false; cutText [fmt["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit], "PLAIN DOWN"]; };
-if(_wealth < _cost) exw {DZE_ActionInProgress = false; cutText [fmt["You need %1 coins to Call an AirDrop.",_cost], "PLAIN DOWN"]; };
+if ((count playableUnits) < _OnlineLimit) exw  {
+	DZE_ActionInProgress = false; 
+	_msg = fmt["Air Drop Failed. Less Than %1 Players online.",_OnlineLimit];
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
+if(_wealth < _cost) exw {
+	DZE_ActionInProgress = false; 
+	_msg = fmt["You need %1 coins to Call an AirDrop.",_cost];
+	systemChat ("(GG-AH): "+str _msg);
+	_msg swx AH_fnc_dynTextMsg;
+};
 
 player xsv["GGCoins",(_wealth - _cost),true];
 
@@ -87,8 +120,9 @@ _smoke attachTo [_box, [0,0,0]];
 _var = floor((random 20) + 1);
 _var2 = floor((random 10) + 1);
 
-_textt = format ["\The Air Drop is above you!",10];
-titleText [_textt,"PLAIN DOWN"];
+_msg = fmt ["The Air Drop is above you!",10];
+systemChat ("(GG-AH): "+str _msg);
+_msg swx AH_fnc_dynTextMsg;
 
 while {getPos _box sel 2 > 4} do
 {
