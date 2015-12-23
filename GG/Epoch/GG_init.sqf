@@ -4153,7 +4153,7 @@ if (!isDedicated) then {
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemKiloHemp") then {
-				_menu = _parent displayCtrl (1600 + 0);
+				_menu = _parent displayCtrl (1600 + 1);
 				_menu ctrlShow true;
 				_type = "Smoke Weed";
 				_script = "GG\Epoch\GG_hookah.sqf";
@@ -4165,7 +4165,7 @@ if (!isDedicated) then {
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemKnife") then {
-				_menu = _parent displayCtrl (1600 + 0);
+				_menu = _parent displayCtrl (1600 + 1);
 				_menu ctrlShow true;
 				_type = "Harvest Weed";
 				_script = "GG\Epoch\GG_harvest.sqf";
