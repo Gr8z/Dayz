@@ -5,7 +5,7 @@ DZE_Lock_Door != (this getvariable['CharacterID','0']);
 DZE_topCombo = 0;	
 DZE_midCombo = 0;
 DZE_botCombo = 0;
-createDialog "Entercode";
+createDialog "ckc_ui";
 }else{
 cutText ["We do not allow manual codes.","PLAIN DOWN"];
 };
