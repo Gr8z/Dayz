@@ -62,24 +62,53 @@ _addMarker = {
 		};
 	};
 };
-_marker = xct ["RectangleBorder1", [10000,25350]];
-_marker __sm(shape) "RECTANGLE";
-_marker __sm(size) [10000,10000];
-_marker __sm(Color) "ColorBlack";
 
-_marker = xct ["RectangleBorder2", [-10000,5550]];
-_marker __sm(shape) "RECTANGLE";
-_marker __sm(size) [10000,30000];
-_marker __sm(Color) "ColorBlack";
 
-_marker = xct ["PetrolTraders", [5000,15900]];
-[_marker," <These icons mark Gas Station traders","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
+//Tavi
+if (dayZ_instance == 1) then {
+	_marker = xct ["PetrolTraders", [5000,15900]];
+	[_marker," WWW.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
-_marker = xct ["SafezoneAreas", [5000,15700]];
-[_marker," Green circles = Safezones","ColorGreen","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+	_marker = xct ["SafezoneAreas", [5000,15700]];
+	[_marker," TS.GHOSTZGAMERZ.COM","ColorGreen","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
-_marker = xct ["HelpInfo", [5000,15500]];
-[_marker," Type !help for a list of commands","ColorBlack","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+	_marker = xct ["HelpInfo", [5000,15500]];
+	[_marker," Type !help for a list of commands","ColorBlack","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+};
+
+//cherno
+if (dayZ_instance == 2) then {
+	_marker = xct ["RectangleBorder1", [10000,25350]];
+	_marker __sm(shape) "RECTANGLE";
+	_marker __sm(size) [10000,10000];
+	_marker __sm(Color) "ColorBlack";
+
+	_marker = xct ["RectangleBorder2", [-10000,5550]];
+	_marker __sm(shape) "RECTANGLE";
+	_marker __sm(size) [10000,30000];
+	_marker __sm(Color) "ColorBlack";
+
+	_marker = xct ["PetrolTraders", [5000,15900]];
+	[_marker," WWW.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
+
+	_marker = xct ["SafezoneAreas", [5000,15700]];
+	[_marker," TS.GHOSTZGAMERZ.COM","ColorGreen","mil_flag",[0.7,0.7],0.8] call _addMarker;
+
+	_marker = xct ["HelpInfo", [5000,15500]];
+	[_marker," Type !help for a list of commands","ColorBlack","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+};
+
+//Napf
+if (dayZ_instance == 3) then {
+	_marker = xct ["PetrolTraders", [5000,15900]];
+	[_marker," WWW.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
+
+	_marker = xct ["SafezoneAreas", [5000,15700]];
+	[_marker," TS.GHOSTZGAMERZ.COM","ColorGreen","mil_flag",[0.7,0.7],0.8] call _addMarker;
+
+	_marker = xct ["HelpInfo", [5000,15500]];
+	[_marker," Type !help for a list of commands","ColorBlack","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+};
 
 {
 	private ["_pos","_dis","_loc","_rng"];
