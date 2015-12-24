@@ -337,7 +337,7 @@ class Mission
 		};
 		class Item18
 		{
-			position[]={16489.4,0,10738.7};
+			position[]={6810.82,8533.66,0.00149536};
 			name="AircraftDealer";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -345,7 +345,7 @@ class Mission
 		};
 		class Item19
 		{
-			position[]={6619.7075,-71.582863,8267.1211};
+			position[]={16555.7,10160.9,0.00143814};
 			name="AircraftDealer2";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -401,7 +401,7 @@ class Mission
 		};
 		class Item26
 		{
-			position[]={13342.758,-172.991,8611.9932};
+			position[]={13345.4,8615.09,0.103439};
 			name="Wholesaler";
 			text="Wholesaler";
 			type="mil_box";
@@ -409,7 +409,7 @@ class Mission
 		};
 		class Item27
 		{
-			position[]={9859.4209,-173.54755,7471.5684};
+			position[]={9856.88,7484.32,0.453827};
 			name="Wholesaler2";
 			text="Wholesaler";
 			type="mil_box";
@@ -434,95 +434,95 @@ class Mission
 	};
 	class Sensors
 	{
-		items=8;
+		items=13;
 		class Item0
 		{
-			position[]= {6325.6772,304.99033,7807.7412};
+			position[]= {12190.7,0.00128937,15105.8};
 			a=100;
 			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zonestary";
-			expCond="((vehicle player) distance zonestary) < 100;";
-			expActiv="TitleText[""Now entering trader city Stary"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Stary"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zonelypo";
+			expCond="((vehicle player) distance zonelypo) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Lyepestok"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Lyepestok"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item1
 		{
-			position[]= {4063.4226,365.00577,11664.19};
+			position[]= {14538.1,0.00143909,9977.9};
 			a=100;
 			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zonebash";
-			expCond="((vehicle player) distance zonebash) < 100;";
-			expActiv="TitleText[""Now entering trader city Bash"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Bash"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zonesabina";
+			expCond="((vehicle player) distance zonesabina) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Sabina"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Sabina"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item2
 		{
-			position[]= {11447.472,317.26886,11364.504};
+			position[]= {5641.34,0.00156021,9322.4};
 			a=100;
 			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zoneklen";
-			expCond="((vehicle player) distance zoneklen) < 100;";
-			expActiv="TitleText[""Now entering trader city Klen"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Klen"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zonebilgrad";
+			expCond="((vehicle player) distance zonebilgrad) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Bilgrad"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Bilgrad"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item3
 		{
-			position[]={12945.273,209.10101,12751.496};
+			position[]={8276.74,0.00143433,5119.58};
 			a=100;
 			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zonehero";
-			expCond="((vehicle player) distance zonehero) < 100;";
-			expActiv="TitleText[""Now entering Hero Trader"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Hero Trader"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zonetresh";
+			expCond="((vehicle player) distance zonetresh) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Treshnyovo"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Treshnyovo"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item4
 		{
-			position[]={5066.8984,338.99176,9729.3574};
-			a=100;
-			b=100;
+			position[]={6810.82,0.00149536,8533.66};
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zoneaircraft";
-			expCond="((vehicle player) distance zoneaircraft) < 100;";
-			expActiv="TitleText[""Now entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zoneaircraft1";
+			expCond="((vehicle player) distance zoneaircraft1) < 75;";
+			expActiv="TitleText[""Now Entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item5
 		{
-			position[]={1100.69,0,2844.99};
+			position[]={13345.4,0.103439,8615.09};
 			a=50;
 			b=50;
 			activationBy="WEST";
@@ -531,15 +531,15 @@ class Mission
 			age="UNKNOWN";
 			name="zonewholesale1";
 			expCond="((vehicle player) distance zonewholesale1) < 50;";
-			expActiv="TitleText[""Now entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			expActiv="TitleText[""Now Entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item6
 		{
-			position[]={13247.175,7.9455967,6076.4395};
+			position[]={9856.88,0.453827,7484.32};
 			a=50;
 			b=50;
 			activationBy="WEST";
@@ -548,25 +548,110 @@ class Mission
 			age="UNKNOWN";
 			name="zonewholesale2";
 			expCond="((vehicle player) distance zonewholesale2) < 50;";
-			expActiv="TitleText[""Now entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			expActiv="TitleText[""Now Entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
 		};
 		class Item7
 		{
-			position[]={3445.0112,0,3804.1453};
+			position[]={11360.8,0.00144005,970.389};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zoneseven";
+			expCond="((vehicle player) distance zoneseven) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Seven"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Seven"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={10086.4,0.00156403,19402.3};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zoneyaro";
+			expCond="((vehicle player) distance zoneyaro) < 100;";
+			expActiv="TitleText[""Now Entering Trader City Yaroslav"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Trader City Yaroslav"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item9
+		{
+			position[]={4066.3528,-36.305538,7265.0024};
 			a=75;
 			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
-			name="zonebor";
-			expCond="((vehicle player) distance zonebor) < 75;";
-			expActiv="TitleText[""Now entering trader city Bor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Bor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			name="zonemisc1";
+			expCond="((vehicle player) distance zonemisc1) < 75;";
+			expActiv="TitleText[""Now Entering Misc Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Misc Vendor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item10
+		{
+			position[]={17497.631,-235.07928,7159.0879};
+			a=75;
+			b=75;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zonemisc2";
+			expCond="((vehicle player) distance zonemisc2) < 75;";
+			expActiv="TitleText[""Now Entering Misc Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Misc Vendor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item11
+		{
+			position[]={15587.822,-35.599998,16394.049};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zonehero";
+			expCond="((vehicle player) distance zonehero) < 100;";
+			expActiv="TitleText[""Now Entering Hero Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Hero Vendor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item12
+		{
+			position[]={9856.88,7484.32,0.453827};
+			a=75;
+			b=75;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zoneair2";
+			expCond="((vehicle player) distance zoneair2) < 75;";
+			expActiv="TitleText[""Now Entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
