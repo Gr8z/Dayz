@@ -12,13 +12,13 @@ item7[] = {"",7,210,21.000000,170.999985,29.000000,179.000000,0.000000,""};
 item8[] = {"",7,210,21.000004,-254.000000,28.999998,-246.000000,0.000000,""};
 item9[] = {"",7,210,821.000000,-179.000000,829.000000,-171.000000,0.000000,""};
 item10[] = {"",7,210,821.000000,96.000000,829.000000,104.000000,0.000000,""};
-item11[] = {"___second_loop",4,218,50.000000,-75.000000,150.000000,-25.000000,1.000000,"3 second" \n "loop"};
-item12[] = {"__0s_update__obj",4,218,175.000000,-100.000000,275.000000,-50.000000,2.000000,"50s" \n "update " \n "objects"};
-item13[] = {"___min__loop",4,218,300.000000,-125.000000,400.000000,-75.000000,3.000000,"1 min" \n " loop"};
+item11[] = {"___second_loop",4,218,50.000000,-75.000000,150.000000,-25.000000,1.000000,"5 second" \n "loop"};
+item12[] = {"___min_loop_2",4,218,175.000000,-100.000000,275.000000,-50.000000,2.000000,"1 min loop"};
+item13[] = {"___min_loop_1",4,218,300.000000,-125.000000,400.000000,-75.000000,3.000000,"2 min loop"};
 item14[] = {"___min_loop",4,218,450.000000,-125.000000,550.000000,-75.000000,4.000000,"5 min" \n "loop"};
 item15[] = {"__0_min__loop",4,218,575.000000,-100.000000,675.000000,-50.000000,5.000000,"10 min" \n " loop"};
 item16[] = {"__5_min__loop",4,218,700.000000,-75.000000,800.000000,-25.000000,6.000000,"15 min" \n " loop"};
-item17[] = {"cleanup_animals",2,250,700.000000,25.000000,800.000000,75.000000,0.000000,"cleanup" \n "animals && fire"};
+item17[] = {"cleanup_animals",2,250,700.000000,25.000000,800.000000,75.000000,0.000000,"cleanup" \n "animals and fire"};
 item18[] = {"cleanup_dead",2,250,575.000000,0.000000,675.000000,50.000000,0.000000,"cleanup" \n "dead"};
 item19[] = {"sync_time",2,250,450.000000,-25.000000,550.000000,25.000000,0.000000,"sync time"};
 item20[] = {"cleanup_loot",2,250,300.000000,-25.000000,400.000000,25.000000,0.000000,"cleanup" \n "loot"};
@@ -53,8 +53,8 @@ link25[] = {19,5};
 link26[] = {20,5};
 link27[] = {21,5};
 link28[] = {22,5};
-globals[] = {25.000000,1,0,0,0,640,480,1,136,6316128,1,-53.328339,954.791992,443.544983,-436.145996,1044,911,1};
-window[] = {2,-1,-1,-1,-1,912,100,1392,100,3,1062};
+globals[] = {25.000000,1,0,0,0,640,480,1,136,6316128,1,90.325577,594.727966,439.427490,-468.905121,497,895,1};
+window[] = {0,-1,-1,-1,-1,987,175,1467,175,1,515};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -93,7 +93,6 @@ class FSM
        "_lastCleanupVehicles = diag_tickTime;" \n
        "_lastCleanupGroups = diag_tickTime;" \n
        "_lastCleanupNull = diag_tickTime;" \n
-       "" \n
        "_lastCleanup900 = diag_tickTime;" \n
        "" \n
        ""/*%FSM</STATEINIT""">*/;
@@ -117,8 +116,7 @@ class FSM
     class waiting
     {
       name = "waiting";
-      init = /*%FSM<STATEINIT""">*/"//diag_log ""CLEANUP: Waiting for next task"";" \n
-       ""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -152,23 +150,23 @@ class FSM
           action=/*%FSM<ACTION""">*/"_lastUpdate = diag_tickTime;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "___min__loop">*/
-        class ___min__loop
+        /*%FSM<LINK "___min_loop_1">*/
+        class ___min_loop_1
         {
           priority = 3.000000;
           to="cleanup_loot";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"((diag_tickTime - _lastCleanupVehicles) > 60)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((diag_tickTime - _lastCleanupVehicles) > 120)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_lastCleanupVehicles = diag_tickTime;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
-        /*%FSM<LINK "__0s_update__obj">*/
-        class __0s_update__obj
+        /*%FSM<LINK "___min_loop_2">*/
+        class ___min_loop_2
         {
           priority = 2.000000;
           to="update_objects";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"(( (count needUpdate_objects) > 0) && (diag_tickTime -_lastNeedUpdate> 50))"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"(( (count needUpdate_objects) > 0)&&(diag_tickTime -_lastNeedUpdate > 60))"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_lastNeedUpdate = diag_tickTime;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -178,7 +176,7 @@ class FSM
           priority = 1.000000;
           to="group_cleanup";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"((diag_tickTime - _lastCleanupGroups) > 3)"/*%FSM</CONDITION""">*/;
+          condition=/*%FSM<CONDITION""">*/"((diag_tickTime - _lastCleanupGroups) > 5)"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/"_lastCleanupGroups = diag_tickTime;"/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
@@ -199,8 +197,7 @@ class FSM
     class general_cleanup
     {
       name = "general_cleanup";
-      init = /*%FSM<STATEINIT""">*/"//diag_log ""CLEANUP: Starting loop for next task"";" \n
-       ""/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -264,9 +261,7 @@ class FSM
     class sync_time
     {
       name = "sync_time";
-      init = /*%FSM<STATEINIT""">*/"if (DZE_DiagFpsSlow) then {" \n
-       "	call dze_diag_fps;" \n
-       "};" \n
+      init = /*%FSM<STATEINIT""">*/"if (DZE_DiagFpsSlow) then dze_diag_fps;" \n
        "call server_timeSync;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
@@ -288,15 +283,38 @@ class FSM
     class cleanup_loot
     {
       name = "cleanup_loot";
-      init = /*%FSM<STATEINIT""">*/"if (DZE_DiagFpsFast) then {" \n
-       "	call dze_diag_fps;" \n
-       "};" \n
-       "" \n
+      init = /*%FSM<STATEINIT""">*/"if (DZE_DiagFpsFast) then dze_diag_fps;" \n
        "[] spawn server_spawnCleanLoot;" \n
-       "" \n
-       "// set player save time based on server performance" \n
-       "PVDZE_plr_SetSaveTime = round(60 - diag_fps);" \n
-       "publicVariable ""PVDZE_plr_SetSaveTime"";"/*%FSM</STATEINIT""">*/;
+       "if (isNil 'PVDZE_plr_SetSaveTime') then {PVDZE_plr_SetSaveTime = 0};" \n
+       "if (diag_fps >= 10) then {" \n
+       "		switch (true) do {" \n
+       "			default {PVDZE_plr_SetSaveTime = 50};" \n
+       "			case ((diag_fps > 15)&&(diag_fps <= 20)&&(PVDZE_plr_SetSaveTime != 35)): {" \n
+       "				PVDZE_plr_SetSaveTime = 45;" \n
+       "			};" \n
+       "			case ((diag_fps > 20)&&(diag_fps <= 25)&&(PVDZE_plr_SetSaveTime != 35)): {" \n
+       "				PVDZE_plr_SetSaveTime = 40;" \n
+       "			};" \n
+       "			case ((diag_fps > 25)&&(diag_fps <= 30)&&(PVDZE_plr_SetSaveTime != 35)): {" \n
+       "				PVDZE_plr_SetSaveTime = 35;" \n
+       "			};" \n
+       "			case ((diag_fps > 30)&&(diag_fps <= 35)&&(PVDZE_plr_SetSaveTime != 30)): {" \n
+       "				PVDZE_plr_SetSaveTime = 30;" \n
+       "			};" \n
+       "			case ((diag_fps > 35)&&(diag_fps <= 40)&&(PVDZE_plr_SetSaveTime != 25)): {" \n
+       "				PVDZE_plr_SetSaveTime = 25;" \n
+       "			};" \n
+       "			case ((diag_fps > 40)&&(diag_fps <= 45)&&(PVDZE_plr_SetSaveTime != 20)): {" \n
+       "				PVDZE_plr_SetSaveTime = 20;" \n
+       "			};" \n
+       "		};" \n
+       "		publicVariable ""PVDZE_plr_SetSaveTime"";" \n
+       "} else {" \n
+       "	if (PVDZE_plr_SetSaveTime != 60) then {" \n
+       "		PVDZE_plr_SetSaveTime = 60;" \n
+       "		publicVariable ""PVDZE_plr_SetSaveTime"";" \n
+       "	};" \n
+       "};"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -342,7 +360,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"{" \n
        "	needUpdate_objects = needUpdate_objects - [_x];" \n
        "	[_x,""damage"",true] call server_updateObject;" \n
-       "} count needUpdate_objects;"/*%FSM</STATEINIT""">*/;
+       "} forEach needUpdate_objects;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {

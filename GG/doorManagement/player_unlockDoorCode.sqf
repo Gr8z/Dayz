@@ -12,25 +12,32 @@ if(!isNull dayz_selectedDoor) then {
 			KeyCodeTryTimer = nil;
 		};
 	};
+
+	// our target
 	_obj = dayz_selectedDoor;
 
 	_notNearestPlayer = _obj call dze_isnearest_player;
 
 	if (_notNearestPlayer) then {
+		// close display since another player is closer
 		_display = findDisplay 51144;
 		_display closeDisplay 3000;
 		cutText [(localize "STR_EPOCH_ACTIONS_16"), "PLAIN DOWN"];
 	} else {
-			_objectCharacterID  = _obj getVariable ["CharacterID","0"];
-			 
-			_doorRandomCode = floor(random 100);
-			_playerRandomCode = floor(random 100);
-			
-			if (_doorRandomCode == _playerRandomCode) then {
-			
+	
+		// get object combination
+		_objectCharacterID 	= _obj getVariable ["CharacterID","0"];
+
+		// Check combination
+		if (DZE_Lock_Door == _objectCharacterID) then {
+
 			[player,"combo_unlock",0,false] call dayz_zombieSpeak;
+
+			// close display
 			_display = findDisplay 51144;
 			_display closeDisplay 3000;
+
+			// unlock if locked
 			if(_obj animationPhase "Open_hinge" == 0) then {
 				_obj animate ["Open_hinge", 1];
 			};
@@ -44,7 +51,7 @@ if(!isNull dayz_selectedDoor) then {
 		
 			if(HarderPenalty)then{				
 				titleCut ["","WHITE OUT",1];
-				[10,10] call dayz_HungerThirst;
+				// player scream
 				[player,"scream",0,false] call dayz_zombieSpeak;
 				[player,20,true,(getPosATL player)] spawn player_alertZombies;
 				titleCut ["","WHITE IN",1];
@@ -57,14 +64,14 @@ if(!isNull dayz_selectedDoor) then {
 
 				if (!isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};
 
-				if (KeyCodeTry >= 5) then {
-					if (isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};			
+				if(KeyCodeTry >= ((round(random 10)) + 4)) then {
+			
+				if (isNil 'KeyCodeTryTimer') then {KeyCodeTryTimer = diag_tickTime+60;};			
 					cutText [(localize "str_epoch_player_19"), "PLAIN DOWN"];
 					_display = findDisplay 46;
 					_display closeDisplay 0;
-					player setVariable["NORRN_unconscious",true, true];
-					player setVariable["unconsciousTime",180,true];
 				};
+						
 			}else{
 
 				[10,10] call dayz_HungerThirst;
@@ -91,6 +98,8 @@ if(!isNull dayz_selectedDoor) then {
 		};
 	};
 } else {
+	
+	// close display since no target
 	_display = findDisplay 51144;
 	_display closeDisplay 3000;
 };

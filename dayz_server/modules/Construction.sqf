@@ -76,9 +76,9 @@ _loot_box addMagazineCargoGlobal [_x,1];
 } forEach (_loot select 1);
  
 // Send Top Right message to users , requires Remote message script
-_hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Ikea Truck lost its Cargo, Check your Map for the Location!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+_title = "Construction Crate";
+_message = "Ikea Truck lost its Cargo, Check your Map for the Location!";
+PVOZ_GGHCmsgsrvr2 = [_title, _message];publicVariableServer "PVOZ_GGHCmsgsrvr2";
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 

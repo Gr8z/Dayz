@@ -30,9 +30,9 @@
 		"RscDisplaySpawnSelecter","RscWatchMoreDir","#GETIN","RscStatus",
 		"RscCombatMode","RscFormations","RscTeam","RscSelectTeam","RscReply",
 		"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu",
-		"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:DamiSpawn","#USER:VoteMenu",
+		"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:GGSpawn","#USER:VoteMenu",
 		"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass",
-		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu"
+		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu","#USER:_GG_GMGDFP"
 	];
 /**Whitelisted Displays**/
 	/*	
@@ -118,14 +118,14 @@
 /**Banned vehicles**/
 	_BAD_VEHS 	= 			//Add vehicles you want to blacklist.
 	[
-	"AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V","AAV","LAV25_DZ","Mi24_P","Mi24_D","KA52Black",
+		"AH1Z","AH64D","T90","AV8B2","UH1Y","Mi24_V","AAV","LAV25_DZ","Mi24_P","Mi24_D","KA52Black",
 		"Su25_CDF","SU25_Ins","AH64D_EP1","M1A1","M1A1_TUSK_MG","T72","T72_INS","T72_RU","T72_CDF",
 		"T72_Gue","BMP3","MLRS","T34","2S6M_Tunguska", "Su25_TK_EP1","BAF_Apache_AH1_D",
-		"Mi17_rockets_RU","Mi171Sh_rockets_CZ_EP1","Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1",
+		"Mi17_rockets_RU","Mi171Sh_rockets_CZ_EP1","Mi24_D_TK_EP1","L39_TK_EP1","M1A1_US_DES_EP1","M1A2_US_TUSK_MG_EP1",
 		"T72_TK_EP1","BMP2_TK_EP1","BMP2_UN_EP1","BMP2_HQ_TK_EP1","ZSU_TK_EP1",
 		"AV8B","Su39","Ka52","AW159_Lynx_BAF",
 		"M1128_MGS_EP1","M119_US_EP1","AH6J_EP1","Ka60_PMC","ZSU_INS",
-		"Ural_ZU23_CDF","GNT_C18F","GNT_C18E","GNT_C18T","BTR90_DZE","BTR90","LAV25_DZE",
+		"M1A2_TUSK_MG","Ural_ZU23_CDF","GNT_C18F","GNT_C18E","GNT_C18T","BTR90_DZE","BTR90","LAV25_DZE",
 		"LAV25","M1126_ICV_mk19_EP1","M1126_ICV_M2_EP1","M1130_CV_EP1","M1129_MC_EP1","M1133_MEV_EP1","M1135_ATGMV_EP1",
 		"HMMWV_Avenger_DES_EP1","HMMWV_Avenger","Ural_ZU23_TK_EP1","Ural_ZU23_TK_GUE_EP1","Ural_ZU23_INS","Ural_ZU23_Gue",
 		"GRAD_INS","GRAD_RU","GRAD_TK_EP1","BMP2_INS","BMP2_CDF","BRDM2_ATGM_CDF","BRDM2_ATGM_INS",
@@ -149,12 +149,12 @@
 /**Banned weapons**/
 	_BAD_WEPS 	= 			//Add weapons you want to blacklist.
 	[
-	/*_DZ or commonly used on some servers*/
+		/*_DZ or commonly used on some servers*/
 		"m107_TWS_EP1_DZ","M107_TWS_EP1_DZ",
 		/*Overpoch TWS*/
 		"PMC_AS50_TWS","M249_TWS_EP1_Small","m107_TWS_EP1_Small","m107_TWS_EP1","FHQ_XM2010_TWS_SD_DESERT",
 		/*Other*/
-		"1200Rnd_30x113mm_M789_HEDP","1350Rnd_30mmAP_A10","2000Rnd_23mm_AZP85","22Rnd_125mmHE_T72",
+		"1200Rnd_30x113mm_M789_HEDP","1350Rnd_30mmAP_A10","2000Rnd_23mm_AZP85","20Rnd_120mmHE_M1A2","22Rnd_125mmHE_T72",
 		"2A14","2A38M","2A42","2A42_AI","2A46M","2A46MRocket","2A46M_AI","2A70","2A70Rocket","2A72","2B14",
 		"30Rnd_122mmHE_D30","33Rnd_85mmHE","57mmLauncher","57mmLauncher_128","57mmLauncher_64","750Rnd_M197_AH1","80mmLauncher",
 		"9M311Launcher","AA12_PMC","AALauncher_twice","AGS17","AGS30","AGS30_heli","AirBombLauncher","AKS_74_GOSHAWK","AKS_BASE",
@@ -162,7 +162,7 @@
 		"AT2Launcher","AT5Launcher","AT5LauncherSingle","AT6Launcher","AT9Launcher","ATKMK44_ACR","ATKMK44_ACR_AI","AZP85",
 		"BAF_AS50_scoped_Large","BAF_AS50_TWS","BAF_AS50_TWS_Large","BAF_GMG","BAF_ied_v1","BAF_ied_v2","BAF_ied_v3","BAF_ied_v4",
 		"BAF_L17_40mm","BAF_L2A1","BAF_L7A2","BAF_L94A1","BAF_M240_veh","BAF_static_GMG","bat_swing","BikeHorn","BombLauncher","BombLauncherA10",
-		"bulk","CamelGrenades","CannonCore","CarHorn","Ch29Launcher","Ch29Launcher_Su34","CMFlareLauncher","Cobalt_File",
+		"BombLauncherF35","bulk","CamelGrenades","CannonCore","CarHorn","Ch29Launcher","Ch29Launcher_Su34","CMFlareLauncher","Cobalt_File",
 		"CRV7_FAT","CRV7_HEPD","CRV7_PG","CTWS","CTWS_AI","CZ805_A1_ACR","CZ805_A1_GL_ACR","CZ805_B_GL_ACR","D10","D10_AI","D30","D81","D81CZ",
 		"D81CZ_AI","D81_AI","DSHKM","DT_veh","EvDogTags","EvKobalt","EvMap","EvMoney","EvMoscow","EvPhoto","FakeWeapon","FFARLauncher",
 		"FFARLauncher_12","FFARLauncher_14","FlareLauncher","GAU12","300Rnd_25mm_GAU12","GAU8","GRAD","GrenadeCore","GrenadeLauncher","GrenadeLauncher_EP1","GSh23L",
@@ -175,7 +175,7 @@
 		"Mk82BombLauncher_6","MLRS","Moscow_Bombing_File","Pistol","PistolBase","PistolCore","PKT","PKTBC","PKTBC_veh","PKT_2","PKT_3",
 		"PKT_high_AI_dispersion","PKT_high_AI_dispersion_tank","PKT_MG_Nest","PKT_veh","PMC_AS50_TWS_Large","PMC_documents","Put","R73Launcher",
 		"R73Launcher_2","Rifle","RifleCore","RocketPods","S8Launcher","SCAR_Base","SCAR_H_Base","SCAR_H_STD_TWS_SD","SCAR_L_Base","SCAR_L_STD_EGLM_TWS",
-		"SEARCHLIGHT","SGMT","SidewinderLauncher","SidewinderLauncher_AH1Z","SidewinderLauncher_AH64","SmokeLauncher","SPG9",
+		"SEARCHLIGHT","SGMT","SidewinderLauncher","SidewinderLauncher_AH1Z","SidewinderLauncher_AH64","SidewinderLauncher_F35","SmokeLauncher","SPG9",
 		"SportCarHorn","StingerLauncher","StingerLauncher_4x","StingerLauncher_twice","TimeBomb","TOWLauncher","TOWLauncherSingle",
 		"TruckHorn","TruckHorn2","TwinM134","TwinVickers","VikhrLauncher","WeaponExplosive","YakB","ZiS_S_53","ZiS_S_53_AI"
 	];
@@ -202,7 +202,7 @@
 		"Ph4nt0mzBtunits","ph4nt0mzWait","ph4nt0mzMsg","ph4nt0mzMsgHandle","Ph4nt0n4t0r_Ph4nt0","Ph4nt0n4t0r_ph4_t3hm4n","Ph4nt0n4t0r_Ph4nt0mz","Ph4nt0mz",
 		"ZeenatorrrEclick","ZeenatorrrClick","Ph4nt0_jessus","trentesp","tr3ntHudSize","tr3nHudDist","tr3nHudCp","tr3nHudCv","t123nt3SP","trentview","inflan",
 		"ph4nt0Dayz","ph4nt0Epoch","Zen4ddammo","Zenbandit","Zenhero","ZendoRepair","Zenheal","v3hAh1z","v3hAmbuBMP","v3hBRDM","v3hARMEDSUV","v3hZU23","v3hMLRS",
-		"v3hGRAD","v3hGMGJACKAL","v3hAH64D","v3hATV","v3hA10","v3hChinook","v3hWildcat","v3hAV8B2","v3hBlackhawk","v3hT34","v3hT55","v3hT72",
+		"v3hGRAD","v3hGMGJACKAL","v3hAH64D","v3hATV","v3hF35B","v3hA10","v3hChinook","v3hWildcat","v3hAV8B2","v3hBlackhawk","v3hT34","v3hT55","v3hT72",
 		"v3hArmedLittleBird","v3hSUV","v3hHuey","v3hVenom","v3hLAV25","v3hStryker","v3hka52","v3hT90","v3hCamel","v3hKA60","v3hcrows","v3hGPK","v3hM1A1",
 		"v3hBTR60","wormBomb","wormBomb2","wormPos","wormRound","haxx0rlek","MP_ESP_Var1esp","MP_ESP_Var1HudSize","MP_ESP_Var2HudDist","MP_ESP_Var2HudCp",
 		"MP_ESP_Var2HudCv","BTC_liftHudId","tr3ntitudsize","l33thtmlv1","l33tJumenu","l33tv4html","l33tMain","l33thumanity","l33tCoin","l33tBoxes","l33tdistance",
@@ -229,9 +229,9 @@
 		"playerDistanceScreen","ihatelife","debugConsoleIndex","MY_KEYDOWN_FNC","pathtoscrdir","Bowen_RANDSTR","ProDayz","idonteven","walrein820","RandomEx",
 		"TAG_onKeyDown","derp123","heel","rangelol","unitsmenu","xZombieBait","plrshldblckls","ARGT_JUMP_s","ARGT_JUMP_d","globalplaya","ALL_MAGS_TO_SEARCH",
 		"shnmenu","xtags","pm","lmzsjgnas","vm","bowonkys","glueallnigga","hotkeymenu","Monky_hax_toggled","espfnc","playeresp","zany","dfgjafafsafccccasd",
-		"atext","boost","nd","vspeed","Ug8YtyGyvguGF","inv","rspwn","pList","loldami","T","bowonky","aimbott","Admin_Layout","markeresp","allMrk","MakeRandomSpace",
+		"atext","boost","nd","vspeed","Ug8YtyGyvguGF","inv","rspwn","pList","lolGG","T","bowonky","aimbott","Admin_Layout","markeresp","allMrk","MakeRandomSpace",
 		"helpmenu","godlol","rustlinginit","qofjqpofq","invall","initarr","reinit","byebyezombies","admin_toggled","fn_ProcessDiaryLink","ALexc","DAYZ_CREATEVEHICLE",
-		"Monky_funcs_inited","FUK_da_target","damihakeplz","damikeyz_veryhawt","mapopt","hangender","slag","jizz","kkk","ebay_har","sceptile279","TargetPlayer",
+		"Monky_funcs_inited","FUK_da_target","GGhakeplz","GGkeyz_veryhawt","mapopt","hangender","slag","jizz","kkk","ebay_har","sceptile279","TargetPlayer",
 		"tell_me_more_infiSTAR","airborne_spawn_vehicle_infiSTAR","sxy_list_stored","advert_SSH","antiantiantiantih4x","Flare8","Flare7","SuperAdmin_MENU",
 		"bl4ck1ist","keybinds","actualunit","mark_player","unitList_vec","yo2","actualunit_vec","typeVec","mark","r_menu","hfghfg","vhnlist","work","Intro",
 		"yo3","q","yo4","k","cTargetPos","cpbLoops","cpLoopsDelay","Flare","Flare1","Flare2","Flare3","Flare4","Flare5","Flare6","kanghaskhan","palkia",
@@ -261,7 +261,7 @@
 		"ph4nt0_j3susm0d3","ph4nt0_j3susm0d3D","fddsjfakioiweurlkjs","Ph4nt0mzBtbuildings","Ph4nt0mzBtmsg","Ph4nt0mzBtunits","ph4nt0mzWait","ph4nt0mzMsg",
 		"ph4nt0mzMsgHandle","Ph4nt0n4t0r_Ph4nt0","Ph4nt0n4t0r_ph4_t3hm4n","Ph4nt0n4t0r_Ph4nt0mz","Ph4nt0mz","ZeenatorrrEclick","ZeenatorrrClick","Ph4nt0_jessus",
 		"trentesp","tr3ntHudSize","tr3nHudDist","tr3nHudCp","tr3nHudCv","t123nt3SP","trentview","inflan","ph4nt0Dayz","ph4nt0Epoch","Zen4ddammo","Zenbandit",
-		"Zenhero","ZendoRepair","Zenheal","v3hAh1z","v3hAmbuBMP","v3hBRDM","v3hARMEDSUV","v3hZU23","v3hMLRS","v3hGRAD","v3hGMGJACKAL","v3hAH64D","v3hATV",
+		"Zenhero","ZendoRepair","Zenheal","v3hAh1z","v3hAmbuBMP","v3hBRDM","v3hARMEDSUV","v3hZU23","v3hMLRS","v3hGRAD","v3hGMGJACKAL","v3hAH64D","v3hATV","v3hF35B",
 		"v3hA10","v3hChinook","v3hWildcat","v3hAV8B2","v3hBlackhawk","v3hT34","v3hT55","v3hT72","v3hArmedLittleBird","v3hSUV","v3hHuey","v3hVenom","v3hLAV25",
 		"v3hStryker","v3hka52","v3hT90","v3hCamel","v3hKA60","v3hcrows","v3hGPK","v3hM1A1","v3hBTR60","wormBomb","wormBomb2","wormPos","wormRound","haxx0rlek",
 		"MP_ESP_Var1esp","MP_ESP_Var1HudSize","MP_ESP_Var2HudDist","MP_ESP_Var2HudCp","MP_ESP_Var2HudCv","BTC_liftHudId","tr3ntitudsize","l33thtmlv1","l33tJumenu",
@@ -391,7 +391,7 @@
 		
 		/*Unused BIS functions*/
 		"BIS_fnc_spawnCrew","BIS_fnc_spawnGroup","BIS_fnc_help","BIS_fnc_3Dcredits",
-		"BIS_fnc_crows","BIS_fnc_customGPS","BIS_fnc_destroyCity","BIS_fnc_playVideo","BIS_fnc_spawnEnemy",
+		"BIS_fnc_crows","BIS_fnc_destroyCity","BIS_fnc_playVideo","BIS_fnc_spawnEnemy",
 		"BIS_fnc_AAN","BIS_fnc_taskPatrol","BIS_fnc_taskDefend","BIS_fnc_taskAttack","BIS_fnc_supplydrop",
 		"BIS_fnc_spotter","BIS_fnc_listPlayers","BIS_fnc_spawnvehicle","BIS_fnc_dirIndicator",
 		"BIS_fnc_customGPSvideo"
@@ -435,7 +435,7 @@
 		"Type <t color='#D42436'>!re</t> to send a private message to the last person to PM you or that you PMed.<br/>",
 		"Type <t color='#D42436'>!ts3</t> to get our teamspeak IP.<br/>",
 		"Type <t color='#D42436'>!rules</t> to see the server rules.<br/>",
-//		"Type <t color='#D42436'>!intro</t> to view the server intro.<br/>",
+		"Type <t color='#D42436'>!intro</t> to view the server intro.<br/>",
 //		"Type <t color='#D42436'>!music</t> to toggle spawn music.<br/>",
 		"Type <t color='#D42436'>!online</t> to see all online players.<br/>",
 //		"Type <t color='#D42436'>!friends</t> to see all online friends.<br/>",
@@ -443,9 +443,11 @@
 //		"Type <t color='#D42436'>!delfriend</t> to delete a friend.<br/>",
 //		"Type <t color='#D42436'>!grouptags</t> to toggle group tags for the friend list system.<br/>",
 		"Type <t color='#D42436'>!kill</t> to suicide.<br/>",
-//		"Type <t color='#D42436'>!earplugs</t> to toggle earplugs.<br/>",
+		"Type <t color='#D42436'>!earplugs</t> to toggle earplugs.<br/>",
 		"Type <t color='#D42436'>!viewdistance</t> to set your view distance (between <t color='#D42436'>"+str _CC_MINVD+"</t> and <t color='#D42436'>"+str _CC_MAXVD+"</t>).<br/>",
 		"Type <t color='#D42436'>!nograss</t> to toggle grass on/off.<br/>",
+		"Type <t color='#D42436'>!airdrop</t> to call an airdrop.<br/>",
+		"Type <t color='#D42436'>!scan</t> to scan nearby players.<br/>",
 		"Type <t color='#D42436'>!stop</t> to stop all animations.<br/>",
 		"ANIMATIONS:<br/>",
 		"<t color='#D42436'>!dance1</t>, <t color='#D42436'>!dance2</t>, <t color='#D42436'>!dance3</t>, <t color='#D42436'>!boxing</t>, <t color='#D42436'>!handstand</t>, <t color='#D42436'>!laydown</t>, <t color='#D42436'>!situps</t>, <t color='#D42436'>!pushups</t><br/>",
@@ -503,7 +505,7 @@
 	_escBS		= 0.031;	//esc lower text size
 /**Debug**/
 	_AH_DEBUG 	= false;	//Add debug monitor to server?
-	_DB_TOP		=			//Top of debug. OPTIONAL For pictures use <img image=""DamiMods\Loading\debug.paa""/>
+	_DB_TOP		=			//Top of debug. OPTIONAL For pictures use <img image=""GG\Loading\debug.paa""/>
 	""; 
 	_DB_TOPSIZE = 3.25;		//TXT/IMG size
 	_DB_BOT 	=			//Text at the bottom of debug. 	OPTIONAL (leave "" if you don't want to add text)!
@@ -526,10 +528,10 @@
 	_SVR_OVC 	= 0;		//0 = clear skys 	1 = stormy clouds
 	_SVR_RAIN 	= 0;		//0 = no rain 		1 = thunder storm
 /**Object deploy**/
-	_OD_DPLY 	= false;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
+	_OD_DPLY 	= true;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
 	_OD_AOBJ 	= 			//Add objectsto the array if you will be using the OD_DPLY.
 	[
-		"Old_bike_TK_CIV_EP1","TT650_Gue","CSJ_GyroC","MH6J_DZ","AH6J_EP1_DZ","T72_INS"
+		"MMT_Civ","CSJ_GyroC","CSJ_GyroC"
 	];
 /**File paths**/
 	lvl3_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_high.sqf";

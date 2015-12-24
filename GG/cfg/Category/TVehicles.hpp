@@ -1,0 +1,26 @@
+class Category_4002 { 
+class HMMWV_m998_crows_M2_DES_EP1: d_tve {buy = 145000;sell = 60500;};
+class UAZ_SPG9_INS: d_tve {buy = 175000;sell = 70000;};
+class HMMWV_M998A2_SOV_DES_EP1_DZE: d_tve {buy = 19000;sell = 4600;}; 
+class HMMWV_M1151_M2_CZ_DES_EP1_DZE: d_tve {buy = 21350;sell = 5750;};
+class BTR40_MG_TK_GUE_EP1: d_tve {buy = 18000;sell = 8625;}; 
+class BTR60_TK_EP1: d_tve {buy = 300000;sell = 55000;}; 
+class LandRover_MG_TK_EP1_DZE: d_tve {buy = 2300;sell = 1725;}; 
+class UAZ_MG_TK_EP1_DZE: d_tve {buy = 3200;sell = 1725;}; 
+class BAF_Jackal2_L2A1_W: d_tve {buy = 21000;sell = 11500;};
+class BAF_Jackal2_GMG_W: d_tve {buy = 28500;sell = 14375;};
+class BRDM2_TK_EP1: d_tve {buy = 97500;sell = 43000;}; 
+class BMP2_HQ_INS: d_tve {buy = 39500;sell = 24375;}; 
+class BTR90_HQ: d_tve {buy = 47000;sell = 28750;}; 
+class LAV25_HQ: d_tve {buy = 47000;sell = 28750;}; 
+class M113_TK_EP1: d_tve {buy = 29500;sell = 18750;}; 
+class M113_UN_EP1: d_tve {buy = 29500;sell = 18750;};
+class CH_47F_EP1_DZE: d_tve {buy = 18000;sell = 11500;}; 
+class UH1H_DZE: d_tve {buy = 9000;sell = 5750;}; 
+class Mi17_DZE: d_tve {buy = 9000;sell = 5750;}; 
+class UH60M_EP1_DZE: d_tve {buy = 9000;sell = 5750;}; 
+class UH1Y_DZE: d_tve {buy = 9000;sell = 5750;}; 
+class MH60S_DZE: d_tve {buy = 18000;sell = 5750;}; 
+class AH6J_EP1_DZ: d_tve {buy = 31000;sell = 17250;}; 
+class pook_H13_gunship_INS: d_tve {buy = 33500;sell = 17250;};
+};

@@ -56,7 +56,7 @@ menu_GUE_Soldier_1 = [
 ];
 // Aircraft Dealer
 menu_Soldier_Sniper_PMC = [
-	[["Airplanes",517],["Camels",5000],["Helicopter Unarmed",519],["Metals",700]],
+	[["Airplanes",517],["Helicopter Unarmed",519]],
 	[],
 	"neutral"
 ];
@@ -203,4 +203,10 @@ menu_Damsel3 = [
 	[["Backpacks",538],["Clothes",628],["Cooked Meats",630],["Drinks",601],["Packaged Food",629]],
 	[],
 	"friendly"
+];
+// Traveling Trader
+menu_FR_Commander = [
+	[["Ammunition",4000],["Building Supplies",4001],["Explosives",4004],["Vehicles",4002],["Weapons",4003]],
+	[],
+	"neutral"
 ];

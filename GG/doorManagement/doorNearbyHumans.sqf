@@ -12,5 +12,3 @@ _counter =  0;
 		lbAdd [7101, _friendName];
 	};
 } forEach _closePeople;
-
-

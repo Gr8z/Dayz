@@ -15,8 +15,8 @@ if ((_x  select 0) == (getPlayerUID player)) then{ _canOpen = true; };
 
 if ((TheDoor getVariable ["ownerPUID","-2"]) == (getPlayerUID player)) then{ _canOpen = true; }; 
 
-if(isNil "admins")then{admins = ["-2"];};
-if ((getPlayerUID player) in admins) then{ _canOpen = true; }; 
+if(isNil "DoorAdminList")then{DoorAdminList = ["-2"];};
+if ((getPlayerUID player) in DoorAdminList) then{ _canOpen = true; }; 
 
 if(_canOpen)then{
 createDialog "DoorManagement";

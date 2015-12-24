@@ -1,0 +1,10 @@
+#include "shortcuts.h"
+private ["_vehicles", "_capacity", "_fuelDif", "_progress_ctrl", "_name"];_vehicles = nearestObjects [player, ["LandVehicle", "Air"], 20];if (count(_vehicles) < 1) exw {_msg = "No vehicle found.";systemChat ("(GG-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};disableSerialization;player rac s_player_autorefuel;s_player_autorefuel = -1;RefuelTargetVehicle = _vehicles sel 0;_capacity 	= xgn(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "fuelCapacity");_fuelDif 	= _capacity - ((fuel RefuelTargetVehicle) * _capacity);CostToFill 	= (if (RefuelTargetVehicle iko "AIR") then [{ceil(_fuelDif * (DZE_gasprice / 4))},{ceil(_fuelDif * DZE_gasprice)}]);_cost 		= RefuelTargetVehicle call RepairVehicleCost;cdx "RefuelDialog";
+((uiNamespace xgv "RefuelDialog") displayCtrl 4604) ctrlSetStructuredText parseText fmt["<t color='#FF3300'>Repair cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' />",[_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
+_infoTXT = "<t color='#FF3300'size='1.5'>Vehilce info</t><br/>";
+_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Vehicle name</t>: %1<br/>",(getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName"))];
+_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Fuel capacity</t>: %1 litres<br/>",_capacity];
+_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Current fuel</t>: %1 litres<br/>",round((fuel RefuelTargetVehicle) * _capacity)];
+_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Cost to fill</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa'/>",CostToFill,(if (CostToFill > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
+((uiNamespace xgv "RefuelDialog") displayCtrl 4601) ctrlSetStructuredText parseText _infoTXT;
+for "_i" from 0 to 50 do {((uiNamespace xgv "RefuelDialog") displayCtrl 4600) progressSetPosition ((fuel RefuelTargetVehicle) * (_i / 50))};

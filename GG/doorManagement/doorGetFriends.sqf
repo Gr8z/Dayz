@@ -6,6 +6,3 @@ _friends = TheDoor getVariable ["doorfriends",[]];
 _counter = _counter +  1;
 	lbAdd [7102, (_x select 1)];
 } forEach _friends;
-
-
-

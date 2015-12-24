@@ -1,8 +1,7 @@
 version=11;
 class Mission
 {
-	addOns[]=
-	{
+	addOns[]= {      
 		"chernarus",
 		"ca_modules_animals",
 		"dayz_anim",
@@ -19,7 +18,6 @@ class Mission
 		"csj_gyroac",
 		"map_eu",
 		"jetskiyanahuiaddon",
-		"warehouse",
 		"mbg_buildings_3",
 		"mbg_killhouses",
 		"aif_arma1buildings",
@@ -40,21 +38,22 @@ class Mission
 		"smk_anims_lite",
 		"MicroAirVehicles",
 		"oz_is_objects",
+		"monaro",
 		"gsc_units_stalker_patch",
-		"sbh_paranoia",
+		"american_law_enforcement",
 		"CYBP_Camels_Config",
 		"nissan_350z",
 		"ussr_cheytac",
 		"bb_mercenary",
-		"glt_bh_wreck",
 		"goosuksf",
-		"frb"
+		"frb",
+		"warehouse"
 	};
-	addOnsAuto[]=
-	{
+	addOnsAuto[]= {
 		"dayz_weapons",
 		"ca_modules_functions",
-		"warfarebuildings",
+		"cacharacters2",
+		"cacharacters_e",
 		"chernarus"
 	};
 	randomSeed=11171215;
@@ -77,12 +76,13 @@ class Mission
 			side="WEST";
 			class Vehicles
 			{
-				items=55;
-				#define PLRDEF position[]={57.8415,0.146154,1581.69};azimut=22.2124;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GHOSTZGAMERZ.com";
-				class Item0{id=0;PLRDEF};
-				class Item1{
-					position[]={64.971161,0,1590.6635};
-					azimut=22.2124;
+				items=100;
+				#define PLRDEF position[]={-7240,0,19530};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";
+				class Item0{id=0;position[]={7063,0,7728};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";};
+				class Item1
+				{
+					position[]={-7240,0,19530};
+					azimut=0;
 					id=0;
 					side="WEST";
 					vehicle="Survivor1_DZ";
@@ -91,17 +91,105 @@ class Mission
 					rank="SERGEANT";
 					skill=0.6;
 					init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";
-					description="www.GHOSTZGAMERZ.com";
 				};
-				class Item2{id=2;PLRDEF};class Item3{id=3;PLRDEF};class Item4{id=4;PLRDEF};class Item5{id=5;PLRDEF};class Item6{id=6;PLRDEF};class Item7{id=7;PLRDEF};class Item8{id=8;PLRDEF};class Item9{id=9;PLRDEF};class Item10{id=10;PLRDEF};
-				class Item11{id=11;PLRDEF};class Item12{id=12;PLRDEF};class Item13{id=13;PLRDEF};class Item14{id=14;PLRDEF};class Item15{id=15;PLRDEF};class Item16{id=16;PLRDEF};
-				class Item17{id=17;PLRDEF};class Item18{id=18;PLRDEF};class Item19{id=19;PLRDEF};class Item20{id=20;PLRDEF};class Item21{id=21;PLRDEF};class Item22{id=22;PLRDEF};
-				class Item23{id=23;PLRDEF};class Item24{id=24;PLRDEF};class Item25{id=25;PLRDEF};class Item26{id=26;PLRDEF};class Item27{id=27;PLRDEF};class Item28{id=28;PLRDEF};
-				class Item29{id=29;PLRDEF};class Item30{id=30;PLRDEF};class Item31{id=31;PLRDEF};class Item32{id=32;PLRDEF};class Item33{id=33;PLRDEF};class Item34{id=34;PLRDEF};
-				class Item35{id=35;PLRDEF};class Item36{id=36;PLRDEF};class Item37{id=37;PLRDEF};class Item38{id=38;PLRDEF};class Item39{id=39;PLRDEF};class Item40{id=40;PLRDEF};
-				class Item41{id=41;PLRDEF};class Item42{id=42;PLRDEF};class Item43{id=43;PLRDEF};class Item44{id=44;PLRDEF};class Item45{id=45;PLRDEF};class Item46{id=46;PLRDEF};
-				class Item47{id=47;PLRDEF};class Item48{id=48;PLRDEF};class Item49{id=49;PLRDEF};class Item50{id=50;PLRDEF};class Item51{id=51;PLRDEF};class Item52{id=52;PLRDEF};
-				class Item53{id=53;PLRDEF};class Item54{id=54;PLRDEF};
+				class Item2{id=2;PLRDEF};
+				class Item3{id=3;PLRDEF};
+				class Item4{id=4;PLRDEF};
+				class Item5{id=5;PLRDEF};
+				class Item6{id=6;PLRDEF};
+				class Item7{id=7;PLRDEF};
+				class Item8{id=8;PLRDEF};
+				class Item9{id=9;PLRDEF};
+				class Item10{id=10;PLRDEF};
+				class Item11{id=11;PLRDEF};
+				class Item12{id=12;PLRDEF};
+				class Item13{id=13;PLRDEF};
+				class Item14{id=14;PLRDEF};
+				class Item15{id=15;PLRDEF};
+				class Item16{id=16;PLRDEF};
+				class Item17{id=17;PLRDEF};
+				class Item18{id=18;PLRDEF};
+				class Item19{id=19;PLRDEF};
+				class Item20{id=20;PLRDEF};
+				class Item21{id=21;PLRDEF};
+				class Item22{id=22;PLRDEF};
+				class Item23{id=23;PLRDEF};
+				class Item24{id=24;PLRDEF};
+				class Item25{id=25;PLRDEF};
+				class Item26{id=26;PLRDEF};
+				class Item27{id=27;PLRDEF};
+				class Item28{id=28;PLRDEF};
+				class Item29{id=29;PLRDEF};
+				class Item30{id=30;PLRDEF};
+				class Item31{id=31;PLRDEF};
+				class Item32{id=32;PLRDEF};
+				class Item33{id=33;PLRDEF};
+				class Item34{id=34;PLRDEF};
+				class Item35{id=35;PLRDEF};
+				class Item36{id=36;PLRDEF};
+				class Item37{id=37;PLRDEF};
+				class Item38{id=38;PLRDEF};
+				class Item39{id=39;PLRDEF};
+				class Item40{id=40;PLRDEF};
+				class Item41{id=41;PLRDEF};
+				class Item42{id=42;PLRDEF};
+				class Item43{id=43;PLRDEF};
+				class Item44{id=44;PLRDEF};
+				class Item45{id=45;PLRDEF};
+				class Item46{id=46;PLRDEF};
+				class Item47{id=47;PLRDEF};
+				class Item48{id=48;PLRDEF};
+				class Item49{id=49;PLRDEF};
+				class Item50{id=50;PLRDEF};
+				class Item51{id=51;PLRDEF};
+				class Item52{id=52;PLRDEF};
+				class Item53{id=53;PLRDEF};
+				class Item54{id=54;PLRDEF};
+				class Item55{id=55;PLRDEF};
+				class Item56{id=56;PLRDEF};
+				class Item57{id=57;PLRDEF};
+				class Item58{id=58;PLRDEF};
+				class Item59{id=59;PLRDEF};
+				class Item60{id=60;PLRDEF};
+				class Item61{id=61;PLRDEF};
+				class Item62{id=62;PLRDEF};
+				class Item63{id=63;PLRDEF};
+				class Item64{id=64;PLRDEF};
+				class Item65{id=65;PLRDEF};
+				class Item66{id=66;PLRDEF};
+				class Item67{id=67;PLRDEF};
+				class Item68{id=68;PLRDEF};
+				class Item69{id=69;PLRDEF};
+				class Item70{id=70;PLRDEF};
+				class Item71{id=71;PLRDEF};
+				class Item72{id=72;PLRDEF};
+				class Item73{id=73;PLRDEF};
+				class Item74{id=74;PLRDEF};
+				class Item75{id=75;PLRDEF};
+				class Item76{id=76;PLRDEF};
+				class Item77{id=77;PLRDEF};
+				class Item78{id=78;PLRDEF};
+				class Item79{id=79;PLRDEF};
+				class Item80{id=80;PLRDEF};
+				class Item81{id=81;PLRDEF};
+				class Item82{id=82;PLRDEF};
+				class Item83{id=83;PLRDEF};
+				class Item84{id=84;PLRDEF};
+				class Item85{id=85;PLRDEF};
+				class Item86{id=86;PLRDEF};
+				class Item87{id=87;PLRDEF};
+				class Item88{id=88;PLRDEF};
+				class Item89{id=89;PLRDEF};
+				class Item90{id=90;PLRDEF};
+				class Item91{id=91;PLRDEF};
+				class Item92{id=92;PLRDEF};
+				class Item93{id=93;PLRDEF};
+				class Item94{id=94;PLRDEF};
+				class Item95{id=95;PLRDEF};
+				class Item96{id=96;PLRDEF};
+				class Item97{id=97;PLRDEF};
+				class Item98{id=98;PLRDEF};
+				class Item99{id=99;PLRDEF};
 			};
 		};
 		class Item1
@@ -112,20 +200,20 @@ class Mission
 				items=1;
 				class Item0
 				{
-					position[]={-143.93861,0.52647489,2319.5012};
+					position[]={-144,0.5,2320};
 					id=50;
 					side="LOGIC";
 					vehicle="FunctionsManager";
 					leader=1;
 					lock="UNLOCKED";
-					skill=0.60000002;
+					skill=0.6;
 				};
 			};
 		};
 	};
 	class Markers
 	{
-		items=17;
+		items=18;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -156,7 +244,7 @@ class Mission
 			name="Tradercitybor";
 			text="Trader City Bor";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item4
 		{
@@ -164,7 +252,7 @@ class Mission
 			name="Tradercitybash";
 			text="Trader City Bash";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item5
 		{
@@ -180,7 +268,7 @@ class Mission
 			name="Tradercitystary";
 			text="Trader City Stary";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item7
 		{
@@ -188,7 +276,7 @@ class Mission
 			name="boatsnwholesale_1";
 			text="Wholesaler";
 			type="mil_dot";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item8
 		{
@@ -196,12 +284,12 @@ class Mission
 			name="boatsnwholesale_1_1";
 			text="Wholesaler";
 			type="mil_dot";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item9
 		{
 			position[]={5068.6636,338.99176,9723.4248};
-			name="Airplane Dealer";
+			name="AirplaneDealer";
 			text="Airplane Dealer";
 			type="mil_dot";
 			colorName="ColorBlue";
@@ -209,7 +297,7 @@ class Mission
 		class Item10
 		{
 			position[]={8385.834,1.6642252,2368.8264};
-			name="Boat Dealer";
+			name="BoatDealer";
 			text="Boat Dealer";
 			type="mil_dot";
 			colorName="ColorOrange";
@@ -225,7 +313,7 @@ class Mission
 		class Item12
 		{
 			position[]={13093.446,0.42457402,8241.5625};
-			name="Boat Dealer_1";
+			name="BoatDealer_1";
 			text="Boat Dealer";
 			type="mil_dot";
 			colorName="ColorOrange";
@@ -248,60 +336,31 @@ class Mission
 		};
 		class Item15
 		{
-			position[]={64.971161,0, 1590.6635};
-			name="respawn_west";
-			type="Empty";
-		};
-		class Item16
-		{
 			position[]={7768.69,0,4499.63};
 			name="MogilivikaBase";
 			text="Mogilevka Base";
 			type="defend";
 			colorName="ColorRed";
 		};
+		class Item16
+		{
+			position[]= {7839,381,8414};
+			name="center";
+			type="Empty";
+		};
+		class Item17
+		{
+			position[]= {-18697,379,25815};
+			name="respawn_west";
+			type="Empty";
+		};
 	};
 	class Sensors
 	{
-	items=9;
-	
+		items=8;
 		class Item0
 		{
-			position[]={4053.8501,364.76645,11668.645};
-			a=100;
-			b=100;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="zonebash";
-			expCond="(player distance zonebash) < 100;";
-			expActiv="[""trader city Bash"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""trader city Bash"",true,""leave""] spawn player_traderCity;";
-			class Effects
-			{
-			};
-		};
-		class Item1
-		{
-			position[]={11463.747,317.3078,11349.89};
-			a=100;
-			b=100;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="zoneklen";
-			expCond="(player distance zoneklen) < 100;";
-			expActiv="[""trader city Klen"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""trader city Klen"",true,""leave""] spawn player_traderCity;";
-			class Effects
-			{
-			};
-		};
-		class Item2
-		{
-			position[]={6344.8081,304.99023,7806.7598};
+			position[]= {6325.6772,304.99033,7807.7412};
 			a=100;
 			b=100;
 			activationBy="WEST";
@@ -309,13 +368,46 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonestary";
-			expCond="(player distance zonestary) < 100;";
-			expActiv="[""trader city Stary"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""trader city Stary"",true,""leave""] spawn player_traderCity;";
+			expCond="((vehicle player) distance zonestary) < 100;";
+			expActiv="TitleText[""Now entering trader city Stary"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Stary"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
-			
+		};
+		class Item1
+		{
+			position[]= {4063.4226,365.00577,11664.19};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zonebash";
+			expCond="((vehicle player) distance zonebash) < 100;";
+			expActiv="TitleText[""Now entering trader city Bash"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Bash"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item2
+		{
+			position[]= {11447.472,317.26886,11364.504};
+			a=100;
+			b=100;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zoneklen";
+			expCond="((vehicle player) distance zoneklen) < 100;";
+			expActiv="TitleText[""Now entering trader city Klen"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Klen"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
 		};
 		class Item3
 		{
@@ -327,9 +419,9 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonehero";
-			expCond="(player distance zonehero) < 100;";
-			expActiv="[""Hero Trader"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""Hero Trader"",true,""leave""] spawn player_traderCity;";
+			expCond="((vehicle player) distance zonehero) < 100;";
+			expActiv="TitleText[""Now entering Hero Trader"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Hero Trader"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -344,9 +436,9 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneaircraft";
-			expCond="(player distance zoneaircraft) < 100;";
-			expActiv="[""Aircraft Trader"",true,""enter""]; canbuild = false;insafezone = true;";
-			expDesactiv="[""Aircraft Trader"",true,""leave""]; canbuild = true;insafezone = false;";
+			expCond="((vehicle player) distance zoneaircraft) < 100;";
+			expActiv="TitleText[""Now entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -361,9 +453,9 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonewholesale1";
-			expCond="(player distance zonewholesale1) < 50;";
-			expActiv="[""Wholesale Trader"",true,""enter""]; canbuild = false;insafezone = true;";
-			expDesactiv="[""Wholesale Trader"",true,""leave""]; canbuild = true;insafezone = false;";
+			expCond="((vehicle player) distance zonewholesale1) < 50;";
+			expActiv="TitleText[""Now entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -378,9 +470,9 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonewholesale2";
-			expCond="(player distance zonewholesale2) < 50;";
-			expActiv="[""Wholesale Trader"",true,""enter""]; canbuild = false;insafezone = true;";
-			expDesactiv="[""Wholesale Trader"",true,""leave""]; canbuild = true;insafezone = false;";
+			expCond="((vehicle player) distance zonewholesale2) < 50;";
+			expActiv="TitleText[""Now entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -395,26 +487,9 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebor";
-			expCond="(player distance zonebor) < 75;";
-			expActiv="[""Bor Trader"",true,""enter""]; canbuild = false;insafezone = true;";
-			expDesactiv="[""Bor Trader"",true,""leave""]; canbuild = true;insafezone = false;";
-			class Effects
-			{
-			};
-		};
-		class Item8
-		{
-			position[]={64.971161,0, 1590.6635};
-			a=10;
-			b=10;
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="debug";
-			expCond="(player distance debug) < 10;";
-			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
-			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
+			expCond="((vehicle player) distance zonebor) < 75;";
+			expActiv="TitleText[""Now entering trader city Bor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Bor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -423,12 +498,10 @@ class Mission
 };
 class Intro
 {
-	addOns[]=
-	{
+	addOns[]= {
 		"chernarus"
 	};
-	addOnsAuto[]=
-	{
+	addOnsAuto[]= {
 		"chernarus"
 	};
 	randomSeed=6913869;
@@ -445,12 +518,10 @@ class Intro
 };
 class OutroWin
 {
-	addOns[]=
-	{
+	addOns[]= {
 		"chernarus"
 	};
-	addOnsAuto[]=
-	{
+	addOnsAuto[]= {
 		"chernarus"
 	};
 	randomSeed=4081731;
@@ -467,12 +538,10 @@ class OutroWin
 };
 class OutroLoose
 {
-	addOns[]=
-	{
+	addOns[]= {
 		"chernarus"
 	};
-	addOnsAuto[]=
-	{
+	addOnsAuto[]= {
 		"chernarus"
 	};
 	randomSeed=4975929;

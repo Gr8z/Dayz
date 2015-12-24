@@ -7,5 +7,5 @@ DZE_midCombo = 0;
 DZE_botCombo = 0;
 createDialog "Entercode";
 }else{
-cutText ["Manual Codes are disabled for this door.","PLAIN DOWN"];
+cutText ["We do not allow manual codes.","PLAIN DOWN"];
 };

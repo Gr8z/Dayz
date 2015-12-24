@@ -54,7 +54,7 @@ _AH_KICK = compile ("
 ");
 
 _hasWAI = (preProcessFileLineNumbers "\z\addons\dayz_server\WAI\init.sqf" != "");
-_hasDB 	= (preProcessFileLineNumbers "DamiMods\Epoch\dami_init.sqf" != "");
+_hasDB 	= (preProcessFileLineNumbers "GG\Epoch\GG_init.sqf" != "");
 
 PVOZ_coloredbros = [];
 AH_fnc_dynamictext = compile preprocessFileLineNumbers "ca\modules_e\functions\GUI\fn_dynamicText.sqf";
@@ -1408,18 +1408,18 @@ call compile ("
 				};
 				
 				genmen_generate = {
-					_Dami_GMGDFP = [['',true],['Select key:',[-1],'',-5,[['expression','']],'1','0']];
+					_GG_GMGDFP = [['',true],['Select key:',[-1],'',-5,[['expression','']],'1','0']];
 					for '_i' from (_this select 0) to (_this select 1) do {
 						_arr = [format['%1',genmen_objRem select (_i)],[_i - (_this select 0) + 2],'',-5,[['expression',format['genmen_selObj = genmen_objRem select %1;',_i]]],'1','1'];
-						_Dami_GMGDFP set [_i+2,_arr];
+						_GG_GMGDFP set [_i+2,_arr];
 					};
 					if (count genmen_objRem >  (_this select 1)) then {
-						_Dami_GMGDFP set [(_this select 1)+2,['Next',[12],'',-5,[['expression','genmen_nextPage = true;']],'1','1']];
+						_GG_GMGDFP set [(_this select 1)+2,['Next',[12],'',-5,[['expression','genmen_nextPage = true;']],'1','1']];
 					} else {
-						_Dami_GMGDFP set [(_this select 1)+2,['',[-1],'',-5,[['expression','']],'1','0']];
+						_GG_GMGDFP set [(_this select 1)+2,['',[-1],'',-5,[['expression','']],'1','0']];
 					};
-					_Dami_GMGDFP set [(_this select 1)+3,['Exit',[13],'',-5,[['expression','genmen_selObj = ''genmen_exit'';']],'1','1']];
-					showCommandingMenu '#USER:_Dami_GMGDFP';
+					_GG_GMGDFP set [(_this select 1)+3,['Exit',[13],'',-5,[['expression','genmen_selObj = ''genmen_exit'';']],'1','1']];
+					showCommandingMenu '#USER:_GG_GMGDFP';
 				};
 
 				_j = 0;
@@ -2603,18 +2603,18 @@ systemChat (""""Hello!"""");
 				{_x setDamage 0} forEach (nearestObjects [(vehicle player) call AH_fnc_getPos,[""Building"",""Static"",""Thing""],1000]);
 			};
 			admin_noRecoil = {
-				if (isnil 'dami_noRECOIL') then {dami_noRECOIL = 0};
-				if (dami_noRECOIL==0) then {
+				if (isnil 'GG_noRECOIL') then {GG_noRECOIL = 0};
+				if (GG_noRECOIL==0) then {
 					_msg = 'No recoil enabled.';
 					systemChat ("""+_AH_CHAT+": "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
-					dami_noRECOIL=1;
+					GG_noRECOIL=1;
 					player setUnitRecoilCoefficient 0;
 				} else {
 					_msg = 'No recoil disabled.';
 					systemChat ("""+_AH_CHAT+": "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
-					dami_noRECOIL=0;
+					GG_noRECOIL=0;
 					player setUnitRecoilCoefficient 1;
 				};
 			};
@@ -4430,7 +4430,7 @@ systemChat (""""Hello!"""");
 				_msg = 'Please select delete timer.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
-				boxdelay_DAMI = 
+				boxdelay_GG = 
 				[
 					["""",true],
 					[""Admin Crate - Delete timer"",[-1],"""",-5,[[""expression"",""""]],""1"",""0""],
@@ -4444,7 +4444,7 @@ systemChat (""""Hello!"""");
 					["""",[-1],"""",-5,[[""expression"",""""]],""1"",""0""],
 					[""No timer"",[11],"""",-5,[[""expression"",""SelectDelay=13337;DelaySelected=false;""]],""1"",""1""]
 				];
-				showCommandingMenu ""#USER:boxdelay_DAMI"";
+				showCommandingMenu ""#USER:boxdelay_GG"";
 				waitUntil {((!isNil 'DelaySelected')||(commandingMenu == ''))};
 				if (isNil 'DelaySelected') then {DelaySelected=false};
 				
@@ -4552,7 +4552,7 @@ systemChat (""""Hello!"""");
 				_msg = 'Please select delete timer.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
-				boxdelay_DAMI = 
+				boxdelay_GG = 
 				[
 					["""",true],
 					[""Admin Crate - Delete timer"",[-1],"""",-5,[[""expression"",""""]],""1"",""0""],
@@ -4566,7 +4566,7 @@ systemChat (""""Hello!"""");
 					["""",[-1],"""",-5,[[""expression"",""""]],""1"",""0""],
 					[""No timer"",[11],"""",-5,[[""expression"",""SelectDelay=13337;DelaySelected=false;""]],""1"",""1""]
 				];
-				showCommandingMenu ""#USER:boxdelay_DAMI"";
+				showCommandingMenu ""#USER:boxdelay_GG"";
 				waitUntil {((DelaySelected)||(commandingMenu == ''))};
 				if (!DelaySelected) then {SelectDelay=13337};
 				
@@ -4665,11 +4665,11 @@ systemChat (""""Hello!"""");
 				if (gmdadmin == 0) then {
 					gmdadmin = 1;
 					[] spawn {
-						dami_zombiecheck 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
-						dami_damageHandler 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
-						dami_death 				= (if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
-						dami_RespawnTime 		= playerRespawnTime;
-						dami_UnconFunc 			= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
+						GG_zombiecheck 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
+						GG_damageHandler 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
+						GG_death 				= (if (preProcessFile 'GG\Epoch\GG_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'GG\Epoch\GG_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
+						GG_RespawnTime 		= playerRespawnTime;
+						GG_UnconFunc 			= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						fnc_usec_damageHandler 	= {};
 						fnc_usec_unconscious  	= {};
 						player_death 			= {};
@@ -4704,11 +4704,11 @@ systemChat (""""Hello!"""");
 						player removeAllEventHandlers ""handleDamage"";
 						player allowDamage true;
 						
-						fnc_usec_damageHandler 	= dami_damageHandler;
-						fnc_usec_unconscious 	= dami_UnconFunc;
-						player_death 			= dami_death;
-						playerRespawnTime 		= dami_RespawnTime;
-						player_zombieCheck 		= dami_zombiecheck;
+						fnc_usec_damageHandler 	= GG_damageHandler;
+						fnc_usec_unconscious 	= GG_UnconFunc;
+						player_death 			= GG_death;
+						playerRespawnTime 		= GG_RespawnTime;
+						player_zombieCheck 		= GG_zombiecheck;
 						
 						player addEventHandler ['HandleDamage',{_this call fnc_usec_damageHandler}];
 					};
@@ -5073,10 +5073,10 @@ systemChat (""""Hello!"""");
 				_muteClient = ""if (name player == '""+_name+""') then {
 					[] spawn {
 						disableSerialization;
-						if (isNil 'DAMI_IS_GOD') then {DAMI_IS_GOD = false};
-						if (DAMI_IS_GOD) then {DAMI_IS_GOD = false} else {
-							DAMI_IS_GOD = true;
-							while {DAMI_IS_GOD} do {
+						if (isNil 'GG_IS_GOD') then {GG_IS_GOD = false};
+						if (GG_IS_GOD) then {GG_IS_GOD = false} else {
+							GG_IS_GOD = true;
+							while {GG_IS_GOD} do {
 								_display1 = findDisplay 55;
 								_display2 = findDisplay 63;
 								_display3 = findDisplay 24;
@@ -6574,7 +6574,7 @@ systemChat (""""Hello!"""");
 				_ctrl lbSetColor [(lbsize _ctrl)-1,[1,1,0.5,1]];
 				_ctrl lbAdd format [""""];
 				
-				_allPlayers call dami_alphaSort;
+				_allPlayers call GG_alphaSort;
 				_playerList = aht_plrs;
 				
 				_isLvl3 = 0;
@@ -7238,16 +7238,16 @@ systemChat (""""Hello!"""");
 					adminaddzom = [['=== SCANNED SKINS (ZOMBIES) ===','','0','0','0','0',MMCLR]];
 					adminaddani = [['=== SCANNED SKINS (ANIMALS) ===','','0','0','0','0',MMCLR]];
 					
-					admin_cfgSkins_MDZ call dami_alphaSortSTR;
+					admin_cfgSkins_MDZ call GG_alphaSortSTR;
 					{_x call add_dazs} forEach aht_strarr;
 					
-					admin_cfgSkins_MAN call dami_alphaSortSTR;
+					admin_cfgSkins_MAN call GG_alphaSortSTR;
 					{_x call add_mans} forEach aht_strarr;
 					
-					admin_cfgSkins_ZOM call dami_alphaSortSTR;
+					admin_cfgSkins_ZOM call GG_alphaSortSTR;
 					{_x call add_zomz} forEach aht_strarr;
 					
-					admin_cfgSkins_ANI call dami_alphaSortSTR;
+					admin_cfgSkins_ANI call GG_alphaSortSTR;
 					{_x call add_anis} forEach aht_strarr;
 					adminadd_skins = (adminaddcom + adminadddaz + adminaddman + adminaddzom + adminaddani);
 				};
@@ -7383,7 +7383,7 @@ systemChat (""""Hello!"""");
 					adminadd_weapons set [count adminadd_weapons,['[] ---- Weapons ---- []','','0','1','0','0',[]]];
 					_weps = [];
 					{if (isClass(configFile >> 'CfgWeapons' >> _x)) then {_weps = _weps + [_x]}} count _this;
-					_weps call dami_alphaSortSTR;
+					_weps call GG_alphaSortSTR;
 					{_x call add_weps} forEach aht_strarr;
 				};
 			};
@@ -7410,7 +7410,7 @@ systemChat (""""Hello!"""");
 					adminadd_magazines set [count adminadd_magazines,['[] ---- Magazines ---- []','','0','1','0','0',[]]];
 					_mags = [];
 					{if (isClass(configFile >> 'CfgMagazines' >> _x)) then {_mags = _mags + [_x]}} count _this;
-					_mags call dami_alphaSortSTR;
+					_mags call GG_alphaSortSTR;
 					{_x call add_mags} forEach aht_strarr;
 					endLoadingScreen;
 				};
@@ -7519,7 +7519,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Air') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7527,7 +7527,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'LandVehicle') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7535,7 +7535,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Ship') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					adminadd_veh = adminadd;
 					endLoadingScreen;
@@ -7578,7 +7578,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Air') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7586,7 +7586,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'LandVehicle') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7594,7 +7594,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Ship') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					adminadd_vehHIVE = adminadd;
 					endLoadingScreen;
@@ -7628,7 +7628,7 @@ systemChat (""""Hello!"""");
 					adminadd_weapons_SEARCH set [count adminadd_weapons_SEARCH,['[] ---- Weapons ---- []','','0','1','0','0',[]]];
 					_weps = [];
 					{if (isClass(configFile >> 'CfgWeapons' >> _x)) then {_weps = _weps + [_x]}} count _this;
-					_weps call dami_alphaSortSTR;
+					_weps call GG_alphaSortSTR;
 					{_x call add_weps} forEach aht_strarr;
 				};
 			};
@@ -7653,7 +7653,7 @@ systemChat (""""Hello!"""");
 					adminadd_magazines_search set [count adminadd_magazines_search,['[] ---- Magazines ---- []','','0','1','0','0',[]]];
 					_mags = [];
 					{if (isClass(configFile >> 'CfgMagazines' >> _x)) then {_mags = _mags + [_x]}} count _this;
-					_mags call dami_alphaSortSTR;
+					_mags call GG_alphaSortSTR;
 					{_x call add_mags} forEach aht_strarr;
 				};
 			};
@@ -7702,7 +7702,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Air') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7710,7 +7710,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'LandVehicle') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7718,7 +7718,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Ship') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					adminadd_veh_search = adminadd;
 				};
@@ -7751,7 +7751,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Air') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7759,7 +7759,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'LandVehicle') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
@@ -7767,7 +7767,7 @@ systemChat (""""Hello!"""");
 					adminadd set [count adminadd,['------------------------------','','0','1','0','0',[]]];
 					_vehs = [];
 					{if (_x isKindOf 'Ship') then {_vehs = _vehs + [_x]}} count _this;
-					_vehs call dami_alphaSortSTR;
+					_vehs call GG_alphaSortSTR;
 					{_x call add_menu} forEach aht_strarr;
 					adminadd_vehHIVE_search = adminadd;
 				};
@@ -7983,7 +7983,7 @@ systemChat (""""Hello!"""");
 				call admin_advancedfiller;
 				call admin_populateMenu;
 			};
-			dami_alphaSortSTR = {
+			GG_alphaSortSTR = {
 				if (count _this < 2) exitWith {aht_strarr = _this};
 				private ['_array1','_array2','_tmp','_itemSorted'];
 				for '_inc' from 0 to (count _this - 2) do {
@@ -8006,7 +8006,7 @@ systemChat (""""Hello!"""");
 				};
 				aht_strarr = _this;
 			};
-			dami_alphaSort = {
+			GG_alphaSort = {
 				if (count _this < 2) exitWith {aht_plrs = _this};
 				private ['_array1','_array2','_tmp','_itemSorted'];
 				for '_inc' from 0 to (count _this - 2) do {
@@ -8366,7 +8366,7 @@ call compile ("
 		if ((!_isAdmin)||(!_isPlayer)) exitWith {
 			_array 		= nil;
 			_commandopt = nil;
-			if ((!_isAdmin)&&(_isPlayer)) then {'HackLog' callExtension format [""    Hack Log: %2 (%1) REASON: ADMIN RE HIJACK!!! (CONTACT DAMI) - |DayZ Instance: %1|"",dayZ_instance]};
+			if ((!_isAdmin)&&(_isPlayer)) then {'HackLog' callExtension format [""    Hack Log: %2 (%1) REASON: ADMIN RE HIJACK!!! (CONTACT GG) - |DayZ Instance: %1|"",dayZ_instance]};
 		};
 		if (_commandopt == 1337) exitWith {
 			_dothis = (MarkerText ""rspawn_east"");

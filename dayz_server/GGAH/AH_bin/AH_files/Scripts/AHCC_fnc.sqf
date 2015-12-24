@@ -278,18 +278,18 @@ _AH_CC = compile ("
 		{genmen_objRem set [count genmen_objRem,_x]} forEach (_this select 1);
 		
 		genmen_generate = {
-			_Dami_GMGDFP = [['',true],['Select key:',[-1],'',-5,[['expression','']],'1','0']];
+			_GG_GMGDFP = [['',true],['Select key:',[-1],'',-5,[['expression','']],'1','0']];
 			for '_i' from (_this select 0) to (_this select 1) do {
 				_arr = [format['%1',genmen_objRem select (_i)],[_i - (_this select 0) + 2],'',-5,[['expression',format['genmen_selObj = genmen_objRem select %1;',_i]]],'1','1'];
-				_Dami_GMGDFP set [_i+2,_arr];
+				_GG_GMGDFP set [_i+2,_arr];
 			};
 			if (count genmen_objRem >  (_this select 1)) then {
-				_Dami_GMGDFP set [(_this select 1)+2,['Next',[12],'',-5,[['expression','genmen_nextPage = true;']],'1','1']];
+				_GG_GMGDFP set [(_this select 1)+2,['Next',[12],'',-5,[['expression','genmen_nextPage = true;']],'1','1']];
 			} else {
-				_Dami_GMGDFP set [(_this select 1)+2,['',[-1],'',-5,[['expression','']],'1','0']];
+				_GG_GMGDFP set [(_this select 1)+2,['',[-1],'',-5,[['expression','']],'1','0']];
 			};
-			_Dami_GMGDFP set [(_this select 1)+3,['Exit',[13],'',-5,[['expression','genmen_selObj = ''genmen_exit'';']],'1','1']];
-			showCommandingMenu '#USER:_Dami_GMGDFP';
+			_GG_GMGDFP set [(_this select 1)+3,['Exit',[13],'',-5,[['expression','genmen_selObj = ''genmen_exit'';']],'1','1']];
+			showCommandingMenu '#USER:_GG_GMGDFP';
 		};
 		_j = 0;
 		while {genmen_selObj == ''} do {
@@ -661,8 +661,8 @@ _AH_CC = compile ("
 			player setPosATL [-18697,25815,0];
 			diag_log ('AH_EVENT: Event init reverted!');
 			
-			if (preProcessFile 'DamiMods\Epoch\dami_PD.sqf' != '') then {
-				player_death = compile preprocessFileLineNumbers 'DamiMods\Epoch\dami_PD.sqf';
+			if (preProcessFile 'GG\Epoch\GG_PD.sqf' != '') then {
+				player_death = compile preprocessFileLineNumbers 'GG\Epoch\GG_PD.sqf';
 			} else {
 				player_death = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf';
 			};
@@ -936,7 +936,7 @@ _AH_CC = compile ("
 		};
 	};
 	"+_RND+"_instaToggle = {
-		if (getPlayerUID player in dami_notimerarra) then {
+		if (getPlayerUID player in GG_notimerarra) then {
 			if (profileNameSpace getVariable ['AH_instacraft',false]) then {
 				profileNamespace setVariable ['AH_instacraft',false];
 				saveProfileNamespace;
@@ -965,16 +965,16 @@ _AH_CC = compile ("
 		_serverTE = (if (serverTime > 40000) then [{0},{serverTime}]);
 		if ((_lastsuiV == str(donator_key))&&((_serverTE - _lastsuiT) < 300)&&(_lastsuiT != 0)&&(_serverTE < 40000)) exitWith {
 			_msg = ('You can only suicide once every 5 minutes! Time left: '+str floor(300 - (serverTime - _lastsuiT)));
-			systemChat ('(ArmA-AH): '+str _msg);
+			systemChat ('(GG-AH): '+str _msg);
 			_msg call AH_fnc_dynTextMsg;
 		};
 		if (inSafeZone) exitWith {
 			_msg = 'You can not suicide in safezones..';
-			systemChat ('(ArmA-AH): '+str _msg);
+			systemChat ('(GG-AH): '+str _msg);
 			_msg call AH_fnc_dynTextMsg;
 		};
 		suicide_answer = nil;
-		DamiSpawn = [
+		GGSpawn = [
 			['Suicide Confirmation',true],
 			['Are you sure?', [-1], '', -5, [['expression', '']], '1', '0'],
 			['', [-1], '', -5, 		[['expression', '']], '1', '0'],
@@ -983,7 +983,7 @@ _AH_CC = compile ("
 			['', [-1], '', -5, 		[['expression', '']], '1', '0'],
 			['Exit', [-1], '', -3, 	[['expression', 'suicide_answer=false;']], '1', '1']
 		];
-		showCommandingMenu '#USER:DamiSpawn';
+		showCommandingMenu '#USER:GGSpawn';
 		waitUntil {((!isNil 'suicide_answer')||(commandingMenu == ''))};
 		if (isNil 'suicide_answer') then {suicide_answer=false};
 		if (suicide_answer) then {
@@ -1137,7 +1137,7 @@ _AH_CC = compile ("
 	_badcht = "+str _CC_badChat+";
 	_help 	= ['!help'];
 	_nohud 	= ['!nohud'];
-	_killme = ['!die','!killme','!kill','!suicide','!dami'];
+	_killme = ['!die','!killme','!kill','!suicide','!GG'];
 	_ts3 	= ['!ts3'];
 	_eplugs = ['!earplugs','!plugs'];
 	_rules 	= ['!rules'];
@@ -1168,12 +1168,15 @@ _AH_CC = compile ("
 	_FL_addfriend = ['!addfriend'];
 	_FL_delfriend = ['!delfriend'];
 	_FL_groupTags = ['!grouptags'];
+
+	_airdrop = ['!airdrop'];
+	_scan = ['!scan'];
 	
 	if !("+str _CC_VDIS+") then {_viewd=[]};
 	if !("+str _CC_MUSIC+") then {_inmusi=[]};
 	_frndCommands = "+_CC_fcmds+";
 	_animCommands = "+_CC_anims+";
-	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta);
+	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta + _airdrop + _scan);
 	_chatCommands = _chatCommands + _animCommands + _frndCommands;
 	while {str(100) == str(100)} do {
 		waitUntil {!(isNull (findDisplay 24))};
@@ -1224,6 +1227,12 @@ _AH_CC = compile ("
 					rules_on = nil;
 					[' ',0,0,1,0,0,77398] spawn AH_fnc_dynamictext
 				};
+			};
+			if (_msg in _airdrop) then {
+				player execVM 'GG\Epoch\GG_AD.sqf';
+			};
+			if (_msg in _scan) then {
+				player execVM 'GG\Epoch\GG_SP.sqf';
 			};
 			if (_msg in _animCommands) then {
 				if (count (nearestObjects [player, (DZE_maintainClasses), 10]) == 0) then {
