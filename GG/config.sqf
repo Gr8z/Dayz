@@ -1,4 +1,3 @@
-dayZ_instance =	2;
 dayzHiveRequest = [];
 initialized = false;
 dayz_previousID = 0;

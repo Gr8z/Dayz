@@ -1,6 +1,7 @@
 // Map Settings
 GG_serverName 		= "<img image='GG\GUI\logo.paa'/><br/><t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Chernarus</t>";
 
+dayZ_instance 		= 2;
 spawnShoremode 		= 1;
 spawnArea 			= 1000;
 MaxVehicleLimit 	= 300;
