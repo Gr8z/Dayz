@@ -1152,6 +1152,13 @@ class RscButtonMenu : RscButton {
 	tooltipColorText[] = {1,1,1,1};
 	tooltipColorBox[] = {1,1,1,1};
 	tooltipColorShade[] = {0,0,0,0.65};
+	class HitZone
+	{
+		left = 0.0;
+		top = 0.0;
+		right = 0.0;
+		bottom = 0.0;
+	};
 	class TextPos
 	{
 		left = "0.25 * 			(			((safezoneW / safezoneH) min 1.2) / 40)";
