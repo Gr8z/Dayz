@@ -295,17 +295,17 @@ class Mission
 		{
 			position[]={4066.3528,-36.305538,7265.0024};
 			name="Misc.Vendor";
-			text="Misc. Vendor";
-			type="mil_box";
-			colorName="ColorYellow";
+			text="Black Market";
+			type="mil_triangle";
+			colorName="ColorBlack";
 		};
 		class Item11
 		{
 			position[]={17497.631,-235.07928,7159.0879};
 			name="Misc.Vendor2";
-			text="Misc. Vendor";
-			type="mil_box";
-			colorName="ColorYellow";
+			text="Black Market";
+			type="mil_triangle";
+			colorName="ColorBlack";
 		};
 		class Item12
 		{
