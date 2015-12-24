@@ -277,7 +277,7 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={6810.82,8533.66,0.00149536};
+			position[]={6810.82,0.00149536,8533.66};
 			name="AircraftDealer";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -285,7 +285,7 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={16555.7,10160.9,0.00143814};
+			position[]={16555.7,0.00143814,10160.9};
 			name="AircraftDealer2";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -341,7 +341,7 @@ class Mission
 		};
 		class Item16
 		{
-			position[]={13345.4,8615.09,0.103439};
+			position[]={13345.4,0.103439,8615.09};
 			name="Wholesaler";
 			text="Wholesaler";
 			type="mil_box";
@@ -349,7 +349,7 @@ class Mission
 		};
 		class Item17
 		{
-			position[]={9856.88,7484.32,0.453827};
+			position[]={9856.88,0.453827,7484.32};
 			name="Wholesaler2";
 			text="Wholesaler";
 			type="mil_box";
