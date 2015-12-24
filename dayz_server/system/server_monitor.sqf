@@ -289,7 +289,7 @@ if (isServer and isNil "sm_done") then {
 						default {[zone]};
 						case 1: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]}; // need to edit
 						case 2: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]};
-						case 3: {[Emmen,Schratten,Hero,Wholesale1,Wholesaler,black,Lenz,Aircraft,Chatzbach};
+						case 3: {[Emmen,Schratten,Hero,Wholesale1,Wholesaler,black,Lenz,Aircraft,Chatzbach]};
 					});
 					{
 						if (_object distance _x < 90) then {
