@@ -1,5 +1,5 @@
 // Map Settings
-GG_serverName 		= "<img image='GG\GUI\logo.paa'/><br/><t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Napf</t>";
+GG_serverName 		= "<t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Napf</t>";
 
 dayZ_instance 		= 3;
 spawnShoremode 		= 1;
