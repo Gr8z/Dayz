@@ -70,10 +70,10 @@ if (dayZ_instance == 1) then {
 	[_marker," WWW.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
 	_marker = xct ["SafezoneAreas", [5000,15700]];
-	[_marker," TS.GHOSTZGAMERZ.COM","ColorGreen","mil_flag",[0.7,0.7],0.8] call _addMarker;
+	[_marker," TS.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
 	_marker = xct ["HelpInfo", [5000,15500]];
-	[_marker," Type !help for a list of commands","ColorBlack","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
+	[_marker," Type !help for a list of commands","ColorGreen","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
 };
 
 //cherno

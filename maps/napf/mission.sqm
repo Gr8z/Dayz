@@ -285,7 +285,7 @@ class Mission
 		class Item9
 		{
 			position[]={8990.2393,195.55144,7554.8857};
-			name="Black Market";
+			name="BlackMarket";
 			text="Black Market";
 			type="mil_dot";
 			colorName="ColorGreen";
