@@ -299,7 +299,7 @@ class Mission
 			type="mil_box";
 			colorName="ColorYellow";
 		};
-		class Item12
+		class Item11
 		{
 			position[]={17497.631,-235.07928,7159.0879};
 			name="Misc.Vendor2";
