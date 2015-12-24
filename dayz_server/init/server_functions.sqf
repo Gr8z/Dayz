@@ -766,25 +766,52 @@ dayz_removePlayerOnDisconnect = {
 	};
 };
 
+if(worldName == 'Chernarus')then {
 server_timeSync = {
 	private ["_hour","_minute","_date","_key","_result","_outcome"];
+
     _key = "CHILD:307:";
 	_result = _key call server_hiveReadWrite;
 	_outcome = _result select 0;
-	if (_outcome == "PASS") then {
+
+	if(_outcome == "PASS") then {
+
 		_date = _result select 1; 
-		
-		if (dayz_fullMoonNights) then {
+
+		if(dayz_fullMoonNights) then {
 			_hour = _date select 3;
 			_minute = _date select 4;
 			_date = [2013,8,3,_hour,_minute];
 		};
-
 		setDate _date;
 		PVDZE_plr_SetDate = _date;
 		publicVariable "PVDZE_plr_SetDate";
 		diag_log ("TIME SYNC: Local Time set to " + str(_date));	
 	};
+};
+}else{
+server_timeSync = {
+	private ["_hour","_minute","_date","_key","_result","_outcome"];
+
+    _key = "CHILD:307:";
+	_result = _key call server_hiveReadWrite;
+	_outcome = _result select 0;
+
+	if(_outcome == "PASS") then {
+
+		_date = _result select 1; 
+
+		if(dayz_fullMoonNights) then {
+			_hour = _date select 3;
+			_minute = _date select 4;
+			_date = [2013,1,1,_hour,_minute];
+		};
+		setDate _date;
+		PVDZE_plr_SetDate = _date;
+		publicVariable "PVDZE_plr_SetDate";
+		diag_log ("TIME SYNC: Local Time set to " + str(_date));	
+	};
+};
 };
 
 server_spawncleanDead = {
