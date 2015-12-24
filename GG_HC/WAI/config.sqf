@@ -12,7 +12,7 @@
 		default {["Tradercity"]};
 		case 1: {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]}; // need to edit
 		case 2: {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]};
-		case 3: {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]}; // need to edit
+		case 3: {["TraderCIty4","FriendlyTraderCity","HeroVendor","WestWholesaler","EastWholesaler","BanditVendor","BlackMarket","NeutralTraderCIty3","NeutralTraderCIty2","NeutralTraderCity"]};
 	});
 /* END GENERAL CONFIG */
 

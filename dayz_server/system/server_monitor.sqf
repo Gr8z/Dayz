@@ -1,4 +1,4 @@
-private ["_nul","_result","_pos","_wsDone","_dir","_block","_isOK","_countr","_objWpnTypes","_objWpnQty","_dam","_selection","_totalvehicles","_object","_idKey","_type","_ownerID","_worldspace","_intentory","_hitPoints","_fuel","_damage","_key","_vehLimit","_hiveResponse","_objectCount","_codeCount","_data","_status","_val","_traderid","_retrader","_traderData","_id","_lockable","_debugMarkerPosition","_vehicle_0","_bQty","_vQty","_BuildingQueue","_objectQueue"];
+private ["_nul","_result","_pos","_wsDone","_dir","_block","_isOK","_countr","_objWpnTypes","_objWpnQty","_dam","_selection","_totalvehicles","_object","_idKey","_type","_ownerID","_worldspace","_intentory","_hitPoints","_fuel","_damage","_key","_vehLimit","_hiveResponse","_objectCount","_codeCount","_data","_status","_val","_traderid","_retrader","_traderData","_id","_lockable","_debugMarkerPosition","_vehicle_0","_bQty","_vQty","_BuildingQueue","_objectQueue","_traderCities"];
 dayz_versionNo 		= getText(configFile >> "CfgMods" >> "DayZ" >> "version");
 dayz_hiveVersionNo 	= getNumber(configFile >> "CfgMods" >> "DayZ" >> "hiveVersion");
 
@@ -284,6 +284,13 @@ if (isServer and isNil "sm_done") then {
 						_object setvehiclelock "locked";
 						_object setVariable ["Tow_settings_disabled",true,true];
 					} else {_unlockedvehiclesm8 = _unlockedvehiclesm8 + 1};
+					
+					_traderCities = (switch (dayz_instance) do {
+						default {[zone]};
+						case 1: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]}; // need to edit
+						case 2: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]};
+						case 3: {[Emmen,Schratten,Hero,Wholesale1,Wholesaler,black,Lenz,Aircraft,Chatzbach};
+					});
 					{
 						if (_object distance _x < 90) then {
 							_object spawn {
@@ -299,7 +306,7 @@ if (isServer and isNil "sm_done") then {
 								};
 							};
 						};
-					} forEach [zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor];
+					} count _traderCities;
 					_totalvehicles = _totalvehicles + 1;
 					serverVehicleCounter set [count serverVehicleCounter,_type];
 				};

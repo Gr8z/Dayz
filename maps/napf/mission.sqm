@@ -261,7 +261,7 @@ class Mission
 		class Item6
 		{
 			position[]={2025.4277,5.9860959,7801.5674};
-			name="West Wholesaler";
+			name="WestWholesaler";
 			text="West Wholesaler and Boatsaler";
 			type="mil_dot";
 			colorName="ColorBrown";
@@ -269,7 +269,7 @@ class Mission
 		class Item7
 		{
 			position[]={16832.439,7.745224,5238.2793};
-			name="East Wholesaler and Boatsaler";
+			name="EastWholesaler";
 			text="East Wholesaler and Boatsaler";
 			type="mil_dot";
 			colorName="ColorBrown";
