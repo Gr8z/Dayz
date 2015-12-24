@@ -10,7 +10,7 @@
 	];
 	trader_markers = (switch (dayz_instance) do {
 		default {["Tradercity"]};
-		case 1: {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]}; // need to edit
+		case 1: {["TraderCityLyepestok","TraderCitySabina","TraderCityBilgrad","TraderCityTreshnyovo","BanditVendor","HeroVendor","AircraftDealer","AircraftDealer2","MiscVendor","MiscVendor2","BoatDealer","BoatDealer2","BoatDealer3","BoatDealer4","Wholesaler","Wholesaler2","TraderCitySeven","TraderCityYaroslav"]};
 		case 2: {["Tradercitybor","Tradercitybash","Tradercityklen","Tradercitystary","boatsnwholesale_1","boatsnwholesale_1_1","AirplaneDealer","BoatDealer","HeroVendor","BoatDealer_1"]};
 		case 3: {["TraderCIty4","FriendlyTraderCity","HeroVendor","WestWholesaler","EastWholesaler","BanditVendor","BlackMarket","NeutralTraderCIty3","NeutralTraderCIty2","NeutralTraderCity"]};
 	});

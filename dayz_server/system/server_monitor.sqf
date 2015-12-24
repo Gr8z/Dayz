@@ -287,7 +287,7 @@ if (isServer and isNil "sm_done") then {
 					
 					_traderCities = (switch (dayz_instance) do {
 						default {[zone]};
-						case 1: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]}; // need to edit
+						case 1: {[zonelypo,zonesabina,zonebilgrad,zonetresh,zoneaircraft1,zonewholesale1,zonewholesale2,zoneseven,zoneyaro,zonemisc1,zonemisc2,zonehero,zoneair2]};
 						case 2: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]};
 						case 3: {[Emmen,Schratten,Hero,Wholesale1,Wholesaler,black,Lenz,Aircraft,Chatzbach]};
 					});
