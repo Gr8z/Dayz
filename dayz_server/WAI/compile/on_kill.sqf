@@ -56,7 +56,7 @@ if (isServer) then {
 		_cash = possible_cash_amounts call BIS_fnc_selectRandom;
 		
 		if (ai_coin_award) then {
-		 _unit setVariable["CashMoney",_cash,true];
+		 _unit setVariable["GGCoins",_cash,true];
 		};
 
 
