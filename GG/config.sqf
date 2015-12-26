@@ -90,7 +90,7 @@ GCoins			= "Gold Coins";//Currency name
 DZE_ATM 		= ["Laptop_EP1","Infostand_2_EP1"];
 DZE_Bank_Trader = ["RU_Functionary2","Functionary2_EP1"];
 DZE_rnr_trader 	= ["INS_Lopotev_DZ","Worker2"];
-DZE_takePlot	= false;
+DZE_takePlot	= true;
 MaxMineVeins 	= 5;
 
 DZE_MissionLootTable = true;
