@@ -4667,7 +4667,7 @@ systemChat (""""Hello!"""");
 					[] spawn {
 						GG_zombiecheck 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_zombieCheck.sqf';
 						GG_damageHandler 		= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_damageHandler.sqf';
-						GG_death 				= (if (preProcessFile 'GG\Epoch\GG_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'GG\Epoch\GG_PD.sqf'},{compile preprocessFileLineNumbers 'GG\compile\player_death.sqf'}]);
+						GG_death 				= (if (preProcessFile 'GG\Epoch\GG_PD.sqf' != '') then [{compile preprocessFileLineNumbers 'GG\Epoch\GG_PD.sqf'},{compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf'}]);
 						GG_RespawnTime 		= playerRespawnTime;
 						GG_UnconFunc 			= compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\fn_unconscious.sqf';
 						fnc_usec_damageHandler 	= {};

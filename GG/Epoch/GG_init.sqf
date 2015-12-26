@@ -685,9 +685,6 @@ if (!isDedicated) then {
 		setPlayable dayz_originalPlayer;
 		selectPlayer dayz_originalPlayer;
 		player allowDamage false;
-		_myGroup = group _body;
-		[_body] joinSilent dayz_firstGroup;
-		deleteGroup _myGroup;
 		PVDZE_Server_Simulation = [_body, false];
 		publicVariableServer "PVDZE_Server_Simulation";
 		uiSleep 5;
