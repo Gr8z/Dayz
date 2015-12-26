@@ -33,10 +33,78 @@ if(isServer) then {
 		ai_gear0		            = [["ItemBandage","ItemBandage","ItemPainkiller"],["ItemKnife","ItemFlashlight"]];
 		ai_gear1		            = [["ItemBandage","ItemBandage","ItemPainkiller"],["ItemKnife","ItemFlashlight"]];
 		ai_gear_random		        = [ai_gear0,ai_gear1];
-		ai_wep_assault		        = ["M16A4_ACG","Sa58V_RCO_EP1","SCAR_L_STD_Mk4CQT","M8_sharpshooter","M4A1_HWS_GL_camo","SCAR_L_STD_HOLO","M4A3_CCO_EP1","M4A3_CCO_EP1","M4A1_AIM_SD_camo","M16A4","m8_carbine","BAF_L85A2_RIS_Holo","Sa58V_CCO_EP1"];	// Assault
-		ai_wep_machine		        = ["RPK_74","MK_48_DZ","M249_EP1_DZ","Pecheneg_DZ","M240_DZ"];
-		ai_wep_sniper		        = ["M14_EP1","SCAR_H_LNG_Sniper_SD","M110_NVG_EP1","SVD_CAMO","VSS_Vintorez","DMR_DZ","M40A3"];
-		ai_wep_random		        = [ai_wep_assault,ai_wep_assault,ai_wep_assault,ai_wep_sniper,ai_wep_machine];
+		ai_wep_assault = [
+		"G36A_camo",
+		"G36C",
+		"G36C_camo",
+		"G36K_camo",
+		"M16A2",
+		"M16A2GL",
+		"M16A4_ACG",
+		"M4A1",
+		"M4A1_HWS_GL_camo",
+		"M4A3_CCO_EP1",
+		"M4A1_Aim",
+		"Sa58P_EP1",
+		"Sa58V_CCO_EP1",
+		"Sa58V_EP1",
+		"Sa58V_RCO_EP1",
+		"AKS_74_kobra",
+		"AKS_74_U",
+		"AK_47_M",
+		"AK_74",
+		"FN_FAL",
+		"BAF_L85A2_RIS_SUSAT",
+		"BAF_L85A2_RIS_Holo"
+		];
+		ai_wep_machine = [
+		"RPK_74",
+		"MK_48_DZ",
+		"M249_EP1_DZ",
+		"Pecheneg_DZ",
+		"M240_DZ"
+		];
+		ai_wep_sniper = [
+		"RH_hk417",
+		"RH_hk417aim",
+		"RH_hk417eotech",
+		"RH_hk417acog",
+		"RH_hk417sp",
+		"RH_hk417s",
+		"RH_hk417saim",
+		"RH_hk417seotech",
+		"RH_hk417sacog",
+		"RH_hk417sd",
+		"RH_hk417sdaim",
+		"RH_hk417sdeotech",
+		"RH_hk417sdacog",
+		"RH_hk417sdsp",
+		"RH_hk417sgl",
+		"RH_hk417sglaim",
+		"RH_hk417sgleotech",
+		"RH_hk417sglacog",
+		"RH_m14",
+		"RH_m14acog",
+		"RH_m14aim",
+		"RH_m14eot",
+		"RH_m21",
+		"RH_sc2",
+		"RH_sc2acog",
+		"RH_sc2aim",
+		"RH_sc2eot",
+		"RH_sc2shd",
+		"RH_sc2sp",
+		"vil_SR25",
+		"vil_SR25SD",
+		"vil_M110",
+		"vil_M110sd",
+		"vil_M21",
+		"vil_M21G",
+		"vil_M14",
+		"vil_M14G",
+		"RH_m1stsp"
+		];
+		ai_wep_random = [ai_wep_assault,ai_wep_assault,ai_wep_assault,ai_wep_sniper,ai_wep_machine];
 		ai_wep_launchers_AT		    = ["M136","RPG18","JAVELIN"];
 		ai_wep_launchers_AA		    = ["Strela","Igla","STINGER"];
 		ai_packs		            = ["DZ_Czech_Vest_Puch","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
@@ -121,32 +189,290 @@ if(isServer) then {
 		["Pook_Gunship",5]
 		];
 		
-		armed_vehicle 		        = ["ArmoredSUV_PMC_DZE","GAZ_Vodnik_DZE","HMMWV_M1151_M2_CZ_DES_EP1_DZE","HMMWV_M998A2_SOV_DES_EP1_DZE","LandRover_MG_TK_EP1_DZE","LandRover_Special_CZ_EP1_DZE","Offroad_DSHKM_Gue_DZE","Pickup_PK_GUE_DZE","Pickup_PK_INS_DZE","Pickup_PK_TK_GUE_EP1_DZE","UAZ_MG_TK_EP1_DZE"];
-		armed_chopper 		        = ["CH_47F_EP1_DZE","UH1H_DZE","Mi17_DZE","UH60M_EP1_DZE","UH1Y_DZE","MH60S_DZE"];
-		civil_chopper 		        = ["AH6X_DZ","BAF_Merlin_DZE","MH6J_DZ","Mi17_Civilian_DZ"];
-		military_unarmed 		    = ["GAZ_Vodnik_MedEvac","HMMWV_Ambulance","HMMWV_Ambulance_CZ_DES_EP1","HMMWV_DES_EP1","HMMWV_DZ","HMMWV_M1035_DES_EP1","LandRover_CZ_EP1","LandRover_TK_CIV_EP1","UAZ_CDF","UAZ_INS","UAZ_RU","UAZ_Unarmed_TK_CIV_EP1","UAZ_Unarmed_TK_EP1","UAZ_Unarmed_UN_EP1"];
-		cargo_trucks 		        = ["Kamaz","MTVR_DES_EP1","Ural_CDF","Ural_TK_CIV_EP1","Ural_UN_EP1","V3S_Open_TK_CIV_EP1","V3S_Open_TK_EP1"];
-		refuel_trucks		        = ["KamazRefuel_DZ","MtvrRefuel_DES_EP1_DZ","UralRefuel_TK_EP1_DZ","V3S_Refuel_TK_GUE_EP1_DZ"];
-		civil_vehicles 		        = ["hilux1_civil_1_open","hilux1_civil_2_covered","hilux1_civil_3_open_EP1","SUV_Blue","SUV_Camo","SUV_Charcoal","SUV_Green","SUV_Orange","SUV_Pink","SUV_Red","SUV_Silver","SUV_TK_CIV_EP1","SUV_White","SUV_Yellow"];
-		crates_large		        = ["USVehicleBox"];
-		crates_medium		        = ["USBasicWeaponsBox","RUBasicWeaponsBox","USSpecialWeaponsBox","USSpecialWeapons_EP1","RUSpecialWeaponsBox","SpecialWeaponsBox","TKSpecialWeapons_EP1","CZBasicWeapons_EP1","UNBasicWeapons_EP1"];
-		crates_small		        = ["GuerillaCacheBox","RULaunchersBox","RUBasicAmmunitionBox","RUOrdnanceBox","USBasicAmmunitionBox","USLaunchersBox","USOrdnanceBox","USOrdnanceBox_EP1","USLaunchers_EP1","USBasicWeapons_EP1","USBasicAmmunitionBox_EP1","UNBasicAmmunitionBox_EP1","TKOrdnanceBox_EP1","TKLaunchers_EP1","TKBasicAmmunitionBox_EP1","GuerillaCacheBox_EP1","GERBasicWeapons_EP1"];
-		crate_weapons_buildables	= ["ChainSaw"];
-		crate_tools		            = ["ItemKeyKit","Binocular","Binocular_Vector","ItemCompass","ItemCrowbar","ItemEtool","ItemFishingPole","ItemFlashlightRed","ItemGPS","ItemHatchet_DZE","ItemKnife","ItemMachete","ItemMatchbox_DZE","ItemToolbox","NVGoggles"];
-		crate_tools_buildable		= ["ItemToolbox","ItemEtool","ItemCrowbar","ItemKnife"];
-		crate_tools_sniper		    = ["ItemCompass","Binocular","Binocular_Vector","NVGoggles","ItemGPS"];
-		crate_items		            = ["FoodNutmix","FoodPistachio","FoodMRE","ItemSodaOrangeSherbet","ItemSodaRbull","ItemSodaR4z0r","ItemSodaMdew","ItemSodaPepsi","ItemBandage","ItemSodaCoke","FoodbaconCooked","FoodCanBakedBeans","FoodCanFrankBeans","FoodCanPasta","FoodCanSardines","FoodchickenCooked","FoodmuttonCooked","FoodrabbitCooked","ItemTroutCooked","ItemTunaCooked","ItemSeaBassCooked","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","CinderBlocks","ItemCanvas","ItemComboLock","ItemLightBulb","ItemLockbox","ItemSandbag","ItemTankTrap","ItemWire","MortarBucket","PartEngine","PartFueltank","PartGeneric","PartGlass","PartPlankPack","PartVRotor","PartWheel","PartWoodPile"];
-		crate_items_high_value		= ["ItemBriefcase100oz"];
-		crate_high_value			= ["ItemVault"];
-		crate_items_food		    = ["ItemWaterbottle","FoodNutmix","FoodPistachio","FoodMRE","ItemSodaOrangeSherbet","ItemSodaRbull","ItemSodaR4z0r","ItemSodaMdew","ItemSodaPepsi","ItemSodaCoke","FoodbaconCooked","FoodCanBakedBeans","FoodCanFrankBeans","FoodCanPasta","FoodCanSardines","FoodchickenCooked","FoodmuttonCooked","FoodrabbitCooked","ItemTroutCooked","ItemTunaCooked","ItemSeaBassCooked"];
-		crate_items_buildables		= ["forest_large_net_kit","cinder_garage_kit",["PartPlywoodPack",5],"ItemSandbagExLarge5X","park_bench_kit","ItemComboLock",["CinderBlocks",10],"ItemCanvas","ItemComboLock",["ItemLightBulb",5],"ItemLockbox",["ItemSandbag",10],["ItemTankTrap",10],["ItemWire",10],["MortarBucket",10],["PartPlankPack",5],"PartWoodPile"];
-		crate_items_vehicle_repair	= ["PartEngine","PartFueltank","PartGeneric","PartGlass","PartVRotor","PartWheel"];
-		crate_items_medical		    = ["ItemWaterbottle","ItemAntibiotic","ItemBloodbag","ItemEpinephrine","ItemHeatPack","ItemMorphine","ItemBandage","FoodCanFrankBeans","FoodCanPasta"];
-		crate_items_chainbullets	= ["2000Rnd_762x51_M134","200Rnd_762x51_M240","100Rnd_127x99_M2","150Rnd_127x107_DSHKM"];
-		crate_items_sniper		    = [["ItemPainkiller",5],"Skin_Sniper1_DZ","Skin_CZ_Soldier_Sniper_EP1_DZ","Skin_GUE_Soldier_Sniper_DZ"];
-		crate_backpacks_all		    = ["DZ_Patrol_Pack_EP1","DZ_Assault_Pack_EP1","DZ_Czech_Vest_Puch","DZ_TerminalPack_EP1","DZ_ALICE_Pack_EP1","DZ_TK_Assault_Pack_EP1","DZ_CompactPack_EP1","DZ_British_ACU","DZ_GunBag_EP1","DZ_CivilBackpack_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1"];
-		crate_backpacks_large		= ["DZ_GunBag_EP1","DZ_Backpack_EP1","DZ_LargeGunBag_EP1","DZ_CivilBackpack_EP1"];
-		crate_random		        = [crate_items,crate_items_food,crate_items_buildables,crate_items_vehicle_repair,crate_items_medical,crate_items_chainbullets];
+		armed_vehicle = [
+		"ArmoredSUV_PMC_DZE",
+		"GAZ_Vodnik_DZE",
+		"HMMWV_M1151_M2_CZ_DES_EP1_DZE",
+		"HMMWV_M998A2_SOV_DES_EP1_DZE",
+		"LandRover_MG_TK_EP1_DZE",
+		"LandRover_Special_CZ_EP1_DZE",
+		"Offroad_DSHKM_Gue_DZE",
+		"Pickup_PK_GUE_DZE",
+		"Pickup_PK_INS_DZE",
+		"Pickup_PK_TK_GUE_EP1_DZE",
+		"UAZ_MG_TK_EP1_DZE"
+		];
+		armed_chopper = [
+		"CH_47F_EP1_DZE",
+		"UH1H_DZE",
+		"Mi17_DZE",
+		"UH60M_EP1_DZE",
+		"UH1Y_DZE",
+		"MH60S_DZE"
+		];
+		civil_chopper = [
+		"AH6X_DZ",
+		"BAF_Merlin_DZE",
+		"MH6J_DZ",
+		"Mi17_Civilian_DZ"
+		];
+		military_unarmed = [
+		"GAZ_Vodnik_MedEvac",
+		"HMMWV_Ambulance",
+		"HMMWV_Ambulance_CZ_DES_EP1",
+		"HMMWV_DES_EP1",
+		"HMMWV_DZ",
+		"HMMWV_M1035_DES_EP1",
+		"LandRover_CZ_EP1",
+		"LandRover_TK_CIV_EP1",
+		"UAZ_CDF",
+		"UAZ_INS",
+		"UAZ_RU",
+		"UAZ_Unarmed_TK_CIV_EP1",
+		"UAZ_Unarmed_TK_EP1",
+		"UAZ_Unarmed_UN_EP1"
+		];
+		cargo_trucks = [
+		"Kamaz",
+		"MTVR_DES_EP1",
+		"Ural_CDF",
+		"Ural_TK_CIV_EP1",
+		"Ural_UN_EP1",
+		"V3S_Open_TK_CIV_EP1",
+		"V3S_Open_TK_EP1"
+		];
+		refuel_trucks = [
+		"KamazRefuel_DZ",
+		"MtvrRefuel_DES_EP1_DZ",
+		"UralRefuel_TK_EP1_DZ",
+		"V3S_Refuel_TK_GUE_EP1_DZ"
+		];
+		civil_vehicles = [
+		"hilux1_civil_1_open",
+		"hilux1_civil_2_covered",
+		"hilux1_civil_3_open_EP1",
+		"SUV_Blue","SUV_Camo",
+		"SUV_Charcoal",
+		"SUV_Green",
+		"SUV_Orange",
+		"SUV_Pink",
+		"SUV_Red",
+		"SUV_Silver",
+		"SUV_TK_CIV_EP1",
+		"SUV_White",
+		"SUV_Yellow"
+		];
+		crates_large = [
+		"USVehicleBox"
+		];
+		crates_medium = [
+		"USBasicWeaponsBox",
+		"RUBasicWeaponsBox",
+		"USSpecialWeaponsBox",
+		"USSpecialWeapons_EP1",
+		"RUSpecialWeaponsBox",
+		"SpecialWeaponsBox",
+		"TKSpecialWeapons_EP1",
+		"CZBasicWeapons_EP1",
+		"UNBasicWeapons_EP1"
+		];
+		crates_small = [
+		"GuerillaCacheBox",
+		"RULaunchersBox",
+		"RUBasicAmmunitionBox",
+		"RUOrdnanceBox",
+		"USBasicAmmunitionBox",
+		"USLaunchersBox",
+		"USOrdnanceBox",
+		"USOrdnanceBox_EP1",
+		"USLaunchers_EP1",
+		"USBasicWeapons_EP1",
+		"USBasicAmmunitionBox_EP1",
+		"UNBasicAmmunitionBox_EP1",
+		"TKOrdnanceBox_EP1",
+		"TKLaunchers_EP1",
+		"TKBasicAmmunitionBox_EP1",
+		"GuerillaCacheBox_EP1",
+		"GERBasicWeapons_EP1"
+		];
+		crate_weapons_buildables = [
+		"ChainSaw"
+		];
+		crate_tools = [
+		"ItemKeyKit",
+		"Binocular",
+		"Binocular_Vector",
+		"ItemCompass",
+		"ItemCrowbar",
+		"ItemEtool",
+		"ItemFishingPole",
+		"ItemFlashlightRed",
+		"ItemGPS",
+		"ItemHatchet_DZE",
+		"ItemKnife",
+		"ItemMachete",
+		"ItemMatchbox_DZE",
+		"ItemToolbox",
+		"NVGoggles"
+		];
+		crate_tools_buildable = [
+		"ItemToolbox",
+		"ItemEtool",
+		"ItemCrowbar",
+		"ItemKnife"
+		];
+		crate_tools_sniper = [
+		"ItemCompass",
+		"Binocular",
+		"Binocular_Vector",
+		"NVGoggles",
+		"ItemGPS"
+		];
+		crate_items	= [
+		"FoodNutmix",
+		"FoodPistachio",
+		"FoodMRE",
+		"ItemSodaOrangeSherbet",
+		"ItemSodaRbull",
+		"ItemSodaR4z0r",
+		"ItemSodaMdew",
+		"ItemSodaPepsi",
+		"ItemBandage",
+		"ItemSodaCoke",
+		"FoodbaconCooked",
+		"FoodCanBakedBeans",
+		"FoodCanFrankBeans",
+		"FoodCanPasta",
+		"FoodCanSardines",
+		"FoodchickenCooked",
+		"FoodmuttonCooked",
+		"FoodrabbitCooked",
+		"ItemTroutCooked",
+		"ItemTunaCooked",
+		"ItemSeaBassCooked",
+		"ItemAntibiotic",
+		"ItemBloodbag",
+		"ItemEpinephrine",
+		"ItemHeatPack",
+		"ItemMorphine",
+		"CinderBlocks",
+		"ItemCanvas",
+		"ItemComboLock",
+		"ItemLightBulb",
+		"ItemLockbox",
+		"ItemSandbag",
+		"ItemTankTrap",
+		"ItemWire",
+		"MortarBucket",
+		"PartEngine",
+		"PartFueltank",
+		"PartGeneric",
+		"PartGlass",
+		"PartPlankPack",
+		"PartVRotor",
+		"PartWheel",
+		"PartWoodPile"
+		];
+		crate_items_high_value = [
+		"ItemBriefcase100oz"
+		];
+		crate_high_value = [
+		"ItemVault"
+		];
+		crate_items_food = [
+		"ItemWaterbottle",
+		"FoodNutmix",
+		"FoodPistachio",
+		"FoodMRE",
+		"ItemSodaOrangeSherbet",
+		"ItemSodaRbull",
+		"ItemSodaR4z0r",
+		"ItemSodaMdew",
+		"ItemSodaPepsi",
+		"ItemSodaCoke",
+		"FoodbaconCooked",
+		"FoodCanBakedBeans",
+		"FoodCanFrankBeans",
+		"FoodCanPasta",
+		"FoodCanSardines",
+		"FoodchickenCooked",
+		"FoodmuttonCooked",
+		"FoodrabbitCooked",
+		"ItemTroutCooked",
+		"ItemTunaCooked",
+		"ItemSeaBassCooked"
+		];
+		crate_items_buildables = [
+		"forest_large_net_kit",
+		"cinder_garage_kit",
+		["PartPlywoodPack",5],
+		"ItemSandbagExLarge5X",
+		"park_bench_kit",
+		"ItemComboLock",
+		["CinderBlocks",10],
+		"ItemCanvas",
+		"ItemComboLock",
+		["ItemLightBulb",5],
+		"ItemLockbox",
+		["ItemSandbag",10],
+		["ItemTankTrap",10],
+		["ItemWire",10],
+		["MortarBucket",10],
+		["PartPlankPack",5],
+		"PartWoodPile"
+		];
+		crate_items_vehicle_repair	= [
+		"PartEngine",
+		"PartFueltank",
+		"PartGeneric",
+		"PartGlass",
+		"PartVRotor",
+		"PartWheel"
+		];
+		crate_items_medical	= [
+		"ItemWaterbottle",
+		"ItemAntibiotic",
+		"ItemBloodbag",
+		"ItemEpinephrine",
+		"ItemHeatPack",
+		"ItemMorphine",
+		"ItemBandage",
+		"FoodCanFrankBeans",
+		"FoodCanPasta"
+		];
+		crate_items_chainbullets = [
+		"2000Rnd_762x51_M134",
+		"200Rnd_762x51_M240",
+		"100Rnd_127x99_M2",
+		"150Rnd_127x107_DSHKM"
+		];
+		crate_items_sniper = [
+		["ItemPainkiller",5],
+		"Skin_Sniper1_DZ",
+		"Skin_CZ_Soldier_Sniper_EP1_DZ",
+		"Skin_GUE_Soldier_Sniper_DZ"
+		];
+		crate_backpacks_all	= [
+		"DZ_Patrol_Pack_EP1",
+		"DZ_Assault_Pack_EP1",
+		"DZ_Czech_Vest_Puch",
+		"DZ_TerminalPack_EP1",
+		"DZ_ALICE_Pack_EP1",
+		"DZ_TK_Assault_Pack_EP1",
+		"DZ_CompactPack_EP1",
+		"DZ_British_ACU",
+		"DZ_GunBag_EP1",
+		"DZ_CivilBackpack_EP1",
+		"DZ_Backpack_EP1",
+		"DZ_LargeGunBag_EP1"
+		];
+		crate_backpacks_large = [
+		"DZ_GunBag_EP1",
+		"DZ_Backpack_EP1",
+		"DZ_LargeGunBag_EP1",
+		"DZ_CivilBackpack_EP1"
+		];
+		crate_random = [crate_items,crate_items_food,crate_items_buildables,crate_items_vehicle_repair,crate_items_medical,crate_items_chainbullets];
 		
 		wai_static_mission_locs     = true;
 		
