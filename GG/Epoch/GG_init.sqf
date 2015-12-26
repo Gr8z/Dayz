@@ -2340,13 +2340,14 @@ if (!isDedicated) then {
 		} forEach _positionsSmall;
 	};
 	DZE_HumanityTargetDistance = -1;
+
 	player_updateGui = {
 		disableSerialization;
 		NT_TARGT = (cursorTarget);
 		if ((izn NT_TARGT)||!(isPlayer NT_TARGT)||(player distance NT_TARGT > NameTagDistance)) then [{NT_STRNG = ""},{
 			NT_STRNG = "";
 			NT_HMVAL = NT_TARGT xgv ["humanity",0];
-			NT_SIZET = (1 - (((vehicle player) distance NT_TARGT) / 75));
+			NT_SIZET = (1-(floor(((vehicle player) distance NT_TARGT)/5)*0.1)) max 0.1;
 			NT_COLOR = "#ffffff";
 			if (NT_HMVAL <= -2500) then {NT_COLOR = "#ff0000"};
 			if (NT_HMVAL >= 2500) then {NT_COLOR = "#3333ff"};
@@ -2532,10 +2533,10 @@ if (!isDedicated) then {
 			_ctrlCombat call player_guiControlFlash
 		} else {
 			if ((_pic == "\z\addons\dayz_code\gui\status_combat_inside_ca.paa")||(vehicle player != player)) then {
-				_ctrlCombat ctrlSetScale 1.5;
+				_ctrlCombat ctrlSetScale 0.5;
 				_ctrlCombat ctrlSetTextColor [0,1,0,0.8];
 			} else {
-				_ctrlCombat ctrlSetScale 2;
+				_ctrlCombat ctrlSetScale 1;
 				_ctrlCombat ctrlSetTextColor [1,1,1,0.8];
 			};
 		};
