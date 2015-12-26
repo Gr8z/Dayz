@@ -4,7 +4,6 @@ GG_serverName 		= "<t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Napf</t>";
 dayZ_instance 		= 3;
 spawnShoremode 		= 1;
 spawnArea 			= 1500;
-MaxVehicleLimit 	= 300;
 dayz_MapArea  		= 18000;
 dayz_maxAnimals 	= 8;
 dayz_minpos 		= -1; 

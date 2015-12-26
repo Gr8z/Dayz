@@ -14,6 +14,7 @@ dayz_tameDogs 		= false;
 MaxDynamicDebris 	= 0;
 DynamicVehicleDamageLow = 0;
 DynamicVehicleDamageHigh = 0.2;
+MaxVehicleLimit 	= 50;
 
 //Welcome message config
 GG_useWelcomeTxt		= true;

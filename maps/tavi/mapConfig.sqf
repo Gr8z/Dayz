@@ -4,7 +4,6 @@ GG_serverName 		= "<t color='#ff6c3b'>[GG] Ghostz Gamerz Overpoch Taviana</t>";
 dayZ_instance 		= 1;
 spawnShoremode 		= 1;
 spawnArea 			= 2500;
-MaxVehicleLimit 	= 300;
 dayz_MapArea  		= 20000;
 dayz_maxAnimals 	= 8;
 dayz_minpos 		= -26000; 
