@@ -1,7 +1,7 @@
 
 class Category_677 { 
-class ItemJerrycan: d_tit {buy = 20;sell = 2;}; 
-class ItemJerrycanEmpty: d_tit {buy = 2;sell = 1;};  
+class ItemJerrycan: d_tit {buy = 40;sell = 4;}; 
+class ItemJerrycanEmpty: d_tit {buy = 4;sell = 1;};  
 class ItemMixOil: d_tit {buy = 400;sell = 200;}; 
 class PartEngine: d_tit {buy = 500;sell = 250;}; 
 class PartVRotor: d_tit {buy = 500;sell = 250;}; 
