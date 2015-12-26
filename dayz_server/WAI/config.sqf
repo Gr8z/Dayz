@@ -132,7 +132,7 @@ if(isServer) then {
 		wai_crates_smoke		    = true;
 		wai_crates_flares		    = true;
 		wai_players_online		    = 5;
-		wai_server_fps			    = 5;
+		wai_server_fps			    = 1;
 		wai_kill_percent		    = 80;
 		wai_high_value			    = true;
 		wai_high_value2			    = true;
