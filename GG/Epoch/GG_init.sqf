@@ -1,4 +1,50 @@
 #include "shortcuts.h"
+KRON_StrToArray = {
+	private["_in","_i","_arr","_out"];
+	_in=_this select 0;
+	_arr = toArray(_in);
+	_out=[];
+	for "_i" from 0 to (count _arr)-1 do {
+		_out=_out+[toString([_arr select _i])];
+	};
+	_out
+};
+
+KRON_StrLen = {
+	private["_in","_arr","_len"];
+	_in=_this select 0;
+	_arr=[_in] call KRON_StrToArray;
+	_len=count (_arr);
+	_len
+};
+
+KRON_StrIndex = {
+	private["_hay","_ndl","_lh","_ln","_arr","_tmp","_i","_j","_out"];
+	_hay=_this select 0;
+	_ndl=_this select 1;
+	_out=-1;
+	_i=0;
+	if (_hay == _ndl) exitWith {0};
+	_lh=[_hay] call KRON_StrLen;
+	_ln=[_ndl] call KRON_StrLen;
+	if (_lh < _ln) exitWith {-1};
+	_arr=[_hay] call KRON_StrToArray;
+	for "_i" from 0 to (_lh-_ln) do {
+		_tmp="";
+		for "_j" from _i to (_i+_ln-1) do {
+			_tmp=_tmp + (_arr select _j);
+		};
+		if (_tmp==_ndl) exitWith {_out=_i};
+	};
+	_out
+};
+
+KRON_StrInStr = {
+	private["_out"];
+	_in=_this select 0;
+	_out=if (([_this select 0,_this select 1] call KRON_StrIndex)==-1) then {false} else {true};
+ 	_out
+};
 if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4];
 	setToneMapping "Filmic";
@@ -17,6 +63,8 @@ if (!isDedicated) then {
 	player_animalCheck =		xcm xlx "\z\addons\dayz_code\compile\player_animalCheck.sqf";
 	player_dumpBackpack = 		xcm xlx "\z\addons\dayz_code\compile\player_dumpBackpack.sqf";
 	building_spawnZombies =		xcm xlx "\z\addons\dayz_code\compile\building_spawnZombies.sqf";
+	randomMags =				xcm xlx "GG\Epoch\GG_RM.sqf";
+
 	dayz_spaceInterrupt =		xcm xlx "\z\addons\dayz_code\actions\dayz_spaceInterrupt.sqf";
 	[] swx {
 		GG_spaceInterrupt = (str dayz_spaceInterrupt);
@@ -1473,7 +1521,7 @@ if (!isDedicated) then {
 			};
 			if (_player_deleteBuild) then {
 				if (s_player_deleteBuild < 0) then {
-					s_player_deleteBuild = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\Epoch\GG_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
+					s_player_deleteBuild = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\Epoch\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_deleteBuild;
@@ -1745,7 +1793,7 @@ if (!isDedicated) then {
 				} else {
 					if (("ItemJerrycan" in _magazinesPlayer) && ("ItemMatchbox_DZE" in weapons player)) then {
 						if (s_player_packtent < 0) then {
-							s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\Epoch\GG_removeObj.sqf",_cursorTarget, 1, true, true, "", ""];
+							s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\Epoch\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
 						};
 					};
 				};
@@ -1931,7 +1979,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_downgrade_build < 0) then {
 					s_player_lastTarget set [1,_cursorTarget];
-					s_player_downgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\Epoch\GG_downgradeObj.sqf",_cursorTarget, -2, false, true, "",""];
+					s_player_downgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\Epoch\GG_DO.sqf",_cursorTarget, -2, false, true, "",""];
 				};
 			} else {
 				player rac s_player_downgrade_build;
@@ -5140,6 +5188,7 @@ ckc_updSafe 				= xcm xlx "GG\DoorLock\ckc_updSafe.sqf";
 mv22_pack 					= xcm xlx "\ca\air2\mv22\scripts\pack.sqf";
 local_gutObjectZ 			= xcm xlx "\z\addons\dayz_code\compile\local_gutObjectZ.sqf";
 local_zombieDamage 			= xcm xlx "\z\addons\dayz_code\compile\fn_damageHandlerZ.sqf";
+checkWepBpSlot 				= xcm xlx "GG\Epoch\GG_CBS.sqf";
 local_eventKill 			= xcm xlx "\z\addons\dayz_code\compile\local_eventKill.sqf";
 curTimeStr 					= xcm xlx "\z\addons\dayz_code\compile\fn_curTimeStr.sqf";
 player_medBandage 			= xcm xlx "\z\addons\dayz_code\medical\publicEH\medBandaged.sqf";
@@ -5150,8 +5199,8 @@ player_medMorphine 			= xcm xlx "\z\addons\dayz_code\medical\publicEH\medMorphin
 player_breaklegs 			= xcm xlx "\z\addons\dayz_code\medical\publicEH\medBreakLegs.sqf";
 player_medPainkiller 		= xcm xlx "\z\addons\dayz_code\medical\publicEH\medPainkiller.sqf";
 world_isDay 				= {if ((daytime < (24 - dayz_sunRise)) && (daytime > dayz_sunRise)) then [{true},{false}]};
-spawn_loot 					= xcm xlx "\z\addons\dayz_code\compile\spawn_loot.sqf";
-spawn_loot_small 			= xcm xlx "\z\addons\dayz_code\compile\spawn_loot_small.sqf";
+spawn_loot 					= xcm xlx "GG\Epoch\GG_SL.sqf";
+spawn_loot_small 			= xcm xlx "GG\Epoch\GG_SLS.sqf";
 
 if (isServer) then [{xcc xlx "\z\addons\dayz_server\init\server_functions.sqf"},{eh_localCleanup = {}}];
 dayz_allowedObjects = dayz_allowedObjects + ["Land_MBG_Garage_Single_C","HeliH","HeliHRescue","BAF_GPMG_Minitripod_W","MMT_USMC","DSHKM_Ins","MetalFloor_Preview_DZ"];
