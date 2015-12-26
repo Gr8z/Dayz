@@ -400,7 +400,7 @@ class Mission
 	};
 	class Sensors
 	{
-		items=12;
+		items=11;
 		class Item0
 		{
 			position[]={15309.663,0,9278.4912};
@@ -412,8 +412,8 @@ class Mission
 			age="UNKNOWN";
 			name="zonesabina";
 			expCond="(player distance zonesabina) < 40;";
-			expActiv="[""trader city Sabina"",true,""enter""] spawn player_traderCity;";
-			expDesactiv="[""trader city Sabina"",true,""leave""] spawn player_traderCity;";
+			expActiv="TitleText[""Now entering trader city Sabina"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Leyepostock"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -430,7 +430,7 @@ class Mission
 			name="zonelyep";
 			expCond="(player distance zonelyep) < 50;";
 			expActiv="TitleText[""Now entering trader city Leyepostock"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Leyepostock"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Leyepostock"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -447,7 +447,7 @@ class Mission
 			name="zonebilgrad";
 			expCond="(player distance zonebilgrad) < 50;";
 			expActiv="TitleText[""Now entering trader city Bilgrad"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Bilgrad"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Bilgrad"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -464,7 +464,7 @@ class Mission
 			name="zonebranibor";
 			expCond="(player distance zonebranibor) < 60;";
 			expActiv="TitleText[""Now entering trader city Branibor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Branibor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving trader city Branibor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -481,7 +481,7 @@ class Mission
 			name="zonekrasno";
 			expCond="(player distance zonekrasno) < 100;";
 			expActiv="TitleText[""Now entering Krasno Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Krasno Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Krasno Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -498,7 +498,7 @@ class Mission
 			name="zonedubovo";
 			expCond="(player distance zonedubovo) < 100;";
 			expActiv="TitleText[""Now entering Dubovo Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Dubovo Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Dubovo Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -515,7 +515,7 @@ class Mission
 			name="zonewholesalesouth";
 			expCond="(player distance zonewholesalesouth) < 50;";
 			expActiv="TitleText[""Now entering Wolesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -532,7 +532,7 @@ class Mission
 			name="zonewholesalenorth";
 			expCond="(player distance zonewholesalenorth) < 50;";
 			expActiv="TitleText[""Now entering Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Wholesaler"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -549,7 +549,7 @@ class Mission
 			name="zonehero";
 			expCond="(player distance zonehero) < 40;";
 			expActiv="TitleText[""Now entering Hero Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Hero Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Hero Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -566,7 +566,7 @@ class Mission
 			name="zoneblackbig";
 			expCond="(player distance zoneblackbig) < 50;";
 			expActiv="TitleText[""Now entering Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now leaving Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -583,22 +583,7 @@ class Mission
 			name="zoneblacksmall";
 			expCond="(player distance zoneblacksmall) < 50;";
 			expActiv="TitleText[""Now entering Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			class Effects
-			{
-			};
-		};
-		class Item11
-		{
-			position[]={1312.21,0,7699.05};
-			activationBy="WEST";
-			repeating=1;
-			interruptable=1;
-			age="UNKNOWN";
-			name="debug";
-			expCond="(player distance debug) < 10;";
-			expActiv="inDebug = true;s_spawn_dialog = player addAction ['SPAWN SELECTION', 'GG\spawn\start.sqf','', 3, true, true, "", ""];";
-			expDesactiv="inDebug = false;player removeAction s_spawn_dialog;s_spawn_dialog = -1;";
+			expDesactiv="TitleText[""Now leaving Black Market"",""PLAIN DOWN""]; canbuild = false;inSafeZone = false;";
 			class Effects
 			{
 			};
