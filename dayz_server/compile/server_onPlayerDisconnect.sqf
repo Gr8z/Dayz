@@ -35,7 +35,7 @@ if (!isNull _playerObj) then {
 		diag_log (_msg);
 		
 		_hMSG = format ["<t align='center' color='#FF0033' shadow='2' size='1.75'>COMBAT LOGGED</t><br/><t align='center' color='#ffffff'>%1<br/>Combat timer: %2<br/>Closest player: %3</t>",_playerName,_timeout,CLOG_nearPlyr,_gpsPOS];
-		[nil, nil, rspawn, [_hMSG], {hint parseText (_this select 0);(_this select 0) spawn AH_fnc_dynTextMsg;}] call RE;
+		[nil, nil, rspawn, [_hMSG], {hint parseText (_this select 0);}] call RE;
 		
 		"HitLog" callExtension format ["CLOG: %1 |DayZ Instance: %2|",_msg,dayz_instance];
 		_stime = (servertime);
