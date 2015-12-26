@@ -83,9 +83,10 @@ _loot_box addBackpackCargoGlobal [_x,1];
 } forEach (_loot select 2);
  
 // Send Top Right message to users , requires Remote message script
-_title = "Supply Crate";
-_message = "UN Agency drops life-saving supplies for Survivors, Check your Map for the Location!";
-PVOZ_GGHCmsgsrvr2 = [_title, _message];publicVariableServer "PVOZ_GGHCmsgsrvr2";
+_hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>Supply Crate</t><br/><t align='center' color='#ffffff'>UN Agency drops life-saving supplies for Survivors, Check your Map for the Location!</t>"];
+customRemoteMessage = ['hint', _hint];
+publicVariable "customRemoteMessage";
+
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
 //Wait until player is Near.

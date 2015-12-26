@@ -1,7 +1,7 @@
 // Abandoned player safe mission by Cramps (zfclan.org/forum)
 // Needs an SQL event set up to turn abandoned vault codes to 0000
 
-private ["_rndvault","_curvaultcode","_curvault","_vaultarray","_numvaults","_allvaults","_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker","_title"];
+private ["_rndvault","_curvaultcode","_curvault","_vaultarray","_numvaults","_allvaults","_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item", "_debug", "_start_time", "_loot", "_loot_amount", "_loot_box", "_wait_time", "_spawnRoll", "_position", "_event_marker"];
 
 // First chack if there is a vault available, no point running if not
 
@@ -71,9 +71,7 @@ _debug_marker setMarkerColor "ColorBlack";
 _debug_marker setMarkerAlpha 1;
 };
 
-_title = "Abandoned Safe";
-_message = "It's rumored there is a survivor safe lost with 0000 as it's code. Go find it!";
-PVOZ_GGHCmsgsrvr2 = [_title, _message];publicVariableServer "PVOZ_GGHCmsgsrvr2";
+[nil,nil,"per",rTITLETEXT,"It's rumored there is a survivor safe lost with 0000 as it's code. Go find it!","PLAIN DOWN"] call RE;
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 

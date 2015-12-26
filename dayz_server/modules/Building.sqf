@@ -76,9 +76,9 @@ _loot_box addMagazineCargoGlobal [_x,1];
 } forEach (_loot select 1);
  
 // Send Top Right message to users , requires Remote message script
-_title = "Building Crate";
-_message = "Home Depot Truck lost its cargo! Check your map for the location!";
-PVOZ_GGHCmsgsrvr2 = [_title, _message];publicVariableServer "PVOZ_GGHCmsgsrvr2";
+_hint = parseText format["<t align='center' color='#FE9A2E' shadow='2' size='1.75'>Building Crate</t><br/><t align='center' color='#ffffff'>Home Depot Truck lost its cargo! Check your map for the location!</t>"];
+customRemoteMessage = ['hint', _hint];
+publicVariable "customRemoteMessage";
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 

@@ -55,10 +55,9 @@ _loot_box addWeaponCargoGlobal [_giveWep, 1];
 _loot_box addMagazineCargoGlobal [_mag, _var];
  
 // Send Top Right message to users , requires Remote message script
-_title = "Military Crate";
-_message = "A special forces unit lost a precious cargo, Check your Map for the Location!";
-PVOZ_GGHCmsgsrvr2 = [_title, _message];publicVariableServer "PVOZ_GGHCmsgsrvr2";
-
+_hint = parseText format["<t align='center' color='#FF0000' shadow='2' size='1.75'>Military Crate</t><br/><t align='center' color='#ffffff'>A special forces unit lost a precious cargo, Check your Map for the Location!</t>"];
+customRemoteMessage = ['hint', _hint];
+publicVariable "customRemoteMessage";
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
