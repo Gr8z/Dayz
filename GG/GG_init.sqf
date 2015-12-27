@@ -629,7 +629,6 @@ if (!isDedicated) then {
 		while {true} do {
 			waitUntil {uiSleep 0.25; vehicle player != player};
 			player_veh = vehicle player;
-			fnc_usec_damageVehicle ={};
 			_player_driver = player == driver player_veh;
 			_veh_owner = player_veh xgv ['owner', objNull];
 			_ownerGroup = units group _veh_owner;
