@@ -822,7 +822,6 @@ if (!isDedicated) then {
 		dayz_myBackpackMags = [];
 		dayz_myBackpackWpns = [];
 		dayzPlayerLogin 	= [];
-		dayzPlayerLogin2 	= [];
 		loadout_loaded 		= nil;
 		dayz_hasFire 		= objNull;
 		dayz_myBackpack		= objNull;
