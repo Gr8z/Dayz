@@ -740,7 +740,7 @@ if (!isDedicated) then {
 		_text = format["<t size='2.0' color='#FFFFFF'><t size='2.2' color='#a81e13'>YOU ARE DEAD</t><br/>",""];
 		[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
 		_text = "<t size='1.5' font='TahomaB' color='#FFFFFF'>www.GHOSTZGAMERZ.com</t>";
-		[_text,0,(safezoneY + 0.1),300,1,0,9] swx AH_fnc_dynamictext;
+		[_text,0,(safezoneY + 0.1),50,1,0,9] swx AH_fnc_dynamictext;
 		_text = format["<br/><br/><t size='1' color='#FFFFFF'>Respawning in %1 seconds</t><br/>",20];
 		[_text,0,1,3,1,0,10] swx AH_fnc_dynamictext;
 		uisleep 1;
