@@ -849,13 +849,10 @@ if (!isDedicated) then {
 		disableUserInput false;
 		0 cutText ["","BLACK"];
 		
-		diag_log ("(PLAYER_RESPAWN): Spawn select...");
-		execVM "GG\spawn\start.sqf";
-		waitUntil{!dialog};
-		
 		diag_log ("(PLAYER_RESPAWN): Gender select...");
 		createDialog "RscDisplayGenderSelect";
 		waitUntil{!dialog};
+
 		startLoadingScreen ["","RscDisplayLoadCustom"];
 		
 		diag_log ("(PLAYER_RESPAWN): Request new char...");
@@ -967,6 +964,7 @@ if (!isDedicated) then {
 		call ui_changeDisplay;
 		reload player;
 		endLoadingScreen;
+		execVM "GG\spawn\start.sqf";
 	};
 	GG_maintainbase = {
 		BM_getControl = {(findDisplay 7331) displayCtrl _this};
