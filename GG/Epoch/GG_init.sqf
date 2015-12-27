@@ -508,39 +508,6 @@ if (!isDedicated) then {
 			sleep 1;
 		};
 	};
-	GG_ANTITHEFT2 = {
-		while {inSafeZone} do {
-			waitUntil {((!izn (findDisplay 106))||(!inSafeZone))};
-			_target = (cursorTarget);
-			if !(izn _target) then {
-				_temp_keys = [];
-				_temp_keys_names = [];
-				{
-					if (configName(inheritsFrom(xcf >> "CfgWeapons" >> _x)) in ["ItemKeyYellow","ItemKeyBlue","ItemKeyRed","ItemKeyGreen","ItemKeyBlack"]) then {
-						_ownerKeyId = xgn(xcf >> "CfgWeapons" >> _x >> "keyid");
-						_ownerKeyName = getText(xcf >> "CfgWeapons" >> _x >> "displayName");
-						_temp_keys_names set [_ownerKeyId,_ownerKeyName];
-						_temp_keys set [count _temp_keys,str(_ownerKeyId)];
-					};
-				} forEach (items player);
-				_ownerID = _target xgv ["CharacterID","0"];
-				_hasKey = _ownerID in _temp_keys;
-				_oldOwner = (_ownerID == dayz_playerUID);
-				_isOk = false;
-				{if (!_isOk) then {_isOk = _target iko _x}} forEach ["LandVehicle","Air", "Ship"];
-				if (((vehicle player) distance _target) < 12) then {
-					if ((_isOk)&&(!_hasKey)&&(!_oldOwner)) then {
-						if (_hasKey) exw {};
-						if (_oldOwner) exw {};
-						_msg = "You do not own this vehicle!";
-						systemChat ("(GG-AH): "+str _MSG);
-						(findDisplay 106) closeDisplay 1;
-					};
-				};
-				sleep 0.1;
-			} else {sleep 1};
-		};
-	};
 	GG_AVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
@@ -589,54 +556,101 @@ if (!isDedicated) then {
 			} else {sleep 1};
 		};
 	};
-	ANTI_THEFT = {
-		BP_FIX = true;
-		player xac ["GEAR",objNull];
-		_msg = 'You can not access gear while too close to a player!';
-		systemChat ("(GG-AH): "+str _MSG);
-		sleep 1;
-		_msg = 'You are only allowed to access your friends backpacks!';
-		systemChat ("(GG-AH): "+str _MSG);
-	};
-	GG_ANTITHEFT = {
-		BP_FIX = false;
-		while {1 == 1} do {
-			waitUntil {((izn (findDisplay 106))||(!inSafeZone))};
-			if (!inSafeZone) exw {};
-			if (vehicle player == player) then {
-				_uncon = player xgv ["NORRN_unconscious", false];
-				if ((_uncon)||(r_player_unconscious)) then {
-					player xsv ["NORRN_unconscious", false, true];;
-					player xsv ["USEC_isCardiac",false, true];
-					player xsv["medForceUpdate",true];
-					[objNull, player, rSwitchMove,''] call RE;
-					disableUserInput false;
-					r_player_unconscious = false;
-					r_player_cardiac = false;
-					r_player_handler1 = false;
+	SafezoneTheft = {
+		while {true} do {
+			waitUntil {uiSleep 0.25; vehicle player == player};
+			_playerID = player xgv ["CharacterID",0];
+			_friends = units group player;
+			_near = [];
+			{if (isPlayer _x && _x != player) then {_near = _near + [_x];};} forEach (player nearEntities ['CAManBase',4]);
+			_countNear = count _near;
+			if (_countNear > 0) then {
+				_countNearFriends = {_x in _friends || _playerID in (_x xgv ["friendlies",[]])} count _near;
+				if (_countNear > _countNearFriends && !izn findDisplay 106) then {
+					(findDisplay 106) closedisplay 0;
+					cdg 0;cdg 0;cdg 0;
+					cutText [format['%1, You are near another player, cannot access gear.',name player],'PLAIN'];
 				};
-				_playerNear = (({isPlayer _x} count (nearestObjects [player, ['Man'],6])) > 1);
-				if (_playerNear) then {
-					if (izn (findDisplay 106)) then {if (BP_FIX) then {BP_FIX = false}} else {
-						if !(izn cursorTarget) then {
-							_puid 		= gpd player;
-							_fuid 		= gpd cursorTarget;
-							_playerID 	= player xgv ["CharacterID", "0"];
-							_targetid 	= cursorTarget xgv ["CharacterID", "0"];
-							_sFriends 	= player xgv ["friendlies", []];
-							_pfls 		= player xgv ["AH_friendlist",[]];
-							_tFriends 	= cursorTarget xgv ["friendlies", []];
-							_ffls 		= cursorTarget xgv ["AH_friendlist",[]];
-							
-							_isOkay 	= ((cursorTarget iko "LandVehicle")||(cursorTarget iko "Ship")||(cursorTarget iko "Air")||(cursorTarget iko "WeaponHolder")||(!alive cursorTarget));
-							_isFriend 	= (((_targetid in _sFriends)&&(_playerID in _tFriends))||((_fuid in _pfls)&&(_puid in _ffls)));
-							_isNear 	= (cursorTarget distance player < 4);
-							if (((_isOkay)||(_isFriend))&&(_isNear)) then {BP_FIX=true};
-						};
-						if (!BP_FIX) then ANTI_THEFT;
+			};
+			_arround = player nearEntities [['LandVehicle','Air','ship'],25];_near = [];
+			{if (player distance _x < ((sizeOf typeOf _x)/2) + 3) then {_near = _near + [_x];};} forEach _arround;
+			_countNear = count _near;
+			_countNearMine = {
+				_owner = _x xgv ['owner',objNull];
+				_owner in _friends || _playerID in (_owner xgv ["friendlies",[]])
+			} count _near;
+			if (_countNear > _countNearMine && !izn findDisplay 106) then {
+				(findDisplay 106) closedisplay 0;
+				cdg 0;cdg 0;cdg 0;
+				cutText [format["%1. You are near other player's vehicle, you cannot access gear",name player],"PLAIN"];
+			};
+			uiSleep 0.25;
+		};
+	};
+	SafezoneGuns = {
+		while {true} do {
+			waitUntil {uiSleep 0.25; vehicle player == player};
+			_notInSafeZone =
+			[
+				'MAAWS','RPG7V','M136','RPG18','STINGER'
+			];
+			_cwep = currentWeapon player;
+			if (_cwep in _notInSafeZone) then
+			{
+				_swep = '';
+				{
+					if ((getNumber (configFile >> 'CfgWeapons' >> _x >> 'Type')) == 2) exitWith
+					{
+						_swep = _x;
+					};
+				} forEach (weapons player);
+				if (_swep == '') then
+				{
+					player playActionNow 'PutDown';
+					_iPos = getPosATL player;
+					_radius = 1;
+					_removed = ([player,_cwep,1] call BIS_fnc_invRemove);
+					if (_removed == 1) then
+					{
+						_item = createVehicle ['WeaponHolder', _iPos, [], _radius, 'CAN_COLLIDE'];
+						_item addWeaponCargoGlobal [_cwep,1];
+					};
+				}
+				else
+				{
+					player selectweapon _swep;
+				};
+			};
+			uiSleep 0.1;
+		};
+	};
+
+	SafezoneVechicles = {
+		while {true} do {
+			waitUntil {uiSleep 0.25; vehicle player != player};
+			player_veh = vehicle player;
+			fnc_usec_damageVehicle ={};
+			_player_driver = player == driver player_veh;
+			_veh_owner = player_veh xgv ['owner', objNull];
+			_ownerGroup = units group _veh_owner;
+			_ownerGroupTag = _veh_owner xgv ["friendlies",[]];
+			_playerID = player xgv ["CharacterID","0"];
+			if (izn _veh_owner) then {
+				if (_player_driver) then {
+					player_veh xsv ['owner', player, true]; _veh_owner = player;
+				} else {
+					if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
+						cutText [fmt['%1, This is an abondoned vehicle. Enter in the driver/pilot seat to claim this vehicle.',name player],'PLAIN'];
+						player xac ['getOut', player_veh];
 					};
 				};
-			} else {sleep 1};
+			} else {
+				if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
+					cutText [fmt['%1, You are in a vehicle owned by another player',name player],'WHITE IN'];
+					player xac ['getOut', player_veh];
+				};
+			};
+		uiSleep 0.25;
 		};
 	};
 	if (hasInterface) then {
@@ -653,9 +667,10 @@ if (!isDedicated) then {
 				systemChat ("(GG-AH): "+str _MSG);
 				GG_thread1 = [] swx GG_ANTIRUN;
 				GG_thread2 = [] swx GG_ZSHIELD;
-				GG_thread3 = [] swx GG_ANTITHEFT;
-				GG_thread4 = [] swx GG_ANTITHEFT2;
+				GG_thread3 = [] swx SafezoneTheft;
+				GG_thread4 = [] swx SafezoneVechicles;
 				GG_thread5 = [] swx GG_VP;
+				GG_thread6 = [] swx SafezoneGuns;
 				["Safe Zone"] swx bis_fnc_infotext;
 				call GG_PP;
 				waitUntil {uiSleep 1;((!inSafeZone)||(typeOf player != SZ_SkTyp))};
@@ -685,6 +700,8 @@ if (!isDedicated) then {
 				xtr GG_thread3;
 				xtr GG_thread4;
 				xtr GG_thread5;
+				xtr GG_thread6;
+				player_veh xsv ['owner', objNull, true];
 				call GG_DPP;
 				_msg = "";
 				if (inSafeZone) then {_msg = "It appears you have re-entered a safezone. Reenabling protection..."} else {_msg = "Safe-zone hit/kill protection has been disabled!"};

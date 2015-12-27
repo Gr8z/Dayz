@@ -29,7 +29,7 @@ for "_i" from 0 to (count _cfgvehicles)-1 do {
 	};
 };
 //List of vehicles you don't want to give the towing ability to.
-LOG_CFG_CANTOW = LOG_CFG_CANTOW - ["ExampleVehicle_ep1","Old_bike_TK_INS_EP1","TT650_Civ","TT650_Ins","TT650_TK_CIV_EP1","ATV_US_EP1","ATV_CZ_EP1","M1030_US_DES_EP1","Old_moto_TK_Civ_EP1","tractor","tractorOld"];
+LOG_CFG_CANTOW = LOG_CFG_CANTOW - ["MMT_Civ","Old_bike_TK_INS_EP1","TT650_Civ","TT650_Ins","TT650_TK_CIV_EP1","ATV_US_EP1","ATV_CZ_EP1","M1030_US_DES_EP1","Old_moto_TK_Civ_EP1","tractor","tractorOld"];
 
 
 /*--------------------------------------------------------------------------------------------------------------
