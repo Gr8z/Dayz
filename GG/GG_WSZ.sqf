@@ -82,4 +82,4 @@ if (_rnd > 0.3) then {
 };
 
 //Start behavior
-_id = [_position,_agent] rf "GG\Epoch\zombie_agent.fsm";
+_id = [_position,_agent] rf "GG\zombie_agent.fsm";

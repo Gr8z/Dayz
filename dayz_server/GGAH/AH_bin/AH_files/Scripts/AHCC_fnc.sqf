@@ -661,8 +661,8 @@ _AH_CC = compile ("
 			player setPosATL [-18697,25815,0];
 			diag_log ('AH_EVENT: Event init reverted!');
 			
-			if (preProcessFile 'GG\Epoch\GG_PD.sqf' != '') then {
-				player_death = compile preprocessFileLineNumbers 'GG\Epoch\GG_PD.sqf';
+			if (preProcessFile 'GG\GG_PD.sqf' != '') then {
+				player_death = compile preprocessFileLineNumbers 'GG\GG_PD.sqf';
 			} else {
 				player_death = compile preprocessFileLineNumbers '\z\addons\dayz_code\compile\player_death.sqf';
 			};
@@ -1229,10 +1229,10 @@ _AH_CC = compile ("
 				};
 			};
 			if (_msg in _airdrop) then {
-				player execVM 'GG\Epoch\GG_AD.sqf';
+				player execVM 'GG\GG_AD.sqf';
 			};
 			if (_msg in _scan) then {
-				player execVM 'GG\Epoch\GG_SP.sqf';
+				player execVM 'GG\GG_SP.sqf';
 			};
 			if (_msg in _animCommands) then {
 				if (count (nearestObjects [player, (DZE_maintainClasses), 10]) == 0) then {

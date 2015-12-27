@@ -287,7 +287,7 @@
         "vgupdater.exe","Missions\vgupdater.exe","Expansion\vgupdater.exe","dll\vgupdater.exe",
         "0100100110\start.sqf","Missions\0100100110\start.sqf","Expansion\0100100110\start.sqf","dll\0100100110\start.sqf",
         "0100100110\Starts.sqf","Missions\0100100110\Starts.sqf","Expansion\0100100110\Starts.sqf","dll\0100100110\Starts.sqf",
-        "epoch\epochMain.sqf","Missions\epoch\epochMain.sqf","Expansion\epoch\epochMain.sqf","dll\epoch\epochMain.sqf",
+        "epoch\epochMain.sqf","Missions\epochMain.sqf","Expansion\epochMain.sqf","dll\epochMain.sqf",
         "Hack-Dayz.exe","Missions\Hack-Dayz.exe","Expansion\Hack-Dayz.exe","dll\Hack-Dayz.exe","TM\keymenu.sqf",
         "DayZZ.exe","Missions\DayZZ.exe","Expansion\DayZZ.exe","dll\DayZZ.exe","OTHER\scripts\fly.sqf","TM\clearvar.sqf",
         "scrFuckOffInfistar1\start.sqf","epoch\targetall\fuckserver.sqf","boooooooobies.sqf","infiSTAR_GOLD\Startup.sqf",

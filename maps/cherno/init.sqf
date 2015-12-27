@@ -1,4 +1,4 @@
-#include "GG\Epoch\shortcuts.h"
+#include "GG\shortcuts.h"
 #include "GG\config.sqf"
 #include "mapConfig.sqf"
 
@@ -8,14 +8,14 @@ __ccp("\z\addons\dayz_code\init\publicEH.sqf");
 pls 0.6;
 __ccp("\z\addons\dayz_code\medical\setup_functions_med.sqf");
 pls 0.9;
-__ccp("GG\Epoch\GG_init.sqf");
+__ccp("GG\GG_init.sqf");
 pls 1.0;
 if (!hasInterface) exitWith {__ccp("\GG_HC\init.sqf");if (isServer) then {__ccp("\z\addons\dayz_server\system\start.sqf")};};
 if (!isDedicated) then {
 	0 fadeSound 0;
 	__wun(!isNil "dayz_loadScreenMsg");
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
-	rf "GG\Epoch\player_monitor.fsm";
+	rf "GG\player_monitor.fsm";
 	rn "GG\group\init.sqf";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
@@ -29,5 +29,5 @@ if (!isDedicated) then {
 		    _this call player_reloadMago;
 	    };
     };
-    rn "GG\Epoch\GG_MMT.sqf";
+    rn "GG\GG_MMT.sqf";
 };

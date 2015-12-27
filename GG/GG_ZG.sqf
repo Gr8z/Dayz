@@ -138,6 +138,6 @@ if ((dayz_spawnZombies < _maxControlledZombies) && (dayz_CurrentNearByZombies < 
 		publicVariableServer "PVDZE_Server_Simulation";
 
 		//Start behavior
-		_id = [_position,_agent] rf "GG\Epoch\zombie_agent.fsm";
+		_id = [_position,_agent] rf "GG\zombie_agent.fsm";
 	};
 };

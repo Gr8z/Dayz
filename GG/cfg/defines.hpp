@@ -2435,7 +2435,7 @@ class RscPlotMenu {
 			y = 0.70621 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			onButtonClick = "['','','','maintain'] execVM 'GG\Epoch\GG_MA.sqf';closeDialog 0;";
+			onButtonClick = "['','','','maintain'] execVM 'GG\GG_MA.sqf';closeDialog 0;";
 			colorBackground[] = {0,1,0.6,0.8};
 			colorBackgroundActive[] = {0,1,1,1};
 		};
