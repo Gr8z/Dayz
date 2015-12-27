@@ -330,7 +330,6 @@ call compile ("
 				adminadd set [count adminadd,[""  God Mode"",admin_godmodeToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Car God Mode"",admin_vehicleGodmode,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Stealth / Invisible"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Admin Skin"",admin_skinning,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Rapid Fire"",admin_rapidFire,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Infinite Ammo"",admin_infAmmo,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  No Recoil"",admin_noRecoil,""1"",""0"",""0"",""0"",[]]];
@@ -452,7 +451,6 @@ call compile ("
 				adminadd set [count adminadd,[""  God Mode"",admin_godmodeToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Stealth / Invisible"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Admin Skin"",admin_skinning,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Zombie Shield"",admin_zedShield,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
@@ -4759,47 +4757,6 @@ systemChat (""""Hello!"""");
 					closeDialog 0;
 					
 					_savelog = format[""%1 disabled invisibility."",name player,_this select 0];
-					[_savelog] call admin_adminlogAction;
-				};
-			};
-			admin_skinning = {
-				if (isNil 'adminSkin1') then {adminSkin1 = 0};
-				if (adminSkin1 == 0) then {
-
-					if (vehicle player != player) then {
-						type_of_player_invis = ""Survivor_2_DZ"";
-					} else {
-						type_of_player_invis = typeOf player;
-					};
-
-					_model = 'INS_Worker2_DZ';
-					[dayz_playerUID,dayz_characterID,_model] spawn player_humanityMorph;
-				
-					sleep 5;
-					PVOZ_adminSkin  =  [player , 'GG\images\admin.jpg' ];
-					publicVariable 'PVOZ_adminSkin';
-					player setObjectTexture [0, 'GG\images\admin.jpg'];
-					player setVariable['adminated',1,true];
-
-					adminSkin1 = 1;
-					_msg = ""Admin Skin Enabled"";
-					systemChat ("""+_AH_CHAT+": "" + str _msg);
-					_msg call AH_fnc_dynTextMsg;
-					closeDialog 0;
-
-					_savelog = format[""%1 enabled Admin Skin."",name player,_this select 0];
-					[_savelog] call admin_adminlogAction;
-				} else {
-					if !(isNil ""type_of_player_invis"") then {
-						[dayz_playerUID,dayz_characterID,type_of_player_invis] spawn player_humanityMorph;
-					};
-					adminSkin1 = 0;
-					_msg = ""Admin Skin Disabled"";
-					systemChat ("""+_AH_CHAT+": "" + str _msg);
-					_msg call AH_fnc_dynTextMsg;
-					closeDialog 0;
-					
-					_savelog = format[""%1 disabled Admin Skin."",name player,_this select 0];
 					[_savelog] call admin_adminlogAction;
 				};
 			};
