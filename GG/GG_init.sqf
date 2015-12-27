@@ -853,14 +853,6 @@ if (!isDedicated) then {
 		diag_log ("(PLAYER_RESPAWN): Spawn select...");
 		execVM "GG\spawn\start.sqf";
 		waitUntil{!dialog};
-		if (!GG_respawn) exitWith {
-			systemChat ("(GG-AH): You didn't select respawn or disconnect!");
-			for "_x" from 5 to 1 step -1 do {
-				systemChat format ["Returning to lobby in %1 second(s)...", _x];
-				uiSleep 1;
-			};
-			endMission 'END1';
-		};
 		
 		diag_log ("(PLAYER_RESPAWN): Gender select...");
 		createDialog "RscDisplayGenderSelect";
