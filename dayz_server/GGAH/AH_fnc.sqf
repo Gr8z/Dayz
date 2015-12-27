@@ -965,7 +965,6 @@ call compile ("
 		"+_Player_LOGIN+"_unit1 = objNull;
 		"},{""}])+"
 		while {100 == 100} do {
-			diag_log ('(GG-AntiHack): AH_PERF PLAYERS: '+(str (count playableUnits))+' UNITS: '+(str (count allUnits))+' OBJECTS: '+(str (count (allMissionObjects '')))+' FPS: '+(str diag_fps)+' TIME: '+(str time)+'');
 			"+(if (_AH_TERCHK) then [{"
 			if !(isNull "+_Player_LOGIN+"_unit1) then {clearVehicleInit "+_Player_LOGIN+"_unit1;deleteVehicle "+_Player_LOGIN+"_unit1};
 			_AH_UNIT = createAgent ['Survivor2_DZ',[30 + (random 100),10000 + (random 500),0],[],0,'FORM'];
