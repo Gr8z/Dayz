@@ -530,7 +530,7 @@
 	_OD_DPLY 	= true;		//For use with my object deploy script, or your own deploy script. Advanced users use: PVOZ_OBJ_DEPLOY = [_pos,player,"CLASS_NAME_DZ"];publicVariableServer "PVOZ_OBJ_DEPLOY"
 	_OD_AOBJ 	= 			//Add objectsto the array if you will be using the OD_DPLY.
 	[
-		"MMT_Civ","CSJ_GyroC","CSJ_GyroC"
+		"MMT_Civ","ATV_CZ_EP1","CSJ_GyroC"
 	];
 /**File paths**/
 	lvl3_path = preProcessFileLineNumbers "\z\addons\dayz_server\GGAH\AH_bin\AH_admins\Admins_high.sqf";
