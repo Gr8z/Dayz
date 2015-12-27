@@ -220,6 +220,7 @@ Marksman3 = [
 	"76561197973432427", // Hollywood (OD-2015-10-25) #12197 
 	"76561198061453547", // vdiethelm (EXP-2015-12-25) #00000 
 	"76561198044922665", // Logan (EXP-2016-1-3) #00000 
+	"76561198147901202", // BLACk>(OD-2015-12-27)#12510
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
