@@ -26,7 +26,7 @@ if (!isNull _playerObj) then {
 		_gpsPOS = mapGridPosition (getPosATL _playerObj);
 		CLOG_nearPlyr = "none";
 		_nrplrs = [];
-		{if (isPlayer _x) then {_nrplrs = _nrplrs + [_x]}} forEach (nearestObjects [getPos _playerObj,["CAManBase"],500]);
+		{if (isPlayer _x) then {_nrplrs = _nrplrs + [_x]}} forEach (nearestObjects [getPos _playerObj,["CAManBase"],1000]);
 		if (count _nrplrs > 1) then {
 			_nearplayer = _nrplrs select 1;
 			CLOG_nearPlyr = format ["%1 (%2M)",name _nearplayer,round(_playerObj distance _nearplayer)];
