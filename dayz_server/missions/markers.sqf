@@ -66,13 +66,13 @@ _addMarker = {
 
 //Tavi
 if (dayZ_instance == 1) then {
-	_marker = xct ["PetrolTraders", [8665,21000]];
+	_marker = xct ["PetrolTraders", [17512,2000]];
 	[_marker," WWW.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
-	_marker = xct ["SafezoneAreas", [8665,19800]];
+	_marker = xct ["SafezoneAreas", [17512,1400]];
 	[_marker," TS.GHOSTZGAMERZ.COM","ColorBlack","mil_flag",[0.7,0.7],0.8] call _addMarker;
 
-	_marker = xct ["HelpInfo", [8665,19600]];
+	_marker = xct ["HelpInfo", [17512,800]];
 	[_marker," Type !help for a list of commands","ColorGreen","Mil_Dot",[0.7,0.7],0.8] call _addMarker;
 };
 
