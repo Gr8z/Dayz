@@ -785,7 +785,7 @@ if (!isDedicated) then {
 			uisleep 1;
 		};
 		uisleep 1;
-		["",0,1,3,0,0,10] swx AH_fnc_dynamictext;	
+		["",0,1,3,0,0,10] swx AH_fnc_dynamictext;
 	};
 	GGrespown = {
 		player removeEventHandler ["FiredNear",eh_player_killed];
@@ -813,7 +813,7 @@ if (!isDedicated) then {
 		uiSleep 5;
 		
 		{if ((count (units _x)) == 0) then {deleteGroup _x}} forEach allGroups;
-		uiSleep 15;
+		uiSleep 18;
 		
 		r_handlercount 		= 0;
 		r_player_blood 		= 12000;
