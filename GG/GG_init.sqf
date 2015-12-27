@@ -2597,7 +2597,7 @@ if (!isDedicated) then {
 			_ctrlCombat call player_guiControlFlash
 		} else {
 			if ((_pic == "\z\addons\dayz_code\gui\status_combat_inside_ca.paa")||(vehicle player != player)) then {
-				_ctrlCombat ctrlSetScale 0.5;
+				_ctrlCombat ctrlSetScale 0.7;
 				_ctrlCombat ctrlSetTextColor [0,1,0,0.8];
 			} else {
 				_ctrlCombat ctrlSetScale 1;
