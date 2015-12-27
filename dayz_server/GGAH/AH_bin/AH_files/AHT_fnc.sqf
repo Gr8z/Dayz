@@ -621,7 +621,7 @@ call compile ("
 					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 					
-					_msg = format ['[ADMIN] %1 gave you %2 coins.',name player,sel_gold call BIS_fnc_numberText];
+					_msg = format ['ADMIN gave you %2 coins.',name player,sel_gold call BIS_fnc_numberText];
 					[_name,_msg] spawn admin_fnc_dynTextSend;
 					
 					_savelog = format['%1 gave %3 coins to %2',name player,_name,sel_gold call BIS_fnc_numberText];
@@ -658,7 +658,7 @@ call compile ("
 					systemChat (""(GG-AntiHack): "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
 					
-					_msg = format ['%1 added %2 coins to your bank.',name player,sel_gold call BIS_fnc_numberText];
+					_msg = format ['ADMIN added %2 coins to your bank.',name player,sel_gold call BIS_fnc_numberText];
 					[_name,_msg] spawn admin_fnc_dynTextSend;
 					
 					_savelog = format['%1 added %3 coins to %2''s bank',name player,_name,sel_gold call BIS_fnc_numberText];
