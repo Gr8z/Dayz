@@ -1,4 +1,4 @@
-private ["_ammo","_tool","_crate","_weapon","_item","_backpack","_num_tools","_num_items","_num_backpacks","_num_weapons","_weapons_array","_tool_array","_item_array","_backpack_array","_item2","_iamount","_iamount2"];
+private ["_ammo","_tool","_crate","_weapon","_item","_backpack","_num_tools","_num_items","_num_backpacks","_num_weapons","_weapons_array","_tool_array","_item_array","_backpack_array","_item2","_iamount","_iamount2","_item3","_iamount3"];
 _crate = _this select 0;
 _crate setVariable ["ObjectID","1",true];
 _crate setVariable ["permaLoot",true];
@@ -90,5 +90,12 @@ if(wai_high_value2) then {
 		_item2 = crate_high_value call BIS_fnc_selectRandom;
 		_iamount2 = high_value_amounts2 call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item2,_iamount2];
+	};
+};
+if(wai_high_value3) then {
+	if(random 100 < wai_high_value_chance3) then {
+		_item3 = crate_high_value2 call BIS_fnc_selectRandom;
+		_iamount3 = high_value_amounts3 call BIS_fnc_selectRandom;
+		_crate addMagazineCargoGlobal [_item3,_iamount3];
 	};
 };

@@ -30,9 +30,11 @@ if(isServer) then {
 		ai_static_weapons		    = ["M2StaticMG"];
 		ai_static_skills		    = false;
 		ai_static_array		        = [["aimingAccuracy",0.20],["aimingShake",0.70],["aimingSpeed",0.75],["endurance",1.00],["spotDistance",0.70],["spotTime",0.50],["courage",1.00],["reloadSpeed",1.00],["commanding",1.00],["general",1.00]];
-		ai_gear0		            = [["ItemBandage","ItemBandage","ItemPainkiller"],["ItemKnife","ItemFlashlight"]];
-		ai_gear1		            = [["ItemBandage","ItemBandage","ItemPainkiller"],["ItemKnife","ItemFlashlight"]];
-		ai_gear_random		        = [ai_gear0,ai_gear1];
+		ai_gear0		            = [["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemEpinephrine"],["ItemKnife","ItemFlashlight","ItemGPS","ItemMap","ItemToolbox"]];
+		ai_gear1		            = [["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemAntibiotic"],["ItemKnife","ItemFlashlight","ItemEtool","ItemCompass","ItemToolbox"]];
+		ai_gear2		            = [["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemMorphine"],["ItemKnife","ItemFlashlight","ItemWatch","ItemCrowbar","ItemToolbox"]];
+		ai_gear3		            = [["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemBloodbag"],["ItemKnife","ItemFlashlight","ItemRadio","ItemMachete","ItemToolbox"]];
+		ai_gear_random		        = [ai_gear0,ai_gear1,ai_gear2,ai_gear3];
 		ai_wep_assault = [
 		"G36A_camo",
 		"G36C",
@@ -136,10 +138,13 @@ if(isServer) then {
 		wai_kill_percent		    = 80;
 		wai_high_value			    = true;
 		wai_high_value2			    = true;
+		wai_high_value3			    = true;
 		wai_high_value_chance		= 100;
 		wai_high_value_chance2		= 50;
+		wai_high_value_chance3		= 5;
 		high_value_amounts 			= [1,2,3];
 		high_value_amounts2 		= [1];
+		high_value_amounts3 		= [1];
 		wai_enable_minefield		= false;
 		wai_use_launchers		    = false;
 		wai_remove_launcher		    = true;
@@ -378,6 +383,9 @@ if(isServer) then {
 		];
 		crate_high_value = [
 		"ItemVault"
+		];
+		crate_high_value2 = [
+		"ItemHotwireKit"
 		];
 		crate_items_food = [
 		"ItemWaterbottle",
