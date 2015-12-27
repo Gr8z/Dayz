@@ -709,24 +709,26 @@ if (!isDedicated) then {
 		};
 	};
 	GGcam = {
-		1 cutRsc ["default","PLAIN",0];
-		3 cutRsc ["default","PLAIN",0];
-		4 cutRsc ["default","PLAIN",0];
 		playMusic "dayz_track_death_1";
+		"colorCorrections" ppEffectEnable true;"colorCorrections" ppEffectAdjust [1, 1, 0, [1, 1, 1, 0.0], [1, 1, 1, 0.1],  [1, 1, 1, 0.0]];
+		"colorCorrections" ppEffectCommit 0;
+		"dynamicBlur" ppEffectEnable true;
+		"dynamicBlur" ppEffectAdjust [2]; 
+		"dynamicBlur" ppEffectCommit 0;
 		showCinemaBorder true;
 		camUseNVG false;
-		GG_CAM = "camera" camCreate [(getPosATL player sel 0), (getPosATL player sel 1),(getPosATL player sel 2)+1];
+		playSound "heartbeat_1";
+		GG_CAM = "camera" camCreate [(getPosATL player select 0), (getPosATL player select 1),(getPosATL player select 2)+4];
 		GG_CAM cameraEffect ["internal","back"];
+		
 		GG_CAM camSetFOV 2;
 		GG_CAM camSetTarget (vehicle player);
 		GG_CAM camCommit 0;
-		waitUntil{camCommitted GG_CAM};
-		GG_CAM camSetTarget [(getPosATL player sel 0), (getPosATL player sel 1)+50,(getPosATL player sel 2)+50];
-		GG_CAM camSetRelPos [50,50,0];
-		GG_CAM camCommit 25;
-		uiSleep 5;
+		waitUntil {camCommitted GG_CAM};
+		sleep 3;
+		GG_CAM camSetTarget [(getPosATL player select 0), (getPosATL player select 1),(getPosATL player select 2)+800];
 		GG_CAM camSetRelPos [0,5,0];
-		GG_CAM camCommit 20;
+		GG_CAM camCommit 80;
 	};
 	GG_advertisment = {
 		r_player_injured = false;
@@ -807,8 +809,7 @@ if (!isDedicated) then {
 		uiSleep 5;
 		
 		{if ((count (units _x)) == 0) then {deleteGroup _x}} forEach allGroups;
-		0 cutText ["YOU ARE DEAD!","PLAIN"];
-		uiSleep 10;
+		uiSleep 15;
 		
 		r_handlercount 		= 0;
 		r_player_blood 		= 12000;
