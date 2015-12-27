@@ -728,6 +728,59 @@ if (!isDedicated) then {
 		GG_CAM camSetRelPos [0,5,0];
 		GG_CAM camCommit 20;
 	};
+	GG_advertisment = {
+		r_player_injured = false;
+		playSound "heartbeat_1";
+		_text = format["<t size='2.0' color='#FFFFFF'><t size='2.2' color='#a81e13'>YOU ARE DEAD</t><br/>",""];
+		[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
+		_text = "<t size='1.5' font='TahomaB' color='#FFFFFF'>www.GHOSTZGAMERZ.com</t>";
+		[_text,0,(safezoneY + 0.1),300,1,0,9] swx AH_fnc_dynamictext;
+		_text = format["<br/><br/><t size='1' color='#FFFFFF'>Respawning in %1 seconds</t><br/>",20];
+		[_text,0,1,3,1,0,10] swx AH_fnc_dynamictext;
+		uisleep 1;
+		for  "_x" from 19 to 1 step -1 do {
+			if (_x == 12) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>DONATION PERKS AVAILABLE</t>";
+				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
+				playSound "heartbeat_1";
+			};		
+			if (_x == 10) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>LOADOUTS</t>";
+				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
+				playSound "heartbeat_1";
+			};
+			if (_x == 8) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>BUILDING BOX</t>";
+				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;	
+				playSound "heartbeat_1";
+			};
+			if (_x == 6) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>SKINS</t>";
+				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
+				playSound "heartbeat_1";
+			};	
+			if (_x == 4) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>VIP SPAWNS</t>";
+				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
+				playSound "heartbeat_1";				
+			};			
+			if (_x == 2) then {
+				_text = "<t size='2.2' font='TahomaB' color='#a81e13'>20+ MORE</t>";
+				[_text,0,(safezoneY + 0.8),1,1,0,8] swx AH_fnc_dynamictext;	
+				playSound "heartbeat_1";
+			};
+			if (_x == 1) then {
+				_text = format["<br/><br/><t size='1' color='#FFFFFF'>Respawning in %1 seconds</t><br/>",_x];
+				[_text,0,1,1,0,0,10] swx AH_fnc_dynamictext;			
+			} else {
+				_text = format["<br/><br/><t size='1' color='#FFFFFF'>Respawning in %1 seconds</t><br/>",_x];
+				[_text,0,1,3,0,0,10] swx AH_fnc_dynamictext;
+			};			
+			uisleep 1;
+		};
+		uisleep 1;
+		["",0,1,3,0,0,10] swx AH_fnc_dynamictext;	
+	};
 	GGrespown = {
 		player removeEventHandler ["FiredNear",eh_player_killed];
 		player removeEventHandler ["HandleDamage",mydamage_eh1];

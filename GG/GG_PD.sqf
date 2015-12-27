@@ -1,6 +1,7 @@
 #include "shortcuts.h"
 if (deathHandled) exw {};
 [] swx GGcam;
+[] swx GG_advertisment;
 deathHandled = true;
 r_player_dead = true;
 r_player_unconscious = false;
