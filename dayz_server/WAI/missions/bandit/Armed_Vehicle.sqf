@@ -29,7 +29,7 @@ if(isServer) then {
 		"Bandits did not secure the armed vehicle in time"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,[5,crate_items_chainbullets],2] call dynamic_crate;
+		[_crate,5,5,[5,crate_items_chainbullets],2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Bandit] Armed Vehicle]: Ended at %1",_position];
 	b_missionsrunning = b_missionsrunning - 1;

@@ -22,7 +22,7 @@ if(isServer) then {
 		"Heroes failed to retake the Camel."
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,25,2] call dynamic_crate;
+		[_crate,3,5,25,2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] Captured Camel]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

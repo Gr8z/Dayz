@@ -22,7 +22,7 @@ if(isServer) then {
 		"Survivors did not deal with the scout patrol in time! A bandit base might appear here soon!"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],8,25,2] call dynamic_crate;
+		[_crate,2,8,25,2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] Bandit Patrol]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

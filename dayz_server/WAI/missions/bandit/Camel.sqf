@@ -22,7 +22,7 @@ if(isServer) then {
 		"Bandits failed to hijack the camel"
 		] call mission_winorfail;
 		if(_complete) then {
-		[_crate,[10,ai_wep_random],5,25,2] call dynamic_crate;
+		[_crate,5,5,25,2] call dynamic_crate;
 		};
 	diag_log format["WAI: [Mission:[Bandit] Captured Camel]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

@@ -31,7 +31,7 @@ if(isServer) then {
 		"Heroes did not secure the Little Bird Gunner in time."
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,25,4] call dynamic_crate;
+		[_crate,5,5,25,4] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] LBG]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

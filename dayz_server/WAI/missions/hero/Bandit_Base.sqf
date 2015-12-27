@@ -37,7 +37,7 @@ if(isServer) then {
 		"Survivors were unable to capture the base"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,20,4] call dynamic_crate;
+		[_crate,7,5,20,4] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] Bandit Base]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

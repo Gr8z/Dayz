@@ -25,7 +25,7 @@ if(isServer) then {
 		"Bandits did not secure the weapon cache in time"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],10,25,2] call dynamic_crate;
+		[_crate,10,10,25,2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Bandit] weapon_cache ended at %1",_position];
 	b_missionsrunning = b_missionsrunning - 1;
