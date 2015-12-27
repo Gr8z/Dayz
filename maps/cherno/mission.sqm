@@ -350,7 +350,7 @@ class Mission
 		};
 		class Item17
 		{
-			position[]= {-18697,379,25815};
+			position[]= {-7240,0,19530};
 			name="respawn_west";
 			type="Empty";
 		};
