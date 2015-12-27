@@ -6,9 +6,9 @@ if (_index < 0) exitWith {
 };
 
 _stored = VirtualGarage getVariable ["StoredVehicles",[]];
-_maxstorage = 10;
+if (getPlayerUID player in GarageDonor) then { _maxstorage = 6;} else {_maxstorage = 1; };
 if ((count _stored) >= _maxstorage) exitWith {
-	_msg = "Cannot store anymore vehicles, your garage is full!";
+	_msg = "Cannot store anymore vehicles, You can only have 3 vehicles in your garage. Donors = 6!";
 	systemChat ("(GG-AH): "+str _msg);
 };
 
