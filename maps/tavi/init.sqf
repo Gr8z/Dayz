@@ -17,7 +17,6 @@ if (!isDedicated) then {
 	dayz_loadScreenMsg = (localize "STR_AUTHENTICATING");
 	rf "GG\player_monitor.fsm";
 	rn "GG\group\init.sqf";
-	rn "GG\spawn\start.sqf";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
 		6 cutRsc ["EarPlugs", "PLAIN"];
