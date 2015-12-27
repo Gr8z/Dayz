@@ -1,4 +1,4 @@
-/*%FSM<COMPILE "C:\ArmA2_shit\DayZ\Poseidon\Data\Packages\Bin\fsmEditor\scriptedFSM.cfg, DayZ Player Monitor">*/
+/*%FSM<COMPILE "C:\Program Files (x86)\Bohemia Interactive\Tools\FSM Editor Personal Edition\scriptedFSM.cfg, DayZ Player Monitor">*/
 /*%FSM<HEAD>*/
 /*
 item0[] = {"init",0,250,-75.000000,-350.000000,25.000000,-300.000000,0.000000,"init"};
@@ -35,7 +35,7 @@ item30[] = {"Display_Ready",4,218,-175.000000,1050.000000,-75.000000,1100.000000
 item31[] = {"Preload_Display",2,250,-75.000000,1100.000000,25.000000,1150.000000,0.000000,"Preload" \n "Display"};
 item32[] = {"Preload_Done",4,218,-175.000000,1150.000000,-75.000000,1200.000000,0.000000,"Preload" \n "Done"};
 item33[] = {"Initialize",2,250,-75.000000,1200.000000,25.000000,1250.000000,0.000000,"Initialize"};
-item34[] = {"Finish",1,4346,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
+item34[] = {"Finish",1,250,-75.000000,1300.000000,25.000000,1350.000000,0.000000,"Finish"};
 item35[] = {"True",8,218,25.000000,1250.000000,125.000000,1300.000000,0.000000,"True"};
 item36[] = {"Too_Long",4,218,300.000000,150.000000,400.000000,200.000000,0.000000,"Too" \n "Long"};
 item37[] = {"Too_Long",4,218,300.000000,500.000000,400.000000,550.000000,0.000000,"Too" \n "Long"};
@@ -46,7 +46,7 @@ item41[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0
 item42[] = {"New_Character",4,218,-325.000000,400.000000,-225.000000,450.000000,5.000000,"New" \n "Character"};
 item43[] = {"Gender_Selection",2,250,-575.000000,400.000000,-475.000000,450.000000,0.000000,"Gender Selection" \n "Dialog"};
 item44[] = {"Selected",4,218,-575.000000,475.000000,-475.000000,525.000000,0.000000,"Selected"};
-item45[] = {"Process",2,250,-500.000000,550.000000,-425.000000,600.000000,0.000000,"Process"};
+item45[] = {"Process",2,4346,-500.000000,550.000000,-425.000000,600.000000,0.000000,"Process"};
 item46[] = {"version_check",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"version check"};
 item47[] = {"ERROR__version_c",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "version check"};
 item48[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
@@ -168,8 +168,8 @@ link84[] = {75,74};
 link85[] = {76,57};
 link86[] = {77,78};
 link87[] = {78,45};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-465.628754,588.051941,1497.160278,649.387695,742,597,1};
-window[] = {0,-1,-1,-1,-1,905,644,1922,163,1,760};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-945.480652,-87.844177,907.961121,219.077927,742,596,1};
+window[] = {0,-1,-1,-1,-1,924,182,1460,182,1,760};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -468,7 +468,6 @@ class FSM
        "_isNew = _msg select 4;" \n
        "_version = _msg select 5;" \n
        "_model	= _msg select 6;" \n
-       "_spawnSelection = [[],""Random"",false];" \n
        "_isHiveOk = false;" \n
        "_newPlayer = false;" \n
        "_isInfected = false;" \n
@@ -634,7 +633,7 @@ class FSM
        "	dayz_myBackpackWpns =	[];" \n
        "};" \n
        "dayzPlayerLogin2 = [];" \n
-       "PVDZE_plr_Login2 = [_charID,player,_playerUID,_spawnSelection];" \n
+       "PVDZE_plr_Login2 = [_charID,player,_playerUID];" \n
        "publicVariableServer ""PVDZE_plr_Login2"";" \n
        "dayz_loadScreenMsg =  ""Requesting Character data from server"";" \n
        "progressLoadingScreen 0.9;" \n
@@ -1041,7 +1040,7 @@ class FSM
        "r_player_lowblood = player getVariable[""USEC_lowBlood"",false];" \n
        "r_player_blood = player getVariable[""USEC_BloodQty"",r_player_bloodTotal];" \n
        "selfTransfusionTime = time;" \n
-	   "call GG_cceff;" \n
+       "call GG_cceff;" \n
        "dayz_gui = [] spawn {" \n
        "	private[""_distance""];" \n
        "	dayz_musicH = [] spawn player_music;" \n
@@ -1218,8 +1217,7 @@ class FSM
     class Process
     {
       name = "Process";
-      init = /*%FSM<STATEINIT""">*/"_model = dayz_selectGender;" \n
-       "_spawnSelection = AH_fnc_selectedSpawn;"/*%FSM</STATEINIT""">*/;
+      init = /*%FSM<STATEINIT""">*/"_model = dayz_selectGender;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1454,7 +1452,7 @@ class FSM
       init = /*%FSM<STATEINIT""">*/"AH_fnc_selectedSpawn = [[],""Random"",false];" \n
        "1 cutText ["""", ""BLACK"",0];" \n
        "endLoadingScreen;" \n
-       "createDialog ""AH_fnc_spawnSelect"";call AH_fnc_spawnMenu;"/*%FSM</STATEINIT""">*/;
+       "execVM ""GG\spawn\start.sqf"";"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
@@ -1473,7 +1471,8 @@ class FSM
     /*%FSM</STATE>*/
   };
   initState="init";
-  finalStates[] = {
+  finalStates[] =
+  {
     "Finish",
   };
 };

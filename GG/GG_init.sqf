@@ -851,9 +851,7 @@ if (!isDedicated) then {
 		0 cutText ["","BLACK"];
 		
 		diag_log ("(PLAYER_RESPAWN): Spawn select...");
-		AH_fnc_selectedSpawn = [[],"Random",false];
-		createDialog "AH_fnc_spawnSelect";
-		call AH_fnc_spawnMenu;
+		execVM "GG\spawn\start.sqf";
 		waitUntil{!dialog};
 		if (!GG_respawn) exitWith {
 			systemChat ("(GG-AH): You didn't select respawn or disconnect!");
@@ -887,7 +885,7 @@ if (!isDedicated) then {
 		dayz_characterID = _charid;
 		if (!isNil "DefaultPlayerSkin") then {dayz_selectGender=DefaultPlayerSkin};
 		dayz_selectGender call player_switchModel;
-		PVDZE_plr_Login2 = [_charid,player,_playerUID,AH_fnc_selectedSpawn];
+		PVDZE_plr_Login2 = [_charid,player,_playerUID];
 		publicVariableServer "PVDZE_plr_Login2";
 		
 		diag_log ("(PLAYER_RESPAWN): Waiting for dayzPlayerLogin2...");
@@ -1189,20 +1187,6 @@ if (!isDedicated) then {
 		waitUntil {!(isNull (findDisplay 7331))};
 		call baseManage_countBuildables;
 		call baseManage_fillLists;
-	};
-	AH_fnc_spawnSelected = {
-		disableSerialization;
-		
-		_sp = AH_fnc_spawnpoints sel _this;
-		ctrlSetText [38501,format["Selected spawn: %1",_sp sel 1]];
-		if (_sp sel 1 == "Random") then {
-			AH_fnc_selectedSpawn = (AH_fnc_spawnpoints sel (round(random (count AH_fnc_spawnpoints - 1))));
-			[((findDisplay 38500) displayCtrl 38502),1,0.5,[7110,7782,0]] call AH_fnc_setMapPos;
-		} else {
-			[((findDisplay 38500) displayCtrl 38502),1,0.1,_sp sel 0] call AH_fnc_setMapPos;
-		};
-		
-		AH_fnc_selectedSpawn = _sp;
 	};
 	AH_fnc_setMapPos = {
 		disableSerialization;

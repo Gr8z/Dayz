@@ -10,6 +10,9 @@ _killer 	= _victim getVariable["AttackedBy", "nil"];
 _killerName = _victim getVariable["AttackedByName", "nil"];
 _isOK 		= false;
 
+_newObject setVariable ["bodyName", _victimName, true];
+_newObject setVariable ["bodyUID", _playerID, true];
+
 _victim enableSimulation false;
 _victim removeAllEventHandlers "MPHit";
 _victim removeAllEventHandlers "HandleDamage";
