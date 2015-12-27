@@ -841,7 +841,6 @@ if (!isDedicated) then {
 		{player removeMagazine _x} count (magazines player);
 		removeAllWeapons player;
 		"Survivor2_DZ" call player_switchModel;
-		startLoadingScreen ["","RscDisplayLoadCustom"];
 		GG_CAM cameraEffect ["terminate","back"];
 		camDestroy GG_CAM;
 		playMusic "";
