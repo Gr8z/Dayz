@@ -11,6 +11,11 @@ set beckill="E:\A2Server\BEC"
 cd /d %beckill%
 taskkill /f /im Bec_1.exe
 echo.
+echo Kill EPM_1.exe
+set EPMkill="E:\A2Server\EPM"
+cd /d %EPMkill%
+taskkill /f /im EPM_1.exe
+echo.
 echo Starting Log Rotator
 timeout 2
 :: start Log Log Rotator
@@ -49,29 +54,33 @@ echo.
 echo Moving Files back to root
 move C:\Dayz\maps\tavi\GG C:\Dayz\
 echo.
-echo Starting Dayz Server
-timeout 2
-:: start the server..
-start /REALTIME "arma2" /min "E:\A2Server\server_1.exe" "-port=3302" "-config=server_1\config.cfg" "-cfg=server_1\basic.cfg" "-profiles=server_1" "-name=server_1" "-mod=@Taviana;@DayzOverwatch;@DayZ_Epoch;@Server_1;@extDB;@marma" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi" -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
-echo.
-echo Starting Bec
-timeout 5
-:: start bec
-set becpath="E:\A2Server\BEC"
-cd /d %becpath%
-start "" "Bec_1.exe" -f server_1.cfg
 timeout 2
 :: start Maintainance
 set Maintainancepath="C:\Dayz\SQL_SCRIPTS"
 cd /d %Maintainancepath%
 start server_1.bat
 echo.
-echo Starting MBCon
+echo Starting Dayz Server
 timeout 2
+:: start the server..
+start "arma2" /min "E:\A2Server\server_1.exe" "-port=3302" "-config=server_1\config.cfg" "-cfg=server_1\basic.cfg" "-profiles=server_1" "-name=server_1" "-mod=@Taviana;@DayzOverwatch;@DayZ_Epoch;@Server_1;@extDB;@marma_1" "-BEpath=E:\A2Server\BattlEye"
+echo.
+echo Starting Bec
+timeout 5
+:: start bec
+set becpath="E:\A2Server\BEC"
+cd /d %becpath%
+start "Battleye Extended Controls" /min "Bec_1.exe" -f server_1.cfg
+echo Starting MBCon
+timeout 5
 :: start MBCon
 set MBconpath="E:\A2Server\MBcon\server_1"
 cd /d %MBconpath%
-start MBcon_1.exe
+start "MBCon" /min MBcon_1.exe
+echo Starting EPM
+timeout 5
+:: start EPM
+set EPMpath="E:\A2Server\EPM"
+cd /d %EPMpath%
+start "EPM" /min EPM_1.exe -ip=127.0.0.1 -password=GGNIGGER12 -port=3302
 echo.
-cls
-@exit

@@ -5,13 +5,20 @@ echo KILL server_test.exe
 set serverkill="E:\A2Server"
 cd /d %serverkill%
 taskkill /f /im server_test.exe
+timeout 1
+taskkill /f /im ArmA2OA_BE.exe
 echo.
 timeout 1
 echo.
 echo Deleting Old Pbos
-del "E:\A2Server\MPMissions\DayZ_GG_Test.Chernarus.pbo"
+del "E:\A2Server\MPMissions\DayZ_GG_Test.Tavi.pbo"
 del "E:\A2Server\@server_test\addons\*.pbo"
 timeout 1
+echo
+:: UPDATING GITHUB REPOS
+echo Updating Git Branch Dayz
+"E:\A2Server\A2_Git_Sync.sh"
+timeout 2
 echo.
 echo Starting Log Rotator
 timeout 1
@@ -24,7 +31,7 @@ echo.
 timeout 1
 echo.
 echo Moving Files into the mission
-move C:\Dayz\GG C:\Dayz\maps\cherno
+move C:\Dayz\GG C:\Dayz\maps\tavi
 echo.
 timeout 1
 echo.
@@ -35,19 +42,16 @@ timeout 1
 echo.
 echo Creating New Pbos
 "C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Dayz\dayz_server" "E:\A2Server\@server_test\addons\dayz_server.pbo"
-"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Dayz\maps\cherno" "E:\A2Server\MPMissions\DayZ_GG_Test.Chernarus.pbo"
+"C:\Program Files\PBO Manager v.1.4 beta\PBOConsole.exe" -pack "C:\Dayz\maps\Tavi" "E:\A2Server\MPMissions\DayZ_GG_Test.Tavi.pbo"
 echo.
 timeout 1
 echo.
 echo Moving Files back to root
-move C:\Dayz\maps\cherno\GG C:\Dayz\
+move C:\Dayz\maps\tavi\GG C:\Dayz\
 echo.
 echo Starting Dayz Server
 timeout 1
-start /REALTIME "arma2" /min "E:\A2Server\server_test.exe" "-port=2362" "-config=server_test\config.cfg" "-mod=@DayzOverwatch;@DayZ_Epoch;@server_test;@extDB;" "-cfg=server_test\basic.cfg" "-profiles=server_test" "-name=server_test" "-malloc=tbb3malloc_bi"  -world=Chernarus -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
-set logfile=C:\Users\Administrator\Desktop\server.log
-echo starting arma2oaserver.exe at %date% %time% >> %logfile%
-echo.
+start /REALTIME "arma2" /min "E:\A2Server\server_test.exe" "-port=2362" "-config=server_test\config.cfg" "-mod=@Taviana;@DayzOverwatch;@DayZ_Epoch;@server_test;" "-cfg=server_test\basic.cfg" "-profiles=server_test" "-name=server_test" "-malloc=tbb3malloc_bi"  -world=Tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB -BEpath=E:\A2Server\server_test\BattlEye
 echo.
 cls
 @exit

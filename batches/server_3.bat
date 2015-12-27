@@ -10,6 +10,11 @@ echo Kill Bec1.exe
 set beckill="E:\A2Server\BEC"
 cd /d %beckill%
 taskkill /f /im Bec_3.exe
+echo.
+echo Kill EPM_3.exe
+set EPMkill="E:\A2Server\EPM"
+cd /d %EPMkill%
+taskkill /f /im EPM_3.exe
 timeout 2
 echo.
 :: UPDATING GITHUB REPOS
@@ -50,30 +55,34 @@ echo.
 echo Moving Files back to root
 move C:\Dayz\maps\napf\GG C:\Dayz\
 echo.
-echo Starting Dayz Server
-timeout 2
-:: start the server..
-start /REALTIME "arma2" /min "E:\A2Server\server_3.exe" -port=2342 "-config=server_3\config.cfg" "-cfg=server_3\basic.cfg" "-profiles=server_3" -name=server_3 "-mod=@DayzOverwatch;@DayZ_Epoch;@server_3;@extDB;@marma" "-BEpath=E:\A2Server\BattlEye" "-malloc=tbb3malloc_bi"  -world=tavi -cpuCount=4 -exThreads=1 -maxmem=2047 -noCB
-echo.
-echo Starting Bec
-timeout 5
-:: start bec
-set becpath="E:\A2Server\BEC"
-cd /d %becpath%
-start "" "Bec_3.exe" -f server_3.cfg
-echo.
 timeout 2
 :: start Maintainance
 set Maintainancepath="C:\Dayz\SQL_SCRIPTS"
 cd /d %Maintainancepath%
 start server_3.bat
 echo.
-echo Starting MBCon
+echo Starting Dayz Server
 timeout 2
+:: start the server..
+start /REALTIME "arma2" /min "E:\A2Server\server_3.exe" -port=2342 "-config=server_3\config.cfg" "-cfg=server_3\basic.cfg" "-profiles=server_3" -name=server_3 "-mod=@DayzOverwatch;@DayZ_Epoch;@server_3;@extDB;@marma_3" "-BEpath=E:\A2Server\BattlEye"
+echo.
+echo Starting Bec
+timeout 5
+:: start bec
+set becpath="E:\A2Server\BEC"
+cd /d %becpath%
+start "Battleye Extended Controls" /min "Bec_3.exe" -f server_3.cfg
+echo.
+echo Starting MBCon
+timeout 5
 :: start MBCon
 set MBconpath="E:\A2Server\MBcon\server_3"
 cd /d %MBconpath%
-start MBcon_3.exe
+start "MBCon" /min MBcon_3.exe
+echo Starting EPM
+timeout 5
+:: start EPM
+set EPMpath="E:\A2Server\EPM"
+cd /d %EPMpath%
+start "EPM" /min EPM_3.exe -ip=127.0.0.1 -password=GGNIGGER12 -port=2342
 echo.
-cls
-@exit
