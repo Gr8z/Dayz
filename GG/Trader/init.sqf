@@ -50,7 +50,7 @@ BankDialogDepositAmount = {
 		publicVariableServer "PVDZE_account_Doublecheck";
 	};
 	if (DZE_limitbank && ((_bank + _amount) > DZE_maxBank)) then {
-		if !(isNil 'MaxDonatorBankMoney') then {
+		if (getPlayerUID player in BankDonator ) then {
 			if ((_bank + _amount) <  MaxDonatorBankMoney) then {
 				player setVariable["GGCoins",(_wealth - _amount),true];
 				player setVariable["GGBank",(_bank + _amount),true];
