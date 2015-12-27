@@ -2,10 +2,7 @@ private ["_characterID","_playerObj","_playerID","_dummy","_worldspace","_state"
 _characterID 	= _this select 0;
 _playerObj 		= _this select 1;
 _playerID 		= getPlayerUID _playerObj;
-_spawnSelection = _this select 3;
-
-if (_spawnSelection select 1 == "Random") then {if (str (_spawnSelection select 0) == "[]") then {_spawnSelection = (AH_fnc_spawnpoints select (round(random (count AH_fnc_spawnpoints - 1))))}};
-diag_log format["server_playerSetup: Setup attempt! charID: %1 player: %2(%3) spawn: %4 ",_characterID,name _playerObj,_playerObj,str _spawnSelection];
+diag_log format["server_playerSetup: Setup attempt! charID: %1 player: %2(%3) spawn: %4 ",_characterID,name _playerObj,_playerObj];
 
 if (isNull _playerObj) exitWith {diag_log ("server_playerSetup: SETUP INIT FAILED: Exiting, player object null: " + str(_playerObj))};
 if (_playerID == "") then {_playerID = getPlayerUID _playerObj};
@@ -118,39 +115,9 @@ if (count _stats > 0) then {
 	_playerObj setVariable["headShots_CHK",0];
 };
 if (_randomSpot) then {
-	private["_counter","_position","_isNear","_isZero","_mkr"];
-	if (!isDedicated) then {endLoadingScreen};
-	_playerObj setVariable["freshSpawn",1,true];
-	_spawnMC = actualSpawnMarkerCount;
-	_findSpot = true;
-	_mkr = "";
-	while {_findSpot} do {
-		_counter = 0;
-		while {_counter < 20 and _findSpot} do {
-			if (_spawnSelection select 2) then {
-				_position = _spawnSelection select 0;
-				_findSpot = false;
-				
-				diag_log ("Spawn selected: "+str(_spawnSelection select 0)+" At "+str(_spawnSelection select 1));
-			} else {
-				diag_log ("Spawn selected: "+str(_spawnSelection select 0));
-				_position 	= ([(_spawnSelection select 0),0,1500,10,0,2000,0] call BIS_fnc_findSafePos);
-				_isNear 	= count (_position nearEntities ["Man",100]) == 0;
-				_isZero 	= ((_position select 0) == 0)&&((_position select 1) == 0);
-				_pos 		= _position;
-				_isIsland	= false;
-				for [{_w=0},{_w<=150},{_w=_w+2}] do {
-					_pos = [(_pos select 0),((_pos select 1) + _w),(_pos select 2)];
-					if (surfaceisWater _pos) exitWith {_isIsland = true};
-				};
-				if ((_isNear and !_isZero) or _isIsland) then {_findSpot = false};
-			};
-			_counter = _counter + 1;
-		};
-	};
-	_isZero = ((_position select 0) == 0)&&((_position select 1) == 0);
-	if !(_spawnSelection select 2) then {_position = [_position select 0,_position select 1,0]};
-	if (!_isZero) then {_worldspace = [0,_position]};
+	if (!isDedicated) then {endLoadingScreen;};
+   _debug = getMarkerpos "respawn_west";
+   _worldspace = [0,[_debug select 0,_debug select 1,0.3]];
 };
 
 dayz_players set [count dayz_players,_playerObj];
@@ -161,7 +128,7 @@ _playerObj setVariable["lastPos",getPosATL _playerObj];
 _playerObj setVariable ["GGCoins",_cashMoney,true];
 _playerObj setVariable ["cashMoney_CHK",_cashMoney];
 
-dayzPlayerLogin2 = [_worldspace,_state];
+dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];
 _clientID = owner _playerObj;
 if (!isNull _playerObj) then {
 	_clientID publicVariableClient "dayzPlayerLogin2";

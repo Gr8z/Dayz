@@ -740,7 +740,7 @@ if (!isDedicated) then {
 		_text = format["<t size='2.0' color='#FFFFFF'><t size='2.2' color='#a81e13'>YOU ARE DEAD</t><br/>",""];
 		[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
 		_text = "<t size='1.5' font='TahomaB' color='#FFFFFF'>www.GHOSTZGAMERZ.com</t>";
-		[_text,0,(safezoneY + 0.1),300,1,0,9] swx AH_fnc_dynamictext;
+		[_text,0,(safezoneY + 0.1),50,1,0,9] swx AH_fnc_dynamictext;
 		_text = format["<br/><br/><t size='1' color='#FFFFFF'>Respawning in %1 seconds</t><br/>",20];
 		[_text,0,1,3,1,0,10] swx AH_fnc_dynamictext;
 		uisleep 1;
@@ -823,7 +823,6 @@ if (!isDedicated) then {
 		dayz_myBackpackWpns = [];
 		dayzPlayerLogin 	= [];
 		dayzPlayerLogin2 	= [];
-		loadout_loaded 		= nil;
 		dayz_hasFire 		= objNull;
 		dayz_myBackpack		= objNull;
 		dayz_myCursorTarget = objNull;
@@ -850,23 +849,10 @@ if (!isDedicated) then {
 		disableUserInput false;
 		0 cutText ["","BLACK"];
 		
-		diag_log ("(PLAYER_RESPAWN): Spawn select...");
-		AH_fnc_selectedSpawn = [[],"Random",false];
-		createDialog "AH_fnc_spawnSelect";
-		call AH_fnc_spawnMenu;
-		waitUntil{!dialog};
-		if (!GG_respawn) exitWith {
-			systemChat ("(GG-AH): You didn't select respawn or disconnect!");
-			for "_x" from 5 to 1 step -1 do {
-				systemChat format ["Returning to lobby in %1 second(s)...", _x];
-				uiSleep 1;
-			};
-			endMission 'END1';
-		};
-		
 		diag_log ("(PLAYER_RESPAWN): Gender select...");
 		createDialog "RscDisplayGenderSelect";
 		waitUntil{!dialog};
+
 		startLoadingScreen ["","RscDisplayLoadCustom"];
 		
 		diag_log ("(PLAYER_RESPAWN): Request new char...");
@@ -887,7 +873,7 @@ if (!isDedicated) then {
 		dayz_characterID = _charid;
 		if (!isNil "DefaultPlayerSkin") then {dayz_selectGender=DefaultPlayerSkin};
 		dayz_selectGender call player_switchModel;
-		PVDZE_plr_Login2 = [_charid,player,_playerUID,AH_fnc_selectedSpawn];
+		PVDZE_plr_Login2 = [_charid,player,_playerUID];
 		publicVariableServer "PVDZE_plr_Login2";
 		
 		diag_log ("(PLAYER_RESPAWN): Waiting for dayzPlayerLogin2...");
@@ -978,6 +964,7 @@ if (!isDedicated) then {
 		call ui_changeDisplay;
 		reload player;
 		endLoadingScreen;
+		execVM "GG\spawn\start.sqf";
 	};
 	GG_maintainbase = {
 		BM_getControl = {(findDisplay 7331) displayCtrl _this};
@@ -1189,20 +1176,6 @@ if (!isDedicated) then {
 		waitUntil {!(isNull (findDisplay 7331))};
 		call baseManage_countBuildables;
 		call baseManage_fillLists;
-	};
-	AH_fnc_spawnSelected = {
-		disableSerialization;
-		
-		_sp = AH_fnc_spawnpoints sel _this;
-		ctrlSetText [38501,format["Selected spawn: %1",_sp sel 1]];
-		if (_sp sel 1 == "Random") then {
-			AH_fnc_selectedSpawn = (AH_fnc_spawnpoints sel (round(random (count AH_fnc_spawnpoints - 1))));
-			[((findDisplay 38500) displayCtrl 38502),1,0.5,[7110,7782,0]] call AH_fnc_setMapPos;
-		} else {
-			[((findDisplay 38500) displayCtrl 38502),1,0.1,_sp sel 0] call AH_fnc_setMapPos;
-		};
-		
-		AH_fnc_selectedSpawn = _sp;
 	};
 	AH_fnc_setMapPos = {
 		disableSerialization;
