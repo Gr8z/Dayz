@@ -31,7 +31,7 @@ if(isServer) then {
 		"Survivors did not secure the MV-22 in time"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,5,5,[45,crate_items_medical],4] call dynamic_crate;
+		[_crate,[10,ai_wep_random],5,[45,crate_items_medical],4] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] Captured MV22]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;

@@ -21,7 +21,7 @@ if(isServer) then {
 		"Survivors were unable to capture the medical supply camp"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,2,2,[25,crate_items_medical],2] call dynamic_crate;
+		[_crate,[3,ai_wep_random],2,[25,crate_items_medical],2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Hero] Medical Supply Camp]: Ended at %1",_position];
 	h_missionsrunning = h_missionsrunning - 1;
