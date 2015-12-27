@@ -3,7 +3,7 @@
 #define ATV_PARTS "PartGeneric","PartEngine","PartWheel","PartWheel"
 
 _startBag = "DZ_ALICE_Pack_EP1";
-_startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_12Rnd_45cal_usp",3];
+_startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_12Rnd_45cal_usp",3,"PartGeneric"];
 _startWeps = ["ItemMap","ItemFlashlight","ItemToolbox","RH_uspm","ItemCompass"];
 _customLoadout = [
 	"76561198078201908", //Gr8
