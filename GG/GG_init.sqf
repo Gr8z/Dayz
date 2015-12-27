@@ -845,16 +845,11 @@ if (!isDedicated) then {
 		GG_CAM cameraEffect ["terminate","back"];
 		camDestroy GG_CAM;
 		playMusic "";
-		for "_x" from 5 to 1 step -1 do {
-			((uiNameSpace getVariable "BIS_loadingScreen") displayctrl 8400) ctrlSetText ("Respawning in "+str _x);
-			uiSleep 1;
-		};
 		1 cutRsc ["default","PLAIN",0];
 		3 cutRsc ["default","PLAIN",0];
 		4 cutRsc ["default","PLAIN",0];
 		disableUserInput false;
 		0 cutText ["","BLACK"];
-		endLoadingScreen;
 		
 		diag_log ("(PLAYER_RESPAWN): Spawn select...");
 		AH_fnc_selectedSpawn = [[],"Random",false];
