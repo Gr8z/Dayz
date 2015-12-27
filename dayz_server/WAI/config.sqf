@@ -106,7 +106,7 @@ if(isServer) then {
 		"vil_M14G",
 		"RH_m1stsp"
 		];
-		ai_wep_random = [
+		ai_wep_random2 = [
 		"RH_hk417",
 		"RH_hk417aim",
 		"RH_hk417eotech",
