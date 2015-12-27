@@ -23,7 +23,7 @@ if(isServer) then {
 		"Bandits failed to secure the supplies"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,4,4,25,2] call dynamic_crate;
+		[_crate,[10,ai_wep_random],4,25,2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Bandit] Ural Attack]: Ended at %1",_position];
 	b_missionsrunning = b_missionsrunning - 1;
