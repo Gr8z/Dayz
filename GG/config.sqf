@@ -105,7 +105,7 @@ DZE_ConfigTrader 	= true;
 DZE_LootSpawnTimer 	= 10;
 DZE_requireplot 	= 1;
 DZE_vehicleAmmo 	= 0.2;
-if (getPlayerUID player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
+DZE_BuildingLimit = 150;
 DZE_maintainRange  	= 100;
 DZE_curPitch 		= 45;
 DZE_maxBuildHeight 	= 40;
