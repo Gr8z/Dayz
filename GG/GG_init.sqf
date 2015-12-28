@@ -2514,9 +2514,9 @@ if (!isDedicated) then {
 		_ERhours = floor((servertime)/60/60);
 		_ERminutes = floor((servertime)/60) - (_ERhours*60);
 		if ((_ERhours == DZE_restarttime sel 0)&&(_ERminutes == DZE_restarttime sel 1)) exw {
-			_msg = "Restart detected! Logging you out now..";
-			systemChat ("(GG-AH): "+str _msg);
-			_msg swx AH_fnc_dynTextMsg;
+			_text = format["<t size='2.2' color='#a81e13'>SERVER RESTARTING</t><br/><t size='2.0' color='#FFFFFF'>Logging you out!</t>",""];
+			[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
+			sleep 5;
 			(findDisplay 49) closeDisplay 0;
 			PVDZE_plr_Save = [player,(magazines player),true,true];
 			publicVariableServer "PVDZE_plr_Save";
