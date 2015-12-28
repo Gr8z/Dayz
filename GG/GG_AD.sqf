@@ -143,6 +143,7 @@ _boxx xsv ["ObjectID", ""];
 clearweaponcargoglobal _boxx;
 clearmagazinecargoglobal _boxx;
 
+_i=0;
 while {_i < _var} do {
   _boxx addMagazineCargoGlobal [(_allSupplies call BIS_fnc_selectRandom), (floor((random 10) + 1))];
   _i = _i + 1;
