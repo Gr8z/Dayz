@@ -1,7 +1,8 @@
 #define AT_SPAWN _nearNow=call _atSpawn;{if!(_x in _nearFinal)then{_nearFinal set [count _nearFinal,_x];};}count _nearNow;
-private ["_debug","_go","_holder","_isPZombie","_platform"];
+private ["_debug","_go","_holder","_isPZombie","_platform","_inDebug","_playerPos","_pos","_distance"];
 
 _debug = getMarkerPos "respawn_west";
+_inDebug = false;
 if (surfaceIsWater _debug) then {
 	_debug set [2,2];
 	_platform = "MetalFloor_DZ" createVehicleLocal _debug;
@@ -11,11 +12,15 @@ if (surfaceIsWater _debug) then {
 	_platform enableSimulation false;
 };
 waitUntil {!isNil "PVDZE_plr_LoginRecord"};
-_isPZombie = player isKindOf "PZombie_VB";
-_go = dayzPlayerLogin2 select 2;
+_playerPos 	= dayzPlayerLogin2 select 0;
+_isPZombie 	= player isKindOf "PZombie_VB";
+_go 		= dayzPlayerLogin2 select 2;
+_pos 		= position player;
+_distance 	= _debug distance _pos;
 
+if (_distance > 500) then {_inDebug = true;};
 
-if (_go) then {
+if (_go || _inDebug) then {
 	enableEnvironment false;
 	0 fadeSound 0;
 	if ((player distance _debug) > 100) then {

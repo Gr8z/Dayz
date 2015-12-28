@@ -21,7 +21,7 @@ if (_characterID == "0") exitWith {diag_log ("ERROR: Cannot Sync Character " + (
 private["_debug","_distance"];
 _debug = getMarkerpos "respawn_west";
 _distance = _debug distance _charPos;
-if (_distance < 2000) exitWith {};
+if (_distance < 500) exitWith {};
 
 _isNewMed 	= _character getVariable["medForceUpdate",false];
 _isNewPos 	= _character getVariable["posForceUpdate",false];
