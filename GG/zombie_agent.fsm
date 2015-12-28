@@ -463,20 +463,31 @@ class FSM
     {
       name = "Chase";
       init = /*%FSM<STATEINIT""">*/"_timeN = time;" \n
+       "_isAlive = alive _agent;" \n
+       "if (time - _entityTime > 20) then {" \n
+       " _isSomeone = ({(isPlayer _x) and (alive _x) and (_agent distance _x < 200)} count playableUnits) > 0;" \n
+       " _entityTime = time;" \n
+       "};" \n
        "" \n
        "if (speed _agent < 0.1) then {_countr = _countr + 1} else {_countr = 0};" \n
-       "_target = _agent call zombie_findTargetAgent;" \n
-       "_isAlive = alive _agent;" \n
-       "_targetPos = getPosATL _target;" \n
        "" \n
+       "if !(isNil ""_target"") then {;" \n
+       " _targetPos = getPosATL _target;" \n
        "" \n
        "//Move to target" \n
-       "_agent moveTo _targetPos;" \n
-       "_agent forceSpeed 2;" \n
+       " _agent moveTo _targetPos;" \n
+       " _agent forceSpeed _runSpeed;" \n
        "" \n
-       "if (_losCheck == 2) then {" \n
-       "	_losCheck = 0;" \n
-       "	_cantSee = [_agent,_target] call dayz_losCheck;" \n
+       " if (isPlayer _target) then {" \n
+       "  if (_losCheck == 5) then {" \n
+       "  _losCheck = 0;" \n
+       "  _cantSee = [_agent,_target] call dayz_losCheck;" \n
+       "  };" \n
+       " } else {" \n
+       "  if (_agent distance _target < 3) then {" \n
+       "  _cantSee = true;" \n
+       "  };" \n
+       " };" \n
        "};" \n
        ""/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
