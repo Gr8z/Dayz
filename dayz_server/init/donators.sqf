@@ -298,6 +298,7 @@ Scout1 = [
 	"76561198052142781", // Nuller (OD-2015-12-16) #12417
 	"76561198171535862", // SilentGhillie (OD-2015-12-19) #12462
 	"76561198107181723", // user (OD-2015-12-20) #12456
+	"76561198138684665", // David (OD-2016-1-27) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
