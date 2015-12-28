@@ -1171,12 +1171,13 @@ _AH_CC = compile ("
 
 	_airdrop = ['!airdrop'];
 	_scan = ['!scan'];
+	_adminCry = ['admin','!admin','/admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin','i need help','yo admin']) then]
 	
 	if !("+str _CC_VDIS+") then {_viewd=[]};
 	if !("+str _CC_MUSIC+") then {_inmusi=[]};
 	_frndCommands = "+_CC_fcmds+";
 	_animCommands = "+_CC_anims+";
-	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta + _airdrop + _scan);
+	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta + _airdrop + _scan + _adminCry);
 	_chatCommands = _chatCommands + _animCommands + _frndCommands;
 	while {str(100) == str(100)} do {
 		waitUntil {!(isNull (findDisplay 24))};
@@ -1233,6 +1234,15 @@ _AH_CC = compile ("
 			};
 			if (_msg in _scan) then {
 				player execVM 'GG\GG_SP.sqf';
+			};
+			if (_msg in _adminCry) then {
+				nil,player,rSAY,['babycry_1', 100]] call RE;
+				uiSleep 2;
+				systemChat 'SERVER: Asking For Help in SideChat Is forbidden';		
+				uiSleep 1;
+				systemChat 'SERVER: To get ahold of an admin, you must get in Teamspeak Support Channels';
+				uiSleep 1;
+				systemChat 'Teamspeak Server : TS.GHOSTZGAMERZ.COM';
 			};
 			if (_msg in _animCommands) then {
 				if (count (nearestObjects [player, (DZE_maintainClasses), 10]) == 0) then {
