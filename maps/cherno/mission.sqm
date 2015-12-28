@@ -1,61 +1,8 @@
 version=11;
 class Mission
 {
-	addOns[]= {      
-		"chernarus",
-		"ca_modules_animals",
-		"dayz_anim",
-		"dayz_code",
-		"dayz_communityassets",
-		"dayz_weapons",
-		"dayz_equip",
-		"dayz_epoch",
-		"dayz_vehicles",
-		"cacharacters_pmc",
-		"ca_modules_functions",
-		"glt_m300t",
-		"pook_h13",
-		"csj_gyroac",
-		"map_eu",
-		"jetskiyanahuiaddon",
-		"mbg_buildings_3",
-		"mbg_killhouses",
-		"aif_arma1buildings",
-		"mbg_african_buildings",
-		"gms_k98",
-		"RH_m14",
-		"FHQ_Remington",
-		"FHQ_Remington_ammo",
-		"FHQ_Remington_msr",
-		"FHQ_Remington_xm2010",
-		"FHQ_Remington_acr",
-		"FHQ_Remington_rsass",
-		"VILAS_WWP",
-		"VILAS_RW_Forces",
-		"VILAS_WWP_CO",
-		"VILAS_RW_Forces_CO",
-		"ddopp_taserpack",
-		"smk_anims_lite",
-		"MicroAirVehicles",
-		"oz_is_objects",
-		"monaro",
-		"gsc_units_stalker_patch",
-		"american_law_enforcement",
-		"CYBP_Camels_Config",
-		"nissan_350z",
-		"ussr_cheytac",
-		"bb_mercenary",
-		"goosuksf",
-		"frb",
-		"warehouse"
-	};
-	addOnsAuto[]= {
-		"dayz_weapons",
-		"ca_modules_functions",
-		"cacharacters2",
-		"cacharacters_e",
-		"chernarus"
-	};
+	addOns[] = {"chernarus","ca_modules_animals","dayz_anim","dayz_code","dayz_communityassets","dayz_weapons","dayz_equip","dayz_epoch","dayz_vehicles","cacharacters_pmc","ca_modules_functions","glt_m300t","pook_h13","csj_gyroac","map_eu","jetskiyanahuiaddon","mbg_buildings_3","mbg_killhouses","aif_arma1buildings","mbg_african_buildings","gms_k98","RH_m14","FHQ_Remington","FHQ_Remington_ammo","FHQ_Remington_msr","FHQ_Remington_xm2010","FHQ_Remington_acr","FHQ_Remington_rsass","VILAS_WWP","VILAS_RW_Forces","VILAS_WWP_CO","VILAS_RW_Forces_CO","ddopp_taserpack","smk_anims_lite","MicroAirVehicles","oz_is_objects","monaro","gsc_units_stalker_patch","american_law_enforcement","CYBP_Camels_Config","nissan_350z","ussr_cheytac","bb_mercenary","goosuksf","frb","warehouse"};
+	addOnsAuto[] = {"dayz_weapons","ca_modules_functions","cacharacters2","cacharacters_e","chernarus"};
 	randomSeed=11171215;
 	class Intel
 	{
@@ -77,11 +24,11 @@ class Mission
 			class Vehicles
 			{
 				items=100;
-				#define PLRDEF position[]={-7240,0,19530};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";
-				class Item0{id=0;position[]={7063,0,7728};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";};
+				#define PLRDEF position[]={-7233.54,0.19,19534.3};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";
+				class Item0{id=0;position[]={-7233.54,0.19,19534.3};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";};
 				class Item1
 				{
-					position[]={-7240,0,19530};
+					position[]={-7233.54,0.19,19534.3};
 					azimut=0;
 					id=0;
 					side="WEST";
