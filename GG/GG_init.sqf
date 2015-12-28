@@ -1703,6 +1703,14 @@ if (!isDedicated) then {
 				player rac s_player_butcher;
 				s_player_butcher = -1;
 			};
+			if (!_isAlive and !_isZombie and !_isAnimal and _isMan and _canDo) then {
+		        if (s_player_bury_human < 0) then {
+		            s_player_bury_human = player xaa [format["Bury Body"], "GG\GG_BH.sqf",cursorTarget, 0, false, true, "", ""];
+		        }
+		    } else {
+		        player rac s_player_bury_human;
+		        s_player_bury_human = -1;
+		    };
 			if (_player_studybody) then {
 				if (s_player_studybody < 0) then {
 					s_player_studybody = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_action_studybody"], "\z\addons\dayz_code\actions\study_body.sqf",_cursorTarget, 0, false, true, "",""];
@@ -2232,6 +2240,8 @@ if (!isDedicated) then {
 			s_player_deleteBuild = -1;
 			player rac s_player_butcher;
 			s_player_butcher = -1;
+			player rac s_player_bury_human;
+			s_player_bury_human = -1;
 			player rac s_player_cook;
 			s_player_cook = -1;
 			player rac s_player_boil;
@@ -4738,6 +4748,7 @@ if (!isDedicated) then {
 			s_player_boil =			-1;
 			s_player_fireout =		-1;
 			s_player_butcher =		-1;
+			s_player_bury_human = -1;
 			s_player_packtent = 	-1;
 			s_player_packvault = 	-1;
 			s_player_lockvault = 	-1;
