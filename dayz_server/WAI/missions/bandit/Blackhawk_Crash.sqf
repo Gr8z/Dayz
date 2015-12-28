@@ -24,7 +24,7 @@ if(isServer) then {
 		"Bandits did not secure the crashed Black Hawk in time"
 	] call mission_winorfail;
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,25,2] call dynamic_crate;
+		[_crate,[10,ai_wep_random2],5,25,2] call dynamic_crate;
 	};
 	diag_log format["WAI: [Mission:[Bandit] Black Hawk Crash]: Ended at %1",_position];
 	b_missionsrunning = b_missionsrunning - 1;

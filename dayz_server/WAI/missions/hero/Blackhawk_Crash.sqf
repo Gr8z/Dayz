@@ -25,7 +25,7 @@ if(isServer) then {
 	] call mission_winorfail;
 	diag_log format["WAI: [Mission:[Hero] Black Hawk Crash]: Ended at %1",_position];
 	if(_complete) then {
-		[_crate,[10,ai_wep_random],5,25,2] call dynamic_crate;
+		[_crate,[10,ai_wep_random2],5,25,2] call dynamic_crate;
 	};
 	h_missionsrunning = h_missionsrunning - 1;
 };
