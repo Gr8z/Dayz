@@ -11,7 +11,7 @@ player groupChat "TEA";
 uiSleep 11;
 player groupChat "BAGGED";
 uiSleep 11.25;
-player groupChat "BITCH";
+[player,-20] call player_humanityChange;
 [objNull, player, rSWITCHMOVE, ""] call RE;
 [objNull, _body, rSWITCHMOVE, ""] call RE;
 detach _body;
