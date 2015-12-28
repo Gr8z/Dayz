@@ -942,8 +942,6 @@ if (!isDedicated) then {
 		dayz_medicalH = [] execVM "\z\addons\dayz_code\medical\init_medical.sqf";
 		player_death = compile preprocessFileLineNumbers "GG\GG_PD.sqf";
 		deathHandled = false;
-		player addWeapon "Flare";
-		player addWeapon "Loot";
 		[objNull,player,rSwitchMove,''] call RE;
 		'colorCorrections'ppEffectAdjust[1,1,0,[1,1,1,0.0],[1,1,1,1 min (4*r_player_blood/3/r_player_bloodTotal)],[1,1,1,0.0]];
 		'colorCorrections'ppEffectCommit 0;
@@ -958,11 +956,9 @@ if (!isDedicated) then {
 		if (!isNil 'dayzSetOvercastAH') then {0 setOvercast dayzSetOvercastAH};
 		{if ((count (units _x)) == 0) then {deleteGroup _x}} forEach allGroups;
 		{player reveal _x} count (nearestObjects [player call AH_fnc_getPos,dayz_reveal,50]);
-		{if ((getNumber (configFile >> 'CfgWeapons' >> _x >> 'type')) in [1,2,3]) then {player selectWeapon _x}} forEach (weapons player);
 		3 cutRsc ["playerStatusGUI","PLAIN",0];
 		0 cutText ["","BLACK IN"];
 		call ui_changeDisplay;
-		reload player;
 		endLoadingScreen;
 		execVM "GG\spawn\start.sqf";
 	};

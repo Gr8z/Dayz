@@ -18,7 +18,7 @@ _go 		= dayzPlayerLogin2 select 2;
 _pos 		= position player;
 _distance 	= _debug distance _pos;
 
-if (_distance > 500) then {_inDebug = true;};
+if (_distance < 500) then {_inDebug = true;};
 
 if (_go || _inDebug) then {
 	enableEnvironment false;
