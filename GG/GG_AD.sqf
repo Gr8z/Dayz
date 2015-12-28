@@ -117,7 +117,7 @@ _box xsv ["ObjectID", ""];
 _chute xsv ["ObjectID", ""];
 _smoke = "SmokeShellBlue" createVehicle (getPos _box);
 _smoke attachTo [_box, [0,0,0]];
-_var = floor((random 20) + 1);
+_var = floor((random 5) + (random 5) +1);
 _var2 = floor((random 10) + 1);
 
 _msg = fmt ["The Air Drop is above you!",10];
@@ -143,7 +143,10 @@ _boxx xsv ["ObjectID", ""];
 clearweaponcargoglobal _boxx;
 clearmagazinecargoglobal _boxx;
 
-{_boxx addMagazineCargoGlobal [_x, _var];} forEach _crateItems;
+while {_i < _var} do {
+  _boxx addMagazineCargoGlobal [_allSupplies call BIS_fnc_selectRandom;, (floor((random 10) + 1))];
+  _i = _i + 1;
+};
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
 _boxx addMagazineCargoGlobal [_mag, _var2];
 _boxx addWeaponCargoGlobal [_giveWep, 1];
