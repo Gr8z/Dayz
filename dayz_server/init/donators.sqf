@@ -176,6 +176,7 @@ Engineer3 = [
 	"76561198088343328", // Predaturd (OD-2015-12-13) #12380
 	"76561197979616150", // Zord (EXP-2016-01-15) #0000
 	"76561198017013349", // Mr_Kyle (OD-2015-12-19) #12452
+	"76561198116576444", // MattQ (OD-2016-1-27) #12525
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -467,6 +468,7 @@ Soldier3 = [
 	"76561198013697950", // Mr.derp (EXP-2016-1-12) #12194
 	"76561198085512191", // Mesoe (OD-2015-12-16) #12413
 	"76561198076817179", // Deadskyes (OD-2015-12-20) #12460
+	"76561198116576444", // MattQ (OD-2016-1-27) #12427
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
