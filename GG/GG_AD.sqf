@@ -144,7 +144,7 @@ clearweaponcargoglobal _boxx;
 clearmagazinecargoglobal _boxx;
 
 while {_i < _var} do {
-  _boxx addMagazineCargoGlobal [_allSupplies call BIS_fnc_selectRandom;, (floor((random 10) + 1))];
+  _boxx addMagazineCargoGlobal [(_allSupplies call BIS_fnc_selectRandom), (floor((random 10) + 1))];
   _i = _i + 1;
 };
 {_boxx addWeaponCargoGlobal [_x, 1];} forEach _tools;
