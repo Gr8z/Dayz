@@ -145,7 +145,8 @@ Marksman3 = [
 	"76561197973432427", // Hollywood (OD-2015-10-25) #12197 
 	"76561198061453547", // vdiethelm (EXP-2015-12-25) #00000 
 	"76561198044922665", // Logan (EXP-2016-1-3) #00000 
-	"76561198004535988", // Ender (EXP-2016-1-27) #42282 
+	"76561198004535988", // Ender (EXP-2016-1-27) #12530
+	"76561198191903425", // t00eZ (EXP-2016-1-27) #12533 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
@@ -327,6 +328,7 @@ Scout3 = [
 	"76561198051054305", // Miguel (OD-2016-1-27) #12366
 	"76561198147901202", // BLACk>(OD-2015-12-27)#12510 CHANGED FROM MARKSMEN LEVEL 3
 	"76561198116576444", // MattQ (OD-2016-1-27) #12422
+	"76561198088452147", // Will (OD-2016-1-28) #12535
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
