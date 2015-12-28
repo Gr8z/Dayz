@@ -3700,12 +3700,13 @@ if (!isDedicated) then {
 		
 		[objNull,player,rSwitchMove,_currentAnim] call RE;
 		player disableConversation true;
+		player switchCamera "external";
 		player xsv ["bodyName",dayz_playerName,true];
 		_playerUID = gpd player;
 		xcc fmt ["PVDZE_player%1 = player;publicVariableServer 'PVDZE_player%1';",_playerUID];
 		if ((getText (xcf >> "CfgWeapons" >> (primaryWeapon player) >> "melee")) == "true") then dayz_meleeMagazineCheck;
 		{player reveal _x} count (nearestObjects [player call AH_fnc_getPos,dayz_reveal,50]);
-
+		_newUnit addMPEventHandler ["MPHit", {_this spawn fnc_plyrHit;}];
 		_savedGroup = profileNamespace getVariable["savedGroup",[]];
 		player setVariable ["savedGroup",_savedGroup,true];
 		player setVariable ["purgeGroup",0,true];
