@@ -1,4 +1,3 @@
-// GOOD LUCK STEALING MY CODE LMAO :D
 #define aeh addEventHandler
 #define dd GG
 #define pls progressLoadingScreen
@@ -44,4 +43,3 @@
 #define rac removeAction
 #define lzl localize
 #define fmt format
-// GOOD LUCK STEALING MY CODE LMAO :D
