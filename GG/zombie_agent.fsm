@@ -476,7 +476,7 @@ class FSM
        "" \n
        "//Move to target" \n
        " _agent moveTo _targetPos;" \n
-       " _agent forceSpeed _runSpeed;" \n
+       " _agent forceSpeed 2;" \n
        "" \n
        " if (isPlayer _target) then {" \n
        "  if (_losCheck == 5) then {" \n
