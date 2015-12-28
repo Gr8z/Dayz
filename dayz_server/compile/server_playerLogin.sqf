@@ -69,7 +69,7 @@ if (!_isNew) then {
 };
 
 _msg = format ['%1 CONNECTED',toUpper(_playerName)];
-[nil, nil, rspawn, [_msg], {systemChat (str (_this select 0));}] call RE;
+[nil, nil, rspawn, [_msg], {systemChat (_this select 0);}] call RE;
 diag_log format["server_playerLogin: LOGIN LOADED: %1(%2) Type: %3 Pos: %4 New: %5",_playerName,_playerObj,(typeOf _playerObj),(getPosATL _playerObj),_isNew];
 
 _isHiveOk = false;
