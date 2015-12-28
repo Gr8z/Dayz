@@ -4804,7 +4804,6 @@ if (!isDedicated) then {
 		rn "GG\Lift\init.sqf";
 	};
 	rn "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
-	rn "GG\GG_MMT.sqf";
 	diag_log ("GG: Loaded client init!");
 };
 if (isServer) then {

@@ -31,4 +31,3 @@ if (!isDedicated) then {
 	    };
     };
 };
-rn "GG\GG_MMT.sqf";
