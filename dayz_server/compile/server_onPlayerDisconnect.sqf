@@ -44,7 +44,8 @@ if (!isNull _playerObj) then {
 		_log_menu = format ["COMBAT LOG: %1 combat logged! Combat timer: %2 Closest player: %3 Location: %4 @ UPT: "+str _hours+"h(s) "+str _minutes+"min(s)", _playerName,_timeout,CLOG_nearPlyr,_gpsPOS];
 		PVOZ_hitlog = PVOZ_hitlog + [['     '+_log_menu,'','0','1','0','0',[]]];
 	};
-
+	_msg = format ['%1 DISCONNECTED',toUpper(_playerName)];
+	[nil, nil, rspawn, [_msg], {systemChat (str (_this select 0));}] call RE;
 	diag_log format["DISCONNECT: %1 (%2) Object: %3, _characterID: %4 at loc %5", _playerName,_playerUID,_playerObj,_characterID, (getPosATL _playerObj)];
 	_id = [_playerUID,_characterID,2] spawn dayz_recordLogin;
 	if (alive _playerObj) then {
