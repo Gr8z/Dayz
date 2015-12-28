@@ -46,7 +46,7 @@ item41[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0
 item42[] = {"New_Character",4,218,-325.000000,400.000000,-225.000000,450.000000,5.000000,"New" \n "Character"};
 item43[] = {"Gender_Selection",2,250,-575.000000,400.000000,-475.000000,450.000000,0.000000,"Gender Selection" \n "Dialog"};
 item44[] = {"Selected",4,218,-575.000000,475.000000,-475.000000,525.000000,0.000000,"Selected"};
-item45[] = {"Process",2,4346,-500.000000,550.000000,-425.000000,600.000000,0.000000,"Process"};
+item45[] = {"Process",2,250,-500.000000,550.000000,-425.000000,600.000000,0.000000,"Process"};
 item46[] = {"version_check",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"version check"};
 item47[] = {"ERROR__version_c",2,250,175.000000,-100.000000,275.000000,-50.000000,0.000000,"ERROR:" \n "version check"};
 item48[] = {"Too_Long",4,218,300.000000,-100.000000,400.000000,-50.000000,0.000000,"Too" \n "Long"};
@@ -78,8 +78,6 @@ item73[] = {"",7,210,871.000000,521.000000,879.000000,529.000000,0.000000,""};
 item74[] = {"",7,210,871.000000,170.999985,879.000000,179.000015,0.000000,""};
 item75[] = {"",7,210,871.000000,-79.000000,879.000000,-71.000000,0.000000,""};
 item76[] = {"",7,210,871.000000,271.000000,879.000000,279.000000,0.000000,""};
-item77[] = {"Region_Selection",2,250,-575.000000,625.000000,-475.000000,675.000000,0.000000,"Region Selection" \n "Dialog"};
-item78[] = {"Selected",4,218,-450.000000,625.000000,-350.000000,675.000000,0.000000,"Selected"};
 link0[] = {0,1};
 link1[] = {0,5};
 link2[] = {1,2};
@@ -132,7 +130,7 @@ link48[] = {40,46};
 link49[] = {41,40};
 link50[] = {42,43};
 link51[] = {43,44};
-link52[] = {44,77};
+link52[] = {44,45};
 link53[] = {45,69};
 link54[] = {46,47};
 link55[] = {47,48};
@@ -166,10 +164,8 @@ link82[] = {73,57};
 link83[] = {74,76};
 link84[] = {75,74};
 link85[] = {76,57};
-link86[] = {77,78};
-link87[] = {78,45};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-945.480652,-87.844177,907.961121,219.077927,742,596,1};
-window[] = {0,-1,-1,-1,-1,924,182,1460,182,1,760};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-686.179321,607.485718,952.245239,-75.907745,1145,910,1};
+window[] = {2,-1,-1,-1,-1,848,2024,3302,106,3,1163};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1204,7 +1200,7 @@ class FSM
         class Selected
         {
           priority = 0.000000;
-          to="Region_Selection";
+          to="Process";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
@@ -1439,30 +1435,6 @@ class FSM
           to="Disconnect";
           precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
           condition=/*%FSM<CONDITION""">*/"(diag_tickTime - _myTime) > 120"/*%FSM</CONDITION""">*/;
-          action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
-        };
-        /*%FSM</LINK>*/
-      };
-    };
-    /*%FSM</STATE>*/
-    /*%FSM<STATE "Region_Selection">*/
-    class Region_Selection
-    {
-      name = "Region_Selection";
-      init = /*%FSM<STATEINIT""">*/"AH_fnc_selectedSpawn = [[],""Random"",false];" \n
-       "1 cutText ["""", ""BLACK"",0];" \n
-       "endLoadingScreen;" \n
-       "execVM ""GG\spawn\start.sqf"";"/*%FSM</STATEINIT""">*/;
-      precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
-      class Links
-      {
-        /*%FSM<LINK "Selected">*/
-        class Selected
-        {
-          priority = 0.000000;
-          to="Process";
-          precondition = /*%FSM<CONDPRECONDITION""">*/""/*%FSM</CONDPRECONDITION""">*/;
-          condition=/*%FSM<CONDITION""">*/"!dialog"/*%FSM</CONDITION""">*/;
           action=/*%FSM<ACTION""">*/""/*%FSM</ACTION""">*/;
         };
         /*%FSM</LINK>*/
