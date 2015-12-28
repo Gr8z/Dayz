@@ -60,10 +60,6 @@ AND (Character_data.alive = 0);
 DELETE FROM Character_DATA 
 WHERE LastLogin < NOW() - INTERVAL 10 DAY;
 
-/* Delete Inactive Garage Vehicles */
-DELETE FROM garage 
-WHERE `Datestamp` < NOW() - INTERVAL 5 DAY;
-
 /* Delete Error Usernames from Alias */
 DELETE FROM player_alias 
 WHERE `PlayerName` IN ('Error');
