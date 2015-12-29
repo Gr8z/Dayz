@@ -75,7 +75,6 @@ Engineer1 = [
 	"76561198105892308", // Billy Mayes (OD-2015-12-24) #0000
 	"76561198057545696", // Coco The Clown (OD-2015-12-24) #0000
 	"76561198174823006", // Alvarez (OD-2015-12-18) #12441
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer1";
@@ -83,7 +82,6 @@ Engineer1 = [
 Engineer2 = [
 	 // Professor Twinkletoes(OD-2015-09-29) #11859
 	"76561198041652178", // Garcia(OD-2015-12-16) #12424 
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
