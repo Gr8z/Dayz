@@ -1171,7 +1171,7 @@ _AH_CC = compile ("
 
 	_airdrop = ['!airdrop'];
 	_scan = ['!scan'];
-	_adminCry = ['admin','!admin','/admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin','i need help','yo admin']) then]
+	_adminCry = ['admin','!admin','/admin','admins','admin?','ADMIN','?admin','can an admin?','can a admin?','any admin','is an admin','i need help','yo admin'];
 	
 	if !("+str _CC_VDIS+") then {_viewd=[]};
 	if !("+str _CC_MUSIC+") then {_inmusi=[]};
