@@ -105,7 +105,6 @@ Engineer3 = [
 	"76561198017013349", // Mr_Kyle (OD-2015-12-19) #12452
 	"76561198116576444", // MattQ (OD-2015-12-27) #12525
 	"76561198029487248", // Man with the BIG Jelly (OD-2015-12-28) #12540
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -116,7 +115,6 @@ Marksman1 = [
 	"76561198115492831", // BigEgg 
 	"76561198093462212", // Mr. Ruggets (OD-2015-10-29) #12221 
 	"76561198013544300", // NineteenKilo (OD-2015-12-27) #12507 
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
@@ -124,7 +122,6 @@ Marksman1 = [
 Marksman2 = [
 	"76561198078201908", // Gr8
 	"76561198078967636", // Landon (OD-2015-10-26) #12211 
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman2";
@@ -151,7 +148,6 @@ Marksman3 = [
 	 // Dr. Lag (EXP-2015-12-15) #12136
 	 // Loverboy(OD-2015----3 Months) #-
 	 //"76561198147961836", // CoRe*10pounds (OD-2015-10-02) #11890 (Last pay 1-Oct-2015)
-	 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
@@ -171,7 +167,6 @@ Medic2 = [
 	"76561197960446555", // Masher (OD-2015-09-12) #11519
 	"76561198070379362", // d33ds (OD-2015-10-15) #12118
 	"76561198012386897", // Matt_You (EXP-2015-12-15) #0000
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Medic2";
@@ -197,7 +192,6 @@ Medic3 = [
 	 // duck (OD-2015-07-29)#10392
 	 // Steven (OD-2015-07-30)#10431 
 	 // // defaultpc (OD-2015-09-14)#11555 -Payment skipped 19-Nov-2015
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Medic3";
@@ -230,7 +224,6 @@ Scout1 = [
 	 // Hashtag (OD-2015-10-06) #11983
 	 // Lemon (OD-2015-09-29)#11855
 	 // A White Cop (OD-2015-10-12)#12054
-	 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
@@ -278,7 +271,6 @@ Scout2 = [
 	 // lulzfunny (OD-2015-06-04) #9341
 	 // Johnny Knoxville (OD-2015-06-11) #9434 
 	 // blood (OD-2015-06-13) #9475
-	 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
@@ -334,7 +326,6 @@ Scout3 = [
 	 // Wewtloops (OD-2015-09-05) #11322 
 	 // s3v3red(OD-2015-05-16) #9029
 	 // [DMM] Mercury (EXP-2015-12-15) #11595
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
@@ -353,7 +344,6 @@ Soldier2 = [
 	"76561198157936156", // Schuki (OD-2015-12-15) #12405
 	"76561198099639779", // ansljeremy (OD-2015-12-13) #12387
 	 //ALEc(EXP-2015-12-15)#0000
-	 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier2";
@@ -402,7 +392,6 @@ Soldier3 = [
 	 // Luciena (EXP-2015-12-19) #00000
 	 // Stranger_ranger (EXP-2015-12-19) #00000
 	 // Jarrod (EXP-2015-12-21) #00000
-	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
