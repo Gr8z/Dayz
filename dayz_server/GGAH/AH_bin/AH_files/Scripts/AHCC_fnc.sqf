@@ -1236,7 +1236,7 @@ _AH_CC = compile ("
 				player execVM 'GG\GG_SP.sqf';
 			};
 			if (_msg in _adminCry) then {
-				nil,player,rSAY,['babycry_1', 100]] call RE;
+				[nil,player,rSAY,['babycry_1', 100]] call RE;
 				uiSleep 2;
 				systemChat 'SERVER: Asking For Help in SideChat Is forbidden';		
 				uiSleep 1;
