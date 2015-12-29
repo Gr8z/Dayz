@@ -115,7 +115,7 @@ if (!isDedicated) then {
 	player_crossbowBolt =		xcm xlx "\z\addons\dayz_code\compile\player_crossbowBolt.sqf";
 	player_music = 				xcm xlx "\z\addons\dayz_code\compile\player_music.sqf";
 	player_death = 				xcm xlx "GG\GG_PD.sqf";
-	player_switchModel =		xcm xlx "\z\addons\dayz_code\compile\player_switchModel.sqf";
+	player_switchModel =		xcm xlx "GG\player_switchModel.sqf";
 	player_checkStealth =		xcm xlx "\z\addons\dayz_code\compile\player_checkStealth.sqf";
 	world_sunRise =				xcm xlx "\z\addons\dayz_code\compile\fn_sunRise.sqf";
 	world_surfaceNoise =		xcm xlx "\z\addons\dayz_code\compile\fn_surfaceNoise.sqf";
@@ -3727,6 +3727,7 @@ if (!isDedicated) then {
 		_charID 	= _this sel 1;
 		_model 		= _this sel 2;
 		if (typeOF player == _model) exw {cutText ['You''re already wearing this skin!','PLAIN']};
+		player setVariable["inTransit",true,true];
 		_old = player;
 		player allowDamage false;
 		if !(isNil 'eh_player_killed') then {__reh(FiredNear,eh_player_killed)};
@@ -3787,6 +3788,7 @@ if (!isDedicated) then {
 		player xsv ["worldspace",_worldspace,true];
 		player xsv ["friendlies",_friendlies,true];
 		player xsv ["tagList",_tagList,true];
+		player xsv ["inTransit",false,true];
 		player xsv ["AH_friendlist",_friendlist,true];
 		call dayz_resetSelfActions;
 		eh_player_killed = player aeh ["FiredNear",{_this call player_weaponFiredNear}];
