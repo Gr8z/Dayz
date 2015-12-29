@@ -13,14 +13,11 @@ _charPos 		= getPosATL _character;
 _isInVehicle 	= vehicle _character != _character;
 _timeSince 		= 0;
 _humanity 		= 0;
-_inTransit             = _character getVariable ["inTransit",false];
 _name = if (alive _character) then {name _character} else {"Dead Player"};
 if (_character isKindOf "Animal") exitWith {diag_log ("ERROR: Cannot Sync Character " + (_name) + " is an Animal class")};
 if (isnil "_characterID") exitWith {diag_log ("ERROR: Cannot Sync Character " + (_name) + " has nil characterID")};
 if (_characterID == "0") exitWith {diag_log ("ERROR: Cannot Sync Character " + (_name) + " as no characterID")};
-if (_inTransit) exitWith {
-    diag_log ("NOTICE: Cannot update " + (_name) + ", player is in transit");
-};
+
 private["_debug","_distance"];
 _debug = getMarkerpos "respawn_west";
 _distance = _debug distance _charPos;
