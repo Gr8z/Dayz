@@ -166,6 +166,7 @@ Medic2 = [
 	"76561197960446555", // Masher (OD-2015-09-12) #11519
 	"76561198070379362", // d33ds (OD-2015-10-15) #12118
 	"76561198012386897", // Matt_You (EXP-2015-12-15) #0000
+	"76561198023305829", // Grey Wolf (OD-2015-12-30) #12583 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Medic2";
