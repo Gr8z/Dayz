@@ -4347,7 +4347,7 @@ if (!isDedicated) then {
 			if (_item == "ItemGPS") then {
 				_menu = _parent displayCtrl (1600 + 0);
 				_menu ctrlShow true;
-				_type = "Scan Players";
+				_type = "Scan For Players";
 				_script = "GG\GG_SP.sqf";
 				_height = _height + (0.025 * safezoneH);
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
@@ -4359,7 +4359,7 @@ if (!isDedicated) then {
 			if (_item == "ItemToolbox") then {
 				_menu = _parent displayCtrl (1600 + 2);
 				_menu ctrlShow true;
-				_type = "Deploy bicycle";
+				_type = "Deploy Bike";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = ['MMT_Civ',['PartGeneric']] execVM 'GG\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
@@ -4389,7 +4389,7 @@ if (!isDedicated) then {
 
 				_menu = _parent displayCtrl (1600 + 5);
 				_menu ctrlShow true;
-				_type = "Build virtual garage";
+				_type = "Build Garage";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = 'Land_MBG_Garage_Single_C' spawn player_build;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
@@ -4399,7 +4399,7 @@ if (!isDedicated) then {
 				
 				_menu = _parent displayCtrl (1600 + 6);
 				_menu ctrlShow true;
-				_type = "Build helipad";
+				_type = "Build HeliPad";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = 'HeliH' spawn player_build;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
@@ -4409,7 +4409,7 @@ if (!isDedicated) then {
 				
 				_menu = _parent displayCtrl (1600 + 7);
 				_menu ctrlShow true;
-				_type = "Delete helipad";
+				_type = "Delete HeliPad";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = [] spawn GG_deletehelipad;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];

@@ -1070,7 +1070,6 @@ call compile ("
 				_object = createVehicle [_select,_positn,[],0,""CAN_COLLIDE""];
 				[_object,_positn] call AH_fnc_setPos;
 				
-				_object engineOn true;
 				_object setvelocity [0,0,1];
 				_object setDir ((getDir _player) + 90);
 				_object setVariable ['ObjectID','1',true];

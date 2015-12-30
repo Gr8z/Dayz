@@ -5,14 +5,13 @@ _typ = getText (xcf >> 'CfgVehicles' >> _veh >> 'displayName');
 if (_veh isKindOf "AIR") then {_max = 2};
 xcc ("
 	if (isNil '"+_veh+"_DEPLOYED') then {"+_veh+"_DEPLOYED = 0};
-	if (dayz_combat == 1) exitWith {systemChat ('(GG-AH): '+str ('You can''t deploy vehicles while in combat!'))};
 	_required = "+str _req+";
 	{if (_x in ((items player) + (magazines player))) then {_required set [_forEachIndex,objNull]}} forEach _required;
 	_required = _required - [objNull];
 	if (count _required <= 0) then {
 		{player removeMagazine _x} forEach "+str _req+";
 		[player,'repair',0,false,10] call dayz_zombieSpeak;
-		[player,10,true,(getPosATL player)] spawn player_alertZombies;
+		[player,50,true,(getPosATL player)] spawn player_alertZombies;
 		uiSleep 1;
 		_dir = getdir (vehicle player);
 		_pos = (vehicle player) call AH_fnc_getPos;
