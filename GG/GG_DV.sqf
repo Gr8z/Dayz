@@ -11,7 +11,7 @@ xcc ("
 	if (count _required <= 0) then {
 		{player removeMagazine _x} forEach "+str _req+";
 		[player,'repair',0,false,10] call dayz_zombieSpeak;
-		[player,50,true,(getPosATL player)] spawn player_alertZombies;
+		[player,10,true,(getPosATL player)] spawn player_alertZombies;
 		uiSleep 1;
 		_dir = getdir (vehicle player);
 		_pos = (vehicle player) call AH_fnc_getPos;
