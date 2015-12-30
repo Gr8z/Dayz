@@ -1,6 +1,4 @@
-
-class Category_4004 { 
-class PipeBomb: d_tit {buy = 50000;sell = 3450;}; 
+class Category_4004 {
 class 1Rnd_HE_M203: d_tit {buy = 230;sell = 230;}; 
 class FlareWhite_M203: d_tit {buy = 230;sell = 230;}; 
 class FlareGreen_M203: d_tit {buy = 230;sell = 230;}; 
@@ -20,6 +18,5 @@ class 6Rnd_SmokeRed_M203: d_tit {buy = 845;sell = 430;};
 class 6Rnd_SmokeGreen_M203: d_tit {buy = 845;sell = 430;}; 
 class 6Rnd_SmokeYellow_M203: d_tit {buy = 845;sell = 430;}; 
 class HandGrenade_east: d_tit {buy = 230;sell = 230;};
-class HandGrenade_west: d_tit {buy = 230;sell = 230;}; 
-
+class HandGrenade_west: d_tit {buy = 230;sell = 230;};
  }; 
