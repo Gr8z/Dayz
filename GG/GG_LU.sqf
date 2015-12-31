@@ -23,6 +23,6 @@ if (_lock) then {
 
 s_player_inCarlockUnlock_crtl = -1;
 player action ["lightOn", _vehicle];
-[nil, _vehicle, rSAY, "carLock", 20] call RE;
+[nil, _vehicle, rSAY, "carBeep", 20] call RE;
 sleep 0.5;
 player action ["lightOff", _vehicle];
