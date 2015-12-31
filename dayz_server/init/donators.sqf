@@ -233,6 +233,7 @@ Scout1 = [
 ];publicVariable "Scout1";
 
 Scout2 = [
+	"76561198086239163", // ThatEstonian Mod Loadout(Upgraded by MeowMix)
 	"76561198017655721", // [M6x9-46] Dank Memes(OD-2015-06-19) #9542  
 	"76561198149036987", // ShortBus	(OD-2015-07-03)  #9758 
 	"76561198106717160", // LucidDubst3p (OD-2015-10-12) #9995
