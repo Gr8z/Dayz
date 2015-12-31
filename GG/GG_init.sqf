@@ -888,16 +888,6 @@ if (!isDedicated) then {
 		_setPos 	= _worldspace sel 1;
 		player setDir _setDir;
 		player setPosATL _setPos;
-		player addBackpack DefaultBackpack;
-		 dayz_myBackpack = unitBackpack player;
-		{
-			if (isClass(configFile >> "CfgMagazines" >> _x)) then {player addMagazine _x};
-			if (isClass(configFile >> "CfgWeapons" >> _x)) then {player addWeapon _x};
-		} count (DefaultMagazines+DefaultWeapons);
-		{
-			if (isClass(configFile >> "CfgMagazines" >> _x)) then {dayz_myBackpack addMagazineCargoGlobal [_x,1]};
-			if (isClass(configFile >> "CfgWeapons" >> _x)) then {dayz_myBackpack addWeaponCargoGlobal [_x,1]};
-		} count DefaultBackpackItems;
 		dayz_myWeapons 	= weapons player;
 		dayz_myItems 	= items player;
 		dayz_myMagazines = magazines player;

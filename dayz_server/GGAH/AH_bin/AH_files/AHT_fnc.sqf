@@ -6536,7 +6536,7 @@ systemChat (""""Hello!"""");
 				
 				_isLvl3 = 0;
 				{_PUID = ("+_playerID+" _x);if (_PUID in levelthree) then {_isLvl3 = _isLvl3 + 1}} forEach _playerList;
-				_ctrl lbAdd format [""[-level 3 admins-] (%1)"",_isLvl3];
+				_ctrl lbAdd format [""[-Owners/Head admins-] (%1)"",_isLvl3];
 				_ctrl lbSetData [(lbsize _ctrl)-1,""1""];
 				_ctrl lbSetColor [(lbsize _ctrl)-1,APCLR];
 				{
@@ -6583,7 +6583,7 @@ systemChat (""""Hello!"""");
 				_isLvl2 = 0;
 				{_PUID = ("+_playerID+" _x);if (_PUID in leveltwo) then {_isLvl2 = _isLvl2 + 1}} forEach _playerList;
 				_ctrl lbAdd format [""""];
-				_ctrl lbAdd format [""[-level 2 admins-] (%1)"",_isLvl2];
+				_ctrl lbAdd format [""[-Admins-] (%1)"",_isLvl2];
 				_ctrl lbSetData [(lbsize _ctrl)-1,""1""];
 				_ctrl lbSetColor [(lbsize _ctrl)-1,APCLR];
 				{
@@ -6632,7 +6632,7 @@ systemChat (""""Hello!"""");
 				_isLvl1 = 0;
 				{_PUID = ("+_playerID+" _x);if (_PUID in levelone) then {_isLvl1 = _isLvl1 + 1}} forEach _playerList;
 				_ctrl lbAdd format [""""];
-				_ctrl lbAdd format [""[-level 1 admins-] (%1)"",_isLvl1];
+				_ctrl lbAdd format [""[-Moderators-] (%1)"",_isLvl1];
 				_ctrl lbSetData [(lbsize _ctrl)-1,""1""];
 				_ctrl lbSetColor [(lbsize _ctrl)-1,APCLR];
 				{
@@ -8146,9 +8146,9 @@ systemChat (""""Hello!"""");
 					_ctrl = 1004 call getControl;
 					_ctrl ctrlSetText (switch (true) do {
 						default {'Admin Powers Revoked'};
-						case (getPlayerUID player in levelone) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Level 1',name player,_time select 0,_time select 1]};
-						case (getPlayerUID player in leveltwo) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Level 2',name player,_time select 0,_time select 1]};
-						case (getPlayerUID player in levelthree) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Level 3',name player,_time select 0,_time select 1]};
+						case (getPlayerUID player in levelone) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Head Admin',name player,_time select 0,_time select 1]};
+						case (getPlayerUID player in leveltwo) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Admin',name player,_time select 0,_time select 1]};
+						case (getPlayerUID player in levelthree) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Moderator',name player,_time select 0,_time select 1]};
 					});
 					
 					if !(getPlayerUID player in levelthree) then {
@@ -8233,7 +8233,7 @@ systemChat (""""Hello!"""");
 			};
 			if ("+_playerID+" player in leveltwo) then {
 				diag_log ('(GG-AntiHack): LEVEL 2 HOTKEYS LOADED.');
-				_msg = 'Level 2 hotkeys added.';
+				_msg = 'Admin hotkeys added.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				AH_keyBinds = compile ('
@@ -8253,7 +8253,7 @@ systemChat (""""Hello!"""");
 			};
 			if ("+_playerID+" player in levelone) then {
 				diag_log ('(GG-AntiHack): LEVEL 1 HOTKEYS LOADED.');
-				_msg = 'Level 1 hotkeys added.';
+				_msg = 'Moderator hotkeys added.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				AH_keyBinds = compile ('
