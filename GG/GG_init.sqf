@@ -792,6 +792,8 @@ if (!isDedicated) then {
 		player removeEventHandler ["HandleDamage",mydamage_eh1];
 		player removeEventHandler ["Killed",mydamage_eh3];
 		player removeEventHandler ["Fired",mydamage_eh2];
+		player removeWeapon "ItemMap";
+		player removeWeapon "ItemFlashlight";
 		666 cutText [format ["You survived %1 days, killed %2 zombies, %3 survivors, and %4 bandits...",dayz_Survived,(player getVariable ["zombieKills",0]),(player getVariable ["humanKills",0]),(player getVariable ["banditKills",0])],"PLAIN DOWN"];
 		disableUserInput false;
 		_humanity		= player getVariable ["humanity",0];
@@ -804,10 +806,14 @@ if (!isDedicated) then {
 		((uiNamespace getVariable 'DAYZ_GUI_display') displayCtrl 1303) ctrlShow false;
 		((uiNamespace getVariable 'DAYZ_GUI_display') displayCtrl 1203) ctrlShow false;
 		_body = player;
+		_body spawn { private ["_entity"]; _entity = _this; uisleep 1; if (!isNil "_entity") then { if (!isNull _entity) then { if (["player_idlesteady",animationState _entity] call fnc_inString) then { _entity switchMove "ainjppnemstpsnonwrfldnon";};};};};
 		addSwitchableUnit dayz_originalPlayer;
 		setPlayable dayz_originalPlayer;
 		selectPlayer dayz_originalPlayer;
 		player allowDamage false;
+		_myGroup = group _body;
+		[_body] joinSilent dayz_firstGroup;
+		if ((count (units _myGroup)) == 0) then {deleteGroup _myGroup};
 		PVDZE_Server_Simulation = [_body, false];
 		publicVariableServer "PVDZE_Server_Simulation";
 		uiSleep 5;
