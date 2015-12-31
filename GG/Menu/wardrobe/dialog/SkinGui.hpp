@@ -1,7 +1,7 @@
 #include "definitions.sqf"
 
 class MensClothing {
-	idd = SKINS_DIALOG;
+	idd = 20001;
 	movingEnable = true;
 	enableSimulation = true;
 	onLoad = "[] execVM 'GG\Menu\wardrobe\List_Men.sqf'";
@@ -19,7 +19,7 @@ class MensClothing {
 			w = 0.55; h = 0.8;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
 		};
-		class RecruitUnitsTitle : HW_RscText {
+		class RecruitUnitsTitle : RscText {
 		   	idc = SKINS_TITLE;
 			x = 0.05; y =  0.13;
 			w = __EVAL(50 * _xSpacing);
@@ -32,8 +32,8 @@ class MensClothing {
 	};
 
 	class controls {
-		class RecruitQueue : HW_RscText {
-		   	idc = SKINS_QUEUE;
+		class RecruitQueue : RscText {
+		   	idc = 20005;
 			x = 0.06; y =  0.2;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
@@ -43,7 +43,7 @@ class MensClothing {
 			text = "";
 		};
 		class RecruitPrise : HW_RscText {
-		   	idc = SKINS_PRICE;
+		   	idc = 20006;
 			x = 0.23; y =  0.2;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
@@ -52,8 +52,8 @@ class MensClothing {
 			sizeEx = 0.03;
 			text = "";
 		};
-		class Unitlist: HW_RscGUIListBox {
-			idc = SKINS_UNITLIST;
+		class Unitlist: RscGUIListBox {
+			idc = 20004;
 			default = 1;
 			x = 0.101; y = 0.275;
 			w = 0.405; h = 0.50;
@@ -72,7 +72,7 @@ class MensClothing {
 			xcolumn2 = "0.25f";
 			xcolumn3 = "0.85f";		
 		};
-		class RecruitButton: HW_RscGUIShortcutButton {
+		class RecruitButton: RscGUIShortcutButton {
 			x = 0.325; y = 0.825;
 			w = 0.125; h = 0.05;
 			text = "Change Skin";
@@ -87,7 +87,7 @@ class MensClothing {
 };
 
 class WomanClothing {
-	idd = SKINS_DIALOG;
+	idd = 20001;
 	movingEnable = true;
 	enableSimulation = true;
 	onLoad = "[] execVM 'GG\Menu\wardrobe\List_Woman.sqf'";
@@ -98,14 +98,14 @@ class WomanClothing {
 	__EXEC( _windowBorder = 1;)
 
 	class controlsBackground {
-		class Mainbackgrnd : HW_RscPicture {
+		class Mainbackgrnd : RscPicture {
 			moving = true;
 			idc = SKINS_BCKGRND;
 			x = 0.1; y = 0.101;
 			w = 0.55; h = 0.8;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
 		};
-		class RecruitUnitsTitle : HW_RscText {
+		class RecruitUnitsTitle : RscText {
 		   	idc = SKINS_TITLE;
 			x = 0.05; y =  0.13;
 			w = __EVAL(50 * _xSpacing);
@@ -118,8 +118,8 @@ class WomanClothing {
 	};
 
 	class controls {
-		class RecruitQueue : HW_RscText {
-		   	idc = SKINS_QUEUE;
+		class RecruitQueue : RscText {
+		   	idc = 20005;
 			x = 0.06; y =  0.2;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
@@ -128,8 +128,8 @@ class WomanClothing {
 			sizeEx = 0.03;
 			text = "";
 		};
-		class RecruitPrise : HW_RscText {
-		   	idc = SKINS_PRICE;
+		class RecruitPrise : RscText {
+		   	idc = 20006;
 			x = 0.23; y =  0.2;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
@@ -138,8 +138,8 @@ class WomanClothing {
 			sizeEx = 0.03;
 			text = "";
 		};
-		class Unitlist: HW_RscGUIListBox {
-			idc = SKINS_UNITLIST;
+		class Unitlist: RscGUIListBox {
+			idc = 20004;
 			default = 1;
 			x = 0.101; y = 0.275;
 			w = 0.405; h = 0.50;
@@ -158,7 +158,7 @@ class WomanClothing {
 			xcolumn2 = "0.25f";
 			xcolumn3 = "0.85f";		
 		};
-		class RecruitButton: HW_RscGUIShortcutButton {
+		class RecruitButton: RscGUIShortcutButton {
 			x = 0.325; y = 0.825;
 			w = 0.125; h = 0.05;
 			text = "Change Skins";
