@@ -7,7 +7,7 @@ class Mission
 	class Intel
 	{
 		briefingName="[GG] Overpoch Chernarus";
-		briefingDescription="[GG] Ghostz Gamerz | Web: GHOSTZGAMERZ.com | TS: ts.ghostzgamerz.com";
+		briefingDescription="[GG] Ghostz Gamerz | Web: www.GhostzGamerz.com | TS: ts.GhostzGamerz.com";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;
