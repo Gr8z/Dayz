@@ -4724,13 +4724,13 @@ class MensClothing {
 	class controlsBackground {
 		class Mainbackgrnd : RscPicture {
 			moving = true;
-			idc = SKINS_BCKGRND;
+			idc = 20002;
 			x = 0.1; y = 0.101;
 			w = 0.55; h = 0.8;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
 		};
 		class RecruitUnitsTitle : RscText {
-		   	idc = SKINS_TITLE;
+		   	idc = 20003;
 			x = 0.05; y =  0.13;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
@@ -4809,13 +4809,13 @@ class WomanClothing {
 	class controlsBackground {
 		class Mainbackgrnd : RscPicture {
 			moving = true;
-			idc = SKINS_BCKGRND;
+			idc = 20002;
 			x = 0.1; y = 0.101;
 			w = 0.55; h = 0.8;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";
 		};
 		class RecruitUnitsTitle : RscText {
-		   	idc = SKINS_TITLE;
+		   	idc = 20003;
 			x = 0.05; y =  0.13;
 			w = __EVAL(50 * _xSpacing);
 			h = __EVAL(3 * _ySpacing);
