@@ -486,7 +486,10 @@ if(isServer) then {
 		"ItemVault"
 		];
 		crate_high_value2 = [
-		"ItemHotwireKit"
+		"ItemHotwireKit",
+		"RPG18",
+		"Stinger",
+		"Javelin"
 		];
 		crate_items_food = [
 		"ItemWaterbottle",
