@@ -1403,6 +1403,25 @@ if (!isDedicated) then {
 			s_player_grabflare = -1;
 			s_player_removeflare = -1;
 		};
+		dayz_myLockedVehicle = objNull;
+		if (_inVehicle && driver _vehicle == player) then {
+			if (s_player_inCarlockUnlock_crtl < 0) then {
+				dayz_myLockedVehicle = _vehicle;
+				_text = getText (xcf >> "CfgVehicles" >> typeOf(dayz_myLockedVehicle) >> "displayName");
+				if(locked dayz_myLockedVehicle) then {
+				_Unlock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, false], 2, true, true, "", ""];
+				s_player_incarlockunlock set [count s_player_incarlockunlock,_Unlock];
+				s_player_inCarlockUnlock_crtl = 1;
+			} else {
+				_lock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_LOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, true], 1, false, true, "", ""];
+				s_player_incarlockunlock set [count s_player_incarlockunlock,_lock];
+				s_player_inCarlockUnlock_crtl = 1;
+			};
+		};
+			} else {
+				{dayz_myLockedVehicle removeAction _x} count s_player_incarlockunlock;s_player_incarlockunlock = [];
+				s_player_inCarlockUnlock_crtl = -1;
+	    };
 		if (DZE_HeliLift) then {
 			_hasAttached = _vehicle xgv["hasAttached",false];
 			if (_inVehicle && (_vehicle iko "Air") && (((_vehicle call AH_fnc_getPos) sel 2) < 30) && (speed _vehicle < 5) && (typeName _hasAttached == "OBJECT")) then {
@@ -4760,6 +4779,8 @@ if (!isDedicated) then {
 			s_player_pzombiesvision =	-1;
 			s_player_pzombiesfeed = 	-1;
 			s_player_removeflare = 	-1;
+			s_player_inCarlockUnlock_crtl = -1;
+			s_player_incarlockunlock = [];
 			s_player_painkiller =	-1;
 			s_player_studybody = 	-1;
 			s_player_tamedog =		-1;
