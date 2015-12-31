@@ -1705,7 +1705,7 @@ if (!isDedicated) then {
 			};
 			if (!_isAlive and !_isZombie and !_isAnimal and _isMan and _canDo) then {
 		        if (s_player_bury_human < 0) then {
-		            s_player_bury_human = player xaa [fmt ["Bury Body"], "GG\GG_BH.sqf",cursorTarget, 0, false, true, "", ""];
+		            s_player_bury_human = player xaa ["<t color='#dddddd'>Teabag "+str _name+"</t>", "GG\GG_BB.sqf",_cursorTarget, 0, false, true, "",""];
 		        }
 		    } else {
 		        player rac s_player_bury_human;
