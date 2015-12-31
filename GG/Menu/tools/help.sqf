@@ -27,4 +27,4 @@ _CC_HTXT 	=			//Dynamic text that will be sent when a player types !HELP
 
 _txt = '';
 {_txt = (_txt + _x)} forEach _CC_HTXT;
-[""<t size='0.5'align='left'>""+_txt+""</t>"",0.1 * safezoneW + safezoneX,0.1 * safezoneH + safezoneY,120,0,0,77398] spawn AH_fnc_dynamictext
+["<t size='0.5'align='left'>"+_txt+"</t>",0.1 * safezoneW + safezoneX,0.1 * safezoneH + safezoneY,120,0,0,77398] spawn AH_fnc_dynamictext
