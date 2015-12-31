@@ -88,6 +88,10 @@ if (!isDedicated) then {
 			    _handled = true;
 			};
 
+			if (_dikCode == 0xB8) then {
+			    [] execVM "GG\menu\actionmenu_main.sqf";
+			};
+
 			if (_dikCode in actionKeys "TacticalView") then {_handled = true;};
 			_handled;
 		};
@@ -4427,6 +4431,17 @@ if (!isDedicated) then {
 				_type = "Delete HeliPad";
 				_height = _height + (0.025 * safezoneH);
 				_compile = "_id = [] spawn GG_deletehelipad;closeDialog 0;";
+				uiNamespace xsv ['uiControl', _control];
+				_menu ctrlSetText fmt [_type,_name];
+				_menu ctrlSetTextColor [1,0,0,1];
+				_menu ctrlSetEventHandler ["ButtonClick",_compile];	
+
+				_menu = _parent displayCtrl (1600 + 8);
+				_menu ctrlShow true;
+				_type = "Open Action Menu";
+				_script = "GG\menu\actionmenu_main.sqf";
+				_height = _height + (0.025 * safezoneH);
+				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
 				_menu ctrlSetTextColor [1,0,0,1];
