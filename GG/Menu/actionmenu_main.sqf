@@ -122,7 +122,7 @@ SkyMenu =
 EarMenu =
 [
 	["",true],
-	["ON", [2],  "", -5, [["expression","1 fadeSound 0.2;enableEnvironment false;((uiNamespace getVariable 'EarPlugs') displayCtrl 1) ctrlSetStructuredText parseText ""<t size='4' align='left' valign='middle'><img image='GG\images\earplugs.paa' /></t>"";GGEARPLUGS = false;"]], "1", "1"],
+	["ON", [2],  "", -5, [["expression","1 fadeSound 0.2;enableEnvironment false;((uiNamespace getVariable 'EarPlugs') displayCtrl 1) ctrlSetStructuredText parseText ""<t size='4' align='left' valign='middle'><img image='GG\GUI\earplugs.paa' /></t>"";GGEARPLUGS = false;"]], "1", "1"],
 	["OFF", [3],  "", -5, [["expression","1 fadeSound 1;enableEnvironment true;((uiNamespace getVariable 'EarPlugs') displayCtrl 1) ctrlSetStructuredText parseText '';GGEARPLUGS = true;"]], "1", "1"]
 ];
 
