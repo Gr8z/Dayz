@@ -4841,6 +4841,8 @@ if (!isDedicated) then {
 			mv22_open = -1;
 			mv22_close = -1;
 			s_player_manageDoor = -1;
+			s_player_claimkey = -1;
+			s_player_changeKey = -1;
 		};
 		call dayz_resetSelfActions;
 		rn "GG\Trader\player_traderMenu.sqf";
