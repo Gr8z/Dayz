@@ -1413,11 +1413,11 @@ if (!isDedicated) then {
 				dayz_myLockedVehicle = _vehicle;
 				_text = getText (xcf >> "CfgVehicles" >> typeOf(dayz_myLockedVehicle) >> "displayName");
 				if(locked dayz_myLockedVehicle) then {
-				_Unlock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, false], 2, true, true, "", ""];
+				_Unlock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\GG_LU.sqf", [dayz_myLockedVehicle, false], 2, true, true, "", ""];
 				s_player_incarlockunlock set [count s_player_incarlockunlock,_Unlock];
 				s_player_inCarlockUnlock_crtl = 1;
 			} else {
-				_lock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_LOCK",_text], "GG\vehicle_lockUnlock.sqf", [dayz_myLockedVehicle, true], 1, false, true, "", ""];
+				_lock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_LOCK",_text], "GG\GG_LU.sqf", [dayz_myLockedVehicle, true], 1, false, true, "", ""];
 				s_player_incarlockunlock set [count s_player_incarlockunlock,_lock];
 				s_player_inCarlockUnlock_crtl = 1;
 			};
