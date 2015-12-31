@@ -410,7 +410,7 @@ class RscCombo {
 };
 class RscBackground {
 	type = 0;
-	style = ST_BACKGROUND;
+	style = 0x50;
 	shadow = 2;
 	colorBackground[] = {0,0,0,1};
 	colorText[] = {1,1,1,1};
