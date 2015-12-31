@@ -113,6 +113,136 @@ _object_hitpoints = {
 	_key call server_hiveWrite;
 	_object setVariable ["needUpdate",false,true];
 };
+
+_object_vehicleKey = {
+	private ["_hit","_selection","_fuel","_gotcha","_retry","_vehicleID","_key","_result","_outcome","_player","_class","_newKey","_newKeyName","_oldVehicleID","_oldVehicleUID","_hitpoints","_damage","_array","_inventory","_vehicleUID","_position","_dir","_worldspace"];
+	
+	/* Setting up variables */
+	_player = _this select 0;
+	_class = _this select 1;
+	_newKey = _this select 2;
+	_newKeyName = _this select 3;
+	_oldVehicleID = _this select 4;
+	_oldVehicleUID = _this select 5;
+
+	/* Get Damage of the Vehicle */
+	_hitpoints = _object call vehicle_getHitpoints;
+	_damage = damage _object;
+	_array = [];
+	{
+		_hit = [_object,_x] call object_getHit;
+		_selection = getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "HitPoints" >> _x >> "name");
+		if (_hit > 0) then {_array set [count _array,[_selection,_hit]]};
+		_object setHit ["_selection", _hit];
+	} forEach _hitpoints;
+	
+	/* Get the Fuel of the Vehicle */
+	_fuel = 0;
+	if (_object isKindOf "AllVehicles") then {
+		_fuel = fuel _object;
+	};
+	
+	/* Get the Inventory of the Vehicle */
+	_inventory = [
+		getWeaponCargo _object,
+		getMagazineCargo _object,
+		getBackpackCargo _object
+	];
+	
+	/* Get the position of the Vehicle */
+	_position 	= getPosASL _object;
+	if !(surfaceIsWater _position) then {
+		_position =  ASLToATL _position;
+	};
+	_dir 		= getDir _object;
+	_worldspace = [_dir,_position];
+
+	/* Delete the current Database entry */
+	[_oldVehicleID,_oldVehicleUID,_player] call server_deleteObj;
+	sleep 1;
+	
+	/* Generate a new UID */
+	_vehicleUID = _worldspace call dayz_objectUID3;
+
+	/* Write the new Database entry and LOG the action*/
+	_key = format["CHILD:308:%1:%2:%3:%4:%5:%6:%7:%8:%9:",dayZ_instance, _class, _damage , _newKey, _worldspace, _inventory, _array, _fuel,_vehicleUID];
+	_key call server_hiveWrite;
+	diag_log ("HIVE: WRITE: VEHICLE KEY CHANGER: "+ str(_key)); 
+	diag_log format["HIVE: WRITE: VEHICLE KEY CHANGER: Vehicle:%1 NewKey:%2 BY %3(%4)", _object, _newKeyName, (name _player), (getPlayerUID _player)];
+
+	/* Get the ObjectID of the entry in the Database */
+	_retry = 0;
+	_gotcha = false;
+	while {!_gotcha && _retry < 10} do {
+		sleep 1;
+		
+		/* Send the request */
+		_key = format["CHILD:388:%1:",_vehicleUID];
+		diag_log ("HIVE: READ: VEHICLE KEY CHANGER: "+ str(_key));
+		_result = _key call server_hiveReadWrite;
+		_outcome = _result select 0;
+		
+		/* We got a answer */
+		if (_outcome == "PASS") then {
+			_vehicleID = _result select 1;
+			
+			/* Compare with old ObjectID to check if it not was deleted yet */
+			if (_oldVehicleID == _vehicleID) then {
+				/* Not good lets give it another try */
+				_gotcha = false;
+				_retry = _retry + 1;
+			} else {
+				/* GOTCHA! */
+				diag_log("CUSTOM: VEHICLE KEY CHANGER: Selected " + str(_vehicleID));
+				_gotcha = true;
+				_retry = 11;
+
+				_object setVariable ["VKC_disabled", 1,true];
+				_object setVariable ["VKC_claiming_disabled", 1,true];
+
+				[_object] spawn {
+					private ["_veh"];
+					_veh = _this select 0;
+
+					sleep 30;
+					_veh setVariable ["VKC_disabled", 0,true];
+					_veh setVariable ["VKC_claiming_disabled", 0,true];
+				};
+
+				PVDZE_vkc_Success = true;
+				(owner _player) publicVariableClient "PVDZE_vkc_Success";
+
+				/* Lock the Vehicle */
+				_object setVehicleLock "locked";
+	
+				/* Save the ObjectID and ObjectUID to the vehicles variable and make it public */
+				_object setVariable ["ObjectID", _vehicleID, true];
+				_object setVariable ["ObjectUID", _vehicleUID, true];
+	
+				/* Set the lastUpdate time to current */
+				_object setVariable ["lastUpdate",time,true];
+	
+				/* Set the CharacterID to the new Key so we can access it! */
+				_object setVariable ["CharacterID", _newKey, true];
+	
+				/* Some other variables you might need for disallow lift/tow/cargo locked Vehicles and such */
+				/* Uncomment if you use this */
+	
+				/* R3F Arty and LOG block lift/tow/cargo locked vehicles*/
+				_object setVariable ["R3F_LOG_disabled",true,true];
+
+				/* =BTC= Logistic block lift locked vehicles*/
+				_object setVariable ["BTC_Cannot_Lift",true,true];
+			};
+		} else {
+			/* Something went wrong on the request give it another try */
+			diag_log("CUSTOM: VEHICLE KEY CHANGER: trying again to get id for: " + str(_vehicleUID));
+			_gotcha = false;
+			_retry = _retry + 1;
+		};
+	};
+};
+
 _object setVariable ["lastUpdate",time,true];
 _object setVariable ["lastPosition",(getPosATL _object),true];
 _object setVariable ["lastHitpoints",(_object call vehicle_getHitpoints),true];
@@ -138,4 +268,14 @@ if (_type == "damage") then {
 };
 if (_type == "killed" || _type == "repair") then {
 	[_type] call _object_hitpoints;
+};
+
+if (_type == "vehiclekey") then {
+	_activatingPlayer = _this select 2;
+	_vehicleClassname = _this select 3;
+	_toKey = _this select 4;
+	_toKeyName = _this select 5;
+	_vehicle_ID = _this select 6;
+	_vehicle_UID = _this select 7;
+	[_activatingPlayer, _vehicleClassname, _toKey, _toKeyName, _vehicle_ID, _vehicle_UID] call _object_vehicleKey;
 };

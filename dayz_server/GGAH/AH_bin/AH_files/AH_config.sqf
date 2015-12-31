@@ -25,7 +25,7 @@
 	_CMD_WLS 	= 			//Add CMD menus to this array, for scripts that use showCommandingMenu
 	[
 		"","RscMainMenu","RscMoveHigh","#WATCH","#WATCH0",
-		"DoorManagement","Entercode",
+		"DoorManagement","Entercode","#USER:_keyMenu",
 		"RscWatchDir","RscDisplayClassSelecter","RscDisplayGenderSelect",
 		"RscDisplaySpawnSelecter","RscWatchMoreDir","#GETIN","RscStatus",
 		"RscCombatMode","RscFormations","RscTeam","RscSelectTeam","RscReply",
