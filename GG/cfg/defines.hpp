@@ -2495,8 +2495,8 @@ class RscTitles {
 			    size = 0.040;
 			    text = "";
 			    colorBackground[] = { 0,0,0,0 };
-                x = 0.900 * safezoneW + safezoneX;
-                y = 0.75 * safezoneH + safezoneY;
+                x = 0.85 * safezoneW + safezoneX;
+			    y = 0.91 * safezoneH + safezoneY;
                 w = 0.2;
                 h = 0.2;				
 		    };
