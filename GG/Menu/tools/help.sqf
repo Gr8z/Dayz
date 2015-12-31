@@ -25,6 +25,12 @@ _CC_HTXT 	=			//Dynamic text that will be sent when a player types !HELP
 	"<t size='1'>Type <t color='#f00000'>!help</t> to hide this menu.</t><br/>"
 ];
 
-_txt = '';
-{_txt = (_txt + _x)} forEach _CC_HTXT;
-["<t size='0.5'align='left'>"+_txt+"</t>",0.1 * safezoneW + safezoneX,0.1 * safezoneH + safezoneY,120,0,0,77398] spawn AH_fnc_dynamictext
+if (isNil 'help_on') then {
+	help_on = true;
+	_txt = '';
+	{_txt = (_txt + _x)} forEach _CC_HTXT;
+	["<t size='0.5'align='left'>"+_txt+"</t>",0.1 * safezoneW + safezoneX,0.1 * safezoneH + safezoneY,120,0,0,77398] spawn AH_fnc_dynamictext
+} else {
+	help_on = nil;
+	[' ',0,0,1,0,0,77398] spawn AH_fnc_dynamictext
+};
