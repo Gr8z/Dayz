@@ -92,6 +92,22 @@ if (!isDedicated) then {
 			    [] execVM "GG\menu\actionmenu_main.sqf";
 			};
 
+			if (_dikCode == 0x15) then {
+				if (isNil 'GGEARPLUGS') then {
+					GGEARPLUGS = false;
+				};
+				GGEARPLUGS = !GGEARPLUGS;
+				if (GGEARPLUGS) then {
+					1 fadeSound 0.2;
+					enableEnvironment false;
+					((uiNamespace getVariable "EarPlugs") displayCtrl 1) ctrlSetStructuredText parseText "<t size='4' align='left' valign='middle'><img image='GG\GUI\earplugs.paa' /></t>";
+				} else {
+					1 fadeSound 1;
+					enableEnvironment true;
+					((uiNamespace getVariable "EarPlugs") displayCtrl 1) ctrlSetStructuredText parseText "";
+				};
+			};
+
 			if (_dikCode in actionKeys "TacticalView") then {_handled = true;};
 			_handled;
 		};
