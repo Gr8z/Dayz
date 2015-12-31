@@ -2,7 +2,7 @@ if(isServer) then {
 		debug_mode		            = false;
 		ai_clear_body 		        = false;
 		ai_clean_dead 		        = true;
-		ai_cleanup_time 		    = 600;
+		ai_cleanup_time 		    = 900;
 		ai_clean_roadkill		    = true;
 		ai_roadkill_damageweapon	= 0;
 		ai_bandit_combatmode		= "YELLOW";
