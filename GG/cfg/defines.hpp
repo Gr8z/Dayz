@@ -4722,7 +4722,7 @@ class MensClothing {
 	__EXEC( _windowBorder = 1;)
 
 	class controlsBackground {
-		class Mainbackgrnd : HW_RscPicture {
+		class Mainbackgrnd : RscPicture {
 			moving = true;
 			idc = SKINS_BCKGRND;
 			x = 0.1; y = 0.101;
@@ -4752,7 +4752,7 @@ class MensClothing {
 			sizeEx = 0.03;
 			text = "";
 		};
-		class RecruitPrise : HW_RscText {
+		class RecruitPrise : RscText {
 		   	idc = 20006;
 			x = 0.23; y =  0.2;
 			w = __EVAL(50 * _xSpacing);
