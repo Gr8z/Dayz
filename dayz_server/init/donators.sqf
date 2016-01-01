@@ -79,7 +79,10 @@ SlotDonor = [
 	"76561198001066546", // MeowMix
 	"76561198115492831", // BigEgg
 	"76561198195305425", // Shahzad
-	"00000000000000000", // Bitch (OD-2015-00-00) #0000 // delete this
+	"76561198076274176", // Melee (OD-2016-1-1) #12636
+	"76561197978528230", // Dark (OD-2016-1-1) #12634
+	"76561197979611157", // JewZocu (OD-2016-1-1) #12630
+	
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "SlotDonor";
