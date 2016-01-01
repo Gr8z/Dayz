@@ -7,7 +7,7 @@ class Mission
 	class Intel
 	{
 		briefingName="[GG] Overpoch Napf";
-		briefingDescription="[GG] Ghostz Gamerz | Web: www.GhostzGamerz.com | TS: ts.GhostzGamerz.com";
+		briefingDescription="[GG] Ghostz Gamerz | DO NOT JOIN VIP SLOTS - DO NOT IDLE IN VIP SLOTS - WAIT FOR A REGULAR SLOT IF NEEDED";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;
@@ -100,7 +100,7 @@ class Mission
 				class Item57{id=57;VIPSLT};
 				class Item58{id=58;VIPSLT};
 				class Item59{id=59;VIPSLT};
-				class Item60{id=60;VIPSLT};
+				class Item60{id=60;PLRDIS};
 				class Item61{id=61;PLRDIS};
 				class Item62{id=62;PLRDIS};
 				class Item63{id=63;PLRDIS};
