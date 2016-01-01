@@ -24,7 +24,7 @@ class Mission
 			class Vehicles
 			{
 				items=100;
-				#define VIPSLT text="VIP SLOT";description="VIP SLOT";name="VIPSLOT";init="call compile preprocessFile 'GG\GG_WL.sqf'";
+				#define VIPSLT text="VIP SLOT";description="VIP SLOT";name="VIPSLOT";position[]={3229.4,0,14224.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';call compile preprocessFile 'GG\GG_WL.sqf';";player="PLAY CDG";
 				#define PLRDEF position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GhostzGamerz.com";
 				class Item0{id=0;position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GhostzGamerz.com";};
 				class Item1
@@ -133,11 +133,11 @@ class Mission
 				class Item92{id=92;PLRDEF};
 				class Item93{id=93;PLRDEF};
 				class Item94{id=94;PLRDEF};
-				class Item95{id=95;VIPSLT;PLRDEF};
-				class Item96{id=96;VIPSLT;PLRDEF};
-				class Item97{id=97;VIPSLT;PLRDEF};
-				class Item98{id=98;VIPSLT;PLRDEF};
-				class Item99{id=99;VIPSLT;PLRDEF};
+				class Item95{id=95;VIPSLT};
+				class Item96{id=96;VIPSLT};
+				class Item97{id=97;VIPSLT};
+				class Item98{id=98;VIPSLT};
+				class Item99{id=99;VIPSLT};
 			};
 		};
 		class Item1
