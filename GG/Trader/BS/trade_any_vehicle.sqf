@@ -1,4 +1,4 @@
-private ["_msg","_trade_item","_currency","_price","_BoS","_textPart","_obj","_qty","_keySelected","_isKeyOK","_config","_isOk","_removed","_trader","_helipad","_location","_veh","_hitpoints","_okToSell","_tires","_tireDmg","_damage","_objectID","_objectUID","_needed"];
+private ["_msg","_trade_item","_currency","_price","_BoS","_textPart","_obj","_qty","_keySelected","_isKeyOK","_config","_isOk","_removed","_trader","_helipad","_location","_veh","_hitpoints","_okToSell","_tires","_tireDmg","_damage","_objectID","_objectUID","_needed","_veh_owner","_ownerGroup","_ownerGroupTag","_playerID","_VehOwnerConfirmed"];
 if (DZE_ActionInProgress) exitWith {
 	_msg = "Trade already in progress.";
 	systemChat ("(GG-AH): "+str _msg+"");
@@ -62,19 +62,37 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 			};
 		} forEach _hitpoints;
 		if ((_tireDmg > 0 and _tires > 0)&&((_tireDmg / _tires) > 0.75)) then {_okToSell = false};
+
+		_veh_owner = _obj getVariable ['owner', objNull];
+		_ownerGroup = units group _veh_owner;
+		_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
+		_playerID = player getVariable ["CharacterID","0"];
+
+		if !(isNull _veh_owner) then {
+			if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
+				_VehOwnerConfirmed = true;
+			};
+		};
+
 		if ((local _obj)&&(!isNull _obj)&&(alive _obj)) then {
 			if (_okToSell) then {
-				_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
-				//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
-				
-				player setVariable ["GGCoins", ((player getVariable ["GGCoins",0]) + _price), true];
-				_objectID 	= _obj getVariable ["ObjectID","0"];
-				_objectUID	= _obj getVariable ["ObjectUID","0"];
-				PVDZE_obj_Delete = [_objectID,_objectUID,player];
-				publicVariableServer "PVDZE_obj_Delete";
-				deleteVehicle _obj;
-				_msg = format ["Sold %1 for %2 %3",_textPart,_price,_currency];
-				_msg call AH_fnc_dynTextMsg;
+				if (_VehOwnerConfirmed) then {
+					_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
+					//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
+					
+					player setVariable ["GGCoins", ((player getVariable ["GGCoins",0]) + _price), true];
+					_objectID 	= _obj getVariable ["ObjectID","0"];
+					_objectUID	= _obj getVariable ["ObjectUID","0"];
+					PVDZE_obj_Delete = [_objectID,_objectUID,player];
+					publicVariableServer "PVDZE_obj_Delete";
+					deleteVehicle _obj;
+					_msg = format ["Sold %1 for %2 %3",_textPart,_price,_currency];
+					_msg call AH_fnc_dynTextMsg;
+				} else {
+					_msg = "Failed, you are not the owner of this vehicle.";
+					systemChat ("(GG-AH): "+str _msg+"");
+					_msg call AH_fnc_dynTextMsg;
+				};
 			} else {
 				_msg = format ["Cannot sell %1, tires are too damaged.",_textPart];
 				systemChat ("(GG-AH): "+str _msg+"");
