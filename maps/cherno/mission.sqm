@@ -95,12 +95,12 @@ class Mission
 				class Item52{id=52;PLRDEF};
 				class Item53{id=53;PLRDEF};
 				class Item54{id=54;PLRDEF};
-				class Item55{id=55;PLRDIS};
-				class Item56{id=56;PLRDIS};
-				class Item57{id=57;PLRDIS};
-				class Item58{id=58;PLRDIS};
-				class Item59{id=59;PLRDIS};
-				class Item60{id=60;PLRDIS};
+				class Item55{id=55;VIPSLT};
+				class Item56{id=56;VIPSLT};
+				class Item57{id=57;VIPSLT};
+				class Item58{id=58;VIPSLT};
+				class Item59{id=59;VIPSLT};
+				class Item60{id=60;VIPSLT};
 				class Item61{id=61;PLRDIS};
 				class Item62{id=62;PLRDIS};
 				class Item63{id=63;PLRDIS};
@@ -135,11 +135,11 @@ class Mission
 				class Item92{id=92;PLRDIS};
 				class Item93{id=93;PLRDIS};
 				class Item94{id=94;PLRDIS};
-				class Item95{id=95;VIPSLT};
-				class Item96{id=96;VIPSLT};
-				class Item97{id=97;VIPSLT};
-				class Item98{id=98;VIPSLT};
-				class Item99{id=99;VIPSLT};
+				class Item95{id=95;PLRDIS};
+				class Item96{id=96;PLRDIS};
+				class Item97{id=97;PLRDIS};
+				class Item98{id=98;PLRDIS};
+				class Item99{id=99;PLRDIS};
 			};
 		};
 		class Item1
