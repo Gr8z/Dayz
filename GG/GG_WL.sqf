@@ -14,7 +14,7 @@ if ((_this sel 0) == player) then {
 			sleep 1;
 			endMission 'loser';
 		} else {
-			systemChat "YOU HAVE JOINED A VIP SLOT! NEVER JOIN A VIP WHEN A REGULAR SLOT IS OPEN";
+			systemChat "YOU HAVE JOINED A VIP SLOT! NEVER JOIN A VIP SLOT WHEN A REGULAR SLOT IS OPEN";
 		};
 	};
 };
