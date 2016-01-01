@@ -140,6 +140,9 @@ GGNoBuildList2 = [
 ];
 
 dayz_maxLocalZombies = 4;
+dayz_maxGlobalZombiesInit = 3;
+dayz_maxGlobalZombiesIncrease = 2;
+dayz_maxZeds = 75;
 EpochEvents = [
 ["any","any","any","any",30,"abandonedvault"],
 ["any","any","any","any",0,"crash_spawner"],
