@@ -1,4 +1,6 @@
 #include "shortcuts.h"
+_unit = _this select 0;
+if (!local _unit) exitWith {};
 if (!isDedicated) then {
 	waitUntil {!isNil "dayz_animalCheck"}; 
 	titleCut ["", "BLACK FADED", 10];
