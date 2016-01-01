@@ -1,19 +1,19 @@
 #include "shortcuts.h"
-if ((_this select 0) == player) then {
+if ((_this sel 0) == player) then {
 	if (!isDedicated) then {
-		waitUntil {!isNil "dayz_animalCheck"}; 
-		titleCut ["", "BLACK FADED", 10];
-		sleep 1;
-		_text = format["<t size='1.5' color='#a81e13'>VIP SLOT</t><br/><t size='1' color='#FFFFFF'>You have joined a VIP slot, please wait in the lobby for a regular slot or donate.</t>",""];
-		[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
-		sleep 3;
-		(findDisplay 49) closeDisplay 0;
-		PVDZE_plr_Save = [_unit,(magazines _unit),true,true];
-		publicVariableServer "PVDZE_plr_Save";
-		_unit xsv ["combattimeout",0,true];
-		disableUserInput true;
-
-		sleep 1;
-		endMission 'loser';
+		if !(gpd in SlotDonor) then {
+			waitUntil {!isNil "dayz_animalCheck"}; 
+			titleCut ["", "BLACK FADED", 10];
+			sleep 1;
+			_text = fmt["<t size='1.5' color='#a81e13'>VIP SLOT</t><br/><t size='1' color='#FFFFFF'>You have joined a VIP slot, please wait in the lobby for a regular slot or donate.</t>",""];
+			[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
+			sleep 3;
+			(findDisplay 49) closeDisplay 0;
+			disableUserInput true;
+			sleep 1;
+			endMission 'loser';
+		} else {
+			systemChat "YOU HAVE JOINED A VIP SLOT! NEVER JOIN A VIP WHEN A REGULAR SLOT IS OPEN";
+		};
 	};
 };
