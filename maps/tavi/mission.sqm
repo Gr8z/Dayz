@@ -25,8 +25,8 @@ class Mission
 			{
 				items=100;
 				#define VIPSLT text="VIP SLOT";description="VIP SLOT";name="VIPSLOT";position[]={3229.4,0,14224.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';call compile preprocessFile 'GG\GG_WL.sqf';";player="PLAY CDG";
-				#define PLRDEF position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GhostzGamerz.com";
-				class Item0{id=0;position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="www.GhostzGamerz.com";};
+				#define PLRDEF position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="REGULAR SLOT";
+				class Item0{id=0;position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="REGULAR SLOT";};
 				class Item1
 				{
 					position[]={1393.68,0.001,14193.6};
@@ -39,6 +39,7 @@ class Mission
 					rank="SERGEANT";
 					skill=0.6;
 					init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";
+					description="REGULAR SLOT";
 				};
 				class Item2{id=2;PLRDEF};
 				class Item3{id=3;PLRDEF};

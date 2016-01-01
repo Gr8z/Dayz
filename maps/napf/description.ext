@@ -9,7 +9,7 @@ disableChannels[]= {0,2,6};
 enableItemsDropping = 0;
 briefing = 0;
 debriefing = 0;
-
+joinUnassigned = 1;
 onPauseScript = "";
 loadScreen = "GG\GUI\Splash\GG.jpg";
 
