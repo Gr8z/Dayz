@@ -2,7 +2,7 @@
 if ((_this sel 0) == player) then {
 	if (!isDedicated) then {
 		waitUntil {!isNil "dayz_animalCheck"}; 
-		waitUntil {!isNil SlotDonor};
+		waitUntil {!isNil "SlotDonor"};
 		if !(gpd player in SlotDonor) then {
 			titleCut ["", "BLACK FADED", 10];
 			sleep 1;
