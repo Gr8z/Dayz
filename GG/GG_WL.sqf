@@ -1,7 +1,7 @@
 #include "shortcuts.h"
 if ((_this sel 0) == player) then {
 	if (!isDedicated) then {
-		if !(gpd in SlotDonor) then {
+		if !(gpd player in SlotDonor) then {
 			waitUntil {!isNil "dayz_animalCheck"}; 
 			titleCut ["", "BLACK FADED", 10];
 			sleep 1;
