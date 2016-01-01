@@ -24,7 +24,7 @@ class Mission
 			class Vehicles
 			{
 				items=100;
-				#define VIPSLT text="VIP SLOT";description="VIP SLOT";name="VIPSLOT";position[]={3229.4,0,14224.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';null = [this] execVm  'GG\GG_WL.sqf';";player="PLAY CDG";
+				#define VIPSLT description="VIP SLOT ($8/mon)";name="VIPSLOT";position[]={3229.4,0,14224.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';null = [this] execVm 'GG\GG_WL.sqf';";player="PLAY CDG";
 				#define PLRDIS position[]={-7233.54,0.19,19534.3};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="DISABLED";forceHeadlessClient=1;
 				#define PLRDEF position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="REGULAR SLOT";
 				class Item0{id=0;position[]={1393.68,0.001,14193.6};azimut=0;side="WEST";vehicle="Survivor1_DZ";skill=0.6;init="this enableSimulation false;this allowDammage false;this disableAI 'FSM';this disableAI 'ANIM';this disableAI 'MOVE';";player="PLAY CDG";description="REGULAR SLOT";};
