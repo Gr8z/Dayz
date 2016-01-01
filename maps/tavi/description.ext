@@ -2,14 +2,14 @@ respawn = "BASE";
 respawndelay = 5;
 onLoadMission= "[GG] Overpoch Taviana";
 OnLoadIntro = "Welcome to [GG] Ghostz Gamerz";
-OnLoadIntroTime = False;
-OnLoadMissionTime = False;
+OnLoadIntroTime = false;
+OnLoadMissionTime = false;
 disabledAI = true;
 disableChannels[]= {0,2,6};
 enableItemsDropping = 0;
 briefing = 0;
 debriefing = 0;
-
+joinUnassigned = false;
 onPauseScript = "";
 loadScreen = "GG\GUI\Splash\GG.jpg";
 
