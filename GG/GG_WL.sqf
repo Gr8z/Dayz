@@ -1,4 +1,5 @@
 #include "shortcuts.h"
+If (isServer) exitWith {};
 waitUntil {!isNil "dayz_animalCheck"}; 
 titleCut ["", "BLACK FADED", 10];
 sleep 1;
