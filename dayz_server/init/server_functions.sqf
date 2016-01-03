@@ -872,23 +872,6 @@ server_cleanupGroups = {
 	} forEach allGroups
 };
 
-server_checkHackers = {
-	if (DZE_DYN_AntiStuck2nd > 3) then { DZE_DYN_HackerCheck = nil; DZE_DYN_AntiStuck2nd = 0; };
-	if (!isNil "DZE_DYN_HackerCheck") exitWith {  DZE_DYN_AntiStuck2nd = DZE_DYN_AntiStuck2nd + 1};
-	DZE_DYN_HackerCheck = true;
-	{
-		if (!((isNil "_x") or {(isNull _x)})) then {
-			if (vehicle _x != _x and !(vehicle _x in PVDZE_serverObjectMonitor)&&(isPlayer _x) and !((typeOf vehicle _x) in DZE_safeVehicle)) then {
-				diag_log ("CLEANUP: KILLING A HACKER " + (name _x) + " " + str(_x) + " IN " + (typeOf vehicle _x));
-				(vehicle _x) setDamage 1;
-				_x setDamage 1;
-				uiSleep 0.25;
-			};
-		};
-	} count allUnits;
-	DZE_DYN_HackerCheck = nil;
-};
-
 server_spawnCleanFire = {
 	private ["_delQtyFP","_qty","_missionFires"];
 	_missionFires = allMissionObjects "Land_Fire_DZ";
