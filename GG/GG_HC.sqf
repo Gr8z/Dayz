@@ -1,8 +1,8 @@
 #include "shortcuts.h"
 if (!isServer) exitWith {};
-_args = _this select 0;
-_victim = _args select 0;
-_killer = _args select 1;
+_args = _this sel 0;
+_victim = _args sel 0;
+_killer = _args sel 1;
 
 _vicHumanity = _victim xgv ["humanity",0];
 _kilHumanity = _killer xgv ["humanity",0];
