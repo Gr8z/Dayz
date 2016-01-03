@@ -8244,6 +8244,7 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
 					if (_key == 0x03) then {[] spawn admin_flipVehicle};
+					if (_key == 0x05) then {[] spawn admin_fly};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
