@@ -1,5 +1,5 @@
 #include "shortcuts.h"
-if (!isServer) exitWith {};
+if (!isServer) exw {};
 _args = _this sel 0;
 _victim = _args sel 0;
 _killer = _args sel 1;
