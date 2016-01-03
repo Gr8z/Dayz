@@ -12,7 +12,7 @@ _kilBandits = _killer xgv ["banditKills",0];
 _kilHumans = _killer xgv ["humanKills",0];
 humChange = 0;
 
-if(_killer isKindOf "Man" and _kilName != "unknown") then{
+if(_killer iko "Man" and _kilName != "unknown") then{
 	if(_kilHumanity < -5000) then {
 		if(_vicHumanity < -5000) then {
 			humChange = +100;
