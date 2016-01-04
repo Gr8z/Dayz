@@ -2480,7 +2480,7 @@ if (!isDedicated) then {
 			if (NT_HMVAL >= 2500) then {NT_COLOR = "#3333ff"};
 			if ((NT_HMVAL > -2500)&&(NT_HMVAL < 0)) then {NT_COLOR = "#ffa900"};
 			if ((NT_HMVAL < 2500)&&(NT_HMVAL >= 0)) then {NT_COLOR = "#33e4ff"};
-			if ((NT_TARGT iko 'ATV_CZ_EP1')||(NT_TARGT iko 'ATV_US_EP1')||(NT_TARGT iko 'LandVehicle')||(NT_TARGT iko 'Air')||(NT_TARGT iko 'Ship')) then {
+			if (((NT_TARGT iko 'ATV_CZ_EP1')||(NT_TARGT iko 'ATV_US_EP1')||(NT_TARGT iko 'LandVehicle')||(NT_TARGT iko 'Air')||(NT_TARGT iko 'Ship')) && (!canbuild)) then {
 				if (((count (crew NT_TARGT)) > 0)&&(player distance NT_TARGT < NameTagDistance)) then {
 					player_tag = name (driver NT_TARGT);
 					P_cre = [];
