@@ -74,6 +74,9 @@ GG_stafflist__body 	= [
 ];
 
 //GG config
+DZE_ForceNameTags 				= false;
+DZE_ForceNameTagsInTrader 		= true;
+DZE_ForceNameTagsOff			= true;
 NameTagDistance = 20; //Distance player names show when looking at them.
 DZE_restarttime = [1,59]; //Hour,Minute restart time. 1,59 logs people off at 1hr 59min uptime.
 DZE_useGGammo = true; //If you want jets/planes/boats to get M13A4
