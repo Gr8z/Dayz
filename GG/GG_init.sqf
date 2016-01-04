@@ -4880,6 +4880,7 @@ if (isServer) then {
 			_key call server_hiveReadWrite;
 		};
 	};
+	"HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\GG_HC.sqf'};
 };
 [] spawn {
 	waitUntil{!isNil "BIS_Effects_Init"};

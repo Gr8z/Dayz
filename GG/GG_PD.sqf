@@ -24,7 +24,9 @@ if (count _array > 0) then {
 			player xsv ["AttackedFromDistance", _player distance _killer,true];
 		};
 	} else {
-	__ccp("GG\GG_HC");
+		HumanityChange = [player,_player];
+		publicVariableServer "HumanityChange";
+		HumanityChange = [];
 	};
 };
 {if !(isNil _x) then {xcc ("terminate "+_x)}} forEach ["dayz_animalCheck","dayz_slowCheck","dayz_medicalH","dayz_musicH","dayz_gui"];

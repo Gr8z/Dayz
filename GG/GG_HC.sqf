@@ -85,4 +85,4 @@ if(_killer iko "Man" and _kilName != "unknown") then{
 	_killer xsv["humanity",_kilHumanity+humChange,true];
 	humChange = nil;
 };
-ctc_HumanityChange = nil;
+HumanityChange = nil;
