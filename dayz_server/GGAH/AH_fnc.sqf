@@ -1079,6 +1079,7 @@ call compile ("
 				
 				clearWeaponCargoGlobal _object;
 				clearMagazineCargoGlobal _object;
+				_object setVehicleAmmo 0;
 				
 				if (!isNil ""dayz_serverObjectMonitor"") then {dayz_serverObjectMonitor set [count dayz_serverObjectMonitor,_object]};
 				if (!isNil ""PVDZE_serverObjectMonitor"") then {PVDZE_serverObjectMonitor set [count PVDZE_serverObjectMonitor,_object]};
