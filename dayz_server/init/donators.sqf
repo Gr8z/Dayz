@@ -383,6 +383,7 @@ Scout3 = [
 Soldier1 = [
 	"76561198014873677", // IceMan(OD-2015-05-21)#9098
 	"76561198157936156", // Schuki (OD-2015-12-14) #12399
+	"76561198076910908", // SMOKEY 2 DOPE (od-2016-01-01) #12653
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier1";
