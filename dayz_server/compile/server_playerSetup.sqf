@@ -48,9 +48,6 @@ if (count _worldspace > 0) then {
 	if (_distance < 500) then {
 		_randomSpot = true;
 	};
-	if (_lastinstance != dayZ_instance) then {
-		_randomSpot = true;
-	};
 } else {
 	_randomSpot = true;
 };

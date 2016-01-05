@@ -1436,7 +1436,7 @@ if (!isDedicated) then {
 			};
 		};
 			} else {
-				{dayz_myLockedVehicle removeAction _x} count s_player_incarlockunlock;s_player_incarlockunlock = [];
+				{dayz_myLockedVehicle rac _x} count s_player_incarlockunlock;s_player_incarlockunlock = [];
 				s_player_inCarlockUnlock_crtl = -1;
 	    };
 		if (DZE_HeliLift) then {
