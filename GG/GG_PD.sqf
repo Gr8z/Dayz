@@ -24,7 +24,7 @@ if (count _array > 0) then {
 			player xsv ["AttackedFromDistance", _player distance _killer,true];
 		};
 	} else {
-		HumanityChange = [player,_player];
+		HumanityChange = [_player,_killer];
 		publicVariableServer "HumanityChange";
 		HumanityChange = [];
 	};
