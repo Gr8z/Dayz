@@ -67,10 +67,11 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 		_ownerGroup = units group _veh_owner;
 		_ownerGroupTag = _veh_owner getVariable ["friendlies",[]];
 		_playerID = player getVariable ["CharacterID","0"];
+		_VehOwnerConfirmed = true;
 
 		if !(isNull _veh_owner) then {
 			if !((player in _ownerGroup || _playerID in _ownerGroupTag)) then {
-				_VehOwnerConfirmed = true;
+				_VehOwnerConfirmed = false;
 			};
 		};
 
