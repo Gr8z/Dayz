@@ -25,7 +25,7 @@ if(isServer) then {
 	_complete = [
 		[_mission,_crate],
 		["crate"],
-		[_vehicle],
+		[_vehicle,_baserunover],
 		"A group of red cross volunteers are giving away medical supplies and are heavily guarded. Check your map for the location!",
 		"Bandits have murdered the volunteers, shame on them!",
 		"The medical supplies have been given away"

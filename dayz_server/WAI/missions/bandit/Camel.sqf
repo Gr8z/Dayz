@@ -1,5 +1,5 @@
 if(isServer) then {
-	private			["_complete","_crate_type","_mission","_vehname","_vehicle","_position","_vehclass","_crate","_baserunover","_rndnum"];
+	private			["_complete","_crate_type","_mission","_vehname","_vehicle","_position","_vehclass","_crate","_rndnum"];
 	_mission 		= count wai_mission_data -1;
 	_position		= [30] call find_position;
 	[_mission,_position,"Easy","Camel Refuel","MainBandit",true] call mission_init;
@@ -16,7 +16,7 @@ if(isServer) then {
 	_complete = [
 		[_mission,_crate],
 		["crate"],
-		[_vehicle,_baserunover],
+		[_vehicle],
 		"Heroes are attempting to refuel their camel! Check your map for the location!",
 		"Bandits hijacked the camel!",
 		"Bandits failed to hijack the camel"
