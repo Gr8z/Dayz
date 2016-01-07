@@ -270,7 +270,7 @@
 		"Ph4nt0mzBomb","BTC_SganciaActionId","godall","BTC_liftHudId","fnc_temp","MainMenu","weaponBoxeriino","LuL1ee7FF1"
 	];
 /**Forbidden files**/
-	_BAD_FILE_DIS = false; //Disable forbidden file scans? (May eliminate FPS drops/lag spikes).
+	_BAD_FILE_DIS = true; //Disable forbidden file scans? (May eliminate FPS drops/lag spikes).
 	_BAD_FILE 	=
 	[
 		"anti-hack loaded! Errors","xoia24rfadfhw2\alishcahc.sqf","001.sqf","FinisTxTMenu\MainFile.sqf","FinisTxTMenu\cumpile\dahR_E.sqf",
