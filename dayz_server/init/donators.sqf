@@ -110,6 +110,7 @@ Engineer1 = [
 Engineer2 = [
 	 // Professor Twinkletoes(OD-2015-09-29) #11859
 	"76561198041652178", // Garcia(OD-2015-12-16) #12424 
+	"76561197984609923", // Greeny (OD-2016-1-7) #12769 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
@@ -302,6 +303,7 @@ Scout2 = [
 	"76561198209318372", // Aleksi (OD-2016-1-1) #12640
 	"76561198171664449", // Don1 (OD-2016-01-05) #12755
 	"76561198204388408", // Taliban crik (od-2016-01-01) #12657
+	"76561198070379362", // D33DS (OD-2016-01-07) #12766
 	 // madman (OD-2015-06-25) #9626
 	 // [BO7]FluffyBunnyFeet (OD-2015-06-29) #9669
 	 // SonOfMedio[lrs[ (OD-2015-09-08) #10617 
