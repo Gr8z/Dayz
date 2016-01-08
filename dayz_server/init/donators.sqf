@@ -110,7 +110,6 @@ Engineer1 = [
 Engineer2 = [
 	 // Professor Twinkletoes(OD-2015-09-29) #11859
 	"76561198041652178", // Garcia(OD-2015-12-16) #12424 
-	"76561197984609923", // Greeny (OD-2016-1-7) #12769 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
@@ -123,6 +122,7 @@ Engineer3 = [
 	"76561198067566966", // Sniper admin
 	"76561198115492831", // BigEgg
 	"76561198124203897", // Gambino Mod
+	"76561197984609923", // Greeny (OD-2016-1-7) #12769 CHANGED FROM ENGINEER 2 PAID THE DIFFERENCE
 	"76561198063741286", // DADDY LONG LEG(OD-2015-05-01)
 	"76561198048522266", // Keiotic(OD-2015-06-06)#9359
 	"76561198046530759", // Jayah (OD-2015-09-05) #11306
