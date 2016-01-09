@@ -455,6 +455,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Camo Net (""+str (DZE_PlotPole select 0)+""m)"",admin_deleteCamoNet,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Delete Base / Area"",admin_baseDelete,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Repair Nearby Building's"",admin_repairBuildings,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Repair Nearby Entities"",admin_repairentities,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -472,6 +473,28 @@ call compile ("
 				adminadd set [count adminadd,[""  Display Class Names"",admin_tglDisplayClassWPN,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Increase Font Size"",admin_incrsFontSize,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Decrease Font Size"",admin_decrsFontSize,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Event Scripts "","""",""0"",""1"",""0"",""0"",[]]];
+				if ("+str _CC_CHTCMD+") then {if (SUBMENU_adminEvents) then admin_subAdminEvents else {
+				adminadd set [count adminadd,[""[] --- !event --- []"",admin_subTglEvents,""0"",""0"",""0"",""0"",MMCLR]];
+				}};
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""[] --- Man hunt --- []"","""",""0"",""0"",""0"",""0"",MMCLR]];
+				adminadd set [count adminadd,[""  Man Hunt Target"",admin_manHuntPlayer,""0"",""0"",""0"",""1"",[]]];
+				adminadd set [count adminadd,[""  Man Hunt Lowest Humanity"",admin_manHuntKiller,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Update Man Hunt Marker"",admin_manhuntupdate,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  End Man Hunt"",admin_endManHunt,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Other Menus "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				if (SUBMENU_colorMenu) then admin_subColorMenu else {
+				adminadd set [count adminadd,[""[]---- Color Menu ----[]"",admin_subTglColrs,""0"",""0"",""0"",""0"",MMCLR]];};
+				if (SUBMENU_giveGear) then admin_subGiveGear else {
+				adminadd set [count adminadd,[""[]---- Give Gear ----[]"",admin_subTglGive,""0"",""0"",""0"",""0"",MMCLR]];};
+				if (SUBMENU_Animate) then admin_subAnimate else {
+				adminadd set [count adminadd,[""[]----- Animate -----[]"",admin_subTglAnim,""0"",""0"",""0"",""0"",MMCLR]];};
+				if (SUBMENU_Manipulate) then admin_subManipulate else {
+				adminadd set [count adminadd,[""[]---- Manipulate ----[]"",admin_subTglManip,""0"",""0"",""0"",""0"",MMCLR]];};
 				if !(isNil 'Level2_custommenu') then {call Level2_custommenu};
 			};
 			Level1_menu = {
