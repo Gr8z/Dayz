@@ -145,6 +145,7 @@ Marksman1 = [
 	"76561198115492831", // BigEgg 
 	"76561198093462212", // Mr. Ruggets (OD-2015-10-29) #12221 
 	"76561198013544300", // NineteenKilo (OD-2015-12-27) #12507 
+	"76561198042482596", // ryan brown (OD-2015-12-27) #12781
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
