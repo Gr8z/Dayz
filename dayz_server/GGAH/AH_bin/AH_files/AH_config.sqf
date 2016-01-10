@@ -32,7 +32,7 @@
 		"RscCallSupport","#ACTION","#CUSTOM_RADIO","RscRadio","RscGroupRootMenu",
 		"BTC_Hud","PlotManagement","#USER:wardrobe","#USER:WardrobeDayZ","#USER:WardrobeCustom","#USER:WardrobeOverwatch","#USER:_keyMenu","#USER:_keyColorMenu","#USER:GGSpawn","#USER:VoteMenu",
 		"#USER:ActionMenu","#USER:ActionMenua","#USER:SkyMenu","#USER:FogMenu","#USER:SkyMenu2","#USER:FogMenu2","#USER:_DeployMenu","#USER:MovementMenu","#USER:environment","#USER:DeployMenu","#USER:grass",
-		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu","#USER:_GG_GMGDFP","#USER:AH_FL_menu"
+		"BTC_Hud","PlotManagement","#USER:EarMenu","#USER:GGgarageMenu","#USER:_GG_GMGDFP","#USER:AH_FL_menu","#User:BIS_MENU_GroupCommunication"
 	];
 /**Whitelisted Displays**/
 	/*	
