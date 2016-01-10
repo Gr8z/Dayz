@@ -93,7 +93,7 @@ SlotDonor = [
 	"76561198115568415", // Makos (OD-2016-01-02) #12683
 	"76561198147901202", // BLACk> (OD-2016-01-02) #12698
 	"76561198116576444", // MattQ (OD-2016-01-03) #12720 
-	
+	"76561198151812540", // Echo (OD-2016-1-10) #12832
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "SlotDonor";
