@@ -505,6 +505,11 @@ call compile ("
 				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Fix Server Lag"",admin_fixServerLag,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Delete Broken Vehicle's"",admin_deletevehicles,""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Currency Options "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Adjust Players Cash Money"",admin_subaddGold,""0"",""0"",""0"",""1"",[]]];
