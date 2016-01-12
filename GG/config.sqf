@@ -140,19 +140,12 @@ GGNoBuildList2 = [
 ];
 
 dayz_maxLocalZombies = 2;
-dayz_maxGlobalZombiesInit = 3;
-dayz_maxGlobalZombiesIncrease = 2;
-dayz_maxZeds = 75;
 EpochEvents = [
-["any","any","any","any",30,"abandonedvault"],
-["any","any","any","any",0,"crash_spawner"],
-["any","any","any","any",40,"supply_drop"],
 ["any","any","any","any",10,"Building"],
 ["any","any","any","any",20,"Military"],
 ["any","any","any","any",30,"Treasure"],
 ["any","any","any","any",40,"Construction"],
-["any","any","any","any",50,"SupplyItems"],
-["any","any","any","any",55,"Treasure"]];
+["any","any","any","any",50,"SupplyItems"]];
 dayz_fullMoonNights = true;
 
 /**DoorManagement Config**/
