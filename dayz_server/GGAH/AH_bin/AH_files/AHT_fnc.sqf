@@ -3999,7 +3999,7 @@ systemChat (""""Hello!"""");
 				[
 					""GraveCrossHelmet_EP1"",""GraveCrossHelmet_DZ"",""wreck"",""crater"",""craterlong"",""PartWoodPile"",
 					""SeaGull"",""Rabbit"",""WildBoar"",""Cow"",""Goat"",""Sheep"",""Bird"",""wire_cat1"",
-					""CAAnimalBase"",""Land_fire"",""Sound_Flies""
+					""CAAnimalBase"",""Sound_Flies""
 				];
 				{
 					_itemlist 	= allMissionObjects _x;
