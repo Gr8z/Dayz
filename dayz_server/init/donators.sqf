@@ -137,6 +137,7 @@ Engineer3 = [
 	"76561198029487248", // Man with the BIG Jelly (OD-2015-12-28) #12540
 	"76561197998971259", // hampuz (OD-2015-12-30) #12591 
 	"76561198072375252", // Jack-O (EXP-2016-1-31) #0000
+	"76561198194954735", // Tanner (OD-2016-01-12) #12871
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -156,6 +157,7 @@ Marksman2 = [
 	"76561198078201908", // Gr8
 	"76561198078967636", // Landon (OD-2015-10-26) #12211 
 	"76561197987482208", // Tomato Slice (OD-2016-01-05) #12760  
+	"76561198198986591", // Orion (OD-2016-01-11) #12849
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman2";
