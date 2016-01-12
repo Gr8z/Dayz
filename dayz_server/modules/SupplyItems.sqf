@@ -23,7 +23,7 @@ _loot_lists = [
 ]
 ];
 _loot = _loot_lists call BIS_fnc_selectRandom;
-waitUntil {!isNil "DZMSStatLocs"}; 
+waitUntil {!isNil "wai_mission_locations"}; 
 _loot_amount = 75;
 _wait_time = 300; 
 _start_time = time;
@@ -34,7 +34,7 @@ if (EPOCH_EVENT_RUNNING) exitWith {
 diag_log("Event already running");
 };
 EPOCH_EVENT_RUNNING = true;
-_position = DZMSStatLocs call BIS_fnc_selectRandom;
+_position = wai_mission_locations call BIS_fnc_selectRandom;
 diag_log(format["Spawning loot event at %1", _position]);
 _markerRadius = 350;
 _markershape = "ELLIPSE";

@@ -3,7 +3,7 @@ _loot_box = "USVehicleBox";
 _giveWep = ["RPG7V","DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1"] call BIS_fnc_selectRandom;
 _possibleMags = getArray (configfile >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags select 0;
-waitUntil {!isNil "DZMSStatLocs"}; 
+waitUntil {!isNil "wai_mission_locations"}; 
 _wait_time = 300; 
 _var = floor((random 10) + 1);
 _start_time = time;
@@ -14,7 +14,7 @@ if (EPOCH_EVENT_RUNNING) exitWith {
 diag_log("Event already running");
 };
 EPOCH_EVENT_RUNNING = true;
-_position = DZMSStatLocs call BIS_fnc_selectRandom;
+_position = wai_mission_locations call BIS_fnc_selectRandom;
 diag_log(format["Spawning loot event at %1", _position]);
 _markerRadius = 350;
 _markershape = "ELLIPSE";
