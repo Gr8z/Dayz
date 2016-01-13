@@ -58,16 +58,14 @@ _loot_box addMagazineCargoGlobal [_x,1];
 _loot_box addBackpackCargoGlobal [_x,1];
 } forEach (_loot select 2);
 _hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>Supply Crate</t><br/><t align='center' color='#ffffff'>UN Agency drops life-saving supplies for Survivors, Check your Map for the Location!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+RE = ['hint', _hint];
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 waitUntil{
 sleep 1;
 (({isPlayer _x && _x distance _loot_box <= 5} count playableUnits > 0));
 };
 _hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>Supply Crate</t><br/><t align='center' color='#ffffff'>Survivors secured the supplies!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+RE = ['hint', _hint];
 _debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
 _debug_marker setMarkerShape "ICON";
 _debug_marker setMarkerType "mil_dot";

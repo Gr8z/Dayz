@@ -51,16 +51,14 @@ _loot_box addWeaponCargoGlobal [_x,1];
 _loot_box addMagazineCargoGlobal [_x,1];
 } forEach (_loot select 1);
 _hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Ikea Truck lost its Cargo, Check your Map for the Location!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+RE = ['hint', _hint];
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 waitUntil{
 sleep 1;
 (({isPlayer _x && _x distance _loot_box <= 5} count playableUnits > 0));
 };
 _hint = parseText format["<t align='center' color='#00FF11' shadow='2' size='1.75'>Construction Crate</t><br/><t align='center' color='#ffffff'>Ikea Truck Cargo Has been captured!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+RE = ['hint', _hint];
 _debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
 _debug_marker setMarkerShape "ICON";
 _debug_marker setMarkerType "mil_dot";
