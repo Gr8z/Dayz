@@ -20,6 +20,7 @@ class AKS_74_U: d_tit {buy = 180;sell = 115;};
 class AK_47_M: d_tit {buy = 720;sell = 350;}; 
 class AK_74: d_tit {buy = 180;sell = 150;}; 
 class FN_FAL: d_tit {buy = 900;sell = 290;}; 
+class vil_sg540: d_tit {buy = 1000;sell = 320;}; 
 class BAF_L85A2_RIS_SUSAT: d_tit {buy = 540;sell = 175;}; 
 class BAF_L85A2_RIS_Holo: d_tit {buy = 810;sell = 345;}; 
 }; 
