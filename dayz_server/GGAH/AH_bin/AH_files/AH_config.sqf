@@ -174,7 +174,7 @@
 		"MeleeBaseBallBat","MeleeWeapon","MGun","MGunCore","MineE","MiniCarHorn","MissileLauncher","MK19","MK19BC","Mk82BombLauncher",
 		"Mk82BombLauncher_6","MLRS","Moscow_Bombing_File","Pistol","PistolBase","PistolCore","PKT","PKTBC","PKTBC_veh","PKT_2","PKT_3",
 		"PKT_high_AI_dispersion","PKT_high_AI_dispersion_tank","PKT_MG_Nest","PKT_veh","PMC_AS50_TWS_Large","PMC_documents","Put","R73Launcher",
-		"R73Launcher_2","Rifle","RifleCore","RocketPods","S8Launcher","SCAR_Base","SCAR_H_Base","SCAR_H_STD_TWS_SD","SCAR_L_Base","SCAR_L_STD_EGLM_TWS",
+		"R73Launcher_2","Rifle","RifleCore","RocketPods","S8Launcher","SCAR_Base","SCAR_H_Base","SCAR_H_STD_TWS_SD","SCAR_L_Base",
 		"SEARCHLIGHT","SGMT","SidewinderLauncher","SidewinderLauncher_AH1Z","SidewinderLauncher_AH64","SidewinderLauncher_F35","SmokeLauncher","SPG9",
 		"SportCarHorn","StingerLauncher","StingerLauncher_4x","StingerLauncher_twice","TimeBomb","TOWLauncher","TOWLauncherSingle",
 		"TruckHorn","TruckHorn2","TwinM134","TwinVickers","VikhrLauncher","WeaponExplosive","YakB","ZiS_S_53","ZiS_S_53_AI"
