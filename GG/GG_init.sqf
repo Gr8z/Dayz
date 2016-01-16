@@ -4731,7 +4731,44 @@ if (!isDedicated) then {
 	};
 	dayz_meleeMagazineCheck = {private["_meleeNum","_magType"];_magType = ([] + getArray (xcf >> "CfgWeapons" >> _wpnType >> "magazines")) sel 0;_meleeNum = ({_x == _magType} count magazines player);if (_meleeNum < 1) then {player addMagazine _magType};};
 	dayz_originalPlayer = player;
-	
+	if (hasInterface) then {
+		[] spawn {
+			waitUntil {((!isNil 'dayz_medicalH') || (!isNil 'dayz_gui') || (!isNil 'dayz_slowCheck') || (!isNil 'dayz_monitor1'))};
+			call compile ("
+				waitUntil {((!isNil 'dayz_animalCheck') || (!isNil 'dayz_spawnCheck') || (!isNil 'dayz_locationCheck') || (!isNil 'dayz_slowCheck'))};
+				server_intro = {
+					WT_dis = 131300;
+					{
+						WT_dis = (WT_dis + 1);
+						_text = format ['<t size=''"+GG_HeaderSize+"'' color=''#"+GG_HeaderColor+"'' align=''left''>%1<br/></t><t size=''0.1''><br /></t>',_x select 0];
+						_text = _text + '<t size=''"+GG_BodySize+"'' color=''#"+GG_BodyColor+"'' align=''left''>';
+						{_text=(_text+format['%1<br/>',_x])} forEach (_x select 1);
+						_text = _text + ""</t>"";
+						_time = (3+((count (_x select 1)) * 1.2));
+						[_text,[safezoneX  + safezoneW - 0.8,0.7],[safezoneY + safezoneH - 1.6,2],_time + 2,0.5,0,WT_dis] spawn AH_fnc_dynamictext;
+						sleep (_time + 1);
+						[_text,WT_dis] spawn {[(_this select 0),[safezoneX  + safezoneW - 0.8,0.7],[safezoneY + safezoneH - 1.6,2],3,0,4,(_this select 1)] spawn AH_fnc_dynamictext};
+						sleep 1;
+					} forEach [
+						["+str GG_features_header+", "+str GG_features_body+"],
+						["+str GG_website_header+", "+str GG_website_body+"],
+						["+str GG_srvrrules_header+", "+str GG_srvrrules_body+"], 
+						["+str GG_stafflist__header+", "+str GG_stafflist__body+"]
+					];
+				};
+				spawn_intro = {
+					if (profileNamespace getVariable ['AH_introSong',true]) then {playSound 'bonfIntro'};
+					if (isNil 'freshSpawn') then {freshSpawn = 0};
+					if (((player getVariable ['freshSpawn',0]) == 1)||(freshSpawn == 2)) then {
+						['WELCOME TO "+GG_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
+						call server_intro;
+					} else {
+						['WELCOME BACK TO "+GG_serverName+"!',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
+					};
+				};
+				call spawn_intro;
+			");
+		};
 		dayz_resetSelfActions = {
 			s_player_garage = -1;
 			s_clothes = -1;
