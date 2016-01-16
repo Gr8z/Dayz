@@ -534,14 +534,12 @@ if (!isDedicated) then {
 		SZ_lastVehicle aeh ["Fired", {call GG_pfired}];
 		SZ_lastVehicle aeh ["HandleDamage",{false}];
 		SZ_lastVehicle allowDamage false;
-		SZ_lastVehicle xsv ["LOG_disabled",true];
 	};
 	GG_RVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
 		SZ_lastVehicle aeh ["HandleDamage",{_this call vehicle_handleDamage}];
 		SZ_lastVehicle allowDamage true;
-		SZ_lastVehicle xsv ["LOG_disabled",false];
 	};
 	GG_VP = {
 		if (isNil 'SZ_lastvehicle') then {SZ_lastVehicle = objNull};
