@@ -877,7 +877,8 @@ if (!isDedicated) then {
 		diag_log ("(PLAYER_RESPAWN): Gender select...");
 		createDialog "RscDisplayGenderSelect";
 		waitUntil{!dialog};
-
+		removeAllItems player;
+        removeAllWeapons player;
 		startLoadingScreen ["","RscDisplayLoadCustom"];
 		
 		diag_log ("(PLAYER_RESPAWN): Request new char...");
