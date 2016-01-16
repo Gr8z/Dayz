@@ -862,6 +862,7 @@ if (!isDedicated) then {
 		{player setVariable [_x sel 0,_x sel 1,_x sel 2]} forEach [["hit_arms",0,true],["hit_hands",0,true],["hit_legs",0,true],["NORRN_unconscious",false,true],["unconsciousTime",0,true],["USEC_BloodQty",r_player_blood,true],["USEC_injured",false,true],["USEC_inPain",false,true],["USEC_isCardiac",false,true],["USEC_lowBlood",false,true],["humanity",_humanity,true],["GGCoins",0,true],["GGBank",_bankMoney,true],["CharacterID",dayz_characterID,true],["friendlies",_friendlies,true],["USEC_isDead",false,true],["USEC_infected",false,true],["AH_friendlist",_friendlist,true]];
 		{player removeMagazine _x} count (magazines player);
 		removeAllWeapons player;
+		removeAllItems player;
 		"Survivor2_DZ" call player_switchModel;
 		GG_CAM cameraEffect ["terminate","back"];
 		camDestroy GG_CAM;
@@ -875,8 +876,7 @@ if (!isDedicated) then {
 		diag_log ("(PLAYER_RESPAWN): Gender select...");
 		createDialog "RscDisplayGenderSelect";
 		waitUntil{!dialog};
-		removeAllItems player;
-        removeAllWeapons player;
+		
 		startLoadingScreen ["","RscDisplayLoadCustom"];
 		
 		diag_log ("(PLAYER_RESPAWN): Request new char...");
@@ -5161,6 +5161,8 @@ local_lockUnlock = {
 	_vehicle = _this sel 0;
 	_status = _this sel 1;
 	_action = _this select 3;
+	{_vehicle removeAction _x} forEach s_player_incarlockunlock;s_player_incarlockunlock = [];
+	s_player_inCarlockUnlock_crtl = -1;
 	if (local _vehicle) then {
 		_vehicle swx {
 			_allPlayers = playableUnits;
