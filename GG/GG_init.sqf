@@ -4732,7 +4732,7 @@ if (!isDedicated) then {
 	};
 	dayz_meleeMagazineCheck = {private["_meleeNum","_magType"];_magType = ([] + getArray (xcf >> "CfgWeapons" >> _wpnType >> "magazines")) sel 0;_meleeNum = ({_x == _magType} count magazines player);if (_meleeNum < 1) then {player addMagazine _magType};};
 	dayz_originalPlayer = player;
-	
+	if (hasInterface) then {
 		dayz_resetSelfActions = {
 			s_player_garage = -1;
 			s_clothes = -1;
