@@ -534,12 +534,14 @@ if (!isDedicated) then {
 		SZ_lastVehicle aeh ["Fired", {call GG_pfired}];
 		SZ_lastVehicle aeh ["HandleDamage",{false}];
 		SZ_lastVehicle allowDamage false;
+		SZ_lastVehicle xsv ["LOG_disabled",true,true];
 	};
 	GG_RVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
 		SZ_lastVehicle aeh ["HandleDamage",{_this call vehicle_handleDamage}];
 		SZ_lastVehicle allowDamage true;
+		SZ_lastVehicle xsv ["LOG_disabled",false,true];
 	};
 	GG_VP = {
 		if (isNil 'SZ_lastvehicle') then {SZ_lastVehicle = objNull};
@@ -5145,7 +5147,7 @@ vehicle_handleDamage = {
 	if (_total >= 0.98) then {_total = 1.0};
 	if (local _unit) then {
 		if (_total > 0) then {
-			_unit setVariable [_strH, _total, true];
+			_unit xsv [_strH, _total, true];
 			_unit setHit [_selection, _total];
 			if (isServer) then [{[_unit, "damage"] call server_updateObject},{PVDZE_veh_Update = [_unit,"damage"];publicVariableServer "PVDZE_veh_Update";}];
 		};
@@ -5159,6 +5161,7 @@ local_lockUnlock = {
 	private ["_vehicle","_status"];
 	_vehicle = _this sel 0;
 	_status = _this sel 1;
+	_action = _this select 3;
 	if (local _vehicle) then {
 		_vehicle swx {
 			_allPlayers = playableUnits;
@@ -5170,9 +5173,11 @@ local_lockUnlock = {
 		if (_status) then {
 			_vehicle setVehicleLock "LOCKED";
 			_vehicle xsv ["Tow_settings_disabled",true,true];
+			_vehicle xsv ["LOG_disabled",true,true];
 		} else {
 			_vehicle setVehicleLock "UNLOCKED";
 			_vehicle xsv ["Tow_settings_disabled",false,true];
+			_vehicle xsv ["LOG_disabled",false,true];
 		};
 	};
 };
