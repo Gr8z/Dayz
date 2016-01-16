@@ -8,6 +8,9 @@ xcc ("
 	_required = "+str _req+";
 	{if (_x in ((items player) + (magazines player))) then {_required set [_forEachIndex,objNull]}} forEach _required;
 	_required = _required - [objNull];
+	_findNearestPole = call player_nearPP;
+	_isNearPlot = count (_findNearestPole);
+	if (_isNearPlot > 0) exw {systemChat ('(GG-AH): '+str ('Cannot Deploy, You are near a plot pole.'))}
 	if (count _required <= 0) then {
 		{player removeMagazine _x} forEach "+str _req+";
 		[player,'repair',0,false,10] call dayz_zombieSpeak;
