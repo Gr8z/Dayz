@@ -534,14 +534,14 @@ if (!isDedicated) then {
 		SZ_lastVehicle aeh ["Fired", {call GG_pfired}];
 		SZ_lastVehicle aeh ["HandleDamage",{false}];
 		SZ_lastVehicle allowDamage false;
-		SZ_lastVehicle xsv ["LOG_disabled",true,true];
+		SZ_lastVehicle xsv ["LOG_disabled",true];
 	};
 	GG_RVP = {
 		SZ_lastVehicle reh "Fired";
 		SZ_lastVehicle reh "HandleDamage";
 		SZ_lastVehicle aeh ["HandleDamage",{_this call vehicle_handleDamage}];
 		SZ_lastVehicle allowDamage true;
-		SZ_lastVehicle xsv ["LOG_disabled",false,true];
+		SZ_lastVehicle xsv ["LOG_disabled",false];
 	};
 	GG_VP = {
 		if (isNil 'SZ_lastvehicle') then {SZ_lastVehicle = objNull};
@@ -5137,11 +5137,11 @@ local_lockUnlock = {
 		if (_status) then {
 			_vehicle setVehicleLock "LOCKED";
 			_vehicle xsv ["Tow_settings_disabled",true,true];
-			_vehicle xsv ["LOG_disabled",true,true];
+			_vehicle xsv ["LOG_disabled",true];
 		} else {
 			_vehicle setVehicleLock "UNLOCKED";
 			_vehicle xsv ["Tow_settings_disabled",false,true];
-			_vehicle xsv ["LOG_disabled",false,true];
+			_vehicle xsv ["LOG_disabled",false];
 		};
 	};
 };

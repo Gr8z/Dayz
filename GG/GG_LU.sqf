@@ -9,14 +9,14 @@ s_player_inCarlockUnlock_crtl = -1;
 
 if (_lock) then {
 	_vehicle setVehicleLock "LOCKED";
-	_vehicle setVariable ["LOG_disabled",true,true];
+	_vehicle setVariable ["LOG_disabled",true];
 	PVDZE_veh_Lock = [_vehicle,true];
 	publicVariable "PVDZE_veh_Lock";
 	if (_keyName != "") then { cutText [ format ["%1 key used to lock vehicle", _keyName], "PLAIN DOWN"]; } else
 	{ cutText [ format ["You have locked the vehicle", _keyName], "PLAIN DOWN"]; };
 } else {
 	_vehicle setVehicleLock "UNLOCKED";
-	_vehicle setVariable ["LOG_disabled",false,true];
+	_vehicle setVariable ["LOG_disabled",false];
 	PVDZE_veh_Lock = [_vehicle,false];
 	publicVariable "PVDZE_veh_Lock";
 	if (_keyName != "") then { cutText [ format ["%1 key used to unlock vehicle", _keyName], "PLAIN DOWN"]; } else
