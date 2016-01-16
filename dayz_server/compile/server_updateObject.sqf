@@ -227,9 +227,6 @@ _object_vehicleKey = {
 	
 				/* Some other variables you might need for disallow lift/tow/cargo locked Vehicles and such */
 				/* Uncomment if you use this */
-	
-				/* R3F Arty and LOG block lift/tow/cargo locked vehicles*/
-				_object setVariable ["LOG_disabled",true];
 
 				/* =BTC= Logistic block lift locked vehicles*/
 				_object setVariable ["BTC_Cannot_Lift",true,true];
