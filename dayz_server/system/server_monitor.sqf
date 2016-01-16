@@ -283,6 +283,7 @@ if (isServer and isNil "sm_done") then {
 					if ((_ownerID != "0") && !(_object isKindOf "Bicycle")) then {
 						_object setvehiclelock "locked";
 						_object setVariable ["Tow_settings_disabled",true,true];
+						_object setVariable ["LOG_disabled",true,true];
 					} else {_unlockedvehiclesm8 = _unlockedvehiclesm8 + 1};
 					
 					_traderCities = (switch (dayz_instance) do {
