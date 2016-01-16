@@ -44,7 +44,7 @@ item39[] = {"Too_Long",4,218,300.000000,800.000000,400.000000,850.000000,0.00000
 item40[] = {"Enable_Sim",2,250,-75.000000,-100.000000,25.000000,-50.000000,0.000000,"Enable Sim"};
 item41[] = {"Initialized",4,218,-175.000000,-150.000000,-75.000000,-100.000000,0.000000,"Initialized"};
 item42[] = {"New_Character",4,218,-325.000000,400.000000,-225.000000,450.000000,5.000000,"New" \n "Character"};
-item43[] = {"Gender_Selection",2,250,-575.000000,400.000000,-475.000000,450.000000,0.000000,"Gender Selection" \n "Dialog"};
+item43[] = {"Gender_Selection",2,4346,-575.000000,400.000000,-475.000000,450.000000,0.000000,"Gender Selection" \n "Dialog"};
 item44[] = {"Selected",4,218,-575.000000,475.000000,-475.000000,525.000000,0.000000,"Selected"};
 item45[] = {"Process",2,250,-500.000000,550.000000,-425.000000,600.000000,0.000000,"Process"};
 item46[] = {"version_check",4,218,50.000000,-100.000000,150.000000,-50.000000,2.000000,"version check"};
@@ -164,8 +164,8 @@ link82[] = {73,57};
 link83[] = {74,76};
 link84[] = {75,74};
 link85[] = {76,57};
-globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-686.179321,607.485718,952.245239,-75.907745,1145,910,1};
-window[] = {2,-1,-1,-1,-1,848,2024,3302,106,3,1163};
+globals[] = {25.000000,1,0,0,0,640,480,1,143,6316128,1,-659.404846,913.550476,1063.229248,-186.892395,1145,910,1};
+window[] = {2,-1,-1,-1,-1,794,52,1330,52,3,1163};
 *//*%FSM</HEAD>*/
 class FSM
 {
@@ -1192,7 +1192,9 @@ class FSM
        "1 cutText ["""", ""BLACK"",0];" \n
        "endLoadingScreen;" \n
        "createDialog ""RscDisplayGenderSelect"";" \n
-       "freshSpawn = 2;"/*%FSM</STATEINIT""">*/;
+       "freshSpawn = 2;" \n
+       "removeAllItems player;" \n
+       "removeAllWeapons player;"/*%FSM</STATEINIT""">*/;
       precondition = /*%FSM<STATEPRECONDITION""">*/""/*%FSM</STATEPRECONDITION""">*/;
       class Links
       {
