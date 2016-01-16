@@ -44,11 +44,7 @@ if (_go || _inDebug) then {
 	};
 	_hasMap = "ItemMap" in items player;
 	_hasGPS = "ItemGPS" in items player;
-	if (!_hasMap && !_hasGPS) then {
 	#include "class.sqf"
-	} else {
-	systemChat "MAP OR GPS DETECTED ! SKIPING CLASS SELECTION!"
-	};
 	#include "spawn.sqf"
 	#include "halo.sqf"
 	#include "startSpawn.sqf"
