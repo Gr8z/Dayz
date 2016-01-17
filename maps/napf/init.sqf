@@ -2,7 +2,7 @@
 #include "GG\config.sqf"
 #include "mapConfig.sqf"
 
-__ccp("\z\addons\dayz_code\init\variables.sqf");
+__ccp("GG\variables.sqf");
 pls 0.3;
 __ccp("\z\addons\dayz_code\init\publicEH.sqf");
 pls 0.6;
