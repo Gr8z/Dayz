@@ -34,7 +34,7 @@ if (_killerName == "nil") then {
 if (_isOK) then {
 	if (_victimName == _killerName) then {
 		_message = format["%1 killed himself",_victimName];
-		_loc_message = format["PKILL: %1 killed himself", _victimName];
+		_loc_message = format["%1 killed himself", _victimName];
 		[nil, nil, rspawn, [_message], {systemChat (_this select 0)}] call RE;
 		diag_log ("server_playerDied: "+_loc_message);
 	} else {
@@ -49,17 +49,17 @@ if (_isOK) then {
 		if ((_dmtype != "Gunner")&&(_dmtype != "Player")&&(_dmtype != "Driver")) then {
 			diag_log ("Death type unknown: "+str _dmtype);
 			_message = format["%1 was killed by %2 with weapon %3 from %4m.",_victimName, _killerName, _weapon, _distance];
-			_loc_message = format["PKILL: %1 killed by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
+			_loc_message = format["%1 killed by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
 		} else {
 			if (_dmtype == "Driver") then {
 				diag_log ("Death type is: " + str _dmtype);
 				if (_distance < 8) then {
 					_message = format["%1 was run over by %2 with vehicle %3.",_victimName, _killerName, _weapon, _distance];
-					_loc_message = format["PKILL: %1 was run over %2 with vehicle %3.", _victimName, _killerName, _weapon, _distance];
+					_loc_message = format["%1 was run over %2 with vehicle %3.", _victimName, _killerName, _weapon, _distance];
 					diag_log (_loc_message);
 				} else {
 					_message = format["%1 was shot down by %2's gunner(s) in their %3.",_victimName, _killerName, _weapon, _distance];
-					_loc_message = format["PKILL: %1 was shot down by %2's gunner(s) in their %3.", _victimName, _killerName, _weapon, _distance];
+					_loc_message = format["%1 was shot down by %2's gunner(s) in their %3.", _victimName, _killerName, _weapon, _distance];
 					diag_log (_loc_message);
 				};
 			};
@@ -67,17 +67,17 @@ if (_isOK) then {
 				diag_log ("Death type is: " + str _dmtype);
 				if (_distance < 400) then {
 					_message = format["%1 was shot down by %2 with weapon %3 from %4m.",_victimName, _killerName, _weapon, _distance];
-					_loc_message = format["PKILL: %1 was shot down by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
+					_loc_message = format["%1 was shot down by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
 					diag_log (_loc_message);
 				};
 				if ((_distance >= 400)&&(_distance < 900)) then {
 					_message = format["%1 was sniped by %2 with weapon %3 from %4m.",_victimName, _killerName, _weapon, _distance];
-					_loc_message = format["PKILL: %1 was sniped by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
+					_loc_message = format["%1 was sniped by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
 					diag_log (_loc_message);
 				};
 				if (_distance >= 900) then {
 					_message = format["%1 was sniped by %2 with weapon %3 from %4m. DAMN!!",_victimName, _killerName, _weapon, _distance];
-					_loc_message = format["PKILL: %1 was sniped by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
+					_loc_message = format["%1 was sniped by %2 with weapon %3 from %4m.", _victimName, _killerName, _weapon, _distance];
 					diag_log (_loc_message);
 				};
 			};
@@ -88,7 +88,7 @@ if (_isOK) then {
 		_stime = (servertime);
 		_hours = floor(_stime/60/60);
 		_minuz = floor(_stime/60) - (_hours*60);
-		_log_menu = format ["PKILL: %1 was killed by %2 with %3 from %4m. @ UPT: "+str _hours+"h(s) "+str _minuz+"min(s)", _victimName, _killerName, _weapon, _distance];
+		_log_menu = format ["%1 was killed by %2 with %3 from %4m. @ UPT: "+str _hours+"h(s) "+str _minuz+"min(s)", _victimName, _killerName, _weapon, _distance];
 		PVOZ_hitlog = PVOZ_hitlog + [['     '+_log_menu,'','0','1','0','0',[1,0,0,1]]];
 		
 		KM_pic = "";
