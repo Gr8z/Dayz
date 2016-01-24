@@ -339,7 +339,7 @@
 		"new\spawnme\items\1oz.sqf", "Mizzle\startup.sqf", "Mizzle\exec.sqf", "\hangender\start.sqf", "\LoganNZL\LoganNZL@start.sqf", "Expansion\Project1_[www.unknowncheats.me]_.exel", "Douggem_Beats_Infistar.dll", 
 		"Douggem_Beats_Infistar_2.2_[www.www.unknowncheats.me]_.dll", "Douggem_Beats_Infistar_2.2.dll", "Douggem_beats_infistar_2.1_[www.www.unknowncheats.me]_.dll", "Douggem_beats_infistar_2.1.dll", 
 		"Douggem_Beats_Infistar_[www.www.unknowncheats.me]_.dll", "worm\sttart.sqf", "dll\BEBypass.dll", "bypass.dll", "dll\bypass.dll", "sstart.sqf", "\x_f\x_perframe.sqf", "marv\MarvFRAME.sqf", "SlothCheats.sqf", 
-		"RDMTP.sqf", "MarvTriple\MarvTripleFRAME.sqf", "marv\MARVremotet\MARVFrameScript.sqf", "wtfff.sqf", "gible\tp.sqf", "gible\gible.sqf", "gible.sqf", "dll\vgupdater.exe"
+		"RDMTP.sqf", "MarvTriple\MarvTripleFRAME.sqf", "marv\MARVremotet\MARVFrameScript.sqf", "wtfff.sqf", "gible\tp.sqf", "gible\gible.sqf", "gible.sqf", "dll\vgupdater.exe","MPGH\INITMENU.sqf"
 	];
 /**Disabled game functions**/
 	_UN_FNC 	= 			//If a mod uses any of these functions, replace the function in the "s with DO_NOT_DISABLE.
