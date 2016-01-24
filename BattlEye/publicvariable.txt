@@ -1,7 +1,0 @@
-//new2
-1 PVOZ_ !="PVOZ_EPOCH_SAFEZONE" !=(PVOZ_\w*_writeLog) !="PVOZ_b1fAAX_RequestAHT"
-5 "" !(^DDOPP_) !(^PVDZE_|^PVOZ_|^norrn|^usec) !=(BIS_effects_gepv|norrinRAlie|drn_AskServerDynamicWeatherEventArgs|remExFP|remExField) !=(CMflareAmmo|Pipebomb) !="cad_pvar_shared_var" !="currentInvites" !="ctc_HumanityChange" !="lastDrop"
-5 "PVDZE_" !(^PVDZE_player|^PVDZE_send) !(|PVDZE_veh_Update|PVDZE_plr_GutBody|PVDZE_plr_GutBodyZ|PVDZE_veh_Lock|PVDZE_plr_DeathB|PVDZE_maintainArea|PVDZE_obj_Publish|PVDZE_obj_Swap|PVDZE_plr_Save|PVDZE_obj_Delete|PVDZE_obj_Trade|PVDZE_veh_Publish2|PVDZE_zed_Spawn|PVDZE_plr_Died|PVDZE_obj_setlocalVars|PVDZE_plr_TradeMenu|PVDZE_obj_getlocalVars|PVDZE_veh_Upgrade|PVDZE_atp|PVDZE_plr_Login|PVDZE_plr_Login2|PVDZE_plr_LoginRecord|PVDZE_plr_DeathBResult|PVDZE_veh_SFix|PVDZE_plr_Hit|PVDZE_plr_HitV|PVDZE_veh_SFuel|PVDZE_plr_HideBody|PVDZE_plr_Morph|PVDZE_veh_Publish) !="lastDrop" !"ctc_HumanityChange"
-5 "norrn" !(norrnRACarUp|norrnRAPicUp|norrnRaDrag|norrnR180|norrnRalie|norrnRLact|norrnRALW|norrnRDead)
-5 "usec" !(usecMorphine|usecBandage|usecBleed)
-5 "BIS_MPF_logic"

@@ -1,4 +1,0 @@
-//new
-5 "FunctionsManager"
-1 "CinderWallDoorLocked_DZ"
-1 "CinderWallDoorSmallLocked_DZ"
