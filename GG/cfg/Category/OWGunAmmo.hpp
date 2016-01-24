@@ -19,7 +19,7 @@ class 10x_303: d_tit {buy = 100;sell = 2;};
 class 2000Rnd_762x51_L94A1: d_tit {buy = 300;sell = 100;}; 
 class 200Rnd_556x45_L110A1: d_tit {buy = 350;sell = 150;}; 
 class 200Rnd_556x45_M249: d_tit {buy = 100;sell = 50;}; 
-class 20Rnd_762x51_FNFAL: d_tit {buy = 300;sell = 100;}; 
+class 20Rnd_762x51_FNFAL: d_tit {buy = 300;sell = 20;}; 
 class 20Rnd_B_765x17_Ball: d_tit {buy = 100;sell = 50;}; 
 class 20Rnd_B_AA12_Pellets: d_tit {buy = 100;sell = 50;}; 
 class 30Rnd_545x39_AKSD: d_tit {buy = 100;sell = 50;}; 
