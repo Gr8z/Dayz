@@ -184,7 +184,7 @@ class CfgBuildingLoot {
 	class UH60_ARMY_Wreck_DZ: Military { zombieClass[] = {"z_soldier_pilot","z_soldier_heavy"}; zombieChance = 0.95; lootChance = 0.6; minRoaming = 4; maxRoaming = 8; lootPos[] = {}; };
 	class UH60_NAVY_Wreck_burned_DZ: Military { zombieClass[] = {"z_soldier_pilot","z_soldier_heavy"}; zombieChance = 0.95; lootChance = 0.6; minRoaming = 4; maxRoaming = 8; lootPos[] = {}; };
 	class UH60_ARMY_Wreck_burned_DZ: Military { zombieClass[] = {"z_soldier_pilot","z_soldier_heavy"}; zombieChance = 0.95; lootChance = 0.6; minRoaming = 4; maxRoaming = 8; lootPos[] = {}; };
-	class USMC_WarfareBFieldhHospital: MASH { minRoaming = 1; maxRoaming = 3; zombieClass[] = {"z_soldier","z_soldier_heavy"}; lootPos[] = {{-3.52246,-5.03931,1.14726},{2.36621,-4.52295,1.14786},{1.39063,-0.423096,1.14746},{1.14258,5.00952,1.1478},{3.7124,1.89795,1.14788}}; };
+	class USMC_WarfareBFieldhHospital: Hospital { minRoaming = 1; maxRoaming = 3; zombieClass[] = {"z_soldier","z_soldier_heavy"}; lootPos[] = {{-3.52246,-5.03931,1.14726},{2.36621,-4.52295,1.14786},{1.39063,-0.423096,1.14746},{1.14258,5.00952,1.1478},{3.7124,1.89795,1.14788}}; };
 	class Land_Ind_Shed_02_main: Default { zombieChance = 0.95; maxRoaming = 3; };
 	class HouseRoaming: Residential { lootChance = 0.6; zombieChance = 0.95; maxRoaming = 2; };
 	class FarmRoaming: Farm { lootChance = 0.6; zombieChance = 0.95; maxRoaming = 2; };
