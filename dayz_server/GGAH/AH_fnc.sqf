@@ -423,65 +423,6 @@ call compile ("
 				if (isNil '"+_RND+"_adminspecESP') then {"+_RND+"_adminspecESP = 0};
 				while {35 < 69} do {
 					_allPlayers = playableUnits;
-					if !('ItemGPS' in (items player)) then [{"+_RND+"_fespGPS = false},{"+_RND+"_fespGPS = true}];
-					if ((time - "+_randv+"_flchk3 > 5)&&("+_RND+"_fespGPS)&&("+_RND+"_adminESPmarkers == 0)&&("+_RND+"_adminspecESP == 0)&&(profileNameSpace getVariable ['AH_FESP',true])) then {
-						"+_randv+"_flchk3 = time;
-						_AHT_SGIV = true;
-						setGroupIconsVisible [_AHT_SGIV,_AHT_SGIV];
-						{
-							if ((isPlayer _x) && (alive _x) && (!isNull _x)) then {
-								if ((("+_playerID+" _x) call PIDP_check) != (("+_playerID+" player) call PIDP_check)) then {
-									_fuid = (("+_playerID+" _x) call PIDP_check);
-									_pfls = player getVariable ['AH_friendlist',[]];
-									
-									_puid = (("+_playerID+" player) call PIDP_check);
-									_ffls = _x getVariable ['AH_friendlist',[]];
-									_friend = (group _x);clearGroupIcons _friend;
-									if ((_fuid in _pfls)&&(_puid in _ffls)) then {
-										if (vehicle _x != _x) then {
-											_crew = [];
-											_driver = driver (vehicle _x);
-											{if (_x != _driver) then {_crew = _crew + [name _x]}} forEach (crew (vehicle _x));
-											
-											if (_driver == _x) then {
-												_friend addGroupIcon ['x_art'];
-												if (count _crew < 1) then {
-													_veh = (getText (configFile >> 'CfgVehicles' >> (typeOf (vehicle _x)) >> 'displayName'));
-													_friend setGroupIconParams [[0,0,1 ,1],format ['%1 (%3 - %2m)',name _x,round (_x distance player),_veh],0.7,true];
-												} else {
-													_friend setGroupIconParams [[0,0,1 ,1],format ['D: %1 (%2m) P: %3',name _x,round (_x distance player),_crew],0.7,true];
-												};
-											} else {
-												_duid 	= (("+_playerID+" _driver) call PIDP_check);
-												_dif 	= (_duid in _pfls);
-												if ((isNull _driver)||(!alive _driver)||(!isPlayer _driver)||(!_dif)) then {
-													_crew = [];
-													{_crew = _crew + [name _x]} forEach (crew (vehicle _x));
-													_veh = (getText (configFile >> 'CfgVehicles' >> (typeOf (vehicle _x)) >> 'displayName'));
-													_friend addGroupIcon ['b_inf'];
-													if ((isNull _driver)||(!alive _driver)||(!isPlayer _driver)) then {
-														_friend setGroupIconParams [[0,0,1 ,1],format ['D: None (%3 - %1m) P: %2',round (_x distance player),_crew,_veh],0.7,true];
-													} else {
-														_friend setGroupIconParams [[0,0,1 ,1],format ['D: %4 (%3 - %1m) P: %2',round (_x distance player),_crew,_veh,name _driver],0.7,true];
-													};
-												};
-											};
-										} else {
-											_friend addGroupIcon ['x_art'];
-											_friend setGroupIconParams [[0,0,1 ,1],format ['%1 (%2m)',name _x,round (_x distance player)],0.7,true];
-										};
-									};
-								};
-							};
-						} forEach _allPlayers;
-					} else {
-						if ((time - "+_randv+"_flchk4 > 5)&&("+_RND+"_adminESPmarkers == 0)&&("+_RND+"_adminspecESP == 0)&&!(profileNameSpace getVariable ['AH_FESP',true])) then {
-							"+_randv+"_flchk4 = time;
-							_AHT_SGIV = false;
-							setGroupIconsVisible [_AHT_SGIV,_AHT_SGIV];
-							{_friend = (group _x);clearGroupIcons _friend} forEach _allPlayers;
-						};
-					};
 					if !("+_playerID+" player in ""+(str AH_AdminArray)+"") then {
 						if (time - "+_randv+"_flchk2 >= 5) then {
 							"+_randv+"_flchk2 = time;
