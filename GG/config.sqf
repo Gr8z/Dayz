@@ -16,63 +16,6 @@ DynamicVehicleDamageLow = 0;
 DynamicVehicleDamageHigh = 0.2;
 MaxVehicleLimit 	= 5;
 
-//Welcome message config
-GG_useWelcomeTxt		= true;
-GG_HeaderColor 		= "FF3300";
-GG_HeaderSize 		= "0.6";
-GG_BodyColor 			= "ffffff";
-GG_BodySize 			= "0.45";
-GG_features_header 	= "Server features";
-GG_website_header 	= "Community info";
-GG_srvrrules_header 	= "Server rules";
-GG_stafflist__header 	= "Server staff";
-GG_features_body 		= [
-	"<t color='#ffdb00'>Gold coin currency</t>",
-	"<t color='#fff4b1'> - Banking</t>",
-	"<t color='#fff4b1'> - Take Coins off Bodies</t>",
-	"<t color='#fff4b1'> - Refuel n Repair stations</t>",
-	"<t color='#bd0000'>Chat commands</t> !help",
-	"<t color='#ff6c3b'> - Friend system</t> !addfriend !delfriend !grouptags",
-	"<t color='#ff6c3b'> - PM system</t> !pm !re",
-	"<t color='#ff6c3b'> - Custom player HUD</t> !nohud",
-	"<t color='#ff6c3b'> - Suicide</t> !kill !die",
-	"<t color='#bd0000'>Custom framework</t>",
-	"<t color='#ff6c3b'> - Custom Antihack</t>",
-	"<t color='#ff6c3b'> - Custom military camps!</t>",
-	"<t color='#ff6c3b'> - Custom traders with safezones<!/t>",
-	"<t color='#ff6c3b'> - Custom trader menu, buy/sell to/from your player, backpack, or vehicle!</t>",
-	"<t color='#ff6c3b'> - Custom Plot Menu</t>",
-	"<t color='#ff6c3b'> - Custom Respawn System!</t>",
-	"<t color='#ff6c3b'> - Custom Spawn Select!</t>",
-	"<t color='#ff6c3b'> - Set your safe code on placement!</t>",
-	"<t color='#ff6c3b'> - Many custom buildings</t>",
-	"<t color='#ff6c3b'> - Revamped vector build</t>",
-	"<t color='#ff6c3b'> - Take clothes, teabag</t>",
-	"<t color='#ff6c3b'> - Self transfuse and consume</t>",
-	"<t color='#ff6c3b'> - 30M player tags</t>",
-	"<t color='#ff6c3b'> - Admin events!</t>",
-	"<t color='#ff6c3b'> - For a full list of features, check out GhostzGamerz.com!</t>"
-];
-GG_website_body 		= [
-	"<t color='#ffdb00'>Join our website:</t>",
-	"www.GhostzGamerz.com",
-	"<t color='#ffdb00'>Join our teamspeak:</t>",
-	"TS.GhostzGamerz.com"
-];
-GG_srvrrules_body 	= [
-	"<t color='#f00000'size='1.5'>Server rules</t>",
-	"<t color='#D42436'>1</t>. Don't be homphobic!",
-	"<t color='#D42436'>2</t>. Don't be homosexual!"
-];
-GG_stafflist__body 	= [
-	"<t color='#FF3300'>Owner</t>: Gr8",
-	"<t color='#FF3300'>Owner</t>: Ghost",
-	"<t color='#FF3300'>Coder</t>: BigEgg",
-	"<t color='#FF3300'>Admin</t>: DeadSkin",
-	"<t color='#FF3300'>Admin</t>: Shahzad",
-	"<t color='#FF3300'>Admin</t>: MeowMix"
-];
-
 //GG config
 NameTagDistance = 20; //Distance player names show when looking at them.
 DZE_restarttime = [1,59]; //Hour,Minute restart time. 1,59 logs people off at 1hr 59min uptime.
