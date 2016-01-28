@@ -481,6 +481,7 @@ if (!isDedicated) then {
 		SafeZone_FIRED  = player aeh ["Fired",	{call GG_pfired}];
 		SafeZone_HIT    = player aeh ["Hit",	{call GG_phit}];
 		SafeZone_KILLED = player aeh ["Killed",	{call GG_pkill}];
+		r_player_timeout 		= 0;
 		fnc_usec_unconscious 	= {};
 		player_death 			= {};
 		player_zombieCheck 		= {};
