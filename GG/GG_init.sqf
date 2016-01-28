@@ -483,6 +483,9 @@ if (!isDedicated) then {
 		SafeZone_KILLED = player aeh ["Killed",	{call GG_pkill}];
 		r_player_timeout 		= 0;
 		r_player_unconscious = false;
+		player setVariable ['NORRN_unconscious', false, true];
+		player setVariable ['unconsciousTime', 0, true];
+		player setVariable ['medForceUpdate',true];
 		fnc_usec_unconscious 	= {};
 		player_death 			= {};
 		player_zombieCheck 		= {};
