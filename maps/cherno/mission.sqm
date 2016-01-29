@@ -386,7 +386,7 @@ class Mission
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneaircraft";
-			expCond="((vehicle player) distance zoneaircraft) < 100;";
+			expCond="((vehicle player) distance zoneaircraft) < 75;";
 			expActiv="TitleText[""Now entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
