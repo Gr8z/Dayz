@@ -183,7 +183,6 @@ Marksman3 = [
 	"76561198133868690", // -(TET)- KrazyEpicTurtle (exp-2016-01-31) #12618 
 	"76561198133894150", // Mitty (exp-2016-02-12) #12879
 	"76561197996933894", // zarouzky (OD-2016-01-16) #12955
-	"76561198123356770", // BB | VooDoo (OD-2016-01-28) #13098
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
@@ -347,6 +346,7 @@ Scout3 = [
 	"76561197973663364", // v4vDrJoker (OD-2016-01-23) #13030
 	"76561198093618672", // andrew dowding (OD-2016-01-24) #13049
 	"76561198135611591", // turnip (OD-2016-01-26) #13071
+	"76561198123356770", // BB | VooDoo (OD-2016-01-28) #13098
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
