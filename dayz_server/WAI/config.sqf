@@ -247,7 +247,7 @@ if(isServer) then {
 		high_value_amounts2 		= [1];
 		high_value_amounts3 		= [1];
 		wai_enable_minefield		= false;
-		wai_use_launchers		    = false;
+		wai_use_launchers		    = true;
 		wai_remove_launcher		    = true;
 		wai_radio_announce		    = false;
 		wai_hero_limit		        = 1;
