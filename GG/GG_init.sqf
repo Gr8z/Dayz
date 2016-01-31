@@ -3680,6 +3680,9 @@ if (!isDedicated) then {
 		_dir 			= getDir player;
 		_currentAnim 	= xas player;
 		_playerUID 		= gpd player;
+
+		startLoadingScreen ["Changing skin...", "DayZ_loadingScreen"];
+
 		_weapons 		= weapons player;
 		_countMags 		= call player_countMagazines;
 		_magazines 		= _countMags sel 0;
@@ -3692,6 +3695,9 @@ if (!isDedicated) then {
 		if (!(_secweapon in _weapons) && (_secweapon != "")) then {_weapons = _weapons + [_secweapon]};
 		if (count _muzzles > 1) then {_currentWpn = currentMuzzle player};
 		dayz_myBackpack = unitBackpack player;
+
+		progressLoadingScreen 0.4;
+
 		[player,dayz_spawnPos] call AH_fnc_setPos;
 		_oldUnit = player;
 		_oldGroup = group player;
@@ -3714,7 +3720,9 @@ if (!isDedicated) then {
 		if (_primweapon == "MeleeMachete") then {_newUnit addMagazine 'Machete_swing'};
 		if (_primweapon == "MeleeFishingPole") then {_newUnit addMagazine 'Fishing_Swing'};
 		if (_secweapon != (secondaryWeapon _newUnit) && _secweapon != "") then {_newUnit addWeapon _secweapon};
-		
+
+		progressLoadingScreen 0.6;
+
 		addSwitchableUnit _newUnit;
 		setPlayable _newUnit;
 		selectPlayer _newUnit;
@@ -3727,6 +3735,8 @@ if (!isDedicated) then {
 		deleteVehicle _oldUnit;
 		if (_currentWpn != "") then {_newUnit selectWeapon _currentWpn};
 		
+		progressLoadingScreen 0.8;
+
 		[objNull,player,rSwitchMove,_currentAnim] call RE;
 		player disableConversation true;
 		player switchCamera "external";
@@ -3739,6 +3749,9 @@ if (!isDedicated) then {
 		_savedGroup = profileNamespace getVariable["savedGroup",[]];
 		player setVariable ["savedGroup",_savedGroup,true];
 		player setVariable ["purgeGroup",0,true];
+		
+		progressLoadingScreen 1.0;
+		endLoadingScreen;
 	};
 	player_humanityMorph = {
 		private ["_updates","_playerUID","_charID","_humanity","_worldspace","_model","_friendlies","_fractures","_old","_medical","_zombieKills","_headShots","_humanKills","_banditKills","_tagList"];
