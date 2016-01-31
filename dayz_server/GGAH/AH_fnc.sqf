@@ -707,8 +707,8 @@ call compile ("
 							_ammo 	= (_this select 4);
 							_maxdmg = 20;
 							_explosives = ['FuelExplosion','HelicopterExploSmall','HelicopterExploBig','SmallSecondary','Bo_FAB_250','TimedExplosion'];
-							if (!(isPlayer _unit)||(_unit == _source)||((vehicle _unit) == (vehicle _source))||(isNull _source)||(_unit distance _source > 2000)||(name _source == name _unit)) exitWith {
-								if (!(isNull _source)&&(_unit distance _source < 2000)) then NotNull"+_randv+";
+							if (!(isPlayer _unit)||(_unit == _source)||((vehicle _unit) == (vehicle _source))||(isNull _source)||(_unit distance _source > 3000)||(name _source == name _unit)) exitWith {
+								if (!(isNull _source)&&(_unit distance _source < 3000)) then NotNull"+_randv+";
 							};
 							if ((isNull _source)||(_ammo in _explosives)) exitWith {};
 							if (true) then NotNull"+_randv+";

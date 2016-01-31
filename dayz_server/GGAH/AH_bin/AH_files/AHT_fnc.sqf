@@ -356,6 +356,7 @@ call compile ("
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  3D ESP"",admin_3Dtoggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  3D Pole Pole ESP"",admin_ppesptoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  3D AI ESP"",admin_3DAItoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Player Markers"",admin_playerMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  AI Markers"",admin_aiMarkers,""1"",""0"",""0"",""0"",[]]];
@@ -450,6 +451,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Activate [ALT+LeftmouseButton] Map to TP"",admin_teleportToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  God Mode"",admin_godmodeToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  3D Pole Pole ESP"",admin_ppesptoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Stealth / Invisible"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Zombie Shield"",admin_zedShield,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
@@ -3779,6 +3781,64 @@ systemChat (""""Hello!"""");
 					
 					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
 					_savelog = format ['%1 disabled 3D ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
+					[_savelog] call admin_adminlogAction;
+				};
+			};
+			admin_ppesptoggle = {
+				if (isNil 'admin_3DPP') then {admin_3DPP = false};
+				if (!admin_3DPP) then {
+					_msg = format ['3D Plot Pole ESP enabled.'];
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
+					_savelog = format ['%1 enabled 3D Plot Pole ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
+					[_savelog] call admin_adminlogAction;
+					
+					admin_3DPP = true;
+					_arr = [];
+					while {admin_3DPP} do {
+						_allPlots = player nearObjects ['VaultStorage',1000];
+						{
+							if (((_x in _arr) && !(alive _x)) or ((_x in _arr) && ((player distance _x) > 1000))) then {_arr = _arr - [_x]};
+							if ((_x != player) && !(_x in _arr) && ((player distance _x) < 1000)) then {
+								_arr = _arr + [_x];
+								_x spawn {
+									disableSerialization;
+									if (isNil 'admin_creditsm8') then {admin_creditsm8 = 2733};
+									admin_creditsm8 cutRsc ['rscDynamicText', 'PLAIN'];
+									admin_creditsm8 = admin_creditsm8 + 1;
+									_ctrl = ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999);
+									_ctrl ctrlShow true;
+									_ctrl ctrlEnable true;
+									_ctrl ctrlSetFade 0;
+									while {(alive _this) && ((player distance _this) < 1000)} do {
+										if (!admin_3DPP) exitWith {
+											_ctrl ctrlShow false;
+											_ctrl ctrlEnable false;
+										};
+										_pos2D = worldToScreen [(getPosATL _this) select 0, (getPosATL _this) select 1, ((getPosATL _this) select 2) + 2];
+										if (count _pos2D > 0) then {
+											_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1), safezoneW, safezoneH];
+											_ctrl ctrlSetStructuredText parseText format ['<t size=''0.25'' color=''#ffffff'' shadow=''2''>Plot Pole (%1m)</t>', round (player distance _this)];
+											_ctrl ctrlCommit 0;
+										};
+									};
+									_ctrl ctrlShow false;
+									_ctrl ctrlEnable false;
+								};
+							};
+						} forEach _allPlots;
+						uiSleep 1;
+					};
+				} else {
+					admin_3DPP = false;
+					_msg = format ['3D Plot Pole ESP disabled.'];
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
+					_savelog = format ['%1 disabled 3D Plot Pole ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
 					[_savelog] call admin_adminlogAction;
 				};
 			};

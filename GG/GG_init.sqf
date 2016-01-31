@@ -2364,15 +2364,71 @@ if (!isDedicated) then {
 	fn_gearMenuChecks = {
 		private ["_cTarget","_isOk","_display","_inVehicle"];
 		disableSerialization;
-		_display = (_this sel 0);
+		_display = (_this select 0);
 		_inVehicle = (vehicle player) != player;
 		_cTarget = cursorTarget;
-		if (_inVehicle) then {_cTarget = (vehicle player)};
+		if(_inVehicle) then {
+			_cTarget = (vehicle player);
+		};
+
 		_isOk = false;
-		{if (!_isOk) then {_isOk = _cTarget iko _x}} count ["LandVehicle","Air", "Ship"];
-		if ((locked _cTarget) && _isOk && !_inVehicle && (((vehicle player) distance _cTarget) < 12)) then {
-			cutText [(lzl "str_epoch_player_7") , "PLAIN DOWN"];
+		{
+			if(!_isOk) then {
+				_isOk = _cTarget isKindOf _x;
+			};
+		} forEach ["LandVehicle","Air", "Ship"];
+
+		if((locked _cTarget) && _isOk && (((vehicle player) distance _cTarget) < 12)) then {
+			cutText [(localize "str_epoch_player_7") , "PLAIN DOWN"];
 			_display closeDisplay 1;
+		};
+
+		[_cTarget] spawn {
+			private ["_transportMax","_obj","_maxdis"];
+			_obj = _this select 0;
+			if !(canbuild) exitWith {};
+			if (_obj isKindOf "AllVehicles") then {_maxdis = 10;} else {_maxdis = 5;};
+			if ((player distance _obj) > _maxdis) exitWith {};
+			if (vehicle player != player || isPlayer _obj) exitWith {};
+
+			_transportMax = (getNumber (configFile >> "CfgVehicles" >> (typeof _obj) >> "transportMaxWeapons") + getNumber (configFile >> "CfgVehicles" >> (typeof _obj) >> "transportMaxMagazines") + getNumber (configFile >> "CfgVehicles" >> (typeof _obj) >> "transportMaxBackpacks"));
+			if (_transportMax < 1 || (typeOf _obj) == "WeaponHolder") exitWith {};
+
+			if (isNil "GearDisplay") then {GearDisplay = false;};
+			if (isNil "DupeObject") then {DupeObject = objNull;};
+			
+			if (GearDisplay) exitWith {
+				waitUntil {str(FindDisplay 106) == "Display #106"};
+				(FindDisplay 106) closeDisplay 0;
+				cutText["\n\nDupe Protection: Please wait a second to access gear!","PLAIN DOWN"];
+			};
+			
+			waitUntil {str(FindDisplay 106) == "Display #106"};
+			uiSleep 0.5;
+			if (str(FindDisplay 106) == "No Display") exitWith {};
+			
+			if (GearDisplay) exitWith {};
+			GearDisplay = true;
+			DupeObject = _obj;
+			PlayervarName = "DupeVar_" + (getPlayerUID player);
+			uiSleep 0.5;
+			if (DupeObject getVariable [PlayervarName,false]) then {
+				PVDZE_dupe = [player,DupeObject,"dcdupe"];
+				publicVariableServer "PVDZE_dupe";
+			};
+			uiSleep 0.2;
+			DupeObject setVariable [PlayervarName,true,true];
+
+			waitUntil {str(FindDisplay 106) == "No Display"};
+
+			PVDZE_dupe = [player,DupeObject,"dupeCheck"];
+			publicVariableServer "PVDZE_dupe";
+			uiSleep 1;
+			PVDZE_dupe = [player,"","val"];
+			publicVariableServer "PVDZE_dupe";
+			uiSleep 2;
+			GearDisplay = false;
+			DupeObject = objNull;
 		};
 	};
 	building_spawnLoot = {
@@ -3680,6 +3736,9 @@ if (!isDedicated) then {
 		_dir 			= getDir player;
 		_currentAnim 	= xas player;
 		_playerUID 		= gpd player;
+
+		startLoadingScreen ["Changing skin...", "DayZ_loadingScreen"];
+
 		_weapons 		= weapons player;
 		_countMags 		= call player_countMagazines;
 		_magazines 		= _countMags sel 0;
@@ -3692,6 +3751,9 @@ if (!isDedicated) then {
 		if (!(_secweapon in _weapons) && (_secweapon != "")) then {_weapons = _weapons + [_secweapon]};
 		if (count _muzzles > 1) then {_currentWpn = currentMuzzle player};
 		dayz_myBackpack = unitBackpack player;
+
+		progressLoadingScreen 0.4;
+
 		[player,dayz_spawnPos] call AH_fnc_setPos;
 		_oldUnit = player;
 		_oldGroup = group player;
@@ -3714,7 +3776,9 @@ if (!isDedicated) then {
 		if (_primweapon == "MeleeMachete") then {_newUnit addMagazine 'Machete_swing'};
 		if (_primweapon == "MeleeFishingPole") then {_newUnit addMagazine 'Fishing_Swing'};
 		if (_secweapon != (secondaryWeapon _newUnit) && _secweapon != "") then {_newUnit addWeapon _secweapon};
-		
+
+		progressLoadingScreen 0.6;
+
 		addSwitchableUnit _newUnit;
 		setPlayable _newUnit;
 		selectPlayer _newUnit;
@@ -3727,6 +3791,8 @@ if (!isDedicated) then {
 		deleteVehicle _oldUnit;
 		if (_currentWpn != "") then {_newUnit selectWeapon _currentWpn};
 		
+		progressLoadingScreen 0.8;
+
 		[objNull,player,rSwitchMove,_currentAnim] call RE;
 		player disableConversation true;
 		player switchCamera "external";
@@ -3739,6 +3805,9 @@ if (!isDedicated) then {
 		_savedGroup = profileNamespace getVariable["savedGroup",[]];
 		player setVariable ["savedGroup",_savedGroup,true];
 		player setVariable ["purgeGroup",0,true];
+
+		progressLoadingScreen 1.0;
+		endLoadingScreen;
 	};
 	player_humanityMorph = {
 		private ["_updates","_playerUID","_charID","_humanity","_worldspace","_model","_friendlies","_fractures","_old","_medical","_zombieKills","_headShots","_humanKills","_banditKills","_tagList"];
@@ -4723,7 +4792,6 @@ if (!isDedicated) then {
 			call compile ("
 				waitUntil {((!isNil 'dayz_animalCheck') || (!isNil 'dayz_spawnCheck') || (!isNil 'dayz_locationCheck') || (!isNil 'dayz_slowCheck'))};
 				spawn_intro = {
-					if (profileNamespace getVariable ['AH_introSong',true]) then {playSound 'bonfIntro'};
 					if (isNil 'freshSpawn') then {freshSpawn = 0};
 					if (((player getVariable ['freshSpawn',0]) == 1)||(freshSpawn == 2)) then {
 						['WELCOME TO [GG] Ghostz Gamerz !',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
@@ -4846,6 +4914,7 @@ if (isServer) then {
 	};
 	"HumanityChange" addPublicVariableEventHandler {[_this select 1] execVM 'GG\GG_HC.sqf'};
 };
+
 [] spawn {
 	waitUntil{!isNil "BIS_Effects_Init"};
 	uiSleep 1;
