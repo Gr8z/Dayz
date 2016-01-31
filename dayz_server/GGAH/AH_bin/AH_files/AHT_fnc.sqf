@@ -423,8 +423,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Permanent Vehicle"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""=======================Donor Vaults======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
@@ -441,8 +439,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Kill Player"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Move Player In Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -458,8 +454,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Camo Net (""+str (DZE_PlotPole select 0)+""m)"",admin_deleteCamoNet,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Base / Area"",admin_baseDelete,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Repair Nearby Building's"",admin_repairBuildings,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Repair Nearby Entities"",admin_repairentities,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Markers "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -486,18 +480,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Man Hunt Lowest Humanity"",admin_manHuntKiller,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Update Man Hunt Marker"",admin_manhuntupdate,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  End Man Hunt"",admin_endManHunt,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""Other Menus "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				if (SUBMENU_colorMenu) then admin_subColorMenu else {
-				adminadd set [count adminadd,[""[]---- Color Menu ----[]"",admin_subTglColrs,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_giveGear) then admin_subGiveGear else {
-				adminadd set [count adminadd,[""[]---- Give Gear ----[]"",admin_subTglGive,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_Animate) then admin_subAnimate else {
-				adminadd set [count adminadd,[""[]----- Animate -----[]"",admin_subTglAnim,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_Manipulate) then admin_subManipulate else {
-				adminadd set [count adminadd,[""[]---- Manipulate ----[]"",admin_subTglManip,""0"",""0"",""0"",""0"",MMCLR]];};
-				if !(isNil 'Level2_custommenu') then {call Level2_custommenu};
 			};
 			Level1_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -520,13 +502,11 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Mute/Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
