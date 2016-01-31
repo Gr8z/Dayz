@@ -1,3 +1,4 @@
+[] execVM "\z\addons\dayz_server\init\server_preventDupe.sqf";
 execVM "\z\addons\dayz_server\GGAH\AH_fnc.sqf";
 waituntil {!isnil "bis_fnc_init"};
 
