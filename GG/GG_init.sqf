@@ -4723,7 +4723,6 @@ if (!isDedicated) then {
 			call compile ("
 				waitUntil {((!isNil 'dayz_animalCheck') || (!isNil 'dayz_spawnCheck') || (!isNil 'dayz_locationCheck') || (!isNil 'dayz_slowCheck'))};
 				spawn_intro = {
-					if (profileNamespace getVariable ['AH_introSong',true]) then {playSound 'bonfIntro'};
 					if (isNil 'freshSpawn') then {freshSpawn = 0};
 					if (((player getVariable ['freshSpawn',0]) == 1)||(freshSpawn == 2)) then {
 						['WELCOME TO [GG] Ghostz Gamerz !',0,safezoneY+1.04,10,0,0,3037] spawn AH_fnc_dynamictext;
