@@ -8,6 +8,7 @@ _hitpoints = switch (true) do {
 	default {_vehicle call vehicle_getHitpoints};
 	case ((_vehicle iko "Car") && !(_vehicle iko "Truck")): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};
 	case (_vehicle iko "Truck"): {["HitGlass1","HitGlass2","HitGlass3","HitGlass4","HitGlass5","HitGlass6","HitGlass7","HitGlass8","HitLFWheel","HitLBWheel","HitRFWheel","HitRBWheel","HitLMWheel","HitRMWheel","HitFuel","HitRGlass","HitLGlass","HitEngine"]};
+	case (_vehicle iko "Bike"): {["HitLFWheel","HitLBWheel"]};
 };
 {
 	_damage = [_vehicle,_x] call object_getHit;
