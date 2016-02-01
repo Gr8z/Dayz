@@ -356,6 +356,7 @@ call compile ("
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  3D ESP"",admin_3Dtoggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  3D Pole Pole ESP"",admin_ppesptoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  3D AI ESP"",admin_3DAItoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Player Markers"",admin_playerMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  AI Markers"",admin_aiMarkers,""1"",""0"",""0"",""0"",[]]];
@@ -422,8 +423,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Weapons, Items, & Magazines"",""Weaponz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Permanent Vehicle"",""VehiclesHIVE"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Buildings & Objects"",""Objects"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""=======================Donor Vaults======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
@@ -440,8 +439,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Kill Player"",admin_killTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Remove Gear"",admin_removegearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Move Player In Vehicle"",manipulate_moveinveh,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Join Player Vehicle"",manipulate_joinvehicle,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Adjust Humanity"",admin_subaddHumanity,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -450,14 +447,13 @@ call compile ("
 				adminadd set [count adminadd,[""  Activate [ALT+LeftmouseButton] Map to TP"",admin_teleportToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  God Mode"",admin_godmodeToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  3D Pole Pole ESP"",admin_ppesptoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Stealth / Invisible"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Zombie Shield"",admin_zedShield,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Camo Net (""+str (DZE_PlotPole select 0)+""m)"",admin_deleteCamoNet,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Base / Area"",admin_baseDelete,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Repair Nearby Building's"",admin_repairBuildings,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Repair Nearby Entities"",admin_repairentities,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Markers "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -484,18 +480,6 @@ call compile ("
 				adminadd set [count adminadd,[""  Man Hunt Lowest Humanity"",admin_manHuntKiller,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Update Man Hunt Marker"",admin_manhuntupdate,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  End Man Hunt"",admin_endManHunt,""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""Other Menus "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				if (SUBMENU_colorMenu) then admin_subColorMenu else {
-				adminadd set [count adminadd,[""[]---- Color Menu ----[]"",admin_subTglColrs,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_giveGear) then admin_subGiveGear else {
-				adminadd set [count adminadd,[""[]---- Give Gear ----[]"",admin_subTglGive,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_Animate) then admin_subAnimate else {
-				adminadd set [count adminadd,[""[]----- Animate -----[]"",admin_subTglAnim,""0"",""0"",""0"",""0"",MMCLR]];};
-				if (SUBMENU_Manipulate) then admin_subManipulate else {
-				adminadd set [count adminadd,[""[]---- Manipulate ----[]"",admin_subTglManip,""0"",""0"",""0"",""0"",MMCLR]];};
-				if !(isNil 'Level2_custommenu') then {call Level2_custommenu};
 			};
 			Level1_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -518,13 +502,11 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""  Spawn Player Morph"",""Skinz"",""0"",""0"",""1"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spectate Player"",admin_spectateTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  View Player Gear"",admin_viewgearTarget,""0"",""0"",""0"",""1"",[]]];
-				adminadd set [count adminadd,[""  Mute/Unmute Player"",admin_muteTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Heal Player"",admin_healTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""  Force Disconnect"",admin_disconnectTarget,""0"",""0"",""0"",""1"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -3779,6 +3761,64 @@ systemChat (""""Hello!"""");
 					
 					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
 					_savelog = format ['%1 disabled 3D ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
+					[_savelog] call admin_adminlogAction;
+				};
+			};
+			admin_ppesptoggle = {
+				if (isNil 'admin_3DPP') then {admin_3DPP = false};
+				if (!admin_3DPP) then {
+					_msg = format ['3D Plot Pole ESP enabled.'];
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
+					_savelog = format ['%1 enabled 3D Plot Pole ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
+					[_savelog] call admin_adminlogAction;
+					
+					admin_3DPP = true;
+					_arr = [];
+					while {admin_3DPP} do {
+						_allPlots = player nearObjects ['VaultStorage',1000];
+						{
+							if (((_x in _arr) && !(alive _x)) or ((_x in _arr) && ((player distance _x) > 1000))) then {_arr = _arr - [_x]};
+							if ((_x != player) && !(_x in _arr) && ((player distance _x) < 1000)) then {
+								_arr = _arr + [_x];
+								_x spawn {
+									disableSerialization;
+									if (isNil 'admin_creditsm8') then {admin_creditsm8 = 2733};
+									admin_creditsm8 cutRsc ['rscDynamicText', 'PLAIN'];
+									admin_creditsm8 = admin_creditsm8 + 1;
+									_ctrl = ((uiNamespace getvariable 'BIS_dynamicText') displayctrl 9999);
+									_ctrl ctrlShow true;
+									_ctrl ctrlEnable true;
+									_ctrl ctrlSetFade 0;
+									while {(alive _this) && ((player distance _this) < 1000)} do {
+										if (!admin_3DPP) exitWith {
+											_ctrl ctrlShow false;
+											_ctrl ctrlEnable false;
+										};
+										_pos2D = worldToScreen [(getPosATL _this) select 0, (getPosATL _this) select 1, ((getPosATL _this) select 2) + 2];
+										if (count _pos2D > 0) then {
+											_ctrl ctrlSetPosition [(_pos2D select 0) - (safezoneW / 2), (_pos2D select 1), safezoneW, safezoneH];
+											_ctrl ctrlSetStructuredText parseText format ['<t size=''0.25'' color=''#ffffff'' shadow=''2''>Plot Pole (%1m)</t>', round (player distance _this)];
+											_ctrl ctrlCommit 0;
+										};
+									};
+									_ctrl ctrlShow false;
+									_ctrl ctrlEnable false;
+								};
+							};
+						} forEach _allPlots;
+						uiSleep 1;
+					};
+				} else {
+					admin_3DPP = false;
+					_msg = format ['3D Plot Pole ESP disabled.'];
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_near = (getPosATL (vehicle player) nearentities [['CaManBase'],200]);
+					_savelog = format ['%1 disabled 3D Plot Pole ESP at %5, with %2 players within 200m. %1 has %3 plus %4 kills.',name player,(({isplayer _x} count _near)-1),(player getVariable['humanKills',0]),(player getVariable['banditKills',0]),mapGridPosition getPosATL (vehicle player)];
 					[_savelog] call admin_adminlogAction;
 				};
 			};
