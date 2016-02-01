@@ -185,6 +185,7 @@ Marksman3 = [
 	"76561198133868690", // -(TET)- KrazyEpicTurtle (exp-2016-01-31) #12618 
 	"76561198133894150", // Mitty (exp-2016-02-12) #12879
 	"76561197996933894", // zarouzky (OD-2016-01-16) #12955
+	"76561198031629311", // greg (OD-2016-02-1) #13127
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
