@@ -49,6 +49,7 @@ _customLoadouts = [
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
+	["$50 Skin!","gsc_eco_stalker_mask_camo","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 []
 ];
 
