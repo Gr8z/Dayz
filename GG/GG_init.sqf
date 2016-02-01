@@ -771,7 +771,7 @@ if (!isDedicated) then {
 		uisleep 1;
 		for  "_x" from 19 to 1 step -1 do {
 			if (_x == 12) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>DONATION PERKS AVAILABLE</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>Join Teamspeak for 10k coins!</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
 				playSound "heartbeat_1";
 			};		
