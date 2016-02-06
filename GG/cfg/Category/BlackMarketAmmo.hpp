@@ -9,8 +9,6 @@ class 8Rnd_B_Beneli_Pellets: d_tit {buy = 2;sell = 1;};
 class 8Rnd_B_Saiga12_74Slug: d_tit {buy = 5;sell = 3;}; 
 class 8Rnd_B_Saiga12_Pellets: d_tit {buy = 5;sell = 3;}; 
 class 20Rnd_B_765x17_Ball: d_tit {buy = 20;sell = 10;}; 
-class 10Rnd_762x54_SVD: d_tit {buy = 20;sell = 10;}; 
-class 5Rnd_762x51_M24: d_tit {buy = 10;sell = 5;}; 
 class 30Rnd_556x45_Stanag: d_tit {buy = 5;sell = 3;}; 
 class 20Rnd_762x51_FNFAL: d_tit {buy = 40;sell = 20;}; 
 class 100Rnd_556x45_BetaCMag: d_tit {buy = 60;sell = 30;}; 
