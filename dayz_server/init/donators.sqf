@@ -350,6 +350,7 @@ Scout3 = [
 	"76561198135611591", // turnip (OD-2016-01-26) #13071
 	"76561198123356770", // BB | VooDoo (OD-2016-01-28) #13098
 	"76561198143140514", // FuZiOnThunder (OD-2016-01-30) #13111
+	"76561198046785591", // Whiskey Actual (OD-2016-02-27) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
