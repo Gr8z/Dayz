@@ -513,7 +513,6 @@ call compile ("
 				adminadd set [count adminadd,[""Markers "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  AI Markers"",admin_aiMarkers,""1"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""  Plot Pole Markers"",admin_ppMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Corpse Markers"",admin_deadMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Vehicle Markers"",admin_vehicleMarkers,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
