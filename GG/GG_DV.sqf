@@ -13,18 +13,18 @@ xcc ("
 	_canDeployOnPlot = true;
 	if (_isNearPlot > 0) then {
 		_nearestPole = _findNearestPole sel 0;
-		_ownerID = _nearestPole xgv ['CharacterID','0'];
-		if (PIDP_playerUID == _ownerID) then {_canDeployOnPlot = true} else {
+		_ownerID = _nearestPole getVariable ['CharacterID','0'];
+		if (PIDP_playerUID == _ownerID) then {_canDeployOnPlot = true;} else {
 			_friendlies = _nearestPole getVariable ['player',[]];
 			_fuid  = [];
 			{
-			    _friendUID = _x sel 0;
+			    _friendUID = _x select 0;
 			    _fuid  =  _fuid  + [_friendUID];
 			} forEach _friendlies;
-			_builder  = gpd player;
+			_builder  = getPlayerUID player;
 			if (_builder in _fuid) then {
 			    _canDeployOnPlot = true;
-			} else {_canDeployOnPlot = false};
+			} else {_canDeployOnPlot = false;};
 		};
 	};
 	if (_canDeployOnPlot) then {
