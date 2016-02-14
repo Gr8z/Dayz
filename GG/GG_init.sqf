@@ -53,6 +53,9 @@ if (!isDedicated) then {
 	PlotNearbyHumans = 			xcm xlx "GG\plotManage\plotNearbyHumans.sqf";
 	PlotAddFriend = 			xcm xlx "GG\plotManage\plotAddFriend.sqf";
 	PlotRemoveFriend = 			xcm xlx "GG\plotManage\plotRemoveFriend.sqf";
+	MaintainPlot = 				xcm xlx "GG\plotManage\maintain_area.sqf";
+	PlotPreview = 				xcm xlx "GG\plotManage\plotToggleMarkers.sqf";
+	PlotObjects = 				xcm xlx "GG\plotManage\plotObjects.sqf";
 	DoorGetFriends = 			xcm xlx "GG\doorManagement\doorGetFriends.sqf";
 	DoorNearbyHumans = 			xcm xlx "GG\doorManagement\doorNearbyHumans.sqf";
 	DoorAddFriend = 			xcm xlx "GG\doorManagement\doorAddFriend.sqf";
@@ -224,7 +227,7 @@ if (!isDedicated) then {
 		};
 		if (_objType == "HeliH") then {_limit = 1};
 		if (_isMine) then {_limit = (1 + (if (random 100 > 70) then [{1},{2}]))};
-		_findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], 30];
+		_findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], 60];
 		_findNearestPole = [];
 		{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x];};} count _findNearestPoles;
 		_IsNearPlot = count (_findNearestPole);
