@@ -140,3 +140,8 @@ AND`object_data_3`.`Classname` NOT LIKE 'Metal%'
 AND`object_data_3`.`Classname` NOT LIKE '%Storage%'
 AND`object_data_3`.`Classname` NOT IN ('OutHouse_DZ', 'GunRack_DZ', 'WorkBench_DZ', 'Sandbag1_DZ', 'FireBarrel_DZ', 'DesertCamoNet_DZ', 'StickFence_DZ', 'LightPole_DZ', 'DeerStand_DZ', 'ForestLargeCamoNet_DZ', 'Plastic_Pole_EP1_DZ', 'Hedgehog_DZ', 'FuelPump_DZ', 'Fort_RazorWire', 'SandNest_DZ', 'ForestCamoNet_DZ', 'Fence_corrugated_DZ', 'CanvasHut_DZ', 'Generator_DZ')
 AND FindVehicleKeysCount3(object_data_3.CharacterID) = 0;
+
+/* Put Negetive Coins back to 0 */
+UPDATE `character_data`
+SET `CashMoney` = '0'
+WHERE `character_data`.`CashMoney` < '0'
