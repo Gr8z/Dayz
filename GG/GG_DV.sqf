@@ -22,7 +22,6 @@ xcc ("
 			    _fuid  =  _fuid  + [_friendUID];
 			} forEach _friendlies;
 			_builder  = gpd player;
-			// check if friendly to owner
 			if (_builder in _fuid) then {
 			    _canDeployOnPlot = true;
 			} else {_canDeployOnPlot = false};
