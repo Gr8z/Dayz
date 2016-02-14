@@ -1,14 +1,14 @@
 _adminList = ["0152"]; // Add admins here if you admins to able to manage all plotpoles
-_owner = _cursorTarget xgv ["CharacterID","0"];
-_friends = _cursorTarget xgv ["plotfriends", []];
+_owner = _cursorTarget getVariable ["CharacterID","0"];
+_friends = _cursorTarget getVariable ["plotfriends", []];
 _fuid = [];
 {
-    _friendUID = _x sel 0;
+    _friendUID = _x select 0;
     _fuid = _fuid + [_friendUID];
 } forEach _friends;
 _allowed = [_owner]; 
 _allowed = [_owner] + _adminList + _fuid;
-if(_owner == dayz_characterID || (gpd player) in _allowed)then{            
+if(_owner == dayz_characterID || (getPlayerUID player) in _allowed)then{            
 	createdialog "PlotManagement";
 	call PlotNearbyHumans;
 	call PlotGetFriends;
