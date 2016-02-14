@@ -8,25 +8,7 @@ xcc ("
 	_required = "+str _req+";
 	{if (_x in ((items player) + (magazines player))) then {_required set [_forEachIndex,objNull]}} forEach _required;
 	_required = _required - [objNull];
-	_findNearestPole = [60] call player_nearPP;
-	_isNearPlot = count (_findNearestPole);
-	_canDeployOnPlot = true;
-	if (_isNearPlot > 0) then {
-		_nearestPole = _findNearestPole select 0;
-		_ownerID = _nearestPole getVariable ['CharacterID','0'];
-		if (PIDP_playerUID == _ownerID) then {_canDeployOnPlot = true;} else {
-			_friendlies = _nearestPole getVariable ['player',[]];
-			_fuid  = [];
-			{
-			    _friendUID = _x select 0;
-			    _fuid  =  _fuid  + [_friendUID];
-			} forEach _friendlies;
-			_builder  = getPlayerUID player;
-			if (_builder in _fuid) then {
-			    _canDeployOnPlot = true;
-			} else {_canDeployOnPlot = false;};
-		};
-	};
+	_canDeployOnPlot = call player_canBuildPP;
 	if (_canDeployOnPlot) then {
 		if (count _required <= 0) then {
 			{player removeMagazine _x} forEach "+str _req+";
