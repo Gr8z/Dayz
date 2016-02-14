@@ -32,7 +32,7 @@ if (_count == 0) exitWith {
 			_ctrl ctrlSetText   _result;
 		
 			_ctrl = ((uiNamespace getVariable "PlotManagement") displayCtrl 7013);
-			_result =  format["Price to maintain: %1 %2" , 0, CurrencyName];
+			_result =  format["Price to maintain: %1 %2" , 0, GCoins];
 			
 			_ctrl ctrlSetText   _result;	
 	DZE_ActionInProgress = false;
@@ -41,7 +41,7 @@ if (_count == 0) exitWith {
 };
 
 _theCost = _count * 100;
-_requirements = [[CurrencyName,_theCost]];
+_requirements = [[GCoins,_theCost]];
 
 
 _option = _this select 0;
