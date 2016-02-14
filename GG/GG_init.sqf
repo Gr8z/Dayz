@@ -1473,8 +1473,26 @@ if (!isDedicated) then {
 			if (_player_lockUnlock_crtl) then {
 				if (s_player_lockUnlock_crtl < 0) then {
 					_hasKey = _ownerID in _temp_keys;
-					_oldOwner = ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID));
+					_oldOwner = (_ownerID == PIDP_playerUID);
 					if (locked _cursorTarget) then {
+						_nearplots = [60] call player_nearPP;
+						if (count _nearplots > 0) then {
+							_nearestplot = _nearplots select 0;
+							_plotID = _nearestplot xgv ["CharacterID","0"];
+							if ((_plotID == PIDP_playerUID)||(dayz_characterID == _plotID)) then {_oldOwner = true} else {
+								_friendlies = _nearestPole xgv ["plotfriends",[]];
+								_fuid  = [];
+								{
+								      _friendUID = _x select 0;
+								      _fuid  =  _fuid  + [_friendUID];
+								} forEach _friendlies;
+								_builder  = gpd player;
+								// check if friendly to owner
+								if(_builder in _fuid) then {
+								    _oldOwner = true;
+								};
+							}
+						};
 						if (_hasKey || _oldOwner) then {
 							_Unlock = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UNLOCK",_text]], "\z\addons\dayz_code\actions\unlock_veh.sqf",[_cursorTarget,(_temp_keys_names sel (parseNumber _ownerID))], 2, true, true, "", ""];
 							s_player_lockunlock set [count s_player_lockunlock,_Unlock];
