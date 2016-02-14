@@ -18,7 +18,7 @@ if (!isNil "PP_Marks") then {
 if ((isNil "PP_Marks") && (!_obj)) then {
 	PP_Marks = [];		_count = round((2 * pi * _radius) / _density);
 	//--------------------------------------------------------------------------------
-	_obj = "Sign_sphere10cm_EP1" createVehicleLocal [0,0,0];	//	PARENT marker on pole
+	_obj = "Sign_sphere100cm_EP1" createVehicleLocal [0,0,0];	//	PARENT marker on pole
 	_obj setPosASL [_center select 0, _center select 1, _center select 2];
 	_obj setObjectTexture [0, "#(argb,16,16,1)color(0,1,0,0.4)"];	_axis = _obj;
 	_obj setVectorUp [0, 0, 0];		PP_Marks set [count PP_Marks, _obj];
