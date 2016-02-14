@@ -1410,7 +1410,7 @@ if (!isDedicated) then {
 				                _friends = _thePlot getVariable ["plotfriends", []];
 				                {
 				                  _friendUID = _x select 0;
-				                  _fuid  =  _fuid  + [_friendUID];``
+				                  _fuid  =  _fuid  + [_friendUID];
 				                } forEach _friends;
 				                _allowed = [_owner];    
 				                _allowed = [_owner] +  _fuid;   
