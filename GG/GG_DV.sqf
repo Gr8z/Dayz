@@ -10,9 +10,25 @@ xcc ("
 	_required = _required - [objNull];
 	_findNearestPole = [60] call player_nearPP;
 	_isNearPlot = count (_findNearestPole);
+	_canDeployOnPlot = true;
 	if (_isNearPlot > 0) then {
-		systemChat 'Cannot Deploy, You are near a plot pole.';
-	} else {
+		_nearestPole = _findNearestPole sel 0;
+		_ownerID = _nearestPole xgv ['CharacterID','0'];
+		if (PIDP_playerUID == _ownerID) then {_canDeployOnPlot = true} else {
+			_friendlies = _nearestPole getVariable ['player',[]];
+			_fuid  = [];
+			{
+			    _friendUID = _x sel 0;
+			    _fuid  =  _fuid  + [_friendUID];
+			} forEach _friendlies;
+			_builder  = gpd player;
+			// check if friendly to owner
+			if (_builder in _fuid) then {
+			    _canDeployOnPlot = true;
+			} else {_canDeployOnPlot = false};
+		};
+	};
+	if (_canDeployOnPlot) then {
 		if (count _required <= 0) then {
 			{player removeMagazine _x} forEach "+str _req+";
 			[player,'repair',0,false,10] call dayz_zombieSpeak;
@@ -27,5 +43,7 @@ xcc ("
 			'<t size =''1'' font=''Zeppelin33'' color=''#FF0000''>Deployed vehicles disappear after server restart!</t>' call AH_fnc_dynTextMsg;
 			player switchMove '';
 		} else {systemChat ('(GG-AH): '+str ('You need: '+str _required+' to build "+_typ+".'))};
-	};
+	} else {
+		systemChat 'Cannot Deploy, You are near an enemy plot pole.';
+	}
 ");
