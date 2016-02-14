@@ -3757,6 +3757,7 @@ if (!isDedicated) then {
 		_findNearestPole;
 	};
 	player_canBuildPP = {
+		private ["_findNearestPole","_canBuildOnPlot","_isNearPlot","_nearestPole","_ownerID","_friendlies","_fuid","_friendUID","_builder"];
 		_findNearestPole = [60] call player_nearPP;
 		_isNearPlot = count (_findNearestPole);
 		_canBuildOnPlot = false;
