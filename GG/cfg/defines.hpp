@@ -4634,7 +4634,7 @@ class PlotManagement{
 			w = 0.08 * safezoneW;
 			onButtonClick = "[""maintain""] call MaintainPlot;";
 		};
-		class RscText_7012: RscTextT
+		class RscText_7012: RscText
 		{
 			idc = 7012;
 			text = "";
