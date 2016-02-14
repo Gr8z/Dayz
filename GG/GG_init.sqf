@@ -2864,7 +2864,7 @@ if (!isDedicated) then {
 			systemChat ("(GG-AH): "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
-		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 4;} else {DZE_BuildingLimit = 2; };
+		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 		if ((count (nearestObjects [player,dayz_allowedObjects,120])) >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText [(lzl "str_epoch_player_41"), "PLAIN DOWN"]
