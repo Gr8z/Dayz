@@ -3321,32 +3321,7 @@ if (!isDedicated) then {
 					};
 				};
 			};
-			_canbuildcheck = {
-				private ["_findNearestPole","_canBuildOnPlot","_isNearPlot","_nearestPole","_ownerID","_friendlies","_fuid","_friendUID","_builder"];
-				_findNearestPole = [];
-				{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x]}} foreach (nearestObjects[_this, ["Plastic_Pole_EP1_DZ"], ((DZE_PlotPole sel 0)*1.5)]);
-				_isNearPlot = count (_findNearestPole);
-				_canBuildOnPlot = false;
-				if (_isNearPlot == 0) then {_canBuildOnPlot = true} else {
-					_nearestPole = _findNearestPole sel 0;
-					_ownerID = _nearestPole xgv ["CharacterID","0"];
-					if (PIDP_playerUID == _ownerID) then {_canBuildOnPlot = true} else {
-						_friendlies = _nearestPole getVariable ["player",[]];
-						_fuid  = [];
-						{
-						    _friendUID = _x sel 0;
-						    _fuid  =  _fuid  + [_friendUID];
-						} forEach _friendlies;
-						_builder  = (gpd player);
-						// check if friendly to owner
-						if(_builder in _fuid) then {
-						    _canBuildOnPlot = true;
-						};
-					};
-				};
-				_canBuildOnPlot;
-			};
-			if (!(_position call _canbuildcheck)&&(isNil "AM_Epoch_ADMIN_norestrict")&&(_requireplot != 0)&&(!_isLandFireDZ)) then {
+			if (!(_position call player_canBuildPP)&&(isNil "AM_Epoch_ADMIN_norestrict")&&(_requireplot != 0)&&(!_isLandFireDZ)) then {
 				_cancel = true;
 				_reason = "You can not build near this person's plot pole.";
 			};
