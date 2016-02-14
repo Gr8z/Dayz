@@ -1,6 +1,6 @@
 _adminList = ["0152"]; // Add admins here if you admins to able to manage all plotpoles
-_owner = _cursorTarget getVariable ["CharacterID","0"];
-_friends = _cursorTarget getVariable ["plotfriends", []];
+_owner = cursorTarget getVariable ["CharacterID","0"];
+_friends = cursorTarget getVariable ["plotfriends", []];
 _fuid = [];
 {
     _friendUID = _x select 0;
