@@ -3322,7 +3322,7 @@ if (!isDedicated) then {
 				};
 			};
 			_canbuildcheck = {
-				private ["_findNearestPole","_canBuildOnPlot"];
+				private ["_findNearestPole","_canBuildOnPlot","_isNearPlot","_nearestPole","_ownerID","_friendlies","_fuid","_friendUID","_builder"];
 				_findNearestPole = [];
 				{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x]}} foreach (nearestObjects[_this, ["Plastic_Pole_EP1_DZ"], ((DZE_PlotPole sel 0)*1.5)]);
 				_isNearPlot = count (_findNearestPole);
