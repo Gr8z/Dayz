@@ -1481,17 +1481,7 @@ if (!isDedicated) then {
 							_nearestplot = _nearplots select 0;
 							_plotID = _nearestplot xgv ["CharacterID","0"];
 							if ((_plotID == PIDP_playerUID)||(dayz_characterID == _plotID)) then {_oldOwner = true} else {
-								_friendlies = _nearestPole xgv ["plotfriends",[]];
-								_fuid  = [];
-								{
-								      _friendUID = _x select 0;
-								      _fuid  =  _fuid  + [_friendUID];
-								} forEach _friendlies;
-								_builder  = (gpd player);
-								// check if friendly to owner
-								if(_builder in _fuid) then {
-								    _oldOwner = true;
-								};
+								_oldOwner = call player_canBuildPP;
 							}
 						};
 						if (_hasKey || _oldOwner) then {
