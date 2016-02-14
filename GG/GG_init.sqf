@@ -241,7 +241,7 @@ if (!isDedicated) then {
 				      _friendUID = _x select 0;
 				      _fuid  =  _fuid  + [_friendUID];
 				} forEach _friendlies;
-				_builder  = getPlayerUID player;
+				_builder  = gpd player;
 				if(!(_builder in _fuid)) then {
 					_limit = round(_limit*2);
 				};
@@ -1401,7 +1401,8 @@ if (!isDedicated) then {
 				                  _fuid  =  _fuid  + [_friendUID];
 				                } forEach _friends;
 				                _allowed = [_owner];    
-				                _allowed = [_owner] +  _fuid;   
+				                _allowed = [_owner] +  _fuid;
+				                _playerUID = (gpd player);
 				                if ( _playerUID in _allowed && _ownerID in _allowed) then { //  // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
@@ -1486,7 +1487,7 @@ if (!isDedicated) then {
 								      _friendUID = _x select 0;
 								      _fuid  =  _fuid  + [_friendUID];
 								} forEach _friendlies;
-								_builder  = gpd player;
+								_builder  = (gpd player);
 								// check if friendly to owner
 								if(_builder in _fuid) then {
 								    _oldOwner = true;
@@ -3336,7 +3337,7 @@ if (!isDedicated) then {
 						    _friendUID = _x sel 0;
 						    _fuid  =  _fuid  + [_friendUID];
 						} forEach _friendlies;
-						_builder  = gpd player;
+						_builder  = (gpd player);
 						// check if friendly to owner
 						if(_builder in _fuid) then {
 						    _canBuildOnPlot = true;
@@ -3773,7 +3774,7 @@ if (!isDedicated) then {
 				      _friendUID = _x select 0;
 				      _fuid  =  _fuid  + [_friendUID];
 				} forEach _friendlies;
-				_builder  = gpd player;
+				_builder  = (gpd player);
 				// check if friendly to owner
 				if(_builder in _fuid) then {
 				    _canBuildOnPlot = true;
