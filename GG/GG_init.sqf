@@ -1347,16 +1347,12 @@ if (!isDedicated) then {
 				    _allowed = [_owner]; 
 				    _allowed = [_owner] + _adminList + _fuid;
 				    if(_owner == dayz_characterID || (gpd player) in _allowed)then{            
-				    s_player_plotManagement = player xaa ["<t color='#0059FF'>Manage Plot</t>", "GG\plotManage\initPlotManagement.sqf", [], 5, false];
+				    	s_player_plotManagement = player xaa ["<t color='#0059FF'>Manage Plot</t>", "GG\plotManage\initPlotManagement.sqf", [], 5, false];
 				    };
 				};
 			} else {
 				player rac s_player_plotManagement;
 			    s_player_plotManagement = -1;
-			    player rac s_player_maintain_area;
-			    s_player_maintain_area = -1;
-			    player rac s_player_maintain_area_preview;
-			    s_player_maintain_area_preview = -1;
 			};
 			if (_isAlive) then {
 				if (_isDestructable || _isWreck || _isRemovable || _isWreckBuilding) then {
@@ -1386,7 +1382,8 @@ if (!isDedicated) then {
 				                  _fuid  =  _fuid  + [_friendUID];
 				                } forEach _friends;
 				                _allowed = [_owner];    
-				                _allowed = [_owner] +  _fuid;   
+				                _allowed = [_owner] +  _fuid;
+				                _playerUID = (gpd player);
 				                if ( _playerUID in _allowed && _ownerID in _allowed ) then {  // // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
