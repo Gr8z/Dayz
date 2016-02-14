@@ -1896,21 +1896,6 @@ if (!isDedicated) then {
 				{player rac _x} forEach s_player_combi;s_player_combi = [];
 				s_player_unlockvault = -1;
 			};
-			if ((_isDestructable || _cursorTarget iko "Land_DZE_WoodDoorLocked_Base" || _cursorTarget iko "CinderWallDoorLocked_DZ_Base") && (DZE_Lock_Door == _ownerID)) then {
-				if ((s_player_lastTarget sel 4) != _cursorTarget) then {
-					if (s_player_door_ckc > 0) then {
-						player rac s_player_door_ckc;
-						s_player_door_ckc = -1;
-					};
-				};
-				if (s_player_door_ckc < 0) then {
-					s_player_lastTarget set [4,_cursorTarget];
-					s_player_door_ckc = player xaa [("<t color=""#999FFF"">Set new code</t>"), "GG\DoorLock\ckc_startUI.sqf","",0,false,true,"", ""];
-				};
-			} else {
-				player rac s_player_door_ckc;
-				s_player_door_ckc = -1;
-			};
 			_unlockedVault = ["VaultStorage"];
 			if (typeOf(cursortarget) in _unlockedVault && _ownerID != "0" && (player distance _cursorTarget < 2)) then {
 				if (s_player_vault_ckc < 0) then {
@@ -2233,8 +2218,6 @@ if (!isDedicated) then {
 			s_player_maintain_area = -1;
 			player rac s_player_maintain_area_preview;
 			s_player_maintain_area_preview = -1;
-			player rac s_player_door_ckc;
-			s_player_door_ckc = -1;
 			player rac s_player_vault_ckc;
 			s_player_vault_ckc = -1;
 			//Money
@@ -4816,7 +4799,6 @@ if (!isDedicated) then {
 			s_bank_dialog = -1;
 			s_bank_dialog2 = -1;
 			s_bank_dialog3 = -1;
-			s_player_door_ckc = -1;
 			s_player_vault_ckc = -1;
 			s_player_autorefuel = -1;
 			s_player_checkWallet = -1;

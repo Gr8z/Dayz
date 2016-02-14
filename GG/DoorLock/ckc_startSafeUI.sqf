@@ -1,7 +1,7 @@
 dayz_combination = "";
 _object = _this select 3;
 _first = _object getVariable ["CharacterID", "0"];
-_msg = "*IMPORTANT* Safe wipes were fixed;however, it's best not to change your code close to restart when the server has high poulation!";
+_msg = "*IMPORTANT* Do not have codes less then 4 numbers. Changing your Safe Codes can wipe your safe after restart. Do it with caution. You will not be refunded!";
 systemChat ("(GG-AH): "+str _msg+"");
 _msg call AH_fnc_dynTextMsg;
 

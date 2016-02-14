@@ -98,6 +98,6 @@ dayz_fullMoonNights = true;
 
 /**DoorManagement Config**/
 DoorAdminList = ["2","3"];
-AllowManualCode = true;
+AllowManualCode = false;
 HarderPenalty = true;
 DZE_DoorsLocked = ["Land_DZE_GarageWoodDoorLocked","Land_DZE_LargeWoodDoorLocked","Land_DZE_WoodDoorLocked","CinderWallDoorLocked_DZ","CinderWallDoorSmallLocked_DZ"];
