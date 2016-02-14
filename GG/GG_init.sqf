@@ -1335,20 +1335,8 @@ if (!isDedicated) then {
 			_player_deleteBuild = false;
 			_player_lockUnlock_crtl = false;
 			if (_canDo && (speed player <= 1) && (_cursorTarget iko "Plastic_Pole_EP1_DZ")) then {
-				if (s_player_plotManagement < 0) then {
-				    _adminList = ["0152"]; // Add admins here if you admins to able to manage all plotpoles
-				    _owner = _cursorTarget xgv ["CharacterID","0"];
-				    _friends = _cursorTarget xgv ["plotfriends", []];
-				    _fuid = [];
-				    {
-					    _friendUID = _x sel 0;
-					    _fuid = _fuid + [_friendUID];
-				    } forEach _friends;
-				    _allowed = [_owner]; 
-				    _allowed = [_owner] + _adminList + _fuid;
-				    if(_owner == dayz_characterID || (gpd player) in _allowed)then{            
+				if (s_player_plotManagement < 0) then {         
 				    	s_player_plotManagement = player xaa ["<t color='#0059FF'>Manage Plot</t>", "GG\plotManage\initPlotManagement.sqf", [], 5, false];
-				    };
 				};
 			} else {
 				player rac s_player_plotManagement;
