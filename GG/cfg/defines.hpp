@@ -726,7 +726,9 @@ class RscMapControl {
 	};
 };
 class RscText {
+	access = 0;
 	type =0;
+	idc = -1;
 	x = "0";
 	y = "0";
 	h = "0.037";
@@ -739,6 +741,8 @@ class RscText {
 	colorText[] = {1,1,1,1.0};
 	colorBackground[] = {0,0,0,0};
 	linespacing = 1;
+	text = "";
+	fixedWidth = 0;
 };
 class RscPicture {
 	shadow = 0;
