@@ -44,12 +44,7 @@ if (_go || _inDebug) then {
 	};
 	_hasMap = "ItemMap" in items player;
 	_hasGPS = "ItemGPS" in items player;
-	_hasWep =  primaryWeapon player;
-	_hasBP  =  backpack player;
-
-	if ((isNil "_hasWep") || (isNil "_hasBP")) then {
-		#include "class.sqf"
-	};
+	#include "class.sqf"
 	#include "spawn.sqf"
 	#include "halo.sqf"
 	#include "startSpawn.sqf"
