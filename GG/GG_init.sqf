@@ -3001,11 +3001,11 @@ if (!isDedicated) then {
 		_distance = (DZE_PlotPole sel 0);
 		_needText = lzl "str_epoch_player_246";
 		if (_isPole) then {_distance = (DZE_PlotPole sel 1)};
-		_findNearestPole = [120] call player_nearPP;
+		if (_isPole) then {_findNearestPole = [60] call player_nearPP;} else {_findNearestPole = [120] call player_nearPP;};
 		_isNearPlot = count (_findNearestPole);
 		if ((_isPole && _isNearPlot > 0)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
-			cutText ["Cannot build plot pole within "+str(DZE_PlotPole sel 0)+"m of an existing plot pole!","PLAIN"];
+			cutText ["Cannot build plot pole within "+str(DZE_PlotPole sel 1)+"m of an existing plot pole!","PLAIN"];
 		};
 		if ((_isNearPlot == 0)||(!isNil "AM_Epoch_ADMIN_norestrict")) then {
 			if (_requireplot == 0 || _isLandFireDZ) then {
