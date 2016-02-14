@@ -69,6 +69,7 @@ if (_characterID != "0") then {
 		_headShots 		= ["headShots",_character] call server_getDiff;
 		_humanity 		= ["humanity",_character] call server_getDiff2;
 		_cashMoney 		= ["GGCoins",_character] call server_getDiff2;
+		_cashMoneyStr 	= _cashMoney call MDC_fnc_numberToString;
 		_lastTime 		= _character getVariable["lastTime",time];
 		_timeGross 		= (time - _lastTime);
 		_timeSince 		= floor(_timeGross / 60);
@@ -112,7 +113,7 @@ if (_characterID != "0") then {
 		};
 		if (!isNull _character) then {
 			if (alive _character) then {
-				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity,_cashMoney];
+				_key = format["CHILD:201:%1:%2:%3:%4:%5:%6:%7:%8:%9:%10:%11:%12:%13:%14:%15:%16:%17:",_characterID,_playerPos,_playerGear,_playerBackp,_medical,false,false,_kills,_headShots,_distanceFoot,_timeSince,_currentState,_killsH,_killsB,_currentModel,_humanity,_cashMoneyStr];
 				_key call server_hiveWrite;
 			};
 		};

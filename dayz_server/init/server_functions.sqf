@@ -990,6 +990,36 @@ GG_ammovehicle = {
 	if ((DZE_useGGammo)&&((_this isKindOf "Ship")||(_this isKindOf "Plane"))&&!(_type in ["fishingboat"])) then {_this addWeapon "M134"};
 	_this disableTIEquipment true;
 };
+
+MDC_fnc_numberToString = {
+	_number = _this;
+	_str = "";
+	if (_number == 0) then {
+		_str = "0";
+	} else {
+		_negative = false;
+		if (_number < 0) then {
+			_number = abs _number;
+			_negative = true;
+		};
+		if (_number % 1 == 0) then {
+			while { _number > 0 } do {
+				_digit = floor (_number % 10);
+				_str = (str _digit) + _str;
+				_number = floor (_number / 10);
+			};
+		} else {
+			_decimals = _number % 1;
+			_decimals = _decimals * 1000000;
+			_number = floor _number;
+			_str = _number call MDC_fnc_numberToString;
+			_str = _str + "." + str _decimals;
+		};
+		if (_negative) then { _str = "-" + _str; };
+	};
+	_str;
+};
+
 update_whitelist = [
 	"ClutterCutter_EP1","Desk","FoldChair","FoldTable","Park_bench1","Park_bench2","Park_bench2_noRoad","SmallTable","WoodChair","Axe_woodblock",
 	"Barrel1","Barrel4","Barrel5","Barrels","Fuel_can","Garbage_can","Garbage_container","Haystack","Haystack_small","HeliH","HeliHCivil",
