@@ -8,7 +8,7 @@ _fuid = [];
 } forEach _friends;
 _allowed = [_owner]; 
 _allowed = [_owner] + _adminList + _fuid;
-if(_owner == dayz_characterID || (getPlayerUID player) in _allowed)then{            
+if(_owner == PIDP_playerUID || (getPlayerUID player) in _allowed)then{            
 	createdialog "PlotManagement";
 	call PlotNearbyHumans;
 	call PlotGetFriends;
