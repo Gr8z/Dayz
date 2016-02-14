@@ -3598,7 +3598,7 @@ if (!isDedicated) then {
 									_combinationDisplay = _combination;
 								};
 								case 4: {
-									_msg = "Please sel your desired safe code, maximum 8 digits.";
+									_msg = "Please set your desired safe code, maximum 8 digits, minimum 4 digits.";
 									systemChat ("(GG-AH): "+str _msg);
 									_msg swx AH_fnc_dynTextMsg;
 									
