@@ -784,32 +784,32 @@ if (!isDedicated) then {
 		uisleep 1;
 		for  "_x" from 19 to 1 step -1 do {
 			if (_x == 12) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>Join Teamspeak for 10k coins!</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>READ THE RULES</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
 				playSound "heartbeat_1";
 			};		
 			if (_x == 10) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>LOADOUTS</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>GET IN TEAMSPEAK FOR HELP</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
 				playSound "heartbeat_1";
 			};
 			if (_x == 8) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>BUILDING BOX</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>30 POSTS ON THE FORUMS</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;	
 				playSound "heartbeat_1";
 			};
 			if (_x == 6) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>SKINS</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>TO GET A FREE BUILDERS BOX</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
 				playSound "heartbeat_1";
 			};	
 			if (_x == 4) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>VIP SPAWNS</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>JOIN TEAMSPEAK</t>";
 				[_text,0,(safezoneY + 0.8),11,1,0,8] swx AH_fnc_dynamictext;
 				playSound "heartbeat_1";				
 			};			
 			if (_x == 2) then {
-				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>20+ MORE</t>";
+				_text = "<t size='2.2' font='TahomaB' color='#4CA0DC'>TO GET FREE 10K COINS</t>";
 				[_text,0,(safezoneY + 0.8),1,1,0,8] swx AH_fnc_dynamictext;	
 				playSound "heartbeat_1";
 			};
