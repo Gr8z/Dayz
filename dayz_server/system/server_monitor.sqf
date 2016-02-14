@@ -164,6 +164,9 @@ if (isServer and isNil "sm_done") then {
 			};
 			_object setVariable ["lastUpdate",time];
 			_object setVariable ["ObjectID", _idKey, true];
+			if (typeOf (_object) == "Plastic_Pole_EP1_DZ") then {
+				_object setVariable ["plotfriends", _intentory, true];
+			};
 			_object setVariable ["OwnerPUID", _ownerPUID, true];
 			if ((typeOf _object) == "Land_MBG_Garage_Single_C") then {
 				_object setVariable ["StoredVehicles",_intentory,true];
@@ -222,7 +225,7 @@ if (isServer and isNil "sm_done") then {
 				_object setVariable ["OEMPos", _pos, true];
 			};
 
-			if ((count _intentory > 0) && !((typeOf _object) == "Land_MBG_Garage_Single_C")  && !(typeOf( _object) in  DZE_DoorsLocked)) then {
+			if ((count _intentory > 0) && !((typeOf _object) == "Land_MBG_Garage_Single_C")  && !(typeOf( _object) in  DZE_DoorsLocked) && !(typeOf( _object) == "Plastic_Pole_EP1_DZ")) then {
 				if (_type in DZE_LockedStorage) then {
 					_object setVariable ["WeaponCargo", (_intentory select 0),true];
 					_object setVariable ["MagazineCargo", (_intentory select 1),true];

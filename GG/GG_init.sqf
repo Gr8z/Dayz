@@ -49,6 +49,10 @@ if (!isDedicated) then {
 	"filmic" setToneMappingParams [0.153, 0.357, 0.231, 0.1573, 0.011, 3.750, 6, 4];
 	setToneMapping "Filmic";
 
+	PlotGetFriends = 			xcm xlx "GG\plotManage\plotGetFriends.sqf";
+	PlotNearbyHumans = 			xcm xlx "GG\plotManage\plotNearbyHumans.sqf";
+	PlotAddFriend = 			xcm xlx "GG\plotManage\plotAddFriend.sqf";
+	PlotRemoveFriend = 			xcm xlx "GG\plotManage\plotRemoveFriend.sqf";
 	DoorGetFriends = 			xcm xlx "GG\doorManagement\doorGetFriends.sqf";
 	DoorNearbyHumans = 			xcm xlx "GG\doorManagement\doorNearbyHumans.sqf";
 	DoorAddFriend = 			xcm xlx "GG\doorManagement\doorAddFriend.sqf";
@@ -228,8 +232,14 @@ if (!isDedicated) then {
 			_nearestPole = _findNearestPole sel 0;
 			_ownerID = _nearestPole getVariable["CharacterID","0"];
 			if(dayz_characterID != _ownerID) then {
-				_friendlies		= player getVariable ["friendlyTo",[]];
-				if(!(_ownerID in _friendlies)) then {
+				_friendlies = _nearestPole getVariable ["plotfriends",[]];
+				_fuid  = [];
+				{
+				      _friendUID = _x select 0;
+				      _fuid  =  _fuid  + [_friendUID];
+				} forEach _friendlies;
+				_builder  = getPlayerUID player;
+				if(!(_builder in _fuid)) then {
 					_limit = round(_limit*2);
 				};
 			};
@@ -981,217 +991,6 @@ if (!isDedicated) then {
 		endLoadingScreen;
 		execVM "GG\spawn\start.sqf";
 	};
-	GG_maintainbase = {
-		BM_getControl = {(findDisplay 7331) displayCtrl _this};
-		baseManage_alphaSort = {
-			if (count _this < 2) exitWith {aht_plrs = _this};
-			private ['_array1', '_array2', '_tmp', '_itemSorted'];
-			for '_inc' from 0 to (count _this - 2) do {
-				for '_dec' from _inc to 0 step -1 do {
-					_objStr1 	= name (_this sel _dec);
-					_objStr2 	= name (_this sel _dec + 1);
-					_array1 	= toArray(toLower(_objStr1));
-					_array2 	= toArray(toLower(_objStr2));
-					_itemSorted = false;
-					for '_i' from 0 to (count _array1) do {
-						if (_i >= count _array2 || {_array1 sel _i > _array2 sel _i}) exitWith {
-							_tmp = _this sel _dec;
-							_this set [_dec, _this sel _dec +1];
-							_this set [_dec +1, _tmp]
-						};
-						if (_array1 sel _i < _array2 sel _i) exitWith {_itemSorted = true};
-					};
-					if (_itemSorted) exitWith {};
-				};
-			};
-			aht_plrs = _this;
-		};
-		baseManage_fillLists = {
-			_allPlayers = playableUnits;
-			_ctrl = 1003 call BM_getControl;
-			lbclear _ctrl;
-			
-			_allPlayers call baseManage_alphaSort;
-			_playerList = aht_plrs;
-			
-			_cnt = 0;
-			_friends = (player getVariable ['AH_friendlist',[]]);
-			{
-				if (((getPlayerUID _x call PIDP_check) in _friends)&&(_x != player)) then {
-					_ctrl lbAdd format ["%1",name _x];
-					_ctrl lbSetColor [(lbsize _ctrl)-1, [0.6, 1, 0.6, 1]];
-					_cnt = _cnt + 1;
-				};
-			} forEach _playerList;
-			_ctrl ctrlSetFontHeight 0.025;
-			
-			_ctrl = 1006 call BM_getControl;
-			_ctrl ctrlSetText format ["Friends: %1",_cnt];
-			_ctrl ctrlSetTextColor [0,1,0,1];
-			_ctrl ctrlSetFontHeight 0.03;
-			_allPlayers = playableUnits;
-			
-			_allPlayers call baseManage_alphaSort;
-			_playerList = aht_plrs;
-			
-			_ctrl = 1002 call BM_getControl;
-			lbclear _ctrl;
-			_cnt = 0;
-			_friends = (player getVariable ['AH_friendlist',[]]);
-			{
-				if (!((getPlayerUID _x call PIDP_check) in _friends)&&(_x != player)) then {
-					if ((isPlayer _x)&&(alive _x)) then {
-						_cnt = _cnt + 1;
-						_ctrl lbAdd format ["%1",name _x];
-						_ctrl lbSetColor [(lbsize _ctrl)-1, [0.8, 0.8, 1, 1]];
-					};
-				};
-			} forEach _playerList;
-			_ctrl ctrlSetFontHeight 0.025;
-			
-			_ctrl = 1005 call BM_getControl;
-			_ctrl ctrlSetText format ["Players: %1",_cnt];
-			_ctrl ctrlSetTextColor [0.5,0.5,1,1];
-			_ctrl ctrlSetFontHeight 0.03;
-		};
-		baseManage_countBuildables = {
-			_objects_filtered = [];
-			{if (damage _x >= 0.1) then {_objects_filtered set [count _objects_filtered, _x]}} forEach (nearestObjects [player, DZE_maintainClasses, DZE_maintainRange]);
-			_count = count _objects_filtered;
-			baseManage_requirements = [[GCoins,(50 * _count)]];
-			
-			if (_require sel 1 == 0) then {
-				_txt = "<br/><br/><br/><br/><br/><br/><br/><br/><br/><t align='center' color='#44FF00' size='1' font='EtelkaMonospaceProBold'>Your base is fully maintained!</t>";
-				_ctrl = 1007 call BM_getControl;
-				lbclear _ctrl;
-				_ctrl ctrlSetStructuredText parseText _txt;
-				_ctrl ctrlSetTextColor [1,1,0.5,1];
-				_ctrl ctrlSetFontHeight 0.03;
-				_maint = 1008 call BM_getControl;
-				_maint ctrlEnable false;
-			} else {
-				if (getPlayerUID player in GG_freemaintarra) then {baseManage_requirements = [["Thanks for donating!","Free"]]};
-				_txtstart = "<t align='center' color='#FFFFFF' size='2'>";
-				_txtfinal = "</t>";
-				_textleft = "<t color='#cc3333'>";
-				_txtright = "</t>";
-				_txt = "<t align='center' color='#ff524a' size='1.5' font='EtelkaMonospaceProBold'>Base maintenance</t><br/>";
-				_txt = _txt + _txtstart;
-				_pic = "GG\GUI\hud\gold_p.paa";
-				_txt = _txt + format ["<br/>%2Objects%3: <br/>%1<br/><br/>",_count,_textleft,_txtright];
-				_txt = _txt + format ["%2Cost%3: <br/>%1<br/>",_require sel 1,_textleft,_txtright];
-				_txt = _txt + format ["<img size='3' image='%1'/>",_pic];
-				_txt = _txt + format ["<t size='0.8'><br/>%1</t><br/>",_require sel 0];
-				_txt = _txt + _txtfinal;
-				_ctrl = 1007 call BM_getControl;
-				lbclear _ctrl;
-				_ctrl ctrlSetStructuredText parseText _txt;
-				_ctrl ctrlSetTextColor [1,1,0.5,1];
-				_ctrl ctrlSetFontHeight 0.03;
-			};
-		};
-		baseManage_addFriend = {
-			_allPlayers = playableUnits;
-			if (player getVariable['combattimeout', 0] >= time) exitWith {
-				_msg = format ['Friend request from %1 blocked because you are in combat.',name _caller];
-				systemChat ('(GG-AH): '+str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			_name = _this sel 0;
-			if (_name == "") exitWith {};
-			if (_name == name player) exitWith {
-				_msg = "You can not add yourself!";
-				systemChat ('(GG-AH): '+str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			SEL_TARGET = objNull;
-			_isCF = false;
-			_friendList = profileNameSpace getVariable ["AH_friendlist",[]];
-			{
-				if (name _x == _name) then {
-					SEL_TARGET = _x;
-					if ((getPlayerUID _x call PIDP_check) in _friendList) exitWith {
-						_isCF = true;
-					};
-				};
-			} foreach _allPlayers;
-			if (isNull SEL_TARGET) exitWith {
-				_msg = format ['Could not find %1.',_name];
-				systemChat ('(GG-AH): ' + str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			if (_isCF) exitWith {
-				_msg = format ['%1 is already your friend.',name SEL_TARGET];
-				systemChat ('(GG-AH): ' + str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			_msg = format ['Sending friend request to %1.',name SEL_TARGET];
-			systemChat ('(GG-AH): ' + str _msg);
-			_msg call AH_fnc_dynTextMsg;
-			PVOZ_FL_handle = [SEL_TARGET,player,'request'];
-			publicVariableServer 'PVOZ_FL_handle';
-			_tt = time;
-			waitUntil {((getPlayerUID SEL_TARGET call PIDP_check) in (player getVariable ["AH_friendlist",[]]))};
-			uiSleep 1;
-			if ((getPlayerUID SEL_TARGET call PIDP_check) in (player getVariable ["AH_friendlist",[]])) then {
-				call baseManage_fillLists;
-			} else {
-				_msg = "Player did not accept your friend request in time!";
-				systemChat ("(GG-AH): "+str _msg+"");
-			};
-		};
-		baseManage_delFriend = {
-			_allPlayers = playableUnits;
-			_name = _this sel 0;
-			if (_name == "") exitWith {};
-			if (_name == name player) exitWith {
-				_msg = "You can not delete yourself!";
-				systemChat ('(GG-AH): '+str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			_foundFriend = false;
-			SEL_TARGET = objNull;
-			_friendList = profileNameSpace getVariable ["AH_friendlist",[]];
-			{
-				if (name _x == _name) then {
-					SEL_TARGET = _x;
-					if ((getPlayerUID SEL_TARGET call PIDP_check) in _friendList) exitWith {_foundFriend = true};
-				};
-			} forEach _allPlayers;
-			if (isNull SEL_TARGET) exitWith {
-				_msg = format ['Could not find %1.',_name];
-				systemChat ('(GG-AH): ' + str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-			if (_foundFriend) then {
-				_friendList = profileNameSpace getVariable ["AH_friendlist",[]];
-				
-				_friendList = _friendList - [(getPlayerUID SEL_TARGET call PIDP_check)];
-				player setVariable ['AH_friendlist',_friendList,true];
-				profileNamespace setVariable ['AH_friendlist',_friendList];
-				saveProfileNamespace;
-				
-				_targetList = SEL_TARGET getvariable ["AH_friendlist",[]];
-				
-				_targetList = _targetList - [(getPlayerUID player call PIDP_check)];
-				SEL_TARGET setVariable ['AH_friendlist',_targetList,true];
-				
-				_msg = format ['%1 has been removed from your friendlist.',name SEL_TARGET];
-				systemChat ('(GG-AH): ' + str _msg);
-				_msg call AH_fnc_dynTextMsg;
-				call baseManage_fillLists;
-			} else {
-				_msg = format ['Could not find %1!',_name];
-				systemChat ('(GG-AH): ' + str _msg);
-				_msg call AH_fnc_dynTextMsg;
-			};
-		};
-		disableSerialization;
-		createDialog "RscPlotMenu";
-		waitUntil {!(isNull (findDisplay 7331))};
-		call baseManage_countBuildables;
-		call baseManage_fillLists;
-	};
 	AH_fnc_setMapPos = {
 		disableSerialization;
 		_ctrl 	= _this sel 0;
@@ -1536,15 +1335,28 @@ if (!isDedicated) then {
 			_player_deleteBuild = false;
 			_player_lockUnlock_crtl = false;
 			if (_canDo && (speed player <= 1) && (_cursorTarget iko "Plastic_Pole_EP1_DZ")) then {
-				if (s_player_maintain_area < 0) then {
-					s_player_maintain_area = player xaa ["<t color='#FFE700'>Manage base</t>", "GG\GG_PPM.sqf", "", 5, false];
-					s_player_maintain_area_preview = player xaa ["<t color='#ff0000'>Toggle plot arrows</t>", "GG\GG_MA.sqf", "preview", 5, false];
+				if (s_player_plotManagement < 0) then {
+				    _adminList = ["0152"]; // Add admins here if you admins to able to manage all plotpoles
+				    _owner = _cursorTarget xgv ["CharacterID","0"];
+				    _friends = _cursorTarget xgv ["plotfriends", []];
+				    _fuid = [];
+				    {
+					    _friendUID = _x sel 0;
+					    _fuid = _fuid + [_friendUID];
+				    } forEach _friends;
+				    _allowed = [_owner]; 
+				    _allowed = [_owner] + _adminList + _fuid;
+				    if(_owner == dayz_characterID || (gpd player) in _allowed)then{            
+				    s_player_plotManagement = player xaa ["<t color='#0059FF'>Manage Plot</t>", "GG\plotManage\initPlotManagement.sqf", [], 5, false];
+				    };
 				};
 			} else {
-				player rac s_player_maintain_area;
-				s_player_maintain_area = -1;
-				player rac s_player_maintain_area_preview;
-				s_player_maintain_area_preview = -1;
+				player rac s_player_plotManagement;
+			    s_player_plotManagement = -1;
+			    player rac s_player_maintain_area;
+			    s_player_maintain_area = -1;
+			    player rac s_player_maintain_area_preview;
+			    s_player_maintain_area_preview = -1;
 			};
 			if (_isAlive) then {
 				if (_isDestructable || _isWreck || _isRemovable || _isWreckBuilding) then {
@@ -1558,10 +1370,59 @@ if (!isDedicated) then {
 						};
 					};
 				};
-				if ((_isModular || _isModularDoor || _isGarage) && ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID))) then {
-					if (_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
-						_player_deleteBuild = true;
-					};
+				///Allow owners to delete modulars
+				if(_isModular) then {
+				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
+				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
+				            _IsNearPlot = count (_findNearestPoles);
+				            _fuid  = [];
+				            _allowed = [];
+				            if(_IsNearPlot > 0)then{
+				                _thePlot = _findNearestPoles select 0;
+				                _owner =  _thePlot getVariable ["ownerPUID","010"];
+				                _friends = _thePlot getVariable ["plotfriends", []];
+				                {
+				                  _friendUID = _x select 0;
+				                  _fuid  =  _fuid  + [_friendUID];
+				                } forEach _friends;
+				                _allowed = [_owner];    
+				                _allowed = [_owner] +  _fuid;   
+				                if ( _playerUID in _allowed && _ownerID in _allowed ) then {  // // If u want that the object also belongs to someone on the plotpole.
+				                    _player_deleteBuild = true;
+				                };                  
+				            }else{
+				                if(_ownerID == _playerUID)then{
+				                    _player_deleteBuild = true;
+				                };
+				            };                                        
+				        };
+				};
+				//Allow owners to delete modular doors without locks
+				if(_isModularDoor) then {
+				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {         
+				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
+				            _IsNearPlot = count (_findNearestPoles);
+				            _fuid  = [];
+				            _allowed = [];
+				            if(_IsNearPlot > 0)then{
+				                _thePlot = _findNearestPoles select 0;
+				                _owner =  _thePlot getVariable ["ownerPUID","010"];
+				                _friends = _thePlot getVariable ["plotfriends", []];
+				                {
+				                  _friendUID = _x select 0;
+				                  _fuid  =  _fuid  + [_friendUID];``
+				                } forEach _friends;
+				                _allowed = [_owner];    
+				                _allowed = [_owner] +  _fuid;   
+				                if ( _playerUID in _allowed && _ownerID in _allowed) then { //  // If u want that the object also belongs to someone on the plotpole.
+				                    _player_deleteBuild = true;
+				                };                  
+				            }else{
+				                if(_ownerID == _playerUID)then{
+				                    _player_deleteBuild = true;
+				                };
+				            };                              
+				        };      
 				};
 				if (_isVehicle) then {
 					if (!(canmove _cursorTarget) && (player distance _cursorTarget >= 2) && (count (crew _cursorTarget))== 0 && ((vectorUp _cursorTarget) sel 2) < 0.5) then {
@@ -2214,10 +2075,6 @@ if (!isDedicated) then {
 			s_player_checkGear = -1;
 			player rac s_player_SurrenderedGear;
 			s_player_SurrenderedGear = -1;
-			player rac s_player_maintain_area;
-			s_player_maintain_area = -1;
-			player rac s_player_maintain_area_preview;
-			s_player_maintain_area_preview = -1;
 			player rac s_player_vault_ckc;
 			s_player_vault_ckc = -1;
 			//Money
@@ -2315,6 +2172,8 @@ if (!isDedicated) then {
 			s_player_fuelauto2 = -1;
 			player rac s_player_garage;
 			s_player_garage = -1;
+			player rac s_player_plotManagement;
+			s_player_plotManagement = -1;
 		};
 		_dogHandle = player xgv ["dogID", 0];
 		if (_dogHandle > 0) then {
@@ -3465,9 +3324,17 @@ if (!isDedicated) then {
 					_nearestPole = _findNearestPole sel 0;
 					_ownerID = _nearestPole xgv ["CharacterID","0"];
 					if (PIDP_playerUID == _ownerID) then {_canBuildOnPlot = true} else {
-						_friendlies = player xgv ["friendlyTo",[]];
-						_friendList = player xgv ["AH_friendlist",[]];
-						if ((_ownerID in _friendlies)||(_ownerID in _friendList)) then {_canBuildOnPlot = true};
+						_friendlies = _nearestPole getVariable ["player",[]];
+						_fuid  = [];
+						{
+						    _friendUID = _x sel 0;
+						    _fuid  =  _fuid  + [_friendUID];
+						} forEach _friendlies;
+						_builder  = gpd player;
+						// check if friendly to owner
+						if(_builder in _fuid) then {
+						    _canBuildOnPlot = true;
+						};
 					};
 				};
 				_canBuildOnPlot;
@@ -3873,7 +3740,33 @@ if (!isDedicated) then {
 		};
 	};
 	player_nearPP = {_findNearestPole = [];{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x];};} foreach (nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole sel 0]);_findNearestPole;};
-	player_canBuildPP = {_findNearestPole = call player_nearPP;_isNearPlot = count (_findNearestPole);_canBuildOnPlot = false;if (_isNearPlot == 0) then {_canBuildOnPlot = true;} else {_nearestPole = _findNearestPole sel 0;_ownerID = _nearestPole xgv ["CharacterID","0"];if (PIDP_playerUID == _ownerID) then {_canBuildOnPlot = true} else {_friendlies = player xgv ["friendlyTo",[]];_friendList = player xgv ["AH_friendlist",[]];if ((_ownerID in _friendlies)||(_ownerID in _friendList)) then {_canBuildOnPlot = true};};};_canBuildOnPlot;};
+	player_canBuildPP = {
+		_findNearestPole = call player_nearPP;
+		_isNearPlot = count (_findNearestPole);
+		_canBuildOnPlot = false;
+		if (_isNearPlot == 0) then {
+			_canBuildOnPlot = true;
+		} else {
+			_nearestPole = _findNearestPole sel 0;
+			_ownerID = _nearestPole xgv ["CharacterID","0"];
+			if (PIDP_playerUID == _ownerID) then {
+				_canBuildOnPlot = true;
+			} else {
+				_friendlies = _nearestPole xgv ["plotfriends",[]];
+				_fuid  = [];
+				{
+				      _friendUID = _x select 0;
+				      _fuid  =  _fuid  + [_friendUID];
+				} forEach _friendlies;
+				_builder  = gpd player;
+				// check if friendly to owner
+				if(_builder in _fuid) then {
+				    _canBuildOnPlot = true;
+				};
+			};
+		};
+		_canBuildOnPlot;
+	};
 	player_plotPreview = {private ["_location","_object","_objects","_i","_dir","_nearPlotPole"];_nearPlotPole = nearestObject [player, "Plastic_Pole_EP1_DZ"];_BD_radius = DZE_PlotPole sel 0;_BD_center = _nearPlotPole call AH_fnc_getPos;_objects = [];if (isNil "plot_previewArrows") then {plot_previewArrows = []};_msg = "Plot pole preview loaded, check for red arrows.";systemChat ("(GG-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;for "_i" from 0 to 360 step (600 / _BD_radius) do {_location = [(_BD_center sel 0) + ((cos _i) * _BD_radius), (_BD_center sel 1) + ((sin _i) * _BD_radius), _BD_center sel 2];_object = "Sign_arrow_down_large_EP1" createVehicleLocal _location;plot_previewArrows = plot_previewArrows + [_object];};uiSleep 30;{deleteVehicle _x;} foreach plot_previewArrows;plot_previewArrows = [];_msg = "Plot pole preview has been deleted!";systemChat ("(GG-AH): "+str _msg);_msg swx AH_fnc_dynTextMsg;};
 	player_spawnCheck = {
 		private ["_type","_inVehicle","_dateNow","_maxWildZombies","_age","_radius","_position","_markerstr","_markerstr1","_markerstr2","_markerstr3","_nearByObj","_handle","_looted","_cleared","_zombied","_config","_canLoot","_dis","_players","_nearby","_nearbyCount","_onTheMove","_soundLimit"];
@@ -4858,8 +4751,6 @@ if (!isDedicated) then {
 			s_player_towing		 =  -1;
 			s_halo_action =         -1;
 			s_player_SurrenderedGear = -1;
-			s_player_maintain_area = -1;
-			s_player_maintain_area_preview = -1;
 			s_player_heli_lift = -1;
 			s_player_heli_detach = -1;
 			s_player_lockUnlock_crtl = -1;
@@ -4870,6 +4761,7 @@ if (!isDedicated) then {
 			s_player_manageDoor = -1;
 			s_player_claimkey = -1;
 			s_player_changeKey = -1;
+			s_player_plotManagement = -1;
 		};
 		call dayz_resetSelfActions;
 		rn "GG\Trader\player_traderMenu.sqf";

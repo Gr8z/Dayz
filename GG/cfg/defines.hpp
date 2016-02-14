@@ -2368,137 +2368,6 @@ class AH_RSC_TXT {
 		};
 	};
 };
-class RscPlotMenu {
-	idd = 7331;
-	name = "";
-	movingEnable = true;
-	moving = 1;
-	objects[] 	= {};
-	class controlsBackground {
-		class BM_background: RscText {
-			idc = 1000;
-			text = "";
-			x = 0.29375 * safezoneW + safezoneX;
-			y = 0.225053 * safezoneH + safezoneY;
-			w = 0.4125 * safezoneW;
-			h = 0.549893 * safezoneH;
-			colorText[] = {1,1,1,1};
-			colorBackground[] = {0,0,0,0.75};
-		};
-		class BM_titleBG: RscPicture {
-			idc = 1200;
-			moving = 1;
-			text = "GG\GUI\background_ca.paa";
-			x = 0.29375 * safezoneW + safezoneX;
-			y = 0.225053 * safezoneH + safezoneY;
-			w = 0.4125 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
-		};
-		class BG_title: RscText {
-			idc = 1001;
-			text = "Base management";
-			x = 0.29375 * safezoneW + safezoneX;
-			y = 0.225053 * safezoneH + safezoneY;
-			w = 0.4125 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			colorText[] = {1,1,1,1};
-		};
-		class BM_maintInfo: RscStructuredText {
-			idc = 1007;
-			text = "";
-			x = 0.487109 * safezoneW + safezoneX;
-			y = 0.280043 * safezoneH + safezoneY;
-			w = 0.193359 * safezoneW;
-			h = 0.41242 * safezoneH;
-		};
-		class BM_plyrTXT: RscText {
-			idc = 1005;
-			text = "Players:";
-			x = 0.306641 * safezoneW + safezoneX;
-			y = 0.252548 * safezoneH + safezoneY;
-			w = 0.0386719 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			colorText[] = {1,1,1,1};
-		};
-		class BM_friendTXT: RscText {
-			idc = 1006;
-			text = "Friends:";
-			x = 0.383984 * safezoneW + safezoneX;
-			y = 0.252548 * safezoneH + safezoneY;
-			w = 0.0386719 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			colorText[] = {1,1,1,1};
-		};
-	};
-	class controls {
-		class BM_playerlist: RscListbox {
-			idc = 1002;
-			text = "";
-			x = 0.306641 * safezoneW + safezoneX;
-			y = 0.280043 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
-			h = 0.41242 * safezoneH;
-			colorBackground[] = {0.5,0.5,0.5,0.25};
-		};
-		class BM_friendlist: RscListbox {
-			idc = 1003;
-			text = "";
-			x = 0.383984 * safezoneW + safezoneX;
-			y = 0.280043 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
-			h = 0.41242 * safezoneH;
-		};
-		class BM_maintain: RscButton {
-			idc = 1008;
-			text = "Maintain";
-			x = 0.545117 * safezoneW + safezoneX;
-			y = 0.70621 * safezoneH + safezoneY;
-			w = 0.0773437 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			onButtonClick = "['','','','maintain'] execVM 'GG\GG_MA.sqf';closeDialog 0;";
-			colorBackground[] = {0,1,0.6,0.8};
-			colorBackgroundActive[] = {0,1,1,1};
-		};
-		class BM_delBTN: RscButton {
-			idc = 1009;
-			text = "Delete";
-			x = 0.39043 * safezoneW + safezoneX;
-			y = 0.70621 * safezoneH + safezoneY;
-			w = 0.0644531 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			onButtonClick = "[lbtext [1003,lbCurSel 1003]] spawn baseManage_delFriend;";
-			colorText[] = {1,1,1,1};
-		};
-		class BM_addBtn: RscButton {
-			idc = 1010;
-			text = "Add";
-			x = 0.306641 * safezoneW + safezoneX;
-			y = 0.70621 * safezoneH + safezoneY;
-			w = 0.0644531 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			onButtonClick = "[lbtext [1002,lbCurSel 1002]] spawn baseManage_addFriend;";
-			colorText[] = {1,1,1,1};
-		};
-		class BM_closeBtn: RscButton {
-			idc = 1603;
-			text = "Close";
-			font = "Zeppelin32";
-			x = 0.667578 * safezoneW + safezoneX;
-			y = 0.225053 * safezoneH + safezoneY;
-			w = 0.0386719 * safezoneW;
-			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.23,0,1};
-			colorDisabled[] = {1,0.1,0.1,0};
-			colorBackground[] = {1,0.1,0.1,0};
-			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
-			colorFocused[] = {0.75,0.75,0.75,0.5};
-			colorShadow[] = {0,0,0,0};
-			colorBorder[] = {0,0,0,0};
-		};
-	};
-};
 class RscTitles {
 	titles[] = {"DeathScreen","TitleScreen","RscTitleStructuredText"};
     class EarPlugs {
@@ -4708,6 +4577,171 @@ class SpawnDialog {
 				coefMax = 4;
 			};
 		};
+	};
+};
+class PlotManagement{
+	idd = 711194;
+	onLoad = "uiNamespace setVariable ['PlotManagement', _this select 0]";
+	class Controls {
+		class RscText_7000: RscText
+		{
+			idc = 7000;
+			x = 0.30 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.65 * safezoneH;
+			colorBackground[] = {0,0,0,0.8};
+		};	
+		
+	class RscText_7007: RscText
+		{
+			idc = 7007;
+			text = "Plot Management";
+			x = 0.30 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.05 * safezoneH;		
+			colorBackground[] = {0,0,0,0.8};	
+			colorText[] = {1,1,1,1};			
+		};
+		
+		class RscShortcutButton_7009: RscButtonMenu
+		{
+			idc = -1;
+			text = "Boundry";
+			x = 0.31 * safezoneW + safezoneX;
+			y = 0.22 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			onButtonClick = "call PlotPreview;";
+		};
+		
+				class RscShortcutButton_7010: RscButtonMenu
+		{
+			idc = -1;
+			text = "Refresh";
+			x = 0.41 * safezoneW + safezoneX;
+			y = 0.22 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			onButtonClick = "[""preview""] call MaintainPlot;";
+		};
+		
+				class RscShortcutButton_7011: RscButtonMenu
+		{
+			idc = -1;
+			text = "Maintain";
+			x = 0.51 * safezoneW + safezoneX;
+			y = 0.22 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			onButtonClick = "[""maintain""] call MaintainPlot;";
+		};
+		class RscText_7012: RscTextT
+		{
+			idc = 7012;
+			text = "";
+			x = 0.31 * safezoneW + safezoneX;
+			y = 0.30 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.05 * safezoneH;			
+			colorText[] = {1,1,1,1};
+			
+		};
+		
+		class RscText_7014:  RscStructuredText
+		{
+			idc = 7014;
+			text = "";
+			x = 0.30 * safezoneW + safezoneX;
+			y = 0.15 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.03 * safezoneH;
+			class Attributes {
+				align = "right";
+			};
+		};
+		
+		class RscText_7013: RscText
+		{
+			idc = 7013;
+			text = "";
+			x = 0.31 * safezoneW + safezoneX;
+			y = 0.33 * safezoneH + safezoneY;
+			w = 0.30 * safezoneW;
+			h = 0.03 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+		
+		
+		class RscText_7008: RscText
+		{
+			idc = -1;
+			text = "Humans Nearby";
+			x = 0.31 * safezoneW + safezoneX;
+			y = 0.38 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.03 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};		
+		class RscText_7003: RscText
+		{
+			idc = -1;
+			text = "Plot Friends";
+			x = 0.45 * safezoneW + safezoneX;
+			y = 0.38 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.03 * safezoneH;
+			colorText[] = {1,1,1,1};
+		};
+		
+		
+		class RscListbox_7001: RscListbox
+		{
+			idc = 7001;
+			x = 0.31* safezoneW + safezoneX;
+			y = 0.41 * safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.30 * safezoneH;
+			soundSelect[] = {"",0.1,1};
+			colorBackground[] = {0.1,0.1,0.1,0.8};
+		};
+		class RscListbox_7002: RscListbox
+		{
+			idc = 7002;
+			x = 0.45 * safezoneW + safezoneX;
+			y = 0.41* safezoneH + safezoneY;
+			w = 0.13 * safezoneW;
+			h = 0.30 * safezoneH;
+			soundSelect[] = {"",0.1,1};
+			colorBackground[] = {0.1,0.1,0.1,0.8};
+		};
+		class RscShortcutButton_7004: RscButtonMenu
+		{
+			idc = -1;
+			text = "Add";
+			x = 0.33 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			onButtonClick = "[(lbCurSel 7001)] call PlotAddFriend;";
+		};
+		class RscShortcutButton_7005: RscButtonMenu
+		{
+			idc = -1;
+			text = "Delete";
+			x = 0.47 * safezoneW + safezoneX;
+			y = 0.70 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+			onButtonClick = "[(lbCurSel 7002)] call PlotRemoveFriend;";
+		};	
+		class RscShortcutButton_7006: RscButtonMenu
+		{
+			idc = -1;
+			text = "Close";
+			x = 0.40 * safezoneW + safezoneX;
+			y = 0.74 * safezoneH + safezoneY;
+			w = 0.08 * safezoneW;
+
+			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
+		};		
+
 	};
 };
 
