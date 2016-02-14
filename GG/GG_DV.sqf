@@ -12,7 +12,7 @@ xcc ("
 	_isNearPlot = count (_findNearestPole);
 	_canDeployOnPlot = true;
 	if (_isNearPlot > 0) then {
-		_nearestPole = _findNearestPole sel 0;
+		_nearestPole = _findNearestPole select 0;
 		_ownerID = _nearestPole getVariable ['CharacterID','0'];
 		if (PIDP_playerUID == _ownerID) then {_canDeployOnPlot = true;} else {
 			_friendlies = _nearestPole getVariable ['player',[]];
