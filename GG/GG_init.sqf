@@ -5067,8 +5067,6 @@ local_lockUnlock = {
 	_vehicle = _this sel 0;
 	_status = _this sel 1;
 	_action = _this select 3;
-	{_vehicle removeAction _x} forEach s_player_incarlockunlock;s_player_incarlockunlock = [];
-	s_player_inCarlockUnlock_crtl = -1;
 	if (local _vehicle) then {
 		_vehicle swx {
 			_allPlayers = playableUnits;
