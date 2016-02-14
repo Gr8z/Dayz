@@ -2867,7 +2867,7 @@ if (!isDedicated) then {
 		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
 		if ((count (nearestObjects [player,dayz_allowedObjects,120])) >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
-			cutText [(lzl "str_epoch_player_41"), "PLAIN DOWN"]
+			cutText ['Cannot Build, You have reached your building limit!','PLAIN'];
 		};
 		
 		if (isNil "GG_donatorarra") then {GG_donatorarra = []};
