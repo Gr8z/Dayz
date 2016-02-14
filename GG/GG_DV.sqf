@@ -8,7 +8,7 @@ xcc ("
 	_required = "+str _req+";
 	{if (_x in ((items player) + (magazines player))) then {_required set [_forEachIndex,objNull]}} forEach _required;
 	_required = _required - [objNull];
-	_findNearestPole = call player_nearPP;
+	_findNearestPole = [60] call player_nearPP;
 	_isNearPlot = count (_findNearestPole);
 	if (_isNearPlot > 0) then {
 		systemChat 'Cannot Deploy, You are near a plot pole.';

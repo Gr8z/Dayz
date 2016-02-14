@@ -3001,7 +3001,7 @@ if (!isDedicated) then {
 		_distance = (DZE_PlotPole sel 0);
 		_needText = lzl "str_epoch_player_246";
 		if (_isPole) then {_distance = (DZE_PlotPole sel 1)};
-		_findNearestPole = call player_nearPP;
+		_findNearestPole = [120] call player_nearPP;
 		_isNearPlot = count (_findNearestPole);
 		if ((_isPole && _isNearPlot > 0)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
@@ -3727,9 +3727,18 @@ if (!isDedicated) then {
 			GG_oldbp = nil;
 		};
 	};
-	player_nearPP = {_findNearestPole = [];{if (alive _x) then {_findNearestPole set [(count _findNearestPole),_x];};} foreach (nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole sel 0]);_findNearestPole;};
+	player_nearPP = {
+		_findNearestPole = [];
+		_metersPlot = _this select 0;
+		{
+			if (alive _x) then {
+				_findNearestPole set [(count _findNearestPole),_x];
+			};
+		} foreach (nearestObjects[player, ["Plastic_Pole_EP1_DZ"], _metersPlot]);
+		_findNearestPole;
+	};
 	player_canBuildPP = {
-		_findNearestPole = call player_nearPP;
+		_findNearestPole = [60] call player_nearPP;
 		_isNearPlot = count (_findNearestPole);
 		_canBuildOnPlot = false;
 		if (_isNearPlot == 0) then {
