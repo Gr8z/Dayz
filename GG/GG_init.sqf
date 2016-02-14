@@ -3001,7 +3001,7 @@ if (!isDedicated) then {
 		_distance = (DZE_PlotPole sel 0);
 		_needText = lzl "str_epoch_player_246";
 		if (_isPole) then {_distance = (DZE_PlotPole sel 1)};
-		if (_isPole) then {_findNearestPole = [60] call player_nearPP;} else {_findNearestPole = [120] call player_nearPP;};
+		if (_isPole) then {_findNearestPole = [150] call player_nearPP;} else {_findNearestPole = [60] call player_nearPP;};
 		_isNearPlot = count (_findNearestPole);
 		if ((_isPole && _isNearPlot > 0)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
 			DZE_ActionInProgress = false;
