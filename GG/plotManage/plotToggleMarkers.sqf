@@ -2,7 +2,7 @@ private ["_speed","_density","_model","_thePlot","_center","_radius","_angle","_
 //-----------------------------------------------------------------------------------------
 _speed = 4;			// multiplier for speed of sphere rotation/wobble
 _density = 3;		// density of markers per ring
-_model = "Sign_sphere25cm_EP1";	// marker model to use on rings
+_model = "Sign_sphere100cm_EP1";	// marker model to use on rings
 //-----------------------------------------------------------------------------------------
 //
 _thePlot = (nearestObjects [player, ["Plastic_Pole_EP1_DZ"],15]) select 0;
@@ -18,7 +18,7 @@ if (!isNil "PP_Marks") then {
 if ((isNil "PP_Marks") && (!_obj)) then {
 	PP_Marks = [];		_count = round((2 * pi * _radius) / _density);
 	//--------------------------------------------------------------------------------
-	_obj = "Sign_sphere100cm_EP1" createVehicleLocal [0,0,0];	//	PARENT marker on pole
+	_obj = "Sign_sphere10cm_EP1" createVehicleLocal [0,0,0];	//	PARENT marker on pole
 	_obj setPosASL [_center select 0, _center select 1, _center select 2];
 	_obj setObjectTexture [0, "#(argb,16,16,1)color(0,1,0,0.4)"];	_axis = _obj;
 	_obj setVectorUp [0, 0, 0];		PP_Marks set [count PP_Marks, _obj];
