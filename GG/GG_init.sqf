@@ -3035,7 +3035,7 @@ if (!isDedicated) then {
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
-		if ((count (nearestObjects [player,dayz_allowedObjects,30])) >= DZE_BuildingLimit) exw {
+		if ((count (nearestObjects [player,dayz_allowedObjects,120])) >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText [(lzl "str_epoch_player_41"), "PLAIN DOWN"]
 		};
@@ -3170,7 +3170,7 @@ if (!isDedicated) then {
 		_isLandFireDZ = (_classname == "Land_Fire_DZ");
 		_distance = (DZE_PlotPole sel 0);
 		_needText = lzl "str_epoch_player_246";
-		if (_isPole) then {_distance = (DZE_PlotPole sel 0) * 2};
+		if (_isPole) then {_distance = (DZE_PlotPole sel 1)};
 		_findNearestPole = call player_nearPP;
 		_isNearPlot = count (_findNearestPole);
 		if ((_isPole && _isNearPlot > 0)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {

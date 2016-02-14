@@ -52,7 +52,7 @@ DZE_BuildingLimit = 150;
 DZE_maintainRange  	= 100;
 DZE_curPitch 		= 45;
 DZE_maxBuildHeight 	= 40;
-DZE_PlotPole 		= [50,150];
+DZE_PlotPole 		= [60,150];
 DZE_maintainClasses = ["ModularItems","DZE_Housebase","BuiltItems","LightPole_DZ","Fortifications"];
 DZE_noRotate 		= [
 "ItemVault","ItemWoodStairs","ItemLockbox","ItemWoodStairsSupport","ItemWoodLadder",
