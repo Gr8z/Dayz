@@ -68,7 +68,7 @@ WHERE `PlayerName` IN ('Error');
 
 /* Unlock Purchased Untouched Vehicles */
 UPDATE `object_data_1`
-SET `CharacterID` = 0
+SET `CharacterID` = 0,`LastUpdated` = `LastUpdated`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 5 DAY)
 AND `CharacterID` > 0
 AND `Classname`
@@ -95,17 +95,17 @@ AND
 
 /* Set Damage on all other objects */
 UPDATE `object_data_1`
-SET `Damage`=0.2
+SET `Damage`=0.2,`LastUpdated` = `LastUpdated`
 WHERE `ObjectUID` <> 0
 AND `CharacterID` <> 0
-AND `Datestamp` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
+AND `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
 AND ( (`Inventory` IS NULL) OR (`Inventory` = '[]') );
 
 /* Set Damage On Doors/Plot Poles using Door Management via Age */
 UPDATE `object_data_1`
-SET `Damage`=0.2
+SET `Damage`=0.2,`LastUpdated` = `LastUpdated`
 WHERE `Classname` IN ('Plastic_Pole_EP1_DZ','CinderWallDoorSmallLocked_DZ','CinderWallDoorLocked_DZ','CinderWallSmallDoorway_DZ','CinderWallDoorway_DZ','Land_DZE_WoodDoorLocked','CinderWallDoor_DZ','CinderWallDoorSmall_DZ','Land_DZE_WoodDoor','Land_DZE_GarageWoodDoor','Land_DZE_GarageWoodDoorLocked','Land_DZE_LargeWoodDoorLocked','Land_DZE_LargeWoodDoor','WoodLargeWallDoor_DZ')
-AND `Datestamp` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
+AND `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
 AND `Inventory` != '[]';
 
 /* Set Safe Combo to 0000 */
@@ -128,7 +128,7 @@ AND `Inventory` IS NOT NULL;
 
 /* Unlock vehicles with lost keys */
 UPDATE `Object_DATA_1`
-SET `Object_DATA_1`.`CharacterID` = 0
+SET `Object_DATA_1`.`CharacterID` = 0,`LastUpdated` = `LastUpdated`
 WHERE `Object_DATA_1`.`CharacterID` <> 0
 AND`Object_DATA_1`.`CharacterID` <= 12500
 AND`Object_DATA_1`.`Classname` NOT LIKE 'Tent%'
