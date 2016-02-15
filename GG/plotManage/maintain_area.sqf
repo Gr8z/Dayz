@@ -13,7 +13,7 @@ _target = cursorTarget;
 
 _objectClasses = DZE_maintainClasses;
 _range = DZE_PlotPole select 0;
-_ranges = _range + 45;
+_ranges = _range + 10;
 _objects = nearestObjects [_target, _objectClasses, _ranges];
 
 _objects_filtered = [];
