@@ -236,7 +236,7 @@ if (!isDedicated) then {
 			_ownerID = _nearestPole getVariable["CharacterID","0"];
 			if(dayz_characterID != _ownerID) then {
 				_canRemove = call player_canBuildPP;
-				id !(_canRemove) then {_limit = round(_limit*2);}
+				id !(_canRemove) then {_limit = round(_limit*2);};
 			};
 		};
 		_nameVehicle = getText(configFile >> "CfgVehicles" >> _objType >> "displayName");
