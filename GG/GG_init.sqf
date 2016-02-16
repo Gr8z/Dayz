@@ -235,8 +235,8 @@ if (!isDedicated) then {
 			_nearestPole = _findNearestPole sel 0;
 			_ownerID = _nearestPole getVariable["CharacterID","0"];
 			if(dayz_characterID != _ownerID) then {
-				_canRemove1 = call player_canBuildPP;
-				id !(_canRemove1) then {_limit = round(_limit*2);};
+				_canRemove = call player_canBuildPP;
+				id !(_canRemove) then {_limit = round(_limit*2);};
 			};
 		};
 		_nameVehicle = getText(configFile >> "CfgVehicles" >> _objType >> "displayName");
@@ -1357,8 +1357,8 @@ if (!isDedicated) then {
 				            _fuid  = [];
 				            _allowed = [];
 				            if(_IsNearPlot > 0)then{
-				            	_canRemove2 = call player_canBuildPP;
-				                if (_canRemove2) then {  // // If u want that the object also belongs to someone on the plotpole.
+				            	_canRemove = call player_canBuildPP;
+				                if (_canRemove) then {  // // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
 				            }else{
@@ -1376,8 +1376,8 @@ if (!isDedicated) then {
 				            _fuid  = [];
 				            _allowed = [];
 				            if(_IsNearPlot > 0)then{
-				                _canRemove3 = call player_canBuildPP;
-				                if (_canRemove3) then { //  // If u want that the object also belongs to someone on the plotpole.
+				                _canRemove = call player_canBuildPP;
+				                if (_canRemove) then { //  // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
 				            }else{
