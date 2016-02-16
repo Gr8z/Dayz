@@ -7,7 +7,7 @@ s_player_deleteBuild = 1;
 _obj = _this sel 3;
 _activatingPlayer = player;
 _objOwnerID = _obj xgv["CharacterID","0"];
-_isOwnerOfObj = (_objOwnerID == PIDP_playerUID);
+_isOwnerOfObj = call player_canBuildPP;
 if (_obj in DZE_DoorsLocked) exw {
 	DZE_ActionInProgress = false;
 	cutText [(lzl "STR_EPOCH_ACTIONS_20"), "PLAIN DOWN"]
