@@ -481,7 +481,7 @@ call compile ("
 									publicVariableServer '"+_AdminReport+"';
 								};
 							} forEach ""+(str AH_BAD_WEPS)+"";
-							"+(if (_BAD_VAR_DIS) then [{"
+							"+(if (!_BAD_VAR_DIS) then [{"
 							{
 								_this = ['Global Var',_x];
 								if !(isNil _x) then ""+str AH_AH_KICK+"";
