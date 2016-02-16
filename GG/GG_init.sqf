@@ -235,8 +235,16 @@ if (!isDedicated) then {
 			_nearestPole = _findNearestPole sel 0;
 			_ownerID = _nearestPole getVariable["CharacterID","0"];
 			if(dayz_characterID != _ownerID) then {
-				_canRemove = call player_canBuildPP;
-				id !(_canRemove) then {_limit = round(_limit*2);};
+				_friendlies = _nearestPole getVariable ["plotfriends",[]];
+				_fuid  = [];
+				{
+				      _friendUID = _x select 0;
+				      _fuid  =  _fuid  + [_friendUID];
+				} forEach _friendlies;
+				_builder  = gpd player;
+				if(!(_builder in _fuid)) then {
+					_limit = round(_limit*2);
+				};
 			};
 		};
 		_nameVehicle = getText(configFile >> "CfgVehicles" >> _objType >> "displayName");
@@ -1354,11 +1362,9 @@ if (!isDedicated) then {
 				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
 				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
 				            _IsNearPlot = count (_findNearestPoles);
-				            _fuid  = [];
-				            _allowed = [];
 				            if(_IsNearPlot > 0)then{
-				            	_canRemove = call player_canBuildPP;
-				                if (_canRemove) then {  // // If u want that the object also belongs to someone on the plotpole.
+				            	_allowed = call player_canBuildPP;
+				                if (_allowed) then {  // // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
 				            }else{
@@ -1373,11 +1379,9 @@ if (!isDedicated) then {
 				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {         
 				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
 				            _IsNearPlot = count (_findNearestPoles);
-				            _fuid  = [];
-				            _allowed = [];
 				            if(_IsNearPlot > 0)then{
-				                _canRemove = call player_canBuildPP;
-				                if (_canRemove) then { //  // If u want that the object also belongs to someone on the plotpole.
+				            	_allowed = call player_canBuildPP;
+				                if (_allowed) then { //  // If u want that the object also belongs to someone on the plotpole.
 				                    _player_deleteBuild = true;
 				                };                  
 				            }else{
