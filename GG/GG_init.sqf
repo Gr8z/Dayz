@@ -2874,7 +2874,7 @@ if (!isDedicated) then {
 			_msg swx AH_fnc_dynTextMsg;
 		};
 		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
-		if ((count (nearestObjects [player,dayz_allowedObjects,120])) >= DZE_BuildingLimit) exw {
+		if ((count (nearestObjects [player,DZE_maintainClasses,120])) >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText ['Cannot Build, You have reached your building limit!','PLAIN'];
 		};
@@ -5191,6 +5191,7 @@ spawn_loot_small 			= xcm xlx "GG\GG_SLS.sqf";
 
 if (isServer) then [{xcc xlx "\z\addons\dayz_server\init\server_functions.sqf"},{eh_localCleanup = {}}];
 dayz_allowedObjects = dayz_allowedObjects + ["Land_MBG_Garage_Single_C","HeliH","HeliHRescue","BAF_GPMG_Minitripod_W","MMT_USMC","DSHKM_Ins","MetalFloor_Preview_DZ"];
+DZE_maintainClasses = DZE_maintainClasses + ["Land_MBG_Garage_Single_C","HeliH","HeliHRescue","BAF_GPMG_Minitripod_W","MMT_USMC","DSHKM_Ins","MetalFloor_Preview_DZ"];
 dayz_fuelsources = dayz_fuelsources + ["Land_Ind_TankSmall2","Land_Fuel_tank_big","Land_smd_fuelstation_army"];
 initialized = true;
 diag_log ("GG: Loaded server/client init!");
