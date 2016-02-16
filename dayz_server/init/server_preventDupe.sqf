@@ -30,8 +30,7 @@ server_checkLoop = {
 			
 
 			_log = format ["%1 (%2) lost connection near %3 @%4",_name,_puid,_object,(mapGridPosition _player)];
-			"HackLog" callExtension format ["    Hack Log: %2 (%1) REASON: %1 - |DayZ Instance: %2|",_log,dayZ_instance];
-			"HackLog" callExtension (format[" %1   |   Custom HackLog",_log]);
+			"HackLog" callExtension format ["Dupe Log: REASON: %1 - |DayZ Instance: %2|",_log,dayZ_instance];
 			PV_hackerL0og = PV_hackerL0og + [[_log,"","0","1","0","0",[]]];
 			publicVariable "PV_hackerL0og";
 			
