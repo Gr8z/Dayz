@@ -78,23 +78,23 @@ if(_num_backpacks > 0) then {
 		};
 	};
 };
-if(wai_high_value) then {
-	if(random 100 < wai_high_value_chance) then {
-		_item = crate_items_high_value call BIS_fnc_selectRandom;
+if(high_value) then {
+	if(random 100 < item_high_value_chance) then {
+		_item = items_high_value call BIS_fnc_selectRandom;
 		_iamount = high_value_amounts call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item,_iamount];
 	};
 };
-if(wai_high_value2) then {
-	if(random 100 < wai_high_value_chance2) then {
-		_item2 = crate_high_value call BIS_fnc_selectRandom;
+if(high_value2) then {
+	if(random 100 < item_high_value_chance2) then {
+		_item2 = items_high_value2 call BIS_fnc_selectRandom;
 		_iamount2 = high_value_amounts2 call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item2,_iamount2];
 	};
 };
-if(wai_high_value3) then {
-	if(random 100 < wai_high_value_chance3) then {
-		_item3 = crate_high_value2 call BIS_fnc_selectRandom;
+if(high_value3) then {
+	if(random 100 < weapon_high_value_chance) then {
+		_item3 = weapons_high_value call BIS_fnc_selectRandom;
 		_iamount3 = high_value_amounts3 call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item3,_iamount3];
 	};

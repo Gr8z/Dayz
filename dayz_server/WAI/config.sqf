@@ -237,15 +237,6 @@ if(isServer) then {
 		wai_players_online		    = 5;
 		wai_server_fps			    = 1;
 		wai_kill_percent		    = 80;
-		wai_high_value			    = true;
-		wai_high_value2			    = true;
-		wai_high_value3			    = true;
-		wai_high_value_chance		= 100;
-		wai_high_value_chance2		= 50;
-		wai_high_value_chance3		= 5;
-		high_value_amounts 			= [1,2,3];
-		high_value_amounts2 		= [1];
-		high_value_amounts3 		= [1];
 		wai_enable_minefield		= false;
 		wai_use_launchers		    = true;
 		wai_remove_launcher		    = true;
@@ -478,18 +469,6 @@ if(isServer) then {
 		"PartVRotor",
 		"PartWheel",
 		"PartWoodPile"
-		];
-		crate_items_high_value = [
-		"ItemBriefcase100oz"
-		];
-		crate_high_value = [
-		"ItemVault"
-		];
-		crate_high_value2 = [
-		"ItemHotwireKit",
-		"RPG18",
-		"Stinger",
-		"Javelin"
 		];
 		crate_items_food = [
 		"ItemWaterbottle",

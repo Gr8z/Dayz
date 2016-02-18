@@ -1,5 +1,26 @@
 if(isServer) then {
-	private			["_complete","_baserunover","_crate_type","_crate","_mission","_position","_num_guns","_num_tools","_num_items","_rndnum","_rndgro"];
+	private	["_complete","_baserunover","_crate_type","_crate","_mission","_position","_num_guns","_num_tools","_num_items","_rndnum","_rndgro","high_value","high_value2","high_value3","high_value_chance","high_value_chance2","high_value_chance3","high_value_amounts","high_value_amounts2","high_value_amounts3","items_high_value","items_high_value2","weapons_high_value"];
+	high_value			   		= true;
+	high_value2			   		= true;
+	high_value3			   		= false;
+	item_high_value_chance		= 25;
+	item_high_value_chance2		= 10;
+	weapon_high_value_chance	= 5;
+	high_value_amounts 			= [1];
+	high_value_amounts2 		= [1];
+	high_value_amounts3 		= [1];
+	items_high_value = [
+	"ItemBriefcase100oz"
+	];
+	items_high_value2 = [
+	"ItemVault"
+	];
+	weapons_high_value = [
+	"ItemHotwireKit",
+	"RPG18",
+	"Stinger",
+	"Javelin"
+	];
 	_mission 		= count wai_mission_data -1;
 	_position		= [30] call find_position;
 	[_mission,_position,"Easy","Ural Attack","MainBandit",true] call mission_init;
