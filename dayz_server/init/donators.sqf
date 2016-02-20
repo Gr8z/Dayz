@@ -258,6 +258,7 @@ Scout1 = [
 	"76561198079865619", // Mistystone (OD-2016-01-19) #13003
 	"76561198232093232", // Headshot (OD-2016-01-22) #13018
 	"76561198072776864", // Clementine (OD-2016-01-24) #13056
+	"76561198124909978", // Bear (EXP-2016-03-14) #00000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
@@ -295,7 +296,6 @@ Scout2 = [
 	"76561198032120834", // Ben Dover (OD-2016-01-13) #12886 
 	"76561198124885439", // AsSASsiNz KiLLz (OD-2016-01-14) #12921 
 	"76561198036004541", // Demen (OD-2015-09-28) #11853 
-	"76561198124909978", // Bear (EXP-2016-03-14) #00000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
