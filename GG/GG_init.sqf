@@ -3199,6 +3199,19 @@ if (!isDedicated) then {
 					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
+				if(_IsNearPlot == 0) then {
+					_findNearestPoles = nearestObjects [_objectHelper, ["Plastic_Pole_EP1_DZ"], 60];
+					_nearestPole = _findNearestPoles select 0;
+					_objectHelperPos = getPosATL _objectHelper;
+					if (_objectHelperPos distance _nearestPole < 60) exitWith {
+						_isOk = false; 
+						_cancel = true;
+						_reason = "You cannot enter plot pole area while building is in progress";
+						_msg = "Building terminated... REASON:"+(str _reason);
+						systemChat ("(GG-AH): "+str _msg);
+						_msg swx AH_fnc_dynTextMsg;
+					};
+				};
 				if (DZE_cancelBuilding) exw {
 					_isOk = false;
 					_cancel = true;
@@ -3210,7 +3223,7 @@ if (!isDedicated) then {
 				if (_location1 distance _location2 > 10) exw {
 					_isOk = false;
 					_cancel = true;
-					_reason = "Moving too fast.";
+					_reason = "You've moved to far away from where you started building (within 10 meters)";
 					_msg = "Building terminated... REASON:"+(str _reason);
 					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
@@ -3293,6 +3306,7 @@ if (!isDedicated) then {
 			deleteVehicle _object;
 			detach _objectHelper;
 			deleteVehicle _objectHelper;
+
 			if ((isOnRoad _position)&&(isNil "AM_Epoch_ADMIN_norestrict")&&(!DZE_BuildOnRoads)) then {_cancel = true; _reason = "Cannot build on a road."};
 			if ((!canbuild)&&(isNil "AM_Epoch_ADMIN_norestrict")) then {_cancel = true; _reason = "Cannot build in a city."};
 			private ["_posrad","_cntrad","_cntrad2"];
