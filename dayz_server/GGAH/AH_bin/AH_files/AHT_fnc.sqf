@@ -8307,6 +8307,7 @@ systemChat (""""Hello!"""");
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
+					if (_key == 0x3C) then {[] spawn admin_healPlayers};
 					if (_key == 0x3E) then {[] spawn admin_deleteTarget};
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
@@ -8316,6 +8317,14 @@ systemChat (""""Hello!"""");
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
 						if (_key == 0x05) then {[] spawn admin_generatekey};
+						if (_key == 0x06) then {[] spawn manipulate_stealVehicle};
+						if (_key == 0x08) then {
+							if !(isNil ''glue_deactivate'') then {
+								[] spawn glue_deactivate;
+							} else {
+								[] spawn admin_QuickGlue;
+							};
+						};	
 					};
 				');
 			};
