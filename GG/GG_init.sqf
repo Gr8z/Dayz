@@ -3199,7 +3199,7 @@ if (!isDedicated) then {
 					systemChat ("(GG-AH): "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
-				if(_IsNearPlot == 0) then {
+				if( !_isPole &&(_IsNearPlot == 0)) then {
 					_findNearestPoles = nearestObjects [_objectHelper, ["Plastic_Pole_EP1_DZ"], 60];
 					_nearestPole = _findNearestPoles select 0;
 					_objectHelperPos = getPosATL _objectHelper;
