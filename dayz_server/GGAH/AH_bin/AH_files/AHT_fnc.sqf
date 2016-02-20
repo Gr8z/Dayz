@@ -403,10 +403,16 @@ call compile ("
 			Level2_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      		 Double Click Player To Spectate      		 "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate     "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle      "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key    		 "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      			Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      F2 - Heal Close Players     F3 - Open Weapon Menu"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      F4 - Delete Target          F5 - Exit Spectating"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      1  - Flip Vehicle           2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      3  - View Combination		  4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      5  - Steal Target Vehicle   "","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      7  - Quick Glue"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      [  - Teleport 1 Meter in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      \  - Teleport 5 Meters in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      ;  - Teleport to Cursor Target"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -3035,115 +3041,6 @@ systemChat (""""Hello!"""");
 					for '_i' from 0 to 300 do {deleteMarkerLocal ('admin_pmarkslol' + (str _i))};
 					_savelog = format[""%1 disabled player markers."",name player];
 					[_savelog] call admin_adminlogAction;
-				};
-			};
-			admin_fly = {
-			forwardAndBackward_d = 4;
-			leftAndRight_d = 4;
-			upAndDown_d = 3;
-			d_FromGround = 1;
-			HoverState = nil;
-			fnc_move_forward =
-			{
-			if((getPosATL (vehicle player) select 2) > d_FromGround)then
-			{
-				_forwardCurrentDirection = getdir (vehicle player);
-				_forwardCurrentPosition = getPosATL (vehicle player);
-				(vehicle player) setdir _forwardCurrentDirection;
-				(vehicle player) setPosATL [(_forwardCurrentPosition select 0) + forwardAndBackward_d * sin(_forwardCurrentDirection),(_forwardCurrentPosition select 1) + forwardAndBackward_d * cos(_forwardCurrentDirection),(_forwardCurrentPosition select 2)];
-			};
-			};
-			fnc_move_left =
-			{
-			if((getPosATL (vehicle player) select 2) > d_FromGround)then
-			{
-				_leftDirection = getdir (vehicle player);
-				(vehicle player) setdir (_leftDirection) - leftAndRight_d;
-			};
-			};
-			fnc_move_backward =
-			{
-			if((getPosATL (vehicle player) select 2) > d_FromGround)then
-			{
-				_backwardCurrentDirection = getdir (vehicle player);
-				_backwardCurrentPosition = getPosATL (vehicle player);
-				(vehicle player) setdir _backwardCurrentDirection;
-				(vehicle player) setPosATL [(_backwardCurrentPosition select 0) - forwardAndBackward_d * sin(_backwardCurrentDirection),(_backwardCurrentPosition select 1) - forwardAndBackward_d * cos(_backwardCurrentDirection),(_backwardCurrentPosition select 2)];
-			};
-			};
-			fnc_move_right =
-			{
-			if((getPosATL (vehicle player) select 2) > d_FromGround)then
-			{
-				_rightDirection = getdir (vehicle player);
-				(vehicle player) setdir (_rightDirection) + leftAndRight_d;
-			};
-			};
-			fnc_move_up =
-			{
-			_upCurrentDirection = getdir (vehicle player);
-			_upCurrentPosition = getPosATL (vehicle player);
-			(vehicle player) setdir _upCurrentDirection;
-			(vehicle player) setPosATL [(_upCurrentPosition select 0), (_upCurrentPosition select 1), (_upCurrentPosition select 2) + upAndDown_d];
-			};
-			fnc_move_down =
-			{
-			if((getPosATL (vehicle player) select 2) > d_FromGround)then
-			{
-				_downCurrentDirection = getdir (vehicle player);
-				_downCurrentPosition = getPosATL (vehicle player);
-				(vehicle player) setdir _downCurrentDirection;
-				(vehicle player) setPosATL [(_downCurrentPosition select 0), (_downCurrentPosition select 1), (_downCurrentPosition select 2) - upAndDown_d];
-			};
-			};
-			fnc_Hover =
-			{
-			if(isnil 'HoverState')then
-			{
-				HoverState = true;
-				cutText ['Now Hovering','PLAIN DOWN'];
-				[] spawn {
-					_pos = getPosATL (vehicle player);
-					while{!isNil 'HoverState'}do
-					{
-						(vehicle player) SetVelocity [0,0,1];
-						(vehicle player) setPosATL _pos;
-					};
-				};
-			}
-			else
-			{
-				HoverState = nil;
-				cutText ['No longer Hovering','PLAIN DOWN'];
-			};
-			};
-			if(isnil 'FlyOnTheWingsOfLove')then 
-			{
-			cutText ['Fly On','PLAIN DOWN'];
-			
-			systemchat 'Admin Fly Keybinds:';
-			systemchat '   Q up Z/Y down | WASD to Move around | H to Hover';
-			
-			FlyOnTheWingsOfLove = true;
-			fly_keyForward = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 17)then{call fnc_move_forward;}'];
-			fly_keyLeft = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 30)then{call fnc_move_left;}'];
-			fly_keyBackward = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 31)then{call fnc_move_backward;}'];
-			fly_keyRight = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 32)then{call fnc_move_right;}'];
-			fly_keyUp = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 16)then{call fnc_move_up;}'];
-			fly_keyDown = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) in [44,21])then{call fnc_move_down;}'];
-			fly_keyHover = (findDisplay 46) displayAddEventHandler ['KeyDown','if((_this select 1) == 35)then{call fnc_Hover;}'];
-			}
-			else
-			{
-			cutText ['Fly OFF','PLAIN DOWN'];
-			FlyOnTheWingsOfLove = nil;
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyForward];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyLeft];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyBackward];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyRight];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyUp];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyDown];
-			(findDisplay 46) displayRemoveEventHandler ['KeyDown', fly_keyHover];
 				};
 			};
 			admin_vehicleMarkers = {
@@ -8265,7 +8162,6 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
 					if (_key == 0x03) then {[] spawn admin_flipVehicle};
-					if (_key == 0x05) then {[] spawn admin_fly};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
@@ -8308,11 +8204,11 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3B) then {call admin_init};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
 					if (_key == 0x3C) then {[] spawn admin_healPlayers};
+					if (_key == 0x3D) then {[] spawn admin_spawnweapons};
 					if (_key == 0x3E) then {[] spawn admin_deleteTarget};
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
 					if (_key == 0x03) then {[] spawn admin_flipVehicle};
-					if (_key == 0x05) then {[] spawn admin_fly};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
