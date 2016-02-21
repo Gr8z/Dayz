@@ -33,7 +33,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 			if (_removed == _price) then {
 				_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
 				//PVOZ_tradeshit = [player,_trader,_BoS,_trade_item,_price];publicVariableServer "PVOZ_tradeshit";
-				_helipad = nearestObjects [player, ["HeliHCivil","HeliHempty","HeliH"], 100];
+				_helipad = nearestObjects [player, ["HeliHCivil","HeliHempty","HeliH","HeliHRescue","MAP_Heli_H_army"], 100];
 				if (count _helipad > 0) then {_location = (getPosATL (_helipad select 0))} else {_location = [(position player),0,20,1,0,2000,0] call BIS_fnc_findSafePos};
 				_veh = createVehicle ["Sign_arrow_down_large_EP1", _location, [], 0,"CAN_COLLIDE"];
 				_location = (getPosATL _veh);
