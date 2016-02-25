@@ -368,6 +368,7 @@ Soldier3 = [
 	"76561198123356770", // BB | JuB (EXP-2016-02-24) #13050
 	"76561198205664771", // ChrissyD (EXp-2016-02-24)
 	"76561198036004541", // demen (EXp-2016-03-11)
+	"76561198109202946", // Sandborn (EXp-2016-03-25)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
