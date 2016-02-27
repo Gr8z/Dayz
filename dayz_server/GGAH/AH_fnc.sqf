@@ -558,13 +558,16 @@ call compile ("
 							if (r_player_blood <= 0) then {player setDamage 1};
 						};
 						if (animationState player in ['smk_urbanproneleft','smk_urbanproneright','smk_prone_to_urbanprone_left','smk_prone_to_urbanprone_right']) then {
-							if (time - "+_randv+"_flchk5 > 2) then {
+							if (time - "+_randv+"_flchk5 > 4) then {
 								"+_randv+"_flchk5 = time;
 								if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 60) then {
 									[objNull,player,rSwitchMove,''] call RE;
 									_msg = 'Can not use urbanprone near plot poles!';
 									_msg call AH_fnc_dynTextMsg;
 									systemChat ('"+_AH_CHAT+": '+str _msg);
+									disableUserInput true;disableUserInput true;disableUserInput true;
+									uiSleep 5;
+									disableUserInput false;disableUserInput false;disableUserInput false;
 								}
 							}
 						};
