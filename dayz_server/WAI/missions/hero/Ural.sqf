@@ -2,11 +2,11 @@ if(isServer) then {
     private			["_complete","_baserunover","_crate_type","_crate","_mission","_position","_num_guns","_num_tools","_num_items","_rndnum","_rndgro"];
 	item_high_value			    = true;
 	item_high_value2			= true;
-	item_high_value3			= true;
-	weapon_high_value			= true;
-	weapon_high_value2			= true;
+	item_high_value3			= false;
+	weapon_high_value			= false;
+	weapon_high_value2			= false;
 	weapon_high_value3			= true;
-	item_high_value_chance		= 75;
+	item_high_value_chance		= 50;
 	item_high_value_chance2		= 25;
 	item_high_value_chance3 	= 10;
 	item_high_value_amounts 	= [1];
@@ -14,7 +14,7 @@ if(isServer) then {
 	item_high_value_amounts3 	= [1];
 	weapon_high_value_chance	= 50;
 	weapon_high_value_chance2	= 50;
-	weapon_high_value_chance3	= 50;
+	weapon_high_value_chance3	= 25;
 	weapon_high_value_amounts	= [1];
 	weapon_high_value_amounts2	= [1];
 	weapon_high_value_amounts3	= [1];
