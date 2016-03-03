@@ -207,6 +207,47 @@ if(isServer) then {
 		"RH_m1stshd",
 		"RH_m1stsp"
 		];
+		items_high_value = [
+		"ItemBriefcase100oz"
+		];
+		items_high_value2 = [
+		"ItemVault"
+		];
+		items_high_value3 = [
+		"ItemHotwireKit",
+		"RPG18",
+		"Stinger",
+		"Javelin"
+		];
+		weapons_high_value = [
+		"RPG18",
+		"Stinger",
+		"Javelin"
+		];
+		weapons_high_value2 = [
+		"FHQ_ACR_WDL_TWS_SD",
+		"FHQ_ACR_WDL_TWS",
+		"FHQ_ACR_BLK_TWS_SD",
+		"FHQ_ACR_BLK_TWS",
+		"FHQ_ACR_TAN_TWS_SD",
+		"FHQ_ACR_TAN_TWS",
+		"FHQ_ACR_SNW_TWS_SD",
+		"FHQ_ACR_SNW_TWS"
+		];
+		weapons_high_value3 = [
+		"BAF_LRR_scoped",
+		"BAF_LRR_scoped_W",
+		"Mk_48_DZ",
+		"USSR_cheytacM200",
+		"USSR_cheytacM200_sd",
+		"FHQ_MSR_SD_DESERT",
+		"FHQ_MSR_DESERT",
+		"FHQ_MSR_NV_DESERT",
+		"FHQ_MSR_NV_SD_DESERT",
+		"m107_DZ",
+		"BAF_AS50_scoped",
+		"M110_NVG_EP1"
+		];
 		ai_wep_random = [ai_wep_assault,ai_wep_assault,ai_wep_assault,ai_wep_sniper,ai_wep_machine];
 		ai_wep_launchers_AT		    = ["M136","RPG18","JAVELIN"];
 		ai_wep_launchers_AA		    = ["Strela","Igla","STINGER"];

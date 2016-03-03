@@ -1,26 +1,23 @@
 if(isServer) then {
 	private	["_complete","_crate_type","_mission","_vehicle","_position","_vehclass","_crate","_baserunover","_rndnum"];
-	high_value			   		= true;
-	high_value2			   		= true;
-	high_value3			   		= true;
-	item_high_value_chance		= 90;
-	item_high_value_chance2		= 60;
-	weapon_high_value_chance	= 35;
-	high_value_amounts 			= [1,2];
-	high_value_amounts2 		= [1];
-	high_value_amounts3 		= [1];
-	items_high_value = [
-	"ItemBriefcase100oz"
-	];
-	items_high_value2 = [
-	"ItemVault"
-	];
-	weapons_high_value = [
-	"ItemHotwireKit",
-	"RPG18",
-	"Stinger",
-	"Javelin"
-	];
+	item_high_value			    = true;
+	item_high_value2			= true;
+	item_high_value3			= true;
+	weapon_high_value			= true;
+	weapon_high_value2			= true;
+	weapon_high_value3			= true;
+	item_high_value_chance		= 75;
+	item_high_value_chance2		= 25;
+	item_high_value_chance3 	= 10;
+	item_high_value_amounts 	= [1];
+	item_high_value_amounts2 	= [1];
+	item_high_value_amounts3 	= [1];
+	weapon_high_value_chance	= 50;
+	weapon_high_value_chance2	= 50;
+	weapon_high_value_chance3	= 50;
+	weapon_high_value_amounts	= [1];
+	weapon_high_value_amounts2	= [1];
+	weapon_high_value_amounts3	= [1];
 	_mission 		= count wai_mission_data -1;
 	_position		= [30] call find_position;
 	[_mission,_position,"Hard","Merlin Evac","MainBandit",true] call mission_init;

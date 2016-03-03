@@ -1,4 +1,4 @@
-private ["_ammo","_tool","_crate","_weapon","_item","_backpack","_num_tools","_num_items","_num_backpacks","_num_weapons","_weapons_array","_tool_array","_item_array","_backpack_array","_item2","_iamount","_iamount2","_item3","_iamount3"];
+private ["_ammo","_tool","_crate","_weapon","_item","_backpack","_num_tools","_num_items","_num_backpacks","_num_weapons","_weapons_array","_tool_array","_item_array","_backpack_array","_item2","_iamount","_iamount2","_item3","_iamount3","_weapon","_weapon2","_weapon3","_wamount","_wamount2","_wamount3"];
 _crate = _this select 0;
 _crate setVariable ["ObjectID","1",true];
 _crate setVariable ["permaLoot",true];
@@ -78,24 +78,45 @@ if(_num_backpacks > 0) then {
 		};
 	};
 };
-if(high_value) then {
+if(item_high_value) then {
 	if(random 100 < item_high_value_chance) then {
 		_item = items_high_value call BIS_fnc_selectRandom;
-		_iamount = high_value_amounts call BIS_fnc_selectRandom;
+		_iamount = item_high_value_amounts call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item,_iamount];
 	};
 };
-if(high_value2) then {
+if(item_high_value2) then {
 	if(random 100 < item_high_value_chance2) then {
 		_item2 = items_high_value2 call BIS_fnc_selectRandom;
-		_iamount2 = high_value_amounts2 call BIS_fnc_selectRandom;
+		_iamount2 = item_high_value_amounts2 call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item2,_iamount2];
 	};
 };
-if(high_value3) then {
+if(item_high_value3) then {
 	if(random 100 < weapon_high_value_chance) then {
-		_item3 = weapons_high_value call BIS_fnc_selectRandom;
-		_iamount3 = high_value_amounts3 call BIS_fnc_selectRandom;
+		_item3 = items_high_value3 call BIS_fnc_selectRandom;
+		_iamount3 = item_high_value_amounts3 call BIS_fnc_selectRandom;
 		_crate addMagazineCargoGlobal [_item3,_iamount3];
+	};
+};
+if(weapon_high_value) then {
+	if(random 100 < weapon_high_value_chance) then {
+		_weapon = weapons_high_value call BIS_fnc_selectRandom;
+		_wamount = weapon_high_value_amounts call BIS_fnc_selectRandom;
+		_crate addWeaponCargoGlobal [_weapon,_wamount];
+	};
+};
+if(weapon_high_value2) then {
+	if(random 100 < weapon_high_value_chance2) then {
+		_weapon2 = weapons_high_value2 call BIS_fnc_selectRandom;
+		_wamount2 = weapon_high_value_amounts2 call BIS_fnc_selectRandom;
+		_crate addWeaponCargoGlobal [_weapon2,_wamount2];
+	};
+};
+if(weapon_high_value3) then {
+	if(random 100 < weapon_high_value_chance) then {
+		_weapon3 = weapons_high_value3 call BIS_fnc_selectRandom;
+		_wamount3 = weapon_high_value_amounts3 call BIS_fnc_selectRandom;
+		_crate addWeaponCargoGlobal [_weapon3,_wamount3];
 	};
 };

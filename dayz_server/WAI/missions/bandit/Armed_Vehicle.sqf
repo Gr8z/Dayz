@@ -1,26 +1,23 @@
 if(isServer) then {
 	private ["_complete","_crate","_mission","_static_gun","_crate_type","_rndnum","_playerPresent","_vehname","_vehicle","_position","_vehclass"];
-	high_value			   		= true;
-	high_value2			   		= true;
-	high_value3			   		= true;
+	item_high_value			    = true;
+	item_high_value2			= true;
+	item_high_value3			= true;
+	weapon_high_value			= true;
+	weapon_high_value2			= true;
+	weapon_high_value3			= true;
 	item_high_value_chance		= 75;
 	item_high_value_chance2		= 25;
-	weapon_high_value_chance	= 10;
-	high_value_amounts 			= [1];
-	high_value_amounts2 		= [1];
-	high_value_amounts3 		= [1];
-	items_high_value = [
-	"ItemBriefcase100oz"
-	];
-	items_high_value2 = [
-	"ItemVault"
-	];
-	weapons_high_value = [
-	"ItemHotwireKit",
-	"RPG18",
-	"Stinger",
-	"Javelin"
-	];
+	item_high_value_chance3 	= 10;
+	item_high_value_amounts 	= [1];
+	item_high_value_amounts2 	= [1];
+	item_high_value_amounts3 	= [1];
+	weapon_high_value_chance	= 50;
+	weapon_high_value_chance2	= 50;
+	weapon_high_value_chance3	= 50;
+	weapon_high_value_amounts	= [1];
+	weapon_high_value_amounts2	= [1];
+	weapon_high_value_amounts3	= [1];
 	_mission 		= count wai_mission_data -1;
 	_vehclass 		= armed_vehicle call BIS_fnc_selectRandom;
 	_vehname 		= getText (configFile >> "CfgVehicles" >> _vehclass >> "displayName");
