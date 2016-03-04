@@ -12,9 +12,9 @@ if(isServer) then {
 	item_high_value_amounts 	= [1];
 	item_high_value_amounts2 	= [1];
 	item_high_value_amounts3 	= [1];
-	weapon_high_value_chance	= 60;
-	weapon_high_value_chance2	= 60;
-	weapon_high_value_chance3	= 60;
+	weapon_high_value_chance	= 15;
+	weapon_high_value_chance2	= 15;
+	weapon_high_value_chance3	= 75;
 	weapon_high_value_amounts	= [1];
 	weapon_high_value_amounts2	= [1];
 	weapon_high_value_amounts3	= [1];

@@ -8,13 +8,13 @@ if(isServer) then {
 	weapon_high_value3			= true;
 	item_high_value_chance		= 90;
 	item_high_value_chance2		= 25;
-	item_high_value_chance3 	= 50;
+	item_high_value_chance3 	= 30;
 	item_high_value_amounts 	= [1,2];
 	item_high_value_amounts2 	= [1];
 	item_high_value_amounts3 	= [1];
-	weapon_high_value_chance	= 80;
-	weapon_high_value_chance2	= 80;
-	weapon_high_value_chance3	= 80;
+	weapon_high_value_chance	= 30;
+	weapon_high_value_chance2	= 30;
+	weapon_high_value_chance3	= 100;
 	weapon_high_value_amounts	= [1];
 	weapon_high_value_amounts2	= [1];
 	weapon_high_value_amounts3	= [1,2];
