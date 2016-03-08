@@ -3001,7 +3001,7 @@ class AH_traderMenu {
 			y = 0.224974 * safezoneH + safezoneY;
 			w = 0.464016 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_title: RscText {
 			idc = -1;
@@ -3010,7 +3010,7 @@ class AH_traderMenu {
 			y = 0.224974 * safezoneH + safezoneY;
 			w = 0.464016 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,1,1,1};
+			colorText[] = {0.643,0.643,0.643,1};
 		};
 		class TM_cattxt: RscText {
 			idc = -1;
@@ -3019,7 +3019,7 @@ class AH_traderMenu {
 			y = 0.279979 * safezoneH + safezoneY;
 			w = 0.116004 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_itemtxt: RscText {
 			idc = -1;
@@ -3028,7 +3028,7 @@ class AH_traderMenu {
 			y = 0.279979 * safezoneH + safezoneY;
 			w = 0.0515573 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_buyprice: RscStructuredText {
 			idc = 12002;
@@ -3055,7 +3055,7 @@ class AH_traderMenu {
 			y = 0.651264 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0.643,0.643,0.643,0.9};
 		};
 		class TM_descTXTholder: RscControlsGroup {
 			idc = 100301;
@@ -3094,7 +3094,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0515573 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_deliveryTXT: RscText {
 			idc = 1007;
@@ -3103,7 +3103,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0451127 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_qtyeditBG: RscText {
 			idc = 1006;
@@ -3112,7 +3112,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0644466 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorBackground[] = {1,0.1,0.1,0.25};
+			colorBackground[] = {0.18,0.392,0.996,1};
 		};
 		class TM_descTXTbg: RscText {
 			idc = 1008;
@@ -3121,7 +3121,7 @@ class AH_traderMenu {
 			y = 0.678767 * safezoneH + safezoneY;
 			w = 0.283565 * safezoneW;
 			h = 0.11001 * safezoneH;
-			colorBackground[] = {1,0.1,0.1,0.05};
+			colorBackground[] = {0.506,0.624,0.969,0.5};
 		};
 	};
 	class Controls {
@@ -3150,7 +3150,7 @@ class AH_traderMenu {
 			w = 0.077336 * safezoneW;
 			h = 0.0275026 * safezoneH;
 			onButtonClick = "[(lbCurSel 12001),(lbData [12710, (lbCurSel 12710)]),(ctrlText 12420)] call TraderDialogBuy;";
-			colorBackgroundDisabled[] = {0.75,0.25,0.25,0.6};
+			colorBackgroundDisabled[] = {0.345,0.345,0.98,1};
 		};
 		class TM_sellbtn: RscButton {
 			idc = 12005;
@@ -3160,17 +3160,8 @@ class AH_traderMenu {
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
 			onButtonClick = "[(lbCurSel 12001),(lbData [12710, (lbCurSel 12710)]),(ctrlText 12420)] call TraderDialogSell;";
-			colorBackgroundDisabled[] = {0.75,0.25,0.25,0.6};
+			colorBackgroundDisabled[] = {0.345,0.345,0.98,1};
 		};
-		/*class TM_combinebars: RscButton {
-			idc = 12007;
-			text = "Combine Bars";
-			x = "0.381256 * safezoneW + safezoneX";
-			y = "0.720064 * safezoneH + safezoneY";
-			w = "0.1287436 * safezoneW";
-			h = "0.055016 * safezoneH";
-			onButtonClick = "[[],0] call epoch_returnChange; ((ctrlParent (_this select 0)) closeDisplay 9000); cutText [(localize ""STR_EPOCH_PLAYER_307"") , ""PLAIN DOWN""];";
-		};*/
 		class TM_closebtn: RscButton {
 			idc = -1;
 			text = "Close";
@@ -3180,11 +3171,11 @@ class AH_traderMenu {
 			w = 0.038668 * safezoneW;
 			h = 0.0275026 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};

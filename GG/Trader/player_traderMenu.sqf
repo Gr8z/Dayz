@@ -148,14 +148,14 @@ TraderDialogShowPrices = {
 			_maxpacks 	= getNumber (configFile >> _cfg >> _di >> "transportMaxBackpacks");
 			if ((_di isKindOf 'LandVehicle')||(_di isKindOf 'Air')||(_di isKindOf 'Ship')) then {
 				_crew = getNumber (configFile >> _cfg >> _di >> "transportSoldier");
-				_dsc = _dsc + ("<t size='0.7'><t color='#FF3300'>Crew</t>: "+str _crew+"<br/></t>");
+				_dsc = _dsc + ("<t size='0.7'><t color='#0000FF'>Crew</t>: "+str _crew+"<br/></t>");
 			};
-			_dsc = _dsc + ("<t size='0.7'><t color='#FF3300'>Max guns</t>: "+str _maxguns+"<br/></t>");
-			_dsc = _dsc + ("<t size='0.7'><t color='#FF3300'>Max mags</t>: "+str _maxmags+"<br/></t>");
-			_dsc = _dsc + ("<t size='0.7'><t color='#FF3300'>Max backpacks</t>: "+str _maxpacks+"<br/></t>");
-			_dsc = _dsc + (if (_desc != "") then {"<t size='0.65'>"+_desc+"</t>"} else {("No description for ""<t color='#FF3300'>"+_di+"</t>""")});
-		} else {
-			_dsc = _dsc + (if (_desc != "") then {"<t size='0.65'>"+_desc+"</t>"} else {("No description for ""<t color='#FF3300'>"+_di+"</t>""")});
+			_dsc = _dsc + ("<t size='0.7'><t color='#0000FF'>Max guns</t>: "+str _maxguns+"<br/></t>");
+			_dsc = _dsc + ("<t size='0.7'><t color='#0000FF'>Max mags</t>: "+str _maxmags+"<br/></t>");
+			_dsc = _dsc + ("<t size='0.7'><t color='#0000FF'>Max backpacks</t>: "+str _maxpacks+"<br/></t>");
+			_dsc = _dsc + (if (_desc != "") then {"<t size='0.65'>"+_desc+"</t>"} else {("No description for ""<t color='#0000FF'>"+_di+"</t>""")});
+		} else {                                                                                                        
+			_dsc = _dsc + (if (_desc != "") then {"<t size='0.65'>"+_desc+"</t>"} else {("No description for ""<t color='#0000FF'>"+_di+"</t>""")});
 		};
 	};
 	((findDisplay 420420) displayCtrl TradeDialogDescription) ctrlSetStructuredText parseText _dsc;
@@ -172,7 +172,7 @@ TraderDialogShowPrices = {
 		_canhold = floor(_free / (_name call GG_countReqWepSlots));
 		if (_maxbuy > _free) then {_maxbuy = _free};
 		if (_maxbuy > _canhold) then {_maxbuy = _canhold};
-		((findDisplay 420420) displayCtrl TraderDialogCurrency) ctrlSetStructuredText parseText ("<t color='#FF3300'align='left'>Free slots</t>: "+str _free+" <t color='#FF3300'align='left'>Max buy</t>: "+str _maxbuy+" <t color='#FF3300'align='left'>Max sell</t>: "+(str _qty));
+		((findDisplay 420420) displayCtrl TraderDialogCurrency) ctrlSetStructuredText parseText ("<t color='#0000FF'align='left'>Free slots</t>: "+str _free+" <t color='#0000FF'align='left'>Max buy</t>: "+str _maxbuy+" <t color='#0000FF'align='left'>Max sell</t>: "+(str _qty));
 	};
 };
 TraderDialogBuy = {
