@@ -1643,7 +1643,7 @@ class BankDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class BD_title: RscText {
 			idc = -1;
@@ -1707,7 +1707,7 @@ class BankDialog {
 			w = 0.309263 * safezoneW;
 			h = 0.0274947 * safezoneH;
 			colorText[] = {1,1,1,1};
-			colorBackground[] = {1,0.1,0.1,0.25};
+			colorBackground[] = {0,0,1,0.25};
 		};
 	};
 	class Controls {
@@ -1746,11 +1746,11 @@ class BankDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.0386578 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
@@ -1779,7 +1779,7 @@ class GivePlayerDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class GPD_title: RscText {
 			idc = -1;
@@ -1854,11 +1854,11 @@ class GivePlayerDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.0386578 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
@@ -1889,11 +1889,11 @@ class RefuelDialog {
 			y = 0.307472 * safezoneH + safezoneY;
 			w = 0.34812 * safezoneW;
 			h = 0.027504 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class RD_title: RscText {
 			idc = -1;
-			text = "Refuel and repair";
+			text = "Refuel and Repair";
 			x = 0.332439 * safezoneW + safezoneX;
 			y = 0.307482 * safezoneH + safezoneY;
 			w = 0.348012 * safezoneW;
@@ -1920,7 +1920,7 @@ class RefuelDialog {
 		};
 		class RD_fuelInfo: RscStructuredText {
 			idc = 4601;
-			text = "fuel info";
+			text = "Fuel Info";
 			x = 0.358217 * safezoneW + safezoneX;
 			y = 0.444995 * safezoneH + safezoneY;
 			w = 0.154672 * safezoneW;
@@ -1974,11 +1974,11 @@ class RefuelDialog {
 			y = 0.307472 * safezoneH + safezoneY;
 			w = 0.03868 * safezoneW;
 			h = 0.027504 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
