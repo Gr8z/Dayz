@@ -271,7 +271,6 @@ Scout2 = [
 	"76561198070379362", // D33DS (OD-2016-01-07) #12766
 	"76561198032120834", // Ben Dover (OD-2016-01-13) #12886 
 	"76561198124885439", // AsSASsiNz KiLLz (OD-2016-01-14) #12921 
-	"76561198036004541", // Demen (OD-2015-09-28) #11853 
 	"76561198176278531", // Guy (EXP-2015-04-04) # 
 	"76561198111358029", // LemonGrab
 	// Add UIDs above, don't forget the comma
@@ -318,6 +317,7 @@ Scout3 = [
 	"76561198051054305", // Miguel (EXP-2016-03-15) #0000
 	"76561198108184220", // Warriorkiller4 the saint {Exp-2016-03-18} #0000
 	"76561198104118970", // Osama Firendladen {Exp-2016-03-25} #00000
+	"76561198036004541", // Demen (EXP-2016-3-09) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
