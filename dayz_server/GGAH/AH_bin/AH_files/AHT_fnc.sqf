@@ -705,7 +705,7 @@ call compile ("
 				adminadd set [count adminadd,[""    - Kill and hit Log"",""PHitLog"",""0"",""0"",""1"",""0"",[0,0.5,1,0.5]]];
 				if ("+_playerID+" player in levelthree) then {
 					adminadd set [count adminadd,[""    - Admin Log"",""WriteLog"",""0"",""0"",""1"",""0"",[0,0.5,1,0.5]]];
-					adminadd set [count adminadd,[""  Change weather (global)"",""Weather"",""0"",""0"",""1"",""0"",[0.25,0.25,1,1]]];
+					adminadd set [count adminadd,[""  Change Weather (global)"",""Weather"",""0"",""0"",""1"",""0"",[0.25,0.25,1,1]]];
 					adminadd set [count adminadd,[""  Change Time (global)"",""Time"",""0"",""0"",""1"",""0"",[0.25,0.25,1,1]]];
 				};
 			};
@@ -6435,46 +6435,46 @@ systemChat (""""Hello!"""");
 				
 				_ctrl = 1003 call getControl;
 				plyrinfoloop = true;
-				_text = '<t color=''#800000''>Player info</t><br/>';
+				_text = '<t color=''#0000FF''>Player info</t><br/>';
 				while {plyrinfoloop} do {
 					if (((lbtext [1,(lbCurSel 1)]) call AH_fnc_parseName) != _name) exitWith {};
-					_text = '<t color=''#800000''>Player info</t><br/>';
+					_text = '<t color=''#0000FF''>Player info</t><br/>';
 					if !(isNull _plyr) then {
-						_text = _text + '<t color=''#FF3300''>Name</t>: '+_name+'<br/>';
-						_text = _text + '<t color=''#FF3300''>Blood</t>: '+str (_plyr getVariable['USEC_BloodQty','Not yet synced'])+'<br/>';
-						_text = _text + '<t color=''#FF3300''>Humanity</t>: '+str (_plyr getVariable['humanity',0])+'<br/>';if (_plyr getVariable ['GGBank',97532468] != 97532468) then {
-						_text = _text + '<t color=''#FF3300''>Cash</t>: '+str(_plyr getVariable ['GGCoins',0])+'<br/>';
-						_text = _text + '<t color=''#FF3300''>Bank</t>: '+str(_plyr getVariable ['GGBank',0])+'<br/>';};
+						_text = _text + '<t color=''#0000FF''>Name</t>: '+_name+'<br/>';
+						_text = _text + '<t color=''#0000FF''>Blood</t>: '+str (_plyr getVariable['USEC_BloodQty','Not yet synced'])+'<br/>';
+						_text = _text + '<t color=''#0000FF''>Humanity</t>: '+str (_plyr getVariable['humanity',0])+'<br/>';if (_plyr getVariable ['GGBank',97532468] != 97532468) then {
+						_text = _text + '<t color=''#0000FF''>Cash</t>: '+str(_plyr getVariable ['GGCoins',0])+'<br/>';
+						_text = _text + '<t color=''#0000FF''>Bank</t>: '+str(_plyr getVariable ['GGBank',0])+'<br/>';};
 						_nrplyr = ({isPlayer _x} count (getPosATL (vehicle _plyr) nearentities [['CAManBase'],300])) - 1;
 						if (_plyr != vehicle _plyr) then {
 							_crew = '<br/>';
 							_driver = 'None.';
 							{if (_x != (driver (vehicle _plyr))) then {_crew = _crew + ((name _x)+'<br/>')} else {_driver = name _x}} forEach (crew (vehicle _plyr));
-							_text = _text + '<t color=''#FF3300''>Vehicle</t>: <t color=''#FFFFFF''>'+(getText (configFile >> 'CfgVehicles' >> (typeOf (vehicle _plyr)) >> 'displayName'))+'</t><br/>';
-							_text = _text + '<t color=''#FF3300''> -Speed</t>: <t color=''#FFFFFF''>'+str (round (speed (vehicle _plyr)))+'</t><br/>';
-							_text = _text + '<t color=''#FF3300''> -Fuel</t>: <t color=''#FFFFFF''>'+str(round(fuel (vehicle _plyr)))+'</t><br/>';
-							_text = _text + '<t color=''#FF3300''> -Damage</t>: <t color=''#FFFFFF''>'+str(damage (vehicle _plyr))+'</t><br/>';
-							_text = _text + '<t color=''#FF3300''> -Driver</t>: <t color=''#FFFFFF''>'+str _driver+'</t><br/>';
-							_text = _text + '<t color=''#FF3300''> -Crew</t>: <t color=''#FFFFFF''>'+_crew+'</t>';
+							_text = _text + '<t color=''#0000FF''>Vehicle</t>: <t color=''#FFFFFF''>'+(getText (configFile >> 'CfgVehicles' >> (typeOf (vehicle _plyr)) >> 'displayName'))+'</t><br/>';
+							_text = _text + '<t color=''#A4A4A4''> -Speed</t>: <t color=''#FFFFFF''>'+str (round (speed (vehicle _plyr)))+'</t><br/>';
+							_text = _text + '<t color=''#A4A4A4''> -Fuel</t>: <t color=''#FFFFFF''>'+str(round(fuel (vehicle _plyr)))+'</t><br/>';
+							_text = _text + '<t color=''#A4A4A4''> -Damage</t>: <t color=''#FFFFFF''>'+str(damage (vehicle _plyr))+'</t><br/>';
+							_text = _text + '<t color=''#A4A4A4''> -Driver</t>: <t color=''#FFFFFF''>'+str _driver+'</t><br/>';
+							_text = _text + '<t color=''#A4A4A4''> -Crew</t>: <t color=''#FFFFFF''>'+_crew+'</t>';
 						} else {
 							_wep 	= currentWeapon _plyr;
 							_ammo 	= _plyr ammo _wep;
 							_ammocl = (getArray(configfile >> 'cfgWeapons' >> currentMuzzle _plyr >> 'magazines'));
 							if (_wep != '') then {
-								_text = _text + '<t color=''#FF3300''>Weapon</t><br/>';
-								_text = _text + '<t color=''#FF3300''> -Name</t>: <br/><t color=''#FFFFFF'' size=''0.8''>'+(getText (configFile >> 'CfgWeapons' >> _wep >> 'displayName'))+'</t><br/>';
-								_text = _text + '<t color=''#FF3300''> -Classname</t>: <br/><t color=''#FFFFFF'' size=''0.8''>'+_wep+'</t><br/>';
-								_text = _text + '<t color=''#FF3300''> -Ammo</t>: <t color=''#FFFFFF''>'+str(_plyr ammo _wep)+'</t><br/>';
+								_text = _text + '<t color=''#0000FF''>Weapon</t><br/>';
+								_text = _text + '<t color=''#A4A4A4''> -Name</t>: <br/><t color=''#FFFFFF'' size=''0.8''>'+(getText (configFile >> 'CfgWeapons' >> _wep >> 'displayName'))+'</t><br/>';
+								_text = _text + '<t color=''#A4A4A4''> -Classname</t>: <br/><t color=''#FFFFFF'' size=''0.8''>'+_wep+'</t><br/>';
+								_text = _text + '<t color=''#A4A4A4''> -Ammo</t>: <t color=''#FFFFFF''>'+str(_plyr ammo _wep)+'</t><br/>';
 							} else {
-								_text = _text + '<t color=''#FF3300''>Weapon</t>: <t color=''#FFFFFF''>No weapon.</t><br/>';
+								_text = _text + '<t color=''#0000FF''>Weapon</t>: <t color=''#FFFFFF''>No weapon.</t><br/>';
 							};
 						};
-						_text = _text + '<t color=''#FF3300''>Miscellaneous</t><br/>';
-						_text = _text + '<t color=''#FF3300''> -Near</t>: <t color=''#FFFFFF''>'+str _nrplyr+'</t><br/>';
-						_text = _text + '<t color=''#FF3300''> -GPS</t>: <t color=''#FFFFFF''>'+(mapGridPosition (getPos _plyr))+'</t><br/>';
-						_text = _text + '<t color=''#FF3300''> -POS</t>:<br/><t color=''#FFFFFF'' size=''0.75''>'+str (getPosAtl _plyr)+'</t><br/>';
-						_text = _text + '<t color=''#FF3300''> -PUID</t>:<br/><t color=''#FFFFFF'' size=''0.75''>'+str ("+_playerID+" _plyr)+'</t><br/>';
-					} else {_text = _text + '<t color=''#FF3300''>PLAYER IS NULL</t>'};
+						_text = _text + '<t color=''#0000FF''>Miscellaneous</t><br/>';
+						_text = _text + '<t color=''#A4A4A4''> -Near</t>: <t color=''#FFFFFF''>'+str _nrplyr+'</t><br/>';
+						_text = _text + '<t color=''#A4A4A4''> -GPS</t>: <t color=''#FFFFFF''>'+(mapGridPosition (getPos _plyr))+'</t><br/>';
+						_text = _text + '<t color=''#A4A4A4''> -POS</t>:<br/><t color=''#FFFFFF'' size=''0.75''>'+str (getPosAtl _plyr)+'</t><br/>';
+						_text = _text + '<t color=''#A4A4A4''> -PUID</t>:<br/><t color=''#FFFFFF'' size=''0.75''>'+str ("+_playerID+" _plyr)+'</t><br/>';
+					} else {_text = _text + '<t color=''#A4A4A4''>PLAYER IS NULL</t>'};
 					_ctrl ctrlSetStructuredText parseText _text;
 				};
 				plyrinfoloop = false;

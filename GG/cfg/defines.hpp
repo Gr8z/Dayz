@@ -1643,7 +1643,7 @@ class BankDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class BD_title: RscText {
 			idc = -1;
@@ -1707,7 +1707,7 @@ class BankDialog {
 			w = 0.309263 * safezoneW;
 			h = 0.0274947 * safezoneH;
 			colorText[] = {1,1,1,1};
-			colorBackground[] = {1,0.1,0.1,0.25};
+			colorBackground[] = {0,0,1,0.25};
 		};
 	};
 	class Controls {
@@ -1746,11 +1746,11 @@ class BankDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.0386578 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
@@ -1779,7 +1779,7 @@ class GivePlayerDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class GPD_title: RscText {
 			idc = -1;
@@ -1854,11 +1854,11 @@ class GivePlayerDialog {
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.0386578 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
@@ -1889,11 +1889,11 @@ class RefuelDialog {
 			y = 0.307472 * safezoneH + safezoneY;
 			w = 0.34812 * safezoneW;
 			h = 0.027504 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class RD_title: RscText {
 			idc = -1;
-			text = "Refuel and repair";
+			text = "Refuel and Repair";
 			x = 0.332439 * safezoneW + safezoneX;
 			y = 0.307482 * safezoneH + safezoneY;
 			w = 0.348012 * safezoneW;
@@ -1920,7 +1920,7 @@ class RefuelDialog {
 		};
 		class RD_fuelInfo: RscStructuredText {
 			idc = 4601;
-			text = "fuel info";
+			text = "Fuel Info";
 			x = 0.358217 * safezoneW + safezoneX;
 			y = 0.444995 * safezoneH + safezoneY;
 			w = 0.154672 * safezoneW;
@@ -1974,11 +1974,11 @@ class RefuelDialog {
 			y = 0.307472 * safezoneH + safezoneY;
 			w = 0.03868 * safezoneW;
 			h = 0.027504 * safezoneH;
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
@@ -2021,7 +2021,7 @@ class AH_RSC_AHT {
 			y = "safezoneY + 0.025";
 			w = "0.529 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class Menu_MBoxBG : RscText {
 			idc = 1000;
@@ -2031,7 +2031,7 @@ class AH_RSC_AHT {
 			y = "safezoneY + 0.75";
 			w = "0.3";
 			h = "safezoneH - 0.93";
-			colorBackground[] = {0.3,0,0,0.5};
+			colorBackground[] = {0,0,1,0.5};
 		};
 		class Menu_TBoxBG : RscText {
 			idc = 1001;
@@ -2121,14 +2121,14 @@ class AH_RSC_AHT {
 			sizeEx = 0.023;
 			text = "";
 			rowHeight = 0;
-			color[] = {0.95, 0.95, 0.95, 0.5};
-			colorText[] = {0.95, 0.95, 0.95, 1};
-			colorScrollbar[] = {0.8, 0.3, 0.3, 1};
+			color[] = {0,0,1,0.5};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorScrollbar[] = {0,0,1,1};
 			colorSelect[] = {0, 0, 0, 1};
 			colorSelect2[] = {0, 0, 0, 1};
-			colorSelectBackground[] = {0.7, 0.7, 0.7, 1};
-			colorSelectBackground2[] = {0.7, 0.7, 0.7, 1};
-			colorDisabled[] = {0.8, 0.3, 0.3, 0.75};
+			colorSelectBackground[] = {0,0,1,1};
+			colorSelectBackground2[] = {0,0,1,1};
+			colorDisabled[] = {0,0,1,0.75};
 			period = 0;
 			colorBackground[] = {0, 0, 0, 0.5};
 			soundSelect[] = {"", 0.1, 1};
@@ -2137,7 +2137,7 @@ class AH_RSC_AHT {
 			onMouseButtonDown = "";
 			onKeyDown = "";
 			class ScrollBar {
-				color[] = {0.8, 0.3, 0.3, 1};
+				color[] = {0,0,1,1};
 				colorActive[] = {1, 1, 1, 1};
 				colorDisabled[] = {1, 1, 1, 1};
 				thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
@@ -2152,9 +2152,9 @@ class AH_RSC_AHT {
 			shadow = 0;
 		};
 		class MainList : MainTree {
-			color[] = {0.8, 0.3, 0.3, 0.5};
-			colorActive[] = {0.8, 0.3, 0.3, 0.5};
-			colorDisabled[] = {0.8, 0.3, 0.3, 0.5};
+			color[] = {0,0,1,0.5};
+			colorActive[] = {0,0,1,0.5};
+			colorDisabled[] = {0,0,1,0.5};
 			colorBackground[] = {0, 0, 0, 0.8};
 			idc = 2;
 			x = "0.237 * safezoneW + safezoneX + 0.3";
@@ -2178,7 +2178,7 @@ class AH_RSC_AHT {
 			y = "safezoneY + 0.75";
 			w = "0.3";
 			h = "safezoneH - 0.93";
-			colorText[] = {1,0.8,0.8,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorBackground[] = {0,0,0,0};
 		};
 		class Menu_btnTTL: RscButton {
@@ -2190,8 +2190,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.655";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnTTR: RscButton {
 			idc = 782;
@@ -2202,8 +2202,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.655";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnTL: RscButton {
 			idc = 891;
@@ -2214,8 +2214,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.7";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnTR: RscButton {
 			idc = 892;
@@ -2226,8 +2226,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.7";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnBL: RscButton {
 			idc = 981;
@@ -2238,8 +2238,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.745";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnBR: RscButton {
 			idc = 982;
@@ -2250,8 +2250,8 @@ class AH_RSC_AHT {
 			y = "safezoneY + 1.745";
 			w = "0.06 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
+			colorBackground[] = {0,0,1,1};
 		};
 		class Menu_btnDisc: RscButton {
 			idc = 990;
@@ -2262,12 +2262,12 @@ class AH_RSC_AHT {
 			y = "safezoneY + 0.025";
 			w = "0.052 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,1};
-			colorFocused[] = {0.75,0.75,0.75,.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
+			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
 		};
@@ -2287,7 +2287,7 @@ class AH_RSC_TXT {
 			y = "0.444978 * safezoneH + safezoneY";
 			w = "0.237177 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TXT_title: RscText {
 			idc = 1000;
@@ -2329,7 +2329,7 @@ class AH_RSC_TXT {
 			y = "0.488995 * safezoneH + safezoneY";
 			w = "0.216553 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorBackground[] = {0.3,0,0,0.2};
+			colorBackground[] = {0,0,1,0.2};
 		};
 	};
 	class controls {
@@ -2342,7 +2342,7 @@ class AH_RSC_TXT {
 			w = "0.216553 * safezoneW";
 			h = "0.022009 * safezoneH";
 			colorBackground[] = {1,1,1,1};
-			colorActive[] = {1,0.5,0.5,1};
+			colorActive[] = {0,0,1,1};
 		};
 		class TXT_btnLeft: RscButton {
 			idc = 1;
@@ -2354,8 +2354,8 @@ class AH_RSC_TXT {
 			y = "0.522009 * safezoneH + safezoneY";
 			w = "0.0412482 * safezoneW";
 			h = "0.022009 * safezoneH";
-			colorText[] = {0,1,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorText[] = {0,0,1,1};
+			colorBackground[] = {0.643,0.643,0.643,1};
 		};
 		class TXT_btnRight: RscButton {
 			idc = 2;
@@ -2368,7 +2368,7 @@ class AH_RSC_TXT {
 			w = "0.0412482 * safezoneW";
 			h = "0.022009 * safezoneH";
 			colorText[] = {1,0,0,1};
-			colorBackground[] = {0.15,0,0,1};
+			colorBackground[] = {0.643,0.643,0.643,1};
 		};
 	};
 };
@@ -3001,7 +3001,7 @@ class AH_traderMenu {
 			y = 0.224974 * safezoneH + safezoneY;
 			w = 0.464016 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_title: RscText {
 			idc = -1;
@@ -3010,7 +3010,7 @@ class AH_traderMenu {
 			y = 0.224974 * safezoneH + safezoneY;
 			w = 0.464016 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,1,1,1};
+			colorText[] = {0.643,0.643,0.643,1};
 		};
 		class TM_cattxt: RscText {
 			idc = -1;
@@ -3019,7 +3019,7 @@ class AH_traderMenu {
 			y = 0.279979 * safezoneH + safezoneY;
 			w = 0.116004 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_itemtxt: RscText {
 			idc = -1;
@@ -3028,7 +3028,7 @@ class AH_traderMenu {
 			y = 0.279979 * safezoneH + safezoneY;
 			w = 0.0515573 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_buyprice: RscStructuredText {
 			idc = 12002;
@@ -3055,7 +3055,7 @@ class AH_traderMenu {
 			y = 0.651264 * safezoneH + safezoneY;
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0.643,0.643,0.643,0.9};
 		};
 		class TM_descTXTholder: RscControlsGroup {
 			idc = 100301;
@@ -3094,7 +3094,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0515573 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_deliveryTXT: RscText {
 			idc = 1007;
@@ -3103,7 +3103,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0451127 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class TM_qtyeditBG: RscText {
 			idc = 1006;
@@ -3112,7 +3112,7 @@ class AH_traderMenu {
 			y = 0.252476 * safezoneH + safezoneY;
 			w = 0.0644466 * safezoneW;
 			h = 0.0275026 * safezoneH;
-			colorBackground[] = {1,0.1,0.1,0.25};
+			colorBackground[] = {0.18,0.392,0.996,1};
 		};
 		class TM_descTXTbg: RscText {
 			idc = 1008;
@@ -3121,7 +3121,7 @@ class AH_traderMenu {
 			y = 0.678767 * safezoneH + safezoneY;
 			w = 0.283565 * safezoneW;
 			h = 0.11001 * safezoneH;
-			colorBackground[] = {1,0.1,0.1,0.05};
+			colorBackground[] = {0.506,0.624,0.969,0.5};
 		};
 	};
 	class Controls {
@@ -3150,7 +3150,7 @@ class AH_traderMenu {
 			w = 0.077336 * safezoneW;
 			h = 0.0275026 * safezoneH;
 			onButtonClick = "[(lbCurSel 12001),(lbData [12710, (lbCurSel 12710)]),(ctrlText 12420)] call TraderDialogBuy;";
-			colorBackgroundDisabled[] = {0.75,0.25,0.25,0.6};
+			colorBackgroundDisabled[] = {0.345,0.345,0.98,1};
 		};
 		class TM_sellbtn: RscButton {
 			idc = 12005;
@@ -3160,17 +3160,8 @@ class AH_traderMenu {
 			w = 0.0773437 * safezoneW;
 			h = 0.0274947 * safezoneH;
 			onButtonClick = "[(lbCurSel 12001),(lbData [12710, (lbCurSel 12710)]),(ctrlText 12420)] call TraderDialogSell;";
-			colorBackgroundDisabled[] = {0.75,0.25,0.25,0.6};
+			colorBackgroundDisabled[] = {0.345,0.345,0.98,1};
 		};
-		/*class TM_combinebars: RscButton {
-			idc = 12007;
-			text = "Combine Bars";
-			x = "0.381256 * safezoneW + safezoneX";
-			y = "0.720064 * safezoneH + safezoneY";
-			w = "0.1287436 * safezoneW";
-			h = "0.055016 * safezoneH";
-			onButtonClick = "[[],0] call epoch_returnChange; ((ctrlParent (_this select 0)) closeDisplay 9000); cutText [(localize ""STR_EPOCH_PLAYER_307"") , ""PLAIN DOWN""];";
-		};*/
 		class TM_closebtn: RscButton {
 			idc = -1;
 			text = "Close";
@@ -3180,11 +3171,11 @@ class AH_traderMenu {
 			w = 0.038668 * safezoneW;
 			h = 0.0275026 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};
