@@ -4212,7 +4212,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemBloodbag") then {
@@ -4235,7 +4234,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemKiloHemp") then {
@@ -4247,7 +4245,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemKnife") then {
@@ -4259,7 +4256,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemMap") then {
@@ -4271,7 +4267,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemGPS") then {
@@ -4283,7 +4278,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item == "ItemToolbox") then {
@@ -4294,7 +4288,6 @@ if (!isDedicated) then {
 				_compile = "_id = ['MMT_Civ',['PartGeneric']] execVM 'GG\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
 				_menu = _parent displayCtrl (1600 + 3);
@@ -4304,7 +4297,6 @@ if (!isDedicated) then {
 				_compile = "_id = ['ATV_CZ_EP1',['PartGeneric','PartEngine','PartWheel','PartWheel']] execVM 'GG\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
 				_menu = _parent displayCtrl (1600 + 4);
@@ -4314,7 +4306,6 @@ if (!isDedicated) then {
 				_compile = "_id = ['CSJ_GyroC',['PartVRotor','PartEngine','PartFueltank']] execVM 'GG\GG_DV.sqf';closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 
 				_menu = _parent displayCtrl (1600 + 5);
@@ -4324,7 +4315,6 @@ if (!isDedicated) then {
 				_compile = "_id = 'Land_MBG_Garage_Single_C' spawn player_build;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
 				_menu = _parent displayCtrl (1600 + 6);
@@ -4334,7 +4324,6 @@ if (!isDedicated) then {
 				_compile = "_id = 'HeliH' spawn player_build;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
 				_menu = _parent displayCtrl (1600 + 7);
@@ -4344,7 +4333,6 @@ if (!isDedicated) then {
 				_compile = "_id = [] spawn GG_deletehelipad;closeDialog 0;";
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];	
 
 				_menu = _parent displayCtrl (1600 + 8);
@@ -4355,7 +4343,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 			};
 			if (_item != "ItemBloodbag") then {
@@ -4377,7 +4364,6 @@ if (!isDedicated) then {
 						_compile = fmt ["_id = ['%2',%3] %1;",_script,_item,_array];
 					};
 					_menu ctrlSetText fmt [_type,_name];
-					_menu ctrlSetTextColor [1,0.25,0.25,1];
 					_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				};
 			};
