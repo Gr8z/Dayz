@@ -142,9 +142,7 @@ Engineer3 = [
 	"76561198029487248", // Man with the BIG Jelly (OD-2015-12-28) #12540
 	"76561198065566612", // Jaq (EXP-2016-02-29) #13107
 	"76561198119421077", // Meerk (OD-2016-02-11) #13170
-	"76561198161443982", // Jordan (EXP-2016-03-22) #12280 
-	"76561198092740223", // Josh (EXP-2016-04-18) #0000
-	"76561198083352577", // Donkologist (OD-2016-03-18)
+	"76561198161443982", // Jordan (EXP-2016-03-22) #12280
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -324,6 +322,7 @@ Scout3 = [
 	"76561198078011082", // Jesse Mason1 (EXP-2016-4-10) #0000
 	"76561198110558124", // Goat (EXP-2016-4-15) #0000
 	"76561198280415692", // Evan (OD-2016-03-18)
+	"76561198083352577", // Donkologist (EXP-2016-04-18) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
