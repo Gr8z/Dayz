@@ -1202,6 +1202,22 @@ if (!isDedicated) then {
 		[(_magslotsfree - _totalmags),(_wepslotsfree - _totalweps),(_bakslotsfree - _totalbaks)]
 	};
 	fnc_usec_selfActions = {
+	
+		if (animationState player in ['smk_urbanproneleft','smk_urbanproneright','smk_prone_to_urbanprone_left','smk_prone_to_urbanprone_right']) then {
+			if (time - _flchk5 > 4) then {
+				_flchk5 = time;
+				if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 60) then {
+					[objNull,player,rSwitchMove,''] call RE;
+					_msg = 'Can not use urbanprone near plot poles!';
+					_msg call AH_fnc_dynTextMsg;
+					systemChat (str _msg);
+					disableUserInput true;disableUserInput true;disableUserInput true;
+					uiSleep 5;
+					disableUserInput false;disableUserInput false;disableUserInput false;
+				}
+			}
+		};
+
 		private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehicle","_inVehicle","_hasFuelE","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_traderType","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_Unlock","_lock","_buy","_dogHandle","_lieDown","_warn","_hastinitem","_allowedDistance","_menu","_menu1","_humanity_logic","_low_high","_cancel","_metals_trader","_traderMenu","_isWreck","_isRemovable","_isDisallowRepair","_rawmeat","_humanity","_speed","_dog","_hasbottleitem","_isAir","_isShip","_playersNear","_findNearestGens","_findNearestGen","_IsNearRunningGen","_cursorTarget","_isnewstorage","_itemsPlayer","_ownerKeyId","_typeOfCursorTarget","_hasKey","_oldOwner","_combi","_key_colors","_player_deleteBuild","_player_flipveh","_player_lockUnlock_crtl","_player_butcher","_player_studybody","_player_cook","_player_boil","_hasFuelBarrelE","_hasHotwireKit","_player_SurrenderedGear","_isSurrendered","_isModular","_isModularDoor","_ownerKeyName","_temp_keys_names","_hasAttached","_allowTow","_liftHeli","_found","_posL","_posC","_height","_liftHelis","_attached"];
 		if (DZE_ActionInProgress) exw {};
 		_vehicle = vehicle player;
