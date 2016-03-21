@@ -1204,17 +1204,15 @@ if (!isDedicated) then {
 	fnc_usec_selfActions = {
 	
 		if (animationState player in ['smk_urbanproneleft','smk_urbanproneright','smk_prone_to_urbanprone_left','smk_prone_to_urbanprone_right']) then {
-			if (time - _flchk5 > 4) then {
-				_flchk5 = time;
-				if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 60) then {
-					[objNull,player,rSwitchMove,''] call RE;
+			if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 120) then {
+					player switchMove "";
+					player playActionNow "stop";
 					_msg = 'Can not use urbanprone near plot poles!';
 					_msg call AH_fnc_dynTextMsg;
 					systemChat (str _msg);
 					disableUserInput true;disableUserInput true;disableUserInput true;
 					uiSleep 5;
 					disableUserInput false;disableUserInput false;disableUserInput false;
-				}
 			}
 		};
 
