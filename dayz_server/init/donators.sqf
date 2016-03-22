@@ -143,6 +143,7 @@ Engineer3 = [
 	"76561198065566612", // Jaq (EXP-2016-02-29) #13107
 	"76561198119421077", // Meerk (OD-2016-02-11) #13170
 	"76561198161443982", // Jordan (EXP-2016-03-22) #12280
+	"76561198280415692", // Evan (OD-2016-03-21) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
