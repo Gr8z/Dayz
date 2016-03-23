@@ -373,6 +373,7 @@ Soldier3 = [
 	"76561198109202946", // Sandborn (EXp-2016-04-25)
 	"76561198085512191", // Mesoe (OD-2015-12-16)   #12413 
 	"76561198016348545", // Sonic (EXp-2016-03-16)
+	"76561198280415692", // Evan (OD-2016-03-22) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
