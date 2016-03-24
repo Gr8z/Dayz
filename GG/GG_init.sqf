@@ -1202,7 +1202,6 @@ if (!isDedicated) then {
 		[(_magslotsfree - _totalmags),(_wepslotsfree - _totalweps),(_bakslotsfree - _totalbaks)]
 	};
 	fnc_usec_selfActions = {
-	
 		if (animationState player in ['smk_urbanproneleft','smk_urbanproneright','smk_prone_to_urbanprone_left','smk_prone_to_urbanprone_right']) then {
 			if ((nearestObject [player,'Plastic_Pole_EP1_DZ']) distance player < 120) then {
 					player switchMove "";
@@ -1215,7 +1214,6 @@ if (!isDedicated) then {
 					disableUserInput false;disableUserInput false;disableUserInput false;
 			}
 		};
-
 		private ["_isWreckBuilding","_temp_keys","_magazinesPlayer","_isPZombie","_vehicle","_inVehicle","_hasFuelE","_hasRawMeat","_hasKnife","_hasToolbox","_onLadder","_nearLight","_canPickLight","_canDo","_text","_isHarvested","_isVehicle","_isVehicletype","_isMan","_traderType","_ownerID","_isAnimal","_isDog","_isZombie","_isDestructable","_isTent","_isFuel","_isAlive","_Unlock","_lock","_buy","_dogHandle","_lieDown","_warn","_hastinitem","_allowedDistance","_menu","_menu1","_humanity_logic","_low_high","_cancel","_metals_trader","_traderMenu","_isWreck","_isRemovable","_isDisallowRepair","_rawmeat","_humanity","_speed","_dog","_hasbottleitem","_isAir","_isShip","_playersNear","_findNearestGens","_findNearestGen","_IsNearRunningGen","_cursorTarget","_isnewstorage","_itemsPlayer","_ownerKeyId","_typeOfCursorTarget","_hasKey","_oldOwner","_combi","_key_colors","_player_deleteBuild","_player_flipveh","_player_lockUnlock_crtl","_player_butcher","_player_studybody","_player_cook","_player_boil","_hasFuelBarrelE","_hasHotwireKit","_player_SurrenderedGear","_isSurrendered","_isModular","_isModularDoor","_ownerKeyName","_temp_keys_names","_hasAttached","_allowTow","_liftHeli","_found","_posL","_posC","_height","_liftHelis","_attached"];
 		if (DZE_ActionInProgress) exw {};
 		_vehicle = vehicle player;
@@ -1229,6 +1227,39 @@ if (!isDedicated) then {
 			if (_nearLight distance player < 4) then {
 				_canPickLight = izn (_nearLight xgv ["owner",objNull]);
 			};
+		};
+		private ["_carID","_hasKeyinCar"];
+		if (_inVehicle && driver _vehicle == player) then {
+			_itemsPlayer = items player;
+			_temp_keys = [];
+			_temp_keys_names = [];
+			_key_colors = ["ItemKeyYellow","ItemKeyBlue","ItemKeyRed","ItemKeyGreen","ItemKeyBlack"];
+			{
+				if (configName(inheritsFrom(xcf >> "CfgWeapons" >> _x)) in _key_colors) then {
+					_ownerKeyId = xgn(xcf >> "CfgWeapons" >> _x >> "keyid");
+					_ownerKeyName = getText(xcf >> "CfgWeapons" >> _x >> "displayName");
+					_temp_keys_names set [_ownerKeyId,_ownerKeyName];
+					_temp_keys set [count _temp_keys,str(_ownerKeyId)];
+				};
+			} count _itemsPlayer;
+			_carID = _vehicle xgv ["CharacterID", "0"];
+			_hasKeyinCar = _carID in _temp_keys;
+			if (s_player_inCarlockUnlock_crtl < 0 && _hasKeyinCar) then {
+				dayz_myLockedVehicle = _vehicle;
+				_text = getText (xcf >> "CfgVehicles" >> typeOf(dayz_myLockedVehicle) >> "displayName");
+				if(locked dayz_myLockedVehicle) then {
+					_Unlock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_UNLOCK",_text], "GG\GG_LU.sqf",[dayz_myLockedVehicle, false, (_temp_keys_names sel (parseNumber _carID))], 2, true, true, "", ""];
+					s_player_incarlockunlock set [count s_player_incarlockunlock,_Unlock];
+					s_player_inCarlockUnlock_crtl = 1;
+				} else {
+					_lock = dayz_myLockedVehicle xaa [fmt[lzl "STR_EPOCH_ACTIONS_LOCK",_text], "GG\GG_LU.sqf",[dayz_myLockedVehicle, true, (_temp_keys_names sel (parseNumber _carID))], 1, false, true, "", ""];
+					s_player_incarlockunlock set [count s_player_incarlockunlock,_lock];
+					s_player_inCarlockUnlock_crtl = 1;
+				};
+			};
+		} else {
+			{dayz_myLockedVehicle rac _x} count s_player_incarlockunlock;s_player_incarlockunlock = [];
+			s_player_inCarlockUnlock_crtl = -1;
 		};
 		if (_canPickLight && !dayz_hasLight && !_isPZombie) then {
 			if (s_player_grabflare < 0) then {
@@ -4215,7 +4246,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 
 				_menu = _parent displayCtrl (1600 + 1);
@@ -4237,7 +4267,6 @@ if (!isDedicated) then {
 				_compile = fmt ["_id = '%2' execVM '%1';",_script,_item];
 				uiNamespace xsv ['uiControl', _control];
 				_menu ctrlSetText fmt [_type,_name];
-				_menu ctrlSetTextColor [1,0,0,1];
 				_menu ctrlSetEventHandler ["ButtonClick",_compile];
 				
 				_menu = _parent displayCtrl (1600 + 1);
@@ -4728,10 +4757,13 @@ if (!isDedicated) then {
 			s_player_claimkey = -1;
 			s_player_changeKey = -1;
 			s_player_plotManagement = -1;
+			s_player_inCarlockUnlock_crtl = -1;
+			s_player_incarlockunlock = [];
 		};
 		call dayz_resetSelfActions;
 		rn "GG\Trader\player_traderMenu.sqf";
 		rn "GG\Lift\init.sqf";
+		dayz_myLockedVehicle = objNull;
 	};
 	rn "\z\addons\dayz_code\system\BIS_Effects\init.sqf";
 	diag_log ("GG: Loaded client init!");
