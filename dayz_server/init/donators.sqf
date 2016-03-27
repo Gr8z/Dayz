@@ -324,6 +324,7 @@ Scout3 = [
 	"76561198110558124", // Goat (EXP-2016-4-15) #0000
 	"76561198280415692", // Evan (OD-2016-03-18)
 	"76561198083352577", // Donkologist (EXP-2016-04-18) #0000
+	"76561198101853447", // Temp (EXP-2016-04-26) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
