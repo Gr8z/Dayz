@@ -279,6 +279,7 @@ Scout2 = [
 	"76561198176278531", // Guy (EXP-2015-04-04) # 
 	"76561198111358029", // LemonGrab
 	"76561198054707975", // Nv Goggles (OD-2016-3-29)
+	"76561198087483825", // Red Rocket (OD-2016-3-29)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
