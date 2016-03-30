@@ -121,7 +121,7 @@ Engineer1 = [
 ];publicVariable "Engineer1";
 
 Engineer2 = [
-	"76561198230374540", // hsales8717 (OD-2016-3-29)
+	"76561198001066546", // MeowMix (OD-2016-3-29)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
@@ -147,6 +147,7 @@ Engineer3 = [
 	"76561198101853447", // Tyler Hall (OD-2016-03-27) 
 	"76561198160336577", // CHASE (OD-2016-03-27) 
 	"76561198069993039", // Keegan13590 (OD-2016-03-29) 
+	"76561198230374540", // hsales8717 (OD-2016-3-30)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
