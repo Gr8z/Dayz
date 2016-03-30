@@ -165,6 +165,7 @@ Marksman1 = [
 
 Marksman2 = [
 	"76561198078201908", // Gr8 
+	"76561198137363057", // Dietryen (OD-2016-03-30)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman2";
