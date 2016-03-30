@@ -146,6 +146,7 @@ Engineer3 = [
 	"76561198280415692", // Evan (OD-2016-03-21) 
 	"76561198101853447", // Tyler Hall (OD-2016-03-27) 
 	"76561198160336577", // CHASE (OD-2016-03-27) 
+	"76561198069993039", // Keegan13590 (OD-2016-03-29) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
