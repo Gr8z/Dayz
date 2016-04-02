@@ -284,7 +284,6 @@ Scout2 = [
 	"76561198054707975", // Nv Goggles (OD-2016-3-29)
 	"76561198087483825", // Red Rocket (OD-2016-3-29)
 	"76561197998435723", // Pandabowl (OD-2016-3-30)
-	"76561198098045046", // ShrekasarausRex (EXP-2016-05-01)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
@@ -339,6 +338,7 @@ Scout3 = [
 	"76561198042621382", // TylerOSM (OD-2016-03-27) 
 	"76561198074900512", // Penguin (OD-2016-03-29) 
 	"76561198093543419", // Major Tom (OD-2016-03-30)
+	"76561198101835667", // Wicked (Lifetime loadout for promo)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
