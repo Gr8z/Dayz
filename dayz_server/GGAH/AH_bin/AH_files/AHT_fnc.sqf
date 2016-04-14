@@ -1340,6 +1340,60 @@ call compile ("
 				};
 				if !(isNull _this) then {deleteVehicle _this};
 			};
+			admin_animate1 =
+			{
+				{player reveal _x;} forEach (player nearObjects ['All',25]);
+				_ct = cursorTarget;
+				if((!isNull _ct) && (_ct distance player < 15))then
+				{
+					if((_ct isKindOf ""AllVehicles"") && !(_ct isKindOf ""Man""))then
+					{
+						if(locked _ct)then
+						{
+							[nil,nil,nil,[_ct,""[infiSTAR.de ADMIN-TOOL]""]] execVM ""\z\addons\dayz_code\actions\unlock_veh.sqf"";
+						}
+						else
+						{
+							cutText [""Vehicle is already open."", ""PLAIN""];
+						};
+					};
+					{_ct animate [_x,1];} forEach ['Open_hinge','Open_latch','Lights_1','Lights_2','Open_door','DoorR','LeftShutter','RightShutter'];
+					_type = typeOf _ct;
+					_alreadyPacking = _ct getVariable['packing',0];
+					if((_type in DZE_LockedStorage) && (_alreadyPacking == 0))then
+					{
+						dayz_combination = _ct getVariable['CharacterID','0'];
+						_ct spawn player_unlockVault;
+					};
+				};
+			};
+			admin_animate2 =
+			{
+				{player reveal _x;} forEach (player nearObjects ['All',25]);
+				_ct = cursorTarget;
+				if((!isNull _ct) && (_ct distance player < 15))then
+				{
+					if((_ct isKindOf ""AllVehicles"") && !(_ct isKindOf ""Man""))then
+					{
+						if(locked _ct)then
+						{
+							cutText [""Vehicle is already locked."", ""PLAIN""];
+						}
+						else
+						{
+							[nil,nil,nil,_ct] execVM '\z\addons\dayz_code\actions\lock_veh.sqf';
+						};
+					};
+					{_ct animate [_x,0];} forEach ['Open_hinge','Open_latch','Lights_1','Lights_2','Open_door','DoorR','LeftShutter','RightShutter'];
+					_type = typeOf _ct;
+					_alreadyPacking = _ct getVariable['packing',0];
+					if((_type in DZE_UnLockedStorage) && (_alreadyPacking == 0))then
+					{
+						dayz_combination = _ct getVariable['CharacterID','0'];
+						_ct spawn player_lockVault;
+					};
+				};
+			};
 			admin_fnc_dynTextSend = {
 				_name 		= _this select 0;
 				_message 	= _this select 1;
@@ -8162,6 +8216,8 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
 					if (_key == 0x03) then {[] spawn admin_flipVehicle};
+					if (_key == 0x09) then {[] spawn admin_animate1};
+					if (_key == 0x0A) then {[] spawn admin_animate2};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
@@ -8209,6 +8265,8 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3F) then {[] spawn admin_unspectate};
 					if (_key == 0x02) then {[] spawn admin_repairVehicle};
 					if (_key == 0x03) then {[] spawn admin_flipVehicle};
+					if (_key == 0x09) then {[] spawn admin_animate1};
+					if (_key == 0x0A) then {[] spawn admin_animate2};
 					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
 					if (AM_EPOCH) then {
 						if (_key == 0x04) then {[] spawn admin_passget};
