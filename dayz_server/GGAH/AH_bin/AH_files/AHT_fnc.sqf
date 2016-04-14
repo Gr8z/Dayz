@@ -1350,7 +1350,7 @@ call compile ("
 					{
 						if(locked _ct)then
 						{
-							[nil,nil,nil,[_ct,""[infiSTAR.de ADMIN-TOOL]""]] execVM ""\z\addons\dayz_code\actions\unlock_veh.sqf"";
+							[nil,nil,nil,[_ct,""[ADMIN-TOOL]""]] execVM ""\z\addons\dayz_code\actions\unlock_veh.sqf"";
 						}
 						else
 						{
