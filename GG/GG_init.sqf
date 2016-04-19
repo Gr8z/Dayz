@@ -2399,7 +2399,7 @@ if (!isDedicated) then {
 		[NT_STRNG,0,safezoneY+0.55,10,0,0,753178] swx AH_fnc_dynamictext;
 
 		private ["_display","_ctrlBlood","_ctrlBleed","_bloodVal","_humanityName","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_blood","_thirstLvl","_foodLvl","_tempImg","_thirst","_food","_temp","_bloodLvl","_tempLvl","_color","_string","_humanity",
-		"_size","_friendlies","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_playerUID","_rplayerUID","_humanityTarget","_ctrlBloodOuter","_ctrlFoodBorder","_ctrlThirstBorder","_ctrlTempBorder"];
+		"_size","_friendlies","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_playerUID","_rplayerUID","_humanityTarget","_ctrlBloodOuter","_ctrlFoodBorder","_ctrlThirstBorder","_ctrlTempBorder","_hours","_minutes"];
 
 		_foodVal =         1 - (dayz_hunger / SleepFood);
 		_thirstVal =     1 - (dayz_thirst / SleepWater);
@@ -2482,7 +2482,9 @@ if (!isDedicated) then {
 		_bloodTotal = round((r_player_blood/12000)*100);
 
 
-		_RestartTime = (count playableUnits);
+		_hours = floor((servertime)/60/60);
+		_minutes = floor((servertime)/60) - (_hours*60);
+		_RestartTime = format["%1h %2m",_hours,_minutes];
 
 		_ctrlBloodAmount      ctrlSetText str(_bloodTotal);
 		_ctrlHumanityAmount ctrlSetText str(player xgv['humanity', 0] call BIS_fnc_numberText);

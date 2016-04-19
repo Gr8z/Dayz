@@ -2953,7 +2953,7 @@ class RscTitles {
 			class RscText_1425: RscTextGUI
 			{
 				idc = 1425;
-				text = "Online Players:";
+				text = "Server Uptime:";
 				x = 0.53 * safezoneW + safezoneX;
 				y = 0.895 * safezoneH + safezoneY;
 				w = 0.1 * safezoneW;
