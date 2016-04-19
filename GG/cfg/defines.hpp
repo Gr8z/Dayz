@@ -2527,7 +2527,6 @@ class RscTitles {
 			};
 		};
 	};
-	#define hud_status_idc 4900
 	#define CT_STRUCTURED_TEXT 13
 	class AsReMixhud {
 		idd = -1;
@@ -2542,7 +2541,7 @@ class RscTitles {
 			class AsReMixhud_Status:RscText
 			{
 				idc = 4900;
-				type = CT_STRUCTURED_TEXT;
+				type = 13;
 				size = 0.040;
 				x = 0.57 * safezoneW + safezoneX;
 	            y = 0.93 * safezoneH + safezoneY;
