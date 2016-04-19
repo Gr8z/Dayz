@@ -2366,244 +2366,278 @@ if (!isDedicated) then {
 	DZE_HumanityTargetDistance = -1;
 
 	player_updateGui = {
-		disableSerialization;
-		NT_TARGT = (cursorTarget);
-		if ((izn NT_TARGT)||!(isPlayer NT_TARGT)||(player distance NT_TARGT > NameTagDistance)) then [{NT_STRNG = ""},{
-			NT_STRNG = "";
-			NT_HMVAL = NT_TARGT xgv ["humanity",0];
-			NT_SIZET = (1-(floor(((vehicle player) distance NT_TARGT)/5)*0.1)) max 0.1;
-			NT_COLOR = "#ffffff";
-			if (NT_HMVAL <= -2500) then {NT_COLOR = "#ff0000"};
-			if (NT_HMVAL >= 2500) then {NT_COLOR = "#3333ff"};
-			if ((NT_HMVAL > -2500)&&(NT_HMVAL < 0)) then {NT_COLOR = "#ffa900"};
-			if ((NT_HMVAL < 2500)&&(NT_HMVAL >= 0)) then {NT_COLOR = "#33e4ff"};
-			if (((NT_TARGT iko 'ATV_CZ_EP1')||(NT_TARGT iko 'ATV_US_EP1')||(NT_TARGT iko 'LandVehicle')||(NT_TARGT iko 'Air')||(NT_TARGT iko 'Ship')) && (!canbuild)) then {
-				if (((count (crew NT_TARGT)) > 0)&&(player distance NT_TARGT < NameTagDistance)) then {
-					player_tag = name (driver NT_TARGT);
-					P_cre = [];
-					_crew = (crew NT_TARGT);
-					{if (name _x != player_tag) then {P_cre = P_cre + [name _x]}} forEach _crew;
-					if (player_tag == 'Error: No vehicle') then {
-						NT_STRNG = fmt  ["<t size='%1' color='#3333ff' align='center'>Driver</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>No Driver</t> <t color='#3333ff' align='center' size='%1'>Crew</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%3</t>",NT_SIZET,NT_COLOR,P_cre,player_tag]
-					} else {
-						NT_STRNG = fmt  ["<t size='%1' color='#3333ff' align='center'>Driver</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%4</t> <t color='#3333ff' align='center' size='%1'>Crew</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%3</t>",NT_SIZET,NT_COLOR,P_cre,player_tag]
+			disableSerialization;
+			NT_TARGT = (cursorTarget);
+			if ((izn NT_TARGT)||!(isPlayer NT_TARGT)||(player distance NT_TARGT > NameTagDistance)) then [{NT_STRNG = ""},{
+				NT_STRNG = "";
+				NT_HMVAL = NT_TARGT xgv ["humanity",0];
+				NT_SIZET = (1-(floor(((vehicle player) distance NT_TARGT)/5)*0.1)) max 0.1;
+				NT_COLOR = "#ffffff";
+				if (NT_HMVAL <= -2500) then {NT_COLOR = "#ff0000"};
+				if (NT_HMVAL >= 2500) then {NT_COLOR = "#3333ff"};
+				if ((NT_HMVAL > -2500)&&(NT_HMVAL < 0)) then {NT_COLOR = "#ffa900"};
+				if ((NT_HMVAL < 2500)&&(NT_HMVAL >= 0)) then {NT_COLOR = "#33e4ff"};
+				if (((NT_TARGT iko 'ATV_CZ_EP1')||(NT_TARGT iko 'ATV_US_EP1')||(NT_TARGT iko 'LandVehicle')||(NT_TARGT iko 'Air')||(NT_TARGT iko 'Ship')) && (!canbuild)) then {
+					if (((count (crew NT_TARGT)) > 0)&&(player distance NT_TARGT < NameTagDistance)) then {
+						player_tag = name (driver NT_TARGT);
+						P_cre = [];
+						_crew = (crew NT_TARGT);
+						{if (name _x != player_tag) then {P_cre = P_cre + [name _x]}} forEach _crew;
+						if (player_tag == 'Error: No vehicle') then {
+							NT_STRNG = fmt  ["<t size='%1' color='#3333ff' align='center'>Driver</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>No Driver</t> <t color='#3333ff' align='center' size='%1'>Crew</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%3</t>",NT_SIZET,NT_COLOR,P_cre,player_tag]
+						} else {
+							NT_STRNG = fmt  ["<t size='%1' color='#3333ff' align='center'>Driver</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%4</t> <t color='#3333ff' align='center' size='%1'>Crew</t><t size='%1'>:</t><t size='%1' color='%2' align='center'>%3</t>",NT_SIZET,NT_COLOR,P_cre,player_tag]
+						};
+					};
+				} else {
+					if ((isPlayer NT_TARGT)&&(alive NT_TARGT)&&!(NT_TARGT iko 'zZombie_Base')&&!(NT_TARGT iko 'CAAnimalBase')&&(player distance NT_TARGT < NameTagDistance)) then {
+						player_tag = name NT_TARGT;
+						NT_STRNG = fmt  ["<t size='%1' color='%2' align='center'>"+player_tag+"</t>",NT_SIZET,NT_COLOR]
 					};
 				};
-			} else {
-				if ((isPlayer NT_TARGT)&&(alive NT_TARGT)&&!(NT_TARGT iko 'zZombie_Base')&&!(NT_TARGT iko 'CAAnimalBase')&&(player distance NT_TARGT < NameTagDistance)) then {
-					player_tag = name NT_TARGT;
-					NT_STRNG = fmt  ["<t size='%1' color='%2' align='center'>"+player_tag+"</t>",NT_SIZET,NT_COLOR]
-				};
+			}];
+			[NT_STRNG,0,safezoneY+0.55,10,0,0,753178] swx AH_fnc_dynamictext;
+
+			private ["_display","_ctrlBlood","_ctrlBleed","_bloodVal","_humanityName","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlEar","_ctrlEye","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_blood","_thirstLvl","_foodLvl","_tempImg","_thirst","_food","_temp","_bloodLvl","_tempLvl","_color","_string","_humanity",
+			"_size","_friendlies","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_playerUID","_rplayerUID","_humanityTarget","_ctrlBloodOuter","_ctrlFoodBorder","_ctrlThirstBorder","_ctrlTempBorder"];
+			disableSerialization;
+
+			_foodVal =         1 - (dayz_hunger / SleepFood);
+			_thirstVal =     1 - (dayz_thirst / SleepWater);
+			_tempVal     =     1 - ((dayz_temperatur - dayz_temperaturmin)/(dayz_temperaturmax - dayz_temperaturmin));
+			_combatVal =    1 - dayz_combat; 
+
+			if (uiNamespace xgv ["DZ_displayUI", 0] == 1) exw {
+			    _array = [_foodVal,_thirstVal];
+			    _array
 			};
-		}];
-		[NT_STRNG,0,safezoneY+0.55,10,0,0,753178] swx AH_fnc_dynamictext;
-		private ["_display","_bloodVal","_ctrlFood","_ctrlThirst","_thirstVal","_foodVal","_ctrlTemp","_tempVal","_combatVal","_array","_ctrlCombat","_ctrlFracture","_visualText","_visual","_audibleText","_audible","_blood","_thirstLvl","_foodLvl","_tempImg","_thirst","_food","_temp","_bloodLvl","_tempLvl","_color","_string","_humanity","_size","_friendlies","_charID","_rcharID","_rfriendlies","_rfriendlyTo","_distance","_targetControl","_humanityName"];
-		_foodVal 	= 1 - (dayz_hunger / sleepFood);
-		_thirstVal 	= 1 - (dayz_thirst / sleepWater);
-		_tempVal 	= 1 - ((dayz_temperatur - dayz_temperaturmin)/(dayz_temperaturmax - dayz_temperaturmin));
-		_combatVal 	= 1 - dayz_combat;
-		_bloodVal 	= r_player_blood / r_player_bloodTotal;
-		_guiColor 	= [1,1,1,1];
-		Dayz_GUI_R 	= 0;
-		Dayz_GUI_G 	= 0.5;
-		Dayz_GUI_B 	= 0;
-		_scale 		= 1;
-		if (uiNamespace xgv ['DZ_displayUI', 0] == 1) exw {
-			_array = [_foodVal,_thirstVal];
-			_array
-		};
-		_display 		= uiNamespace xgv 'DAYZ_GUI_display';
-		_ctrlTemp 		= _display displayCtrl 1306;
-		_ctrlTempBorder = _display displayCtrl 1208;
-		_ctrlTempBack 	= _display displayCtrl 1903;
-		_ctrlFood 		= _display displayCtrl 1301;
-		_ctrlFoodBorder = _display displayCtrl 1201;
-		_ctrlFoodBack 	= _display displayCtrl 1908;
-		_ctrlThirst 	= _display displayCtrl 1302;
-		_ctrlThirstBord = _display displayCtrl 1202;
-		_ctrlThirstBack = _display displayCtrl 1205;
-		_ctrlCombat 	= _display displayCtrl 1307;
-		_ctrlFracture 	= _display displayCtrl 1203;
-		_ctrlNB1 		= _display displayCtrl 13001;
-		_ctrlNB2 		= _display displayCtrl 13002;
-		_ctrlNB3 		= _display displayCtrl 13003;
-		_ctrlNB4 		= _display displayCtrl 13004;
-		_ctrlNB5 		= _display displayCtrl 13005;
-		_ctrlNB6 		= _display displayCtrl 13006;
-		_ctrlNB7 		= _display displayCtrl 13007;
-		_ctrlDS1 		= _display displayCtrl 17001;
-		_ctrlDS2 		= _display displayCtrl 17002;
-		_ctrlDS3 		= _display displayCtrl 17003;
-		_ctrlDS4 		= _display displayCtrl 17004;
-		_ctrlDS5 		= _display displayCtrl 17005;
-		_ctrlDS6 		= _display displayCtrl 17006;
-		_ctrlDS7 		= _display displayCtrl 17007;
-		_ctrlNB8 		= _display displayCtrl 13008;
-		_ctrlNB9 		= _display displayCtrl 13009;
-		_ctrlNB8i 		= _display displayCtrl 12008;
-		_ctrlNB9i 		= _display displayCtrl 12009;
-		_ctrlDS8 		= _display displayCtrl 17008;
-		_ctrlDS9 		= _display displayCtrl 17009;
-		_ctrlDS10 		= _display displayCtrl 17010;
-		
-		_ERhours = floor((servertime)/60/60);
-		_ERminutes = floor((servertime)/60) - (_ERhours*60);
-		if ((_ERhours == DZE_restarttime sel 0)&&(_ERminutes == DZE_restarttime sel 1)) exw {
-			_text = format["<t size='2.2' color='#a81e13'>SERVER RESTARTING</t><br/><t size='2.0' color='#FFFFFF'>Logging you out!</t>",""];
-			[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
-			sleep 5;
-			(findDisplay 49) closeDisplay 0;
-			PVDZE_plr_Save = [player,(magazines player),true,true];
-			publicVariableServer "PVDZE_plr_Save";
-			player xsv ["combattimeout",0,true];
-			disableUserInput true;
-			if (vehicle player == player) then {
-				sleep 1;
-				endMission 'loser'
-			} else {
-				(vehicle player) reh "Fired";
-				(vehicle player) reh "HandleDamage";
-				(vehicle player) aeh ["Fired", {call GG_pfired}];
-				(vehicle player) aeh ["HandleDamage",{false}];
-				(vehicle player) allowDamage false;
-				(vehicle player) setVectorUp [0,0,1];
-				(vehicle player) setVelocity [0,0,0];
-				if ((vehicle player) iko "AIR") then {
-					if (driver (vehicle player) == player) then {
-						_pos = ([((vehicle player) call AH_fnc_getPos),10,1000,2,0,5,0] call BIS_fnc_findSafePos);
-						[(vehicle player),[_pos sel 0,_pos sel 1,2]] call AH_fnc_setPos;
+
+			_display = uiNamespace xgv 'DAYZ_GUI_display';
+			_ctrlBloodOuter = _display displayCtrl 1200;
+			_ctrlFoodBorder = _display displayCtrl 1201;
+			_ctrlThirstBorder = _display displayCtrl 1202;
+			_ctrlTempBorder = _display displayCtrl 1208;
+			_ctrlBloodOuter ctrlSetTextColor [1,1,1,1];
+			_ctrlFoodBorder ctrlSetTextColor [1,1,1,1];
+			_ctrlThirstBorder ctrlSetTextColor [1,1,1,1];
+			_ctrlTempBorder ctrlSetTextColor [1,1,1,1];
+
+			_ctrlBlood =     _display displayCtrl 1300;
+			_ctrlBleed =     _display displayCtrl 1303;
+			_bloodVal =        r_player_blood / r_player_bloodTotal;
+			_ctrlFood =     _display displayCtrl 1301;
+			_ctrlThirst =     _display displayCtrl 1302;
+			_ctrlTemp     =     _display displayCtrl 1306;
+			_ctrlEar =         _display displayCtrl 1304;
+			_ctrlEye =         _display displayCtrl 1305;
+			_ctrlHumanity = _display displayCtrl 1207;
+			_ctrlCombat = _display displayCtrl 1307;
+			_ctrlFracture =     _display displayCtrl 1203;
+
+			_ctrlBloodAmount = _display displayCtrl 1420;
+			_ctrlHumanityAmount = _display displayCtrl 1421;
+			_ctrlServerRestart = _display displayCtrl 1422;
+
+			_ERhours = floor((servertime)/60/60);
+			_ERminutes = floor((servertime)/60) - (_ERhours*60);
+			if ((_ERhours == DZE_restarttime sel 0)&&(_ERminutes == DZE_restarttime sel 1)) exw {
+				_text = fmt["<t size='2.2' color='#a81e13'>SERVER RESTARTING</t><br/><t size='2.0' color='#FFFFFF'>Logging you out!</t>",""];
+				[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
+				sleep 5;
+				(findDisplay 49) closeDisplay 0;
+				PVDZE_plr_Save = [player,(magazines player),true,true];
+				publicVariableServer "PVDZE_plr_Save";
+				player xsv ["combattimeout",0,true];
+				disableUserInput true;
+				if (vehicle player == player) then {
+					sleep 1;
+					endMission 'loser'
+				} else {
+					(vehicle player) reh "Fired";
+					(vehicle player) reh "HandleDamage";
+					(vehicle player) aeh ["Fired", {call GG_pfired}];
+					(vehicle player) aeh ["HandleDamage",{false}];
+					(vehicle player) allowDamage false;
+					(vehicle player) setVectorUp [0,0,1];
+					(vehicle player) setVelocity [0,0,0];
+					if ((vehicle player) iko "AIR") then {
+						if (driver (vehicle player) == player) then {
+							_pos = ([((vehicle player) call AH_fnc_getPos),10,1000,2,0,5,0] call BIS_fnc_findSafePos);
+							[(vehicle player),[_pos sel 0,_pos sel 1,2]] call AH_fnc_setPos;
+							sleep 1;
+							{if (_x != player) then {_x xac ['Eject',(vehicle player)]}} forEach (crew (vehicle player));
+							player xac ['Eject',(vehicle player)];
+						} else {
+							waitUntil {(vehicle player == player)};
+							sleep 1;
+						};
+					} else {
 						sleep 1;
 						{if (_x != player) then {_x xac ['Eject',(vehicle player)]}} forEach (crew (vehicle player));
 						player xac ['Eject',(vehicle player)];
-					} else {
-						waitUntil {(vehicle player == player)};
-						sleep 1;
 					};
-				} else {
-					sleep 1;
-					{if (_x != player) then {_x xac ['Eject',(vehicle player)]}} forEach (crew (vehicle player));
-					player xac ['Eject',(vehicle player)];
+					endMission 'loser';
 				};
-				endMission 'loser';
 			};
-		};
-		
-		_time = (round(120-(serverTime)/60));
-		_hours = (floor(_time/60));
-		_minutes = (_time - (_hours * 60));
-		_ctrlDS10 ctrlSetPosition [(safeZoneX),(safeZoneY + safeZoneH) - 0.1];
-		_ctrlDS10 ctrlSetStructuredText parseText fmt ["<t size='1'align='left'>%1</t>",name player];
-		_ctrlDS10 ctrlCommit 0;
-		_bank1 = player xgv ["bank","none"];
-		_bank2 = player xgv ["GGBank","none"];
-		if ((typeName(_bank1) == "SCALAR")||(typeName(_bank2) == "SCALAR")) then {
-			_ctrlNB8 ctrlShow true;
-			_ctrlNB8i ctrlShow true;
-			_ctrlDS8 ctrlShow true;
-			_ctrlNB9 ctrlShow true;
-			_ctrlNB9i ctrlShow true;
-			_ctrlDS9 ctrlShow true;
-			_ctrlNB8 ctrlSetScale 0.6;
-			_ctrlNB8 ctrlCommit 0;
-			_ctrlDS8 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["GGCoins",0]] call BIS_fnc_numberText];
-			_ctrlDS8 ctrlCommit 0;
-			_ctrlNB9 ctrlSetScale 0.6;
-			_ctrlNB9 ctrlCommit 0;
-			_ctrlDS9 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",[player xgv ["GGBank",0]] call BIS_fnc_numberText];
-			_ctrlDS9 ctrlCommit 0;
-		} else {
-			_ctrlNB8 ctrlShow false;
-			_ctrlNB8i ctrlShow false;
-			_ctrlDS8 ctrlShow false;
-			_ctrlNB9 ctrlShow false;
-			_ctrlNB9i ctrlShow false;
-			_ctrlDS9 ctrlShow false;
-		};
-		_ctrlNB1 ctrlSetScale 0.670000;
-		_ctrlNB1 ctrlCommit 0;
-		_ctrlDS1 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1h %2m</t>",_hours,_minutes];
-		_ctrlDS1 ctrlCommit 0;
-		_ctrlNB2 ctrlSetScale 0.670000;
-		_ctrlNB2 ctrlCommit 0;
-		_ctrlDS2 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",(round diag_fps)];
-		_ctrlDS2 ctrlCommit 0;
-		_ctrlNB3 ctrlSetScale 0.670000;
-		_ctrlNB3 ctrlCommit 0;
-		_ctrlDS3 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",r_player_blood];
-		_ctrlDS3 ctrlCommit 0;
-		_ctrlNB4 ctrlSetScale 0.670000;
-		_ctrlNB4 ctrlCommit 0;
-		_ctrlDS4 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",(round(player xgv ['humanity',0]))];
-		_ctrlDS4 ctrlCommit 0;
-		_ctrlNB5 ctrlSetScale 0.670000;
-		_ctrlNB5 ctrlCommit 0;
-		_ctrlDS5 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",(player xgv ['humanKills',0])];
-		_ctrlDS5 ctrlCommit 0;
-		_ctrlNB6 ctrlSetScale 0.670000;
-		_ctrlNB6 ctrlCommit 0;
-		_ctrlDS6 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",(player xgv ['banditKills',0])];
-		_ctrlDS6 ctrlCommit 0;
-		_ctrlNB7 ctrlSetScale 0.670000;
-		_ctrlNB7 ctrlCommit 0;
-		_ctrlDS7 ctrlSetStructuredText parseText fmt ["<t size='1'align='right'>%1</t>",(player xgv ['zombieKills',0])];
-		_ctrlDS7 ctrlCommit 0;
-		_pic = "\z\addons\dayz_code\gui\status_combat_inside_ca.paa";
-		if (vehicle player == player) then [{_pic = (getText (xcf >> 'CfgWeapons' >> (currentWeapon (vehicle player)) >> 'picture'))},{_pic = (getText (xcf >> 'CfgVehicles' >> (typeOf (vehicle player)) >> 'picture'))}];
-		if (_pic == "") then {_pic = "\z\addons\dayz_code\gui\status_combat_inside_ca.paa"};
-		_ctrlCombat ctrlSetText _pic;
-		_ctrlCombat ctrlSetPosition [(safeZoneX + safeZoneW - 0.25),(safeZoneY + 0.09)];
-		if (_combatVal == 0) then {
-			_ctrlCombat ctrlSetTextColor	[1,0,0,1];
-			_ctrlCombat call player_guiControlFlash
-		} else {
-			if ((_pic == "\z\addons\dayz_code\gui\status_combat_inside_ca.paa")||(vehicle player != player)) then {
-				_ctrlCombat ctrlSetScale 0.7;
-				_ctrlCombat ctrlSetTextColor [0,1,0,0.8];
+
+			_bloodTotal = round((r_player_blood/12000)*100);
+
+
+			_RestartTime = (count playableUnits);
+
+			_ctrlBloodAmount      ctrlSetText str(_bloodTotal);
+			_ctrlHumanityAmount ctrlSetText str(player xgv['humanity', 0] call BIS_fnc_numberText);
+			_ctrlServerRestart  ctrlSetText str(_RestartTime);
+
+			_ctrlFPS = _display displayCtrl 1321;
+			_ctrlFPSOuter = _display displayCtrl 1322;
+
+			_fps = round diag_FPS;
+			_ctrlFPS ctrlSetText str(_fps);
+			_ctrlFPS ctrlSetTextColor [0.6, 0.73, 0.0, 0.75];
+
+			_ctrlhumanKills = _display displayCtrl 1400;
+			_ctrlbanditKills= _display displayCtrl 1402;
+			_ctrlzombieKills= _display displayCtrl 1403;
+
+			_ctrlhumanKills  ctrlSetText str(player xgv["humanKills", 0]);
+			_ctrlbanditKills ctrlSetText str(player xgv["banditKills", 0]);
+			_ctrlzombieKills ctrlSetText str(player xgv["zombieKills", 0]);
+			_ctrlBlood ctrlSetTextColor     [(Dayz_GUI_R + (0.3 * (1-_bloodVal))),(Dayz_GUI_G * _bloodVal),(Dayz_GUI_B * _bloodVal), 0.5];
+			_ctrlFood ctrlSetTextColor         [(Dayz_GUI_R + (0.3 * (1-_foodVal))),(Dayz_GUI_G * _foodVal),(Dayz_GUI_B * _foodVal), 0.5];
+			_ctrlThirst ctrlSetTextColor     [(Dayz_GUI_R + (0.3 * (1-_thirstVal))),(Dayz_GUI_G * _thirstVal),(Dayz_GUI_B * _thirstVal), 0.5];
+			_ctrlTemp ctrlSetTextColor         [(Dayz_GUI_R + (0.3 * (1-_tempVal))), (Dayz_GUI_G * _tempVal), _tempVal, 0.5]; 
+			_ctrlCombat ctrlSetTextColor        [(Dayz_GUI_R + (0.3 * (1-_combatVal))),(Dayz_GUI_G * _combatVal),(Dayz_GUI_B * _combatVal), 0.5];
+
+			_blood = "";
+			_thirst = "";
+			_food = "";
+			_temp = "";
+			_tempImg = 0;
+			_bloodLvl = round((r_player_blood / 2) / 1000);
+			_thirstLvl = round(_thirstVal / 0.25);
+			_foodLvl = round(_foodVal / 0.25);
+			_tempLvl = round(dayz_temperatur);
+
+			if (_bloodLvl <= 0) then {
+			    _blood = "\z\addons\dayz_code\gui\status\status_blood_inside_1_ca.paa";
+			    } else {
+			    _blood = "\z\addons\dayz_code\gui\status\status_blood_inside_" + str(_bloodLvl) + "_ca.paa";
+			    };
+
+			if (_thirstLvl < 0) then { _thirstLvl = 0 };
+			_thirst = "\z\addons\dayz_code\gui\status\status_thirst_inside_" + str(_thirstLvl) + "_ca.paa";
+
+			if (_foodLvl < 0) then { _foodLvl = 0 };
+			_food = "\z\addons\dayz_code\gui\status\status_food_inside_" + str(_foodLvl) + "_ca.paa";
+
+			if ( _tempLvl >= 36 )                            then { _tempImg = 4 };
+			if ( _tempLvl > 33 && _tempLvl < 36 )            then { _tempImg = 3 };
+			if ( _tempLvl >= 30 && _tempLvl <= 33 )        then { _tempImg = 2 };
+			if ( _tempLvl > 28 && _tempLvl < 30 )            then { _tempImg = 1 };
+			if ( _tempLvl <= 28 )                            then { _tempImg = 0 };
+
+			_temp = "\z\addons\dayz_code\gui\status\status_temp_" + str(_tempImg) + "_ca.paa";
+
+			_ctrlBlood ctrlSetText _blood;
+			_ctrlThirst ctrlSetText _thirst;
+			_ctrlFood ctrlSetText _food;
+			_ctrlTemp ctrlSetText _temp;
+			_visual = (dayz_disVisual / 185) min 1;
+			if (_visual < 0.2) then {_visual = 0.2;};
+			_ctrlEye  ctrlSetTextColor [1, 1, 1, _visual];
+			_audible = (dayz_disAudial / 40) min 1;
+			if (_audible < 0.2) then {_audible = 0.2;};
+			_ctrlEar ctrlSetTextColor [1, 1, 1, _audible];
+			if (!canStand player) then {
+			    if (!(ctrlShown _ctrlFracture)) then {
+			        r_fracture_legs = true;
+			        _ctrlFracture ctrlShow true;
+			    };
+			};
+			if (_combatVal == 0) then {
+			    _ctrlCombat call player_guiControlFlash;
+			};
+
+			if (_bloodVal < 0.2) then {
+			    _ctrlBlood call player_guiControlFlash;
+			};
+
+			if (_thirstVal < 0.2) then {
+			    _ctrlThirst call player_guiControlFlash;
+			};
+
+			if (_foodVal < 0.2) then {
+			    _ctrlFood call player_guiControlFlash;
+			};
+
+			if (_tempVal > 0.8) then {
+			    _ctrlTemp call player_guiControlFlash;
 			} else {
-				_ctrlCombat ctrlSetScale 1;
-				_ctrlCombat ctrlSetTextColor [1,1,1,0.8];
+			    _ctrlTemp ctrlShow true;
 			};
-		};
-		_ctrlCombat ctrlCommit 0;
-		_ctrlFood ctrlSetTextColor 		[(Dayz_GUI_R + (0.6 * (1 - _foodVal)))		,(Dayz_GUI_G * _foodVal)	,(Dayz_GUI_B * _foodVal), 1];
-		_ctrlThirst ctrlSetTextColor 	[(Dayz_GUI_R + (0.6 * (1 - _thirstVal)))	,(Dayz_GUI_G * _thirstVal)	,(Dayz_GUI_B * _thirstVal), 1];
-		_ctrlTemp ctrlSetTextColor 		[(Dayz_GUI_R + (0.6 * (1 - _tempVal)))		,(Dayz_GUI_G * _tempVal)	,_tempVal, 1];
-		_ctrlFoodBorder ctrlSetTextColor _guiColor;
-		_ctrlThirstBord ctrlSetTextColor _guiColor;
-		_ctrlTempBorder ctrlSetTextColor _guiColor;
-		_thirst 	= "";
-		_food 		= "";
-		_temp 		= "";
-		_tempImg 	= 0;
-		_thirstLvl 	= round(_thirstVal / 0.25);
-		_foodLvl 	= round(_foodVal / 0.25);
-		_tempLvl 	= round(dayz_temperatur);
-		if (_thirstLvl < 0) then {_thirstLvl = 0};
-		_thirst = "\z\addons\dayz_code\gui\status\status_thirst_inside_" + str(_thirstLvl) + "_ca.paa";
-		if (_foodLvl < 0) then {_foodLvl = 0};
-		_food = "\z\addons\dayz_code\gui\status\status_food_inside_" + str(_foodLvl) + "_ca.paa";
-		switch true do {
-			case (_tempLvl >= 36): {_tempImg = 4};
-			case (_tempLvl > 33 && _tempLvl < 36): {_tempImg = 3};
-			case (_tempLvl >= 30 && _tempLvl <= 33): {_tempImg = 2};
-			case (_tempLvl > 28 && _tempLvl < 30): {_tempImg = 1};
-			default {_tempImg = 0};
-		};
-		_temp = "\z\addons\dayz_code\gui\status\status_temp_" + str(_tempImg) + "_ca.paa";
-		_ctrlThirst ctrlSetText _thirst;
-		_ctrlFood ctrlSetText _food;
-		_ctrlTemp ctrlSetText _temp;
-		if ((!canStand player)&&(!(ctrlShown _ctrlFracture))) then {
-			r_fracture_legs = true;
-			_ctrlFracture ctrlShow true;
-		};
-		if (_bloodVal < 0.6) then {_ctrlDS3 call player_guiControlFlash} else {_ctrlDS3 ctrlShow true};
-		if (_thirstVal < 0.2) then {_ctrlThirst call player_guiControlFlash};
-		if (_foodVal < 0.2) then {_ctrlFood call player_guiControlFlash};
-		if (_tempVal > 0.8) then {_ctrlTemp call player_guiControlFlash} else {_ctrlTemp ctrlShow true};
-		if (r_player_injured) then {_ctrlNB3 call player_guiControlFlash} else {_ctrlNB3 ctrlShow true};
-		_array = [_foodVal,_thirstVal];
-		_array
+
+			if (r_player_injured) then {
+			    _ctrlBleed call player_guiControlFlash;
+			};
+			_string = "";
+			_humanityTarget = cursorTarget;
+			if (!izn _humanityTarget && isPlayer _humanityTarget && alive _humanityTarget) then {
+
+			    _distance = player distance _humanityTarget;
+
+			    if (_distance < DZE_HumanityTargetDistance) then {
+			        
+			        _size = (1-(floor(_distance/5)*0.1)) max 0.1;
+			        _friendlies = player xgv ["friendlies", []];
+					
+					if (DZE_APlotforLife) then {
+						_playerUID = [player] call FNC_GetPlayerUID;
+						_rplayerUID = [_humanityTarget] call FNC_GetPlayerUID;
+					}else{
+						_playerUID = player xgv ["CharacterID", "0"];
+						_rplayerUID = _humanityTarget xgv ["CharacterID", "0"];
+					};
+					
+			        _rfriendlies = _humanityTarget xgv ["friendlies", []];
+			        _rfriendlyTo = _humanityTarget xgv ["friendlyTo", []];
+
+			        if ((_rplayerUID in _friendlies) && (_playerUID in _rfriendlies)) then {
+
+			            if !(_playerUID in _rfriendlyTo) then {
+			                _rfriendlyTo set [count _rfriendlyTo, _playerUID];
+			                _humanityTarget xsv ["friendlyTo", _rfriendlyTo, true];
+			            };
+			 
+
+			            _color = "color='#339933'";
+			            _string = fmt["<t %2 align='center' size='%3'>%1</t>",(name _humanityTarget),_color,_size];
+			        
+			        } else {
+			            _humanity = _humanityTarget xgv ["humanity",0];
+
+			            _color = "color='#ffffff'";
+			            if(_humanity < -5000) then {
+			                _color = "color='#ff0000'";
+			            } else {
+			                if(_humanity > 5000) then {
+			                    _color = "color='#3333ff'";
+			                };
+			            };
+			            if((_humanityTarget xgv ["DZE_display_name", false]) || (DZE_ForceNameTagsInTrader && isInTraderCity)) then {
+			                _string = fmt["<t %2 align='center' size='%3'>%1</t><br /><t %2 align='center' size='%3'>Humanity: %4</t>",(name _humanityTarget),_color,_size,_humanity];
+			            };
+			        };
+			    };
+			};
+			if (dayz_humanitytarget != _string) then {
+			    _targetControl = _display displayCtrl 1199;
+			    _targetControl ctrlSetStructuredText (parseText _string);
+			    dayz_humanitytarget = _string;
+			};
+
+			_array = [_foodVal,_thirstVal];
+			_array
 	};
 	if (isNil 's_player_rearm_aa') then {s_player_rearm_aa = false;};
 	if (isNil 's_player_rearm_ar') then {s_player_rearm_ar = []};
