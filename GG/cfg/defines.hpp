@@ -2527,7 +2527,6 @@ class RscTitles {
 			};
 		};
 	};
-	#define CT_STRUCTURED_TEXT 13
 	class AsReMixhud {
 		idd = -1;
 	    fadeout=0;
