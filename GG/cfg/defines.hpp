@@ -2522,7 +2522,7 @@ class RscTitles {
 		
 		class controlsBackground {
 
-			class AsReMixhud_Status:Hw_RscText
+			class AsReMixhud_Status:RscText
 			{
 				idc = hud_status_idc;
 				type = CT_STRUCTURED_TEXT;
