@@ -2541,7 +2541,7 @@ class RscTitles {
 
 			class AsReMixhud_Status:RscText
 			{
-				idc = hud_status_idc;
+				idc = 4900;
 				type = CT_STRUCTURED_TEXT;
 				size = 0.040;
 				x = 0.57 * safezoneW + safezoneX;
