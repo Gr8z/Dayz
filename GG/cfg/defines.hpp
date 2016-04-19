@@ -778,6 +778,21 @@ class RscPictureGUI {
 	w = "0.2";
 	h = "0.15";
 };
+class RscTextGUI {
+    type = 0;
+    idc = -1;
+    style = 0x02;
+    colorBackground[] = {0,0,0,0};
+    colorText[] = {1, 1, 1, 0.5};
+    //color[] = {1, 1, 1, 0.5};
+    font = "TahomaB";
+    size = 0.03;
+    sizeEx = 0.03;
+    x = 0;
+    y = 0;
+    w = 0.1;
+    h = 0.2;
+};
 class RscProgress {
 	x = "0.344";
 	y = "0.619";
@@ -2818,7 +2833,7 @@ class RscTitles {
 	                w = 0.034*safeZoneW;
 	            };
 				//FPS
-	            class RscText_1321: RscTextGUIK
+	            class RscText_1321: RscTextGUI
 	            {
 	                idc = 1321;
 	                text = "fps";
@@ -2831,7 +2846,7 @@ class RscTitles {
 	                colorText[] = {1,1,1,0.0};
 	            };
 			//SURVIVOR KILLS
-			class RscText_1400: RscTextGUIK
+			class RscText_1400: RscTextGUI
 			{
 				idc = 1400;
 				text = "1000";
@@ -2844,7 +2859,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//BANDIT KILLS
-			class RscText_1402: RscTextGUIK
+			class RscText_1402: RscTextGUI
 			{
 				idc = 1402;
 				text = "1000";
@@ -2857,7 +2872,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//ZOMBIE KILLS
-			class RscText_1403: RscTextGUIK
+			class RscText_1403: RscTextGUI
 			{
 				idc = 1403;
 				text = "1000";
@@ -2870,7 +2885,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//BLOOD AMOUNT
-			class RscText_1420: RscTextGUIK
+			class RscText_1420: RscTextGUI
 			{
 				idc = 1420;
 				text = "1000";
@@ -2883,7 +2898,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//HUMANITY AMOUNT
-			class RscText_1421: RscTextGUIK
+			class RscText_1421: RscTextGUI
 			{
 				idc = 1421;
 				text = "1000";
@@ -2896,7 +2911,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//SERVER RESTART AMOUNT
-			class RscText_1422: RscTextGUIK
+			class RscText_1422: RscTextGUI
 			{
 				idc = 1422;
 				text = "X";
@@ -2909,7 +2924,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//BLOOD LABEL
-			class RscText_1423: RscTextGUIK
+			class RscText_1423: RscTextGUI
 			{
 				idc = 1423;
 				text = "Blood (%):";
@@ -2922,7 +2937,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			//HUMANITY LABEL
-			class RscText_1424: RscTextGUIK
+			class RscText_1424: RscTextGUI
 			{
 				idc = 1424;
 				text = "Humanity:";
@@ -2935,7 +2950,7 @@ class RscTitles {
 				sizeEx = 0.03;
 			};
 			// Players near
-			class RscText_1425: RscTextGUIK
+			class RscText_1425: RscTextGUI
 			{
 				idc = 1425;
 				text = "Online Players:";
@@ -2947,7 +2962,7 @@ class RscTitles {
 				size = 0.03;
 				sizeEx = 0.03;
 			};
-			class RscText_1429: RscTextGUIK
+			class RscText_1429: RscTextGUI
 			{
 				idc = 1426;
 				text = "FPS";
