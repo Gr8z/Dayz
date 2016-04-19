@@ -2702,7 +2702,7 @@ class RscTitles {
 			class RscPicture_1308: RscPictureGUI
 			{
 				idc = 1308;
-				text = "GG\images\st_humanity_survivor.paa";
+				text = "GG\GUI\st_humanity_survivor.paa";
 				x = 0.66 * safezoneW + safezoneX;
 				y = 0.90 * safezoneH + safezoneY;
 				w = 0.027 * safezoneW;
@@ -2713,7 +2713,7 @@ class RscTitles {
 			class RscPicture_1309: RscPictureGUI
 			{
 				idc = 1309;
-				text = "GG\images\st_humanity_bandit.paa";
+				text = "GG\GUI\st_humanity_bandit.paa";
 				x = 0.66 * safezoneW + safezoneX;
 				y = 0.93 * safezoneH + safezoneY;
 				w = 0.027 * safezoneW;
@@ -2724,7 +2724,7 @@ class RscTitles {
 			class RscPicture_1310: RscPictureGUI
 			{
 				idc = 1310;
-				text = "GG\images\zombie.paa";
+				text = "GG\GUI\zombie.paa";
 				x = 0.66 * safezoneW + safezoneX;
 				y = 0.96 * safezoneH + safezoneY;
 				w = 0.027 * safezoneW;
