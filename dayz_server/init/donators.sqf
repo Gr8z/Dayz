@@ -341,6 +341,7 @@ Scout3 = [
 	"76561198093543419", // Major Tom (OD-2016-03-30)
 	"76561198101835667", // Wicked (Lifetime loadout for promo)	
 	"76561198120643726", // Sausage McFuck (OD-2016-04-21)
+	"76561198067543542", // Jesus Baller (EXP-2016-05-24)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
