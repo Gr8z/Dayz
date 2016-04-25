@@ -225,24 +225,24 @@ class Mission
 			position[]={1100.69,0,2844.99};
 			name="boatsnwholesale_1";
 			text="Wholesaler";
-			type="mil_dot";
-			colorName="ColorGreen";
+			type="mil_box";
+			colorName="ColorBrown";
 		};
 		class Item8
 		{
 			position[]={13247.175,7.9455967,6076.4395};
 			name="boatsnwholesale_1_1";
 			text="Wholesaler";
-			type="mil_dot";
-			colorName="ColorGreen";
+			type="mil_box";
+			colorName="ColorBrown";
 		};
 		class Item9
 		{
 			position[]={5068.6636,338.99176,9723.4248};
 			name="AirplaneDealer";
 			text="Airplane Dealer";
-			type="mil_dot";
-			colorName="ColorBlue";
+			type="mil_circle";
+			colorName="ColorOrange";
 		};
 		class Item10
 		{
@@ -250,7 +250,7 @@ class Mission
 			name="BoatDealer";
 			text="Boat Dealer";
 			type="mil_dot";
-			colorName="ColorOrange";
+			colorName="ColorBlack";
 		};
 		class Item11
 		{
@@ -266,7 +266,7 @@ class Mission
 			name="BoatDealer_1";
 			text="Boat Dealer";
 			type="mil_dot";
-			colorName="ColorOrange";
+			colorName="ColorBlack";
 		};
 		class Item13
 		{
