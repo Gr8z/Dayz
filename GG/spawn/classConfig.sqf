@@ -70,7 +70,7 @@ _presetClasses = [
 		0,0
 	],
 	["Tier 1 Bandit","Bandit2_DZ","BanditW1_DZ",["10x_303",2,"ItemSodaRabbit"],["LeeEnfield","ItemCompass","ItemCrowbar"],"",[],[],0,-5000],
-	["Tier 2 Bandit","Bandit2_DZ","BanditW1_DZ",["RH_12Rnd_45cal_usp",3,"vil_32Rnd_UZI_SD",2,"ItemSodaRabbit"],["vil_uzimini","ItemCompass","ItemCrowbar"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
+	["Tier 2 Bandit","Bandit2_DZ","BanditW1_DZ",["RH_8Rnd_45cal_m1911",3,"vil_32Rnd_UZI_SD",2,"ItemSodaRabbit"],["vil_uzimini","ItemCompass","ItemCrowbar"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
 	["Tier 3 Bandit","Bandit2_DZ","BanditW1_DZ",["30Rnd_545x39_AK",3,"ItemSodaRabbit"],["AK_107_kobra","ItemCompass","ItemCrowbar"],"DZ_ALICE_Pack_EP1",[],[],0,-45000],
 	["Tier 4 Bandit","Bandit2_DZ","BanditW1_DZ",["vil_100Rnd_762x39_RPD",2,"ItemSodaRabbit"],["vil_RPD","ItemCompass","ItemCrowbar","ItemEtool","ItemGPS"],"DZ_GunBag_EP1",[],[],0,-135000],
 	["Tier 5 Bandit","Bandit2_DZ","BanditW1_DZ",["RH_20Rnd_762x51_hk417",3,"ItemSodaRabbit"],["RH_hk417acog","ItemCompass","ItemCrowbar","ItemEtool","ItemGPS"],"DZ_Backpack_EP1",[],[],0,-405000],
