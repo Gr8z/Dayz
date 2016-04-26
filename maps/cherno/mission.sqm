@@ -169,24 +169,24 @@ class Mission
 			position[]={13725.498,0, 2907.4512};
 			name="SkalistyBase";
 			text="Skalisty Base";
-			type="defend";
-			colorName="ColorRed";
+			type="Depot";
+			colorName="ColorBlack";
 		};
 		class Item1
 		{
 			position[]={7286.0166,0, 9730.1201};
 			name="GrishinoBase";
 			text="Grishino Base";
-			type="defend";
-			colorName="ColorRed";
+			type="Depot";
+			colorName="ColorBlack";
 		};
 		class Item2
 		{
 			position[]={4492.81,0,8296.52};
 			name="DichinaBase";
 			text="Dichina Base";
-			type="defend";
-			colorName="ColorRed";
+			type="Depot";
+			colorName="ColorBlack";
 		};
 		class Item3
 		{
@@ -240,7 +240,7 @@ class Mission
 		{
 			position[]={5068.6636,338.99176,9723.4248};
 			name="AirplaneDealer";
-			text="Airplane Dealer";
+			text="Aircraft Dealer";
 			type="mil_circle";
 			colorName="ColorOrange";
 		};
@@ -282,15 +282,15 @@ class Mission
 			name="HempField";
 			text="Weed Farm";
 			type="mil_dot";
-			colorName="ColorOrange";
+			colorName="ColorYellow";
 		};
 		class Item15
 		{
 			position[]={7768.69,0,4499.63};
 			name="MogilivikaBase";
 			text="Mogilevka Base";
-			type="defend";
-			colorName="ColorRed";
+			type="Depot";
+			colorName="ColorBlack";
 		};
 		class Item16
 		{
