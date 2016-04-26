@@ -124,6 +124,8 @@ Engineer1 = [
 
 Engineer2 = [
 	"76561198001066546", // MeowMix (OD-2016-3-29)
+	"76561198207723811", // ArctiK (OD-2016-4-26)
+	"76561198076075633", // VintoreZ (OD-2016-4-26)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
@@ -162,6 +164,7 @@ Marksman1 = [
 	//"76561198112089693", // Zach (OD-2016-01-16) #12971 Date Due:17-Feb-2016
 	//"76561198098109044", // Jake (OD-2016-01-16) #12969 Date Due:17-Feb-2016
 	"76561198088956241", // nikolai (OD-2016-01-28) #13096
+	"76561198076075633", // VintoreZ (OD-2016-04-26)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
