@@ -176,7 +176,7 @@ class Mission
 			name="WeedFarm";
 			text="Weed Farm";
 			type="mil_dot";
-			colorName="ColorOrange";
+			colorName="ColorPink";
 		};
 		class Item2
 		{
@@ -184,7 +184,7 @@ class Mission
 			name="TraderCityLyepestok";
 			text="Trader City Lyepestok";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item3
 		{
@@ -192,7 +192,7 @@ class Mission
 			name="TraderCitySabina";
 			text="Trader City Sabina";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item4
 		{
@@ -200,7 +200,7 @@ class Mission
 			name="TraderCityBilgrad";
 			text="Trader City Bilgrad";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item5
 		{
@@ -208,7 +208,7 @@ class Mission
 			name="TraderCityBranibor";
 			text="Trader City Branibor";
 			type="mil_circle";
-			colorName="ColorBlack";
+			colorName="ColorGreen";
 		};
 		class Item6
 		{
@@ -224,23 +224,23 @@ class Mission
 			name="HeroVendor";
 			text="Hero Vendor";
 			type="mil_dot";
-			colorName="ColorGreen";
+			colorName="ColorBlue";
 		};
 		class Item8
 		{
 			position[]={16555.732,-44.942032,10159.68};
 			name="AircraftDealer";
 			text="Aircraft Dealer";
-			type="mil_dot";
-			colorName="ColorBlack";
+			type="mil_circle";
+			colorName="ColorOrange";
 		};
 		class Item9
 		{
 			position[]={6815.0776,7.6293945e-006,8534.1504};
 			name="AircraftDealer2";
 			text="Aircraft Dealer";
-			type="mil_dot";
-			colorName="ColorBlack";
+			type="mil_circle";
+			colorName="ColorOrange";
 		};
 		class Item10
 		{
@@ -248,7 +248,7 @@ class Mission
 			name="Misc.Vendor";
 			text="Black Market";
 			type="mil_triangle";
-			colorName="ColorBlack";
+			colorName="ColorYellow";
 		};
 		class Item11
 		{
@@ -256,7 +256,7 @@ class Mission
 			name="Misc.Vendor2";
 			text="Black Market";
 			type="mil_triangle";
-			colorName="ColorBlack";
+			colorName="ColorYellow";
 		};
 		class Item12
 		{
@@ -296,7 +296,7 @@ class Mission
 			name="Wholesaler";
 			text="Wholesaler";
 			type="mil_box";
-			colorName="ColorBlack";
+			colorName="ColorBrown";
 		};
 		class Item17
 		{
@@ -304,7 +304,7 @@ class Mission
 			name="Wholesaler2";
 			text="Wholesaler";
 			type="mil_box";
-			colorName="ColorBlack";
+			colorName="ColorBrown";
 		};
 		class Item18
 		{
