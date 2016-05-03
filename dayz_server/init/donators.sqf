@@ -148,6 +148,7 @@ Engineer3 = [
 	"76561198160336577", // CHASE (OD-2016-03-27) 
 	"76561198069993039", // Keegan13590 (OD-2016-03-29) 
 	"76561198230374540", // hsales8717 (OD-2016-3-30)
+	"76561198094703284", // That Michael Guy (EXP-2016-06-01) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -250,7 +251,6 @@ Scout1 = [
 	"76561198072776864", // Clementine (OD-2016-01-24) #13056
 	"76561198124909978", // Bear (EXP-2016-03-14) #00000
 	"76561198230374540", // Harry (EXP-2016-04-26) #0000
-	"76561198094703284", // That Michael Guy (EXP-2016-06-01) #0000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
