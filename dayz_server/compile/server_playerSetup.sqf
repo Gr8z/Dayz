@@ -1,4 +1,4 @@
-private ["_characterID","_playerObj","_playerID","_dummy","_worldspace","_state","_doLoop","_key","_primary","_medical","_stats","_humanity","_lastinstance","_friendlies","_randomSpot","_position","_debug","_distance","_hit","_fractures","_score","_findSpot","_pos","_isIsland","_w","_clientID","_spawnMC","_namespace"];
+private ["_characterID","_playerObj","_playerID","_dummy","_worldspace","_state","_doLoop","_key","_primary","_medical","_stats","_humanity","_lastinstance","_friendlies","_randomSpot","_position","_debug","_distance","_hit","_fractures","_score","_findSpot","_pos","_isIsland","_w","_clientID","_spawnMC","_namespace","_keepGear"];
 _characterID 	= _this select 0;
 _playerObj 		= _this select 1;
 _playerID 		= getPlayerUID _playerObj;
@@ -34,6 +34,7 @@ _lastinstance 	= _primary select 6;
 _cashMoney 		= _primary select 7;
 
 _randomSpot = false;
+_keepGear = false;
 if (count _worldspace > 0) then {
 	_position = 	_worldspace select 1;
 	if (count _position < 3) then {
@@ -48,6 +49,10 @@ if (count _worldspace > 0) then {
 	if (_distance < 500) then {
 		_randomSpot = true;
 	};
+	if (_lastinstance != dayZ_instance) then {
+ 		_randomSpot = true;
+ 		_keepGear = true;
+ 	};
 } else {
 	_randomSpot = true;
 };
@@ -125,7 +130,7 @@ _playerObj setVariable["lastPos",getPosATL _playerObj];
 _playerObj setVariable ["GGCoins",_cashMoney,true];
 _playerObj setVariable ["cashMoney_CHK",_cashMoney];
 
-dayzPlayerLogin2 = [_worldspace,_state,_randomSpot];
+dayzPlayerLogin2 = [_worldspace,_state,_randomSpot,_keepGear];
 _clientID = owner _playerObj;
 if (!isNull _playerObj) then {
 	_clientID publicVariableClient "dayzPlayerLogin2";

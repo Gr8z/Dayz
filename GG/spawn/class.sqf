@@ -118,7 +118,7 @@ private ["_cam","_class","_mags","_model","_muzzle","_myModel","_pistol","_pisto
 #include "classConfig.sqf"
 uiNamespace setVariable ["classChoice",[]];
 
-if !(_isPZombie) then {
+if (!_isPZombie && !_keepGear)  then {
 	{player removeMagazine _x;} count magazines player;
 	removeAllItems player;
 	removeAllWeapons player;

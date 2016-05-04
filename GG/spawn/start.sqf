@@ -1,5 +1,5 @@
 #define AT_SPAWN _nearNow=call _atSpawn;{if!(_x in _nearFinal)then{_nearFinal set [count _nearFinal,_x];};}count _nearNow;
-private ["_debug","_go","_holder","_isPZombie","_platform","_inDebug","_playerPos","_pos","_distance"];
+private ["_debug","_go","_holder","_isPZombie","_platform","_inDebug","_playerPos","_pos","_distance","_keepGear"];
 
 _debug = getMarkerPos "respawn_west";
 _inDebug = false;
@@ -15,6 +15,7 @@ waitUntil {!isNil "PVDZE_plr_LoginRecord"};
 _playerPos 	= dayzPlayerLogin2 select 0;
 _isPZombie 	= player isKindOf "PZombie_VB";
 _go 		= dayzPlayerLogin2 select 2;
+_keepGear 	= dayzPlayerLogin2 select 3;
 _pos 		= position player;
 _distance 	= _debug distance _pos;
 
