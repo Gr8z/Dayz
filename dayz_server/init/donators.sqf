@@ -374,6 +374,7 @@ Soldier3 = [
 	"76561198230374540", // hsales8717 (OD-2016-3-29)
 	"76561198056745227", // dexter247 (OD-2016-3-30)
 	"76561197973663364", // v4vdrjoker (OD-2016-04-09) (paid one month in advance)
+	"76561198068695714", // Ekay (EXP-2016-06-08) #00000
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
