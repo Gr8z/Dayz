@@ -34,7 +34,6 @@ if (str _unittype == str _unittype)then{
 	sleep 7;
 	CloseDialog 0;
 	sleep 1;
-	if !(_UID in wardrobeDonor) exitWith { cutText ["You need the Wardrobe Donor Perk to Switch your skins. If you want this donor perk, please contact an admin", "PLAIN"]; DZE_ActionInProgress = false;};
 	[dayz_playerUID,dayz_characterID,_unittype] spawn player_humanityMorph;
 	sleep 0.2;
 	vehicle player switchCamera 'EXTERNAL';
