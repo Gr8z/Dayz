@@ -50,7 +50,7 @@ BankDialogDepositAmount = {
 		publicVariableServer "PVDZE_account_Doublecheck";
 	};
 	if (DZE_limitbank && ((_bank + _amount) > DZE_maxBank)) then {
-		if ((_bank + _amount) <  MaxDonatorBankMoney) then {
+		if ((_bank + _amount) <  DZE_maxBank) then {
 			player setVariable["GGCoins",(_wealth - _amount),true];
 			player setVariable["GGBank",(_bank + _amount),true];
 			PVOZ_coinlog = [player,"deposited",[_amount] call BIS_fnc_numberText,(player getVariable ["GGCoins",0]),(player getVariable ["GGBank",0])];
@@ -59,7 +59,7 @@ BankDialogDepositAmount = {
 			systemChat ("(GG-AH): "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		} else {
-			_msg = format ["You can only have a max of %1 %2",[MaxDonatorBankMoney] call BIS_fnc_numberText,GCoins];
+			_msg = format ["You can only have a max of %1 %2",[DZE_maxBank] call BIS_fnc_numberText,GCoins];
 			systemChat ("(GG-AH): "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
