@@ -232,6 +232,7 @@ Scout2 = [
 	"76561198087483825", // Red Rocket (OD-2016-3-29)
 	"76561197998435723", // Pandabowl (OD-2016-3-30)
 	"76561198041732102", // Frank (EXP-2016-06-02)
+	"76561198051054305", // Miguel (EXP-2016-06-16)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
