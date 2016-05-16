@@ -273,6 +273,7 @@ Scout3 = [
 	"76561198014205390", // Terminator T800 (EXP-2016-05-25)
 	"76561198083072783", // Peter (EXP-2016-05-25)
 	"76561198051014214", // Michael (OD-2016-04-28)
+	"76561198147414349", // [MTO] NoFreeze4u (EXP-2016-06-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
