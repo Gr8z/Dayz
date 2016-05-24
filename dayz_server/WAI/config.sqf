@@ -275,7 +275,7 @@ if(isServer) then {
 		wai_lock_vehicles		    = true;
 		wai_crates_smoke		    = true;
 		wai_crates_flares		    = true;
-		wai_players_online		    = 5;
+		wai_players_online		    = 3;
 		wai_server_fps			    = 1;
 		wai_kill_percent		    = 80;
 		wai_enable_minefield		= false;
