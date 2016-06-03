@@ -128,7 +128,7 @@ AND `Inventory` IS NOT NULL;
 
 /* Unlock vehicles with lost keys */
 UPDATE `Object_DATA_1`
-SET `Object_DATA_1`.`CharacterID` = 0,`LastUpdated` = `LastUpdated`
+SET `Object_DATA_1`.`CharacterID` = 0
 WHERE `Object_DATA_1`.`CharacterID` <> 0
 AND`Object_DATA_1`.`CharacterID` <= 12500
 AND`Object_DATA_1`.`Classname` NOT LIKE 'Tent%'
