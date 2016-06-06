@@ -53,6 +53,7 @@ DZE_maintainRange  	= 100;
 DZE_curPitch 		= 45;
 DZE_maxBuildHeight 	= 45;
 DZE_PlotPole 		= [60,150];
+DZE_StaticConstructionCount = 1;
 DZE_maintainClasses = ["ModularItems","DZE_Housebase","BuiltItems","LightPole_DZ","Fortifications"];
 DZE_noRotate 		= [
 "ItemVault","ItemWoodStairs","ItemLockbox","ItemWoodStairsSupport","ItemWoodLadder",

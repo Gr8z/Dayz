@@ -3404,13 +3404,8 @@ if (!isDedicated) then {
 				_proceed = false;
 				_counter = 0;
 				while {_isOk} do {
-					if ((!isNil "AM_Epoch_ADMIN")||(gpd player in GG_instntbarra)) exw {
-						_isOk = false;
-						_proceed = true;
-						_msg = "Instant build! Thanks for donating!";
-						systemChat ("(EPOCH BOOSTER): "+str _msg);
-						_msg swx AH_fnc_dynTextMsg;
-					};
+				_isOk = false;
+				_proceed = true;
 					[10,10] call dayz_HungerThirst;
 					player playActionNow "Medic";
 					_dis=20;
@@ -4031,22 +4026,9 @@ if (!isDedicated) then {
 					_weapons = 		_obj xgv ["WeaponCargo",[]];
 					_magazines = 	_obj xgv ["MagazineCargo",[]];
 					_backpacks = 	_obj xgv ["BackpackCargo",[]];
-					if (gpd player in GG_notimerarra) then {
-						_msg = "Vault unlock timer removed. Thanks for donating!";
-						systemChat ("(EPOCH BOOSTER): "+str _msg);
-						_msg swx AH_fnc_dynTextMsg;
-					} else {
-						_msg = "Please wait 5 seconds.. Hate timers? Donate for the epoch booster!";
-						systemChat ("(GG-AH): "+str _msg);
-						_msg swx AH_fnc_dynTextMsg;
-						
-						player playActionNow "Medic";
-						[player,"repair",0,false] call dayz_zombieSpeak;
-						[player,25,true,(player call AH_fnc_getPos)] swx player_alertZombies;
-						disableUserInput true;disableUserInput true;disableUserInput true;
-						uiSleep 5;
-						disableUserInput false;disableUserInput false;disableUserInput false;
-					};
+					_msg = "Vault Unlocked!";
+					systemChat ("[GG]: "+str _msg);
+					_msg swx AH_fnc_dynTextMsg;
 					_holder = createVehicle [_unlockedClass,_pos,[], 0, "CAN_COLLIDE"];
 					deleteVehicle _obj;
 					_holder setdir _dir;
@@ -4183,22 +4165,9 @@ if (!isDedicated) then {
 		_pos = _obj xgv ["OEMPos",(_obj call AH_fnc_getPos)];
 		if (!izn _obj) then {
 			[] spawn {
-				if (gpd player in GG_notimerarra) then {
-					_msg = "Vault lock timer removed. Thanks for donating!";
-					systemChat ("(EPOCH BOOSTER): "+str _msg);
-					_msg swx AH_fnc_dynTextMsg;
-				} else {
-					_msg = "Please wait 5 seconds.. Hate timers? Donate for the epoch booster!";
-					systemChat ("(GG-AH): "+str _msg);
-					_msg swx AH_fnc_dynTextMsg;
-					
-					player playActionNow "Medic";
-					[player,"repair",0,false] call dayz_zombieSpeak;
-					[player,25,true,(player call AH_fnc_getPos)] swx player_alertZombies;
-					disableUserInput true;disableUserInput true;disableUserInput true;
-					uiSleep 5;
-					disableUserInput false;disableUserInput false;disableUserInput false;
-				};
+			_msg = "Vault Locked!";
+			systemChat ("[GG]: "+str _msg);
+			_msg swx AH_fnc_dynTextMsg;
 			};
 			PVDZE_log_lockUnlock = [player, _obj, false];
 			publicVariableServer "PVDZE_log_lockUnlock";
