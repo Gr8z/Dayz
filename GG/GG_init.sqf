@@ -1400,40 +1400,18 @@ if (!isDedicated) then {
 						};
 					};
 				};
-				///Allow owners to delete modulars
-				if(_isModular) then {
-				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
-				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
-				            _IsNearPlot = count (_findNearestPoles);
-				            if(_IsNearPlot > 0)then{
-				            	_allowed = call player_canBuildPP;
-				                if (_allowed) then {  // // If u want that the object also belongs to someone on the plotpole.
-				                    _player_deleteBuild = true;
-				                };                  
-				            }else{
-				                if(_ownerID == _playerUID)then{
-				                    _player_deleteBuild = true;
-				                };
-				            };                                        
-				        };
-				};
-				//Allow owners to delete modular doors without locks
-				if(_isModularDoor) then {
-				        if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {         
-				            _findNearestPoles = nearestObjects[player, ["Plastic_Pole_EP1_DZ"], DZE_PlotPole select 0];
-				            _IsNearPlot = count (_findNearestPoles);
-				            if(_IsNearPlot > 0)then{
-				            	_allowed = call player_canBuildPP;
-				                if (_allowed) then { //  // If u want that the object also belongs to someone on the plotpole.
-				                    _player_deleteBuild = true;
-				                };                  
-				            }else{
-				                if(_ownerID == _playerUID)then{
-				                    _player_deleteBuild = true;
-				                };
-				            };                              
-				        };      
-				};
+				if(_isModular && (PIDP_playerUID == _ownerID)) then {
+            if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
+                _player_deleteBuild = true;
+
+            };
+         };
+		if(_isModularDoor && (PIDP_playerUID == _ownerID)) then {
+            if(_hasToolbox && "ItemCrowbar" in _itemsPlayer) then {
+				_player_deleteBuild = true;
+
+            };		
+		 };
 				if (_isVehicle) then {
 					if (!(canmove _cursorTarget) && (player distance _cursorTarget >= 2) && (count (crew _cursorTarget))== 0 && ((vectorUp _cursorTarget) sel 2) < 0.5) then {
 						_playersNear = {isPlayer _x} count (player nearEntities ["CAManBase", 6]);
