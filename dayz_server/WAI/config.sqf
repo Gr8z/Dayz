@@ -302,9 +302,10 @@ if(isServer) then {
 		["Merlin",5],
 		["MV22",5],
 		//Black
-		["Jackal",5],
-		["Little_Bird",5],
-		["Pook_Gunship",5]
+		["Jackal",3],
+		["Little_Bird",3],
+		["Pook_Gunship",3],
+		["mayors_mansion",6]
 		];
 		wai_bandit_missions	= [
 		//Green
@@ -322,9 +323,10 @@ if(isServer) then {
 		["MV22",5],
 		["Sniper_Extraction",5],
 		//Black
-		["Jackal",5],
-		["LittleBird",5],
-		["Pook_Gunship",5]
+		["Jackal",3],
+		["LittleBird",3],
+		["Pook_Gunship",3],
+		["presidents_mansion",6]
 		];
 		
 		armed_vehicle = [
