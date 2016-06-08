@@ -292,20 +292,21 @@ if(isServer) then {
 		["Camel",10],
 		["Bandit_Patrol",10],
 		//Yellow
-		["Armed_Vehicle",10],
+		["Armed_Vehicle",5],
 		["Blackhawk_Crash",5],
 		["Weapon_Cache",5],
+		["drugbust",5],
 		//Red
 		["Bandit_Base",5],
 		["Disabled_Milchopper",5],
 		["Ikea_Convoy",5],
 		["Merlin",5],
 		["MV22",5],
+		["mayors_mansion",6],
 		//Black
 		["Jackal",3],
 		["Little_Bird",3],
-		["Pook_Gunship",3],
-		["mayors_mansion",6]
+		["Pook_Gunship",3]
 		];
 		wai_bandit_missions	= [
 		//Green
@@ -313,9 +314,10 @@ if(isServer) then {
 		["Medical_Camp",10],
 		["Ural",10],
 		//Yellow
-		["Armed_Vehicle",10],
-		["Blackhawk_Crash",10],
-		["Weapon_Cache",10],
+		["Armed_Vehicle",7],
+		["Blackhawk_Crash",7],
+		["Weapon_Cache",7],
+		["drugbust",9],
 		//Red
 		["Hero_Base",5],
 		["Ikea_Convoy",5],
@@ -585,6 +587,9 @@ if(isServer) then {
 		"Skin_Sniper1_DZ",
 		"Skin_CZ_Soldier_Sniper_EP1_DZ",
 		"Skin_GUE_Soldier_Sniper_DZ"
+		];
+		crate_items_crop_raider = [
+		"ItemKiloHemp"
 		];
 		crate_backpacks_all	= [
 		"DZ_Patrol_Pack_EP1",
