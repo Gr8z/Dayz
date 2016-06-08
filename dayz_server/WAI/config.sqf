@@ -292,10 +292,9 @@ if(isServer) then {
 		["Camel",10],
 		["Bandit_Patrol",10],
 		//Yellow
-		["Armed_Vehicle",5],
+		["Armed_Vehicle",10],
 		["Blackhawk_Crash",5],
 		["Weapon_Cache",5],
-		["drugbust",5],
 		//Red
 		["Bandit_Base",5],
 		["Disabled_Milchopper",5],
@@ -314,10 +313,9 @@ if(isServer) then {
 		["Medical_Camp",10],
 		["Ural",10],
 		//Yellow
-		["Armed_Vehicle",7],
-		["Blackhawk_Crash",7],
-		["Weapon_Cache",7],
-		["drugbust",9],
+		["Armed_Vehicle",10],
+		["Blackhawk_Crash",10],
+		["Weapon_Cache",10],
 		//Red
 		["Hero_Base",5],
 		["Ikea_Convoy",5],
