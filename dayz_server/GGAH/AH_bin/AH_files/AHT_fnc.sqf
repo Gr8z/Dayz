@@ -8179,9 +8179,9 @@ systemChat (""""Hello!"""");
 					_ctrl = 1004 call getControl;
 					_ctrl ctrlSetText (switch (true) do {
 						default {'Admin Powers Revoked'};
-						case (getPlayerUID player in levelone) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Head Admin',name player,_time select 0,_time select 1]};
+						case (getPlayerUID player in levelone) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Moderator',name player,_time select 0,_time select 1]};
 						case (getPlayerUID player in leveltwo) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Admin',name player,_time select 0,_time select 1]};
-						case (getPlayerUID player in levelthree) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Moderator',name player,_time select 0,_time select 1]};
+						case (getPlayerUID player in levelthree) : {format ['Welcome, %1! - Server Uptime: %2h %3m - Head Admin',name player,_time select 0,_time select 1]};
 					});
 					
 					if !(getPlayerUID player in levelthree) then {
