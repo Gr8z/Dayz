@@ -2394,9 +2394,11 @@ if (!isDedicated) then {
 					};
 				};
 			} else {
+			if (!canbuild) then {
 				if ((isPlayer NT_TARGT)&&(alive NT_TARGT)&&!(NT_TARGT iko 'zZombie_Base')&&!(NT_TARGT iko 'CAAnimalBase')&&(player distance NT_TARGT < NameTagDistance)) then {
 					player_tag = name NT_TARGT;
 					NT_STRNG = fmt  ["<t size='%1' color='%2' align='center'>"+player_tag+"</t>",NT_SIZET,NT_COLOR]
+				};
 				};
 			};
 		}];
