@@ -7,7 +7,7 @@ class Mission
 	class Intel
 	{
 		briefingName="[GG] Overpoch Chernarus";
-		briefingDescription="[GG] Ghostz Gamerz | DO NOT JOIN ADMIN SLOTS - DO NOT IDLE IN ADMIN SLOTS - WAIT FOR A REGULAR SLOT IF NEEDED";
+		briefingDescription="[GG] Ghostz Gamerz | Do not join reserved slots | Wait for a regular slot";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;
@@ -163,7 +163,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=18;
+		items=19;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -238,7 +238,7 @@ class Mission
 		};
 		class Item9
 		{
-			position[]={5068.6636,338.99176,9723.4248};
+			position[]={5024.04,0,9708.08};
 			name="AirplaneDealer";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -304,10 +304,18 @@ class Mission
 			name="respawn_west";
 			type="Empty";
 		};
+		class Item18
+		{
+			position[]={12061.6,0,12636.3};
+			name="AirplaneDealer2";
+			text="Aircraft Dealer";
+			type="mil_circle";
+			colorName="ColorOrange";
+		};
 	};
 	class Sensors
 	{
-		items=8;
+		items=9;
 		class Item0
 		{
 			position[]= {6325.6772,304.99033,7807.7412};
@@ -378,17 +386,17 @@ class Mission
 		};
 		class Item4
 		{
-			position[]={5066.8984,338.99176,9729.3574};
-			a=100;
-			b=100;
+			position[]={5024.04,0,9708.08};
+			a=60;
+			b=60;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zoneaircraft";
-			expCond="((vehicle player) distance zoneaircraft) < 75;";
-			expActiv="TitleText[""Now entering Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			expCond="((vehicle player) distance zoneaircraft) < 60;";
+			expActiv="TitleText[""Now Entering North West Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving North West Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -440,6 +448,23 @@ class Mission
 			expCond="((vehicle player) distance zonebor) < 75;";
 			expActiv="TitleText[""Now entering trader city Bor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving trader city Bor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			class Effects
+			{
+			};
+		};
+		class Item8
+		{
+			position[]={12061.6,0,12636.3};
+			a=50;
+			b=50;
+			activationBy="WEST";
+			repeating=1;
+			interruptable=1;
+			age="UNKNOWN";
+			name="zoneaircraft2";
+			expCond="((vehicle player) distance zoneaircraft2) < 50;";
+			expActiv="TitleText[""Now Entering North East Aircraft Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
+			expDesactiv="TitleText[""Now Leaving North East Aircraft Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};

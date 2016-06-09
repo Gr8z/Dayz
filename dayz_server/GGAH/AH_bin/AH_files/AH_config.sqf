@@ -8,7 +8,7 @@
 	_AH_scrhndlr 	= [];//leave blank
 /**MISC SETTINGS**/
 	_AH_CHAT 	=			//systemChat prefix.
-	"[GG]";
+	"Server";
 	_AH_A2B 	= 125548;	//Required ArmA 2 OA Beta version
 	_AH_DZE 	= true;		//Running DayZEpoch?
 	_AH_SCRH 	= true; 	//Using script handler? REQ:AHSH_fnc.sqf
