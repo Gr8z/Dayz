@@ -742,7 +742,7 @@ if (!isDedicated) then {
 				call GG_DPP;
 				_msg = "";
 				if (inSafeZone) then {_msg = "It appears you have re-entered a safezone. Reenabling protection..."} else {_msg = "Safe-zone hit/kill protection has been disabled!"};
-				systemChat ("SAFE-ZONE: "+str _msg);
+				systemChat ("Server: "+str _msg);
 			};
 		};
 	};

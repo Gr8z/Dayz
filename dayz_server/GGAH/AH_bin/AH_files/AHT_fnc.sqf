@@ -340,6 +340,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Instant Build"",admin_instantbuild,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  No Build Restrictions"",admin_norestrict,""1"",""0"",""0"",""0"",[]]];
 				};
+				adminadd set [count adminadd,[""  Copy Worldspace Coords"",admin_copy,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Kill AI Within 500m"",admin_killAI,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
@@ -1393,6 +1394,20 @@ call compile ("
 						_ct spawn player_lockVault;
 					};
 				};
+			};
+			admin_copy =
+			{
+				disableSerialization;
+				_dir = getDir player;
+				_pos = getPosATL player;
+				_worldspace = format['[%1,%2]',_dir,_pos];
+				_log = format['Worldspace: %1',_worldspace];
+				cutText [format['%1 - saved to RPT',_log], 'PLAIN DOWN']; 
+				diag_log [_log,'PLAIN DOWN'];
+				(findDisplay 46) createDisplay 'RscDisplayChat';
+				_display = (findDisplay 24);
+				_chat = _display displayCtrl 101;
+				_chat ctrlSetText _worldspace;
 			};
 			admin_fnc_dynTextSend = {
 				_name 		= _this select 0;

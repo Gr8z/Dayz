@@ -6,23 +6,23 @@ menu_Tanny_PMC = [
 	[],
 	"hero"
 ];
-// Ammunition Friendly
+// Ammunition neutral
 menu_Drake = [
 	[["Assault Rifle Ammo",621],["Light Machine Gun Ammo",622],["Pistol Ammo",625],["Shotguns and Single-shot Ammo",623],["Sniper Rifle Ammo",624],["Submachine Gun Ammo",626],["OW Rifle Ammo",1013]],
 	[],
-	"friendly"
+	"neutral"
 ];
-// Weapons Friendly
+// Weapons neutral
 menu_BAF_Soldier_AAR_DDPM = [
 	[["Assault Rifle",485],["Light Machine Gun",486],["Pistols",489],["Shotguns and Single-shot",574],["Sniper Rifle",487],["Submachine Guns",488],["AK Variants",1004],["SCAR Variants",1026],["HK416 Variants",1028],["HK417 Variants",1006],["TAR Variants",1029],["MAS Variants",1032],["G3 Variants",1007],["G36 Variants",1034],["DMR Variants",1003],["M1SE1 Variants",1033],["ACR Variants",1001],["ACR SD Variants",2001]],
 	[],
-	"friendly"
+	"neutral"
 ];
-// Friendly Vehicles
+// neutral Vehicles
 menu_US_Delta_Force_AR_EP1 = [
 	[["Bikes and ATV",608],["Buses and Vans",563],["Cargo Trucks",564],["Fuel Trucks",492],["Military Unarmed",491],["Trucks",535],["Used Cars",585],["SUV and UAZ",565],["350z",1016]],
 	[],
-	"friendly"
+	"neutral"
 ];
 // General Store
 menu_US_Delta_Force_Medic_EP1 = [
@@ -72,13 +72,13 @@ menu_GUE_Soldier_3 = [
 	[],
 	"neutral"
 ];
-// Friendly Building/Parts
+// neutral Building/Parts
 menu_BAF_Soldier_EN_MTP = [
 	[["Building Supplies",678],["Chain Saws",500],["Toolbelt Items",679],["Vehicle Parts",677],["Metals",700]],
 	[],
-	"friendly"
+	"neutral"
 ];
-// Friendly Vehicles 2
+// neutral Vehicles 2
 menu_UN_CDF_Soldier_Pilot_EP1 = [
 	[["Bikes and ATV",608],["Buses and Vans",563],["Cargo Trucks",564],["Fuel Trucks",492],["Military Unarmed",491],["Trucks",535],["Used Cars",585],["SUV and UAZ",565],["350z",1016]],
 	[],
@@ -94,15 +94,15 @@ menu_GUE_Worker2 = [
 menu_Herrera_Light = [
 	[["Chem-lites/Flares",542],["Medical Supplies",541],["Smoke Grenades",543]],
 	[],
-	"friendly"
+	"neutral"
 ];
-// Weapons friendly 2
+// Weapons neutral 2
 menu_Soldier_MG_PKM_PMC = [
 	[["Assault Rifle",485],["Light Machine Gun",486],["Pistols",489],["Shotguns and Single-shot",574],["Sniper Rifle",487],["Submachine Guns",488],["AK Variants",1004],["SCAR Variants",1026],["HK416 Variants",1028],["HK417 Variants",1006],["TAR Variants",1029],["MAS Variants",1032],["G3 Variants",1007],["G36 Variants",1034],["DMR Variants",1003],["M1SE1 Variants",1033],["ACR Variants",1001],["ACR SD Variants",2001]],
 	[],
 	"neutral"
 ];
-// Ammunition friendly 2
+// Ammunition neutral 2
 menu_Soldier_MG_PMC = [
 	[["Assault Rifle Ammo",621],["Light Machine Gun Ammo",622],["Pistol Ammo",625],["Shotguns and Single-shot Ammo",623],["Sniper Rifle Ammo",624],["Submachine Gun Ammo",626],["OW Rifle Ammo",1013]],
 	[],
@@ -180,17 +180,17 @@ menu_Citizen3_EP1 = [
 	[],
 	"neutral"
 ];
-// Friendly Building/parts 2
+// neutral Building/parts 2
 menu_ibr_lingorman6 = [
 	[["Building Supplies",678],["Chain Saws",500],["Toolbelt Items",679],["Vehicle Parts",677],["Metals",700]],
 	[],
-	"friendly"
+	"neutral"
 ];
-// Friendly Building/Parts 3
+// neutral Building/Parts 3
 menu_ibr_lingorman6s = [
 	[["Building Supplies",678],["Chain Saws",500],["Toolbelt Items",679],["Vehicle Parts",677],["Metals",700]],
 	[],
-	"friendly"
+	"neutral"
 ];
 // General Store 4
 menu_TK_CIV_Woman02_EP1 = [
@@ -202,7 +202,7 @@ menu_TK_CIV_Woman02_EP1 = [
 menu_Damsel3 = [
 	[["Backpacks",538],["Clothes",628],["Cooked Meats",630],["Drinks",601],["Packaged Food",629]],
 	[],
-	"friendly"
+	"neutral"
 ];
 // Traveling Trader
 menu_FR_Commander = [
