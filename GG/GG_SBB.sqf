@@ -2,13 +2,13 @@
 cdg 0;
 if (!isNil 'GG_SBBIP') exw {
 	_msg = "Already blood bagging!";
-	systemChat ('(GG-AH): ' + str _msg);
+	systemChat ('Server: ' + str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 DZE_bloodperbb = 6000;
 if (player xgv['combattimeout',0] >= time) exw {
 	_msg = "You can't blood bag yourself while in combat!";
-	systemChat ('(GG-AH): ' + str _msg);
+	systemChat ('Server: ' + str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 GG_SBBIP = false;

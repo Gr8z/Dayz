@@ -1,7 +1,7 @@
 private ["_msg","_activatingPlayer","_trade_item","_currency","_price","_BoS","_textPart","_bag","_qty","_trader","_num_removed","_myMoney","_needed","_qty_in"];
 if (DZE_ActionInProgress) exitWith {
 	_msg = "Trade already in progress.";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;
@@ -15,7 +15,7 @@ _textPart 	= _this select 4;
 _bag 		= typeOf(unitBackpack player);
 if ((_bag != _trade_item)&&(_BoS == "sell")) exitWith {
 	_msg = format ["You do not have a %1 to sell!",_textPart];
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
@@ -50,7 +50,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_bag == _trade_item)&&(_BoS == "sell"
 } else {
 	_needed =  _qty_in - _qty;
 	_msg = format ["You need another %1 %2",_needed,_textPart];
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 call TraderFinishTrade;

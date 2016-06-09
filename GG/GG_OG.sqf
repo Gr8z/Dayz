@@ -1,7 +1,7 @@
 #include "shortcuts.h"
 if (inSafeZone) exw {
 	_msg = "Safezone detected! Primary weapon deleted! Next time, help unconcious players or fuck off.";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 	player removeMagazines (primaryWeapon player);
 	player removeWeapon (primaryWeapon player);

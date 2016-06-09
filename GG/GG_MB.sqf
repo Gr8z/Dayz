@@ -16,7 +16,7 @@ if (_objectID == "0" && _objectUID == "0") exw {
 _classname = typeOf _obj;
 if ((_classname in GG_indestructables)&&(_ownerID in GG_indarra)) exw {
 	_msg = "You can't maintain "+str _classname+" because it is an indestructible object.";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 _text = getText (xcf >> "CfgVehicles" >> _classname >> "displayName");
@@ -26,7 +26,7 @@ if ((count _upgrade) > 0) then [{_requirements = _upgrade},{
 		_requirements = [["ItemCopperBar",1]];
 		player addMagazine "ItemCopperBar";
 		_msg = "Thanks for donating, "+name player+", maintaining is free of charge!";
-		systemChat ("(GG-AH): "+str _msg);
+		systemChat ("Server: "+str _msg);
 		_msg swx AH_fnc_dynTextMsg;
 	} else {_requirements = [["PartGeneric",1]]};
 }];

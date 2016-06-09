@@ -1,7 +1,7 @@
 private ["_msg","_trade_item","_currency","_price","_BoS","_textPart","_inside","_psamnt","_isWeapon","_qty","_freeslots","_required","_inv","_trader","_removed","_nty","_needed","_textpart"];
 if (DZE_ActionInProgress) exitWith {
 	_msg = "Trade already in progress.";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;
@@ -25,32 +25,32 @@ _required 	= (_trade_item call GG_countReqWepSlots);
 _inv 		= (switch (_inside) do {case "plyr": {"your inventory"};case "bp": {"your backpack"};case "veh": {"your vehicle"};});
 if ((_psamnt > 12)&&(_inside == "plyr")&&(_BoS == "buy")) exitWith {
 	_msg = "Not enough space!";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade
 };
 if ((_inside == 'bp')&&(isNull GG_bpobj)) exitWith {
 	_msg = "You are not wearing a backpack!";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
 if ((_inside == 'veh')&&(isNull GG_vehobj)) exitWith {
 	_msg = "Vehicle not found! Make sure you have the key in your main inventory!";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
 if ((_isWeapon)&&(_BoS == "buy")&&(_inside == 'plyr')&&(primaryWeapon player != "")&&((getNumber (configFile >> "CfgWeapons" >> _trade_item >> "type")) in [0,1,4])) exitWith {
 	_msg = "Trade canceled. You already have a primary weapon!";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
 if ((_isWeapon)&&(_inside == "veh")) then {_required = 1 * _psamnt};
 if ((_BoS == "buy")&&((_freeslots < _required)&&(((_inside != "plyr")&&(_isWeapon))||(!_isWeapon)))) exitWith {
 	_msg = ("Not enough room inside "+_inv+" to buy "+_textPart+"! Free slots: "+str _freeslots+" Required: "+str _required);
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
@@ -107,7 +107,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty >= _psamnt)&&(_BoS == "sell"))) 
 			_nty = {_x == _trade_item} count (switch (_inside) do {case "plyr": {GG_plyrmags};case "bp": {GG_bpmags};case "veh": {GG_vehmags};});
 			if (_qty == _nty) then {
 				_msg = "Error selling "+_textPart+"!";
-				systemChat ("(GG-AH): "+str _msg+"");
+				systemChat ("Server: "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			} else {
 				_trader = (text ((nearestLocations [player, ["NameCityCapital","NameCity","NameVillage","NameLocal"],1000]) select 0));if (isNil '_trader') then {_trader = 'unknown'};
@@ -121,7 +121,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty >= _psamnt)&&(_BoS == "sell"))) 
 } else {
 	_needed = _psamnt - _qty;
 	_msg = (if (_BoS == "buy") then {format["Need %1 more %2",_needed,_currency]} else {format["Need %1 more %2",_needed,_textpart]});
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 call TraderFinishTrade;

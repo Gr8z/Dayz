@@ -15,7 +15,7 @@ _objectUID 	= _object getVariable ["ObjectUID","0"];
 _dir 		= getDir _object;
 _vec 		= [(vectorDir _object),(vectorUp _object)];
 _msg 		= "Your new code: "+str _newCombo;
-systemChat ("(GG-AH): "+str _msg+"");
+systemChat ("Server: "+str _msg+"");
 cutText [_msg,"PLAIN"];
 
 PVDZE_obj_Delete = [_objectID,_objectUID,player];

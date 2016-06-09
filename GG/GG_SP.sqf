@@ -15,26 +15,26 @@ _Time = time - lastscan;
 if(_Time < _LastUsedTime) exw {
 	DZE_ActionInProgress = false;
 	_msg = fmt["please wait %1s before scaning again!",(round(_Time - _LastUsedTime))];
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exw {
 	DZE_ActionInProgress = false; 
 	_msg = "You are near a Base and cannot perform that action!";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 
 if (!_hasGPS) exw {
 	DZE_ActionInProgress = false;
 	_msg = "You don't have a GPS";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if (dayz_combat == 1) exw { 
 	DZE_ActionInProgress = false;
 	_msg = "You are in combat and cannot perform that action!";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 
@@ -53,17 +53,17 @@ uiSleep 3;
 
 if (_playercount == 0) then {
 	_msg = "GPS : No players detected near you..";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if (_playercount == 1) then {
 	_msg = "GPS: There is one other player in your area.";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if (_playercount > 1) then {
 	_msg = fmt["GPS: There are %1 players in your area!",_playercount];
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 

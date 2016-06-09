@@ -2,7 +2,7 @@
 private ["_vehicles", "_capacity", "_fuelDif", "_progress_ctrl", "_name"];
 _vehicles = nearestObjects [player, ["LandVehicle", "Air"], 50];
 if (count(_vehicles) < 1) exw {_msg = "No vehicle found.";
-systemChat ("(GG-AH): "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};
+systemChat ("Server: "+str _msg+"");_msg swx AH_fnc_dynTextMsg;};
 disableSerialization;
 player rac s_player_autorefuel;
 s_player_autorefuel = -1;

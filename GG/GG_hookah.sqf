@@ -2,7 +2,7 @@
 if (isNil "Smoking_Da_Bong") then {Smoking_Da_Bong = false};
 if (Smoking_Da_Bong) exw {
 	_msg = "Slow down there! You can only smoke every 2 minutes...";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 [] swx {

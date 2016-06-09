@@ -3,7 +3,7 @@ tracking_keys = [];
 {if (['ItemKey',_x] call fnc_inString) then {tracking_keys set [count tracking_keys,_x]}} forEach (items player);
 if (count tracking_keys == 0) exw {
 	_msg = ('No keys found in inventory!');
-	systemChat ('(GG-AH): ' + str _msg);
+	systemChat ('Server: ' + str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 {

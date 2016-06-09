@@ -1,6 +1,6 @@
 if (LOG_INPROGRESS) then{
 	_msg = "Failed, the current operation is not finished yet";
-	systemChat ("(GG-AH): "+str _msg);
+	systemChat ("Server: "+str _msg);
 	_msg call AH_fnc_dynTextMsg;
 } else {
 	LOG_INPROGRESS = true;
@@ -32,16 +32,16 @@ if (LOG_INPROGRESS) then{
 					
 				sleep 3;
 				_msg = format["Vehicle %1 towed", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-				systemChat ("(GG-AH): "+str _msg);
+				systemChat ("Server: "+str _msg);
 				_msg call AH_fnc_dynTextMsg;	
 			} else {
 				_msg = format["Vehicle %1 is too far away to be towed", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-				systemChat ("(GG-AH): "+str _msg);
+				systemChat ("Server: "+str _msg);
 				_msg call AH_fnc_dynTextMsg;
 			};
 		} else {
 			_msg = format["Vehicle %1 is in transit", getText (configFile >> "CfgVehicles" >> (typeOf _object) >> "displayName")];
-			systemChat ("(GG-AH): "+str _msg);
+			systemChat ("Server: "+str _msg);
 			_msg call AH_fnc_dynTextMsg;
 		};
 	};

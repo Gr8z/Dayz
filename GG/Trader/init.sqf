@@ -9,12 +9,12 @@ BankDialogWithdrawAmount = {
 	_wealth = player getVariable["GGCoins",0];
 	if (_amount > 999999) exitWith {
 		_msg = "You can not withdraw more than 999,999 gold coins at once.";
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 	if (_amount < 1 or _amount > _bank) exitWith {
 		_msg = "You can not withdraw more than your bank balance.";
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 	player setVariable["GGCoins",(_wealth + _amount),true];
@@ -24,7 +24,7 @@ BankDialogWithdrawAmount = {
 	PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
 	PVDZE_bank_Save = [player];publicVariableServer "PVDZE_bank_Save";
 	_msg = format ["You have withdrawn %1 %2.", [_amount] call BIS_fnc_numberText, GCoins];
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 BankDialogDepositAmount = {
@@ -34,17 +34,17 @@ BankDialogDepositAmount = {
 	_wealth = player getVariable["GGCoins",0];
 	if (_amount > 999999) exitWith {
 		_msg = "You can not deposit more than 999,999 gold coins at once.";
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 	if (_amount < 1) exitWith {
 		_msg = "You can not deposit less than 1 coin.";
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 	if (_amount > _wealth) exitWith {
 		_msg = "You can not deposit more than you have.";
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 		PVDZE_account_Doublecheck = [player];
 		publicVariableServer "PVDZE_account_Doublecheck";
@@ -56,11 +56,11 @@ BankDialogDepositAmount = {
 			PVOZ_coinlog = [player,"deposited",[_amount] call BIS_fnc_numberText,(player getVariable ["GGCoins",0]),(player getVariable ["GGBank",0])];
 			publicVariableServer "PVOZ_coinlog";
 			_msg = format ["You have deposited %1 %2.", [_amount] call BIS_fnc_numberText, GCoins];
-			systemChat ("(GG-AH): "+str _msg+"");
+			systemChat ("Server: "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		} else {
 			_msg = format ["You can only have a max of %1 %2",[DZE_maxBank] call BIS_fnc_numberText,GCoins];
-			systemChat ("(GG-AH): "+str _msg+"");
+			systemChat ("Server: "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
 	} else {
@@ -69,7 +69,7 @@ BankDialogDepositAmount = {
 		PVOZ_coinlog = [player,"deposited",[_amount] call BIS_fnc_numberText,(player getVariable ["GGCoins",0]),(player getVariable ["GGBank",0])];
 		publicVariableServer "PVOZ_coinlog";
 		_msg = format ["You have deposited %1 %2.", [_amount] call BIS_fnc_numberText, GCoins];
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 	PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
@@ -119,7 +119,7 @@ if (isServer) then {
 		player setVariable["GGCoins",(player getVariable["GGCoins",0]) + _amount, true];
 		PVDZE_plr_Save = [player,(magazines player),true,true];publicVariableServer "PVDZE_plr_Save";
 		_msg = format ["%1 gave you %2 %3.",name _send,_amount,GCoins];
-		systemChat ("(GG-AH): "+str _msg+"");
+		systemChat ("Server: "+str _msg+"");
 		_msg call AH_fnc_dynTextMsg;
 	};
 };

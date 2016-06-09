@@ -1,7 +1,7 @@
 private ["_msg","_trade_item","_currency","_price","_BoS","_textPart","_obj","_qty","_keySelected","_isKeyOK","_config","_isOk","_removed","_trader","_helipad","_location","_veh","_hitpoints","_okToSell","_tires","_tireDmg","_damage","_objectID","_objectUID","_needed","_veh_owner","_ownerGroup","_ownerGroupTag","_playerID","_VehOwnerConfirmed"];
 if (DZE_ActionInProgress) exitWith {
 	_msg = "Trade already in progress.";
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 DZE_ActionInProgress = true;
@@ -15,7 +15,7 @@ _qty 		= (if (_BoS == "buy") then [{player getVariable ["GGCoins",0]},{count _ob
 
 if ((_qty <= 0)&&(_BoS == "sell")) exitWith {
 	_msg = format["No %1 found within 20 meters.",_textPart];
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 	call TraderFinishTrade;
 };
@@ -44,7 +44,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 			} else {player removeMagazine _keySelected};
 		} else {
 			_msg = "You do not have enough room on your toolbelt for the key!";
-			systemChat ("(GG-AH): "+str _msg+"");
+			systemChat ("Server: "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
 	} else {
@@ -91,17 +91,17 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 					_msg call AH_fnc_dynTextMsg;
 				} else {
 					_msg = "Failed, you are not the owner of this vehicle.";
-					systemChat ("(GG-AH): "+str _msg+"");
+					systemChat ("Server: "+str _msg+"");
 					_msg call AH_fnc_dynTextMsg;
 				};
 			} else {
 				_msg = format ["Cannot sell %1, tires are too damaged.",_textPart];
-				systemChat ("(GG-AH): "+str _msg+"");
+				systemChat ("Server: "+str _msg+"");
 				_msg call AH_fnc_dynTextMsg;
 			};
 		} else {
 			_msg = "Failed, you must get into the driver's seat first.";
-			systemChat ("(GG-AH): "+str _msg+"");
+			systemChat ("Server: "+str _msg+"");
 			_msg call AH_fnc_dynTextMsg;
 		};
 	};
@@ -110,7 +110,7 @@ if (((_qty >= _price)&&(_BoS == "buy"))||((_qty > 0)&&(_BoS == "sell"))) then {
 } else {
 	_needed =  _price - _qty;
 	_msg = format ["You need another %1 %2",_needed,_textPart];
-	systemChat ("(GG-AH): "+str _msg+"");
+	systemChat ("Server: "+str _msg+"");
 	_msg call AH_fnc_dynTextMsg;
 };
 call TraderFinishTrade;
