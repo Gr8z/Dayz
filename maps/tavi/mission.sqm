@@ -7,7 +7,7 @@ class Mission
 	class Intel
 	{
 		briefingName="[GG] Overpoch Taviana";
-		briefingDescription="[GG] Ghostz Gamerz | DO NOT JOIN ADMIN SLOTS - DO NOT IDLE IN ADMIN SLOTS - WAIT FOR A REGULAR SLOT IF NEEDED";
+		briefingDescription="[GG] Ghostz Gamerz | Do not join admin slots | Wait for a regular slot";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;

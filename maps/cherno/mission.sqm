@@ -7,7 +7,7 @@ class Mission
 	class Intel
 	{
 		briefingName="[GG] Overpoch Chernarus";
-		briefingDescription="[GG] Ghostz Gamerz | Do not join reserved slots | Wait for a regular slot";
+		briefingDescription="[GG] Ghostz Gamerz | Do not join admin slots | Wait for a regular slot";
 		startWeather=0.067362607;
 		forecastWeather=0.52341133;
 		year=2008;
