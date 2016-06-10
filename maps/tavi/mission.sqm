@@ -319,16 +319,16 @@ class Mission
 		class Item0
 		{
 			position[]={15309.663,0,9278.4912};
-			a=40;
-			b=40;
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonesabina";
-			expCond="(player distance zonesabina) < 40;";
+			expCond="(player distance zonesabina) < 75;";
 			expActiv="TitleText[""Now entering trader city Sabina"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
-			expDesactiv="TitleText[""Now leaving trader city Leyepostock"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
+			expDesactiv="TitleText[""Now leaving trader city Sabina"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
 			{
 			};
@@ -336,14 +336,14 @@ class Mission
 		class Item1
 		{
 			position[]={11698.81,0,15210.121};
-			a=50;
-			b=50;
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonelyep";
-			expCond="(player distance zonelyep) < 50;";
+			expCond="(player distance zonelyep) < 75;";
 			expActiv="TitleText[""Now entering trader city Leyepostock"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving trader city Leyepostock"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
@@ -353,14 +353,14 @@ class Mission
 		class Item2
 		{
 			position[]={5538.7354,0,8762.2695};
-			a=50;
-			b=50;
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebilgrad";
-			expCond="(player distance zonebilgrad) < 50;";
+			expCond="(player distance zonebilgrad) < 75;";
 			expActiv="TitleText[""Now entering trader city Bilgrad"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving trader city Bilgrad"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
@@ -370,14 +370,14 @@ class Mission
 		class Item3
 		{
 			position[]={7376.6084,0,4296.5879};
-			a=60;
-			b=60;
+			a=75;
+			b=75;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebranibor";
-			expCond="(player distance zonebranibor) < 60;";
+			expCond="(player distance zonebranibor) < 75;";
 			expActiv="TitleText[""Now entering trader city Branibor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving trader city Branibor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
@@ -387,14 +387,14 @@ class Mission
 		class Item4
 		{
 			position[]={6812,0,8538};
-			a=100;
-			b=100;
+			a=60;
+			b=60;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonekrasno";
-			expCond="(player distance zonekrasno) < 100;";
+			expCond="(player distance zonekrasno) < 60;";
 			expActiv="TitleText[""Now entering Krasno Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving Krasno Air Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
@@ -404,14 +404,14 @@ class Mission
 		class Item5
 		{
 			position[]={16555.6,0,10162};
-			a=100;
-			b=100;
+			a=60;
+			b=60;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonedubovo";
-			expCond="(player distance zonedubovo) < 100;";
+			expCond="(player distance zonedubovo) < 60;";
 			expActiv="TitleText[""Now entering Dubovo Air Dealer"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving Dubovo Air Dealer"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
@@ -455,14 +455,14 @@ class Mission
 		class Item8
 		{
 			position[]={15586.8,0,16390.8};
-			a=40;
-			b=40;
+			a=50;
+			b=50;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonehero";
-			expCond="(player distance zonehero) < 40;";
+			expCond="(player distance zonehero) < 50;";
 			expActiv="TitleText[""Now entering Hero Vendor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving Hero Vendor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
