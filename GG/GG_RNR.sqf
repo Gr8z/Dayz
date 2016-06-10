@@ -10,11 +10,11 @@ RefuelTargetVehicle = _vehicles sel 0;_capacity 	= xgn(xcf >> "cfgVehicles" >> (
 _fuelDif 	= _capacity - ((fuel RefuelTargetVehicle) * _capacity);
 CostToFill 	= (if (RefuelTargetVehicle iko "AIR") then [{ceil(_fuelDif * (DZE_gasprice / 4))},{ceil(_fuelDif * DZE_gasprice)}]);
 _cost 		= RefuelTargetVehicle call RepairVehicleCost;cdx "RefuelDialog";
-((uiNamespace xgv "RefuelDialog") displayCtrl 4604) ctrlSetStructuredText parseText fmt["<t color='#FF3300'>Repair cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' />",[_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
-_infoTXT = "<t color='#FF3300'size='1.5'>Vehilce info</t><br/>";
-_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Vehicle name</t>: %1<br/>",(getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName"))];
-_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Fuel capacity</t>: %1 litres<br/>",_capacity];
-_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Current fuel</t>: %1 litres<br/>",round((fuel RefuelTargetVehicle) * _capacity)];
-_infoTXT = _infoTXT + fmt["<t color='#FF3300'>Cost to fill</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa'/>",CostToFill,(if (CostToFill > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
+((uiNamespace xgv "RefuelDialog") displayCtrl 4604) ctrlSetStructuredText parseText fmt["<t color='#0000FF'>Repair cost</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa' />",[_cost] call BIS_fnc_numberText, (if (_cost > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
+_infoTXT = "<t color='#0000FF'size='1.5'>Vehicle Info</t><br/>";
+_infoTXT = _infoTXT + fmt["<t color='#0000FF'>Vehicle name</t>: %1<br/>",(getText(xcf >> "cfgVehicles" >> (typeOf RefuelTargetVehicle) >> "displayName"))];
+_infoTXT = _infoTXT + fmt["<t color='#0000FF'>Fuel capacity</t>: %1 liters<br/>",_capacity];
+_infoTXT = _infoTXT + fmt["<t color='#0000FF'>Current fuel</t>: %1 liters<br/>",round((fuel RefuelTargetVehicle) * _capacity)];
+_infoTXT = _infoTXT + fmt["<t color='#0000FF'>Cost to fill</t>: <t color='%2'>%1</t> <img image='GG\GUI\hud\gold_p.paa'/>",CostToFill,(if (CostToFill > (player xgv["GGCoins",0])) then {"#ff0000"} else {"#00ff00"})];
 ((uiNamespace xgv "RefuelDialog") displayCtrl 4601) ctrlSetStructuredText parseText _infoTXT;
 for "_i" from 0 to 50 do {((uiNamespace xgv "RefuelDialog") displayCtrl 4600) progressSetPosition ((fuel RefuelTargetVehicle) * (_i / 50))};

@@ -8359,7 +8359,6 @@ call compile ("
 			clearWeaponCargoGlobal _this;
 			clearMagazineCargoGlobal _this;
 			
-			_this engineOn true;
 			_this setVariable ['ObjectID','1',true];
 			_this setVariable ['ObjectUID','1',true];
 			_this setvelocity [0,0,1];
