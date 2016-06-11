@@ -735,7 +735,7 @@ call compile ("
 					} else {
 						if (isNil 'r_player_unconslide') then {
 							r_player_unconslide = true;
-							['<t color=''#FF0000''>Waking up now!</t>',safezoneX + 0.75,safezoneY + 0.5,2,0,-1,77396] spawn AH_fnc_dynamictext;
+							['<t color=''#0000FF''>Waking up now!</t>',safezoneX + 0.75,safezoneY + 0.5,2,0,-1,77396] spawn AH_fnc_dynamictext;
 						};
 						['',safezoneX + 0.75,safezoneY + 0,1,0,-1,77396] spawn AH_fnc_dynamictext;
 					};
