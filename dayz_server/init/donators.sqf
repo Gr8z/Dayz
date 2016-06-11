@@ -80,7 +80,9 @@ Engineer3 = [
 	"76561198155652757", // Boston (EXP-2016-06-28) #00000
 	// Bought with Briefs
 	"76561198067291900", // Trophie (EXP-2016-07-10)
-	"76561198079096887", // [USDA] Chachi
+	"76561198079096887", // [USDA] Chachi (EXP-2016-07-10)
+	"76561198097011237", // mj4boss (EXP-2016-07-11)
+	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-11)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -92,6 +94,9 @@ Marksman1 = [
 	//"76561198112089693", // Zach (OD-2016-01-16) #12971 Date Due:17-Feb-2016
 	//"76561198098109044", // Jake (OD-2016-01-16) #12969 Date Due:17-Feb-2016
 	"76561198076075633", // VintoreZ (OD-2016-04-26)
+	//Bought with briefs
+	"76561197977127133", // Cats (EXP-2016-07-11)
+	"76561198077968753", // James Kerrison (EXP-2016-07-11)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
@@ -106,7 +111,8 @@ Marksman2 = [
 Marksman3 = [
 	"76561198078201908", // Gr8
 	"76561198153784743", // Ghost
-	"76561198115492831", // BigEgg 
+	"76561198115492831", // BigEgg
+    "76561198128122309", // Nasty (Admin loadout)
 	"76561198063792194", // punkturtle(OD-2015-05-25)#9138
 	"76561198107354770", // [NoVa] Caleb(OD-2015-07-08) #9893
 	"76561198046530759", // Jayah (OD-2015-09-05) #11304 
@@ -221,6 +227,7 @@ Scout3 = [
 	"76561198153784743", // Ghost
 	"76561198115492831", // BigEgg
 	"76561198130550101", // Friendly Fire (Admin Loadout)
+	"76561198036004541", // Demen (Admin Loadout)
 	"76561198049639893", // Derek(OD-2015-05-15)#9026
 	"76561198058099842", // Fap(OD-2015-05-21)##9091
 	"76561197971655623", // Robbie Digital(OD-2015-05-25)#9152
@@ -259,6 +266,8 @@ Scout3 = [
 	// Bought with briefs
 	"76561198097011237", // Afghan Prince (EXP-2016-07-10)
 	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-10)
+	"76561198156580021", // Forsaken (EXP-2016-07-11)
+	"76561198135611591", // Turnip (EXP-2016-07-11)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
