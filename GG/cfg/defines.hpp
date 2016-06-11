@@ -3291,7 +3291,7 @@ class AH_RAT {
 			y = 0.280024 * safezoneH + safezoneY;
 			w = 0.296544 * safezoneW;
 			h = 0.027497 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class RAT_title: RscText {
 			idc = 1001;
@@ -3309,7 +3309,7 @@ class AH_RAT {
 			y = 0.335018 * safezoneH + safezoneY;
 			w = 0.116039 * safezoneW;
 			h = 0.329964 * safezoneH;
-			colorBackground[] = {1,0.1,0.1,0.15};
+			colorBackground[] = {0,0,0,0.7};
 		};
 		class RAT_ammoInfo: RscStructuredText {
 			idc = 1100;
@@ -3318,7 +3318,7 @@ class AH_RAT {
 			y = 0.335018 * safezoneH + safezoneY;
 			w = 0.141826 * safezoneW;
 			h = 0.329964 * safezoneH;
-			colorBackground[] = {0.4,0.1,0.1,0.4};
+			colorBackground[] = {0,0,0,0.7};
 		};
 	};
 	class controls {
@@ -3349,11 +3349,11 @@ class AH_RAT {
 			w = 0.0322331 * safezoneW;
 			h = 0.027497 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
-			colorText[] = {1,0.23,0,1};
+			colorText[] = {0.643,0.643,0.643,1};
 			colorDisabled[] = {1,0.1,0.1,0};
 			colorBackground[] = {1,0.1,0.1,0};
 			colorBackgroundDisabled[] = {0,0,0,0};
-			colorBackgroundActive[] = {1,0.1,0.1,0.5};
+			colorBackgroundActive[] = {0.345,0.345,0.98,1};
 			colorFocused[] = {0.75,0.75,0.75,0.5};
 			colorShadow[] = {0,0,0,0};
 			colorBorder[] = {0,0,0,0};

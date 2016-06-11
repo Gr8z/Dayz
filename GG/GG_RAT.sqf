@@ -17,12 +17,12 @@ if (count _tinfo > 0) then {
 				_mis = (getText (configFile >> "CfgMagazines" >> _mag >> "displayName"));
 				RAT_array set [count RAT_array,[RearmTargetVehicle,_wep,_mag,_dis,_prc,_pos,_mis]];
 				_index = (if (_mis != "") then [{lbAdd [1500,format["%1 (%2)",_mis,_mag]]},{lbAdd [1500,format["%1",_mag]]}]);
-				lbSetColor [1500, _index, [0, 0.5, 0, 1]];
+				lbSetColor [1500, _index, [0.643,0.643,0.643,1]];
 			} forEach _mgs;
 		};
 	} forEach _tinfo;
 } else {
 	_index = lbAdd [1500,"No ammo for this vehicle."];
-	lbSetColor [1500, _index, [1, 0, 0, 1]];
+	lbSetColor [1500, _index, [0.643,0.643,0.643,1]];
 	((findDisplay 710420) displayCtrl 1600) ctrlEnable false;
 };

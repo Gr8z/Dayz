@@ -417,14 +417,14 @@ if (!isDedicated) then {
 		_prc = _sel sel 4;
 		_tur = _sel sel 5;
 		if (_prc <= 100) then {_prc = -1};
-		_rlt = "<t color='#FF3300'>";
+		_rlt = "<t color='#0000FF'>";
 		_crt = "</t>";
 		_magTyp = (getText (configFile >> "CfgMagazines" >> _mag >> "displayName"));
 		_turPos = (if (_tur sel 0 > -1) then [{"Gunner"+(str ((_tur sel 0) + 1))},{"Driver"}]);
 		
 		if ((_this sel 1) == "INFO") then {
 			_ctrl = ((findDisplay 710420) displayCtrl 1100);
-			_info = ("<t color='#FFB300'>Ammo information<br/>"+_crt);
+			_info = ("<t color='#848484'>Ammo information<br/>"+_crt);
 			(_rlt+"Vehicle "+(typeOf _veh)+_crt) call a2s;
 			(" -"+_rlt+"Weapon"+_crt+": "+_dis) call a2s;
 			(" -"+_rlt+"Position"+_crt+": "+(_turPos)) call a2s;
