@@ -80,6 +80,7 @@ Engineer3 = [
 	"76561198155652757", // Boston (EXP-2016-06-28) #00000
 	// Bought with Briefs
 	"76561198067291900", // Trophie (EXP-2016-07-10)
+	"76561198079096887", // [USDA] Chachi
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
