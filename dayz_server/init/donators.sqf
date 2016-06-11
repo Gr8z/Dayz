@@ -253,6 +253,9 @@ Scout3 = [
 	"76561198147414349", // [MTO] NoFreeze4u (EXP-2016-06-15)
 	"76561198069393470", // Mason (EXP-2016-06-17)
 	"76561198149924529", // Reaper (EXP-2016-06-17)
+	// Bought with briefs
+	"76561198097011237", // Afghan Prince (EXP-2016-07-10)
+	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-10)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
