@@ -78,6 +78,8 @@ Engineer3 = [
 	"76561198230374540", // hsales8717 (OD-2016-3-30)
 	"76561198094703284", // That Michael Guy (EXP-2016-06-01) #0000
 	"76561198155652757", // Boston (EXP-2016-06-28) #00000
+	// Bought with Briefs
+	"76561198159451498", // Clavi03 (EXP-2016-07-10)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
