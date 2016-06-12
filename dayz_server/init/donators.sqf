@@ -185,6 +185,8 @@ Scout1 = [
 	"76561198079865619", // Mistystone (OD-2016-01-19) #13003
 	"76561198232093232", // Headshot (EXP-2016-05-22) #13018
 	"76561198080848262", // Sodium Free (EXP-2016-06-03) #00000
+	// Bought with Briefs
+	"76561198152742087", // Passionfiend (EXP-2016-06-11) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
