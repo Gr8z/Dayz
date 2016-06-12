@@ -96,6 +96,7 @@ Marksman1 = [
 	//Bought with briefs
 	"76561197977127133", // Cats (EXP-2016-07-11)
 	"76561198077968753", // James Kerrison (EXP-2016-07-11)
+	"76561198067443625", // Karlo (EXP-2016-07-12)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
@@ -217,6 +218,8 @@ Scout2 = [
 	"76561197998435723", // Pandabowl (OD-2016-3-30)
 	"76561198041732102", // Frank (EXP-2016-06-02)
 	"76561198051054305", // Miguel (EXP-2016-06-16)
+	//Bought with briefs
+	"76561198024867074", // Master Rus (EXP-2016-07-12)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
