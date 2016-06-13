@@ -221,6 +221,7 @@ Scout2 = [
 	"76561198051054305", // Miguel (EXP-2016-06-16)
 	//Bought with briefs
 	"76561198024867074", // Master Rus (EXP-2016-07-12)
+	"76561198083230967", // Cian1 (EXP-2016-07-13)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
