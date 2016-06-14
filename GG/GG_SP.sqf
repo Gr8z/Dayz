@@ -14,13 +14,13 @@ _Time = time - lastscan;
 
 if(_Time < _LastUsedTime) exw {
 	DZE_ActionInProgress = false;
-	_msg = fmt["please wait %1s before scaning again!",(round(_Time - _LastUsedTime))];
+	_msg = fmt["Please wait %1s before scanning again!",(round(_Time - _LastUsedTime))];
 	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
 if(count(nearestObjects [player, ["Plastic_Pole_EP1_DZ"],_NearPlotMeters]) > 1) exw {
 	DZE_ActionInProgress = false; 
-	_msg = "You are near a Base and cannot perform that action!";
+	_msg = "You are near a base and cannot perform that action!";
 	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
@@ -41,7 +41,7 @@ if (dayz_combat == 1) exw {
 _Radar = ["GG\GUI\GPS.ogv",1.04] swx bis_fnc_customGPSvideo;
 
 for "_x" from 1 to 10 do {
-	if (_x >= 2) then {cutText [fmt ["\n\nSCANING IN PROGRESS...", 11-_x], "PLAIN DOWN"];};
+	if (_x >= 2) then {cutText [fmt ["\n\nScanning in Progress...", 11-_x], "PLAIN DOWN"];};
 	uiSleep 1;
 };
 
