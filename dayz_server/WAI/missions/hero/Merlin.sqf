@@ -43,7 +43,7 @@ if(isServer) then {
 		["crate"],
 		[_vehicle],
 		"Bandits have landed a Merlin and are kidnapping survivors! Save them and the Merlin is yours!",
-		"Heros have held off the bandits!",
+		"Heroes have held off the bandits!",
 		"The Bandits have murdered the survivors"
 	] call mission_winorfail;
 	if(_complete) then {
