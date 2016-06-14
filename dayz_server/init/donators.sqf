@@ -48,6 +48,8 @@ Engineer1 = [
 	"76561198105892308", // Billy Mayes (OD-2015-12-24) #0000
 	"76561198057545696", // Coco The Clown (OD-2015-12-24) #0000
 	"76561198174823006", // Alvarez (OD-2015-12-18) #12441
+	// Bought with Briefs
+	"76561198073062201", // Tyler Jones (EXP-2016-07-13)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer1";
