@@ -84,6 +84,7 @@ Engineer3 = [
 	"76561198079096887", // [USDA] Chachi (EXP-2016-07-10)
 	"76561198097011237", // mj4boss (EXP-2016-07-11)
 	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-11)
+	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -274,6 +275,7 @@ Scout3 = [
 	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-10)
 	"76561198156580021", // Forsaken (EXP-2016-07-11)
 	"76561198135611591", // Turnip (EXP-2016-07-11)
+	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
@@ -318,6 +320,7 @@ Soldier3 = [
 	"76561198068695714", // Ekay (EXP-2016-06-08) #00000
 	// Bought with Briefs
 	"76561198067291900", // Trophie (EXP-2016-07-10)
+	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
