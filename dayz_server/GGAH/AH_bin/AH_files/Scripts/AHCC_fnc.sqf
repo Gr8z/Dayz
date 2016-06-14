@@ -1153,7 +1153,7 @@ _AH_CC = compile ("
 	if !("+str _CC_MUSIC+") then {_inmusi=[]};
 	_frndCommands = "+_CC_fcmds+";
 	_animCommands = "+_CC_anims+";
-	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _insta + _airdrop + _scan + _adminCry);
+	_chatCommands = (_debug + _badcht + _help + _nohud + _killme + _ts3 + _eplugs + _rules + _intro + _viewd + _nogras + _inmusi + _online + _pmplr + _repm + _methd + _event + _leave + _airdrop + _scan + _adminCry);
 	_chatCommands = _chatCommands + _animCommands + _frndCommands;
 	while {str(100) == str(100)} do {
 		waitUntil {!(isNull (findDisplay 24))};
