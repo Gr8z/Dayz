@@ -14,21 +14,10 @@ if (_objectID == "0" && _objectUID == "0") exw {
 	cutText [(lzl "str_epoch_player_50"), "PLAIN DOWN"]
 };
 _classname = typeOf _obj;
-if ((_classname in GG_indestructables)&&(_ownerID in GG_indarra)) exw {
-	_msg = "You can't maintain "+str _classname+" because it is an indestructible object.";
-	systemChat ("Server: "+str _msg);
-	_msg swx AH_fnc_dynTextMsg;
-};
 _text = getText (xcf >> "CfgVehicles" >> _classname >> "displayName");
 _upgrade = getArray (xcf >> "CfgVehicles" >> _classname >> "maintainBuilding");
 if ((count _upgrade) > 0) then [{_requirements = _upgrade},{
-	if (gpd player in GG_freemaintarra) then {
-		_requirements = [["ItemCopperBar",1]];
-		player addMagazine "ItemCopperBar";
-		_msg = "Thanks for donating, "+name player+", maintaining is free of charge!";
-		systemChat ("Server: "+str _msg);
-		_msg swx AH_fnc_dynTextMsg;
-	} else {_requirements = [["PartGeneric",1]]};
+	_requirements = [["PartGeneric",1]];
 }];
 _missingQty = 0;
 _missing = "";

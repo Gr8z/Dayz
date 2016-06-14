@@ -935,29 +935,6 @@ _AH_CC = compile ("
 			call "+_RND+"_eventJoin;
 		};
 	};
-	"+_RND+"_instaToggle = {
-		if (getPlayerUID player in GG_notimerarra) then {
-			if (profileNameSpace getVariable ['AH_instacraft',false]) then {
-				profileNamespace setVariable ['AH_instacraft',false];
-				saveProfileNamespace;
-				
-				_msg = 'Crafting confirmation menu enabled.';
-				_msg call AH_fnc_dynTextMsg;
-				systemChat ('"+_AH_CHAT+": '+str _msg);
-			} else {
-				profileNamespace setVariable ['AH_instacraft',true];
-				saveProfileNamespace;
-				
-				_msg = 'Crafting confirmation menu disabled.';
-				_msg call AH_fnc_dynTextMsg;
-				systemChat ('"+_AH_CHAT+": '+str _msg);
-			};
-		} else {
-			_msg = 'Only donators can use this command!';
-			_msg call AH_fnc_dynTextMsg;
-			systemChat ('"+_AH_CHAT+": '+str _msg);
-		};
-	};
 	"+_RND+"_CCsuicide = {
 		_lastsuiA = profileNameSpace getVariable ['AH_lastsui',['0','']];
 		_lastsuiT = abs(parseNumber (_lastsuiA select 0));
@@ -1162,7 +1139,6 @@ _AH_CC = compile ("
 	_situps = ['!situps'];
 	_pushup = ['!pushups'];
 	_noanim = ['!stop'];
-	_insta 	= ['!instacraft'];
 	
 	_FL_onfriends = ['!friends'];
 	_FL_addfriend = ['!addfriend'];
@@ -1197,7 +1173,6 @@ _AH_CC = compile ("
 			if (_msg in _nohud) then {[] spawn "+_RND+"_toggleHUD};
 			if (_msg in _leave) then {[] spawn "+_RND+"_eventLeave};
 			if (_msg in _killme) then {[] spawn "+_RND+"_CCsuicide};
-			if (_msg in _insta) then {[] spawn "+_RND+"_instaToggle};
 			if (_msg in _nogras) then {[] spawn "+_RND+"_toggleGrass};
 			if (_msg in _online) then {[] spawn "+_RND+"_onlinePlayers};
 			if (_msg in _FL_addfriend) then {[] spawn "+_RND+"_addFriend};
