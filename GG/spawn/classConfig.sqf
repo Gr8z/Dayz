@@ -2,9 +2,9 @@
 #define VIP_TOOLS "Binocular_Vector","NVGoggles","ItemCompass","ItemHatchet_DZE","ItemKnife","Itemmatchbox","Itemetool","ItemWatch","ItemGPS","ItemCrowbar","ItemToolbox"
 #define ATV_PARTS "PartGeneric","PartEngine","PartWheel","PartWheel"
 
-_startBag = "DZ_ALICE_Pack_EP1";
-_startMags = ["ItemBandage",3,"ItemPainkiller","ItemWaterbottle","FoodPistachio","RH_8Rnd_45cal_m1911",3,"PartGeneric"];
-_startWeps = ["ItemMap","ItemFlashlight","ItemToolbox","RH_m1911sd","ItemCompass"];
+_startBag = "DZ_Patrol_Pack_EP1";
+_startMags = ["ItemPainkiller","ItemMorphine","PartGeneric","RH_8Rnd_45cal_m1911",2,"ItemBandage",2];
+_startWeps = ["ItemFlashlight","ItemHatchet_DZE","ItemMap","Itemtoolbox","RH_m1911sd"];
 _customLoadout = [
 	"76561198078201908", //Gr8
 	"76561198153784743", //Ghost
@@ -69,16 +69,16 @@ _presetClasses = [
 		[],3,
 		0,0
 	],
-	["Tier 1 Bandit","Bandit2_DZ","BanditW1_DZ",["10x_303",2,"ItemSodaRabbit"],["LeeEnfield","ItemCompass","ItemCrowbar","ItemGPS","Binocular"],"",[],[],0,-5000],
-	["Tier 2 Bandit","Bandit2_DZ","BanditW1_DZ",["RH_8Rnd_45cal_m1911",3,"vil_32Rnd_UZI_SD",2,"ItemSodaRabbit"],["vil_uzimini","ItemCompass","ItemCrowbar","ItemGPS","Binocular"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
-	["Tier 3 Bandit","Bandit2_DZ","BanditW1_DZ",["30Rnd_545x39_AK",3,"ItemSodaRabbit"],["AK_107_kobra","ItemCompass","ItemCrowbar","ItemGPS","Binocular"],"DZ_ALICE_Pack_EP1",[],[],0,-45000],
-	["Tier 4 Bandit","Bandit2_DZ","BanditW1_DZ",["vil_100Rnd_762x39_RPD",2,"ItemSodaRabbit"],["vil_RPD","ItemCompass","ItemCrowbar","ItemEtool","ItemGPS","Binocular_Vector"],"DZ_GunBag_EP1",[],[],0,-135000],
-	["Tier 5 Bandit","Bandit2_DZ","BanditW1_DZ",["RH_20Rnd_762x51_hk417",3,"ItemSodaRabbit"],["RH_hk417acog","ItemCompass","ItemCrowbar","ItemEtool","ItemGPS","Binocular_Vector"],"DZ_Backpack_EP1",[],[],0,-405000],
-	["Tier 1 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["15Rnd_W1866_Slug",2],["Winchester1866","ItemEtool","ItemGPS","ItemCompass","Binocular"],"",[],[],0,5000],
-	["Tier 2 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["30Rnd_556x45_Stanag",3],["M4A1","ItemEtool","ItemGPS","ItemCompass","Binocular"],"DZ_ALICE_Pack_EP1",[],[],0,15000],
-	["Tier 3 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["20Rnd_762x51_FNFAL",4],["FN_FAL","ItemEtool","ItemGPS","ItemCompass","Binocular"],"DZ_ALICE_Pack_EP1",["FoodbeefCooked"],[],0,45000],
-	["Tier 4 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["RH_20Rnd_762x51_hk417",4],["RH_hk417acog","ItemEtool","ItemGPS","ItemCompass","ItemCrowbar","Binocular_Vector"],"DZ_GunBag_EP1",["FoodbeefCooked"],[],0,90000],
-	["Tier 5 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["100Rnd_762x54_PK",2],["Pecheneg_DZ","ItemEtool","ItemGPS","ItemCompass","ItemCrowbar","Binocular_Vector"],"DZ_Backpack_EP1",["FoodbeefCooked"],[],0,140000],
+	["Tier 1 Bandit","Bandit2_DZ","BanditW1_DZ",["FHQ_rem_30Rnd_680x43_ACR_SD",2,"ItemSodaCoke","FoodCanPasta","ItemBandage"],["FHQ_ACR_WDL_IRN_SD","Binocular","ItemCompass","ItemEtool","ItemCrowbar"],"",[],[],0,-5000],
+	["Tier 2 Bandit","Bandit2_DZ","BanditW1_DZ",["30Rnd_556x45_Stanag",2,"ItemSodaLemonade","FoodMRE","ItemBandage"],["RH_hk416acog","Binocular","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS"],"DZ_ALICE_Pack_EP1",[],[],0,-15000],
+	["Tier 3 Bandit","Bandit2_DZ","BanditW1_DZ",["20Rnd_762x51_DMR",2,"ItemSodaMdew","ItemTroutCooked","ItemBandage",2,ATV_PARTS],["RH_m14acog","Binocular","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","ItemRadio"],"DZ_GunBag_EP1",[],[],0,-45000],
+	["Tier 4 Bandit","Bandit2_DZ","BanditW1_DZ",["100Rnd_762x51_M240",2,"ItemSodaRbull","ItemSeaBassCooked","ItemBandage",2,ATV_PARTS],["Mk_48_DZ","Binocular","Binocular_Vector","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","ItemWatch","ItemRadio"],"DZ_Backpack_EP1",[],[],0,-135000],
+	["Tier 5 Bandit","Bandit2_DZ","BanditW1_DZ",["20Rnd_762x51_DMR",3,"ItemSodaOrangeSherbet","ItemTunaCooked","ItemBandage",2,ATV_PARTS],["vil_SR25","Binocular","Binocular_Vector","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","ItemWatch","Itemmatchbox","ItemRadio"],"DZ_LargeGunBag_EP1",[],[],0,-405000],
+	["Tier 1 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["FHQ_rem_30Rnd_680x43_ACR_SD",2,"ItemSodaPepsi","FoodCanSardines","ItemBandage"],["FHQ_ACR_BLK_HWS_SD","Binocular","ItemCompass","ItemEtool","ItemCrowbar"],"",[],[],0,5000],
+	["Tier 2 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["20Rnd_762x51_DMR",2,"ItemSodaLemonade","FoodMRE","ItemBandage"],["RH_hk417acog","Binocular","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS"],"DZ_ALICE_Pack_EP1",[],[],0,15000],
+	["Tier 3 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["20Rnd_762x51_DMR",2,"ItemSodaMdew","ItemTroutCooked","ItemBandage",2,ATV_PARTS],["RH_m14acog","Binocular","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","ItemRadio"],"DZ_GunBag_EP1",[],[],0,45000],
+	["Tier 4 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["100Rnd_762x54_PK",2,"ItemSodaRbull","ItemSeaBassCooked","ItemBandage",2,ATV_PARTS],["Pecheneg_DZ","Binocular","Binocular_Vector","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","ItemRadio"],"DZ_Backpack_EP1",[],[],0,90000],
+	["Tier 5 Hero","Soldier_Sniper_PMC_DZ","SurvivorWpink_DZ",["20Rnd_762x51_DMR",3,"ItemSodaOrangeSherbet","ItemTunaCooked","ItemBandage",2,ATV_PARTS],["vil_M110sd","Binocular","Binocular_Vector","ItemCompass","ItemEtool","ItemCrowbar","ItemGPS","ItemKnife","Itemmatchbox","ItemRadio"],"DZ_LargeGunBag_EP1",[],[],0,140000],
 	["Survivor","Survivor2_DZ","SurvivorW2_DZ",[],[],"",[],[],0,0],
 	["British Soldier","Soldier1_DZ","SurvivorWcombat_DZ",[],[],"",[],[],0,0],
 	["Business Person","Functionary1_EP1_DZ","SurvivorWurban_DZ",["ItemBriefcaseS20oz"],[],"",[],[],0,0],
