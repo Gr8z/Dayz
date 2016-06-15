@@ -231,7 +231,6 @@ Scout2 = [
 	"76561198083230967", // Cian1 (EXP-2016-08-13)
 	"76561198209543173", // Chalk (EXP-2016-07-15)
 	"76561198198370522", // Yvng Sinatra (EXP-2016-07-15)
-	"76561198082223075", // [Booty]qwts (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
@@ -283,6 +282,7 @@ Scout3 = [
 	"76561198156580021", // Forsaken (EXP-2016-08-11)
 	"76561198135611591", // Turnip (EXP-2016-08-11)
 	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
+	"76561198082223075", // [Booty]qwts (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
