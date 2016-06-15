@@ -26,7 +26,7 @@ _customLoadout = [
 	"76561198054897830", //Akrantz
 	"76561198072203944", //benji
 	"76561198159475706", //Legolas
-	"76561198041053208", //NRP EXP(2/21/2016)
+	"76561198024867074", //Master RUS (EXP-2016-09-15)
 "0"
 ];
 _customLoadouts = [
@@ -50,7 +50,7 @@ _customLoadouts = [
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
 	["KOTM Loadout!","GUE_Soldier_Sniper_DZ","BanditW2_DZ",["100Rnd_762x51_M240",2,"30Rnd_9x19_UZI_SD",3,VIP_ITEMS],["Mk_48_DZ","UZI_SD_EP1",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",1,ATV_PARTS],["KSVK_DZE"]],
-	["OPOP Loadout!","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_M110sd","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["KSVK_DZE"]],
+	["Master RUS","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_M110sd","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["KSVK_DZE"]],
 []
 ];
 
