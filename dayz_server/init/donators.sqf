@@ -57,6 +57,8 @@ Engineer1 = [
 Engineer2 = [
 	"76561198207723811", // ArctiK (OD-2016-4-26)
 	"76561198076075633", // VintoreZ (OD-2016-4-26)
+	// Bought With Briefs
+	"76561198198370522", // Yvng Sinatra (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer2";
@@ -226,6 +228,7 @@ Scout2 = [
 	//Bought with briefs
 	"76561198024867074", // Master Rus (EXP-2016-08-12)
 	"76561198083230967", // Cian1 (EXP-2016-08-13)
+	"76561198209543173", // Chalk (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
