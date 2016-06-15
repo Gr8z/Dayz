@@ -49,7 +49,7 @@ Engineer1 = [
 	"76561198057545696", // Coco The Clown (OD-2015-12-24) #0000
 	"76561198174823006", // Alvarez (OD-2015-12-18) #12441
 	// Bought with Briefs
-	"76561198073062201", // Tyler Jones (EXP-2016-07-13)
+	"76561198073062201", // Tyler Jones (EXP-2016-08-13)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer1";
@@ -80,11 +80,11 @@ Engineer3 = [
 	"76561198094703284", // That Michael Guy (EXP-2016-06-01) #0000
 	"76561198155652757", // Boston (EXP-2016-06-28) #00000
 	// Bought with Briefs
-	"76561198067291900", // Trophie (EXP-2016-07-10)
-	"76561198079096887", // [USDA] Chachi (EXP-2016-07-10)
-	"76561198097011237", // mj4boss (EXP-2016-07-11)
-	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-11)
-	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
+	"76561198067291900", // Trophie (EXP-2016-08-10)
+	"76561198079096887", // [USDA] Chachi (EXP-2016-08-10)
+	"76561198097011237", // mj4boss (EXP-2016-08-11)
+	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-08-11)
+	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -97,11 +97,11 @@ Marksman1 = [
 	//"76561198098109044", // Jake (OD-2016-01-16) #12969 Date Due:17-Feb-2016
 	"76561198076075633", // VintoreZ (OD-2016-04-26)
 	//Bought with briefs
-	"76561197977127133", // Cats (EXP-2016-07-11)
-	"76561198077968753", // James Kerrison (EXP-2016-07-11)
-	"76561198067443625", // Karlo (EXP-2016-07-12)
-	"76561198007895393", // Zeal (EXP-2016-07-12)
-	"76561198085185733", // Adam Bani (EXP-2016-06-14)
+	"76561197977127133", // Cats (EXP-2016-08-11)
+	"76561198077968753", // James Kerrison (EXP-2016-08-11)
+	"76561198067443625", // Karlo (EXP-2016-08-12)
+	"76561198007895393", // Zeal (EXP-2016-08-12)
+	"76561198085185733", // Adam Bani (EXP-2016-08-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
@@ -190,7 +190,7 @@ Scout1 = [
 	"76561198232093232", // Headshot (EXP-2016-05-22) #13018
 	"76561198080848262", // Sodium Free (EXP-2016-06-03) #00000
 	// Bought with Briefs
-	"76561198152742087", // Passionfiend (EXP-2016-06-11) 
+	"76561198152742087", // Passionfiend (EXP-2016-08-11) 
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout1";
@@ -224,8 +224,8 @@ Scout2 = [
 	"76561198041732102", // Frank (EXP-2016-06-02)
 	"76561198051054305", // Miguel (EXP-2016-06-16)
 	//Bought with briefs
-	"76561198024867074", // Master Rus (EXP-2016-07-12)
-	"76561198083230967", // Cian1 (EXP-2016-07-13)
+	"76561198024867074", // Master Rus (EXP-2016-08-12)
+	"76561198083230967", // Cian1 (EXP-2016-08-13)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
@@ -272,11 +272,11 @@ Scout3 = [
 	"76561198069393470", // Mason (EXP-2016-06-17)
 	"76561198149924529", // Reaper (EXP-2016-06-17)
 	// Bought with briefs
-	"76561198097011237", // Afghan Prince (EXP-2016-07-10)
-	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-07-10)
-	"76561198156580021", // Forsaken (EXP-2016-07-11)
-	"76561198135611591", // Turnip (EXP-2016-07-11)
-	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
+	"76561198097011237", // Afghan Prince (EXP-2016-08-10)
+	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-08-10)
+	"76561198156580021", // Forsaken (EXP-2016-08-11)
+	"76561198135611591", // Turnip (EXP-2016-08-11)
+	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
@@ -320,8 +320,8 @@ Soldier3 = [
 	"76561197973663364", // v4vdrjoker (OD-2016-04-09) (paid one month in advance)
 	"76561198068695714", // Ekay (EXP-2016-06-08) #00000
 	// Bought with Briefs
-	"76561198067291900", // Trophie (EXP-2016-07-10)
-	"76561198153221750", // Christopher Titus (EXP-2016-06-14)
+	"76561198067291900", // Trophie (EXP-2016-08-10)
+	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
