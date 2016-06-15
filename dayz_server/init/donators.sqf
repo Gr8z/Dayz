@@ -105,6 +105,7 @@ Marksman1 = [
 	"76561198067443625", // Karlo (EXP-2016-08-12)
 	"76561198007895393", // Zeal (EXP-2016-08-12)
 	"76561198085185733", // Adam Bani (EXP-2016-08-14)
+	"76561198059483688", // Benjamin	(EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
