@@ -87,6 +87,7 @@ Engineer3 = [
 	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-08-11)
 	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
 	"76561198101835667", // Wicked (EXP-2016-07-15)
+	"76561198007895393", // Zeal (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
