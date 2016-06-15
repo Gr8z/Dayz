@@ -225,7 +225,6 @@ Scout2 = [
 	"76561198087483825", // Red Rocket (OD-2016-3-29)
 	"76561197998435723", // Pandabowl (OD-2016-3-30)
 	"76561198041732102", // Frank (EXP-2016-06-02)
-	"76561198051054305", // Miguel (EXP-2016-06-16)
 	//Bought with briefs
 	"76561198024867074", // Master Rus (EXP-2016-08-12)
 	"76561198083230967", // Cian1 (EXP-2016-08-13)
@@ -283,6 +282,7 @@ Scout3 = [
 	"76561198135611591", // Turnip (EXP-2016-08-11)
 	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
 	"76561198082223075", // [Booty]qwts (EXP-2016-07-15)
+	"76561198051054305", // Miguel (EXP-2016-07-16)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
