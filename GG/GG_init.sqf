@@ -3291,6 +3291,16 @@ if (!isDedicated) then {
 					systemChat ("Server: "+str _msg);
 					_msg swx AH_fnc_dynTextMsg;
 				};
+				_objectHelperPos = [_objectHelper] call FNC_GetPos;
+				if(_location1 distance _objectHelperPos > 10) exitWith {
+				_isOk = false;
+				_cancel = true;
+				_reason = "Object is placed to far away from where you started building (within 10 meters)";
+				detach _object;
+				deleteVehicle _object;
+				detach _objectHelper;
+				deleteVehicle _objectHelper;
+				};
 				if (_previewCounter <= 0) exw {
 					_isOk = false;
 					_cancel = true;
