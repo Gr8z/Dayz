@@ -29,6 +29,7 @@ _customLoadout = [
 	"76561198024867074", //Master RUS (EXP-2016-09-15)
 	"76561198041053208", //NRP (EXP-2016-07-15)
 	"76561198051054305", //Miguel (EXP-2016-07-15)
+	"76561198085512191", //Mesoe Oner (EXP-2016-07-20)
 "0"
 ];
 _customLoadouts = [
@@ -55,6 +56,7 @@ _customLoadouts = [
 	["Master RUS","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_M110sd","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["KSVK_DZE"]],
 	["NRP","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_SR25SD","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["KSVK_DZE"]],
 	["Miguel","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_SR25SD","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["5Rnd_127x108_KSVK",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["KSVK_DZE"]],
+	["Mesoe","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",["20Rnd_762x51_B_SCAR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["SCAR_H_STD_EGLM_Spect","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",["FHQ_rem_7Rnd_338Lapua_MSR_NT",4,"1Rnd_HE_M203",4,"PartVRotor","PartFueltank","PartEngine","PartGeneric","PartGeneric"],["FHQ_MSR_DESERT"]],
 []
 ];
 
