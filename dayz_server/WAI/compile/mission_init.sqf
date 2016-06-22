@@ -46,7 +46,7 @@ if(isServer) then {
 			_marker 		setMarkerColor _color;
 			_marker 		setMarkerShape "ELLIPSE";
 			_marker 		setMarkerBrush "Grid";
-			_marker 		setMarkerSize [450,450];
+			_marker 		setMarkerSize [350,350];
 			_marker 		setMarkerText _name;
 			_dot 			= createMarker [_type + str(_mission) + "dot", _position];
 			_dot 			setMarkerColor "ColorBlack";
