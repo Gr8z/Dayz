@@ -83,9 +83,9 @@ GGNoBuildList2 = [
 "land_fuelStation_w"
 ];
 
-dayz_maxLocalZombies = 2;
-dayz_maxGlobalZombiesInit = 2;
-dayz_maxGlobalZombiesIncrease = 2;
+dayz_maxLocalZombies = 5;
+dayz_maxGlobalZombiesInit = 3;
+dayz_maxGlobalZombiesIncrease = 1;
 dayz_maxZeds = 100;
 dayz_maxGlobalZeds = 100;
 
