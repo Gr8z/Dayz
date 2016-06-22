@@ -163,7 +163,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -190,7 +190,7 @@ class Mission
 		};
 		class Item3
 		{
-			position[]={3445.0112,0,3804.1453};
+			position[]={3098.91,0,3455.89};
 			name="Tradercitybor";
 			text="Trader City Bor";
 			type="mil_circle";
@@ -311,6 +311,14 @@ class Mission
 			text="Aircraft Dealer";
 			type="mil_circle";
 			colorName="ColorOrange";
+		};
+		class Item19
+		{
+			position[]={9526.87,0,11329.6};
+			name="NovyMilitaryBase";
+			text="Novy Base";
+			type="Depot";
+			colorName="ColorBlack";
 		};
 	};
 	class Sensors
@@ -437,15 +445,15 @@ class Mission
 		};
 		class Item7
 		{
-			position[]={3445.0112,0,3804.1453};
-			a=75;
-			b=75;
+			position[]={3098.91,0,3455.89};
+			a=100;
+			b=100;
 			activationBy="WEST";
 			repeating=1;
 			interruptable=1;
 			age="UNKNOWN";
 			name="zonebor";
-			expCond="((vehicle player) distance zonebor) < 75;";
+			expCond="((vehicle player) distance zonebor) < 100;";
 			expActiv="TitleText[""Now entering trader city Bor"",""PLAIN DOWN""]; canbuild = false;inSafeZone = true;";
 			expDesactiv="TitleText[""Now leaving trader city Bor"",""PLAIN DOWN""]; canbuild = true;inSafeZone = false;";
 			class Effects
