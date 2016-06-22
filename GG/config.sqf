@@ -83,11 +83,11 @@ GGNoBuildList2 = [
 "land_fuelStation_w"
 ];
 
-dayz_maxLocalZombies = 4;
-dayz_maxZeds = 20;
-dayz_maxGlobalZombies = 50;
-dayz_maxGlobalZombiesInit = 5;
-dayz_maxGlobalZombiesIncrease = 1;
+dayz_maxLocalZombies = 2;
+dayz_maxGlobalZombiesInit = 2;
+dayz_maxGlobalZombiesIncrease = 2;
+dayz_maxZeds = 100;
+dayz_maxGlobalZeds = 100;
 
 EpochEvents = [
 ["any","any","any","any",10,"Building"],
