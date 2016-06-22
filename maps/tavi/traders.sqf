@@ -23,7 +23,8 @@ serverTraders = [
 "GUE_Woodlander1",
 "RU_Worker1",
 "GUE_Soldier_2",
-"FR_Commander"];
+"FR_Commander",
+"Worker2"];
 
 /*---------------------------------------------------------------------------
 			HERO VENDORS
@@ -197,6 +198,13 @@ menu_Reynolds_PMC = [
 // Traveling Trader
 menu_FR_Commander = [
 	[["Ammunition",4000],["Building Supplies",4001],["Explosives",4004],["Vehicles",4002],["Weapons",4003]],
+	[],
+	"neutral"
+];
+
+// Heli Dealers
+menu_Worker2 = [
+	[["Helicopter Unarmed",519],["Metals",700]],
 	[],
 	"neutral"
 ];

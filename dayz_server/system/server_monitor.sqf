@@ -398,4 +398,4 @@ if (isServer and isNil "sm_done") then {
 	sm_done = true;
 	publicVariable "sm_done";
 };
-execVM "\z\addons\dayz_server\TravelingTrader\init.sqf";
+execVM "\z\addons\dayz_server\DynamicTraders\init.sqf";

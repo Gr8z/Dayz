@@ -19,6 +19,7 @@ if (!isDedicated) then {
 	rn "GG\group\init.sqf";
 	rn "GG\spawn\start.sqf";
 	rn "GG\GG_Hud.sqf";
+	rn "GG\GG_PTM.sqf";
 	_nil = [] rn "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
