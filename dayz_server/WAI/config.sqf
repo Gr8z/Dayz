@@ -2,7 +2,7 @@ if(isServer) then {
 		debug_mode		            = false;
 		ai_clear_body 		        = false;
 		ai_clean_dead 		        = true;
-		ai_cleanup_time 		    = 1200;
+		ai_cleanup_time 		    = 1000;
 		ai_clean_roadkill		    = true;
 		ai_roadkill_damageweapon	= 0;
 		ai_bandit_combatmode		= "YELLOW";
@@ -294,11 +294,11 @@ if(isServer) then {
 		wai_avoid_town		        = 0;
 		wai_avoid_road		        = 0;
 		wai_avoid_water		        = 50;
-		wai_mission_timer		    = [300,420];
-		wai_mission_timeout		    = [600,900];
+		wai_mission_timer		    = [600,840];
+		wai_mission_timeout		    = [900,1200];
 		wai_timeout_distance		= 1000;
 		wai_clean_mission		    = true;
-		wai_clean_mission_time		= 1800;
+		wai_clean_mission_time		= 1500;
 		wai_mission_fuel		    = [45,99];
 		wai_vehicle_damage		    = [50,70];
 		wai_keep_vehicles		    = true;
@@ -306,7 +306,7 @@ if(isServer) then {
 		wai_crates_smoke		    = true;
 		wai_crates_flares		    = true;
 		wai_players_online		    = 1;
-		wai_server_fps			    = 1;
+		wai_server_fps			    = 3;
 		wai_kill_percent		    = 80;
 		wai_enable_minefield		= false;
 		wai_use_launchers		    = true;

@@ -24,14 +24,14 @@ DZMSCleanDeath = false;
 DZMSRunGear = false;
 
 // How long before bodies disappear? (in seconds) (default = 2400)
-DZMSBodyTime = 1800;
+DZMSBodyTime = 1000;
 
 // Percentage of AI that must be dead before mission completes (default = 0)
 //( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
 DZMSRequiredKillPercent = 0;
 
 // How long in seconds before mission scenery disappears (default = 1800 / 0 = disabled)
-DZMSSceneryDespawnTimer = 1800;
+DZMSSceneryDespawnTimer = 1500;
 
 // Should crates despawn with scenery? (default = false)
 DZMSSceneryDespawnLoot = false;
@@ -454,19 +454,19 @@ DZMSMinorArray = ["SM2","SM3","SM4","SM5","SM6"];
 /////////////////////////////////////////////////////////////////////////////////////////////
 // The Minumum time in seconds before a major mission will run.
 // At least this much time will pass between major missions. Default = 650 (10.8 Minutes)
-DZMSMajorMin = 650;
+DZMSMajorMin = 600;
 
 // Maximum time in seconds before a major mission will run.
 // A major mission will always run before this much time has passed. Default = 2000 (33.33 Minutes)
-DZMSMajorMax = 2000;
+DZMSMajorMax = 1200;
 
 // Time in seconds before a minor mission will run.
 // At least this much time will pass between minor missions. Default = 600 (10 Minutes)
-DZMSMinorMin = 600;
+DZMSMinorMin = 300;
 
 // Maximum time in seconds before a minor mission will run.
 // A minor mission will always run before this much time has passed. Default = 990 (16.5 Minutes)
-DZMSMinorMax = 990;
+DZMSMinorMax = 900;
 
 // Blacklist Zone Array -- missions will not spawn in these areas
 // format: [[x,y,z],radius]
