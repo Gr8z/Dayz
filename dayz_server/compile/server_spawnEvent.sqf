@@ -19,7 +19,11 @@ epoch_eventIsAny = {
 	_index = 0;
 	{
 		_bool = false;
-		_boolReturn = (if (typeName _x == "STRING") then {true} else {((_date select _index) == _x)});
+		if (typeName _x == "STRING") then {
+			_boolReturn = true;
+		} else {
+			_boolReturn = ((_date select _index) == _x);
+		};
 		if (!_boolReturn) exitWith {};
 		_index = _index + 1;	
 	} count _event;
@@ -33,7 +37,7 @@ while {1 == 1} do {
 	_key = "CHILD:307:";
 	_result = _key call server_hiveReadWrite;
 	_outcome = _result select 0;
-	if (_outcome == "PASS") then {
+	if(_outcome == "PASS") then {
 		_date = _result select 1;
 		_datestr  = str(_date);
 		if (EventSchedulerLastTime != _datestr) then {
@@ -46,12 +50,12 @@ while {1 == 1} do {
 
 			//diag_log ("EVENTS: Local Time is: " + _datestr);
 			{
-				if ([[(_x select 0),(_x select 1),(_x select 2),(_x select 3),(_x select 4)],_date] call epoch_eventIsAny) then {
+				if([[(_x select 0),(_x select 1),(_x select 2),(_x select 3),(_x select 4)],_date] call epoch_eventIsAny) then {
 					diag_log ("RUNNING EVENT: " + (_x select 5) + " on " + _datestr);
 					_handle = [] execVM "\z\addons\dayz_server\modules\" + (_x select 5) + ".sqf";
 				};
 			} count EpochEvents;
 		};
 	};
-	uiSleep 10;
+	sleep 10;
 };
