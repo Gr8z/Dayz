@@ -47,10 +47,10 @@ if (_type == "GGSupply") then {
 	};
 	// Load Toolbelt Items
 	_scount = count _GGSupply4;
-	for "_x" from 0 to 1 do {
+	for "_x" from 0 to 5 do {
 		_sSelect = floor(random _sCount);
 		_item = _GGSupply4 select _sSelect;
-		_crate addWeaponCargoGlobal [_item,1];
+		_crate addWeaponCargoGlobal [_item,(round(random 3))];
 	};
 	// Load Backpacks
 	_scount = count _bpacklist;
