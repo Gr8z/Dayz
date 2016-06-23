@@ -393,6 +393,7 @@ if (isServer and isNil "sm_done") then {
 		diag_log format["Total Number of spawn locations %1", actualSpawnMarkerCount];
 		endLoadingScreen;
 	};
+	[] ExecVM "\z\addons\dayz_server\DZMS\DZMSInit.sqf";
 	[] ExecVM "\z\addons\dayz_server\WAI\init.sqf";
 	allowConnection = true;
 	sm_done = true;
