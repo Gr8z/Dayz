@@ -72,7 +72,7 @@ _vehicle = createVehicle [_veh1,[(_coords select 0) + 14.1426, (_coords select 1
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 _crate = createVehicle ["USVehicleBox",[(_coords select 0) - 1.5547,(_coords select 1) + 2.3486,0],[], 0, "CAN_COLLIDE"];
-[_crate,"supply"] ExecVM DZMSBoxSetup;
+[_crate,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 _crate1 = createVehicle ["USLaunchersBox",[(_coords select 0) + 0.3428,(_coords select 1) - 1.8985,0],[], 0, "CAN_COLLIDE"];

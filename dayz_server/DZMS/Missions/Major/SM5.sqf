@@ -46,12 +46,12 @@ _vehicle = createVehicle [_veh1,[(_coords select 0) + 5.7534, (_coords select 1)
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
 _crate = createVehicle ["USBasicWeaponsBox",[(_coords select 0) + 2.6778,(_coords select 1) - 3.0889,0],[], 0, "CAN_COLLIDE"];
-[_crate,"money"] ExecVM DZMSBoxSetup;
+[_crate,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 _crate setDir -28.85478;
 
 _crate2 = createVehicle ["USBasicWeaponsBox",[(_coords select 0) + 1.4805,(_coords select 1) - 3.7432,0],[], 0, "CAN_COLLIDE"];
-[_crate2,"supply"] ExecVM DZMSBoxSetup;
+[_crate2,"weapons"] ExecVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
 _crate2 setDir 62.744293;
 

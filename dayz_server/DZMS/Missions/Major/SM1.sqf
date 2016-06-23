@@ -30,7 +30,7 @@ _crate2 = createVehicle ["MedBox0",[(_coords select 0) - 3.4346, 0, 0],[], 0, "C
 _crate3 = createVehicle ["MedBox0",[(_coords select 0) + 4.0996,(_coords select 1) + 3.9072, 0],[], 0, "CAN_COLLIDE"];
 
 //DZMSBoxFill fills the box, DZMSProtectObj prevents it from disappearing
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate1,"weapons"] ExecVM DZMSBoxSetup;
 [_crate2,"weapons"] ExecVM DZMSBoxSetup;
 [_crate3,"medical"] ExecVM DZMSBoxSetup;

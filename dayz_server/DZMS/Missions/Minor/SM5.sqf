@@ -23,7 +23,7 @@ _crash = createVehicle ["HMMWVwreck",_coords,[], 0, "CAN_COLLIDE"];
 
 //Add and fill the crate
 _crate = createVehicle ["RULaunchersBox",[(_coords select 0) - 14, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.

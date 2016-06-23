@@ -23,7 +23,7 @@ _crash = createVehicle ["UralWreck",_coords,[], 0, "CAN_COLLIDE"];
 
 //Add and fill the boxes
 _crate = createVehicle ["USLaunchersBox",[(_coords select 0) + 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate,"weapons"] ExecVM DZMSBoxSetup;
+[_crate,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate] call DZMSProtectObj;
 
 _crate1 = createVehicle ["USLaunchersBox",[(_coords select 0) - 3, _coords select 1,0],[], 0, "CAN_COLLIDE"];

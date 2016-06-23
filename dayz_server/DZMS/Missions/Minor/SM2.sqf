@@ -42,7 +42,7 @@ _crate = createVehicle ["USVehicleBox",[(_coords select 0) - 3, _coords select 1
 [_crate] call DZMSProtectObj;
 
 _crate2 = createVehicle ["USLaunchersBox",[(_coords select 0) - 8, _coords select 1,0],[], 0, "CAN_COLLIDE"];
-[_crate2,"weapons"] ExecVM DZMSBoxSetup;
+[_crate2,"GGSupply"] ExecVM DZMSBoxSetup;
 [_crate2] call DZMSProtectObj;
 
 //DZMSAISpawn spawns AI to the mission.
