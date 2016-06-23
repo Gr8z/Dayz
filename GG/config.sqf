@@ -89,12 +89,6 @@ dayz_maxGlobalZombiesIncrease = 1;
 dayz_maxZeds = 100;
 dayz_maxGlobalZeds = 100;
 
-EpochEvents = [
-["any","any","any","any",10,"Building"],
-["any","any","any","any",20,"Military"],
-["any","any","any","any",30,"Treasure"],
-["any","any","any","any",40,"Construction"],
-["any","any","any","any",50,"SupplyItems"]];
 dayz_fullMoonNights = true;
 
 /**DoorManagement Config**/
