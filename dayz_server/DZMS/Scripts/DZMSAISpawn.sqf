@@ -68,7 +68,7 @@ for "_x" from 1 to _unitcount do {
 	_unit addWeapon _weapon;
 	_unit selectWeapon _weapon;
 	_cash = round(random 20) * 10;
-    _unit setVariable["CashMoney",_cash ,true];
+    _unit setVariable["GGCoins",_cash ,true];
 	
 	_unit addBackpack _aipack;
 	
