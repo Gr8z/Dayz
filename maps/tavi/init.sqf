@@ -10,7 +10,13 @@ __ccp("\z\addons\dayz_code\medical\setup_functions_med.sqf");
 pls 0.9;
 __ccp("GG\GG_init.sqf");
 pls 1.0;
-if (!hasInterface) exitWith {__ccp("\GG_HC\init.sqf");if (isServer) then {__ccp("\z\addons\dayz_server\system\start.sqf")};};
+if (!hasInterface) exitWith {
+__ccp("\GG_HC\init.sqf");
+if (isServer) then {
+__ccp("\z\addons\dayz_server\system\start.sqf");
+rn "\z\addons\dayz_server\init\most_wanted.sqf";
+	};
+};
 if (!isDedicated) then {
 	0 fadeSound 0;
 	__wun(!isNil "dayz_loadScreenMsg");
