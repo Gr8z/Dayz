@@ -98,30 +98,24 @@ _safezonesRad = 160;
 
 //ADMINS STEAM ID (TO PREVENT THE SCRIPT TO SELECT ADMINS AS FUGITIVE)
 _LAdmins = [							
-	"76561198080045762", // Deadskin	(Mod)
-	"76561197970044945", // MrCheeseyman
-	"76561198128804731", // xtsis
-	"76561198166231771", // Wombat
-	"76561198001066546", // MeowMix
-	"76561198037365948", // Devvo
-	"76561198126348047", // Mr. Bandit
-	"76561198227881216", // Local User
-	"76561198067566966", // SniperNoSniping
-	"76561197960289679", // TangoWhiskey
-	"76561198042335279", // Dean Winchester
-	"76561198086239163", // ThatEstonian
+	"76561198080045762", // Deadskin (Mod)
+	"76561198060389676", // Powerwolf
+	"76561198130550101", // Friendly Fire
+	"76561198218878119", // Mack
+	"76561197987069300", // Shroombear
+	"76561198036004541", // Demen (Mod Account)
 "0"
 ]; 
 
 /*  ADMINISTRATORS         */ 
 _NAdmins = [
-	"76561198183434467",  // MeowMix Admin
-	"76561198203698253",  // xtsis
-	"76561198242337504",  // MrCheeseyman
-	"76561198196195669",  // Shroudy
-	"76561198129049369", // Zatley
-	"76561198163835069", // SniperNoSniping
-	"76561198084154973", // Mr.Bandit
+	"76561198257149369", // TangoWhiskey
+	"76561197960289679", // TangoWhiskey(mod account a3)
+	"76561198088251390", // SIX
+	"76561198133936962", // Wrice4
+	"76561198073495490", // Adam
+	"76561198129318411", // Friendly Fire
+	"76561198086363368", // Demen
 "0"
 ]; 
 
@@ -129,12 +123,10 @@ _NAdmins = [
 _SAdmins = [
 	"76561198078201908", // Gr8 
 	"76561198153784743", // Ghost
-	"76561198002511087", // TempSniper
-	"76561198137100220",  // Deadskin
-	"76561198021389971", // Thirdhero
-	"76561197973172761",  // Milton
-	"76561198115492831",  //BigEgg
-	"76561198195305425", //Shahzad
+	"76561198137100220", // Deadskin
+	"76561198115492831", //BigEgg
+	"76561198147801221", // Dark
+	"76561198056028211", // Nasty
 "0"
 ];
 
@@ -200,7 +192,7 @@ while {true} do {
 		_sleepB = 0; 
 		_sleepC = 0;
 		_sleepD = 0;
-		_txt = ((name _fugitive)+" have a price on his head, kill hin to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
+		_txt = ((name _fugitive)+" has a price on his head, kill him to receive a reward.\n"+(name _fugitive)+", stay alive " +(str(round(_aliveTimeToWin/60)))+" minutes to receive the prize.\n\n");
 		_timeInPlot = 0;
 		while {alive _fugitive && !isNull _fugitive && _aliveTimePassed < _aliveTimeToWin && _timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot} do {
 			if (_sleepA >= _sleepAMark) then {
@@ -274,7 +266,7 @@ while {true} do {
 			_lockedFugitives = _lockedFugitives + [_fugitiveID];
 			if (alive _fugitive) then {
 				if (_timeInPlot <= _aliveTimeToWin*_maxTimeNearPlot) then {
-					[nil,nil,rTitleText,((name _fugitive)+", time over! The prize is yours!\nColect your reward near you."),"PLAIN",7.5] call RE;
+					[nil,nil,rTitleText,((name _fugitive)+", time over! The prize is yours!\nCollect your reward near you."),"PLAIN",7.5] call RE;
 					_veh = createVehicle ["CSJ_GyroC",[position _fugitive select 0,position _fugitive select 1,0],[],10,'NONE'];
 					_veh setVariable ["ObjectID","0",true];
 					_veh setVariable ["ObjectUID",str round random 9999999,true];
@@ -285,12 +277,12 @@ while {true} do {
 					diag_log "[MOSTWA] Ending! Fugitive Win!";
 					_lastTimeConclude = time;
 				} else {
-					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near plot poles or safezones\n or high in the sky. No pain no gain. No reward."),"PLAIN",10] call RE;
+					[nil,nil,rTitleText,("Hunt time over! "+(name _fugitive)+", you were near a plot pole or safezones\n or high in the sky. No pain no gain. No reward."),"PLAIN",10] call RE;
 					diag_log "[MOSTWA] Ending! Fugitive not Fair...";
 					_lastTimeConclude = time-_runTimeInter*0.75;
 				};
 			} else {
-				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nMark is on map for 45 seconds..."),"PLAIN",10] call RE;
+				[nil,nil,rTitleText,((name _fugitive)+", perished! Collect the prize on his body!\nThe mark will remain on the map for 45 seconds!"),"PLAIN",10] call RE;
 				createMarker ["DONN_FUGITIVE",position _fugitive];
 				"DONN_FUGITIVE" setMarkerColor "ColorRed";
 				"DONN_FUGITIVE" setMarkerShape "ELLIPSE";
@@ -310,7 +302,7 @@ while {true} do {
 				_lastTimeConclude = time;
 			};
 		} else {
-			[nil,nil,rTitleText,("The hunt for "+_fugitiveName+" head is over... "+_fugitiveName+" disconnected."),"PLAIN",5] call RE;
+			[nil,nil,rTitleText,("The hunt for "+_fugitiveName+" is over... "+_fugitiveName+" disconnected."),"PLAIN",5] call RE;
 			diag_log "[MOSTWA] Fugitive disconnected...";
 			_lastTimeConclude = time-_runTimeInter*0.75;
 		};
