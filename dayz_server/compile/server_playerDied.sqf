@@ -109,7 +109,7 @@ if (_isOK) then {
 			_distance 	= _this select 5;
 			_message 	= _this select 6;
 			
-			systemChat ("Server::"+(str _message)+"");
+			systemChat ("Server:"+(str _message)+"");
 			"<t color='#ffffff' align='left' size='0.66'>"+_killerName+"</t><img align='left' size='1' image='"+_pic+"'/><t color='#ffffff' align='left' size='0.66'> "+_victimName+" ["+str _distance+"m]</t>" spawn AH_fnc_dynTextMsg;
 		}] call RE;
 		diag_log ("server_playerDied: "+_loc_message);
