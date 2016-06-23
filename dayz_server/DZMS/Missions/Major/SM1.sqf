@@ -6,7 +6,7 @@
 private ["_missName","_coords","_net","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate1","_crate2","_crate3"];
 
 //Name of the Mission
-_missName = "NATO Weapons Cache";
+_missName = "[Mission] NATO Weapons Cache";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;

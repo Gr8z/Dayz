@@ -6,7 +6,7 @@
 private ["_missName","_coords","_plane","_aiGrp","_pilot","_wp","_wp_pos","_loop","_half","_newPos","_plane2","_chute","_box","_dropDir","_wp2","_fallCount","_boxFin"];
 
 //Name of the Mission
-_missName = "Supply Drop";
+_missName = "[Mission] Supply Drop";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;

@@ -7,7 +7,7 @@
 
 ///////////////////////////////////////////////
 // Array of skin classnames for the AI to use
-DZMSBanditSkins = ["Bandit1_DZ","BanditW1_DZ"];
+DZMSBanditSkins = ["Ins_Soldier_GL_DZ","TK_INS_Soldier_EP1_DZ","TK_INS_Warlord_EP1_DZ","GUE_Commander_DZ","GUE_Soldier_Sniper_DZ","GUE_Soldier_MG_DZ","GUE_Soldier_Crew_DZ","GUE_Soldier_2_DZ","GUE_Soldier_CO_DZ","BanditW1_DZ","BanditW2_DZ","Bandit1_DZ","Bandit2_DZ"];
 
 ////////////////////////
 // Array of AI Skills
@@ -2158,28 +2158,23 @@ DZMSWeps3 = [
 // These are gear sets that will be randomly given to the AI
 // They are all the same, but can be customized.
 DZMSGear0 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
-["ItemKnife","ItemFlashlight"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemEpinephrine"],["ItemKnife","ItemFlashlight","ItemGPS","ItemMap","ItemToolbox"]
 ];
 
 DZMSGear1 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
-["ItemKnife","ItemFlashlight"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemAntibiotic"],["ItemKnife","ItemFlashlight","ItemEtool","ItemCompass","ItemToolbox"]
 ];
 
 DZMSGear2 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
-["ItemKnife","ItemFlashlight"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemMorphine"],["ItemKnife","ItemFlashlight","ItemWatch","ItemCrowbar","ItemToolbox"]
 ];
 
 DZMSGear3 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
-["ItemKnife","ItemFlashlight"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemBloodbag"],["ItemKnife","ItemFlashlight","ItemRadio","ItemMachete","ItemToolbox"]
 ];
 
 DZMSGear4 = [
-["ItemBandage","ItemBandage","ItemPainkiller"],
-["ItemKnife","ItemFlashlight"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemBloodbag","ItemRuby"],["ItemKnife","ItemFlashlight","ItemRadio","ItemMachete","ItemToolbox"]
 ];
 
 ////////////////////////////////////////////////////////////

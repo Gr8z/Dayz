@@ -5,7 +5,7 @@
 private ["_missName","_coords","_vehicle"];
 
 //Name of the Mission
-_missName = "Bandit Squad";
+_missName = "[Mission] Bandit Squad";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;

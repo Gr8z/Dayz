@@ -6,7 +6,7 @@
 private ["_missName","_coords","_crash","_body","_body1","_body2","_body3","_veh1","_vehicle","_vehicle1","_crate","_crate2"];
 
 //Name of the Mission
-_missName = "Ural Ambush";
+_missName = "[Mission] Ural Ambush";
 
 //DZMSFindPos loops BIS_fnc_findSafePos until it gets a valid result
 _coords = call DZMSFindPos;

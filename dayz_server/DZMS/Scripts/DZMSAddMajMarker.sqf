@@ -8,7 +8,7 @@ DZMSMajCoords = _this select 0;
 DZMSMajName = _this select 1;
 
 _nul = createMarker ["DZMSMajMarker", DZMSMajCoords];
-"DZMSMajMarker" setMarkerColor "ColorRed";
+"DZMSMajMarker" setMarkerColor "ColorOrange";
 "DZMSMajMarker" setMarkerShape "ELLIPSE";
 "DZMSMajMarker" setMarkerBrush "Grid";
 "DZMSMajMarker" setMarkerSize [350,350];

@@ -18,10 +18,10 @@ while {_run} do
 		deleteMarker "DZMSMajDot";
 		//Re-Add the markers
 		_nul = createMarker ["DZMSMajMarker", DZMSMajCoords];
-		"DZMSMajMarker" setMarkerColor "ColorRed";
+		"DZMSMajMarker" setMarkerColor "ColorOrange";
 		"DZMSMajMarker" setMarkerShape "ELLIPSE";
-		"DZMSMajMarker" setMarkerBrush "Solid";
-		"DZMSMajMarker" setMarkerSize [175,175];
+		"DZMSMajMarker" setMarkerBrush "Grid";
+		"DZMSMajMarker" setMarkerSize [350,350];
 		_zap = createMarker ["DZMSMajDot", DZMSMajCoords];
 		"DZMSMajDot" setMarkerColor "ColorBlack";
 		"DZMSMajDot" setMarkerType "Vehicle";
@@ -33,10 +33,10 @@ while {_run} do
 		deleteMarker "DZMSMinDot";
 		//Re-Add the markers
 		_nil = createMarker ["DZMSMinMarker", DZMSMinCoords];
-		"DZMSMinMarker" setMarkerColor "ColorRed";
+		"DZMSMinMarker" setMarkerColor "ColorYellow";
 		"DZMSMinMarker" setMarkerShape "ELLIPSE";
-		"DZMSMinMarker" setMarkerBrush "Solid";
-		"DZMSMinMarker" setMarkerSize [150,150];
+		"DZMSMinMarker" setMarkerBrush "Grid";
+		"DZMSMinMarker" setMarkerSize [350,350];
 		_zip = createMarker ["DZMSMinDot", DZMSMinCoords];
 		"DZMSMinDot" setMarkerColor "ColorBlack";
 		"DZMSMinDot" setMarkerType "Vehicle";
