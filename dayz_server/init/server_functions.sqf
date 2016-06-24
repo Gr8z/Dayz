@@ -1037,7 +1037,7 @@ update_whitelist = [
 	"Land_tires_EP1","Microphone1_ep1","Microphone2_ep1","Microphone3_ep1","Misc_Backpackheap_EP1","Misc_TyreHeapEP1","Sign_sphere100cm_EP1","Sign_sphere10cm_EP1",
 	"Sign_sphere25cm_EP1"
 ];
-
+#include "GG_Cleanup.sqf";
 currentInvites = [];
 publicVariable "currentInvites";
 "currentInvites" addPublicVariableEventHandler {publicVariable "currentInvites";};
