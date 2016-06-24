@@ -48,7 +48,7 @@ if (isServer) then {
 		while {true} do {
 			if (((diag_tickTime - _lastlootcheck) > 120)) then
 			{
-			_lastUpdate = diag_tickTime;
+			_lastlootcheck = diag_tickTime;
 			private ["_delQty","_nearby","_keep","_qty","_lootpiles","_ammobox"];
 
 			_ammobox = ["USLaunchersBox","RULaunchersBox","USSpecialWeapons_EP1","USVehicleBox"];
@@ -58,7 +58,7 @@ if (isServer) then {
 			{	
 				_keep = (_x getVariable ["permaLoot",false]) || (typeOf _x in _ammobox);
 				if (!_keep) then {
-							_nearby = {(isPlayer _x) and (alive _x)} count (_x nearEntities [["CAManBase"], 450]);
+							_nearby = {(isPlayer _x) and (alive _x)} count (_x nearEntities [["CAManBase"], 250]);
 							if (_nearby==0) then {
 								deleteVehicle _x;
 								sleep 0.025;
@@ -132,7 +132,7 @@ if (isServer) then {
 								if (!alive _x) then {
 									_pos = getPosATL _x;
 									if (count _pos > 0) then {
-										_nearby = {(isPlayer _x) and (alive _x)} count (_pos nearEntities [["CAManBase"], 450]);
+										_nearby = {(isPlayer _x) and (alive _x)} count (_pos nearEntities [["CAManBase"], 250]);
 										if (_nearby==0) then {
 											_x call GGpurge;
 											sleep 0.025;
