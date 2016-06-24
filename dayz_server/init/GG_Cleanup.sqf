@@ -51,7 +51,7 @@ if (isServer) then {
 			_lastlootcheck = diag_tickTime;
 			private ["_delQty","_nearby","_keep","_qty","_lootpiles","_ammobox"];
 
-			_ammobox = ["USLaunchersBox","RULaunchersBox","USSpecialWeapons_EP1","USVehicleBox"];
+			_ammobox = ["USLaunchersBox","RULaunchersBox","USSpecialWeapons_EP1","USVehicleBox","USBasicWeaponsBox","USBasicAmmunitionBox"];
 
 			_lootpiles =  allMissionObjects "ReammoBox";
 			_delQty = 0;
