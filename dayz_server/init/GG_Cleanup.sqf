@@ -116,13 +116,36 @@ if (isServer) then {
 				diag_log (format["GG Cleanup: %1 blown up vehicles were deleted: %2",_GGVC,_vehs]);
 			};
 
-			if ((diag_tickTime - _lastZombieClean) > 300) then {
+			if ((diag_tickTime - _lastZombieClean) > 180) then {
 				_lastZombieClean = diag_tickTime;
-				_zeddel = 0;
-				{deleteVehicle _x;_zeddel = _zeddel + 1} forEach (allMissionObjects 'z_dothisctor')+(allMissionObjects 'z_hunter')+(allMissionObjects 'z_policeman')+(allMissionObjects 'z_priest')+(allMissionObjects 'z_soldier')+(allMissionObjects 'z_soldier_heavy')+(allMissionObjects 'z_soldier_pilot')+(allMissionObjects 'z_suit1')+(allMissionObjects 'z_suit2')+(allMissionObjects 'z_teacher')+(allMissionObjects 'z_villager1')+(allMissionObjects 'z_villager2')+(allMissionObjects 'z_villager3')+(allMissionObjects 'z_worker1')+(allMissionObjects 'z_worker2')+(allMissionObjects 'z_worker3')+(allMissionObjects 'zZombie_Base');
-				if (_zeddel > 0) then {
-					diag_log (format["GG Cleanup: Deleted %1 Zombies",_zeddel]);
-				};
+				{
+					if (local _x) then {
+						private ["_pos","_delrndzed","_randomzeds","_nearby"];
+
+						_randomzeds = entities "zZombie_Base";
+						_delrndzed = 0;
+							
+						_x call GGpurge;
+						sleep 0.025;
+						_delrndzed = _delrndzed + 1;
+							} else {
+								if (!alive _x) then {
+									_pos = getPosATL _x;
+									if (count _pos > 0) then {
+										_nearby = {(isPlayer _x) and (alive _x)} count (_pos nearEntities [["CAManBase"], 450]);
+										if (_nearby==0) then {
+											_x call GGpurge;
+											sleep 0.025;
+											_delrndzed = _delrndzed + 1;
+										};
+									};
+								};
+							};
+							sleep 0.001;
+				} forEach _randomzeds;
+					if (_delrndzed > 0) then {
+						diag_log (format["GG Cleanup: Deleted %1 Zombies",_delrndzed]);
+					};
 					
 			if ((diag_tickTime - _lastGroupClean) > 360) then {
 				//Player Groups Cleanup
