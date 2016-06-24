@@ -79,7 +79,6 @@ _debug_marker setMarkerAlpha 1;
 
 EPOCH_EVENT_RUNNING = false;
 sleep 30;
-deleteMarker _event_marker;
 
 // Wait
 sleep _wait_time;
