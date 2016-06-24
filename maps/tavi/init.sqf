@@ -27,7 +27,6 @@ if (!isDedicated) then {
 	rn "GG\GG_Hud.sqf";
 	rn "GG\GG_PTM.sqf";
 	_nil = [] rn "GG\VehicleKeyChanger\VehicleKeyChanger_init.sqf";
-	_nil = [] rn "GG\GG_RMF.sqf";
 	[] spawn {
 		__wun { sleep 1; !isNil ("PVDZE_plr_LoginRecord") };
 		6 cutRsc ["EarPlugs", "PLAIN"];

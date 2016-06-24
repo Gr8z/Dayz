@@ -56,8 +56,7 @@ _loot_box addMagazineCargoGlobal [_mag, _var];
  
 // Send Top Right message to users , requires Remote message script
 _hint = parseText format["<t align='center' color='#FF0000' shadow='2' size='1.75'>Military Crate</t><br/><t align='center' color='#ffffff'>A special forces unit lost a precious cargo, Check your Map for the Location!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+[nil,nil,rHINT,_hint] call RE;
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
@@ -68,8 +67,7 @@ sleep 1;
 };
 
 _hint = parseText format["<t align='center' color='#FF0000' shadow='2' size='1.75'>Military Crate</t><br/><t align='center' color='#ffffff'>Precious Military Cargo Has been captured!</t>"];
-customRemoteMessage = ['hint', _hint];
-publicVariable "customRemoteMessage";
+[nil,nil,rHINT,_hint] call RE;
 
 _debug_marker = createMarker [ format ["loot_event_debug_marker_%1", _start_time], _loot_pos];
 _debug_marker setMarkerShape "ICON";
@@ -79,6 +77,7 @@ _debug_marker setMarkerAlpha 1;
 
 EPOCH_EVENT_RUNNING = false;
 sleep 30;
+deleteMarker _event_marker;
 
 // Wait
 sleep _wait_time;
