@@ -43,7 +43,8 @@ if (isServer) then {
 		_lastGroupClean = diag_tickTime;
 		_lastGullMod = diag_tickTime;
 		_lastservercleancheck = diag_tickTime;
-
+		_lastvehiclecleanup = diag_tickTime;
+		
 		while {true} do {
 			if (((diag_tickTime - _lastlootcheck) > 120)) then
 			{
@@ -92,6 +93,27 @@ if (isServer) then {
 					} forEach (allMissionObjects _x);
 					diag_log (format["GG Cleanup: Deleted %1 %2(s)",_itemCount,_x]);
 				} forEach _itemclasses;
+			};
+			
+			if (((diag_tickTime - _lastvehiclecleanup) > 300)) then
+			{
+			_lastvehiclecleanup = diag_tickTime;
+			private ["_GGVC","_vehs","_garage"];
+				_GGVC = 0;
+				_vehs = [];
+				{
+					_garage = (getPosATL _x) nearObjects ["Land_sara_hasic_zbroj",7];
+					if !((count _garage) > 1) then {
+						if (((damage _x)>0.90)&&!(_x isKindOf "MAN")&&!(_x isKindOf "CAAnimalBase")&&!(_x isKindOf "zZombie_Base")&&!(_x isKindOf "static")&&!(_x isKindOf "building")) then {
+							if (typeOf _x != "SHEEP") then {
+								_x spawn objectDelete;
+								_GGVC = _GGVC + 1;
+								_vehs = _vehs + [typeOf _x];
+							};
+						};
+					};
+				} forEach (vehicles);
+				diag_log (format["GG Cleanup: %1 blown up vehicles were deleted: %2",_GGVC,_vehs]);
 			};
 
 			if ((diag_tickTime - _lastZombieClean) > 180) then {
