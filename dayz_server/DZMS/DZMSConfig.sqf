@@ -24,14 +24,14 @@ DZMSCleanDeath = false;
 DZMSRunGear = false;
 
 // How long before bodies disappear? (in seconds) (default = 2400)
-DZMSBodyTime = 1000;
+DZMSBodyTime = 900;
 
 // Percentage of AI that must be dead before mission completes (default = 0)
 //( 0 is 0% of AI / 0.50 is 50% / 1 is 100% )
 DZMSRequiredKillPercent = 0;
 
 // How long in seconds before mission scenery disappears (default = 1800 / 0 = disabled)
-DZMSSceneryDespawnTimer = 1500;
+DZMSSceneryDespawnTimer = 1200;
 
 // Should crates despawn with scenery? (default = false)
 DZMSSceneryDespawnLoot = false;
