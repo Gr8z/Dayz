@@ -2,13 +2,6 @@
 #include "GG\config.sqf"
 #include "mapConfig.sqf"
 
-EpochEvents = [
-["any","any","any","any",10,"Building"],
-["any","any","any","any",20,"Military"],
-["any","any","any","any",30,"Treasure"],
-["any","any","any","any",40,"Construction"],
-["any","any","any","any",50,"SupplyItems"]];
-
 __ccp("\z\addons\dayz_code\init\variables.sqf");
 pls 0.3;
 __ccp("\z\addons\dayz_code\init\publicEH.sqf");

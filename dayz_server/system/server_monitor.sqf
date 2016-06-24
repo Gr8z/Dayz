@@ -370,6 +370,8 @@ if (isServer and isNil "sm_done") then {
 	};
 
 	if (isDedicated) then {
+		// Epoch Events
+		_id = [] spawn server_spawnEvents;
 		[] spawn {
 			waitUntil {!isNil "server_spawnCleanAnimals"};
 			_id = [] execFSM "\z\addons\dayz_server\system\server_cleanup.fsm";

@@ -83,6 +83,14 @@ GGNoBuildList2 = [
 "land_fuelStation_w"
 ];
 
+EpochEvents = [
+["any","any","any","any",10,"Building"],
+["any","any","any","any",20,"Military"],
+["any","any","any","any",30,"Treasure"],
+["any","any","any","any",40,"Construction"],
+["any","any","any","any",50,"SupplyItems"]
+];
+
 dayz_maxLocalZombies = 5;
 dayz_maxGlobalZombiesInit = 3;
 dayz_maxGlobalZombiesIncrease = 1;

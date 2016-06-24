@@ -144,8 +144,7 @@ if (isServer) then {
 							sleep 0.001;
 				} forEach _randomzeds;
 					if (_delrndzed > 0) then {
-						_qty = count_randomzeds;
-						diag_log (format["GG Cleanup: Deleted %1 Zombies out of %2",_delrndzed,_qty]);
+						diag_log (format["GG Cleanup: Deleted %1 Zombies",_delrndzed]);
 					};
 
 					
