@@ -73,7 +73,7 @@ if (isServer) then {
 				};
 			};
 			
-			if (((diag_tickTime - _lastservercleancheck) > 120)) then
+			if (((diag_tickTime - _lastservercleancheck) > 300)) then
 			{
 			_lastservercleancheck = diag_tickTime;
 			private ["_itemclasses","_itemlist","_itemCount"];
@@ -116,7 +116,7 @@ if (isServer) then {
 				diag_log (format["GG Cleanup: %1 blown up vehicles were deleted: %2",_GGVC,_vehs]);
 			};
 
-			if ((diag_tickTime - _lastZombieClean) > 180) then {
+			if ((diag_tickTime - _lastZombieClean) > 120) then {
 				_lastZombieClean = diag_tickTime;
 				{
 					if (local _x) then {
