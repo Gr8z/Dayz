@@ -78,7 +78,7 @@ if (isServer) then {
 				[
 					"GraveCrossHelmet_EP1","GraveCrossHelmet_DZ","wreck","crater","craterlong","PartWoodPile",
 					"SeaGull","Rabbit","WildBoar","Cow","Goat","Sheep","Bird","wire_cat1",
-					"CAAnimalBase","Sound_Flies"
+					"CAAnimalBase","Sound_Flies","zZombie_Base"
 				];
 				{
 					_itemlist 	= allMissionObjects _x;
