@@ -21,7 +21,7 @@ xcc ("
 			publicVariableServer 'PVOZ_OBJ_DEPLOY';
 			"+_veh+"_DEPLOYED = "+_veh+"_DEPLOYED + 1;
 			cutText ['You used your toolbox to build a "+_typ+"!', 'PLAIN DOWN'];
-			'<t size =''1'' font=''Zeppelin33'' color=''#FF0000''>Deployed vehicles disappear after server restart!</t>' call AH_fnc_dynTextMsg;
+			'<t size =''.5'' font=''Zeppelin33'' color=''#ffffff''>Deployed vehicles disappear after server restart!</t>' call AH_fnc_dynTextMsg;
 			player switchMove '';
 		} else {systemChat ('Server: '+str ('You need: '+str _required+' to build "+_typ+".'))};
 	} else {
