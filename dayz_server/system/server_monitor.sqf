@@ -292,8 +292,7 @@ if (isServer and isNil "sm_done") then {
 					_traderCities = (switch (dayz_instance) do {
 						default {[zone]};
 						case 1: {[zonelyep,zonesabina,zonebilgrad,zonebranibor,zonekrasno,zonedubovo,zonewholesalesouth,zonewholesalenorth,zonehero,zoneblackbig,zoneblacksmall]};
-						case 2: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor]};
-						case 3: {[Emmen,Schratten,Hero,Wholesale1,Wholesaler,black,Lenz,Aircraft,Chatzbach]};
+						case 2: {[zonestary,zonebash,zoneklen,zonehero,zoneaircraft,zonebor,zoneaircraft2]};
 					});
 					{
 						if (_object distance _x < 90) then {
