@@ -1840,7 +1840,7 @@ class GivePlayerDialog {
 			w = 0.309263 * safezoneW;
 			h = 0.0274947 * safezoneH;
 			colorText[] = {1,1,1,1};
-			colorBackground[] = {1,0.1,0.1,0.25};
+			colorBackground[] = {0,0,1,0.25};
 		};
 	};
 	class Controls {
