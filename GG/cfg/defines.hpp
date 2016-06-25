@@ -1662,7 +1662,7 @@ class BankDialog {
 		};
 		class BD_title: RscText {
 			idc = -1;
-			text = "Bank of [GG] Ghostz Gamerz Hive";
+			text = "GhostzGamerz Hived Bank";
 			x = 0.319597 * safezoneW + safezoneX;
 			y = 0.390021 * safezoneH + safezoneY;
 			w = 0.360806 * safezoneW;
@@ -3382,11 +3382,11 @@ class GarageDialog {
 			y = 0.266666 * safezoneH + safezoneY;
 			w = 0.366666 * safezoneW;
 			h = 0.051851 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
 		};
 		class VG_title: RscText {
 			idc = -1;
-			text = "Virtual Garage";
+			text = "[GG] Virtual Garage";
 			x = 0.316666 * safezoneW + safezoneX;
 			y = 0.266666 * safezoneH + safezoneY;
 			w = 0.366666 * safezoneW;
@@ -3411,38 +3411,42 @@ class GarageDialog {
 			h = 0.222222 * safezoneH;
 			colorBackground[] = {0,0,0,0.1};
 		};
-		class RscStructuredText_5000304: RscButton {
+		class RscStructuredText_5000304: RscText {
 			idc = 5202;
+			text = "Nearby Vehicle's:";
 			x = 0.337500 * safezoneW + safezoneX;
 			y = 0.340740 * safezoneH + safezoneY;
 			w = 0.154166 * safezoneW;
 			h = 0.037037 * safezoneH;
-			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
 		};
-		class RscStructuredText_5000305: RscButton {
+		class RscStructuredText_5000305: RscText {
 			idc = 5203;
+			text = "In Storage:";
 			x = 0.508333 * safezoneW + safezoneX;
 			y = 0.340740 * safezoneH + safezoneY;
 			w = 0.154166 * safezoneW;
 			h = 0.037037 * safezoneH;
-			colorBackground[] = {0,0,0,0};
+			colorText[] = {1,1,1,1};
 		};
 		class RscShortcutButton_5000306: RscButton {
 			idc = -1;
 			text = "Store";
-			x = 0.420833 * safezoneW + safezoneX;
+			x = 0.337500 * safezoneW + safezoneX;
 			y = 0.612222 * safezoneH + safezoneY;
-			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			w = 0.154166 * safezoneW;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {1,1,1,1};
 			onButtonClick = "[(lbCurSel 5200)] spawn garage_storeVehicle;";
 		};
 		class RscShortcutButton_5000307: RscButton {
 			idc = -1;
-			text = "Spawn";
-			x = 0.591666 * safezoneW + safezoneX;
+			text = "Retrieve";
+			x = 0.508333 * safezoneW + safezoneX;
 			y = 0.612222 * safezoneH + safezoneY;
-			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			w = 0.154166 * safezoneW;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {1,1,1,1};
 			onButtonClick = "[(lbCurSel 5201)] spawn garage_spawnVehicle;";
 		};
 		class RscShortcutButton_5000308: RscButton {
@@ -3451,8 +3455,9 @@ class GarageDialog {
 			x = 0.337500 * safezoneW + safezoneX;
 			y = 0.664074 * safezoneH + safezoneY;
 			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
-			onButtonClick = "[] spawn garage_manage; ((ctrlParent (_this select 0)) closeDisplay 9000);";
+			h = 0.0274947 * safezoneH;
+			colorText[] = {0,0,1,1};
+			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000); [] spawn garage_manage;";
 		};		
 		class RscShortcutButton_5000309: RscButton {
 			idc = -1;
@@ -3460,24 +3465,9 @@ class GarageDialog {
 			x = 0.591666 * safezoneW + safezoneX;
 			y = 0.664074 * safezoneH + safezoneY;
 			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {1,0,0,1};
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
-		};
-		class RscTextT_5000310: RscText {
-			idc = -1;
-			text = "Spawn Vehicle >>";
-			x = 0.508333 * safezoneW + safezoneX;
-			y = 0.622222 * safezoneH + safezoneY;
-			w = 0.079166 * safezoneW;
-			h = 0.022222 * safezoneH;
-		};
-		class RscTextT_5000311: RscText {
-			idc = -1;
-			text = "Store Vehicle >>";
-			x = 0.337500 * safezoneW + safezoneX;
-			y = 0.622222 * safezoneH + safezoneY;
-			w = 0.079166 * safezoneW;
-			h = 0.022222 * safezoneH;
 		};
 	};
 };
@@ -3495,15 +3485,6 @@ class GarageDialogManage {
 			h = 0.459259 * safezoneH;
 			colorBackground[] = {0,0,0,0.7};
 		};
-		class GM_title: RscText {
-			idc = -1;
-			text = "Manage Virtual Garage";
-			x = 0.316666 * safezoneW + safezoneX;
-			y = 0.266666 * safezoneH + safezoneY;
-			w = 0.366666 * safezoneW;
-			h = 0.051851 * safezoneH;
-			colorText[] = {1,1,1,1};
-		};
 		class GM_titleBG: RscPicture {
 			idc = 1200;
 			text = "GG\GUI\background_ca.paa";
@@ -3512,7 +3493,16 @@ class GarageDialogManage {
 			y = 0.266666 * safezoneH + safezoneY;
 			w = 0.366666 * safezoneW;
 			h = 0.051851 * safezoneH;
-			colorText[] = {1,0.1,0.1,0.9};
+			colorText[] = {0,0,1,1};
+		};
+		class GM_title: RscText {
+			idc = -1;
+			text = "Virtual Garage Management";
+			x = 0.316666 * safezoneW + safezoneX;
+			y = 0.266666 * safezoneH + safezoneY;
+			w = 0.366666 * safezoneW;
+			h = 0.051851 * safezoneH;
+			colorText[] = {1,1,1,1};
 		};
 	};
 	class Controls {
@@ -3534,7 +3524,7 @@ class GarageDialogManage {
 		};
 		class RscTextT_5000404: RscText {
 			idc = -1;
-			text = "Player Nearby";
+			text = "Player's Nearby";
 			x = 0.337500 * safezoneW + safezoneX;
 			y = 0.340740 * safezoneH + safezoneY;
 			w = 0.154166 * safezoneW;
@@ -3542,7 +3532,7 @@ class GarageDialogManage {
 		};
 		class RscTextT_5000405: RscText {
 			idc = 5203;
-			text = "Friends";
+			text = "Friend's";
 			x = 0.508333 * safezoneW + safezoneX;
 			y = 0.340740 * safezoneH + safezoneY;
 			w = 0.154166 * safezoneW;
@@ -3554,7 +3544,8 @@ class GarageDialogManage {
 			x = 0.379166 * safezoneW + safezoneX;
 			y = 0.612222 * safezoneH + safezoneY;
 			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {0,0,1,1};
 			onButtonClick = "[(lbCurSel 5204)] spawn garage_addfriend;";
 		};
 		class RscShortcutButton_5000407: RscButton {
@@ -3563,7 +3554,8 @@ class GarageDialogManage {
 			x = 0.550000 * safezoneW + safezoneX;
 			y = 0.612222 * safezoneH + safezoneY;
 			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {1,0,0,1};
 			onButtonClick = "[(lbCurSel 5205)] spawn garage_removefriend;";
 		};	
 		class RscShortcutButton_5000408: RscButton {
@@ -3572,9 +3564,214 @@ class GarageDialogManage {
 			x = 0.591666 * safezoneW + safezoneX;
 			y = 0.664074 * safezoneH + safezoneY;
 			w = 0.070833 * safezoneW;
-			h = 0.055016 * safezoneH;
+			h = 0.0274947 * safezoneH;
+			colorText[] = {1,0,0,1};
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
 		};
+	};
+};
+class W_RscText {
+	idc = -1;
+	type = 0;
+	style = 0x00;
+	colorBackground[] = { 1 , 1 , 1 , 0 };
+	colorText[] = { 1 , 1 , 1 , 1 };
+	font = "Zeppelin32";
+	sizeEx = .025;
+	h = .25;
+	text = "";
+};
+
+class W_RscStructuredText
+{
+	access = 0;
+	type = 13;
+	idc = -1;
+	style = 0;
+	colorText[] = {.8784,.8471,.651,1};
+	class Attributes
+	{
+		font = "Zeppelin32";
+		color = "#e0d8a6";
+		align = "center";
+		shadow = 1;
+	};
+	x = 0;
+	y = 0;
+	h = .035;
+	w = .1;
+	text = "";
+	size = .03921;
+	shadow = 2;
+};
+
+class W_RscList
+{
+	type = 5;
+	style = 69;
+	idc = -1;
+	text = "";
+	w = .275;
+	h = .04;
+	colorSelect[] = {1, 1, 1, 1};
+	colorText[] = {1, 1, 1, 1};
+	colorBackground[] = {1,1,1,1};
+	colorSelectBackground[] = {.40, .43, .28, .5};
+	colorScrollbar[] = {.2, .2, .2, 1};
+	arrowEmpty = "\ca\ui\data\ui_arrow_combo_ca.paa";
+	arrowFull = "\ca\ui\data\ui_arrow_combo_active_ca.paa";
+	wholeHeight = .45;
+	rowHeight = .04;
+	color[] = {.7, .7, .7, 1};
+	colorActive[] = {0,0,0,1};
+	colorDisabled[] = {0,0,0,.3};
+	font = "Zeppelin32";
+	sizeEx = .023;
+	soundSelect[] = {"",.1,1};
+	soundExpand[] = {"",.1,1};
+	soundCollapse[] = {"",.1,1};
+	maxHistoryDelay = 1;
+	autoScrollSpeed = -1;
+	autoScrollDelay = 5;
+	autoScrollRewind = 0;
+	class ScrollBar
+	{
+		color[] = {1, 1, 1, 1};
+		colorActive[] = {1, 1, 1, 1};
+		colorDisabled[] = {1, 1, 1, 1};
+		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
+		arrowFull = "\ca\ui\data\ui_arrow_top_active_ca.paa";
+		arrowEmpty = "\ca\ui\data\ui_arrow_top_ca.paa";
+		border = "\ca\ui\data\ui_border_scroll_ca.paa";
+	};
+};
+
+class W_RscPicture 
+{
+	idc = -1; 
+	type = 0;
+	style = 48;
+	font = "Zeppelin32";
+	sizeEx = .023;	
+	colorBackground[] = {};
+	colorText[] = {};	
+	x = .0; y = .2;
+	w = .2; h = .2;	
+	text = "";	
+}; 
+
+class W_RscButtonBase {
+	idc = -1;
+	type = 16;
+	style = 0;	
+	w = .183825;
+	h = .104575;	
+	color[] = {.95, .95, .95, 1};
+	color2[] = {1, 1, 1, .4};
+	colorBackground[] = {1, 1, 1, 1};
+	colorbackground2[] = {1, 1, 1, .4};
+	colorDisabled[] = {1, 1, 1, .25};	
+	periodFocus = 1.2;
+	periodOver = .8;	
+	class HitZone {
+		left = .004;
+		top = .029;
+		right = .004;
+		bottom = .029;		
+	};
+	class ShortcutPos {
+		left = .004;
+		top = .026;
+		w = .0392157;
+		h = .0522876;		
+	};
+	class TextPos {	
+		left = .05;
+		top = .025;
+		right = .005;
+		bottom = .025;	
+	};
+	animTextureNormal = "\ca\ui\data\ui_button_normal_ca.paa";
+	animTextureDisabled = "\ca\ui\data\ui_button_disabled_ca.paa";
+	animTextureOver = "\ca\ui\data\ui_button_over_ca.paa";
+	animTextureFocused = "\ca\ui\data\ui_button_focus_ca.01.paa";
+	animTexturePressed = "\ca\ui\data\ui_button_down_ca.paa";
+	animTextureDefault = "\ca\ui\data\ui_button_default_ca.paa";
+	textureNoShortcut = "";
+	period = .4;
+	font = "Zeppelin32";
+	size = .023;
+	sizeEx = .023;
+	text = "";
+	
+	soundEnter[] = {"\ca\ui\data\sound\mouse2", .09, 1};
+	soundPush[] = {"\ca\ui\data\sound\new1", .09, 1};
+	soundClick[] = {"\ca\ui\data\sound\mouse3", .07, 1};
+	soundEscape[] = {"\ca\ui\data\sound\mouse1", .09, 1};
+	
+	action = "";
+	
+	class Attributes {
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "left";
+		shadow = "1";	
+	};
+	
+	class AttributesImage {
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "left";	
+	};
+};
+
+class W_RscButton : W_RscButtonBase {
+
+	w = .183825;
+	h = .0522876;
+
+	style = 2;
+
+	color[] = {1, 1, 1, 1};
+	color2[] = {1, 1, 1, .85};
+	colorBackground[] = {1, 1, 1, 1};
+	colorbackground2[] = {1, 1, 1, .85};
+	colorDisabled[] = {1, 1, 1, .4};
+	
+	class HitZone {	
+		left = .002;
+		top = .003;
+		right = .002;
+		bottom = .016;		
+	};
+	
+	class ShortcutPos {	
+		left = -.006;
+		top = -.007;
+		w = .0392157;
+		h = .0522876;	
+	};
+	
+	class TextPos {	
+		left = .002;
+		top = .014;
+		right = .002;
+		bottom = .005;
+	};
+	
+	animTextureNormal = "\ca\ui\data\igui_button_normal_ca.paa";
+	animTextureDisabled = "\ca\ui\data\igui_button_disabled_ca.paa";
+	animTextureOver = "\ca\ui\data\igui_button_over_ca.paa";
+	animTextureFocused = "\ca\ui\data\igui_button_focus_ca.paa";
+	animTexturePressed = "\ca\ui\data\igui_button_down_ca.paa";
+	animTextureDefault = "\ca\ui\data\igui_button_normal_ca.paa";
+	animTextureNoShortcut = "\ca\ui\data\igui_button_normal_ca.paa";
+	
+	class Attributes {	
+		font = "Zeppelin32";
+		color = "#E5E5E5";
+		align = "center";
+		shadow = "1";		
 	};
 };
 class GroupManagement {
@@ -3585,7 +3782,7 @@ class GroupManagement {
 	
 	class ControlsBackground {
 		
-		class MainBG : RscPicture {
+		class MainBG : W_RscPicture {
 			idc = -1;
 			text = "\ca\ui\data\ui_background_controlers_ca.paa";		
 			moving = true;
@@ -3593,7 +3790,7 @@ class GroupManagement {
 			w = 1.0; h = .65;
 		};
 		
-		class MainTitle : RscText {
+		class MainTitle : W_RscText {
 			idc = -1;
 			text = "Group Management";
 			sizeEx = .04;
@@ -3602,7 +3799,7 @@ class GroupManagement {
 			w = .3; h = .05;
 		};
 
-		class InviteTitleText : RscText {
+		class InviteTitleText : W_RscText {
 			idc = -1;
 			text = "Players";
 			sizeEx = .025;
@@ -3611,7 +3808,7 @@ class GroupManagement {
 			w = .3; h = .050;
 		};
 
-		class GroupTitleText : RscText {
+		class GroupTitleText : W_RscText {
 			idc = -1;
 			text = "Your Group";
 			sizeEx = .025;
@@ -3620,7 +3817,7 @@ class GroupManagement {
 			w = .3; h = .050;
 		};
 
-		class InviteText: RscStructuredText
+		class InviteText: W_RscStructuredText
 		{
 			idc = 55520;
 			text = "";
@@ -3632,14 +3829,14 @@ class GroupManagement {
 	
 	class controls {
 
-		class PlayerListBox : RscList {
+		class PlayerListBox : W_RscList {
 			idc = 55511;
 			onLBSelChanged = "call playerSelectChange;";
 			x = .020; y = .200;
 			w = .235; h = .380;
 		};
 		
-		class RefreshButton : RscButton {
+		class RefreshButton : W_RscButton {
 			idc = -1;
 			text = "Refresh";
 			onButtonClick = "call updatePlayerList;";
@@ -3648,13 +3845,13 @@ class GroupManagement {
 			color[] = {.1,.95,.1,1};
 		};
 		
-		class GroupListBox : RscList {
+		class GroupListBox : W_RscList {
 			idc = 55512;
 			x = .490; y = .200;
 			w = .235; h = .425;
 		};
 
-		class CloseButton : RscButton {
+		class CloseButton : W_RscButton {
 			idc = -1;
 			text = "Close";
 			onButtonClick = "closeDialog 0;groupManagmentActive = false;";
@@ -3663,7 +3860,7 @@ class GroupManagement {
 			color[] = {.95,.1,.1,1};
 		};
 
-		class InviteButton : RscButton {
+		class InviteButton : W_RscButton {
 			idc = 55514;
 			text = "Invite";
 			onButtonClick = "call inviteToGroup;";
@@ -3672,7 +3869,7 @@ class GroupManagement {
 			color[] = {.1,.95,.1,1};
 		};
 
-		class KickButton : RscButton {
+		class KickButton : W_RscButton {
 			idc = 55515;
 			text = "Kick";
 			onButtonClick = "call kickFromGroup;";
@@ -3681,7 +3878,7 @@ class GroupManagement {
 			color[] = {.95,.1,.1,1};
 		};
 
-		class DisbandButton : RscButton {
+		class DisbandButton : W_RscButton {
 			idc = 55516;
 			text = "Disband";
 			onButtonClick = "call disbandGroup;";
@@ -3690,7 +3887,7 @@ class GroupManagement {
 			color[] = {.95,.1,.1,1};
 		};
 
-		class LeaveButton : RscButton {
+		class LeaveButton : W_RscButton {
 			idc = 55517;
 			text = "Leave Group";
 			onButtonClick = "call leaveGroup;";
@@ -3699,7 +3896,7 @@ class GroupManagement {
 			color[] = {.95,.1,.1,1};
 		};
 
-		class AcceptInviteButton : RscButton {
+		class AcceptInviteButton : W_RscButton {
 			idc = 55518;
 			text = "Accept";
 			onButtonClick = "call acceptGroupInvite;";
@@ -3708,7 +3905,7 @@ class GroupManagement {
 			color[] = {.1,.95,.1,1};
 		};
 
-		class DeclineInviteButton : RscButton {
+		class DeclineInviteButton : W_RscButton {
 			idc = 55519;
 			text = "Decline";
 			onButtonClick = "call declineGroupInvite;";
@@ -3758,7 +3955,6 @@ class DoorManagement {
 			x = 0.33 * safezoneW + safezoneX;
 			y = 0.70 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.03 * safezoneH;
 			onButtonClick = "[(lbCurSel 7101)] call DoorAddFriend;";
 		};
 		class RscShortcutButton_7105: RscButtonMenu
@@ -3768,7 +3964,6 @@ class DoorManagement {
 			x = 0.47 * safezoneW + safezoneX;
 			y = 0.70 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.03 * safezoneH;
 			onButtonClick = "[(lbCurSel 7102)] call DoorRemoveFriend;";
 		};	
 		class RscShortcutButton_7106: RscButtonMenu
@@ -3778,7 +3973,6 @@ class DoorManagement {
 			x = 0.40 * safezoneW + safezoneX;
 			y = 0.74 * safezoneH + safezoneY;
 			w = 0.08 * safezoneW;
-			h = 0.03 * safezoneH;
 			onButtonClick = "((ctrlParent (_this select 0)) closeDisplay 9000);";
 		};		
 		class RscText_7107: RscText

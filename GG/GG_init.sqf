@@ -1262,8 +1262,8 @@ if (!isDedicated) then {
 		if (_canPickLight && !dayz_hasLight && !_isPZombie) then {
 			if (s_player_grabflare < 0) then {
 				_text = getText (xcf >> "CfgAmmo" >> (typeOf _nearLight) >> "displayName");
-				s_player_grabflare = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_medical_15",_text]], "\z\addons\dayz_code\actions\flare_pickup.sqf",_nearLight, 1, false, true, "", ""];
-				s_player_removeflare = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_medical_17",_text]], "\z\addons\dayz_code\actions\flare_remove.sqf",_nearLight, 1, false, true, "", ""];
+				s_player_grabflare = player xaa [fmt  ["%1",fmt [lzl "str_actions_medical_15",_text]], "\z\addons\dayz_code\actions\flare_pickup.sqf",_nearLight, 1, false, true, "", ""];
+				s_player_removeflare = player xaa [fmt  ["%1",fmt [lzl "str_actions_medical_17",_text]], "\z\addons\dayz_code\actions\flare_remove.sqf",_nearLight, 1, false, true, "", ""];
 			};
 		} else {
 			player rac s_player_grabflare;
@@ -1276,7 +1276,7 @@ if (!isDedicated) then {
 			if (_inVehicle && (_vehicle iko "Air") && (((_vehicle call AH_fnc_getPos) sel 2) < 30) && (speed _vehicle < 5) && (typeName _hasAttached == "OBJECT")) then {
 				if (s_player_heli_detach < 0) then {
 					dayz_myLiftVehicle = _vehicle;
-					s_player_heli_detach = dayz_myLiftVehicle xaa ["<t color='#dddddd'>Detach Vehicle</t>","\z\addons\dayz_code\actions\player_heliDetach.sqf",[dayz_myLiftVehicle,_hasAttached],2,false,true,"",""];
+					s_player_heli_detach = dayz_myLiftVehicle xaa ["Detach Vehicle","\z\addons\dayz_code\actions\player_heliDetach.sqf",[dayz_myLiftVehicle,_hasAttached],2,false,true,"",""];
 				};
 			} else {
 				dayz_myLiftVehicle rac s_player_heli_detach;
@@ -1285,14 +1285,14 @@ if (!isDedicated) then {
 		};
 		if (_isPZombie) then {
 			if (s_player_callzombies < 0) then {
-				s_player_callzombies = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_RAISEHORDE"], "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
+				s_player_callzombies = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_RAISEHORDE"], "\z\addons\dayz_code\actions\call_zombies.sqf",player, 5, true, false, "",""];
 			};
 			if (DZE_PZATTACK) then {
 				call pz_attack;
 				DZE_PZATTACK = false;
 			};
 			if (s_player_pzombiesvision < 0) then {
-				s_player_pzombiesvision = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_NIGHTVIS"], "\z\addons\dayz_code\actions\pzombie\pz_vision.sqf", [], 4, false, true, "nightVision", "_this == _target"];
+				s_player_pzombiesvision = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_NIGHTVIS"], "\z\addons\dayz_code\actions\pzombie\pz_vision.sqf", [], 4, false, true, "nightVision", "_this == _target"];
 			};
 			if (!izn cursorTarget && (player distance cursorTarget < 3)) then {
 				_isAnimal = cursorTarget iko "Animal";
@@ -1301,7 +1301,7 @@ if (!isDedicated) then {
 				_isMan = cursorTarget iko "Man";
 				if (!alive cursorTarget && (_isAnimal || _isMan) && !_isZombie && !_isHarvested) then {
 					if (s_player_pzombiesfeed < 0) then {
-						s_player_pzombiesfeed = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_FEED"], "\z\addons\dayz_code\actions\pzombie\pz_feed.sqf",cursorTarget, 3, true, false, "",""];
+						s_player_pzombiesfeed = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_FEED"], "\z\addons\dayz_code\actions\pzombie\pz_feed.sqf",cursorTarget, 3, true, false, "",""];
 					};
 				} else {
 					player rac s_player_pzombiesfeed;
@@ -1454,7 +1454,7 @@ if (!isDedicated) then {
 			};
 			if (_player_deleteBuild) then {
 				if (s_player_deleteBuild < 0) then {
-					s_player_deleteBuild = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
+					s_player_deleteBuild = player xaa [fmt  ["<t color='#FE0101'>%1</t>",fmt [lzl "str_actions_delete",_text]], "GG\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_deleteBuild;
@@ -1491,7 +1491,7 @@ if (!isDedicated) then {
 				_attached = _cursorTarget xgv["attached",false];
 				if (_found && _allowTow && _canDo && !locked _cursorTarget && !_isPZombie && (typeName _attached != "OBJECT")) then {
 					if (s_player_heli_lift < 0) then {
-						s_player_heli_lift = player xaa ["<t color='#dddddd'>Attach to Heli</t>", "\z\addons\dayz_code\actions\player_heliLift.sqf",[_liftHeli,_cursorTarget], -10, false, true, "",""];
+						s_player_heli_lift = player xaa ["Attach to Heli", "\z\addons\dayz_code\actions\player_heliLift.sqf",[_liftHeli,_cursorTarget], -10, false, true, "",""];
 					};
 				} else {
 					player rac s_player_heli_lift;
@@ -1504,13 +1504,13 @@ if (!isDedicated) then {
 					_oldOwner = (_ownerID == PIDP_playerUID);
 					if (locked _cursorTarget) then {
 						if (_hasKey || _oldOwner) then {
-							_Unlock = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UNLOCK",_text]], "\z\addons\dayz_code\actions\unlock_veh.sqf",[_cursorTarget,(_temp_keys_names sel (parseNumber _ownerID))], 2, true, true, "", ""];
+							_Unlock = player xaa [fmt  ["%1",fmt [lzl "STR_EPOCH_ACTIONS_UNLOCK",_text]], "\z\addons\dayz_code\actions\unlock_veh.sqf",[_cursorTarget,(_temp_keys_names sel (parseNumber _ownerID))], 2, true, true, "", ""];
 							s_player_lockunlock set [count s_player_lockunlock,_Unlock];
 							s_player_lockUnlock_crtl = 1;
 						} else {
 							if (_hasHotwireKit) then {
 								if !(inSafeZone) then {
-									_Unlock = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_HOTWIRE",_text]], "\z\addons\dayz_code\actions\hotwire_veh.sqf",_cursorTarget, 2, true, true, "", ""];
+									_Unlock = player xaa [fmt  ["%1",fmt [lzl "STR_EPOCH_ACTIONS_HOTWIRE",_text]], "\z\addons\dayz_code\actions\hotwire_veh.sqf",_cursorTarget, 2, true, true, "", ""];
 								};
 							} else {
 								_Unlock = player xaa [fmt ["<t color='#ff0000'>%1</t>",lzl "STR_EPOCH_ACTIONS_VEHLOCKED"], "",_cursorTarget, 2, true, true, "", ""];
@@ -1520,7 +1520,7 @@ if (!isDedicated) then {
 						};
 					} else {
 						if (_hasKey || _oldOwner) then {
-							_lock = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_LOCK",_text]], "\z\addons\dayz_code\actions\lock_veh.sqf",_cursorTarget, 1, true, true, "", ""];
+							_lock = player xaa [fmt  ["%1",fmt [lzl "STR_EPOCH_ACTIONS_LOCK",_text]], "\z\addons\dayz_code\actions\lock_veh.sqf",_cursorTarget, 1, true, true, "", ""];
 							s_player_lockunlock set [count s_player_lockunlock,_lock];
 							s_player_lockUnlock_crtl = 1;
 						};
@@ -1533,7 +1533,7 @@ if (!isDedicated) then {
 			if (DZE_AllowForceSave) then {
 				if ((_isVehicle || _isTent) && !_isMan) then {
 					if (s_player_forceSave < 0) then {
-						s_player_forceSave = player xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_save",_text]], "\z\addons\dayz_code\actions\forcesave.sqf",_cursorTarget, 1, true, true, "", ""];
+						s_player_forceSave = player xaa [fmt  ["%1",fmt [lzl "str_actions_save",_text]], "\z\addons\dayz_code\actions\forcesave.sqf",_cursorTarget, 1, true, true, "", ""];
 					};
 				} else {
 					player rac s_player_forceSave;
@@ -1543,7 +1543,7 @@ if (!isDedicated) then {
 			if (DZE_AllowCargoCheck) then {
 				if ((_isVehicle || _isTent || _isnewstorage) && _isAlive && !_isMan && !locked _cursorTarget) then {
 					if (s_player_checkGear < 0) then {
-						s_player_checkGear = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_CARGO"], "\z\addons\dayz_code\actions\cargocheck.sqf",_cursorTarget, 1, true, true, "", ""];
+						s_player_checkGear = player xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_CARGO"], "\z\addons\dayz_code\actions\cargocheck.sqf",_cursorTarget, 1, true, true, "", ""];
 					};
 				} else {
 					player rac s_player_checkGear;
@@ -1560,7 +1560,7 @@ if (!isDedicated) then {
 			};
 			if ((_hasFuelE || _hasFuelBarrelE) && _isFuel) then {
 				if (s_player_fillfuel < 0) then {
-					s_player_fillfuel = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_10"], "\z\addons\dayz_code\actions\jerry_fill.sqf",[], 1, false, true, "", ""];
+					s_player_fillfuel = player xaa [fmt ["%1",lzl "str_actions_self_10"], "\z\addons\dayz_code\actions\jerry_fill.sqf",[], 1, false, true, "", ""];
 				};
 			} else {
 				player rac s_player_fillfuel;
@@ -1590,9 +1590,9 @@ if (!isDedicated) then {
 			if (_player_butcher) then {
 				if (s_player_butcher < 0) then {
 					if (_isZombie) then {
-						s_player_butcher = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_GUTZOM"], "\z\addons\dayz_code\actions\gather_zparts.sqf",_cursorTarget, 0, true, true, "", ""];
+						s_player_butcher = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_GUTZOM"], "\z\addons\dayz_code\actions\gather_zparts.sqf",_cursorTarget, 0, true, true, "", ""];
 					} else {
-						s_player_butcher = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_04"], "\z\addons\dayz_code\actions\gather_meat.sqf",_cursorTarget, 3, true, true, "", ""];
+						s_player_butcher = player xaa [fmt ["%1",lzl "str_actions_self_04"], "\z\addons\dayz_code\actions\gather_meat.sqf",_cursorTarget, 3, true, true, "", ""];
 					};
 				};
 			} else {
@@ -1601,7 +1601,7 @@ if (!isDedicated) then {
 			};
 			if (!_isAlive and !_isZombie and !_isAnimal and _isMan and _canDo) then {
 		        if (s_player_bury_human < 0) then {
-		            s_player_bury_human = player xaa ["<t color='#dddddd'>Teabag "+str _name+"</t>", "GG\GG_BB.sqf",_cursorTarget, 0, false, true, "",""];
+		            s_player_bury_human = player xaa ["Bury "+str _name+"", "GG\GG_BB.sqf",_cursorTarget, 0, false, true, "",""];
 		        }
 		    } else {
 		        player rac s_player_bury_human;
@@ -1609,7 +1609,7 @@ if (!isDedicated) then {
 		    };
 			if (_player_studybody) then {
 				if (s_player_studybody < 0) then {
-					s_player_studybody = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_action_studybody"], "\z\addons\dayz_code\actions\study_body.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_studybody = player xaa [fmt ["%1",lzl "str_action_studybody"], "\z\addons\dayz_code\actions\study_body.sqf",_cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_studybody;
@@ -1619,7 +1619,7 @@ if (!isDedicated) then {
 			if ((_player_studybody)||(_isUncon)) then {
 				if (s_player_teabag < 0) then {
 					_name = _cursorTarget xgv ["bodyName","body"];
-					s_player_teabag = player xaa ["<t color='#dddddd'>Teabag "+str _name+"</t>", "GG\GG_TB.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_teabag = player xaa ["Teabag "+str _name+"", "GG\GG_TB.sqf",_cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_teabag;
@@ -1637,7 +1637,7 @@ if (!isDedicated) then {
 			};
 			if (_player_studybody) then {
 				if (s_clothes < 0) then {
-					s_clothes = player xaa ["<t color='#dddddd'>Take Clothes</t>", "GG\GG_TC.sqf",cursorTarget, 0, false, true, "",""];
+					s_clothes = player xaa ["Take Clothes", "GG\GG_TC.sqf",cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_clothes;
@@ -1653,9 +1653,9 @@ if (!isDedicated) then {
 			if ((_typeOfCursorTarget == "Land_MBG_Garage_Single_C") && (speed player <= 1) && _canDo) then {
 				if (s_player_garage < 0) then {
 					if (PIDP_playerUID in _garageallowed) then {
-						s_player_garage =  player addAction ["<t color='#FFAA00'>Garage Menu</t>", "GG\Garage\player_virtualgarage.sqf", _cursorTarget, 2, false];
+						s_player_garage =  player addAction ["Garage Menu", "GG\Garage\player_virtualgarage.sqf", _cursorTarget, 2, false];
 					} else {
-						s_player_garage = player addAction ["<t color='#FF0000'>Garage Locked</t>", "",_cursorTarget, 2, true, true, "", ""];   
+						s_player_garage = player addAction ["<t color='#ff0000'>Garage Locked</t>", "",_cursorTarget, 2, true, true, "", ""];   
 					};
 				};
 			} else {
@@ -1668,7 +1668,7 @@ if (!isDedicated) then {
 				_isDeployed = cursorTarget xgv ["Deployed",false];
 				if ((_HEdistance < 5)&&(_isDeployed)) then {
 					if (s_player_packOBJ < 0) then {
-						s_player_packOBJ = player xaa [("<t color=""#00FF04"">" + ("Pack "+typeOf cursorTarget+"") +"</t>"),"GG\GG_PV.sqf",cursorTarget,6,false,true,"", ""];
+						s_player_packOBJ = player xaa [("Pack "+typeOf cursorTarget+""),"GG\GG_PV.sqf",cursorTarget,6,false,true,"", ""];
 					};
 				};
 			} else {
@@ -1678,7 +1678,7 @@ if (!isDedicated) then {
 			if (cursorTarget iko "Land_Water_Pipe_ep1") then {
 				_dObj = cursorTarget;
 				if (s_player_hookahHit < 0) then {
-					s_player_hookahHit = player xaa ["<t color='#009000'>Take a hit</t>","GG\GG_HOOKAH.sqf",cursorTarget, 0, false, true, "",""];
+					s_player_hookahHit = player xaa ["Take a hit","GG\GG_HOOKAH.sqf",cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_hookahHit;
@@ -1696,7 +1696,7 @@ if (!isDedicated) then {
 			};
 			if (_player_SurrenderedGear) then {
 				if (s_player_SurrenderedGear < 0) then {
-					s_player_SurrenderedGear = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTION_GEAR"], "\z\addons\dayz_code\actions\surrender_gear.sqf",_cursorTarget, 1, true, true, "", ""];
+					s_player_SurrenderedGear = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTION_GEAR"], "\z\addons\dayz_code\actions\surrender_gear.sqf",_cursorTarget, 1, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_SurrenderedGear;
@@ -1704,7 +1704,7 @@ if (!isDedicated) then {
 			};
 			if (_player_cook) then {
 				if (s_player_cook < 0) then {
-					s_player_cook = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_05"], "\z\addons\dayz_code\actions\cook.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_player_cook = player xaa [fmt ["%1",lzl "str_actions_self_05"], "\z\addons\dayz_code\actions\cook.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_cook;
@@ -1712,7 +1712,7 @@ if (!isDedicated) then {
 			};
 			if (_player_boil) then {
 				if (s_player_boil < 0) then {
-					s_player_boil = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_boilwater"], "\z\addons\dayz_code\actions\boil.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_player_boil = player xaa [fmt ["%1",lzl "str_actions_boilwater"], "\z\addons\dayz_code\actions\boil.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_boil;
@@ -1720,7 +1720,7 @@ if (!isDedicated) then {
 			};
 			if (_cursorTarget == dayz_hasFire) then {
 				if ((s_player_fireout < 0) && !(inflamed _cursorTarget) && (player distance _cursorTarget < 3)) then {
-					s_player_fireout = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_06"], "\z\addons\dayz_code\actions\fire_pack.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_fireout = player xaa [fmt ["%1",lzl "str_actions_self_06"], "\z\addons\dayz_code\actions\fire_pack.sqf",_cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_fireout;
@@ -1729,12 +1729,12 @@ if (!isDedicated) then {
 			if (_isTent && (player distance _cursorTarget < 3)) then {
 				if ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID)) then {
 					if (s_player_packtent < 0) then {
-						s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_07"], "\z\addons\dayz_code\actions\tent_pack.sqf",_cursorTarget, 0, false, true, "",""];
+						s_player_packtent = player xaa [fmt ["%1",lzl "str_actions_self_07"], "\z\addons\dayz_code\actions\tent_pack.sqf",_cursorTarget, 0, false, true, "",""];
 					};
 				} else {
 					if (("ItemJerrycan" in _magazinesPlayer) && ("ItemMatchbox_DZE" in weapons player)) then {
 						if (s_player_packtent < 0) then {
-							s_player_packtent = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
+							s_player_packtent = player xaa [fmt ["<t color='#FE0101'>%1</t>",lzl "STR_EPOCH_ACTIONS_DESTROYTENT"], "GG\GG_RO.sqf",_cursorTarget, 1, true, true, "", ""];
 						};
 					};
 				};
@@ -1754,16 +1754,16 @@ if (!isDedicated) then {
 				if (s_player_unlockvault < 0) then {
 					if (_typeOfCursorTarget in DZE_LockedStorage) then {
 						if (_ownerID == dayz_combination || ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID))) then {
-							_combi = player xaa [fmt ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_OPEN",_text]], "\z\addons\dayz_code\actions\vault_unlock.sqf",_cursorTarget, 0, false, true, "",""];
+							_combi = player xaa [fmt ["%1",fmt [lzl "STR_EPOCH_ACTIONS_OPEN",_text]], "\z\addons\dayz_code\actions\vault_unlock.sqf",_cursorTarget, 0, false, true, "",""];
 							s_player_combi set [count s_player_combi,_combi];
 						} else {
-							_combi = player xaa [fmt ["<t color='#dddddd'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UNLOCK",_text]], "\z\addons\dayz_code\actions\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+							_combi = player xaa [fmt ["%1",fmt [lzl "STR_EPOCH_ACTIONS_UNLOCK",_text]], "\z\addons\dayz_code\actions\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
 							s_player_combi set [count s_player_combi,_combi];
 						};
 						s_player_unlockvault = 1;
 					} else {
 						if (_ownerID != dayz_combination && _ownerID != dayz_playerUID) then {
-							_combi = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_RECOMBO"], "\z\addons\dayz_code\actions\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
+							_combi = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_RECOMBO"], "\z\addons\dayz_code\actions\vault_combination_1.sqf",_cursorTarget, 0, false, true, "",""];
 							s_player_combi set [count s_player_combi,_combi];
 							s_player_unlockvault = 1;
 						};
@@ -1777,7 +1777,7 @@ if (!isDedicated) then {
 			if (typeOf(cursortarget) in _unlockedVault && _ownerID != "0" && (player distance _cursorTarget < 2)) then {
 				if (s_player_vault_ckc < 0) then {
 					if ((typeOf(cursortarget) == "VaultStorage") &&(_ownerID == dayz_combination || _ownerID == dayz_playerUID)  ) then {
-						s_player_vault_ckc = player xaa [("<t color=""#999FFF"">Set new code</t>"), "GG\DoorLock\ckc_startSafeUI.sqf",_cursorTarget,1,false,true,"", ""];
+						s_player_vault_ckc = player xaa [("Set new code"), "GG\DoorLock\ckc_startSafeUI.sqf",_cursorTarget,1,false,true,"", ""];
 					};
 				};
 			} else {
@@ -1789,7 +1789,7 @@ if (!isDedicated) then {
 			if (_typeOfCursorTarget in DZE_UnLockedStorage && _ownerID != "0" && (player distance _cursorTarget < 3)) then {
 				if (s_player_lockvault < 0) then {
 					if (_ownerID == dayz_combination || ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID))) then {
-						s_player_lockvault = player xaa [fmt  ["<t color='#dddddd'>%1</t>",(fmt [lzl "STR_EPOCH_ACTIONS_LOCK",_text])], "\z\addons\dayz_code\actions\vault_lock.sqf",_cursorTarget, 0, false, true, "",""];
+						s_player_lockvault = player xaa [fmt  ["%1",(fmt [lzl "STR_EPOCH_ACTIONS_LOCK",_text])], "\z\addons\dayz_code\actions\vault_lock.sqf",_cursorTarget, 0, false, true, "",""];
 					};
 				};
 				_playerNear = _cursorTarget call dze_isnearest_player;
@@ -1806,7 +1806,7 @@ if (!isDedicated) then {
 			};
 			if (_typeOfCursorTarget in DZE_ATM  and (player distance _cursorTarget < 3)) then {
 				if (s_bank_dialog2 < 0) then {
-					s_bank_dialog2 = player xaa [fmt  [("<t color=""#00F000"">"+("Bank ATM") + "</t>")], "GG\Trader\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_bank_dialog2 = player xaa [fmt  [(""+ ("Bank") + "")], "GG\Trader\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_bank_dialog2;
@@ -1814,7 +1814,7 @@ if (!isDedicated) then {
 			};
 			if (_typeOfCursorTarget in DZE_Bank_Trader and (player distance _cursorTarget < 3)) then {
 				if (s_bank_dialog3 < 0) then {
-					s_bank_dialog3 = player xaa [fmt  [("<t color=""#00F000"">"+("Manage account") + "</t>")], "GG\Trader\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_bank_dialog3 = player xaa [fmt  [("" + ("Manage account") + "")], "GG\Trader\bank_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_bank_dialog3;
@@ -1823,7 +1823,7 @@ if (!isDedicated) then {
 			if (isNil "SmeltingInProgress") then {SmeltingInProgress = false};
 			if ((_typeOfCursorTarget in DZE_rnr_trader)&&(player distance _cursorTarget < 3)) then {
 				if (s_player_autorefuel < 0) then {
-					s_player_autorefuel = player xaa [fmt  [("<t color=""#00F000"">"+("Refuel and repair vehicle") + "</t>")], "GG\GG_RNR.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_player_autorefuel = player xaa [fmt  [(""+ ("Refuel and repair vehicle") + "")], "GG\GG_RNR.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_player_autorefuel;
@@ -1831,7 +1831,7 @@ if (!isDedicated) then {
 			};
 			if (_isMan and _isAlive and !_isPZombie and isPlayer _cursorTarget) then {
 				if (s_givemoney_dialog < 0) then {
-					s_givemoney_dialog = player xaa [fmt  [("<t color=""#00F000"">Give coins to %1</t>"), (name _cursorTarget)], "GG\Trader\give_player_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
+					s_givemoney_dialog = player xaa [fmt  [("Give coins to %1"), (name _cursorTarget)], "GG\Trader\give_player_dialog.sqf",_cursorTarget, 3, true, true, "", ""];
 				};
 			} else {
 				player rac s_givemoney_dialog;
@@ -1841,7 +1841,7 @@ if (!isDedicated) then {
 			// ======================================================================================================================
 			if (_typeOfCursorTarget == "Info_Board_EP1") then {
 				if (s_player_information < 0) then {
-					s_player_information = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_MURDERS"], "\z\addons\dayz_code\actions\list_playerDeaths.sqf",[], 7, false, true, "",""];
+					s_player_information = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_MURDERS"], "\z\addons\dayz_code\actions\list_playerDeaths.sqf",[], 7, false, true, "",""];
 				};
 			} else {
 				player rac s_player_information;
@@ -1860,9 +1860,9 @@ if (!isDedicated) then {
 					_IsNearRunningGen = count (_findNearestGen);
 					// show that pump needs power if no generator nearby.
 					if (_IsNearRunningGen > 0) then {
-						s_player_fuelauto = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_FILLVEH"], "\z\addons\dayz_code\actions\fill_nearestVehicle.sqf",objNull, 0, false, true, "",""];
+						s_player_fuelauto = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_FILLVEH"], "\z\addons\dayz_code\actions\fill_nearestVehicle.sqf",objNull, 0, false, true, "",""];
 					} else {
-						s_player_fuelauto = player xaa [fmt ["<t color='#ff0000'>%1</t>",lzl "STR_EPOCH_ACTIONS_NEEDPOWER"], "",[], 0, false, true, "",""];
+						s_player_fuelauto = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_NEEDPOWER"], "",[], 0, false, true, "",""];
 					};
 				};
 			} else {
@@ -1872,9 +1872,9 @@ if (!isDedicated) then {
 			if (_typeOfCursorTarget in DZE_fueltruckarray && alive _cursorTarget) then {
 				if (s_player_fuelauto2 < 0) then {
 					if (isEngineOn _cursorTarget) then {
-						s_player_fuelauto2 = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_FILLVEH"], "\z\addons\dayz_code\actions\fill_nearestVehicle.sqf",_cursorTarget, 0, false, true, "",""];
+						s_player_fuelauto2 = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_FILLVEH"], "\z\addons\dayz_code\actions\fill_nearestVehicle.sqf",_cursorTarget, 0, false, true, "",""];
 					} else {
-						s_player_fuelauto2 = player xaa [fmt ["<t color='#ff0000'>%1</t>",lzl "STR_EPOCH_ACTIONS_NEEDPOWER"], "",[], 0, false, true, "",""];
+						s_player_fuelauto2 = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_NEEDPOWER"], "",[], 0, false, true, "",""];
 					};
 				};
 			} else {
@@ -1890,7 +1890,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_upgrade_build < 0) then {
 					s_player_lastTarget set [0,_cursorTarget];
-					s_player_upgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_UPGRADE",_text]], "GG\GG_upgradeObj.sqf",_cursorTarget, -1, false, true, "",""];
+					s_player_upgrade_build = player xaa [fmt ["%1",fmt [lzl "STR_EPOCH_ACTIONS_UPGRADE",_text]], "GG\GG_upgradeObj.sqf",_cursorTarget, -1, false, true, "",""];
 				};
 			} else {
 				player rac s_player_upgrade_build;
@@ -1905,7 +1905,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_downgrade_build < 0) then {
 					s_player_lastTarget set [1,_cursorTarget];
-					s_player_downgrade_build = player xaa [fmt ["<t color='#FF0000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\GG_DO.sqf",_cursorTarget, -2, false, true, "",""];
+					s_player_downgrade_build = player xaa [fmt ["%1",fmt [lzl "STR_EPOCH_ACTIONS_REMLOCK",_text]], "GG\GG_DO.sqf",_cursorTarget, -2, false, true, "",""];
 				};
 			} else {
 				player rac s_player_downgrade_build;
@@ -1920,7 +1920,7 @@ if (!isDedicated) then {
 				};
 				if (s_player_maint_build < 0) then {
 					s_player_lastTarget set [2,_cursorTarget];
-					s_player_maint_build = player xaa [fmt ["<t color='#00F000'>%1</t>",fmt [lzl "STR_EPOCH_ACTIONS_MAINTAIN",_text]], "GG\GG_MB.sqf",_cursorTarget, -2, false, true, "",""];
+					s_player_maint_build = player xaa [fmt ["%1",fmt [lzl "STR_EPOCH_ACTIONS_MAINTAIN",_text]], "GG\GG_MB.sqf",_cursorTarget, -2, false, true, "",""];
 				};
 			} else {
 				player rac s_player_maint_build;
@@ -1929,13 +1929,13 @@ if (!isDedicated) then {
 			if (_cursorTarget iko "Generator_DZ") then {
 				if (s_player_fillgen < 0) then {
 					if ((_cursorTarget xgv ["GeneratorRunning", false])) then {
-						s_player_fillgen = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_GENERATOR1"], "\z\addons\dayz_code\actions\stopGenerator.sqf",_cursorTarget, 0, false, true, "",""];
+						s_player_fillgen = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_GENERATOR1"], "\z\addons\dayz_code\actions\stopGenerator.sqf",_cursorTarget, 0, false, true, "",""];
 					} else {
 						if ((_cursorTarget xgv ["GeneratorFilled", false])) then {
-							s_player_fillgen = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_GENERATOR2"], "\z\addons\dayz_code\actions\fill_startGenerator.sqf",_cursorTarget, 0, false, true, "",""];
+							s_player_fillgen = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_GENERATOR2"], "\z\addons\dayz_code\actions\fill_startGenerator.sqf",_cursorTarget, 0, false, true, "",""];
 						} else {
 							if ("ItemJerrycan" in _magazinesPlayer) then {
-								s_player_fillgen = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_ACTIONS_GENERATOR3"], "\z\addons\dayz_code\actions\fill_startGenerator.sqf",_cursorTarget, 0, false, true, "",""];
+								s_player_fillgen = player xaa [fmt ["%1",lzl "STR_EPOCH_ACTIONS_GENERATOR3"], "\z\addons\dayz_code\actions\fill_startGenerator.sqf",_cursorTarget, 0, false, true, "",""];
 							};
 						};
 					};
@@ -1946,7 +1946,7 @@ if (!isDedicated) then {
 			};
 			if (_isTent && ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID))) then {
 				if ((s_player_sleep < 0) && (player distance _cursorTarget < 3)) then {
-					s_player_sleep = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_self_sleep"], "\z\addons\dayz_code\actions\player_sleep.sqf",_cursorTarget, 0, false, true, "",""];
+					s_player_sleep = player xaa [fmt ["%1",lzl "str_actions_self_sleep"], "\z\addons\dayz_code\actions\player_sleep.sqf",_cursorTarget, 0, false, true, "",""];
 				};
 			} else {
 				player rac s_player_sleep;
@@ -1955,10 +1955,10 @@ if (!isDedicated) then {
 			if ((dayz_myCursorTarget != _cursorTarget) && _isVehicle && !_isMan && _hasToolbox && (damage _cursorTarget < 1) && !_isDisallowRepair && !locked _cursorTarget) then {
 				if (s_player_repair_crtl < 0) then {
 					dayz_myCursorTarget = _cursorTarget;
-					_menu = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_REPAIRV"], "GG\GG_RVE.sqf",_cursorTarget, 0, true, false, "",""];
+					_menu = dayz_myCursorTarget xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_REPAIRV"], "GG\GG_RVE.sqf",_cursorTarget, 0, true, false, "",""];
 					s_player_repairActions set [count s_player_repairActions,_menu];
 					if !(inSafeZone) then {
-						_menu1 = dayz_myCursorTarget xaa [fmt ["<t color='#3cff00'>%1</t>",lzl "STR_EPOCH_PLAYER_SALVAGEV"], "GG\GG_SVE.sqf",_cursorTarget, 0, true, false, "",""];
+						_menu1 = dayz_myCursorTarget xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_SALVAGEV"], "GG\GG_SVE.sqf",_cursorTarget, 0, true, false, "",""];
 						s_player_repairActions set [count s_player_repairActions,_menu1];
 					};
 					s_player_repair_crtl = 1;
@@ -1991,9 +1991,9 @@ if (!isDedicated) then {
 							_buy = player xaa [fmt ["Trade %1 %2 for %3 %4",(_x sel 3),(_x sel 5),(_x sel 2),(_x sel 6)], "\z\addons\dayz_code\actions\trade_items_wo_db.sqf",[(_x sel 0),(_x sel 1),(_x sel 2),(_x sel 3),(_x sel 4),(_x sel 5),(_x sel 6)], (_x sel 7), true, true, "",""];
 							s_player_parts set [count s_player_parts,_buy];
 						} forEach (_traderMenu sel 1);
-						_buy = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_289"], "GG\Trader\show_dialog.sqf",(_traderMenu sel 0), 99, true, false, "",""];
+						_buy = player xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_289"], "GG\Trader\show_dialog.sqf",(_traderMenu sel 0), 99, true, false, "",""];
 						s_player_parts set [count s_player_parts,_buy];
-						_metals_trader = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_301"], "\z\addons\dayz_code\actions\trade_metals.sqf",["na"], 0, true, false, "",""];
+						_metals_trader = player xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_301"], "\z\addons\dayz_code\actions\trade_metals.sqf",["na"], 0, true, false, "",""];
 						s_player_parts set [count s_player_parts,_metals_trader];
 					};
 					s_player_parts_crtl = 1;
@@ -2005,7 +2005,7 @@ if (!isDedicated) then {
 			if (dayz_tameDogs) then {
 				if (_isDog && _isAlive && (_hasRawMeat) && _ownerID == "0" && player xgv ["dogID", 0] == 0) then {
 					if (s_player_tamedog < 0) then {
-						s_player_tamedog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_tamedog"], "\z\addons\dayz_code\actions\tame_dog.sqf", _cursorTarget, 1, false, true, "", ""];
+						s_player_tamedog = player xaa [fmt ["%1",lzl "str_actions_tamedog"], "\z\addons\dayz_code\actions\tame_dog.sqf", _cursorTarget, 1, false, true, "", ""];
 					};
 				} else {
 					player rac s_player_tamedog;
@@ -2014,10 +2014,10 @@ if (!isDedicated) then {
 				if (_isDog && ((_ownerID == PIDP_playerUID)||(dayz_characterID == _ownerID)) && _isAlive) then {
 					_dogHandle = player xgv ["dogID", 0];
 					if (s_player_feeddog < 0 && _hasRawMeat) then {
-						s_player_feeddog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_feeddog"],"\z\addons\dayz_code\actions\dog\feed.sqf",[_dogHandle,0], 0, false, true,"",""];
+						s_player_feeddog = player xaa [fmt ["%1",lzl "str_actions_feeddog"],"\z\addons\dayz_code\actions\dog\feed.sqf",[_dogHandle,0], 0, false, true,"",""];
 					};
 					if (s_player_waterdog < 0 && "ItemWaterbottle" in _magazinesPlayer) then {
-						s_player_waterdog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_waterdog"],"\z\addons\dayz_code\actions\dog\feed.sqf",[_dogHandle,1], 0, false, true,"",""];
+						s_player_waterdog = player xaa [fmt ["%1",lzl "str_actions_waterdog"],"\z\addons\dayz_code\actions\dog\feed.sqf",[_dogHandle,1], 0, false, true,"",""];
 					};
 					if (s_player_staydog < 0) then {
 						_lieDown = _dogHandle getFSMVariable "_actionLieDown";
@@ -2025,10 +2025,10 @@ if (!isDedicated) then {
 						s_player_staydog = player xaa [lzl _text,"\z\addons\dayz_code\actions\dog\stay.sqf", _dogHandle, 5, false, true,"",""];
 					};
 					if (s_player_trackdog < 0) then {
-						s_player_trackdog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_trackdog"],"\z\addons\dayz_code\actions\dog\track.sqf", _dogHandle, 4, false, true,"",""];
+						s_player_trackdog = player xaa [fmt ["%1",lzl "str_actions_trackdog"],"\z\addons\dayz_code\actions\dog\track.sqf", _dogHandle, 4, false, true,"",""];
 					};
 					if (s_player_barkdog < 0) then {
-						s_player_barkdog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_barkdog"],"\z\addons\dayz_code\actions\dog\speak.sqf", _cursorTarget, 3, false, true,"",""];
+						s_player_barkdog = player xaa [fmt ["%1",lzl "str_actions_barkdog"],"\z\addons\dayz_code\actions\dog\speak.sqf", _cursorTarget, 3, false, true,"",""];
 					};
 					if (s_player_warndog < 0) then {
 						_warn = _dogHandle getFSMVariable "_watchDog";
@@ -2036,7 +2036,7 @@ if (!isDedicated) then {
 						s_player_warndog = player xaa [fmt [lzl "str_actions_warndog",_text],"\z\addons\dayz_code\actions\dog\warn.sqf",[_dogHandle, _warn], 2, false, true,"",""];
 					};
 					if (s_player_followdog < 0) then {
-						s_player_followdog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_followdog"],"\z\addons\dayz_code\actions\dog\follow.sqf",[_dogHandle,true], 6, false, true,"",""];
+						s_player_followdog = player xaa [fmt ["%1",lzl "str_actions_followdog"],"\z\addons\dayz_code\actions\dog\follow.sqf",[_dogHandle,true], 6, false, true,"",""];
 					};
 				} else {
 					player rac s_player_feeddog;
@@ -2174,7 +2174,7 @@ if (!isDedicated) then {
 			if (!izn cursorTarget) then {_ownerID = cursorTarget xgv ["CharacterID","0"]};
 			if (_canDo && !_inVehicle && alive _dog && _ownerID != dayz_characterID) then {
 				if (s_player_movedog < 0) then {
-					s_player_movedog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_movedog"], "\z\addons\dayz_code\actions\dog\move.sqf", player xgv ["dogID", 0], 1, false, true, "", ""];
+					s_player_movedog = player xaa [fmt ["%1",lzl "str_actions_movedog"], "\z\addons\dayz_code\actions\dog\move.sqf", player xgv ["dogID", 0], 1, false, true, "", ""];
 				};
 				if (s_player_speeddog < 0) then {
 					_text = (lzl "str_epoch_player_249");
@@ -2183,7 +2183,7 @@ if (!isDedicated) then {
 					s_player_speeddog = player xaa [fmt [lzl "str_actions_speeddog", _text], "\z\addons\dayz_code\actions\dog\speed.sqf",[player xgv ["dogID", 0],_speed], 0, false, true, "", ""];
 				};
 				if (s_player_calldog < 0) then {
-					s_player_calldog = player xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_calldog"], "\z\addons\dayz_code\actions\dog\follow.sqf", [player xgv ["dogID", 0], true], 2, false, true, "", ""];
+					s_player_calldog = player xaa [fmt ["%1",lzl "str_actions_calldog"], "\z\addons\dayz_code\actions\dog\follow.sqf", [player xgv ["dogID", 0], true], 2, false, true, "", ""];
 				};
 			};
 		} else {
@@ -2658,11 +2658,11 @@ if (!isDedicated) then {
 				if (typeOf _vehicle in ["ArmoredSUV_PMC_DZE"]) then {
 					_isClosed = _vehicle getVariable ["SUV_closed",false];
 					if (_isClosed) then {
-						_action = _vehicle xaa ["<t color='#dddddd'>Open Gunner</t>","GG\GG_SO1.sqf",_vehicle,2,false,true,"",""];
+						_action = _vehicle xaa ["Open Gunner","GG\GG_SO1.sqf",_vehicle,2,false,true,"",""];
 						r_player_gunactions set [count r_player_gunactions,_action];
 						r_gunaction2 = true;
 					} else {
-						if ((gunner _vehicle == player)||(izn (gunner _vehicle))) then {_action = _vehicle xaa ["<t color='#dddddd'>Close Gunner</t>","GG\GG_SO2.sqf",_vehicle,2,false,true,"",""];
+						if ((gunner _vehicle == player)||(izn (gunner _vehicle))) then {_action = _vehicle xaa ["Close Gunner","GG\GG_SO2.sqf",_vehicle,2,false,true,"",""];
 							r_player_gunactions set [count r_player_gunactions,_action];
 							r_gunaction2 = true;
 						};
@@ -2673,7 +2673,7 @@ if (!isDedicated) then {
 			_isNearTrader = (({typeOf _x in DZE_rnr_trader} count _nearrnrs) > 0);
 			if (_isNearTrader) then {
 				if (!s_player_rearm_aa) then {
-					_action = _vehicle xaa [fmt  [("<t color=""#00F000"">"+("Rearm vehicle") + "</t>")], "GG\GG_RAT.sqf",_nearrnrs sel 0, 3, true, true, "", ""];
+					_action = _vehicle xaa [fmt  [(""+ ("Rearm vehicle") + "")], "GG\GG_RAT.sqf",_nearrnrs sel 0, 3, true, true, "", ""];
 					s_player_rearm_ar set [count s_player_rearm_ar,_action];
 					s_player_rearm_aa = true;
 				};
@@ -2693,7 +2693,7 @@ if (!isDedicated) then {
 						case (typeOf _vehicle in ["AH6J_EP1_DZ","AH6J_EP1_DZE"]) : {"M134"};
 						case (typeOf _vehicle in ["F35B","SU34","L39_TK_EP1"]) : {"DSHKM"};
 						});
-						_action = _vehicle xaa ["<t color='#dddddd'>Add AMMO to "+_action+"</t>", "GG\GG_ammo.sqf",[_vehicle], 0, false, true];
+						_action = _vehicle xaa ["Add AMMO to "+_action+"", "GG\GG_ammo.sqf",[_vehicle], 0, false, true];
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					};
@@ -2701,28 +2701,28 @@ if (!isDedicated) then {
 				if (_vehicle isKindOf "helicopter") then {
 					if (((_assignedRole sel 0) != "driver") && ((!alive _driver) || ((_vehicle emptyPositions "Driver") > 0))) then {
 						if (_vehicle isKindOf "helicopter") then {
-							_action = _vehicle xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_308A"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToPilot",_driver], 0, false, true];
+							_action = _vehicle xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_308A"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToPilot",_driver], 0, false, true];
 						} else {
-							_action = _vehicle xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_308"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToPilot",_driver], 0, false, true];
+							_action = _vehicle xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_308"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToPilot",_driver], 0, false, true];
 						};
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					};
 					if (((_assignedRole sel 0) != "cargo") && ((_vehicle emptyPositions "Cargo") > 0)) then {
-						_action = _vehicle xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_309"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToCargo",_driver], 0, false, true];
+						_action = _vehicle xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_309"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToCargo",_driver], 0, false, true];
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					};
 					_isClosed = _vehicle getVariable ["SUV_closed",false];
 					if !(_isClosed) then {
 						if (((_assignedRole sel 0) != "Turret")  && ((_vehicle emptyPositions "Gunner") > 0)) then {
-							_action = _vehicle xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_310"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToTurret",_driver], 0, false, true];
+							_action = _vehicle xaa [fmt ["%1",lzl "STR_EPOCH_PLAYER_310"], "\z\addons\dayz_code\actions\veh_seatActions.sqf",["MoveToTurret",_driver], 0, false, true];
 							r_player_actions2 set [count r_player_actions2,_action];
 							r_action2 = true;
 						};
 					};
 					if (((assignedCommander _vehicle) != player) && ((_vehicle emptyPositions "Commander") > 0)) then {
-						_action = _vehicle xaa [fmt  ["<t color='#dddddd'>%1</t>",lzl "STR_EPOCH_PLAYER_311"], "\z\addons\dayz_code\actions\veh_seatActions.sqf", ["MoveToTurret", _driver], 0, false, true];
+						_action = _vehicle xaa [fmt  ["%1",lzl "STR_EPOCH_PLAYER_311"], "\z\addons\dayz_code\actions\veh_seatActions.sqf", ["MoveToTurret", _driver], 0, false, true];
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					};
@@ -2732,7 +2732,7 @@ if (!isDedicated) then {
 					_weapons = _vehicle weaponsTurret _turret;
 					{
 						_weaponName = getText (xcf >> "cfgWeapons" >> _x >> "displayName");
-						_action = _vehicle xaa [fmt ["<t color='#dddddd'>Add AMMO to %1</t>",_weaponName], "\z\addons\dayz_code\actions\ammo.sqf",[_vehicle,_x,_turret], 0, false, true];
+						_action = _vehicle xaa [fmt ["Add AMMO to %1",_weaponName], "\z\addons\dayz_code\actions\ammo.sqf",[_vehicle,_x,_turret], 0, false, true];
 						r_player_actions2 set [count r_player_actions2,_action];
 						r_action2 = true;
 					} forEach _weapons;
@@ -2770,13 +2770,13 @@ if (!isDedicated) then {
 				r_action = true;
 				if (isNil "inSafeZone") then {inSafeZone=false};
 				if !(inSafeZone) then {
-					_action1 = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_01"], "\z\addons\dayz_code\medical\drag.sqf",_unit, 0, true, true];
-					_action2 = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_02"], "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
-					_action3 = _unit xaa [fmt  ["<t color='#dddddd'>Loot %1</t>",name _unit],"GG\GG_OG.sqf",_unit, 0, true, true];
+					_action1 = _unit xaa [fmt ["%1",lzl "str_actions_medical_01"], "\z\addons\dayz_code\medical\drag.sqf",_unit, 0, true, true];
+					_action2 = _unit xaa [fmt ["%1",lzl "str_actions_medical_02"], "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
+					_action3 = _unit xaa [fmt  ["Loot %1",name _unit],"GG\GG_OG.sqf",_unit, 0, true, true];
 					r_player_actions = r_player_actions + [_action1,_action2,_action3];
 				} else {
-					_action1 = _unit xaa ["<t color='#ff000>Drag disabled</t>", "",_cursorTarget, 2, true, true, "", ""];
-					_action2 = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_02"], "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
+					_action1 = _unit xaa ["Drag disabled", "",_cursorTarget, 2, true, true, "", ""];
+					_action2 = _unit xaa [fmt ["%1",lzl "str_actions_medical_02"], "\z\addons\dayz_code\medical\pulse.sqf",_unit, 0, true, true];
 					r_player_actions = r_player_actions + [_action1,_action2];
 				};
 			};
@@ -2787,17 +2787,17 @@ if (!isDedicated) then {
 				_vehicle = (_vehClose sel _x);
 				while{((!alive _vehicle) && (_x < (count _vehClose)))} do {_x = _x + 1;_vehicle = (_vehClose sel _x);};
 				_vehType = typeOf _vehicle;
-				_action = _unit xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_medical_03",_vehType]], "\z\addons\dayz_code\medical\load\load_act.sqf",[player,_vehicle,_unit], 0, true, true];
+				_action = _unit xaa [fmt  ["%1",fmt [lzl "str_actions_medical_03",_vehType]], "\z\addons\dayz_code\medical\load\load_act.sqf",[player,_vehicle,_unit], 0, true, true];
 				r_player_actions set [count r_player_actions,_action];
 			};
 			if (_injured && _hasBandage) then {
 				r_action = true;
-				_action = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_04"], "\z\addons\dayz_code\medical\bandage.sqf",[_unit], 0, true, true, "", ""];
+				_action = _unit xaa [fmt ["%1",lzl "str_actions_medical_04"], "\z\addons\dayz_code\medical\bandage.sqf",[_unit], 0, true, true, "", ""];
 				r_player_actions set [count r_player_actions,_action];
 			};
 			if (_unconscious && _hasEpi) then {
 				r_action = true;
-				_action = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_05"], "\z\addons\dayz_code\medical\epinephrine.sqf",[_unit], 0, true, true];
+				_action = _unit xaa [fmt ["%1",lzl "str_actions_medical_05"], "\z\addons\dayz_code\medical\epinephrine.sqf",[_unit], 0, true, true];
 				r_player_actions set [count r_player_actions,_action];
 			};
 			if ((_legsBroke || _armsBroke) && _hasMorphine) then {
@@ -2811,12 +2811,12 @@ if (!isDedicated) then {
 			};
 			if (_inPain && _hasPainkillers) then {
 				r_action = true;
-				_action = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_07"], "\z\addons\dayz_code\medical\painkiller.sqf",[_unit], 0, true, true, "", ""];
+				_action = _unit xaa [fmt ["%1",lzl "str_actions_medical_07"], "\z\addons\dayz_code\medical\painkiller.sqf",[_unit], 0, true, true, "", ""];
 				r_player_actions set [count r_player_actions,_action];
 			};
 			if (_lowBlood && _hasBlood) then {
 				r_action = true;
-				_action = _unit xaa [fmt ["<t color='#dddddd'>%1</t>",lzl "str_actions_medical_08"], "\z\addons\dayz_code\medical\transfusion.sqf",[_unit], 0, true, true, "", ""];
+				_action = _unit xaa [fmt ["%1",lzl "str_actions_medical_08"], "\z\addons\dayz_code\medical\transfusion.sqf",[_unit], 0, true, true, "", ""];
 				r_player_actions set [count r_player_actions,_action];
 			};
 			if ((_unit isKindOf "AllVehicles") && !(_unit isKindOf "Man") && !_isDisallowRefuel) then {
@@ -2824,18 +2824,18 @@ if (!isDedicated) then {
 				_typeVeh = getText(xcf >> "cfgVehicles" >> _type >> "displayName");
 				if ((fuel _unit < 1) && (_hasJerry || _hasBarrel)) then {
 					r_action = true;
-					_action = _unit xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_medical_10",_typeVeh]], "\z\addons\dayz_code\actions\refuel.sqf",[], 0, true, true, "", ""];
+					_action = _unit xaa [fmt  ["%1",fmt [lzl "str_actions_medical_10",_typeVeh]], "\z\addons\dayz_code\actions\refuel.sqf",[], 0, true, true, "", ""];
 					r_player_actions set [count r_player_actions,_action];
 				};
 				if ((fuel _unit > 0) && (_hasJerryE || _hasBarrelE) && (!inSafeZone)) then {
 					r_action = true;
-					_action = _unit xaa [fmt ["<t color='#dddddd'>%1</t>Siphon fuel from %1</t>",_typeVeh], "\z\addons\dayz_code\actions\siphonFuel.sqf",[], 0, true, true, "", ""];
+					_action = _unit xaa [fmt ["Siphon fuel from %1",_typeVeh], "\z\addons\dayz_code\actions\siphonFuel.sqf",[], 0, true, true, "", ""];
 					r_player_actions set [count r_player_actions,_action];
 				};
 			} else {
 				if ((isPlayer _unit) && !(PIDP_playerUID in _friendlies)) then {
 					r_action = true;
-					_action = _unit xaa ["<t color='#dddddd'>Tag as friendly</t>", "GG\GG_TF.sqf", [], 0, false, true, "", ""];
+					_action = _unit xaa ["Tag as friendly", "GG\GG_TF.sqf", [], 0, false, true, "", ""];
 					r_player_actions set [count r_player_actions,_action];
 				};
 			};
@@ -2851,7 +2851,7 @@ if (!isDedicated) then {
 					if (!r_action_unload) then {
 						r_action_unload = true;
 						_vehType = typeOf _vehicle;
-						_action = _vehicle xaa [fmt  ["<t color='#dddddd'>%1</t>",fmt [lzl "str_actions_medical_14",_vehType]], "\z\addons\dayz_code\medical\load\unLoad_act.sqf",[player,_vehicle], 0, false, true];
+						_action = _vehicle xaa [fmt  ["%1",fmt [lzl "str_actions_medical_14",_vehType]], "\z\addons\dayz_code\medical\load\unLoad_act.sqf",[player,_vehicle], 0, false, true];
 						r_player_actions set [count r_player_actions,_action];
 					};
 				} else {
@@ -3120,15 +3120,15 @@ if (!isDedicated) then {
 			DZE_memForBack = 0;
 			DZE_memLeftRight = 0;
 			if !(_item in DZE_noRotate) then {
-				s_player_setVectorsReset = player xaa 	["<t color='#FF0000'>Reset pitch</t>","GG\snap\player_vectorChange.sqf","reset",3,false,false];
-				s_player_setVectorsForward = player xaa ["<t color='#00FFFF'>Pitch Forward</t>","GG\snap\player_vectorChange.sqf","forward",3,false,false];
-				s_player_setVectorsBack = player xaa 	["<t color='#00FFFF'>Pitch Back</t>","GG\snap\player_vectorChange.sqf","back",3,false,false];
-				s_player_setVectorsLeft = player xaa 	["<t color='#00FFFF'>Pitch Left</t>","GG\snap\player_vectorChange.sqf","left",3,false,false];
-				s_player_setVectorsRight = player xaa 	["<t color='#00FFFF'>Pitch Right</t>","GG\snap\player_vectorChange.sqf","right",3,false,false];
-				s_player_setVectors1 = player xaa 		["<t color='#006EFF'>Pitch modifier: 1 degree</t>","GG\snap\player_vectorChange.sqf","1",3,false,false];
-				s_player_setVectors5 = player xaa 		["<t color='#006EFF'>Pitch modifier: 5 degrees</t>","GG\snap\player_vectorChange.sqf","5",3,false,false];
-				s_player_setVectors45 = player xaa 		["<t color='#006EFF'>Pitch modifier: 45 degrees</t>","GG\snap\player_vectorChange.sqf","45",3,false,false];
-				s_player_setVectors90 = player xaa 		["<t color='#006EFF'>Pitch modifier: 90 degrees</t>","GG\snap\player_vectorChange.sqf","90",3,false,false];
+				s_player_setVectorsReset = player xaa 	["Reset pitch","GG\snap\player_vectorChange.sqf","reset",3,false,false];
+				s_player_setVectorsForward = player xaa ["Pitch Forward","GG\snap\player_vectorChange.sqf","forward",3,false,false];
+				s_player_setVectorsBack = player xaa 	["Pitch Back","GG\snap\player_vectorChange.sqf","back",3,false,false];
+				s_player_setVectorsLeft = player xaa 	["Pitch Left","GG\snap\player_vectorChange.sqf","left",3,false,false];
+				s_player_setVectorsRight = player xaa 	["Pitch Right","GG\snap\player_vectorChange.sqf","right",3,false,false];
+				s_player_setVectors1 = player xaa 		["Pitch modifier: 1 degree","GG\snap\player_vectorChange.sqf","1",3,false,false];
+				s_player_setVectors5 = player xaa 		["Pitch modifier: 5 degrees","GG\snap\player_vectorChange.sqf","5",3,false,false];
+				s_player_setVectors45 = player xaa 		["Pitch modifier: 45 degrees","GG\snap\player_vectorChange.sqf","45",3,false,false];
+				s_player_setVectors90 = player xaa 		["Pitch modifier: 90 degrees","GG\snap\player_vectorChange.sqf","90",3,false,false];
 			};
 			private ["_zheightchanged", "_zheightdirection", "_rotate"];
 			while {_isOk} do {
