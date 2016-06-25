@@ -305,17 +305,17 @@
 	_escTOP		=			//Text for esc header.
 	"[GG] Ghostz Gamerz";
 	_escTC		=			//Color in R,G,B,A format.
-	[0.6,0.05,0.05,1];
-	_escTS		= 0.035;	//esc top text size
+	[0,0,1,1];
+	_escTS		= 0.04;	//esc top text size
 	_escLOW		= 			//Text for esc lower top.
-	"GhostzGamerz.com";
+	"www.GhostzGamerz.com";
 	_escLC		=			//Color in R,G,B,A format.
-	[0.8,0.1,0.2,1];
+	[0.643,0.643,0.643,1];
 	_escLS		= 0.035;	//esc lower text size
 	_escBTM		= 			//Text for esc lower bottom.
 	"TS.GhostzGamerz.com";
 	_escBC		= 			//Color in R,G,B,A format.
-	[0.1,0.7,0.75,1];
+	[0,0,1,1];
 	_escBS		= 0.031;	//esc lower text size
 /**Debug**/
 	_AH_DEBUG 	= false;	//Add debug monitor to server?
