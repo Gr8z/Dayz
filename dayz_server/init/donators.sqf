@@ -231,7 +231,6 @@ Scout2 = [
 	"76561198070379362", // D33DS (OD-2016-01-07) #12766
 	"76561198124885439", // AsSASsiNz KiLLz (OD-2016-01-14) #12921 
 	"76561198111358029", // LemonGrab
-	"76561198054707975", // Nv Goggles (OD-2016-3-29)
 	"76561198087483825", // Red Rocket (OD-2016-3-29)
 	"76561197998435723", // Pandabowl (OD-2016-3-30)
 	"76561198041732102", // Frank (EXP-2016-06-02)
@@ -307,6 +306,7 @@ Scout3 = [
 	"76561198130919192", // An Arabian Prince (EXP-2016-07-18)
 	"76561198073062201", // Tyler Jones (EXP-2016-07-24)
 	"76561198135739831", // Daveyy (EXP-2016-07-26) [Bonus 50%off for being one of the top donors]
+	"76561198054707975", // Nv Goggles (EXP-2016-07-26) (previous donor, upgraded his loadout with briefs)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
@@ -355,6 +355,7 @@ Soldier3 = [
 	"76561198070579340", // P.A. Ducky (EXP-2016-09-16)
 	"76561198083230967", // P.A. Cian (EXP-2016-09-16)
 	"76561198099852474", // P.A. XMAN (EXP-2016-09-16)
+	"76561198054707975", // Nv Goggles (EXP-2016-07-26)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
