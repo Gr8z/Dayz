@@ -89,6 +89,7 @@ EpochEvents = [
 ["any","any","any","any",25,"Treasure"],
 ["any","any","any","any",35,"Construction"],
 ["any","any","any","any",45,"SupplyItems"],
+["any","any","any","any",55,"Construction"]
 ];
 
 dayz_maxLocalZombies = 5;
