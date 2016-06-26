@@ -93,6 +93,7 @@ Engineer3 = [
 	"76561198110558124", // Goat (EXP-2016-07-15)
 	"76561198074900512", // P.A. Pinguin (EXP-2016-09-16)
 	"76561198112823514", // P.A. Seth (EXP-2016-09-16)
+	"76561198135739831", // Daveyy (EXP-2016-07-26)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -305,6 +306,7 @@ Scout3 = [
 	"76561198128696781", // Swag Lord (EXP-2016-07-18)
 	"76561198130919192", // An Arabian Prince (EXP-2016-07-18)
 	"76561198073062201", // Tyler Jones (EXP-2016-07-24)
+	"76561198135739831", // Daveyy (EXP-2016-07-26) [Bonus 50%off for being one of the top donors]
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
