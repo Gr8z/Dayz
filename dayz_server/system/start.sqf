@@ -6,6 +6,7 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\safezone.
 };
 if (dayZ_instance == 2) then {
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\objects_2.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\Mogilevka.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\cherno_bridge.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\missions\safezone.sqf";
 };

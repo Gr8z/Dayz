@@ -286,7 +286,7 @@ class Mission
 		};
 		class Item15
 		{
-			position[]={7768.69,0,4499.63};
+			position[]={7769.396,0,4485.5698};
 			name="MogilivikaBase";
 			text="Mogilevka Base";
 			type="Depot";
