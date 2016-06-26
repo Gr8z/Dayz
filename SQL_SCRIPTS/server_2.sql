@@ -25,6 +25,12 @@ DELETE FROM `player_login`;
 DELETE FROM banking_data
 WHERE LastUpdated < NOW() - INTERVAL 30 DAY ;
 
+/* Delete Mission Ural's and MTVR's with no key*/
+DELETE FROM `object_data_2`
+WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 4 HOUR)
+AND `CharacterID` = '0'
+AND `Classname` IN ('KamazRefuel_DZ','MtvrRefuel_DES_EP1_DZ','UralRefuel_TK_EP1_DZ','V3S_Refuel_TK_GUE_EP1_DZ','MtvrRefuel_DZ');
+
 /* Delete untouched server spawned vehicles */
 DELETE FROM `object_data_2`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 3 DAY)
