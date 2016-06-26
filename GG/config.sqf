@@ -92,11 +92,11 @@ EpochEvents = [
 ["any","any","any","any",55,"Construction"]
 ];
 
-dayz_maxLocalZombies = 5;
-dayz_maxGlobalZombiesInit = 3;
+dayz_maxLocalZombies = 2;
+dayz_maxGlobalZombiesInit = 2;
 dayz_maxGlobalZombiesIncrease = 1;
-dayz_maxZeds = 100;
-dayz_maxGlobalZeds = 100;
+dayz_maxZeds = 50;
+dayz_maxGlobalZeds = 50;
 
 dayz_fullMoonNights = true;
 
