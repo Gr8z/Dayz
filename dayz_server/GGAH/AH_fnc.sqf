@@ -153,7 +153,7 @@ call compile ("
 										(_this select 0) removeWeapon 'Stinger';
 									}];
 									[_x] joinSilent (group _plr);
-									diag_log format['<Dead Cell> Locality of unit %1(%2) transfered to Client.',_x,typeOf _x];
+									diag_log format['<Ghostz Gamerz> Locality of unit %1(%2) transfered to Client.',_x,typeOf _x];
 								};
 							} forEach _units;
 
