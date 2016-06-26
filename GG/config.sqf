@@ -84,11 +84,11 @@ GGNoBuildList2 = [
 ];
 
 EpochEvents = [
-["any","any","any","any",10,"Building"],
-["any","any","any","any",20,"Military"],
-["any","any","any","any",30,"Treasure"],
-["any","any","any","any",40,"Construction"],
-["any","any","any","any",50,"SupplyItems"]
+["any","any","any","any",5,"Building"],
+["any","any","any","any",15,"Military"],
+["any","any","any","any",25,"Treasure"],
+["any","any","any","any",35,"Construction"],
+["any","any","any","any",45,"SupplyItems"],
 ];
 
 dayz_maxLocalZombies = 5;
