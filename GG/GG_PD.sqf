@@ -8,29 +8,32 @@ r_player_unconscious = false;
 r_player_cardiac = false;
 dayz_unsaved 		= false;
 DZE_InRadiationZone = false;
+if ((alive player) && {isNil {dayz_playerName}}) then {
+	dayz_playerName = name player;
+};
+_infected = 0;
+if (r_player_infected && DZE_PlayerZed) then {
+	_infected = 1;
+};
+_body = player;
+_playerID = gpd player;
 if (alive player) then {player setDamage 1};
 _array = _this;
 if (count _array > 0) then {
-	if (typeName(_array sel 1) == "OBJECT") then {
-		_player = _array sel 0;
-		_killer = _array sel 1;
-		if ((isPlayer _killer)&&(_player != _killer)) then {
-			_wepstate = weaponState _killer;
-			if (isNil '_wepstate') then {_wepstate = ["","","","",""]};
-			if (_wepstate sel 0 == "") then [{_weapon = ["unknown","","Player"]},{if (_wepstate sel 0 == "Throw") then [{_weapon = [_wepstate sel 3,_wepstate sel 3,"Player"]},{_weapon = [_wepstate sel 0,_wepstate sel 0,"Player"]}]}];
-			player xsv ["AttackedBy", _killer,true];
-			player xsv ["AttackedByName", (name _killer),true];
-			player xsv ["AttackedByWeapon", _weapon,true];
-			player xsv ["AttackedFromDistance", _player distance _killer,true];
+	_source = _array sel 0;
+	_method = _array sel 1;
+	if (!isNull _source) then {
+		if (_source != player) then {
+			HumanityChange = [_body,_source];
+			publicVariableServer "HumanityChange";
+			HumanityChange = [];
+		} else {
 		};
-	} else {
-		HumanityChange = [_player,_killer];
-		publicVariableServer "HumanityChange";
-		HumanityChange = [];
 	};
+	_body setVariable ["deathType",_method,true];
 };
 {if !(isNil _x) then {xcc ("terminate "+_x)}} forEach ["dayz_animalCheck","dayz_slowCheck","dayz_medicalH","dayz_musicH","dayz_gui"];
 10 fadeSound 0;
-PVDZE_plr_Died = [dayz_characterID,0,player,(gpd player),0];
+PVDZE_plr_Died = [dayz_characterID,0,_body,_playerID,_infected,dayz_playerName];
 publicVariableServer "PVDZE_plr_Died";
 __CC("RESPAWN");
