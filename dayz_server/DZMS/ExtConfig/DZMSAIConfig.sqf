@@ -2174,7 +2174,7 @@ DZMSGear3 = [
 ];
 
 DZMSGear4 = [
-["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemBloodbag","ItemRuby"],["ItemKnife","ItemFlashlight","ItemRadio","ItemMachete","ItemToolbox"]
+["ItemBandage","ItemBandage","ItemPainkiller","PartGeneric","ItemBloodbag","ItemGoldBar10oz"],["ItemKnife","ItemFlashlight","ItemRadio","ItemMachete","ItemToolbox"]
 ];
 
 ////////////////////////////////////////////////////////////
