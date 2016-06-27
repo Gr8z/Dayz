@@ -2466,7 +2466,7 @@ if (!isDedicated) then {
 
 		_hours = floor((servertime)/60/60);
 		_minutes = floor((servertime)/60) - (_hours*60);
-		_RestartTime = format["%1h %2m",_hours,_minutes];
+		_RestartTime = fmt["%1h %2m",_hours,_minutes];
 
 		_ctrlBloodAmount      ctrlSetText str(_bloodTotal);
 		_ctrlHumanityAmount ctrlSetText str(player xgv['humanity', 0] call BIS_fnc_numberText);
@@ -2482,6 +2482,16 @@ if (!isDedicated) then {
 		_ctrlhumanKills = _display displayCtrl 1400;
 		_ctrlbanditKills= _display displayCtrl 1402;
 		_ctrlzombieKills= _display displayCtrl 1403;
+		_coinbank 		= _display displayCtrl 4900;
+		
+		_cashMoney  = player xgv["GGCoins",0];
+		_bankMoney  = player xgv["GGBank",0];
+		_coinbank ctrlSetStructuredText parseText fmt ["
+		<img size='1.4' align='left' image='GG\GUI\Money.paa'/><t size='0.9'> %1 </t>   <br/>
+		<img size='1.4' align='left' image='GG\GUI\Bank.paa'/><t size='0.9'> %2 </t>   <br/>",
+		[_cashMoney] call BIS_fnc_numberText,
+		[_bankMoney] call BIS_fnc_numberText
+		];
 
 		_ctrlhumanKills  ctrlSetText str(player xgv["humanKills", 0]);
 		_ctrlbanditKills ctrlSetText str(player xgv["banditKills", 0]);

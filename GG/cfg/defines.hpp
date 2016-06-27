@@ -2527,37 +2527,6 @@ class RscTitles {
 			};
 		};
 	};
-	class AsReMixhud {
-		idd = -1;
-	    fadeout=0;
-	    fadein=0;
-		duration = 20;
-		name= "AsReMixhud";
-		onLoad = "uiNamespace setVariable ['AsReMixhud', _this select 0]";
-		
-		class controlsBackground {
-
-			class AsReMixhud_Status:RscText
-			{
-				idc = 4900;
-				type = 13;
-				size = 0.040;
-				x = 0.57 * safezoneW + safezoneX;
-	            y = 0.93 * safezoneH + safezoneY;
-	            h = 0.1*safeZoneH;
-	            w = 0.1*safeZoneW;	
-				colorText[] = {1,1,1,1};
-				lineSpacing = 4;
-				colorBackground[] = {0,0,0,0};
-				text = "";
-				shadow = 2;
-				class Attributes {
-					align = "left";
-				};
-			};
-
-		};
-	};
 	class playerStatusGUI {
 		idd = 6900;
 		movingEnable = 0;
@@ -2857,6 +2826,25 @@ class RscTitles {
 				colorText[] = {1,1,1,1.0};
 				size = 0.03;
 				sizeEx = 0.03;
+			};
+			// Coin and Bank Icon
+			class RscText_4900: RscTextGUI
+	        {
+				idc = 4900;
+				type = 13;
+				size = 0.040;
+				x = 0.57 * safezoneW + safezoneX;
+				y = 0.93 * safezoneH + safezoneY;
+				h = 0.1*safeZoneH;
+				w = 0.1*safeZoneW;	
+				colorText[] = {1,1,1,1};
+				lineSpacing = 4;
+				colorBackground[] = {0,0,0,0};
+				text = "";
+				shadow = 2;
+				class Attributes {
+					align = "left";
+				};
 			};
 			//BANDIT KILLS
 			class RscText_1402: RscTextGUI
