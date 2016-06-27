@@ -13,7 +13,8 @@ DT_fnc_CreateTrader = compile preprocessFileLineNumbers "\z\addons\dayz_server\D
 
 _trader_config = [
 	[1, "travelingtrader.sqf", 		"Traveling Trader", 					"ColorBlue"],
-	[3, "helicopters.sqf", 	"Heli Dealer", 					"ColorPink"]
+	[3, "helicopters.sqf", 	"Heli Dealer", 					"ColorPink"],
+	[2, "weedfarms.sqf", 	"Weed Farm", 					"ColorYellow"]
 ]; 
 
 _markers = [];

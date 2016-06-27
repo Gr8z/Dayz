@@ -23,7 +23,6 @@ DZE_nobuildarray 	= [
 	[[4361.4937,2259.9526,0],[0,1000],"Wholesale South",""],
 	[[8385.834,2368.8264,0],[0,1000],"Boat Trader1",""],
 	[[13093.446,8241.5625,0],[0,1000],"Boat Trader2",""],
-	[[9464.64, 11483.8,0],[0,1000],"Weed Farm","ColorOrange"],
 	[[7769.396,4485.5698,0],[0,500],"Mogilevka Base","ColorRed"],
 	[[13725.498, 2907.4512,0],[0,500],"Skalisty Base","ColorRed"],
 	[[7286.0166, 9730.1201,0],[0,500],"Grishino Base","ColorRed"],

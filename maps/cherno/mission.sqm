@@ -163,7 +163,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=20;
+		items=19;
 		class Item0
 		{
 			position[]={13725.498,0, 2907.4512};
@@ -278,33 +278,25 @@ class Mission
 		};
 		class Item14
 		{
-			position[]={9464.64, 0, 11483.8};
-			name="HempField";
-			text="Weed Farm";
-			type="mil_dot";
-			colorName="ColorYellow";
-		};
-		class Item15
-		{
 			position[]={7769.396,0,4485.5698};
 			name="MogilivikaBase";
 			text="Mogilevka Base";
 			type="Depot";
 			colorName="ColorBlack";
 		};
-		class Item16
+		class Item15
 		{
 			position[]= {7839,381,8414};
 			name="center";
 			type="Empty";
 		};
-		class Item17
+		class Item16
 		{
 			position[]= {-7233.54,0.19,19534.3};
 			name="respawn_west";
 			type="Empty";
 		};
-		class Item18
+		class Item17
 		{
 			position[]={12061.6,0,12636.3};
 			name="AirplaneDealer2";
@@ -312,7 +304,7 @@ class Mission
 			type="mil_circle";
 			colorName="ColorOrange";
 		};
-		class Item19
+		class Item18
 		{
 			position[]={9526.87,0,11329.6};
 			name="NovyMilitaryBase";
