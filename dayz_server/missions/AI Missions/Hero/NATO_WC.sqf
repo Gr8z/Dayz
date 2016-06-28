@@ -25,19 +25,19 @@ _crate3 = createVehicle ["USLaunchersBox",[(_coords select 0) + 4.0996,(_coords 
 [_crate2] call ProtectObj;
 [_crate3] call ProtectObj;
 
-[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],6,1,"HeroUnits","hero","hero"] call AISpawn;
-sleep 5;
-[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],6,1,"HeroUnits","hero","hero"] call AISpawn;
-sleep 5;
 [[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],4,1,"HeroUnits","hero","hero"] call AISpawn;
 sleep 5;
 [[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],4,1,"HeroUnits","hero","hero"] call AISpawn;
 sleep 5;
-[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],6,1,"HeroUnits","hero","hero"] call AISpawn;
+[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],2,1,"HeroUnits","hero","hero"] call AISpawn;
+sleep 5;
+[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],2,1,"HeroUnits","hero","hero"] call AISpawn;
 sleep 5;
 [[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],4,1,"HeroUnits","hero","hero"] call AISpawn;
 sleep 5;
-[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],4,1,"HeroUnits","hero","hero"] call AISpawn;
+[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],2,1,"HeroUnits","hero","hero"] call AISpawn;
+sleep 5;
+[[(_coords select 0) + 0.0352,(_coords select 1) - 6.8799, 0],2,1,"HeroUnits","hero","hero"] call AISpawn;
 sleep 5;
 
 [_coords,"HeroUnits"] call WaitMissionComp;
