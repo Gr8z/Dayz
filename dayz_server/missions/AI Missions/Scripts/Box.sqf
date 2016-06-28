@@ -40,6 +40,10 @@ if (_type == "MainBox") then {
 		_sSelect = floor(random _sCount);
 		_item = CrateGuns select _sSelect;
 		_crate addWeaponCargoGlobal [_item,(round(random 2))];
+		_ammo = [] + getArray (configFile >> "cfgWeapons" >> _item >> "magazines");
+		if (count _ammo > 0) then {
+			_crate addMagazineCargoGlobal [(_ammo select 0),(round(random 5))];
+		};
 	};
 	// Loading Toolbelt Items
 	_scount = count ToolbeltItems;
@@ -68,6 +72,10 @@ if (_type == "WeaponsBox") then {
 		_sSelect = floor(random _sCount);
 		_item = CrateGuns select _sSelect;
 		_crate addWeaponCargoGlobal [_item,(round(random 2))];
+		_ammo = [] + getArray (configFile >> "cfgWeapons" >> _item >> "magazines");
+		if (count _ammo > 0) then {
+			_crate addMagazineCargoGlobal [(_ammo select 0),(round(random 5))];
+		};
 	};
 	// Loading High Value Weapons
 	_scount = count Special;
