@@ -38,38 +38,10 @@ if (isServer) then {
 		waitUntil {!(isNil "sm_done")};
 		diag_log ["GG Cleanup initialized"];
 
-		_lastlootcheck = diag_tickTime;
 		_lastservercleancheck = diag_tickTime;
 		_lastvehiclecleanup = diag_tickTime;
 		
-		while {true} do {
-			if (((diag_tickTime - _lastlootcheck) > 120)) then
-			{
-			_lastlootcheck = diag_tickTime;
-			private ["_delQty","_nearby","_keep","_qty","_lootpiles","_ammobox"];
-
-			_ammobox = ["USLaunchersBox","RULaunchersBox","USSpecialWeapons_EP1","USVehicleBox","USBasicWeaponsBox","USBasicAmmunitionBox"];
-
-			_lootpiles =  allMissionObjects "ReammoBox";
-			_delQty = 0;
-			{	
-				_keep = (_x getVariable ["permaLoot",false]) || (typeOf _x in _ammobox);
-				if (!_keep) then {
-							_nearby = {(isPlayer _x) and (alive _x)} count (_x nearEntities [["CAManBase"], 250]);
-							if (_nearby==0) then {
-								deleteVehicle _x;
-								sleep 0.025;
-								_delQty = _delQty + 1;
-							};
-						};
-				sleep 0.001;
-				} forEach _missionObjs;
-				if (_delQty > 0) then {
-					_qty = count _lootpiles;
-					diag_log (format["GG Cleanup: Deleted %1 Loot Piles out of %2",_delQty,_qty]);
-				};
-			};
-			
+		while {true} do {			
 			if (((diag_tickTime - _lastservercleancheck) > 300)) then
 			{
 			_lastservercleancheck = diag_tickTime;
