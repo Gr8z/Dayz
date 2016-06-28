@@ -14,7 +14,7 @@ if (!hasInterface) exitWith {
 __ccp("\GG_HC\init.sqf");
 if (isServer) then {
 __ccp("\z\addons\dayz_server\system\start.sqf");
-rn "\z\addons\dayz_server\init\most_wanted.sqf";
+rn "\z\addons\dayz_server\missions\most_wanted.sqf";
 	};
 };
 if (!isDedicated) then {

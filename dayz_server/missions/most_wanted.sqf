@@ -1,35 +1,19 @@
-//===============================
-// ANDRE MOST WANTED SCRIPT =====
-//===============================
-//====================
-// CONFIGURATION =====
-//====================
+_aliveTimeToWin = 10;
 
-//THE TIME THE FUGITIVE NEED TO RESIST ALIVE TO WIN *IN MINUTES*
-_aliveTimeToWin = 20;
-
-//THE TIME CYCLE THE FUGITIVE MARK WILL BE UPDATED *IN SECONDS*
 _updateMark = 100;
 
-//MAXIMUN TIME THE FUGITIVE IS ALLOWED TO BE IN A PLOT OR SAFEZONE RADIUS TO RECEIVE HIS REWARD IN CASE OF WIN (a percentage of _aliveTimeToWin)
 _maxTimeNearPlot = 0.15;
 
-//TIME CYCLE *IN SECONDS* TO CHECK FOR PLOTS NEAR THE FUGITIVE AND SAFEZONES
 _onPlotCheckFrequency = 20;
 
-//THE RADIUS OF THE POSITION HINT (FUGITIVE WILL BE SOMEWHERE INSIDE THE CIRCLE) *IN METERS*
 _circleSize = 150;
 
-//MINIMUM NUMBER OF PLAYERS TO RUN
 _minPlayersToRun = 15;
 
-//TIME TO WAIT BEFORE TRY TO RUN AGAIN *IN MINUTES*
 _runTimeInter = 50;
 
-//FIRST RUN DELAY *IN MINUTES*
 _firstRunDelay = 30;
 
-//FUGITIVE TIME REWARDS: [time in minutes to exec reward (in sequence),reward message,reward code where _this is the fugitive]
 _fugitiveRewards = [
 	[4,"The Fugitive received a MK 48 and Ammo.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_holder = createVehicle ['Weaponholder',_posFGround,[],0,'NONE'];_holder addWeaponCargoGlobal ['Mk_48_DZ',1];_holder addMagazineCargoGlobal ['100Rnd_762x51_M240',5];_this reveal [_holder,4];}],
 	[4,"The fugitive received a motorbike.",{_posF = position _this;_posFGround = [_posF select 0,_posF select 1,0];_veh = createVehicle ['TT650_Ins',_posFGround,[],8,'NONE'];_veh setVariable ['ObjectID','0',true];_veh setVariable ['ObjectUID',str round random 9999999,true];_this reveal [_veh,4];}],
@@ -38,65 +22,43 @@ _fugitiveRewards = [
 	[1/12,"",{{deleteVehicle _x;} forEach donn_seeSmoke;}]
 ];
 
-//SAFE ZONES
 _safezones = switch (toLower worldName) do {
-//NAPF
-		case "napf":{
-			[
-			//position
-			[8246.3184,15485.867,0],
-			[15506.952,13229.368,0],
-			[9167.5254,5443.9243,0],
-			[7841.8633,8851.4551,0],
-			[11065.948,11801.703,0],
-			[2036.6864,7815.2349,0],
-			[16840.762,5261.2378,0],
-			[8989.9902,7566.8682,0],
-			[18168.822,2115.8555,0]
-			];
-		};
-//chernarus
-		case "chernarus":{
-			[
-			//position
-			[6325.6772,7807.7412,0],
-			[4063.4226,11664.19,0],
-			[11447.472,11364.504,0],
-			[3445.0112,3804.1453,0],
-			[12944.227,12766.889,0],
-			[13441.16,5429.3013,0],
-			[5066.8984,9729.3574,0],
-			[4361.4937,2259.9526,0]
-			];
-		};
-//tavi
-		case "tavi":{
-			[
-			//position
-			[11698.81,15210.121,0],
-			[15309.663,9278.4912,0],
-			[5538.7354,8762.2695,0],
-			[7376.6084,4296.5879,0],
-			[15587.822,16394.049,0],
-			[16555.732,10159.68,0],
-			[6815.0776,8534.1504,0],
-			[4066.3528,7265.0024,0],
-			[17497.631,7159.0879,0],
-			[13342.758,8611.9932,0],
-			[9859.4209,7471.5684,0]
-			];
-		};
-//default
-		default{
-			[
-			//position
-			[0,0,0]
-			];
-		};
+	case "chernarus":{
+		[
+		[6325.6772,7807.7412,0],
+		[4063.4226,11664.19,0],
+		[11447.472,11364.504,0],
+		[3445.0112,3804.1453,0],
+		[12944.227,12766.889,0],
+		[13441.16,5429.3013,0],
+		[5066.8984,9729.3574,0],
+		[4361.4937,2259.9526,0]
+		];
+	};
+	case "tavi":{
+		[
+		[11698.81,15210.121,0],
+		[15309.663,9278.4912,0],
+		[5538.7354,8762.2695,0],
+		[7376.6084,4296.5879,0],
+		[15587.822,16394.049,0],
+		[16555.732,10159.68,0],
+		[6815.0776,8534.1504,0],
+		[4066.3528,7265.0024,0],
+		[17497.631,7159.0879,0],
+		[13342.758,8611.9932,0],
+		[9859.4209,7471.5684,0]
+		];
+	};
+	default{
+		[
+		[0,0,0]
+		];
+	};
 };
+
 _safezonesRad = 160;
 
-//ADMINS STEAM ID (TO PREVENT THE SCRIPT TO SELECT ADMINS AS FUGITIVE)
 _LAdmins = [							
 	"76561198080045762", // Deadskin (Mod)
 	"76561198060389676", // Powerwolf
@@ -107,7 +69,6 @@ _LAdmins = [
 "0"
 ]; 
 
-/*  ADMINISTRATORS         */ 
 _NAdmins = [
 	"76561198257149369", // TangoWhiskey
 	"76561197960289679", // TangoWhiskey(mod account a3)
@@ -119,12 +80,11 @@ _NAdmins = [
 "0"
 ]; 
 
-/* HEAD ADMINS / OWNERS     */ 
 _SAdmins = [
 	"76561198078201908", // Gr8 
 	"76561198153784743", // Ghost
 	"76561198137100220", // Deadskin
-	"76561198115492831", //BigEgg
+	"76561198115492831", // BigEgg
 	"76561198147801221", // Dark
 	"76561198056028211", // Nasty
 "0"
@@ -132,13 +92,8 @@ _SAdmins = [
 
 _admins = _SAdmins+_NAdmins+_LAdmins;
 
-//=====================
-// FUNCTIONS ==========
-//=====================
-
 _lockedFugitives = [];
 
-//THE TWO LINES BELLOW ARE EPOCH SPECIFIC
 waitUntil {!isNil "DZE_safeVehicle"};
 DZE_safeVehicle = DZE_safeVehicle + ["TT650_Ins"];
 
@@ -160,10 +115,6 @@ donn_fugitiveChoose = {
 	} forEach playableUnits;
 	_fugitive
 };
-
-//=====================
-// THE SCRIPT =========
-//=====================
 
 _aliveTimeToWin = round (_aliveTimeToWin*60);
 _runTimeInter = round (_runTimeInter*60);
@@ -187,7 +138,6 @@ while {true} do {
 		};
 		_sleepCMark = round(_onPlotCheckFrequency/_timeCell);
 		_sleepDMark = round (10/_timeCell);
-		//_sleepA = _sleepAMark;
 		_sleepA = 0;
 		_sleepB = 0; 
 		_sleepC = 0;
