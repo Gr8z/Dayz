@@ -2916,7 +2916,7 @@ if (!isDedicated) then {
 			systemChat ("Server: "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
-		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 150; };
+		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 175; };
 		if ((count (nearestObjects [player,DZE_maintainClasses,120])) >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText ['Cannot Build, You have reached your building limit!','PLAIN'];
