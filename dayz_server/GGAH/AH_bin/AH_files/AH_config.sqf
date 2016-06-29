@@ -279,26 +279,26 @@
 	_CC_RULES 	= true;		//Use !rules command?
 	_CC_RTXT 	=			//Message(s) that will be sent when a player types !RULES
 	[
-		"<t color='#f00000'size='1.5'>Server rules</t><br/>",
-		"<t color='#D42436'>1</t>. No building near blacklisted buildings!<br/>",
-		"<t color='#D42436'>2</t>. You may not build anywhere within 1000m of trader or trader cities<br/>",
-		"<t color='#D42436'>3</t>. You may not build within 500m of any airfields or military bases. <br/>",
-		"<t color='#D42436'>4</t>. No ramming in safe zone.<br/>",
-		"<t color='#D42436'>5</t>. Exploiting the safe zone/God mode is not allowed.<br/>",
-		"<t color='#D42436'>6</t>. NO EXPLOITING (This includes duping, exploiting bugs, exploiting trader mistakes, combat logging, etc)!<br/>",
-		"<t color='#D42436'>7</t>. No voice on sidechat!<br/>",
-		"<t color='#D42436'>8</t>. No harassing players!<br/>",
-		"<t color='#D42436'>9</t>. No insulting admins or the server! Treat us how you want to be treated!<br/>",
-		"<t color='#D42436'>10</t>. No advertising!<br/>",
-		"<t color='#D42436'>11</t>. Use common sense!<br/>",
-		"<t color='#D42436'>12</t>. Last, but not least, HAVE FUN!<br/>",
-		"<t size='1'>Type <t color='#f00000'>!rules</t> to hide this menu.</t><br/>"
+		"<t color='#0000FF'size='1.5'>Server rules</t><br/>",
+		"<t color='#0000FF'>1.</t> No Duping, Exploiting, or Hacking of any kind!<br/>",
+		"<t color='#0000FF'>2.</t> No Excessive camping of safezones (time subject to admin discretion)!<br/>",
+		"<t color='#0000FF'>3.</t> Do not use voice over Global Chat!<br/>",
+		"<t color='#0000FF'>4.</t> No ramming in safezones!<br/>",
+		"<t color='#0000FF'>5.</t> No combat evading using safezones!<br/>",
+		"<t color='#0000FF'>6.</t> No Squad XML's!<br/>",
+		"<t color='#0000FF'>7.</t> Do not be abusive in side chat!<br/>",
+		"<t color='#0000FF'>8.</t> No combat logging! Repeat offenders will be banned!<br/>",
+		"<t color='#0000FF'>9.</t> Respect all Staff Members! We are here to help!<br/>",
+		"<t color='#0000FF'>10.</t> Advertising other servers will get you banned!<br/>",
+		"<t color='#0000FF'>11.</t> Please use common sense while playing on our servers!<br/>",
+		"<t color='#0000FF'>12.</t> Most of all, have fun!<br/>",
+		"<t size='1'>Type <t color='#0000FF'>!rules</t> to hide this menu.</t><br/>"
 	];
 	/**TEAMSPEAK IP**/
 	_CC_TS3 	= true;		//Use !TS3 command?
 	_CC_TSTXT 	=			//Message(s) that will be sent when a player types !TS3
 	[
-		"Our Teamspeak 3 Address is: TS.GhostzGamerz.com"
+		"Our TeamSpeak 3 Address is: TS.GhostzGamerz.com"
 	];
 /**Escape menu**/
 	_ESC_MENU	= true;		//Modify ESC menu?
