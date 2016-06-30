@@ -94,6 +94,7 @@ Engineer3 = [
 	"76561198074900512", // P.A. Pinguin (EXP-2016-09-16)
 	"76561198112823514", // P.A. Seth (EXP-2016-09-16)
 	"76561198135739831", // Daveyy (EXP-2016-07-26)
+	"76561198121815666", // Rebo500 (EXP-2016-07-30)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
