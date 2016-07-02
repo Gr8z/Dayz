@@ -308,6 +308,7 @@ Scout3 = [
 	"76561198073062201", // Tyler Jones (EXP-2016-07-24)
 	"76561198135739831", // Daveyy (EXP-2016-07-26) [Bonus 50%off for being one of the top donors]
 	"76561198054707975", // Nv Goggles (EXP-2016-07-26) (previous donor, upgraded his loadout with briefs)
+	"76561198052998138", // Cody (EXP-2016-08-01)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
