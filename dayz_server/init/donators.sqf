@@ -240,7 +240,6 @@ Scout2 = [
 	"76561198083230967", // Cian1 (EXP-2016-08-13)
 	"76561198097844265", // Q-is for Qcumber (EXP-2016-07-16)
 	"76561198227775112", // Katheri (EXP-2016-07-26)
-	"76561198314443809", // Precision (EXP-2016-08-01)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
@@ -310,6 +309,7 @@ Scout3 = [
 	"76561198135739831", // Daveyy (EXP-2016-07-26) [Bonus 50%off for being one of the top donors]
 	"76561198054707975", // Nv Goggles (EXP-2016-07-26) (previous donor, upgraded his loadout with briefs)
 	"76561198052998138", // Cody (EXP-2016-08-01)
+	"76561198314443809", // Precision (EXP-2016-08-01) [Upgraded it with extra briefs, same EXP]
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
