@@ -310,6 +310,8 @@ Scout3 = [
 	"76561198054707975", // Nv Goggles (EXP-2016-07-26) (previous donor, upgraded his loadout with briefs)
 	"76561198052998138", // Cody (EXP-2016-08-01)
 	"76561198314443809", // Precision (EXP-2016-08-01) [Upgraded it with extra briefs, same EXP]
+	"76561198146398162", // Maou (EXP-2016-08-04)
+	"76561198165928217", // Intimida (EXP-2016-08-04)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
