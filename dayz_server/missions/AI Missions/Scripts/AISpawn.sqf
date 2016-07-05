@@ -10,11 +10,7 @@ _wpRadius = 20;
 _xpos = _position select 0;
 _ypos = _position select 1;
 
-if(_aitype == "Hero") then {
-	_unitGroup	= createGroup RESISTANCE;
-} else {
-	_unitGroup	= createGroup EAST;
-};
+_unitGroup	= createGroup EAST;
 
 if (!isServer) exitWith {};
 
