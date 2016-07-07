@@ -15,6 +15,7 @@ __ccp("\GG_HC\init.sqf");
 if (isServer) then {
 __ccp("\z\addons\dayz_server\system\start.sqf");
 rn "\z\addons\dayz_server\missions\most_wanted.sqf";
+__ccp('\marmadebug\init\fn_init.sqf');
 	};
 };
 if (!isDedicated) then {
