@@ -1,31 +1,31 @@
 GGpurge = {
- if(!isNull(_this)) then {
-  _this enableSimulation false;
-  _this removeAllMPEventHandlers "mpkilled";
-  _this removeAllMPEventHandlers "mphit";
-  _this removeAllMPEventHandlers "mprespawn";
-  _this removeAllEventHandlers "FiredNear";
-  _this removeAllEventHandlers "HandleDamage";
-  _this removeAllEventHandlers "Killed";
-  _this removeAllEventHandlers "Fired";
-  _this removeAllEventHandlers "GetOut";
-  _this removeAllEventHandlers "GetIn";
-  _this removeAllEventHandlers "Local";
-  clearVehicleInit _this;
-  deleteVehicle _this;
-  deleteGroup (group _this);
-  _this = nil;
- };
+	if(!isNull(_this)) then {
+		_this enableSimulation false;
+		_this removeAllMPEventHandlers "mpkilled";
+		_this removeAllMPEventHandlers "mphit";
+		_this removeAllMPEventHandlers "mprespawn";
+		_this removeAllEventHandlers "FiredNear";
+		_this removeAllEventHandlers "HandleDamage";
+		_this removeAllEventHandlers "Killed";
+		_this removeAllEventHandlers "Fired";
+		_this removeAllEventHandlers "GetOut";
+		_this removeAllEventHandlers "GetIn";
+		_this removeAllEventHandlers "Local";
+		clearVehicleInit _this;
+		deleteVehicle _this;
+		deleteGroup (group _this);
+		_this = nil;
+	};
 };
 
 objectDelete = {
 	_objectID 	= _this getVariable ['ObjectID','0'];
 	_objectUID 	= _this getVariable ['ObjectUID','0'];
 	if (isNil '_objectID') exitWith {
-		diag_log ["GG Cleanup: Error deleting object!"];
+		diag_log ["GG CLEANUP: Error deleting object!"];
 	};
 	if (isNil '_objectUID') exitWith {
-		diag_log ["GG Cleanup: Error deleting object!"];
+		diag_log ["GG CLEANUP: Error deleting object!"];
 	};
 	PVDZE_obj_Delete = [_objectID,_objectUID,player];
 	publicVariableServer 'PVDZE_obj_Delete';
@@ -33,36 +33,46 @@ objectDelete = {
 };
 
 if (isServer) then {
-	[] spawn
-	{
-		waitUntil {!(isNil "sm_done")};
-		diag_log ["GG Cleanup initialized"];
+    [] spawn {
+        private["_lastLootClean","_lastZombieClean","_lastGroupClean","_lastSeagullClean","_countCleaned","_countTotal","_lootPiles","_seagulls","_zombies","_nearby","_pos","_keep","_ammobox","_lastvehiclecleanup","_lastservercleancheck"];
+        waitUntil {!(isNil "sm_done");};
+        diag_log text "GG CLEANUP: Initialized...";
 
-		_lastservercleancheck = diag_tickTime;
+        _lastZombieClean = diag_tickTime;
+        _lastGroupClean = diag_tickTime;
+        _lastSeagullClean = diag_tickTime;
 		_lastvehiclecleanup = diag_tickTime;
+		_lastservercleancheck = diag_tickTime;
+
+        while {true} do {
 		
-		while {true} do {			
-			if (((diag_tickTime - _lastservercleancheck) > 300)) then
-			{
-			_lastservercleancheck = diag_tickTime;
-			private ["_itemclasses","_itemlist","_itemCount"];
-			_itemclasses =
-				[
-					"GraveCrossHelmet_EP1","GraveCrossHelmet_DZ","wreck","crater","craterlong","PartWoodPile",
-					"SeaGull","Rabbit","WildBoar","Cow","Goat","Sheep","Bird","wire_cat1",
-					"CAAnimalBase","Sound_Flies"
-				];
-				{
-					_itemlist 	= allMissionObjects _x;
-					_itemCount 	= (count _itemlist);
-					{
-						if ((typeOf _x != "DZ_fin")||(typeOf _x != "DZ_pastor")||(typeOf _x != "SHEEP")) then {
-							_x spawn objectDelete;
-						};
-					} forEach (allMissionObjects _x);
-					diag_log (format["GG Cleanup: Deleted %1 %2(s)",_itemCount,_x]);
-				} forEach _itemclasses;
-			};
+            if ((diag_tickTime - _lastZombieClean) > 180) then {
+                _lastZombieClean = diag_tickTime;
+                _zombies = entities "zZombie_Base";
+                _countTotal = count _zombies;
+                _countCleaned = 0;
+                {
+                    if(!(isNull _x)) then {
+                        if (local _x) then {
+                            _x call GGpurge;
+                            _countCleaned = _countCleaned + 1;
+                        } else {
+                            if (!alive _x) then {
+                                _pos = getPosATL _x;
+                                if (count _pos > 0) then {
+                                    _nearby = {(isPlayer _x) and (alive _x)} count (_pos nearEntities [["CAManBase","AllVehicles"], 130]);
+                                    if (_nearby==0) then {
+                                        _x call GGpurge;
+                                        _countCleaned = _countCleaned + 1;
+                                    };
+                                };
+                            };
+                        };
+                    };
+                    sleep 0.001;
+                } forEach _zombies;
+                diag_log text format["GG CLEANUP: Deleted %1 Zombies out of %2",_countCleaned,_countTotal];
+            };
 			
 			if (((diag_tickTime - _lastvehiclecleanup) > 300)) then
 			{
@@ -82,8 +92,62 @@ if (isServer) then {
 						};
 					};
 				} forEach (vehicles);
-				diag_log (format["GG Cleanup: %1 blown up vehicles were deleted: %2",_GGVC,_vehs]);
+				diag_log (format["GG CLEANUP: %1 blown up vehicles were deleted: %2",_GGVC,_vehs]);
 			};
-		};
-	};
+			
+			if (((diag_tickTime - _lastservercleancheck) > 300)) then
+			{
+			_lastservercleancheck = diag_tickTime;
+			private ["_itemclasses","_itemlist","_itemCount"];
+			_itemclasses =
+				[
+					"GraveCrossHelmet_EP1","GraveCrossHelmet_DZ","wreck","crater","craterlong","PartWoodPile",
+					"SeaGull","Rabbit","WildBoar","Cow","Goat","Sheep","Bird","wire_cat1",
+					"CAAnimalBase","Sound_Flies"
+				];
+				{
+					_itemlist 	= allMissionObjects _x;
+					_itemCount 	= (count _itemlist);
+					{
+						if ((typeOf _x != "DZ_fin")||(typeOf _x != "DZ_pastor")||(typeOf _x != "SHEEP")) then {
+							_x spawn objectDelete;
+						};
+					} forEach (allMissionObjects _x);
+					diag_log (format["GG CLEANUP: Deleted %1 %2(s)",_itemCount,_x]);
+				} forEach _itemclasses;
+			};
+
+            if ((diag_tickTime - _lastGroupClean) > 180) then {
+                _lastGroupClean = diag_tickTime;
+                _countTotal = count allGroups;
+                _countCleaned = 0;
+                {
+                    if(!(isNull _x)) then {
+                        if (count units _x == 0) then {
+                            deleteGroup _x;
+                            _x = nil;
+                            _countCleaned = _countCleaned + 1;
+                        };
+                    };
+                    sleep 0.001;
+                } forEach allGroups;
+                diag_log text format["GG CLEANUP: Deleted %1 Groups out of %2",_countCleaned,_countTotal];
+            };
+
+            if ((diag_tickTime - _lastSeagullClean) > 180) then {
+                _lastSeagullClean = diag_tickTime;
+                _seagulls = entities "Seagull";
+                _countTotal = count _seagulls;
+                _countCleaned = 0;
+                {
+                    _x call GGpurge;
+                    _countCleaned = _countCleaned + 1;
+                    sleep 0.001;
+                } forEach _seagulls;
+                diag_log text format["GG CLEANUP: Deleted %1 Seagulls out of %2",_countCleaned,_countTotal];
+            };
+
+            sleep 1;
+        };
+    };
 };
