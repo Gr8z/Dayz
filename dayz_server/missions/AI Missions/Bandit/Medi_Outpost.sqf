@@ -1,10 +1,12 @@
-private ["_missName","_coords","_base","_base1","_base2","_base3","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate2"];
+private ["_missName","_coords","_base","_base1","_base2","_base3","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate2","_txt"];
 
 _missName = "[Mission] Medical Outpost";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Bandit's have established a Medical Outpost!\nGo Secure their Medical Supplies!", "PLAIN",10] call RE;
+_txt = "Bandit's have established a Medical Outpost! Go Secure their Medical Supplies!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM BanditMarker;
 
@@ -40,7 +42,10 @@ sleep 3;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Medical Outpost is under Hero Control!", "PLAIN",6] call RE;
+_txt = "The Medical Outpost is under Hero Control!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Medical Outpost Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

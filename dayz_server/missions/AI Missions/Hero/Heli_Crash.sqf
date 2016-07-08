@@ -1,10 +1,12 @@
-private ["_missName","_coords","_crash","_crate"];
+private ["_missName","_coords","_crash","_crate","_txt"];
 
 _missName = "[Mission] Helicopter Crash";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"A Helicopter has Crashed!\nGo Check for Survivors!", "PLAIN",10] call RE;
+_txt = "A Helicopter has Crashed! Go Check for Survivors!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM HeroMarker;
 
@@ -25,7 +27,10 @@ sleep 1;
 
 [_coords,"HeroUnits"] call WaitMissionComp;
 
-[nil,nil,rTitleText,"The Helicopter Crash has been Secured by Bandits!", "PLAIN",6] call RE;
+_txt = "The Helicopter Crash has been Secured by Bandits!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Hero Crash Site Mission has Ended."];
 deleteMarker "HeroMarker";
 deleteMarker "HeroDot";

@@ -1,10 +1,12 @@
-private ["_missName","_coords","_crash","_crate","_crate1","_crate2"];
+private ["_missName","_coords","_crash","_crate","_crate1","_crate2","_txt"];
 
 _missName = "[Mission] Weapons Truck";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"A Weapons Truck has Crashed!\nGo Recover the Supplies!", "PLAIN",10] call RE;
+_txt = "A Weapons Truck has Crashed! Go Recover the Supplies!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM BanditMarker;
 
@@ -43,7 +45,10 @@ sleep 1;
 
 [_coords,"BanditUnits"] call WaitMissionComp;
 
-[nil,nil,rTitleText,"The Weapons Truck has been Secured by Heroes!", "PLAIN",6] call RE;
+_txt = "The Weapons Truck has been Secured by Heroes!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Weapons Truck Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

@@ -1,14 +1,15 @@
-private ["_missName","_coords","_base1","_base2","_base3","_base4","_base5","_base6","_base7","_base8","_base9","_base10","_base11","_base12","_base13","_base14","_base15","_base16","_base17","_veh1","_vehicle","_crate"];
+private ["_missName","_coords","_base1","_base2","_base3","_base4","_base5","_base6","_base7","_base8","_base9","_base10","_base11","_base12","_base13","_base14","_base15","_base16","_base17","_veh1","_vehicle","_crate","_txt"];
 
 _missName = "[Mission] Bandit Medical Camp";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Bandit's have taken a Medical Camp!\nStop Them from Re-Supplying their men!", "PLAIN",10] call RE;
+_txt = "Bandit's have taken a Medical Camp! Stop Them from Re-Supplying their men!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM BanditMarker;
 
-//Create the scenery
 _base1 = createVehicle ["Land_fort_artillery_nest",[(_coords select 0) - 5.939,(_coords select 1) + 10.0459,0],[], 0, "CAN_COLLIDE"];
 _base1 setDir -31.158424;
 [_base1] call ProtectObj;
@@ -102,7 +103,10 @@ sleep 5;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"Heroes have retaken the Camp and Medical Supplies.", "PLAIN",6] call RE;
+_txt = "Heroes have retaken the Camp and Medical Supplies.";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Medical Camp Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

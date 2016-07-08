@@ -1,10 +1,12 @@
-private ["_missName","_coords","_vehicle"];
+private ["_missName","_coords","_vehicle","_txt"];
 
 _missName = "[Mission] Bandit Squad";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"A Bandit Squad has been spotted!\nStop them from completing their patrol!", "PLAIN",10] call RE;
+_txt = "A C130 Carrying Supplies has Crashed! Heroes are Securing the Cargo!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM HeroMarker;
 
@@ -19,7 +21,10 @@ sleep 1;
 
 [_coords,"BanditUnits"] call WaitMissionComp;
 
-[nil,nil,rTitleText,"The Bandit Squad has been Wiped Out!", "PLAIN",6] call RE;
+_txt = "The Bandit Squad has been Wiped Out!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Squad Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

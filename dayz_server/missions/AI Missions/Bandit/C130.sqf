@@ -1,10 +1,12 @@
-private ["_missName","_coords","_wreck","_trash","_trash1","_trash2","_trash3","_trash4","_trash5","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate1"];
+private ["_missName","_coords","_wreck","_trash","_trash1","_trash2","_trash3","_trash4","_trash5","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate1","_txt"];
 
 _missName = "[Mission] C130 Crash";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"A C130 Carrying Supplies has Crashed!\nBandits are Securing the Cargo!", "PLAIN",10] call RE;
+_txt = "A C130 Carrying Supplies has Crashed! Bandits are Securing the Cargo!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM BanditMarker;
 
@@ -81,7 +83,10 @@ sleep 5;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The C130 Crash Site has been Secured!", "PLAIN",6] call RE;
+_txt = "The C130 Crash Site has been Secured!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit C130 Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

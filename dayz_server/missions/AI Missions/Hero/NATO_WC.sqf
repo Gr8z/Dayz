@@ -1,10 +1,12 @@
-private ["_missName","_coords","_net","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate1","_crate2","_crate3"];
+private ["_missName","_coords","_net","_veh1","_veh2","_vehicle","_vehicle1","_crate","_crate1","_crate2","_crate3","_txt"];
 
 _missName = "[Mission] NATO Weapons Cache";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Heroes have secured a NATO Weapons Cache!", "PLAIN",10] call RE;
+_txt = "Heroes have secured a NATO Weapons Cache!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM HeroMarker;
 
@@ -42,7 +44,10 @@ sleep 5;
 
 [_coords,"HeroUnits"] call WaitMissionComp;
 
-[nil,nil,rTitleText,"The Weapons Cache is Under Bandit Control!", "PLAIN",6] call RE;
+_txt = "The Weapons Cache is Under Bandit Control!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Hero Weapon Cache Mission has Ended."];
 deleteMarker "HeroMarker";
 deleteMarker "HeroDot";

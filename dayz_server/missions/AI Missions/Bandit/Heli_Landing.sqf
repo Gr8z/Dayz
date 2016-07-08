@@ -1,10 +1,12 @@
-private ["_missName","_coords","_ranChopper","_chopper","_truck","_trash","_trash2","_crate","_crate2"];
+private ["_missName","_coords","_ranChopper","_chopper","_truck","_trash","_trash2","_crate","_crate2","_txt"];
 
 _missName = "[Mission] Helicopter Landing";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"A Supply Helicopter has been Forced to Land!\nStop the Bandits from Refueling!", "PLAIN",10] call RE;
+_txt = "A Supply Helicopter has been Forced to Land! Stop the Bandits from Refueling!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM BanditMarker;
 
@@ -44,7 +46,10 @@ sleep 5;
 [_chopper] ExecVM SaveVeh;
 [_truck] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Helicopter has been Taken by Heroes!", "PLAIN",6] call RE;
+_txt = "The Helicopter has been Taken by Heroes!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Helicopter Landing Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

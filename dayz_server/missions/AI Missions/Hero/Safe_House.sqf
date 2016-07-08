@@ -1,10 +1,12 @@
-private ["_missName","_coords","_base","_base1","_veh1","_vehicle","_crate"];
+private ["_missName","_coords","_base","_base1","_veh1","_vehicle","_crate","_txt"];
 
 _missName = "[Mission] Safe House";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Heroes have set up a Safe House!\nGo Empty it Out!", "PLAIN",10] call RE;
+_txt = "Heroes have set up a Safe House! Go Empty it Out!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM HeroMarker;
 
@@ -36,7 +38,10 @@ sleep 3;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Safe House is under Bandit Control!", "PLAIN",6] call RE;
+_txt = "The Safe House is under Bandit Control!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Hero Safe House Mission has Ended."];
 deleteMarker "HeroMarker";
 deleteMarker "HeroDot";

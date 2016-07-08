@@ -1,10 +1,12 @@
-private ["_missName","_coords","_crash","_body","_body1","_body2","_body3","_veh1","_vehicle","_vehicle1","_crate","_crate2"];
+private ["_missName","_coords","_crash","_body","_body1","_body2","_body3","_veh1","_vehicle","_vehicle1","_crate","_crate2","_txt"];
 
 _missName = "[Mission] Ural Ambush";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Heroes have Ambushed a Bandit Ural Carrying Supplies!", "PLAIN",10] call RE;
+_txt = "Heroes have Ambushed a Bandit Ural Carrying Supplies!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM HeroMarker;
 
@@ -54,7 +56,10 @@ sleep 5;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Ural Supplies have been Secured by Bandits!", "PLAIN",6] call RE;
+_txt = "The Ural Supplies have been Secured by Bandits!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Hero Ural Ambush Mission has Ended."];
 deleteMarker "HeroMarker";
 deleteMarker "HeroDot";

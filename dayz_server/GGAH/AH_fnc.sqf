@@ -327,6 +327,14 @@ call compile ("
 			'dayzSetRainAH' addPublicVariableEventHandler {3 setRain dayzSetRainAH};
 			'dayzSetOvercastAH' addPublicVariableEventHandler {3 setOvercast dayzSetOvercastAH};
 			'dayzSetViewDistanceAH' addPublicVariableEventHandler {setViewDistance dayzSetViewDistanceAH};
+			'fnc_show_colorAdminMsg' addPublicVariableEventHandler
+			{
+				_array = _this select 1;
+				_msg = _array select 0;
+				_clr = _array select 1;
+				['<t size=''0.55'' font=''Zeppelin32'' color='+(str _clr)+'>'+(_msg)+'</t>',
+				safeZoneXAbs/safeZoneWAbs/4,SafeZoneY+0.02,10,0,0,3079] spawn bis_fnc_dynamicText;
+			};
 			
 			if ("+_playerID+" player in ""+(str AH_AdminArray)+"") then {
 				_msg = ('Welcome, [ADMIN] '+name player+'!');

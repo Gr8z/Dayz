@@ -1,10 +1,12 @@
-private ["_missName","_coords","_base","_base1","_veh1","_vehicle","_crate"];
+private ["_missName","_coords","_base","_base1","_veh1","_vehicle","_crate","_txt"];
 
 _missName = "[Mission] Stash House";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Bandit's have set up a Stash House!\nGo Empty it Out!", "PLAIN",10] call RE;
+_txt = "Bandit's have set up a Stash House! Go Empty it Out!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missName] ExecVM BanditMarker;
 
@@ -36,7 +38,10 @@ sleep 3;
 
 [_vehicle] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Stash House is under Hero Control!", "PLAIN",6] call RE;
+_txt = "The Stash House is under Hero Control!";
+fnc_show_colorAdminMsg = [_txt,'#F00000'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Bandit Stash House Mission has Ended."];
 deleteMarker "BanditMarker";
 deleteMarker "BanditDot";

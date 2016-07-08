@@ -1,10 +1,12 @@
-private ["_missName","_coords","_net","_veh1","_veh2","_vehicle","_vehicle1","_crate"];
+private ["_missName","_coords","_net","_veh1","_veh2","_vehicle","_vehicle1","_crate","_txt"];
 
 _missName = "[Mission] Medical Cache";
 
 _coords = call AIMissionFindPos;
 
-[nil,nil,rTitleText,"Heroes have Taken Over a Bandit Medical Cache!", "PLAIN",10] call RE;
+_txt = "Heroes have Taken Over a Bandit Medical Cache!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
 
 [_coords,_missname] ExecVM HeroMarker;
 
@@ -44,7 +46,10 @@ sleep 5;
 [_vehicle] ExecVM SaveVeh;
 [_vehicle1] ExecVM SaveVeh;
 
-[nil,nil,rTitleText,"The Medical Cache has been retaken by Bandits!", "PLAIN",6] call RE;
+_txt = "The Medical Cache has been retaken by Bandits!";
+fnc_show_colorAdminMsg = [_txt,'#0049FF'];
+publicVariable 'fnc_show_colorAdminMsg';
+
 diag_log text format["[AI Missions]: Hero Medical Cache Mission has Ended."];
 deleteMarker "HeroMarker";
 deleteMarker "HeroDot";
