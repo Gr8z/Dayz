@@ -8,7 +8,7 @@ _txt = "A C130 Carrying Supplies has Crashed! Heroes are Securing the Cargo!";
 fnc_show_colorAdminMsg = [_txt,'#F00000'];
 publicVariable 'fnc_show_colorAdminMsg';
 
-[_coords,_missName] ExecVM HeroMarker;
+[_coords,_missName] ExecVM BanditMarker;
 
 [_coords,2,1,"BanditUnits","bandit","bandit"] call AISpawn;
 sleep 5;
