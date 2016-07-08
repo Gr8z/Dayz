@@ -24,7 +24,7 @@ DZE_nobuildarray 	= [
 	[[8385.834,2368.8264,0],[0,1000],"Boat Trader1",""],
 	[[13093.446,8241.5625,0],[0,1000],"Boat Trader2",""],
 	[[7769.396,4485.5698,0],[0,500],"Mogilevka Base","ColorRed"],
-	[[13725.498, 2907.4512,0],[0,500],"Skalisty Base","ColorRed"],
+	[[13725.498, 2907.4512,0],[0,1250],"Skalisty Base","ColorRed"],
 	[[7286.0166, 9730.1201,0],[0,500],"Grishino Base","ColorRed"],
 	[[4515.4116,8297.4551,0],[0,500],"Dichina Base","ColorRed"],
 	[[9526.87,11329.6,0],[0,500],"Novy Base","ColorRed"]
