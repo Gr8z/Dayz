@@ -297,6 +297,8 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Large Donor Safe"",donorsafe3,""0"",""0"",""0"",""0"",[1,1,0,1]]];
+				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""=======================Admin Boxes======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Admin Crate"",admincrate,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
 				adminadd set [count adminadd,[""  Spawn Building Crate"",admincrate_epoch_4,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
@@ -434,6 +436,8 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Large Donor Safe"",donorsafe3,""0"",""0"",""0"",""0"",[1,1,0,1]]];
+				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -4369,6 +4373,92 @@ systemChat (""""Hello!"""");
 					['storage_shed_kit',2]
 				];
 				_backpack = [['DZ_LargeGunbag_EP1',2]];
+
+				_weparray1 = [];
+				_weparray2 = [];
+				{_weparray1 set [count _weparray1,_x select 0];_weparray2 set [count _weparray2,_x select 1]} forEach _weapons;
+				_weparray = [_weparray1,_weparray2];
+				
+				_magarray1 = [];
+				_magarray2 = [];
+				{_magarray1 set [count _magarray1,_x select 0];_magarray2 set [count _magarray2,_x select 1]} forEach _magazines;
+				_magarray = [_magarray1,_magarray2];
+				
+				_bakarray1 = [];
+				_bakarray2 = [];
+				{_bakarray1 set [count _bakarray1,_x select 0];_bakarray2 set [count _bakarray2,_x select 1]} forEach _backpack;
+				_bakarray = [_bakarray1,_bakarray2];
+				
+				don8_code = nil;
+				['Donator safe','Code:','Set','don8_code'] call AH_fnc_displayCreate;
+				if (isNil 'don8_code') then {
+					_msg = 'Code not set, donor safe cancelled.';
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+				} else {
+					_msg = 'Spawning donor safe...';
+					systemChat ("""+_AH_CHAT+": "" + str _msg);
+					_msg call AH_fnc_dynTextMsg;
+					
+					_dir = (getDir player);
+					_offset_x = 0; 
+					_offset_y = 1.5;
+					_offset_z = 0;
+					_location = player modeltoworld [_offset_x,_offset_y,_offset_z];
+					_building = nearestObject [(vehicle player), 'HouseBase'];
+					if([(vehicle player),_building] call fnc_isInsideBuilding) then {
+						_location = _building modelToWorld (_building worldToModel _location);
+					} else {
+						_location = player modelToWorld [_offset_x,_offset_y,_offset_z];
+					};
+					
+					_t3mp0v4ult = createVehicle ['VaultStorageLocked', _location, [], 0, 'CAN_COLLIDE'];
+					_t3mp0v4ult setdir _dir;
+					_t3mp0v4ult setpos _location;
+					player reveal _t3mp0v4ult;
+					_t3mp0v4ult setVariable ['CharacterID',don8_code,true];
+					_t3mp0v4ult setVariable ['OEMPos',_location,true];
+					
+					PVDZE_obj_Publish = [don8_code,_t3mp0v4ult,[_dir,_location,[(vectorDir _t3mp0v4ult),(vectorUp _t3mp0v4ult)]],'VaultStorageLocked'];
+					publicVariableServer  'PVDZE_obj_Publish';
+					
+					_t3mp0v4ult setVariable ['WeaponCargo',_weparray,true];
+					_t3mp0v4ult setVariable ['BackpackCargo',_bakarray,true];
+					_t3mp0v4ult setVariable ['MagazineCargo',_magarray,true];
+				};
+			};
+			donorsafe4 = {
+				_weapons = [
+					['ItemCrowbar',1],
+					['ItemToolbox',1],
+					['ItemEtool',1],
+					['USSR_cheytacM200_sd',1]
+				];
+				_magazines = [
+					['USSR_5Rnd_408',3],
+					['30m_plot_kit',1],
+					['workbench_kit',1],
+					['cinder_wall_kit',3],
+					['MortarBucket',3],
+					['CinderBlocks',12],
+					['cinder_door_kit',1],
+					['ItemComboLock',1],
+					['ItemPole',1],
+					['ItemTankTrap',1],
+					['metal_floor_kit',2],
+					['ItemVault',1],
+					['ItemSledgeHead',1],
+					['ItemSledgeHandle',1],
+					['storage_shed_kit',1],
+					['ItemBloodbag',5],
+					['ItemBandage',10],
+					['ItemMorphine',5],
+					['ItemAntibiotic',5],
+					['ItemPainkiller',5],
+					['ItemTunaCooked',5],
+					['ItemSodaOrangeSherbet',5]
+				];
+				_backpack = [['DZ_LargeGunbag_EP1',1]];
 
 				_weparray1 = [];
 				_weparray2 = [];
