@@ -40,7 +40,7 @@ if (_count == 0) exitWith {
 	s_player_maintain_area_preview = -1;
 };
 
-_theCost = _count * 100;
+_theCost = _count * 250;
 _requirements = [[GCoins,_theCost]];
 
 
