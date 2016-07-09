@@ -3,10 +3,7 @@ private ["_spawnChance", "_spawnMarker", "_spawnRadius", "_markerRadius", "_item
 _loot_box = "USVehicleBox";
 //Random Loot List
 _loot_lists = [
-[
-["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar","ItemHotwireKit"], 
-["MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","MortarBucket","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole"]
-],
+[["ItemToolbox","ItemCrowbar","ItemEtool"],["cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","cinder_wall_kit","MortarBucket","MortarBucket","MortarBucket","MortarBucket","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","metal_floor_kit","metal_floor_kit","30m_plot_kit"]],
 [
 ["ItemToolbox","ItemToolbox","ItemToolbox","ItemCrowbar","ItemCrowbar","ItemCrowbar"], 
 ["CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","CinderBlocks","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole","ItemPole"]
