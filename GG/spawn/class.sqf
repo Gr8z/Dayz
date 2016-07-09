@@ -107,7 +107,7 @@ classPreview = {
 	removeAllItems _unit;
 	removeAllWeapons _unit;
 	removeBackpack _unit;
-	{if !(_x in (weapons _unit)) then {_unit addWeapon _x;_qty=1;};} count _weps+_startWeps;
+	{if !(_x in (weapons _unit)) then {_unit addWeapon _x;_qty=1;};} count _weps;
 	if ((primaryWeapon _unit) == "") then {deleteVehicle _unit;_unit = createAgent [_model,_pPos,[],0,"CAN_COLLIDE"];};
 	_unit attachTo [player,[.34,3.8,1.1]];
 	_unit setDir ((getDir player) + 180);
@@ -227,9 +227,6 @@ if (!_isPZombie && !_keepGear)  then {
 	removeAllWeapons player;
 	player addWeapon "Loot";
 	player addWeapon "Flare";
-	
-	{CHECK1 _qty = (_startMags select (_forEachIndex+1));CHECK2 for "_i" from 1 to _qty do {player addMagazine _x;_qty=1;};};} forEach _startMags;
-	{player addWeapon _x;_qty=1;} count _startWeps;
 	
 	_hasBinoc = 0;
 	_hasPistol = 0;
