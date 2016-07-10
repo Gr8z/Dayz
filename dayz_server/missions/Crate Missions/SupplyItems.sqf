@@ -83,7 +83,7 @@ _loot_box addBackpackCargoGlobal [_x,1];
 } forEach (_loot select 2);
  
 // Send Top Right message to users , requires Remote message script
-_hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>Supply Crate</t><br/><t align='center' color='#ffffff'>UN Agency drops life-saving supplies for Survivors, Check your Map for the Location!</t>"];
+_hint = parseText format["<t align='center' color='#0D00FF' shadow='2' size='1.75'>Supply Crate</t><br/><t align='center' color='#ffffff'>The United Nations droped life-saving supplies for survivors! Check your map for the location!</t>"];
 [nil,nil,rHINT,_hint] call RE;
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
