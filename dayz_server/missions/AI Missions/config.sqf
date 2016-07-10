@@ -3,8 +3,8 @@
 /* Give Humanity for Killing AI? */
 HumanityGain = true;
 /* How much Humanity? */
-HeroHumanity = 75;
-BanditHumanity = 75;
+HeroHumanity = 150;
+BanditHumanity = 150;
 /* Use Night Vision Goggles (Deleted on Restart)? */
 UseNVG = true;
 /* Allow AI to use RPG (1 per mission)? */
