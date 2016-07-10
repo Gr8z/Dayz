@@ -2918,7 +2918,7 @@ if (!isDedicated) then {
 		};
 		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 175; };
 		_basepos = [player] call FNC_GetPos;
-		_basecnt = count (nearestObjects [_basepos, DZE_maintainClasses, DZE_checkNearbyRadius]); 
+		_basecnt = count (nearestObjects [_basepos, DZE_maintainClasses, 60]); 
 		if (_basecnt >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText ["Cannot build, too many objects within 60m.", "PLAIN DOWN"];
