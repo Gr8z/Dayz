@@ -94,7 +94,7 @@ _presetClasses = [
 		["ItemFlashlight","ItemHatchet_DZE","ItemMap","Itemtoolbox"],4,
 		["LeeEnfield"],2,
 		["RH_m1911"],2,
-		[""],
+		["DZ_ALICE_Pack_EP1"],
 		[],4,
 		[],2,
 		[],2,
