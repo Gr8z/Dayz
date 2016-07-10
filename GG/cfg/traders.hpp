@@ -25,6 +25,7 @@ class CfgTraderCategory {
 	#include "Category\BuildingSupplies.hpp"
 	#include "Category\BusesandVans.hpp"
 	#include "Category\CargoTrucks.hpp"
+	#include "Category\Camels.hpp"
 	#include "Category\ChemlitesFlares.hpp"
 	#include "Category\Clothes.hpp"
 	#include "Category\CookedMeats.hpp"
