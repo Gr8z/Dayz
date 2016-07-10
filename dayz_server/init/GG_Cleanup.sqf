@@ -43,9 +43,23 @@ if (isServer) then {
         _lastSeagullClean = diag_tickTime;
 		_lastvehiclecleanup = diag_tickTime;
 		_lastservercleancheck = diag_tickTime;
+		_lastlootClean = diag_tickTime;
 
         while {true} do {
 		
+			if ((diag_tickTime - _lastlootClean) > 180) then {
+			_ltQty = 0;
+			_lastlootClean = diag_tickTime;
+				{
+					if (!isNull _x) then {
+						_near = {isPlayer _x} count (_x nearentities [["CAManBase"],250]);
+						_keep = _x getVariable ["permaLoot",false];
+						if ((_near == 0)&&(!_keep)) then {deleteVehicle _x;_ltQty = _ltQty + 1};
+					};
+				} foreach ((allMissionObjects "WeaponHolder")+(allMissionObjects "WeaponHolderBase"));
+				diag_log text format["GG CLEANUP: %1 loot items were deleted.",_ltQty];
+			};
+			
             if ((diag_tickTime - _lastZombieClean) > 180) then {
                 _lastZombieClean = diag_tickTime;
                 _zombies = entities "zZombie_Base";
