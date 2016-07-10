@@ -2919,11 +2919,10 @@ if (!isDedicated) then {
 		if (gpd player in BuildDonor) then { DZE_BuildingLimit = 300;} else {DZE_BuildingLimit = 175; };
 		_basepos = [player] call FNC_GetPos;
 		_basecnt = count (nearestObjects [_basepos, DZE_maintainClasses, DZE_checkNearbyRadius]); 
-		if (_basecnt >= DZE_BuildingLimit) ew {
+		if (_basecnt >= DZE_BuildingLimit) exw {
 			DZE_ActionInProgress = false;
 			cutText ["Cannot build, too many objects within 60m.", "PLAIN DOWN"];
 		};
-		
 		if (isNil "GG_donatorarra") then {GG_donatorarra = []};
 		DZE_ActionInProgress = true;
 		_onLadder 	= (xgn (xcf >> "CfgMovesMaleSdr" >> "States" >> (xas player) >> "onLadder")) == 1;
