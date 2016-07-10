@@ -90,7 +90,7 @@ _presetClasses = [
 	[
 		"Random",
 		[["Survivor2_DZ","Haris_Press_EP1_DZ","Rocker1_DZ","Soldier1_DZ","CZ_Special_Forces_GL_DES_EP1_DZ","RU_Policeman_DZ","TK_INS_Soldier_EP1_DZ"],["SurvivorW2_DZ","SurvivorWdesert_DZ","SurvivorWurban_DZ"]],
-		["ItemPainkiller","ItemMorphine","PartGeneric","ItemBandage","ItemBandage"],5,
+		["ItemPainkiller","ItemMorphine","PartGeneric","ItemBandage",2],4,
 		["ItemFlashlight","ItemHatchet_DZE","ItemMap","Itemtoolbox"],4,
 		["LeeEnfield"],2,
 		["RH_m1911"],2,
