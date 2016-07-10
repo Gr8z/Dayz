@@ -513,6 +513,8 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
+				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
