@@ -86,5 +86,19 @@ _presetClasses = [
 	["VIP Scout 3","GUE_Soldier_Sniper_DZ","SurvivorW3_DZ",[StartMags,"20Rnd_762x51_DMR",4,"RH_8Rnd_45cal_m1911",4,VIP_ITEMS],["vil_M110sd","RH_m1911sd",VIP_TOOLS],"DZ_Backpack_EP1",[],[],12,0],
 	["Soldier Level 1","Rocket_DZ","SurvivorWurban_DZ",[StartMags,"30Rnd_556x45_Stanag",4,"vil_usp45sd_mag",4,VIP_ITEMS],["RH_hk416glacog","vil_USP45SD",VIP_TOOLS],"DZ_ALICE_Pack_EP1",[],[],13,0],
 	["Soldier Level 2","frb_tl_mask","SurvivorWurban_DZ",[StartMags,"30Rnd_556x45_Stanag",4,"RH_7Rnd_50_AE",4,VIP_ITEMS],["RH_hk416aim","RH_Deaglemzb",VIP_TOOLS],"DZ_CivilBackpack_EP1",[],[],14,0],
-	["Soldier Level 3","SFSG_wdl_demo","SurvivorWurban_DZ",[StartMags,"20Rnd_762x51_B_SCAR",4,"RH_7Rnd_50_AE",4,"1Rnd_HE_M203",4,VIP_ITEMS],["SCAR_H_STD_EGLM_Spect","RH_Deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",[],[],15,0]
+	["Soldier Level 3","SFSG_wdl_demo","SurvivorWurban_DZ",[StartMags,"20Rnd_762x51_B_SCAR",4,"RH_7Rnd_50_AE",4,"1Rnd_HE_M203",4,VIP_ITEMS],["SCAR_H_STD_EGLM_Spect","RH_Deaglemzb",VIP_TOOLS],"DZ_Backpack_EP1",[],[],15,0],
+	[
+		"Random",
+		[["Survivor2_DZ","Haris_Press_EP1_DZ","Rocker1_DZ","Soldier1_DZ","CZ_Special_Forces_GL_DES_EP1_DZ","RU_Policeman_DZ","TK_INS_Soldier_EP1_DZ"],["SurvivorW2_DZ","SurvivorWdesert_DZ","SurvivorWurban_DZ"]],
+		[],2,
+		["ItemCompass","ItemHatchet","ItemCrowbar"],2,
+		[],2,
+		[],3,
+		[""],
+		[],4,
+		[],2,
+		[],2,
+		[],3,
+		0,0
+	]
 ];
