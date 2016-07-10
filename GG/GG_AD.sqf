@@ -28,11 +28,11 @@ _inVehicle = (_vehicle != player);
 
 _tools = ["ItemEtool","ItemKnife","ItemGPS","ItemFishingPole","ItemHatchet_DZE","ItemMatchbox_DZE","ItemCrowbar"];
 _items = ["ItemSodaPepsi","FoodCanCorn","FoodNutmix","ItemSodaClays","FoodCanSardines","ItemKiloHemp"];
-_walls = ["ItemWoodWallGarageDoor","ItemWoodWallWithDoorLg","ItemWoodWallLg","ItemWoodWallGarageDoor","ItemWoodFloor","metal_floor_kit"];
-_supplies = ["CinderBlocks","MortarBucket","ItemTankTrap","PartWoodPlywood","PartWoodLumber","ItemPole","PartGlass"];
+_walls = ["cinder_door_kit","cinder_wall_kit","m240_nest_kit","cinder_garage_kit","metal_floor_kit","storage_shed_kit"];
+_supplies = ["CinderBlocks","MortarBucket","ItemTankTrap","PartWoodPlywood","PartWoodLumber","ItemPole","PartGlass","ItemComboLock","ItemSandbag"];
 _allSupplies = _walls+_supplies+_items;
 
-_giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1"] call BIS_fnc_selectRandom;
+_giveWep = ["DMR","FHQ_ACR_WDL_TWS_SD","BAF_LRR_scoped","M32_EP1","USSR_cheytacM200_sd","m107_DZ","BAF_L85A2_RIS_CWS","SCAR_H_STD_EGLM_Spect","BAF_L85A2_UGL_Holo","G36_C_SD_camo","M4A1_AIM_SD_camo","Mk_48_DZ","M240_DZ","FHQ_MSR_SD_DESERT","FHQ_XM2010_DESERT","M110_NVG_EP1","Javelin","Stinger"] call BIS_fnc_selectRandom;
 _possibleMags = getArray (xcf >> "cfgWeapons" >> _giveWep >> "magazines");
 _mag = _possibleMags sel 0;
 
@@ -42,7 +42,7 @@ _Time = time - lastDrop;
 
 if(_Time < _LastUsedTime) exw {
 	DZE_ActionInProgress = false;
-	_msg = fmt["please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))];
+	_msg = fmt["Please wait %1s before calling in another Air Drop!",(round(_Time - _LastUsedTime))];
 	systemChat ("Server: "+str _msg);
 	_msg swx AH_fnc_dynTextMsg;
 };
@@ -95,8 +95,8 @@ _null  = xct ["MarkerDrop",_positionM];
 "MarkerDrop"  setMarkerType "mil_objective";
 "MarkerDrop"  setMarkerColor "ColorRed";
 
-_message = fmt["%1 has called in an AirDrop, It is marked on your map, Go Capture it !",_playerName];
-PVOZ_GGHCmsgsrvr = [_message];publicVariableServer "PVOZ_GGHCmsgsrvr";
+_message = parseText format["<t align='center' color='#4CA0DC' shadow='2' size='1.75'>Air Drop</t><br/><t align='center' color='#ffffff'>%1 has called in an Air Drop! Check your map for the location!</t>",_playerName];
+[nil,nil,rHINT,_message] call RE;
 diag_log text fmt["[AirDrop]: Air Drop Called By a player Successfully"];
 
 for "_x" from 1 to 100 do {
