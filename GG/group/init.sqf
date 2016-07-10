@@ -32,3 +32,12 @@ if (isNil "dzgmInit") then {call compile preprocessFileLineNumbers "GG\group\ico
 uiSleep 1;
 [] spawn dzgmInit;
 [] spawn dzgmSlowLoop;
+systemChat "Server: Press Right-Shift to open the Group Management Panel";
+sleep 10;
+systemChat "Server: Press Right-Alt to open the Action Menu";
+sleep 10;
+systemChat "Server: Type !help to view a list of chat commands";
+sleep 10;
+systemChat "Server: Press Y to Toggle Ear Plugs";
+sleep 10;
+systemChat "Server: Be sure to type !rules to get a decent understanding of the server rules!";
