@@ -2923,7 +2923,6 @@ if (!isDedicated) then {
 			DZE_ActionInProgress = false;
 			cutText ["Cannot build, too many objects within 60m.", "PLAIN DOWN"];
 		};
-		_basecnt
 		
 		if (isNil "GG_donatorarra") then {GG_donatorarra = []};
 		DZE_ActionInProgress = true;
