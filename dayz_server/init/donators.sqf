@@ -96,6 +96,7 @@ Engineer3 = [
 	"76561198135739831", // Daveyy (EXP-2016-07-26)
 	"76561198121815666", // Rebo500 (EXP-2016-07-30)
 	"76561198089494490", // Sol (EXP-2016-08-09)
+	"76561198082223075", // QWTS (EXP-2016-08-11)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -313,6 +314,7 @@ Scout3 = [
 	"76561198314443809", // Precision (EXP-2016-08-01) [Upgraded it with extra briefs, same EXP]
 	"76561198146398162", // Maou (EXP-2016-08-04)
 	"76561198165928217", // Intimida (EXP-2016-08-04)
+	"76561198137221498", // Inhaler (EXP-2016-08-11)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
