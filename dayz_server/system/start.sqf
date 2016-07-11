@@ -2,6 +2,7 @@ donator_key = floor(random 999999);publicVariable "donator_key";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\dynamic_vehicle.sqf";
 if (dayZ_instance == 1) then {
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\objects_1.sqf";
+call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\dubovo.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\safezone.sqf";
 };
 if (dayZ_instance == 2) then {

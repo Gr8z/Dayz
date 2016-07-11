@@ -228,7 +228,7 @@ class Mission
 		};
 		class Item8
 		{
-			position[]={16555.732,-44.942032,10159.68};
+			position[]={16474.76,0,10773.392};
 			name="AircraftDealer";
 			text="Aircraft Dealer";
 			type="mil_circle";
@@ -386,7 +386,7 @@ class Mission
 		};
 		class Item4
 		{
-			position[]={6812,0,8538};
+			position[]={6813.01,0,8539.05};
 			a=60;
 			b=60;
 			activationBy="WEST";
@@ -403,7 +403,7 @@ class Mission
 		};
 		class Item5
 		{
-			position[]={16555.6,0,10162};
+			position[]={16474.76,0,10773.392};
 			a=60;
 			b=60;
 			activationBy="WEST";
