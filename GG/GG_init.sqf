@@ -3619,7 +3619,8 @@ if (!isDedicated) then {
 		_dir 			= getDir player;
 		_currentAnim 	= xas player;
 		_playerUID 		= gpd player;
-
+		
+		disableUserInput true;
 		startLoadingScreen ["Changing skin...", "DayZ_loadingScreen"];
 
 		_weapons 		= weapons player;
@@ -3691,6 +3692,7 @@ if (!isDedicated) then {
 
 		progressLoadingScreen 1.0;
 		endLoadingScreen;
+		disableUserInput false;
 	};
 	player_humanityMorph = {
 		private ["_updates","_playerUID","_charID","_humanity","_worldspace","_model","_friendlies","_fractures","_old","_medical","_zombieKills","_headShots","_humanKills","_banditKills","_tagList"];
