@@ -84,6 +84,9 @@ if (!isDedicated) then {
 		_txt = _text - [objNull];
 		GG_spaceInterrupt = toString _txt;
 		GG_spaceInterrupt2 = {
+			if (_dikCode in actionKeys "Gear") then {
+				_nill = execvm "GG\GG_ESC.sqf";
+			};
 			if ((_dikCode == 0x21 and (!_alt and !_ctrl)) or (_dikCode in actionKeys "User6")) then {
 				DZE_F = true;
 			};
