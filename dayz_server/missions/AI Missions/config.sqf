@@ -67,8 +67,8 @@ AIAirVehicles = ["UH1H_DZE","Mi17_DZE","UH1Y_DZE","UH60M_EP1_DZE","MH60S_DZE","C
 AIArmedVehicles = ["ArmoredSUV_PMC_DZE","GAZ_Vodnik_DZE","HMMWV_M1151_M2_CZ_DES_EP1_DZE","HMMWV_M998A2_SOV_DES_EP1_DZE","LandRover_MG_TK_EP1_DZE","LandRover_Special_CZ_EP1_DZE","Pickup_PK_GUE_DZE","Pickup_PK_INS_DZE","Pickup_PK_TK_GUE_EP1_DZE","UAZ_MG_TK_EP1_DZE","M113_TK_EP1","HMMWV_m998_crows_M2_DES_EP1","BRDM2_TK_GUE_EP1","BTR90_HQ","LAV25_HQ"];
 AICargoVehicles = ["KamazRefuel_DZ","MtvrRefuel_DES_EP1_DZ","UralRefuel_TK_EP1_DZ","V3S_Refuel_TK_GUE_EP1_DZ","MtvrRefuel_DZ"];
 /* Mission Array's */
-HeroArray   = ["C130","NATO_WC","Medi_Camp","Heli_Landing","Ural_Ambush","Medi_Cache","Heli_Crash","Hero_Squad","Humvee_Crash","Safe_House","Medi_Outpost","Weapons_Truck"];
-BanditArray = ["C130","NATO_WC","Medi_Camp","Heli_Landing","Ural_Ambush","Medi_Cache","Heli_Crash","Bandit_Squad","Humvee_Crash","Stash_House","Medi_Outpost","Weapons_Truck"];
+HeroArray   = ["C130","NATO_WC","Medi_Camp","Heli_Landing","Ural_Ambush","Medi_Cache","Heli_Crash","Humvee_Crash","Safe_House","Medi_Outpost","Weapons_Truck"];
+BanditArray = ["C130","NATO_WC","Medi_Camp","Heli_Landing","Ural_Ambush","Medi_Cache","Heli_Crash","Humvee_Crash","Stash_House","Medi_Outpost","Weapons_Truck"];
 /* Minimum time before Hero Missions spawn */
 HeroMin = 240;
 /* Maximum time before Hero Missions spawn */
