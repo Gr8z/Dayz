@@ -88,9 +88,6 @@ Engineer3 = [
 	"76561198097011237", // mj4boss (EXP-2016-08-11)
 	"76561198118820540", // [ARMU] Braiden Adams (EXP-2016-08-11)
 	"76561198153221750", // Christopher Titus (EXP-2016-08-14)
-	"76561198101835667", // Wicked (EXP-2016-07-15)
-	"76561198007895393", // Zeal (EXP-2016-07-15)
-	"76561198110558124", // Goat (EXP-2016-07-15)
 	"76561198074900512", // P.A. Pinguin (EXP-2016-09-16)
 	"76561198112823514", // P.A. Seth (EXP-2016-09-16)
 	"76561198135739831", // Daveyy (EXP-2016-07-26)
@@ -98,6 +95,7 @@ Engineer3 = [
 	"76561198089494490", // Sol (EXP-2016-08-09)
 	"76561198082223075", // QWTS (EXP-2016-08-11)
 	"76561198065886897", // Eric (EXP-2016-08-11)
+	"76561198318215544", // Eyefinity (EXP-2016-08-17)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -114,8 +112,6 @@ Marksman1 = [
 	"76561198077968753", // James Kerrison (EXP-2016-08-11)
 	"76561198067443625", // Karlo (EXP-2016-08-12)
 	"76561198085185733", // Adam Bani (EXP-2016-08-14)
-	"76561198059483688", // Benjamin (EXP-2016-07-15)
-	"76561198093584169", // Unknown (EXP-2016-07-16)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman1";
@@ -146,7 +142,6 @@ Marksman3 = [
 	"76561198159335143", // 101 Nightwing (OD-2016-04-28)
 	"76561198155652757", // P.A. Boston (EXP-2016-09-16)
 	// Bought with briefs
-	"76561198149177542", // Kyle (EXP-2016-07-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
@@ -154,8 +149,6 @@ Marksman3 = [
 
 /////// Medic Class ///////////
 Medic1 = [
-	 // Wombat(OD-2015-04-28)
-	 // [TF]Mr. Bandit (OD-2015-05-26) #9185
 	 // Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Medic1";
