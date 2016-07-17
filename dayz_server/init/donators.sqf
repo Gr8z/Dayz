@@ -246,6 +246,7 @@ Scout2 = [
 	"76561198083230967", // Cian1 (EXP-2016-08-13)
 	"76561198097844265", // Q-is for Qcumber (EXP-2016-07-16)
 	"76561198227775112", // Katheri (EXP-2016-07-26)
+	"76561198045449311", // NPC (EXP-2016-07-16)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout2";
