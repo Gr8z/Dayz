@@ -20,8 +20,8 @@ if (isNil "JustBlock") then {
             if (_trigger) then {startLoadingScreen ["Your FPS is too low - you are blocked!", "DayZ_loadingScreen"];}
             else {
 			_msg = "The Escape Menu is blocked for 30 seconds after accessing your gear!";
-			systemchat ('Server: '+str _msg);
-			_msg swx AH_fnc_dynTextMsg;
+			systemchat _msg;
+			_msg spawn AH_fnc_dynTextMsg;
 			};
         };
         uiSleep 0.1;
