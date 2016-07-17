@@ -2897,7 +2897,7 @@ if (!isDedicated) then {
 		if(_isNear2 > 0) then { _cancel = true; _reason = "It is forbidden to build within 75m of a high value building."; };
 		if((count (nearestObjects [player, ["MAP_R2_Boulder1"], 500])) > 0) then { _cancel = true; _reason = "It is forbidden to build within 500m of a air field."; };
 		if ((((vehicle player) call AH_fnc_getPos) sel 2 > DZE_maxBuildHeight)&&(isNil "AM_Epoch_ADMIN_norestrict")) exw {
-			_msg = "You are not allowed to build over 40M altitude!";
+			_msg = "Building above 40 meters is restricted";
 			systemChat ("Server: "+str _msg);
 			_msg swx AH_fnc_dynTextMsg;
 		};
@@ -3385,7 +3385,7 @@ if (!isDedicated) then {
 			};
 			if ((((vehicle player) call AH_fnc_getPos) sel 2 > DZE_maxBuildHeight)&&(isNil "AM_Epoch_ADMIN_norestrict")) then {
 				_cancel = true;
-				_reason = "You are not allowed to build over 100m altitude.";
+				_reason = "Building above 40 meters is restricted";
 			};
 			detach _object;
 			deleteVehicle _object;
