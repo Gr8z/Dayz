@@ -34,7 +34,7 @@ if (!isNull _playerObj) then {
 		_msg = format["COMBAT LOGGED: %1! Combat timer: %2 Closest player: %3 Location: %4", _playerName,_timeout,CLOG_nearPlyr,_gpsPOS];
 		diag_log (_msg);
 		
-		_hMSG = format ["<t align='center' color='#FF0033' shadow='2' size='1.75'>COMBAT LOGGED</t><br/><t align='center' color='#ffffff'>%1<br/>Combat timer: %2<br/>Closest player: %3</t>",_playerName,_timeout,CLOG_nearPlyr,_gpsPOS];
+		_hMSG = format ["<t align='center' color='#F99C05' shadow='2' size='1.75'>COMBAT LOGGED</t><br/><t align='center' color='#ffffff'>%1<br/>Combat timer: %2<br/>Closest player: %3</t>",_playerName,_timeout,CLOG_nearPlyr,_gpsPOS];
 		[nil, nil, rspawn, [_hMSG], {hint parseText (_this select 0);}] call RE;
 		
 		"HitLog" callExtension format ["CLOG: %1 |DayZ Instance: %2|",_msg,dayz_instance];
