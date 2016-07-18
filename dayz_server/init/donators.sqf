@@ -135,6 +135,7 @@ Marksman3 = [
 	"76561198159335143", // 101 Nightwing (OD-2016-04-28)
 	"76561198155652757", // P.A. Boston (EXP-2016-09-16)
 	// Bought with briefs
+	"76561198149177542", // Kyle (EXP-2016-08-15)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Marksman3";
