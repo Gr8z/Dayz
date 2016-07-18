@@ -290,6 +290,7 @@ Scout3 = [
 	"76561198165928217", // Intimida (EXP-2016-08-04)
 	"76561198137221498", // Inhaler (EXP-2016-08-11)
 	"76561198064679179", // ZeDD (EXP-2016-10-14)
+	"76561198083072782", // Heat Stroke (EXP-2016-8-18)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
