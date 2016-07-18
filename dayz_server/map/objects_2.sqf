@@ -1442,6 +1442,7 @@ _objects = [
 		["MAP_SidewalkClearLong",[5032.3755,9714.0713,-6.1035156e-005],-30.533873],
 		["HeliHCivil",[5022.209,9731.9844,6.1035156e-005],-29.740984],
 		["FlagCarrierWhite_EP1",[5044.896,9713.5879,6.1035156e-005],0],
+		["MAP_Ind_TankSmall",[5026.7256,9711.9209,3.0517578e-005],-30.01861],
 		// Oil fields base
 		["Base_WarfareBBarrier10xTall",[7311.27,9782.8,0.527069],1.78929],
 		["Base_WarfareBBarrier10xTall",[7295.59,9783.23,0.512695],1.49724],
