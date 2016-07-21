@@ -294,6 +294,7 @@ Scout3 = [
 	"76561198082223075", // QWTS (EXP-2016-08-18)
 	"76561198014205390", // Terminator (EXP-2016-08-19)
 	"76561198142131886", // John (EXP-2016-08-20)
+	"76561198128696781", // Swag Lord (EXP-2016-08-21)
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Scout3";
