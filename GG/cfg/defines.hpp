@@ -840,7 +840,7 @@ class RscListBox {
 	rowHeight = 0;
 	color[] = {0.95, 0.95, 0.95, 0.5};
 	colorText[] = {0.95, 0.95, 0.95, 1};
-	colorScrollbar[] = {0.8, 0.3, 0.3, 1};
+	colorScrollbar[] = {0,0,1,1};
 	colorSelect[] = {0, 0, 0, 1};
 	colorSelect2[] = {0, 0, 0, 1};
 	colorSelectBackground[] = {0.7, 0.7, 0.7, 1};
@@ -851,7 +851,7 @@ class RscListBox {
 	arrowEmpty = "#(argb,8,8,3)color(1,1,1,1)";
 	arrowFull = "#(argb,8,8,3)color(1,1,1,1)";
 	class ScrollBar {
-		color[] = {0.8, 0.3, 0.3, 1};
+		color[] = {0,0,1,1};
 		colorActive[] = {1, 1, 1, 1};
 		colorDisabled[] = {1, 1, 1, 1};
 		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";
@@ -1038,7 +1038,7 @@ class RscControlsgroup {
 	w = "(SafezoneW  * 0.31)";
 	h = "(SafezoneH  * 0.752)";
 	class VScrollbar {
-		color[] = {0.8, 0.3, 0.3, 1};
+		color[] = {0,0,1,1};
 		colorActive[] = {1, 1, 1, 1};
 		colorDisabled[] = {1, 1, 1, 1};
 		width = 0.015;
@@ -1055,7 +1055,7 @@ class RscControlsgroup {
 		height = 0.028;
 	};
 	class ScrollBar {
-		color[] = {0.8, 0.3, 0.3, 1};
+		color[] = {0,0,1,1};
 		colorActive[] = {1, 1, 1, 1};
 		colorDisabled[] = {1, 1, 1, 1};
 		thumb = "\ca\ui\data\ui_scrollbar_thumb_ca.paa";

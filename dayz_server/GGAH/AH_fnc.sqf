@@ -335,6 +335,14 @@ call compile ("
 				['<t size=''0.55'' font=''Zeppelin32'' color='+(str _clr)+'>'+(_msg)+'</t>',
 				safeZoneXAbs/safeZoneWAbs/4,SafeZoneY+0.02,10,0,0,3079] spawn bis_fnc_dynamicText;
 			};
+			'fnc_show_colorMiddleMsg' addPublicVariableEventHandler
+			{
+				_array = _this select 1;
+				_msg = _array select 0;
+				_clr = _array select 1;
+				_hinttype = _array select 2;
+				taskHint [_msg, _clr, _hinttype];
+			};
 			
 			if ("+_playerID+" player in ""+(str AH_AdminArray)+"") then {
 				_msg = ('Welcome, [ADMIN] '+name player+'!');

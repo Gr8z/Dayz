@@ -263,17 +263,16 @@ call compile ("
 			inSub 				= false;
 			Level3_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      			Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F2 - Heal Close Players     F3 - Open Weapon Menu"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F4 - Delete Target          F5 - Exit Spectating"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle           2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      3  - View Combination		  4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      5  - Steal Target Vehicle   6  - Open OTF Script Writed"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      7  - Quick Glue"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      [  - Teleport 1 Meter in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      \  - Teleport 5 Meters in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      ;  - Teleport to Cursor Target"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""               Double Click Player To Spectate           "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      1 - Unlock Target           2 - Lock Target        "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      3 - Steal Vehicle            4 - Fly               "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      5 - TP in Direction          6 - OTF Script Writer "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      7 - Quick Glue           	  8 - Repair Target      "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      9 - Flip Vehicle           DEL - Delete Target     "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      I - View Target Info     Home - Snap On            "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      U - Generate Key          F-2 - Heal Nearby        "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      F-3 - Weapons Menu      F-10 - Unspectate          "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -405,17 +404,16 @@ call compile ("
 			};
 			Level2_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      			Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F2 - Heal Close Players     F3 - Open Weapon Menu"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F4 - Delete Target          F5 - Exit Spectating"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle           2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      3  - View Combination		  4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      5  - Steal Target Vehicle   "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      7  - Quick Glue"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      [  - Teleport 1 Meter in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      \  - Teleport 5 Meters in Player Direction"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      ;  - Teleport to Cursor Target"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""               Double Click Player To Spectate           "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      1 - Unlock Target           2 - Lock Target        "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      3 - Steal Vehicle            4 - Fly               "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      5 - TP in Direction          7 - Quick Glue 		 "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      7 - Quick Glue           	  8 - Repair Target      "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      9 - Flip Vehicle           DEL - Delete Target     "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      I - View Target Info                 "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      U - Generate Key          F-2 - Heal Nearby        "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      F-3 - Weapons Menu      F-10 - Unspectate          "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -3675,6 +3673,57 @@ systemChat (""""Hello!"""");
 					_msg = 'Teleport disabled!';
 					systemChat ("""+_AH_CHAT+": "" + str _msg);
 					_msg call AH_fnc_dynTextMsg;
+				};
+			};
+			admin_toggle_fly_up = {
+				if (isNil 'admin_teleportfunc') exitWith {};
+				_vehicle = (vehicle player);
+				_vel = velocity _vehicle;
+				if((vehicle player)==player)then
+				{
+					_vehicle setVelocity [(_vel select 0),(_vel select 1),8];
+				}
+				else
+				{
+					_vehicle setVelocity [(_vel select 0),(_vel select 1),20];
+				};
+			};
+			admin_show_target_info = {
+				_obj = cursortarget;
+				if(!isNull _obj)then
+				{
+					_charID = _obj getVariable['CharacterID','0'];
+					_objID = _obj getVariable['ObjectID','0'];
+					_objUID = _obj getVariable['ObjectUID','0'];
+					_lastUpdate = _obj getVariable['lastUpdate',time];
+					_pos = getPosATL _obj;
+					_log1 = format['%1, WorldSpace: [%2,%3], @%4',typeOf _obj,getDir _obj,_pos,mapGridPosition _pos];
+					_log2 = format['charID: %1, objID: %2, objUID: %3, lastUpdate: %4s ago',_charID,_objID,_objUID,time - _lastUpdate];
+					if(isPlayer _obj)then
+					{
+						_log2 = format['Name: %1  PlayerUID: %2  charID: %3',_obj getVariable['bodyName',name _obj],getPlayerUID _obj,_charID];
+					};
+					if(!isNil 'DZE_DoorsLocked' && !isNil 'DZE_LockedStorage')then
+					{
+						_objType = typeOf _obj;
+						if(_objType in DZE_DoorsLocked || _objType in DZE_LockedStorage)then
+						{
+							_log2 = format['LockCode: %1, objID: %2, objUID: %3, lastUpdate: %4s ago',_charID,_objID,_objUID,time - _lastUpdate];
+						}
+						else
+						{
+							_vID = parseNumber _charID;
+							if(((_obj isKindOf 'LandVehicle') || (_obj isKindOf 'Air') || (_obj isKindOf 'Ship')) && (_vID > 0))then
+							{
+								_colors = ['Green', 'Red', 'Blue', 'Yellow', 'Black'];
+								_key = format['ItemKey%1%2', _colors select floor(_vID / 2500), (_vID - (floor(_vID / 2500) * 2500))];
+								_displayName = (getText (configFile >> 'CfgWeapons' >> _key >> 'displayName'));
+								
+								_log2 = format['Key: %1 (%2) - CharID: %3, objID: %4, objUID: %5',_key,_displayName,_charID,_objID,_objUID];
+							};
+						};
+					};
+					{systemChat _x;diag_log _x;} forEach [_log1,_log2];
 				};
 			};
 			admin_3Dtoggle = {
@@ -7301,11 +7350,11 @@ systemChat (""""Hello!"""");
 					_null = '\ca\ui\data\icon_zora_ca.paa';
 					_nnul = '\dayz_equip\textures\equip_cloth_parcel_ca.paa';
 					adminaddcom = [[' Morph ','','0','1','0','0',[]]];
-					adminaddcom set [count adminaddcom,[' __________________________________','','0','1','0','0',[]]];
+					adminaddcom set [count adminaddcom,[' ==================================','','0','1','0','0',[]]];
 					adminaddcom set [count adminaddcom,['(You can select a target from the left)','','0','1','0','0',[]]];
-					adminaddcom set [count adminaddcom,[' __________________________________','','0','1','0','0',[]]];
+					adminaddcom set [count adminaddcom,[' ==================================','','0','1','0','0',[]]];
 					adminaddcom set [count adminaddcom,['=== COMMON SKINS ===','','0','0','0','0',MMCLR]];
-					adminaddcom set [count adminaddcom,[' __________________________________','','0','1','0','0',[]]];
+					adminaddcom set [count adminaddcom,[' ==================================','','0','1','0','0',[]]];
 					adminaddcom set [count adminaddcom,['    Invisible skin',	format[_spwx,'Survivor1_DZ'],_null,'0','0','0',[]]];
 					adminaddcom set [count adminaddcom,['    Survivor',		format[_spwx,'Survivor2_DZ'],_nnul,'0','0','0',[]]];
 					adminaddcom set [count adminaddcom,['    Hero',			format[_spwx,'Survivor3_DZ'],_nnul,'0','0','0',[]]];
@@ -7433,9 +7482,9 @@ systemChat (""""Hello!"""");
 				adminadd = [];
 				call admin_menuHeader;
 				adminadd set [count adminadd,[' Spawn Weapon/Items ','','0','1','0','0',[]]];
-				adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+				adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 				adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-				adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+				adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 				adminadd set [count adminadd,['Give ammo target',_spox,'0','0','0','1',SMCLR]];
 				adminadd set [count adminadd,['Search menu','''WandM'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 				if (isNil 'adminadd_weapons') then {
@@ -7541,9 +7590,9 @@ systemChat (""""Hello!"""");
 					adminadd = [];
 					call admin_menuHeader;
 					adminadd set [count adminadd,[' Spawn Building ','','0','1','0','0',[]]];
-					adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+					adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 					adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-					adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+					adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 					adminadd set [count adminadd,['Search menu','''Buildings'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 					startLoadingScreen ['Searching, please wait...','DayZ_loadingScreen'];
 					_objs = [];
@@ -7570,9 +7619,9 @@ systemChat (""""Hello!"""");
 					call admin_menuHeader;
 					_spwx = '[lbtext [1,(lbCurSel 1)],''%1''] call admin_spawnVehicle;';
 					adminadd set [count adminadd,[' Spawn Vehicle ','','0','1','0','0',[]]];
-					adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+					adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 					adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-					adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+					adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 					adminadd set [count adminadd,['Search menu','''Vehicles'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 					adminadd set [count adminadd,['Toggle spawn in driverseat','[] spawn admin_toggleFly;','1','0','0','0',[]]];
 					add_menu = {
@@ -7915,9 +7964,9 @@ systemChat (""""Hello!"""");
 							adminadd = [];
 							call admin_menuHeader;
 							adminadd set [count adminadd,[' Spawn Vehicle (HIVE)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['Search menu','''Vehicles'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 							adminadd set [count adminadd,['Toggle spawn in driverseat','[] spawn admin_toggleFly;','1','0','0','0',[]]];
 							adminadd_veh_search = nil;
@@ -7940,9 +7989,9 @@ systemChat (""""Hello!"""");
 							adminadd = [];
 							call admin_menuHeader;
 							adminadd set [count adminadd,[' Spawn Vehicle (HIVE)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['Search menu','''Vehicles_H'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 							adminadd_vehHIVE_search = nil;
 							startLoadingScreen ['Loading '+str(count (_found))+' items...','DayZ_loadingScreen'];
@@ -7963,9 +8012,9 @@ systemChat (""""Hello!"""");
 							adminadd = [];
 							call admin_menuHeader;
 							adminadd set [count adminadd,[' Spawn Building ','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['Search menu','''Buildings'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 							adminadd_obj_search = nil;
 							startLoadingScreen ['Loading '+str(count (_found))+' items...','DayZ_loadingScreen'];
@@ -7987,9 +8036,9 @@ systemChat (""""Hello!"""");
 							adminadd = [];
 							call admin_menuHeader;
 							adminadd set [count adminadd,[' Spawn Weapon/Items ','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['(You can select a target from the left)','','0','1','0','0',[]]];
-							adminadd set [count adminadd,[' __________________________________','','0','1','0','0',[]]];
+							adminadd set [count adminadd,[' ==================================','','0','1','0','0',[]]];
 							adminadd set [count adminadd,['Give ammo target',_spox,'0','0','0','1',SMCLR]];
 							adminadd set [count adminadd,['Search menu','''WandM'' spawn admin_searchMenu','0','0','0','0',SMCLR]];
 							call admin_generateCurWepMags;
@@ -8310,100 +8359,74 @@ systemChat (""""Hello!"""");
 			diag_log ('(GG-AntiHack): Loaded menu CFG vars! '+str time);
 			if ("+_playerID+" player in levelthree) then {
 				diag_log ('(GG-AntiHack): LEVEL 3 HOTKEYS LOADED.');
-				_msg = 'Head Admin Hotkeys Added.';
+				_msg = 'Head Admin Hot-Keys Added.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
+					if (_key == 0x02) then {[] spawn admin_animate1};
+					if (_key == 0x03) then {[] spawn admin_animate2};
+					if (_key == 0x04) then {[] spawn manipulate_stealVehicle};
+					if (_key == 0x05) then {[] spawn admin_toggle_fly_up};
+					if (_key == 0x07) then {[] spawn admin_OTFwriter};
+					if (_key == 0x08) then {
+						if !(isNil ''glue_deactivate'') then {
+							[] spawn glue_deactivate;
+						} else {
+							[] spawn admin_QuickGlue;
+						};
+					};
+					if (_key == 0x09) then {[] spawn admin_repairVehicle};
+					if (_key == 0x0A) then {[] spawn admin_flipVehicle};
+					if (_key == 0xD3) then {[] spawn admin_deleteTarget};
+					if (_key == 0x17) then {[] spawn admin_show_target_info};
+					if (_key == 0x44) then {[] spawn admin_unspectate};
 					if (_key == 0xC7) then {DZE_togglesnap=true};
 					if (_key == 0x3C) then {[] spawn admin_healPlayers};
 					if (_key == 0x3D) then {[] spawn admin_spawnweapons};
-					if (_key == 0x3E) then {[] spawn admin_deleteTarget};
-					if (_key == 0x3F) then {[] spawn admin_unspectate};
-					if (_key == 0x02) then {[] spawn admin_repairVehicle};
-					if (_key == 0x03) then {[] spawn admin_flipVehicle};
-					if (_key == 0x09) then {[] spawn admin_animate1};
-					if (_key == 0x0A) then {[] spawn admin_animate2};
-					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
-					if (AM_EPOCH) then {
-						if (_key == 0x04) then {[] spawn admin_passget};
-						if (_key == 0x05) then {[] spawn admin_generatekey};
-						if (_key == 0x06) then {[] spawn manipulate_stealVehicle};
-						if (_key == 0x07) then {[] spawn admin_OTFwriter};
-						if (_key == 0x08) then {
-							if !(isNil ''glue_deactivate'') then {
-								[] spawn glue_deactivate;
-							} else {
-								[] spawn admin_QuickGlue;
-							};
-						};
-					} else {
-						if (_key == 0x04) then {[] spawn manipulate_stealVehicle};
-						if (_key == 0x05) then {[] spawn admin_OTFwriter};
-						if (_key == 0x06) then {
-							if !(isNil ''glue_deactivate'') then {
-								[] spawn glue_deactivate;
-							} else {
-								[] spawn admin_QuickGlue;
-							};
-						};
-					};
+					if (_key == 0x16) then {[] spawn admin_generatekey};
 				');
 				AH_keyBinds2 = compile ('
 					_key 	= _this select 1;
-					if (_key == 0x1A) then {1 call admin_tpFWRD};
-					if (_key == 0x2B) then {5 call admin_tpFWRD};
-					if (_key == 0x27) then {if (isNull cursorTarget) then {(vehicle player) setPos (screenToWorld [0.5,0.5])} else {(vehicle player) setPos (cursorTarget modelToWorld [0,-1,0])}};
+					if (_key == 0x06) then {5 call admin_tpFWRD};
 				');
 			};
 			if ("+_playerID+" player in leveltwo) then {
 				diag_log ('(GG-AntiHack): LEVEL 2 HOTKEYS LOADED.');
-				_msg = 'Admin hotkeys added.';
+				_msg = 'Admin Hot-Keys Added.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
-					if (_key == 0xC7) then {DZE_togglesnap=true};
+					if (_key == 0x02) then {[] spawn admin_animate1};
+					if (_key == 0x03) then {[] spawn admin_animate2};
+					if (_key == 0x04) then {[] spawn manipulate_stealVehicle};
+					if (_key == 0x05) then {[] spawn admin_toggle_fly_up};
+					if (_key == 0x09) then {[] spawn admin_repairVehicle};
+					if (_key == 0x0A) then {[] spawn admin_flipVehicle};
+					if (_key == 0xD3) then {[] spawn admin_deleteTarget};
+					if (_key == 0x17) then {[] spawn admin_show_target_info};
+					if (_key == 0x44) then {[] spawn admin_unspectate};
 					if (_key == 0x3C) then {[] spawn admin_healPlayers};
-					if (_key == 0x3D) then {[] spawn admin_spawnweapons};
-					if (_key == 0x3E) then {[] spawn admin_deleteTarget};
-					if (_key == 0x3F) then {[] spawn admin_unspectate};
-					if (_key == 0x02) then {[] spawn admin_repairVehicle};
-					if (_key == 0x03) then {[] spawn admin_flipVehicle};
-					if (_key == 0x09) then {[] spawn admin_animate1};
-					if (_key == 0x0A) then {[] spawn admin_animate2};
-					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
-					if (AM_EPOCH) then {
-						if (_key == 0x04) then {[] spawn admin_passget};
-						if (_key == 0x05) then {[] spawn admin_generatekey};
-						if (_key == 0x06) then {[] spawn manipulate_stealVehicle};
-						if (_key == 0x08) then {
-							if !(isNil ''glue_deactivate'') then {
-								[] spawn glue_deactivate;
-							} else {
-								[] spawn admin_QuickGlue;
-							};
-						};	
-					};
+					if (_key == 0x16) then {[] spawn admin_generatekey};
 				');
 			};
 			if ("+_playerID+" player in levelone) then {
 				diag_log ('(GG-AntiHack): LEVEL 1 HOTKEYS LOADED.');
-				_msg = 'Moderator hotkeys added.';
+				_msg = 'Moderator Hot-Keys Added.';
 				systemChat ("""+_AH_CHAT+": "" + str _msg);
 				_msg call AH_fnc_dynTextMsg;
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
-					if (_key == 0xC7) then {DZE_togglesnap=true};
-					if (_key == 0x3F) then {[] spawn admin_unspectate};
-					if (_key == 0x40) then {if (!isNull admin_AHactiveTarget) then {createGearDialog [(admin_AHactiveTarget),''RscDisplayGear'']}};
-					if (AM_EPOCH) then {
-						if (_key == 0x04) then {[] spawn admin_passget};
-						if (_key == 0x05) then {[] spawn admin_generatekey};
-					};
+					if (_key == 0x09) then {[] spawn admin_repairVehicle};
+					if (_key == 0x0A) then {[] spawn admin_flipVehicle};
+					if (_key == 0xD3) then {[] spawn admin_deleteTarget};
+					if (_key == 0x17) then {[] spawn admin_show_target_info};
+					if (_key == 0x44) then {[] spawn admin_unspectate};
+					if (_key == 0x16) then {[] spawn admin_generatekey};
 				');
 			};
 		};

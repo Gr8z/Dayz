@@ -59,7 +59,11 @@ _debug_marker setMarkerColor "ColorBlack";
 _debug_marker setMarkerAlpha 1;
 };
 
-[nil,nil,"per",rTITLETEXT,"It's rumored there is a safe with 0000 as its code. Go find it!","PLAIN DOWN"] call RE;
+_txt = "Abandoned Safe Uncovered!\nCheck your map!";
+_colortask = [0,0,0,1];
+_tasktype = "taskNew";
+fnc_show_colorMiddleMsg = [_txt,_colortask,_tasktype];
+publicVariable 'fnc_show_colorMiddleMsg';
 
 diag_log(format["Loot event setup, waiting for %1 seconds", _wait_time]);
 
