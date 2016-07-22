@@ -156,12 +156,12 @@ publicVariable "AH_fnc_displayCreate";
 diag_log ("(GG-AntiHack): Compiling admin tool...");
 call compile ("
 	diag_log ('(GG-AntiHack): (1/2) Admin tool loading...');
-	"+_rnd+"_HackerLog 	= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
-	"+_rnd+"_KeyLog 	= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
-	"+_rnd+"_adminLog 	= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
-	PVOZ_loglog 		= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
-	PVOZ_hitlog 		= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
-	PVOZ_Misclog 		= [['______________________[[ Bottom of Logs ]]______________________','','0','1','0','0',[0,0.5,1,1]]];
+	"+_rnd+"_HackerLog 	= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
+	"+_rnd+"_KeyLog 	= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
+	"+_rnd+"_adminLog 	= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
+	PVOZ_loglog 		= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
+	PVOZ_hitlog 		= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
+	PVOZ_Misclog 		= [['======================[[ Bottom of Logs ]]======================','','0','1','0','0',[0,0.5,1,1]]];
 	
 	'"+_RND+"_colorme' addPublicVariableEventHandler {
 		_arr 	= _this select 1;
@@ -296,7 +296,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Large Donor Safe"",donorsafe3,""0"",""0"",""0"",""0"",[1,1,0,1]]];
-				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""=======================Admin Boxes======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Admin Crate"",admincrate,""0"",""0"",""0"",""0"",[0,0.8,0.76,1]]];
@@ -408,12 +408,10 @@ call compile ("
 				adminadd set [count adminadd,[""               Double Click Player To Spectate           "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      1 - Unlock Target           2 - Lock Target        "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      3 - Steal Vehicle            4 - Fly               "","""",""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      5 - TP in Direction          7 - Quick Glue 		 "","""",""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      7 - Quick Glue           	  8 - Repair Target      "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      5 - TP in Direction          8 - Repair Target	 "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""      9 - Flip Vehicle           DEL - Delete Target     "","""",""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      I - View Target Info                 "","""",""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      U - Generate Key          F-2 - Heal Nearby        "","""",""0"",""0"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F-3 - Weapons Menu      F-10 - Unspectate          "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      I - View Target Info     	 F-2 - Heal Nearby	 	 "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      U - Generate Key         F-10 - Unspectate         "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -434,7 +432,7 @@ call compile ("
 				adminadd set [count adminadd,[""  Spawn Small Donor Safe"",donorsafe1,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Medium Donor Safe"",donorsafe2,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""  Spawn Large Donor Safe"",donorsafe3,""0"",""0"",""0"",""0"",[1,1,0,1]]];
-				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
@@ -458,6 +456,7 @@ call compile ("
 				adminadd set [count adminadd,[""  ESP"",admin_espToggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  3D Pole Pole ESP"",admin_ppesptoggle,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Stealth / Invisible"",admin_invisibleToggle,""1"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""  No Zed Aggro"",admin_disableAggro,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Zombie Shield"",admin_zedShield,""1"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Find vehicle"",admin_findVehicle,""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Delete Nearest Plot Pole (""+str (DZE_PlotPole select 0)+""m)"",admin_deletePlotePole,""0"",""0"",""0"",""0"",[]]];
@@ -492,11 +491,12 @@ call compile ("
 			};
 			Level1_menu = {
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      		 Double Click Player To Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      F4 - Delete Target        F5 - Cancel Spectate"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      1  - Flip Vehicle         2  - Repair Vehicle"","""",""0"",""1"",""0"",""0"",[]]];
-				adminadd set [count adminadd,[""      3  - View Combination 	4  - Spawn Key"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""                         HOTKEYS                         "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""               Double Click Player To Spectate           "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      1 - Unlock Target           2 - Lock Target        "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      8 - Repair Target           9 - Flip Vehicle   "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      I - View Target Info        U - Generate Key              "","""",""0"",""0"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""      DEL - Delete Target         F-10 - Unspectate         "","""",""0"",""0"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Server Scripts "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
@@ -511,7 +511,7 @@ call compile ("
 				adminadd set [count adminadd,[""Spawn List "","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Temporary Vehicle"",""Vehicles"",""0"",""0"",""1"",""0"",[]]];
-				adminadd set [count adminadd,[""=======================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
+				adminadd set [count adminadd,[""========================Starter Kit======================"","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""  Spawn Starter Kit"",donorsafe4,""0"",""0"",""0"",""0"",[1,1,0,1]]];
 				adminadd set [count adminadd,[""========================================================="","""",""0"",""1"",""0"",""0"",[]]];
 				adminadd set [count adminadd,[""Specific Target Menu "","""",""0"",""1"",""0"",""0"",[]]];
@@ -8412,6 +8412,10 @@ systemChat (""""Hello!"""");
 					if (_key == 0x3C) then {[] spawn admin_healPlayers};
 					if (_key == 0x16) then {[] spawn admin_generatekey};
 				');
+				AH_keyBinds2 = compile ('
+					_key 	= _this select 1;
+					if (_key == 0x06) then {5 call admin_tpFWRD};
+				');
 			};
 			if ("+_playerID+" player in levelone) then {
 				diag_log ('(GG-AntiHack): LEVEL 1 HOTKEYS LOADED.');
@@ -8421,6 +8425,8 @@ systemChat (""""Hello!"""");
 				AH_keyBinds = compile ('
 					_key = (_this select 1);
 					if (_key == 0x3B) then {call admin_init};
+					if (_key == 0x02) then {[] spawn admin_animate1};
+					if (_key == 0x03) then {[] spawn admin_animate2};
 					if (_key == 0x09) then {[] spawn admin_repairVehicle};
 					if (_key == 0x0A) then {[] spawn admin_flipVehicle};
 					if (_key == 0xD3) then {[] spawn admin_deleteTarget};

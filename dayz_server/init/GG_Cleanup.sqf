@@ -34,7 +34,7 @@ objectDelete = {
 
 if (isServer) then {
     [] spawn {
-        private["_lastLootClean","_lastZombieClean","_lastGroupClean","_lastSeagullClean","_countCleaned","_countTotal","_lootPiles","_seagulls","_zombies","_nearby","_pos","_keep","_ammobox","_lastvehiclecleanup","_lastservercleancheck"];
+        private["_lastbikeClean","_lastLootClean","_lastZombieClean","_lastGroupClean","_lastSeagullClean","_countCleaned","_countTotal","_lootPiles","_seagulls","_zombies","_nearby","_pos","_keep","_ammobox","_lastvehiclecleanup","_lastservercleancheck"];
         waitUntil {!(isNil "sm_done");};
         diag_log text "GG CLEANUP: Initialized...";
 
@@ -44,9 +44,28 @@ if (isServer) then {
 		_lastvehiclecleanup = diag_tickTime;
 		_lastservercleancheck = diag_tickTime;
 		_lastlootClean = diag_tickTime;
+		_lastbikeClean = diag_tickTime;
 
         while {true} do {
-		
+			
+			if ((diag_tickTime - _lastbikeClean) > 180) then {
+				_lastbikeClean = diag_tickTime;
+				_bikes = entities 'MMT_Civ';
+				_deleted = 0;
+				{
+					_obj = _x;
+					if(!isNull _obj)then
+					{
+						_count = {isPlayer _x} count (_obj nearEntities 100);
+						if(_count == 0)then
+						{
+							_deleted = _deleted + 1;deleteVehicle _obj;
+						};
+					};
+				} forEach _bikes;
+				diag_log text format["GG CLEANUP: %1 bikes were deleted.",_deleted];
+			};
+			
 			if ((diag_tickTime - _lastlootClean) > 180) then {
 			_ltQty = 0;
 			_lastlootClean = diag_tickTime;
