@@ -18,6 +18,15 @@ DELETE FROM `object_data_1`
 WHERE `LastUpdated` < DATE_SUB(CURRENT_TIMESTAMP, INTERVAL 4 HOUR)
 AND `Classname` IN ('CSJ_GyroC','TT650_Civ','MMT_Civ');
 
+/* Delete vehicles with broken wheels */
+DELETE FROM `object_data_1`
+WHERE Hitpoints LIKE '%wheel_1_1_steering",1%'
+AND Hitpoints LIKE '%wheel_1_2_steering",1%'
+AND Hitpoints LIKE '%wheel_2_1_steering",1%'
+AND Hitpoints LIKE '%wheel_2_2_steering",1%'
+AND `Classname`
+NOT REGEXP 'barrier|storage|shed|bench|wall|floor|fence|pump|wood|hrescue|stick|pole|generator|panel|house|rack|bag|stand|barrel|canvas|wire|hedgehog|net|trap|ramp|fort|sand|scaffold|nest';
+
 /* Delete old login data */
 DELETE FROM `player_login`;
 
