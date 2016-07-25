@@ -24,6 +24,22 @@ GivePlayerAmount = {
 	give_targetP = nil;
 };
 give_targetP = _this select 3;
+
+if (give_targetP getVariable ["tradingmoney", false]) exitWith {
+	cutText ["You can not give to someone who is already trading.", "PLAIN DOWN"];
+};
+
 createdialog "GivePlayerDialog";
 ctrlSetText [14001, format["%1 %2", (player getVariable ['GGCoins', 0] call BIS_fnc_numberText), GCoins]];
 ctrlSetText [14003, name give_targetP];
+player setVariable ["tradingmoney", true, true];
+[] spawn {
+	while {dialog} do {
+		if (give_targetP getVariable ["tradingmoney", false]) exitWith {
+			closeDialog 0;
+		};
+		uiSleep 0.25;
+	};
+};
+waitUntil {uiSleep 1; !dialog};
+player setVariable ["tradingmoney", false, true];
