@@ -163,7 +163,7 @@ class Mission
 	};
 	class Markers
 	{
-		items=19;
+		items=20;
 		class Item0
 		{
 			position[]={10732.087,193.02972,12687.841};
@@ -311,6 +311,14 @@ class Mission
 			position[]={1393.68,0.001,14193.6};
 			name="respawn_west";
 			type="Empty";
+		};
+		class Item19
+		{
+			position[]={14719.9,0,13315.7};
+			name="EventArena";
+			text="Event Arena!! DO NOT TOUCH";
+			type="mil_objective";
+			colorName="ColorRed";
 		};
 	};
 	class Sensors
