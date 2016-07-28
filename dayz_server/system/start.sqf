@@ -7,7 +7,6 @@ call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\safezone.sqf";
 };
 if (dayZ_instance == 2) then {
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\objects_2.sqf";
-call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\cherno_bridge.sqf";
 call compile preProcessFileLineNumbers "\z\addons\dayz_server\map\safezone.sqf";
 };
 execVM "\z\addons\dayz_server\system\server_monitor.sqf";

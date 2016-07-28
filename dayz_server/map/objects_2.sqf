@@ -2000,6 +2000,63 @@ _objects = [
     _object enableSimulation false;
 } count _objects;
 
+private ["_bridges","_bridge"];
+_bridges = [
+	["land_nav_pier_m_2",[13225.278,3431.5159,-6.0489159],56.571701],
+	["land_nav_pier_m_2",[13247.008,3398.5906,-6.1535072],56.571701],
+	["land_nav_pier_m_1",[13203.401,3464.7751,-6.2994447],236.571701],
+	["land_nav_pier_m_2",[13181.671,3497.7451,-6.1785541],56.571701],
+	["land_nav_pier_m_2",[13159.978,3530.6299,-6.3031154],56.571701],
+	["land_nav_pier_m_2",[13138.261,3563.5496,-5.9914126],56.571701],
+	["land_nav_pier_m_2",[13116.587,3596.4583,-6.1611514],56.571701],
+	["land_nav_pier_m_2",[13094.851,3629.364,-6.0637994],56.571701],
+	["land_nav_pier_m_1",[13073.158,3662.2742,-6.1899328],56.571701],
+	["land_nav_pier_m_2",[13051.535,3695.0833,-6.376471],56.571701],
+	["land_nav_pier_m_2",[13029.813,3728.052,-6.1521502],56.571701],
+	["land_nav_pier_c",[13061.675,3654.853,0.13833603],-33.287552],
+	["land_nav_pier_m_2",[13260.079,3378.8081,-3.0727394],56.571701],
+	["land_nav_pier_c",[13214.373,3472.0823,-3.8479133],-213.288]
+];
+
+{
+    _bridge = createVehicle [_x select 0,_x select 1,[],0,"CAN_COLLIDE"];
+    _bridge setDir (_x select 2);
+	_bridge setVehicleLock "LOCKED";
+	_bridge setVehicleInit "this setPosASL [getposASL this select 0, getposASL this select 1, -2.5]";
+    _bridge setPos (_x select 1);
+    _bridge allowDamage false;
+    _bridge enableSimulation false;
+} count _bridges;
+
+private ["_bridgeatc","_bridgeact"];
+_bridgeatc = [
+	["Land_Mil_ControlTower_EP1",[13067.721,3647.5923,4.2818656],-303.12695],
+	["Land_Mil_ControlTower_EP1",[13209.424,3478.5696,2.103996],-484.14117]
+];
+
+{
+    _bridgeact = createVehicle [_x select 0,_x select 1,[],0,"CAN_COLLIDE"];
+    _bridgeact setDir (_x select 2);
+	_bridgeact setVehicleInit "this setPosASL [getposASL this select 0, getposASL this select 1, 3.8]";
+    _bridgeact setPos (_x select 1);
+    _bridgeact allowDamage false;
+    _bridgeact enableSimulation false;
+} count _bridgeatc;
+
+private ["_bridgeboards","_bridgeboard"];
+_bridgeboards = [
+	["Land_Ind_BoardsPack1",[13158.683,3537.4517,3.5],-35.139294],
+	["Land_Ind_BoardsPack1",[13111.459,3599.3118,3.5],-215.18845]
+];
+
+{
+    _bridgeboard = createVehicle [_x select 0,_x select 1,[],0,"CAN_COLLIDE"];
+    _bridgeboard setDir (_x select 2);
+	_bridgeboard setVehicleInit "this setPosASL [getposASL this select 0, getposASL this select 1, 3.5]";
+    _bridgeboard setPos (_x select 1);
+    _bridgeboard allowDamage false;
+    _bridgeboard enableSimulation false;
+} count _bridgeboards;
 
 // traders
 {
