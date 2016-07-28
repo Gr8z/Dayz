@@ -6,7 +6,7 @@ if ((_this sel 0) == player) then {
 		if !(gpd player in SlotDonor) then {
 			titleCut ["", "BLACK FADED", 10];
 			sleep 1;
-			_text = fmt["<t size='1.5' color='#a81e13'>VIP SLOT</t><br/><t size='1' color='#FFFFFF'>You have joined a ADMIN slot, please wait in the lobby for a regular slot.</t>",""];
+			_text = fmt["<t size='1.5' color='#a81e13'>VIP SLOT</t><br/><t size='1' color='#FFFFFF'>You have joined an Admin Slot! Please wait for a Regular Slot!</t>",""];
 			[_text,0,(safezoneY + 0.8),6,1,0,1] swx AH_fnc_dynamictext;
 			sleep 3;
 			(findDisplay 49) closeDisplay 0;
@@ -14,7 +14,7 @@ if ((_this sel 0) == player) then {
 			sleep 1;
 			endMission 'loser';
 		} else {
-			systemChat "YOU HAVE JOINED A ADMIN SLOT! NEVER JOIN A ADMIN SLOT WHEN A REGULAR SLOT IS OPEN";
+			systemChat "You have joined an Admin Slot! Never join an Admin Slot when a Regular Slot is available!";
 		};
 	};
 };
