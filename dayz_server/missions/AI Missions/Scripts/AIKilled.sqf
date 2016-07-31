@@ -13,9 +13,9 @@ if (isPlayer _player) then {
 	};
 	if (CountKills) then {
 		if (_unit getVariable ["Hero", false]) then {
-			_player setVariable ["banditKills",(_banditkills + 1),true];
+			_player setVariable ["humanKills",(_humankills + 1),true];
 		} else {
-			_player setVariable ["heroKills",(_humankills + 1),true];
+			_player setVariable ["banditKills",(_banditkills + 1),true];
 		};
 	};
 	{
