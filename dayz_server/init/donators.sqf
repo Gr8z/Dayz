@@ -94,6 +94,8 @@ Engineer3 = [
 	"76561198082223075", // QWTS (EXP-2016-08-11)
 	"76561198065886897", // Eric (EXP-2016-08-11)
 	"76561198318215544", // Eyefinity (EXP-2016-08-17)
+	"76561198014205390", // Terminator T800 (EXP-2016-09-02)
+	// Bought with Briefs
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Engineer3";
@@ -344,6 +346,8 @@ Soldier3 = [
 	"76561198083230967", // P.A. Cian (EXP-2016-09-16)
 	"76561198099852474", // P.A. XMAN (EXP-2016-09-16)
 	"76561198054707975", // Nv Goggles (EXP-2016-07-26)
+	"76561198014205390", // Terminator T800 (EXP-2016-09-02)
+	// Bought with Briefs
 	// Add UIDs above, don't forget the comma
 "0"
 ];publicVariable "Soldier3";
