@@ -1,5 +1,5 @@
-Private Server Files For [GG] Ghostz Gamerz
+# [GG] Dayz Mod 
 
-Copying / Stealing / Selling Without Permission is Forbidden
+Files of Ghostz Gamerz Dayz Mod servers. This includes data of every Dayz Server ever hosted on Ghostz Gamerz
 
-This work belongs to [GG] Ghostz Gamerz made by Gr8
+You are free to use these files for your own use. Some files in here belong to their respective authors.
